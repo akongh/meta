@@ -137,18 +137,31 @@ if (isset($massiv_itog))
 ///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////////////////////////////////////////////////////////////
 if(isset($oshibka_simvola))
 {
-	header("Location: http://proba.200slov.andrej.by/shag_2.php");
+	header("Location: http://200slov.andrej.by/shag_2.php");
 	exit;
 	}
 ///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////////////////////////////////////////////////////////////
 $kol_slov_itog = count($massiv_itog);
 //SESSION///////////////////////////////////
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
-$sobranny_nabor = implode("<br>", $massiv_itog);
+
+for ($i = 0; $i < count($massiv_itog); $i++)
+{
+	$sobranny_nabor[$i] = "<input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '".$massiv_itog[$i]."'> ".$massiv_itog[$i];
+	}
+if (isset($sobranny_nabor))
+{
+	$sobranny_nabor = implode("<br>\n", $sobranny_nabor);
+	}
+
+
+//$sobranny_nabor = implode("<br>", $massiv_itog);
+
+
 //SESSION/////////////////////////////////////
 $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 //SESSION///////////////////////////////
 $_SESSION["massiv_itog"] = $massiv_itog;
 
-header("Location: http://proba.200slov.andrej.by/shag_3.php");
+header("Location: http://200slov.andrej.by/shag_3.php");
 ?>

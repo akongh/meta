@@ -13,5 +13,5 @@ $_SESSION["opornye_slova"],
 $_SESSION["oshibka_kolichestva"]
 );
 
-header("Location: http://proba.200slov.andrej.by");
+header("Location: http://200slov.andrej.by");
 ?>

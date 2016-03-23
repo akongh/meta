@@ -17,22 +17,22 @@
   <?php include('statistika.shtml');?>
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">3/5</span>
-  <hr class="otbivka_12">
-  Проверяем результат списком</h2>
+    <hr class="otbivka_12">
+    Получаем текущий результат списком</h2>
   <hr class="otbivka_48">
-  <!--PHP//////////////////////--> 
-  <?php echo $sobranny_nabor;?>
-  <hr class="otbivka_48">
-    <form method="post" action="f_ochered.php">
-      <div class="vvod_slov">
-      <!--PHP////////////////////////-->
+  <form method="post" action="f_ochered.php">
+    <!--PHP//////////////////////--> 
+    <?php echo $sobranny_nabor;?>
+    <hr class="otbivka_48">
+    <div class="vvod_slov"> 
+      <!--PHP////////////////////////--> 
       <?php echo $oshibka_kolichestva;?>
       <hr class="otbivka_12">
-      <input name="ochered" type="submit" class="knopka" value="&#9658; Назначить очерёдность">
-      </div>
-    </form>
-    <hr class="otbivka_24">
-    <div class="upravlenie">
+      <input name="ochered" type="submit" class="knopka" value="&#9658; Определить очерёдность">
+    </div>
+  </form>
+  <hr class="otbivka_24">
+  <div class="upravlenie"> 
     <!--PHP-->
     <?php include('f_izmenit.shtml');?>
     <hr class="otbivka_12">
