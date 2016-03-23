@@ -3,6 +3,7 @@ session_start();
 
 $russk = $_POST["russk"];//print_r($russk);
 $angl = $_POST["angl"];//print_r($angl);
+$zayavka = $_POST["zayavka"];
 
 if(isset($angl))
 {
@@ -47,6 +48,15 @@ if(isset($angl))
 //		}
 //////////////////////////////////////////////////////////////////////////////////////
 
+if(isset($zayavka))
+{
+	$zayavka = implode("', '", $zayavka);
+$SQL_zayavka = mysql_query("
+update `k-ts`
+set `f` = 7
+where `s` in ('".$zayavka."')
+");
+	}
 
 //SESSION///////////////////////////
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;

@@ -12,9 +12,9 @@ $_REZULTAT_russk = $_SESSION["_REZULTAT_russk"];
 $_REZULTAT_angl = $_SESSION["_REZULTAT_angl"];
 
 $_REZULTAT_russk = $_REZULTAT_russk . "<hr class=\"otbivka_24\">
-<div class=\"statistika\">Слов в наборе — <span class=\"statistika_czyfra\">" . $kol_slov_russk . "</span>.</div>";
+<div class=\"statistika\">Ключевых слов в наборе — <span class=\"statistika_czyfra\">" . $kol_slov_russk . "</span>.</div>";
 $_REZULTAT_angl = $_REZULTAT_angl . "<hr class=\"otbivka_24\">
-<div class=\"statistika\">Слов в наборе — <span class=\"statistika_czyfra\">" . $kol_slov_angl . "</span>.</div>";
+<div class=\"statistika\">Ключевых слов в наборе — <span class=\"statistika_czyfra\">" . $kol_slov_angl . "</span>.</div>";
 
 include('shag_6.html');
 

@@ -26,6 +26,20 @@ $opornye_slova = implode("\n", $_MASSIV_op_slov);
 //SESSION///////////////////////////////////
 $_SESSION["opornye_slova"] = $opornye_slova; 
 
+if(count($_MASSIV_op_slov) > 80)
+{
+	$oshibka_mnogo_op_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Не более 80-ти опорных ключевых слов.</span>";
+	//SESSION///////////////////////////////////////
+	$_SESSION["oshibka_mnogo_op_slov"] = $oshibka_mnogo_op_slov;
+	header("Location: http://200slov.andrej.by");
+	exit;
+	}
+
+unset(
+$_SESSION["oshibka_mnogo_op_slov"],
+$_SESSION["oshibka_simvola"]
+);
+
 if(count($_MASSIV_op_slov) > 0)
 {
 	$proverka_simvola = implode("", $_MASSIV_op_slov);

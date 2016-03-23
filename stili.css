@@ -4,7 +4,6 @@
 @import url("webfonts/PT_Sans_Italic/stylesheet.css");
 @import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
 body {
-	background-image: url(fonchik.jpg);
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
@@ -17,6 +16,8 @@ body {
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
+	background-image: url(ukrashalki/fonchik-ng-3.jpg);
+	background-attachment: fixed;
 }
 form {
 	padding: 0px;
@@ -169,8 +170,6 @@ a:hover {
 .informaczya_vydelenie {
 	font-family: "PT Sans Bold Italic";
 }
-.poyasnenie {
-}
 .korobka {
 	width: 600px;
 	margin-right: auto;
@@ -184,6 +183,10 @@ a:hover {
 	padding-bottom: 48px;
 	padding-left: 60px;
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: 500px 60px;
+	background-image: url(ukrashalki/kartinka-ng-4.jpg);
 }
 .knopka {
 	height: 36px;
@@ -360,7 +363,7 @@ a:hover {
 	margin: 0px;
 	resize: none;
 	padding: 10px;
-	border: 1px solid #FFCC66;
+	border: 1px solid #BFDFFF;
 	font-size: 14px;
 	font-family: "PT Sans Caption Regular";
 	text-align: left;

@@ -6,7 +6,7 @@ if(!isset($_SESSION["metka"]))
 	}
 
 $sobranny_nabor = $_SESSION["sobranny_nabor"] . "<hr class=\"otbivka_24\">
-<div class=\"statistika\">Слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
+<div class=\"statistika\">Ключевых слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
 
 $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 

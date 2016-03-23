@@ -28,17 +28,14 @@
 
       <hr class="otbivka_24">
 	  <div class="statistika">
-      Слов в наборе — <span class="statistika_czyfra">
+      Ключевых слов в наборе — <span class="statistika_czyfra">
       <!--PHP//////////////////////--> 
       <?php echo $_SESSION["kol_slov_itog"]?></span>.
       </div>
-	  <hr class="otbivka_12">
-      <a href="ne_xvataet_perevoda.php" target="_blank">Сообщите, если не хватает перевода</a>
-      <span class="upravlenie">(в отдельном окне откроется форма для заявки)</span>
       <hr class="otbivka_12">
       <hr class="otbivka_24">
       <div class="vvod_slov">
-        <input name="poluchit" type="submit" class="knopka" value="&#9658; Получить результат строками">
+        <input name="poluchit" type="submit" class="knopka" value="5/6 &#9658; Получить результат строками">
       </div>
     </form>
     <hr class="otbivka_24">
@@ -47,6 +44,7 @@
       <?php include('f_sbros.shtml');?>
     </div>
     <hr class="otbivka_96">
+    <?php echo $pro_zayavku;?>
     <!--PHP-->
     <?php include('podval.shtml');?>
     <hr class="otbivka_24">

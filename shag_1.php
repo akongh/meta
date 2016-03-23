@@ -5,6 +5,7 @@ $_SESSION["metka"] = true;
 $opornye_slova = $_SESSION["opornye_slova"];
 
 $oshibka_simvola = $_SESSION["oshibka_simvola"];
+$oshibka_mnogo_op_slov = $_SESSION["oshibka_mnogo_op_slov"];
 
 $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 
