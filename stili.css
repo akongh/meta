@@ -16,7 +16,7 @@ body {
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
-	background-image: url(ukrashalki/fonchik-14_fev-1.jpg);
+	background-image: url(ukrashalki/fonchik-vesna.jpg);
 	background-attachment: fixed;
 }
 form {
@@ -190,7 +190,6 @@ a:hover {
 	background-attachment: scroll;
 	background-repeat: no-repeat;
 	background-position: 480px 120px;
-	background-image: url(ukrashalki/kartinka-14_fev.jpg);
 }
 .korobka_2 {
 	width: 600px;
