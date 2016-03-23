@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <title>Подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka"> 
   <!--PHP-->
-  <?php include('versiya.shtml');?>
-  <hr class="otbivka_24">
+  <!--<?php include('versiya.shtml');?>-->
+  <!--<hr class="otbivka_24">-->
   <!--PHP-->
   <?php include('nazvanie.shtml');?>
   <hr class="otbivka_12">
@@ -25,9 +26,12 @@
       <!--PHP////////////////////////-->
       <?php echo $vyvod_spiska_flagov;?>
       </div>
+      <!--PHP//////////////////////-->
+      <?php echo $sostoyanie_nabora;?>
+      <hr class="otbivka_24">
       <div class="vvod_slov">
       <!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-      <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $dopolnitelnye_slova;?></textarea>
+      <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>
       <hr class="otbivka_12">
       <!--PHP////////////////////-->
       <?php echo $oshibka_simvola;?>
@@ -45,9 +49,6 @@
     <!--PHP-->
     <?php include('f_sbros.shtml');?>
   </div>
-  <hr class="otbivka_48">
-  <!--PHP//////////////////////-->
-  <?php echo $sostoyanie_nabora;?>
   <hr class="otbivka_96">
   <!--PHP-->
   <?php include('podval.shtml');?>

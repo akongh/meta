@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <title>Подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka"> 
   <!--PHP-->
-  <?php include('versiya.shtml');?>
-  <hr class="otbivka_24">
+  <!--<?php include('versiya.shtml');?>-->
+  <!--<hr class="otbivka_24">-->
   <!--PHP-->
   <?php include('nazvanie.shtml');?>
   <hr class="otbivka_12">
@@ -23,7 +24,7 @@
   <form method="post" action="f_ochered.php">
     <!--PHP//////////////////////--> 
     <?php echo $sobranny_nabor;?>
-    <hr class="otbivka_48">
+    <hr class="otbivka_24">
     <div class="vvod_slov"> 
       <!--PHP////////////////////////--> 
       <?php echo $oshibka_kolichestva;?>
@@ -40,7 +41,7 @@
     <?php include('f_utochnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('f_zapomnit.shtm');?>
+    <?php include('f_zapomnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
     <?php include('f_sbros.shtml');?>

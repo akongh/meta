@@ -12,12 +12,13 @@
     $( "#sortable" ).disableSelection();
   });
   </script>
+  <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
   </head>
   <body>
   <div class="korobka"> 
     <!--PHP-->
-    <?php include('versiya.shtml');?>
-    <hr class="otbivka_24">
+    <!--<?php include('versiya.shtml');?>-->
+  <!--<hr class="otbivka_24">-->
     <!--PHP-->
     <?php include('nazvanie.shtml');?>
     <hr class="otbivka_12">
@@ -33,7 +34,14 @@
         <!--PHP//////////////////////--> 
         <?php echo $ochered;?>
       </ul>
-      <hr class="otbivka_48">
+      <hr class="otbivka_24">
+	  <div class="statistika">
+      Слов в наборе — <span class="statistika_czyfra">
+      <!--PHP//////////////////////--> 
+      <?php echo $_SESSION["kol_slov_itog"]?></span>.
+      </div>
+	  <hr class="otbivka_12">
+      <hr class="otbivka_24">
       <div class="vvod_slov">
         <input name="poluchit" type="submit" class="knopka" value="&#9658; Получить результат строкой">
       </div>

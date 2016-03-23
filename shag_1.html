@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <title>Подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka"> 
   <!--PHP-->
-  <?php include('versiya.shtml');?>
-  <hr class="otbivka_24">
+  <!--<?php include('versiya.shtml');?>-->
+  <!--<hr class="otbivka_24">-->
   <!--PHP-->
   <?php include('nazvanie.shtml');?>
   <hr class="otbivka_12">
@@ -20,6 +21,9 @@
   <hr class="otbivka_12">
   Задаём опорные слова для подбора</h2>
   <hr class="otbivka_48">
+  <!--PHP//////////////////////-->
+  <?php echo $sostoyanie_nabora;?>
+  <hr class="otbivka_24">
     <form action="f_podobrat.php" method="post">
       <div class="vvod_slov">
       <!--PHP//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -28,6 +32,14 @@
       <!--PHP////////////////////-->
       <?php echo $oshibka_simvola;?>
       <hr class="otbivka_12">
+      Количество слов в результате:&nbsp;
+      <select  size="1" name="granicza">
+        <option value="50">до 50</option>
+        <option value="100">до 100</option>
+        <option value="150">до 150</option>
+        <option value="200">до 200</option>
+      </select>
+      <hr class="otbivka_24">
       <input name="podobrat" type="submit" class="knopka" value="&#9658; Подобрать">
       </div>
       <!--PHP-->
@@ -38,9 +50,6 @@
     <!--PHP-->
     <?php include('f_sbros.shtml');?>
   </div>
-  <hr class="otbivka_48">
-  <!--PHP//////////////////////-->
-  <?php echo $sostoyanie_nabora;?>
   <hr class="otbivka_96">
   <!--PHP-->
   <?php include('podval.shtml');?>

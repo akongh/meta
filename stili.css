@@ -3,15 +3,11 @@
 @import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
 @import url("webfonts/PT_Sans_Italic/stylesheet.css");
 @import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
-
-
-
 body {
 	background-image: url(fonchik.jpg);
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
-	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
 	font-style: normal;
 	color: #333333;
@@ -20,6 +16,7 @@ body {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	font-family: "PT Sans Caption Regular";
 }
 form {
 	padding: 0px;
@@ -118,7 +115,6 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 }
-
 .otbivka_48 {
 	clear: both;
 	margin-top: 0px;
@@ -162,8 +158,6 @@ a:hover {
 }
 .poyasnenie {
 }
-
-
 .korobka {
 	width: 600px;
 	margin-right: auto;
@@ -194,7 +188,7 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 }
-.krasnaya a{
+.krasnaya a {
 	font-family: "PT Sans Caption Regular";
 	color: #FF0000;
 	margin-top: 0px;
@@ -206,7 +200,6 @@ a:hover {
 	padding-bottom: 0px;
 	padding-left: 4px;
 }
-
 .krasnaya a:hover {
 	font-family: "PT Sans Caption Regular";
 	color: #FFFFFF;
@@ -248,7 +241,6 @@ a:hover {
 	font-size: 60px;
 	color: #666666;
 }
-
 .statistika {
 	border-top-style: none;
 	border-right-style: none;
@@ -283,7 +275,6 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 }
-
 .vvod_slov {
 	width: 300px;
 	margin: 0px;

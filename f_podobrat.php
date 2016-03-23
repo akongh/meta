@@ -7,6 +7,7 @@ $_SESSION["oshibka_simvola"]
 
 include ('regularnye_vyrazheniya.php');
 
+$granicza = $_POST["granicza"];
 $vvod_op_slov = $_POST["vvod_op_slov"];
 $vvod_op_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_op_slov))), "utf-8"));
 $vvod_op_slov = preg_replace("/ {2,}/", " ", $vvod_op_slov);
@@ -30,7 +31,7 @@ if(count($_MASSIV_op_slov) > 0)
 	$proverka_simvola = implode("", $_MASSIV_op_slov);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, цифры, пробел и дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		header("Location: http://200slov.andrej.by");
@@ -45,7 +46,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 	$proverka_simvola = implode("", $proverka_simvola);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, цифры, пробел и дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		header("Location: http://200slov.andrej.by");
@@ -55,7 +56,17 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 
 $_SQL_stroka_dlya_podbora = implode("','", $_MASSIV_op_slov);
 $kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
-include ('SQL_podbor.php');
+
+$_MASSIV_op_slov_strokoj = implode("", $_MASSIV_op_slov);
+if(!preg_match("/[a-z]+/i", $_MASSIV_op_slov_strokoj))
+{
+	include ('SQL_podbor_k.php');
+	}
+	else if(!preg_match("/[а-яё]+/i", $_MASSIV_op_slov_strokoj))
+	{
+		include ('SQL_podbor_l.php');
+		}
+
 $n = 0;
 while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
 {

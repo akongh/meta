@@ -3,6 +3,7 @@ session_start();
 
 unset(
 $_SESSION["oshibka_simvola"],
+$_SESSION["oshibka_kolichestva"],
 $_SESSION["dopolnitelnye_slova"]
 );
 
@@ -76,7 +77,7 @@ if (isset($slova_s_flagom_bez_probelov) && isset($_MASSIV_dop_slov))
 	{
 		$dopolnenie_unikalnoe = $_MASSIV_dop_slov;
 		}
-//////////////////////////////////делаем строку с переносами из массива уникального дополненния////////////////////////////////////////////////////////////
+//////////////////////////////////делаем строку с переносами из массива уникального дополненния////////////////////////////////
 if (isset($dopolnenie_unikalnoe))
 {
 	$dopolnitelnye_slova = implode("\n", $dopolnenie_unikalnoe);
@@ -84,19 +85,19 @@ if (isset($dopolnenie_unikalnoe))
 	$_SESSION["dopolnitelnye_slova"] = $dopolnitelnye_slova; 
 	}
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////делаем вывод ошибки символа, если она есть////////////////////////////////////////////////////////////////////////////	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////делаем вывод ошибки символа, если она есть//////////////////////////////////////////
 if(count($dopolnenie_unikalnoe) > 0)
 {
 	$proverka_simvola = implode("", $dopolnenie_unikalnoe);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		}
 	}
-/////////////////////////////////////////итоговый массив из подбора, дополнения и состояния///////////////////////////////////////////////////////////////////
+/////////////////////////////////////////итоговый массив из подбора, дополнения и состояния////////////////////////////////
 if (isset($slova_s_flagom_bez_probelov) && isset($dopolnenie_unikalnoe))
 {
     $massiv_itog = array_values(array_unique(array_merge($slova_s_flagom_bez_probelov, $dopolnenie_unikalnoe)));
@@ -119,7 +120,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && $massiv_itog != NULL)
 	{
 		$massiv_itog = $_SESSION["_MASSIV_sostoyanie_nabora"];
 		}
-//////////////////////////////////////////////////////ещё одна проверка на смесь кирилицы и латиницы//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////ещё одна проверка на смесь кирилицы и латиницы////////////////////////////////
 if (isset($massiv_itog))
 {
 	$massiv_itog = array_values(array_unique((array_diff($massiv_itog, array('')))));
@@ -128,19 +129,19 @@ if (isset($massiv_itog))
 		$proverka_simvola = implode("", $massiv_itog);
 		if (!preg_match($regulyar_slova, $proverka_simvola))
 		{
-			$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
+			$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и дефис.</span>";
 			//SESSION///////////////////////////////////////
 			$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 			}
 		}
 	}
-///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////
 if(isset($oshibka_simvola))
 {
 	header("Location: http://200slov.andrej.by/shag_2.php");
 	exit;
 	}
-///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////
 $kol_slov_itog = count($massiv_itog);
 //SESSION///////////////////////////////////
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
@@ -151,6 +152,7 @@ for ($i = 0; $i < count($massiv_itog); $i++)
 	}
 if (isset($sobranny_nabor))
 {
+	sort($sobranny_nabor, SORT_STRING);
 	$sobranny_nabor = implode("<br>\n", $sobranny_nabor);
 	}
 

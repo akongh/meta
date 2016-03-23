@@ -1,18 +1,9 @@
 <?php //error_reporting(0);
 session_start();
 
-//if (isset($_POST["spisok_mesto"]))
-//{
-	$massiv_itog = $_POST["spisok_mesto"];
-	//if (count($massiv_itog) < 12 )
-//	{
-//		$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 12-ти уникальных ключевых слов.</span>";
-//		//SESSION///////////////////////////////////////////////
-//		$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-//		header("Location: http://200slov.andrej.by/shag_4.php");
-//		exit;
-//		}
-//	}
+$massiv_itog = $_POST["spisok_mesto"];
+
+$massiv_itog_strokoj = implode("", $massiv_itog);
 
 unset($_SESSION["oshibka_kolichestva"]);
 
@@ -21,7 +12,14 @@ $_SESSION["kol_slov_itog"] = count($massiv_itog);
 $vr_nabora = time();
 $ses = session_id();
 
-include ('SQL_sozdat_nabor.php');
+if(!preg_match("/[a-z]+/i", $massiv_itog_strokoj))
+{
+	include ('SQL_sozdat_nabor_k.php');
+	}
+	else if (!preg_match("/[а-яё]+/i", $massiv_itog_strokoj))
+	{
+		include ('SQL_sozdat_nabor_l.php');
+		}
 
 $_REZULTAT = implode("; ", $massiv_itog);
 //SESSION///////////////////////////
