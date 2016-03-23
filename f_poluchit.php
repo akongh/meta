@@ -3,6 +3,7 @@ session_start();
 
 $russk = $_POST["russk"];//print_r($russk);
 $angl = $_POST["angl"];//print_r($angl);
+
 $zayavka = $_POST["zayavka"];
 
 if(isset($angl))
@@ -10,14 +11,14 @@ if(isset($angl))
 	$angl = array_values(array_unique($angl));
 	}
 
-$russk_strokoj = implode("", $russk);
+////$russk_strokoj = implode("", $russk);
 //$angl_strokoj = implode("", $angl);
 
-if(!preg_match("/[а-яё]+/i", $russk_strokoj))
-{
-	$angl = $russk;
-	unset($russk);
-	}
+// // if(!preg_match("/[а-яё]+/i", $russk_strokoj))
+// // {
+	// // $angl = $russk;
+	// // unset($russk);
+	// // }
 	
 $_SESSION["kol_slov_russk"] = count($russk);
 $_SESSION["kol_slov_angl"] = count($angl);
@@ -51,11 +52,11 @@ if(isset($angl))
 if(isset($zayavka))
 {
 	$zayavka = implode("', '", $zayavka);
-$SQL_zayavka = mysql_query("
-update `k-ts`
-set `f` = 7
-where `s` in ('".$zayavka."')
-");
+	$SQL_zayavka = mysql_query("
+	update `k-ts`
+	set `f` = 7
+	where `s` in ('".$zayavka."')
+	");
 	}
 
 //SESSION///////////////////////////

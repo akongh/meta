@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Сервис подбора ключевых слов для стоков на русском языке с переводом на английский</title>
+<title>Сервис подбора ключевых слов для стоков (рус.—анг.)</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
@@ -14,7 +14,7 @@
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">2/6</span>
   <hr class="otbivka_12">
-  Выбираем из подобранных и добавляем свои</h2>
+  Выбираем из подобранных…</h2>
   <hr class="otbivka_48">
     <form action="f_sobrat.php" method="post">
       <div class="vyvod_spiska_flagov">
@@ -24,6 +24,8 @@
       <!--PHP//////////////////////-->
       <?php echo $sostoyanie_nabora;?>
       <hr class="otbivka_24">
+      <h2>…и добавляем свои (е≠ё)</h2>
+      <hr class="otbivka_6">
       <div class="vvod_slov">
       <!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
       <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>

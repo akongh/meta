@@ -2,6 +2,7 @@
 session_start();
 
 unset(
+$_SESSION["oshibka_mnogo_op_slov"],
 $_SESSION["oshibka_simvola"]
 );
 
@@ -31,14 +32,14 @@ if(count($_MASSIV_op_slov) > 80)
 	$oshibka_mnogo_op_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Не более 80-ти опорных ключевых слов.</span>";
 	//SESSION///////////////////////////////////////
 	$_SESSION["oshibka_mnogo_op_slov"] = $oshibka_mnogo_op_slov;
-	header("Location: http://200slov.andrej.by");
-	exit;
+	//header("Location: http://200slov.andrej.by");
+//	exit;
 	}
 
-unset(
-$_SESSION["oshibka_mnogo_op_slov"],
-$_SESSION["oshibka_simvola"]
-);
+//unset(
+//$_SESSION["oshibka_mnogo_op_slov"],
+//$_SESSION["oshibka_simvola"]
+//);
 
 if(count($_MASSIV_op_slov) > 0)
 {
@@ -48,8 +49,8 @@ if(count($_MASSIV_op_slov) > 0)
 		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
-		header("Location: http://200slov.andrej.by");
-		exit;
+		//header("Location: http://200slov.andrej.by");
+//		exit;
 		}
 	}
 
@@ -63,10 +64,18 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
-		header("Location: http://200slov.andrej.by");
-		exit;
+		//header("Location: http://200slov.andrej.by");
+//		exit;
 		}
 	}
+
+
+if (isset($oshibka_simvola) or isset($oshibka_mnogo_op_slov))
+{
+	header("Location: http://200slov.andrej.by");
+	exit;
+	}	
+
 
 $_SQL_stroka_dlya_podbora = implode("','", $_MASSIV_op_slov);
 $kolichestvo_opornyx_slov = count($_MASSIV_op_slov);

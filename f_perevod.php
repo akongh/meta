@@ -20,9 +20,10 @@ for($i = 0; $i < count($rus); $i++)
 	$n = 0;
 	while ($rez = mysql_fetch_array($SQL_p_z))
 	{
-		$p[$n] = $rez['s'];
+		$p[$n] = $rez['s']; //print_r($p[$n]); echo "<br>";
+		$p2[$n] = preg_replace("/'/", "&#039;", $p[$n]);
 		$z[$n] = $rez['z'];
-		$p_z[$n] = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" value = '".$p[$n]."'> ".$p[$n]."</span><span class=\"znachenie\"> — ".$z[$n]."</span>";
+		$p_z[$n] = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" value = '".$p2[$n]."'> ".$p[$n]."</span><span class=\"znachenie\"> — ".$z[$n]."</span>";
 
 		$n++;
 		}
@@ -39,7 +40,7 @@ for($i = 0; $i < count($rus); $i++)
 		}
 		else if (isset($p_z) && count($p_z) == 1)
 		{
-		$p_z = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = '".$p[0]."'> ".$p[0]."</span><span class=\"znachenie\"> — ".$z[0]."</span>";
+		$p_z = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = '".$p2[0]."'> ".$p[0]."</span><span class=\"znachenie\"> — ".$z[0]."</span>";
 		$s_perevodom[$i] = "<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '".$rus[$i]."' hidden=\"true\">".$rus[$i]."</span><hr class=\"otbivka_6\">".$p_z;
 			}
 			else if (!isset($p_z))

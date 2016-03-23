@@ -16,7 +16,7 @@ body {
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
-	background-image: url(ukrashalki/fonchik-ng-3.jpg);
+	background-image: url(ukrashalki/fonchik-14_fev-1.jpg);
 	background-attachment: fixed;
 }
 form {
@@ -26,6 +26,10 @@ form {
 	border-bottom-style: none;
 	border-left-style: none;
 	margin: 0px;
+}
+video {
+	border: 1px solid #F2F2F2;
+	width: 598px;
 }
 h1 {
 	font-family: "PT Sans Caption Bold";
@@ -59,7 +63,7 @@ a {
 	font-family: "PT Sans Caption Regular";
 }
 a:hover {
-	color: #339933;
+	color: #80EA15;
 	font-family: "PT Sans Caption Regular";
 }
 .blok_perevoda {
@@ -185,9 +189,24 @@ a:hover {
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
 	background-attachment: scroll;
 	background-repeat: no-repeat;
-	background-position: 500px 140px;
-	background-image: url(ukrashalki/kartinka-ng-4.jpg);
+	background-position: 480px 120px;
+	background-image: url(ukrashalki/kartinka-14_fev.jpg);
 }
+.korobka_2 {
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 24px;
+	margin-bottom: 24px;
+	text-align: left;
+	background-color: #FFFFFF;
+	padding-top: 48px;
+	padding-right: 60px;
+	padding-bottom: 0px;
+	padding-left: 60px;
+	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
+}
+
 .knopka {
 	height: 36px;
 	width: 300px;
@@ -352,6 +371,30 @@ a:hover {
 	width: 100%;
 	text-align: right;
 }
+.vnimanie {
+	color: #FFFFFF;
+	background-color: #80EA15;
+	display: block;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	width: 44px;
+	font-size: 10px;
+	text-align: center;
+	font-family: "PT Sans Caption Bold";
+	/* [disabled]border-radius: 6px; */
+	float: left;
+	margin-top: 0px;
+	margin-right: 6px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
 .vyvod_spiska_flagov {
 	text-align: left;
 	margin: 0px;
