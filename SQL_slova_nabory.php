@@ -10,4 +10,5 @@ $kol_naborov_otvet = mysql_fetch_row($kol_naborov_zapros);
 $kol_naborov = $kol_naborov_otvet[0];
 
 mysql_close($podkluchenie);
+
 ?>

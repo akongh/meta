@@ -17,4 +17,5 @@ for ($i = 0;$i < count($massiv_itog);$i++)
 			(SELECT `ids` FROM `ts` WHERE `s` = '".$massiv_itog[$i]."'))  
 	");
 	}
+
 ?>

@@ -18,4 +18,5 @@ $SQL_zapros_podbor = "select `ts`.`s`, count(*)
 
 $rezultat_podbora = mysql_query($SQL_zapros_podbor);
 mysql_close($podkluchenie);
+
 ?>

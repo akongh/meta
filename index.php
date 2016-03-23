@@ -1,8 +1,5 @@
 <?php
 session_start();
-//var_dump($_SESSION["massiv_itog_zapom"]);
-//echo "<br>";
-//var_dump($_SESSION["massiv_itog"]);
 
 include('SQL_slova_nabory.php');
 
@@ -20,4 +17,8 @@ $oshibka_simvol = $_SESSION["oshibka_simvol"];
 $stroka_itog_zapom = $_SESSION["stroka_itog_zapom"];
 
 include('shag_1.html');
+
+//echo "Сессии <pre>";
+//print_r($_SESSION);
+//echo "</pre>";
 ?>

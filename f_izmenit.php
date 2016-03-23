@@ -18,4 +18,5 @@ $dopolnenie_unikalnoe = $_SESSION['dopolnenie_unikalnoe'];
 include('SQL_slova_nabory.php');
 
 include ('shag_2.html');
+
 ?>

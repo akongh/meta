@@ -8,34 +8,47 @@
 
 <body>
 <div class="korobka">
-  <?php include('versiya.shtml');?>
+  <?php include('versiya.shtml');
+?>
   <hr class="otbivka_12">
-  <?php include('nazvanie.shtml');?>
+  <?php include('nazvanie.shtml');
+?>
   <hr class="otbivka_12">
-  <?php include('slova_nabory.shtml');?>
+  <?php include('slova_nabory.shtml');
+?>
   <hr class="otbivka_48">
   <hr class="otbivka_12">
   <h2>2/3. Уточните и дополните подбор своими ключевыми словами</h2>
   <hr class="otbivka_24">
   <form method = "post" action="f_sobrat.php">
-    <?php echo $vyvod_spiska;?>
-    <!--<?php include('f_utochnit.shtml');?>
+    <?php echo $vyvod_spiska;
+?>
+    <!--<?php include('f_utochnit.shtml');
+?>
     <hr class="otbivka_24">-->
-    <textarea name="dopolnenie" wrap="on" class="dopolnenie" placeholder="" autofocus><?php echo $dopolnenie_unikalnoe; ?></textarea>
-    <?php include('podskazka.shtml');?>
+    <textarea name="dopolnenie" wrap="on" class="dopolnenie" placeholder="" autofocus><?php echo $dopolnenie_unikalnoe; 
+?></textarea>
+    <?php include('podskazka.shtml');
+?>
     <hr class="otbivka_6">
-    <?php echo $oshibka_simvol; echo $oshibka_massiv_itog_10;?>
+    <?php echo $oshibka_simvol; echo $oshibka_massiv_itog_10;
+?>
     <hr class="otbivka_24">
     <input name="sobrat" type="submit" class="knopka" value="2/3. Собрать набор">
-    <?php include('f_sbros.shtml');?>
+    <?php include('f_sbros.shtml');
+?>
   </form>
   <hr class="otbivka_48">
-  <?php echo $stroka_itog_zapom;?>
+  <?php echo $stroka_itog_zapom;
+?>
   <hr class="otbivka_24">
-  <div class="slova_nabory">Слов в наборе — <span class="slova_nabory_czyfra"><?php echo $kol_slov_itog;?></span>.</div>
+  <div class="slova_nabory">Слов в наборе — <span class="slova_nabory_czyfra"><?php echo $kol_slov_itog;
+?></span>.</div>
   <hr class="otbivka_96">
-  <?php include('podval.shtml');?>
-  <?php include('yandex_metrika.shtml');?>
+  <?php include('podval.shtml');
+?>
+  <?php include('yandex_metrika.shtml');
+?>
 </div>
 </body>
 </html>

@@ -20,5 +20,6 @@ if(isset($massiv_itog_zapom))
 $stroka_itog_zapom = implode("; ", $massiv_itog_zapom);
 $_SESSION["stroka_itog_zapom"] = $stroka_itog_zapom;
 
-header("Location: http://200slov.andrej.by");
+header("Location: http://proba.200slov.andrej.by");
+
 ?>

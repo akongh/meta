@@ -1,12 +1,6 @@
 <?php
-//if($_SERVER['PHP_SELF'] != "/index.php")
-//{
-//	header("Location: http://200slov.andrej.by");
-//	}
+
 session_start();
-//var_dump($_SESSION["massiv_itog_zapom"]);
-//echo "<br>";
-//var_dump($_SESSION["massiv_itog"]);
 
 include('SQL_slova_nabory.php');
 
@@ -31,4 +25,8 @@ unset
 $_SESSION["oshibka_massiv_itog_10"],
 $_SESSION["oshibka_simvol"]
 );
+
+//echo "Сессии <pre>";
+//print_r($_SESSION);
+//echo "</pre>";
 ?>
