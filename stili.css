@@ -241,6 +241,11 @@ a:hover {
 	color: #999999;
 	padding: 0px;
 }
+.nomer_shaga {
+	font-size: 60px;
+	color: #666666;
+}
+
 .statistika {
 	border-top-style: none;
 	border-right-style: none;

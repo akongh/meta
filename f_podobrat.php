@@ -33,7 +33,7 @@ if(count($_MASSIV_op_slov) > 0)
 		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
-		header("Location: http://proba.200slov.andrej.by");
+		header("Location: http://200slov.andrej.by");
 		exit;
 		}
 	}
@@ -48,7 +48,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
-		header("Location: http://proba.200slov.andrej.by");
+		header("Location: http://200slov.andrej.by");
 		exit;
 		}
 	}
@@ -92,5 +92,5 @@ if (isset($_MASSIV_spisok_podbora))
 	$_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 	}
 
-header("Location: http://proba.200slov.andrej.by/shag_2.php");
+header("Location: http://200slov.andrej.by/shag_2.php");
 ?>
