@@ -1,11 +1,25 @@
 #meta.afoteris.com
 
 
-#запрет выдачи листинга пустого каталога 
-Options -Indexes
+
+#RewriteEngine on
+#RewriteCond %{REQUEST_URI} !/shag_0.html$
+#RewriteCond %{REMOTE_ADDR} !^37.45.137.53
+#RewriteRule $ /shag_0.html [R=302,L]
+
+
 
 #назначаем главный файл сайта
 DirectoryIndex o_servise.php
+
+#для SSI
+#AddHandler server-parsed .html .shtml
+
+#запрет выдачи листинга пустого каталога 
+Options -Indexes
+
+
+
 
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
 #php_value session.save_path /home/webart/www/sessii_meta.afoteris/

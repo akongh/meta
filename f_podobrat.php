@@ -10,6 +10,7 @@ $_SESSION["_REZULTAT_russk_neperevedennye"]
 
 include ('vstavki/regularnye_vyrazheniya.php');
 
+$sposob321 = $_POST["sposob321"];//var_dump($_POST["sposob321"]);
 $granicza = $_POST["granicza"];
 $vvod_op_slov = $_POST["vvod_op_slov"];//var_dump($_POST["vvod_op_slov"]);
 $vvod_op_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_op_slov))), "utf-8"));
@@ -82,29 +83,54 @@ $_SQL_stroka_dlya_podbora = implode("','", $_MASSIV_op_slov);
 $kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
 
 $_MASSIV_op_slov_strokoj = implode("", $_MASSIV_op_slov);
-if(!preg_match("/[a-z]+/i", $_MASSIV_op_slov_strokoj))
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($sposob321) && $kolichestvo_opornyx_slov>1)
 {
-	include ('sql/SQL_podbor_k.php');
-	}
-	else if(!preg_match("/[а-яё]+/i", $_MASSIV_op_slov_strokoj))
+	for($i=$kolichestvo_opornyx_slov; $i>0; $i--)
 	{
-		include ('sql/SQL_podbor_l.php');
+		include ('sql/SQL_podbor_k.php');
+		$n = 0;
+		while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+		{
+			$_MASSIV_rezultata[$n] = $data['s'];
+			$n++;
+			}
+		
+		if ($_MASSIV_rezultata != NULL && $i>0 /*&& count($_MASSIV_rezultata)>$kolichestvo_opornyx_slov*/)
+		{
+			$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
+			break;
+			}
+			
+		/*if ($i == 1)
+		{
+			$_MASSIV_rezultata = $_MASSIV_op_slov;
+			}*/
+		if ($i < $kolichestvo_opornyx_slov)//чтобы результат небыл больше границы подбора
+		{
+			$granicza--;
+			}
 		}
-
-$n = 0;
-while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
-{
-	$_MASSIV_rezultata[$n] = $data['s'];
-	$n++;
-	}
-if ($_MASSIV_rezultata != NULL)
-{
-	$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
 	}
 	else
 	{
-		$_MASSIV_rezultata = $_MASSIV_op_slov;
+		include ('sql/SQL_podbor_k.php');
+		$n = 0;
+		while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+		{
+			$_MASSIV_rezultata[$n] = $data['s'];
+			$n++;
+			}
+		if ($_MASSIV_rezultata != NULL)
+		{
+			$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
+			}
+			else
+			{
+				$_MASSIV_rezultata = $_MASSIV_op_slov;
+				}
 		}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 //SESSION///////////////////////////////////////////	
 $_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
 

@@ -18,7 +18,7 @@ body {
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
-	background-image: url(ukrashalki/fonchik-zima.JPG);
+	background-image: url(ukrashalki/fonchik.JPG);
 	background-attachment: fixed;
 }
 form {
@@ -178,6 +178,8 @@ a:hover {
 	border-left-style: none;
 	overflow: hidden;
 }
+
+
 .informaczya {
 	text-align: left;
 	margin: 0px;

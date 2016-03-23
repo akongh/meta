@@ -1,9 +1,9 @@
 <div class="yandex_metrika"> 
-
+  
   <!-- Yandex.Metrika informer --> 
-  <a href="https://metrika.yandex.ru/stat/?id=25834313&amp;from=informer"
+  <!--<a href="https://metrika.yandex.ru/stat/?id=25834313&amp;from=informer"
 target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/25834313/3_0_7B7B7BFF_7B7B7BFF_0_pageviews"
-style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:25834313,lang:'ru'});return false}catch(e){}"/></a> 
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:25834313,lang:'ru'});return false}catch(e){}"/></a> --> 
   <!-- /Yandex.Metrika informer --> 
   
   <!-- Yandex.Metrika counter --> 
@@ -34,6 +34,6 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
   <noscript>
   <div><img src="//mc.yandex.ru/watch/25834313" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
-  <!-- /Yandex.Metrika counter -->
-   
+  <!-- /Yandex.Metrika counter --> 
+  
 </div>
