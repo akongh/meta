@@ -1,14 +1,24 @@
-<?php
+<?php //error_reporting(0);
 session_start();
+
+$massiv_itog = $_SESSION["massiv_itog"];
+if (count($massiv_itog) < 20 )
+{
+	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 20-ти уникальных ключевых слов.</span>";
+	//SESSION///////////////////////////////////////////////
+	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
+	header("Location: http://proba.200slov.andrej.by/shag_3.php");
+	exit;
+	}
 
 $vr_nabora = time();
 $ses = session_id();
-$massiv_itog = $_SESSION["massiv_itog"];
 
 include ('SQL_sozdat_nabor.php');
 
-session_unset();
-unset($_POST);
+$_REZULTAT = implode("; ", $massiv_itog);
+//SESSION///////////////////////////
+$_SESSION["_REZULTAT"] = $_REZULTAT;
 
-header("Location: http://proba.200slov.andrej.by");
+header("Location: http://proba.200slov.andrej.by/shag_4.php");
 ?>

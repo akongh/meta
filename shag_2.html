@@ -16,28 +16,25 @@
   <!--PHP//////////////////////////-->
   <?php include('statistika.shtml');?>
   <hr class="otbivka_96">
-  <h2>2/4. Выбор из подбора и добавление ключевых слов</h2>
+  <h2>2/4. Выбираем из подобранных и добавляем свои</h2>
   <hr class="otbivka_48">
     <form action="f_sobrat.php" method="post">
       <div class="vyvod_spiska_flagov">
-      <!--PHP/////////////////////-->
+      <!--PHP////////////////////////-->
       <?php echo $vyvod_spiska_flagov;?>
       </div>
-      <hr class="otbivka_0">
       <div class="vvod_slov">
       <!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-      <textarea name="vvod_dop_slov" wrap="on" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $dopolnitelnye_slova;?></textarea>
+      <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $dopolnitelnye_slova;?></textarea>
       <hr class="otbivka_12">
       <!--PHP////////////////////-->
       <?php echo $oshibka_simvola;?>
       <hr class="otbivka_12">
-      <input name="sobrat" type="submit" class="knopka" value="2/4. Собрать и проверить">
+      <input name="sobrat" type="submit" class="knopka" value="&#9658; Собрать для проверки">
       </div>
       <!--PHP-->
       <?php include('informaczya.shtml');?>
   </form>
-  
-  
   <hr class="otbivka_24">
   <div class="upravlenie"> 
   	<!--PHP-->

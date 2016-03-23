@@ -2,6 +2,8 @@
 @import url("webfonts/PT_Sans_Caption_Regular/stylesheet.css");
 @import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
 @import url("webfonts/PT_Sans_Italic/stylesheet.css");
+@import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
+
 
 
 body {
@@ -12,7 +14,7 @@ body {
 	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
 	font-style: normal;
-	color: #000000;
+	color: #333333;
 	text-decoration: none;
 	border-top-style: none;
 	border-right-style: none;
@@ -155,6 +157,10 @@ a:hover {
 	font-family: "PT Sans Italic";
 	color: #666666;
 }
+.informaczya_vydelenie {
+	font-family: "PT Sans Bold Italic";
+}
+
 .korobka {
 	width: 600px;
 	margin-right: auto;
@@ -175,30 +181,42 @@ a:hover {
 	font-size: 14px;
 	padding: 0px;
 	margin: 0px;
+	color: #333333;
 }
 .krasnaya {
 	font-family: "PT Sans Caption Regular";
 	color: #FF0000;
-	margin: 0px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	padding: 0px;
 }
 .krasnaya a{
 	font-family: "PT Sans Caption Regular";
 	color: #FF0000;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
 }
 
 .krasnaya a:hover {
 	font-family: "PT Sans Caption Regular";
 	color: #FFFFFF;
 	background-color: #FF0000;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
 }
-
-
-
 .upravlenie {
 	text-align: left;
 	margin: 0px;
@@ -211,9 +229,6 @@ a:hover {
 	font-family: "PT Sans Italic";
 	color: #666666;
 }
-
-
-
 .podval {
 	margin: 0px;
 	width: 100%;

@@ -1,8 +1,7 @@
-<?php
+<?php //error_reporting(0);
 session_start();
 
 unset(
-$_SESSION["oshibka_kolichestva"],
 $_SESSION["oshibka_simvola"],
 $_SESSION["dopolnitelnye_slova"]
 );
@@ -11,8 +10,9 @@ include ('regularnye_vyrazheniya.php');
 
 $slova_s_flagom = $_POST["slova_s_flagom"];
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
-$kolichestvo_opornyx_slov = $_SESSION["kolichestvo_opornyx_slov"];
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////обеспробеливаем массив отмеченных слов///////////////////////////////////////////////////////////////////
 if ($slova_s_flagom != NULL)
 {
@@ -42,10 +42,11 @@ for ($i = 0; $i < count($_MASSIV_rezultata); $i++)
 	}
 if ($spisok != NULL)
 {
-	$vyvod_spiska_flagov = implode("<br>\n", $spisok) . "<hr class=\"otbivka_24\">";
+	$vyvod_spiska_flagov = implode("<br>", $spisok) . "<hr class=\"otbivka_24\">";
 	//SESSION///////////////////////////////////////////////
 	$_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////делаем массив из дополнительных слов/////////////////////////////////////////////////////////////	
 $vvod_dop_slov = $_POST["vvod_dop_slov"];
 $vvod_dop_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_dop_slov))), "utf-8"));
@@ -57,10 +58,10 @@ $_MASSIV_dop_slov = preg_split("[\n|,|;]", $vvod_dop_slov, -1, PREG_SPLIT_NO_EMP
 for ($i = 0; $i < count($_MASSIV_dop_slov); $i++)
 {
 	$_MASSIV_dop_slov[$i] = trim($_MASSIV_dop_slov[$i]);
-    }
-	
+	}
+
 $_MASSIV_dop_slov = array_values(array_unique((array_diff($_MASSIV_dop_slov, array('')))));
-////////////////////////////////////удаляем из дополнительных слов те, которые отмечены флажком в подборе и выводим их в окно дополнения//////////////
+////////////////////////////////////удаляем из дополнительных слов те, которые отмечены флажком в подборе//////////////////////////////////////////////////
 if (isset($slova_s_flagom_bez_probelov) && isset($_MASSIV_dop_slov))
 {
 	for ($i = 0;$i < count($_MASSIV_dop_slov);$i++)
@@ -78,11 +79,13 @@ if (isset($slova_s_flagom_bez_probelov) && isset($_MASSIV_dop_slov))
 //////////////////////////////////делаем строку с переносами из массива уникального дополненния////////////////////////////////////////////////////////////
 if (isset($dopolnenie_unikalnoe))
 {
-    $dopolnitelnye_slova = implode("\n", $dopolnenie_unikalnoe);
+	$dopolnitelnye_slova = implode("\n", $dopolnenie_unikalnoe);
 	//SESSION///////////////////////////////////////////////
 	$_SESSION["dopolnitelnye_slova"] = $dopolnitelnye_slova; 
 	}
-////////////////////////////////////делаем вывод ошибки символа, если она есть//////////////////////////////////////////////////////////////////	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////делаем вывод ошибки символа, если она есть////////////////////////////////////////////////////////////////////////////	
 if(count($dopolnenie_unikalnoe) > 0)
 {
 	$proverka_simvola = implode("", $dopolnenie_unikalnoe);
@@ -107,15 +110,14 @@ if (isset($slova_s_flagom_bez_probelov) && isset($dopolnenie_unikalnoe))
     	$massiv_itog = $dopolnenie_unikalnoe;
 			}
 
-if (isset($_SESSION["massiv_itog"]) && $massiv_itog != NULL)
+if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && $massiv_itog != NULL)
 {
-	$_MASSIV_sostoyanie_nabora = $_SESSION["massiv_itog"];
+	$_MASSIV_sostoyanie_nabora = $_SESSION["_MASSIV_sostoyanie_nabora"];
 	$massiv_itog = array_values(array_unique(array_merge($_MASSIV_sostoyanie_nabora, $massiv_itog)));
 	}
-	else if (isset($_SESSION["massiv_itog"]) && $massiv_itog == NULL)
+	else if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && $massiv_itog == NULL)
 	{
-		$_MASSIV_sostoyanie_nabora = $_SESSION["massiv_itog"];
-		$massiv_itog = $_MASSIV_sostoyanie_nabora;
+		$massiv_itog = $_SESSION["_MASSIV_sostoyanie_nabora"];
 		}
 //////////////////////////////////////////////////////ещё одна проверка на смесь кирилицы и латиницы//////////////////////////////////////////////////////////
 if (isset($massiv_itog))
@@ -132,13 +134,6 @@ if (isset($massiv_itog))
 			}
 		}
 	}
-//////////////////////////////////////////////////////ошибка малого количества слов для набора////////////////////////////////////////////////////////////////
-//if (count($massiv_itog) < 10 )
-//{
-//	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 10-ти уникальных ключевых слов.</span>";
-//	//SESSION///////////////////////////////////////////////
-//	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-//	}
 ///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////////////////////////////////////////////////////////////
 if(isset($oshibka_simvola))
 {
@@ -149,7 +144,7 @@ if(isset($oshibka_simvola))
 $kol_slov_itog = count($massiv_itog);
 //SESSION///////////////////////////////////
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
-$sobranny_nabor = implode("; ", $massiv_itog);
+$sobranny_nabor = implode("<br>", $massiv_itog);
 //SESSION/////////////////////////////////////
 $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 //SESSION///////////////////////////////

@@ -16,16 +16,21 @@
   <!--PHP//////////////////////////-->
   <?php include('statistika.shtml');?>
   <hr class="otbivka_96">
-  <h2>3/4. Проверка результата перед форматированием</h2>
+  <h2>3/4. Проверяем результат списком</h2>
   <hr class="otbivka_48">
   <!--PHP//////////////////////--> 
   <?php echo $sobranny_nabor;?>
   <hr class="otbivka_48">
-  <div class="upravlenie">
     <form method="post" action="f_poluchit.php">
-      <input name="dobavit" type="submit" class="knopka" value="3/4. Получить результат">
+      <div class="vvod_slov">
+      <!--PHP////////////////////////-->
+      <?php echo $oshibka_kolichestva;?>
+      <hr class="otbivka_12">
+      <input name="poluchit" type="submit" class="knopka" value="&#9658; Получить результат строкой">
+      </div>
     </form>
-    <hr class="otbivka_12">
+    <hr class="otbivka_24">
+    <div class="upravlenie">
     <!--PHP-->
     <?php include('f_izmenit.shtml');?>
     <hr class="otbivka_12">

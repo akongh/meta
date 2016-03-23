@@ -1,4 +1,4 @@
-<?php
+<?php //error_reporting(0);
 include ('bd.php');
 
 $_SQL_zapros_podbor = "select `ts`.`s`, count(*)    

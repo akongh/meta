@@ -1,8 +1,7 @@
-<?php
+<?php //error_reporting(0);
 session_start();
 
 unset(
-$_SESSION["oshibka_nalichiya"],
 $_SESSION["oshibka_simvola"],
 $_SESSION["oshibka_kolichestva"],
 $_SESSION["sobranny_nabor"],

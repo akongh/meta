@@ -16,25 +16,21 @@
   <!--PHP//////////////////////////-->
   <?php include('statistika.shtml');?>
   <hr class="otbivka_96">
-  <h2>1/4. Задание опорных слов для подбора</h2>
+  <h2>1/4. Задаём опорные слова для подбора</h2>
   <hr class="otbivka_48">
     <form action="f_podobrat.php" method="post">
       <div class="vvod_slov">
       <!--PHP//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-      <textarea name="vvod_op_slov" wrap="on" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $opornye_slova;?></textarea>
+      <textarea name="vvod_op_slov" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $opornye_slova;?></textarea>
       <hr class="otbivka_12">
       <!--PHP////////////////////-->
       <?php echo $oshibka_simvola;?>
-      <hr class="otbivka_0">
-      <!--PHP//////////////////////-->
-      <?php echo $oshibka_nalichiya;?>
       <hr class="otbivka_12">
-      <input name="podobrat" type="submit" class="knopka" value="1/4. Подобрать">
+      <input name="podobrat" type="submit" class="knopka" value="&#9658; Подобрать">
       </div>
       <!--PHP-->
       <?php include('informaczya.shtml');?>
     </form>
-  
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
