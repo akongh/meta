@@ -26,7 +26,7 @@ include('slova_nabory.shtml');
   <div class="zagolovok">Вход</div>
   <hr class="otbivka_24">
   <form action="vxod.php" method="post" name="vxod">
-    <input name="el_pochta_vxod" type="email" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>" autofocus>
+    <input name="el_pochta_vxod" type="text" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>" autofocus>
     <div class="podpisi">Эл. почта</div>
     <?php
 echo $pusto_el_pochta_vxod;
@@ -58,7 +58,7 @@ echo $pusto_imya;
 echo $oshibka_imya;
 ?>
     <hr class="otbivka_6">
-    <input name="reg_el_pochta" type="email" class="vxod_registraczya" value="<?php echo $el_pochta; ?>">
+    <input name="reg_el_pochta" type="text" class="vxod_registraczya" value="<?php echo $el_p_pol; ?>">
     <div class="podpisi">Эл. почта</div>
     <?php
 echo $oshibka_zareg_el_pochta;

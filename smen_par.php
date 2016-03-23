@@ -44,8 +44,8 @@ if ($oshibka_parol or $oshibka_parol_2 or $oshibka_raznye_paroli or $pusto_parol
 	WHERE `el_p` = '" . $el_p_pol . "'
 	");
 	mysql_close($podkluchenie);
-	$tema_pisma = "Смена пароля на сайте 200slov.andrej.by";
-	$tekst_pisma = "Подтвердите смену пароля на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda_smen_par.php?el_pochta=" . $el_p_pol . "&kod=" . $kod . "\">этой ссылке</a>.";
+	$tema_pisma = "=?utf-8?b?" . base64_encode("Смена пароля на сайте 200slov.andrej.by") . "?=";
+	$tekst_pisma = "Подтвердите смену пароля на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda_smen_par.php?el_pochta=" . $el_p_pol . "&kod=" . $kod . "&imya_pol=" . $imya_pol . "\">этой ссылке</a>.";
 	include('pismo.php');
 	include ('smen_par_pismo.html');
 }

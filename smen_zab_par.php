@@ -6,15 +6,15 @@ if (isset($_POST["smen_zab_par_otprav"]))
 {
 	$smen_zab_par_el_pochta = trim(htmlspecialchars(strip_tags(stripslashes($_POST["smen_zab_par_el_pochta"]))));
 	$smen_zab_par_el_pochta = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$smen_zab_par_el_pochta."'"));
-	$el_pochta = $smen_zab_par_el_pochta['el_p'];
+	$el_p_pol = $smen_zab_par_el_pochta['el_p'];
 
-	if (!empty($el_pochta))
+	if (!empty($el_p_pol))
 	{
 		$nov_parol = rand(10000,30000);
 		$nov_parol_md5 = md5($nov_parol);
-		mysql_query("UPDATE `tp` SET `par` = '".$nov_parol_md5."' WHERE `el_p` = '".$el_pochta."'");
+		mysql_query("UPDATE `tp` SET `par` = '".$nov_parol_md5."' WHERE `el_p` = '".$el_p_pol."'");
 
-		$tema_pisma = "Новый пароль для входа на сайт 200slov.andrej.by";
+		$tema_pisma = "=?utf-8?b?" . base64_encode("Новый пароль для входа на сайт 200slov.andrej.by") . "?=";
 		$tekst_pisma = "Вам назначен новый пароль: " . $nov_parol;
 		include('pismo.php');
 		

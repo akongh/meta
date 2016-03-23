@@ -4,8 +4,9 @@ include('slova_nabory.php');
 include ('bd.php');
 include('regularnye_vyrazheniya.php');
 
-
-if (isset($_POST["vojti"])) {
+if (isset($_POST["vojti"]))
+{
+	sleep(1);
     $el_pochta_vxod = trim(htmlspecialchars(strip_tags(stripslashes($_POST["el_pochta_vxod"]))));
     $parol_vxod = trim(htmlspecialchars(strip_tags(stripslashes($_POST["parol_vxod"]))));
     if (empty($el_pochta_vxod)) {
@@ -43,8 +44,6 @@ if (isset($_POST["vojti"])) {
                 $id_pol = $id_pol['idp'];
                 $imya_pol = mysql_fetch_array(mysql_query("SELECT `imya` FROM `tp` WHERE `el_p` = '".$el_pochta_vxod."'"));
                 $imya_pol = $imya_pol['imya'];
-                //$el_p_pol = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$el_pochta_vxod."'"));
-                //$el_p_pol = $el_p_pol['el_p'];
 				$el_p_pol = $el_pochta_vxod;
                 $_SESSION['metka_vxoda'] = TRUE;
                 $_SESSION['id_pol'] = $id_pol;
@@ -67,4 +66,8 @@ if (isset($_POST["vojti"])) {
         include('_index.html');
     }
 }
+else
+{
+	header("Location: http://200slov.andrej.by");
+	}
 ?>

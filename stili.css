@@ -167,6 +167,14 @@ a:hover {
 	font-family: "PT Sans Italic";
 	margin: 0px;
 }
+.oshibka_soob {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 300px;
+}
+
 .otbivka_0 {
 	clear: both;
 	border-top-style: none;
@@ -208,6 +216,7 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 }
+
 .otbivka_48 {
 	clear: both;
 	margin-top: 0px;
@@ -318,6 +327,14 @@ a:hover {
 .sbros a {
 	color: #FF0000;
 }
+.schet {
+	color: #666666;
+	font-family: "PT Sans Italic";
+	width: 80px;
+	margin: 0px;
+	text-align: right;
+	float: right;
+}
 .shapka_imya {
 	font-family: "PT Sans Caption Bold";
 }
@@ -357,7 +374,7 @@ a:hover {
 	margin: 0px;
 }
 .soobsshenie {
-	height: 118px;
+	height: 200px;
 	width: 478px;
 	margin: 0px;
 	resize: none;
@@ -431,6 +448,8 @@ a:hover {
 	margin: 0px;
 	text-align: right;
 }
+
+
 .zhyrnyj {
 	font-family: "PT Sans Caption Bold";
 }

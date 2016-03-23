@@ -19,7 +19,7 @@ if ($bd_kod == $kod)
 	CREATE TABLE `".$idp."--t_s`
 	(
 	`id_n` int(10) unsigned zerofill NOT NULL,
-	`id_s` int(10) unsigned zerofill NOT NULL
+	`id_s` mediumint(8) unsigned zerofill NOT NULL
 	)
 	");
 	

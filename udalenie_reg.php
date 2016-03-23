@@ -16,7 +16,7 @@ if($_POST['udal_reg_2'])
 	mysql_query("DROP TABLE `".$id_pol."--t_s`");
 	mysql_query("DELETE FROM `tp` WHERE `idp` = '".$id_pol."'");
 	
-	$tema_pisma = "Удаление регистрации с сайта 200slov.andrej.by";
+	$tema_pisma = "=?utf-8?b?" . base64_encode("Удаление регистрации с сайта 200slov.andrej.by") . "?=";
 	$tekst_pisma = "Ваша регистрация на сайте 200slov.andrej.by успешно удалена.";
 	include('pismo.php');
 	

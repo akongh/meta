@@ -5,7 +5,7 @@ include('regularnye_vyrazheniya.php');
 
 if (isset($_POST["zaregistrirovatsya"])) {
     $imya = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_imya"]))));
-    $el_pochta = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_el_pochta"]))));
+    $el_p_pol = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_el_pochta"]))));
     $parol = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_parol"]))));
     $parol_2 = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_parol_2"]))));
 	
@@ -18,13 +18,13 @@ if (isset($_POST["zaregistrirovatsya"])) {
             unset($oshibka_imya);
         }
     }
-    if (empty($el_pochta)) {
+    if (empty($el_p_pol)) {
         $pusto_el_pochta = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Введите адрес эл. почты.</span>";
     } else {
-        if (!preg_match($regulyar_el_pochta, $el_pochta)) {
+        if (!preg_match($regulyar_el_pochta, $el_p_pol)) {
             $oshibka_el_pochta = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Неверный формат адреса эл. почты.</span>";
         } else {
-            $proverka_el_pochty = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$el_pochta."'"));
+            $proverka_el_pochty = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$el_p_pol."'"));
             if (!empty($proverka_el_pochty['el_p'])) {
                 $oshibka_zareg_el_pochta = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Этот адрес уже зарегистрирован.</span>";
             } else {
@@ -63,13 +63,13 @@ if (isset($_POST["zaregistrirovatsya"])) {
         $kod = md5(rand());
         $parol = md5($parol);
         mysql_query(" 
-            INSERT INTO `tp` (`imya`, `el_p`, `par`, `vr_reg`, `kod`) VALUES ('".$imya."', '".$el_pochta."', '".$parol."', '".$vr_reg."', '".$kod."') 
+            INSERT INTO `tp` (`imya`, `el_p`, `par`, `vr_reg`, `kod`) VALUES ('".$imya."', '".$el_p_pol."', '".$parol."', '".$vr_reg."', '".$kod."') 
             ");
-        $tema_pisma = "Регистрация на сайте 200slov.andrej.by";
-        $tekst_pisma = "Подтвердите регистрацию на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda.php?el_pochta=" . $el_pochta . "&kod=" . $kod . "\">этой ссылке</a>.";
+        $tema_pisma = "=?utf-8?b?" . base64_encode("Регистрация на сайте 200slov.andrej.by") . "?=";
+        $tekst_pisma = "Подтвердите регистрацию на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda.php?el_pochta=" . $el_p_pol . "&kod=" . $kod . "\">этой ссылке</a>.";
         include('pismo.php');
         include ('reg_pismo.html');
     }
-    unset($pusto_imya, $pusto_el_pochta, $pusto_parol, $pusto_parol_2, $imya, $el_pochta, $parol, $parol_2);
+    unset($pusto_imya, $pusto_el_pochta, $pusto_parol, $pusto_parol_2, $imya, $el_p_pol, $parol, $parol_2);
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('bd.php');
-$imya_pol = $_SESSION['imya_pol'];
+$imya_pol = $_GET['imya_pol'];
 $el_pochta = $_GET['el_pochta'];
 $kod = $_GET['kod'];
 

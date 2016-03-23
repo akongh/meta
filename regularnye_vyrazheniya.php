@@ -5,9 +5,9 @@ $regulyar_el_pochta = "/.+@.+\..+/";
 
 $regulyar_parol = "/^[0-9]{5,12}$/";
 
-//$regulyar_slova = "/^[a-zа-яё0-9\s\-]+$/iu";
-//$regulyar_slova = "/^([а-яё0-9\s\-]+|[a-z0-9\s\-]+)$/iu";
 $regulyar_slova = "/^([а-яё\s\-]+|[a-z\s\-]+)$/iu";
+
+//$regulyar_soob = "/^([a-zа-яё\s\-]+)$/iu";
 
 $regulyar_razdeliteli = "/^[,;\r\n]+$/iu";
 ?>
