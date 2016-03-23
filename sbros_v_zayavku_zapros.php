@@ -13,7 +13,7 @@ for ($i = 0;$i < count($_MASSIV_na_sbros);$i++)
 $_MASSIV_na_sbros = array_values(array_unique((array_diff($_MASSIV_na_sbros, array('')))));
 $_SQL_stroka_na_sbros = implode("','", $_MASSIV_na_sbros); //print_r($_SQL_stroka_na_sbros);
 
-include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 mysql_query("UPDATE `k-ts` SET `k-ts`.`f` = 7 WHERE `k-ts`.`s` in ('" . $_SQL_stroka_na_sbros . "')");
 
@@ -27,7 +27,7 @@ $_MASSIV_na_sbros,
 $_SQL_stroka_na_sbros
 );
 
-header("Location: http://upravlyalka.200slov.andrej.by/perevod_po_zayavke.php");
+header("Location: http://up.meta.afoteris.com/perevod_po_zayavke.php");
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));

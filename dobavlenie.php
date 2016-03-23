@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 $perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
 $perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);

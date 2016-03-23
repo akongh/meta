@@ -3,7 +3,7 @@ session_start();
 
 unset($_SESSION["slovo_original"]);
 
-include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 $na_zayavke_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
 $na_zayavke_otvet = mysql_fetch_row($na_zayavke_zapros);

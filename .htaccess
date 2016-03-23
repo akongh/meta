@@ -1,4 +1,4 @@
-#upravlualka.200slov.andrej.by
+#up.meta.afoteris.com
 
 
 #запрет выдачи листинга пустого каталога 
@@ -8,7 +8,7 @@ Options -Indexes
 DirectoryIndex upravlyalka.php
 
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
-php_value session.save_path /home/webart/www/sessii_upravlualka_200slov/
+php_value session.save_path /home/webart/www/sessii_up.meta.afoteris/
 
 # Установите максимальное время жизни сессии в секундах.
 #php_value session.gc_maxlifetime 0
@@ -20,5 +20,5 @@ php_value session.save_path /home/webart/www/sessii_upravlualka_200slov/
 AuthName "A dva volshebnyx slova?"
 AuthType Basic
 #Digest Basic
-AuthUserFile /home/webart/www/_upravlyalka.200slov.andrej.by/.htpasswd
+AuthUserFile /home/webart/www/_z/.htpasswd
 require valid-user

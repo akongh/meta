@@ -20,7 +20,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	
 	$_SQL_opornoe_slovo_zayavki = implode("','", $_MASSIV_opornoe_slovo_zayavki);
 	
-	include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd.php');
+	include ('/home/webart/www/_z/bd.php');
 	
 	$zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
@@ -51,7 +51,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	mysql_close($podkluchenie);
 	}
 
-header("Location: http://upravlyalka.200slov.andrej.by/ne_xvataet_perevoda.php");
+header("Location: http://up.meta.afoteris.com/ne_xvataet_perevoda.php");
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));

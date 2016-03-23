@@ -6,7 +6,7 @@ for($i = 538754; $i <= 538754; $i++)
 	$vr_nabora = time();
 	$ses = "lori—".$i;//print_r($ses);
 	
-	include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd_p.php');
+	include ('/home/webart/www/_z/bd_p.php');
 
 	$slova = mysql_query("
 	select `s`

@@ -26,7 +26,7 @@ if(isset($znachenie))
 		}
 	}
 
-include ('/home/webart/www/_upravlyalka.200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 if($slovo_original != $slovo_k)
 {
@@ -182,6 +182,6 @@ mysql_close($podkluchenie);
 
 $_SESSION['slovo_k'] = $slovo_k;
 
-header("Location: http://upravlyalka.200slov.andrej.by/perevod_prosmotr_po_zayavke.php");
+header("Location: http://up.meta.afoteris.com/perevod_prosmotr_po_zayavke.php");
 
 ?>
