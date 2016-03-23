@@ -17,11 +17,11 @@
 В базе ключевых слов/наборов на кириллице — 
 <span class="statistika_czyfra">
 <!--PHP////////////////////////////////////////////////-->
-<?php echo $kir_kol_slov;?>/<?php echo $kir_kol_naborov;?>
+<?php echo $kir_kol_slov;?> / <?php echo $kir_kol_naborov;?>
 </span>,
 &nbsp;на латинице — 
 <span class="statistika_czyfra">
 <!--PHP////////////////////////////////////////////////-->
-<?php echo $lat_kol_slov;?>/<?php echo $lat_kol_naborov;?>
+<?php echo $lat_kol_slov;?> / <?php echo $lat_kol_naborov;?>
 </span>.
 </div>

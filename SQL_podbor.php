@@ -12,7 +12,7 @@ $_SQL_zapros_podbor = "select `ts`.`s`, count(*)
 	  join `t_s` on `t_s`.`id_n` = `g`.`id_n`    
 	  join `ts` on `ts`.`ids` = `t_s`.`id_s`    
 	  group by `t_s`.`id_s`, `ts`.`s`    
-	  order by count(*) desc, `ts`.`s` LIMIT 0, 100 
+	  order by count(*) desc, `ts`.`s` LIMIT 0, 200 
 	  ;    
 	  ";
 
