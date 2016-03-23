@@ -7,7 +7,6 @@ $id_pol = $_SESSION['id_pol'];
 $imya_pol = $_SESSION['imya_pol'];
 $el_p_pol = $_SESSION['el_p_pol'];
 $vvod_slov = $_POST["vvod_slov"];//var_dump($vvod_slov);
-$_SESSION["vvod_slov_utochnit"] = $vvod_slov;
 
 include('slova_nabory.php');
 include('slova_nabory_pol.php');
@@ -30,6 +29,10 @@ if (isset($oporn_slova_bez_probelov))
 {
 	//возвращаем последовательность индексам, удаляем дубликаты
 	$oporn_slova_bez_probelov = array_values(array_unique((array_diff($oporn_slova_bez_probelov, array('')))));//var_dump($oporn_slova_bez_probelov);
+	
+	//заносим в сессию отформатированый список опорных слов для шага-возврата, чтобы уточнить запрос
+	$_SESSION["vvod_slov_utochnit"] = implode("\n", $oporn_slova_bez_probelov);
+	
 	if (count($oporn_slova_bez_probelov) > 0)
 	{
 		//готовим опорные слова для проверки на соответствие регулярному выраженияю
