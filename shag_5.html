@@ -16,34 +16,16 @@
   <!--PHP//////////////////////////-->
   <?php include('statistika.shtml');?>
   <hr class="otbivka_48">
-  <h2><span class="nomer_shaga">3/5</span>
+  <h2><span class="nomer_shaga">5/5</span>
   <hr class="otbivka_12">
-  Проверяем результат списком</h2>
+  Результат строкой</h2>
   <hr class="otbivka_48">
   <!--PHP//////////////////////--> 
-  <?php echo $sobranny_nabor;?>
+  <?php echo $_REZULTAT;?>
   <hr class="otbivka_48">
-    <form method="post" action="f_ochered.php">
-      <div class="vvod_slov">
-      <!--PHP////////////////////////-->
-      <?php echo $oshibka_kolichestva;?>
-      <hr class="otbivka_12">
-      <input name="ochered" type="submit" class="knopka" value="&#9658; Назначить очерёдность">
-      </div>
-    </form>
-    <hr class="otbivka_24">
-    <div class="upravlenie">
-    <!--PHP-->
-    <?php include('f_izmenit.shtml');?>
+  <div class="upravlenie">
     <hr class="otbivka_12">
-    <!--PHP-->
-    <?php include('f_utochnit.shtml');?>
-    <hr class="otbivka_12">
-    <!--PHP-->
-    <?php include('f_zapomnit.shtm');?>
-    <hr class="otbivka_12">
-    <!--PHP-->
-    <?php include('f_sbros.shtml');?>
+    <a href="f_sbros.php" title="Начать новый подбор">&#9650; Начать новый подбор</a>
   </div>
   <hr class="otbivka_96">
   <!--PHP-->

@@ -316,3 +316,25 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 }
+#sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 298px;
+}
+#sortable li {
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 2px;
+	margin-left: -12px;
+	padding-top: 2px;
+	padding-right: 12px;
+	padding-bottom: 2px;
+	padding-left: 24px;
+	background-color: #FFFFEA;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+	background-image: url(strelki-vverh-vniz.png);
+	background-repeat: no-repeat;
+	background-position: 11px center;
+}

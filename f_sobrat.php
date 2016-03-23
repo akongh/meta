@@ -137,7 +137,7 @@ if (isset($massiv_itog))
 ///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////////////////////////////////////////////////////////////
 if(isset($oshibka_simvola))
 {
-	header("Location: http://200slov.andrej.by/shag_2.php");
+	header("Location: http://proba.200slov.andrej.by/shag_2.php");
 	exit;
 	}
 ///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////////////////////////////////////////////////////////////
@@ -150,5 +150,5 @@ $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 //SESSION///////////////////////////////
 $_SESSION["massiv_itog"] = $massiv_itog;
 
-header("Location: http://200slov.andrej.by/shag_3.php");
+header("Location: http://proba.200slov.andrej.by/shag_3.php");
 ?>

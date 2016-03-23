@@ -7,11 +7,10 @@ $kir_kol_naborov = $_SESSION["kir_kol_naborov"];
 $lat_kol_slov = $_SESSION["lat_kol_slov"];
 $lat_kol_naborov = $_SESSION["lat_kol_naborov"];
 
-$ochered = $_SESSION["ochered"];
+$_REZULTAT = $_SESSION["_REZULTAT"] . "<hr class=\"otbivka_24\">
+<div class=\"statistika\">Слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
 
-$oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
-
-include('shag_4.html');
+include('shag_5.html');
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));
