@@ -39,6 +39,11 @@ if ($massiv_itog)
 	//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	}
 mysql_close($podkluchenie);
-unset($_SESSION["SESSION_massiv_itog"]);
+unset(
+$_SESSION["SESSION_massiv_itog"],
+$_SESSION["vvod_slov_utochnit"],
+$_SESSION['vyvod_spiska'],
+$_SESSION['dopolnenie_unikalnoe']
+);
 header("Location: /1_vvod_slov.php");
 ?>

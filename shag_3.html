@@ -24,6 +24,7 @@ include('slova_nabory_pol.shtml');
   <hr class="otbivka_48">
   
   <!-- PHP -->
+  
   <?php
 echo $stroka_itog;
 ?>
@@ -33,9 +34,18 @@ echo $stroka_itog;
 echo $kol_slov_itog;
 ?>
 </span>.</div>
-    <hr class="otbivka_24">
+  <hr class="otbivka_24">
+  <?php
+include('utochnit.shtml');
+?>
+&nbsp;&nbsp;
+или
+&nbsp;&nbsp;
+<?php
+include('izmenit.shtml');
+?>
+  <hr class="otbivka_24">
   <!-- /PHP -->
-  
   <form method="post" action="4_novyj_nabor.php">
     <input name="soxranit" type="submit" class="knopka" value="3/3. Создать набор и сначала">
     <?php
@@ -49,10 +59,10 @@ include('panel.shtml');
   <hr class="otbivka_24">
   <?php
 include('podval.shtml');
-?><?php
+?>
+  <?php
 include('yandex_metrika.shtml');
 ?>
 </div>
-
 </body>
 </html>

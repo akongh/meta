@@ -1,5 +1,5 @@
 <link href="stili.css" rel="stylesheet" type="text/css">
-<div class="slova_nabory"> В общей базе слов — <span class="slova_nabory_czyfra">
+<div class="slova_nabory"> В общей базе ключевых слов — <span class="slova_nabory_czyfra">
 <?php
 echo $kol_slov;
 ?>

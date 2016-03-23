@@ -7,6 +7,7 @@ $id_pol = $_SESSION['id_pol'];
 $imya_pol = $_SESSION['imya_pol'];
 $el_p_pol = $_SESSION['el_p_pol'];
 $vvod_slov = $_POST["vvod_slov"];//var_dump($vvod_slov);
+$_SESSION["vvod_slov_utochnit"] = $vvod_slov;
 
 include('slova_nabory.php');
 include('slova_nabory_pol.php');

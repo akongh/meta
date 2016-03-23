@@ -48,7 +48,8 @@ for ($i = 0;$i < count($massiv_rezultata);$i++)
 if ($spisok != NULL)
 {
 	$vyvod_spiska = implode("<br>\n", $spisok) . "<hr class=\"otbivka_24\">";//var_dump($spisok);
-	}	
+	$_SESSION['vyvod_spiska'] = $vyvod_spiska;
+	}
 ////////////////////////////////////////////////////делаем массив из дополнительных слов/////////////////////////////////////////////////////////////	
 //помещаем в переменную дополнительные слова строкой
 $dopolnenie = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($dopolnenie))), "utf-8"));//var_dump($dopolnenie);
@@ -98,6 +99,7 @@ if (isset($slova_s_flagom_bez_probelov) && isset($dop_slova_bez_probelov))
 //////////////////////////////////делаем строку с переносами из массива уникального дополненния////////////////////////////////////////////////////////////
 if (isset($dopolnenie_unikalnoe)) {//echo "dopolnenie_unikalnoe массив — ";var_dump($dopolnenie_unikalnoe);echo "<br>";
     $dopolnenie_unikalnoe = implode("\n", $dopolnenie_unikalnoe);//var_dump($dopolnenie_unikalnoe);
+	$_SESSION['dopolnenie_unikalnoe'] = $dopolnenie_unikalnoe;
 }
 /////////////////////////////////////////итоговый массив из подбора и дополнения/////////////////////////////////////////////////////////////////////////////////////
 if (isset($slova_s_flagom_bez_probelov) && isset($dop_slova_bez_probelov)) {
@@ -127,7 +129,7 @@ if (count($massiv_itog) < 10 )
 {
 	$oshibka_massiv_itog_10 = "<hr class=\"otbivka_0\"><span class=\"oshibka\">В наборе менее 10-ти уникальных ключевых слов.</span>";
 	}
-///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////////////////////////////////////////////////////////////
 if (!isset($oshibka_massiv_itog_10) && !isset($oshibka_simvol))
 {
 	//добавляем в сессию массив всех итоговых слов
