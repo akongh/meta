@@ -1,6 +1,78 @@
 <?php
 
+ALTER TABLE t_s
+ADD FOREIGN KEY vk_id_s(id_s)
+REFERENCES ts(ids)
+ON DELETE NO ACTION
+ON UPDATE CASCADE;
 
+
+
+
+
+
+
+
+
+tanglir 
+Member
+
+Откуда: 
+ Сообщений: 21878	 1)
+select ts.s, count(*)
+from (
+  select t_s.id_n
+  from  ts -- 1.1, откуда берём данные
+  join t_s on t_s.id_s = ts.ids -- 1.1, откуда берём данные
+  where ts.s in ('" . $oporn_slova . "') -- 1.2, фильтр по словам
+  group by t_s.id_n -- 1.3, группировка
+  having count(/*distinct*/ t_s.id_s) = " . $kolichestvo_opornyx_slov . " 
+-- 1.4 оставляем после группировки только такие id_n,
+-- у которых количество id_s равно количеству нужных слов
+  ) g -- 1
+join t_s on t_s.id_n = g.id_n -- 1
+join ts on ts.ids = t_s.id_s -- 1
+group by t_s.id_s -- 2
+order by count(*) desc, ts.s -- 3
+;
+ как-то так
+
+2. Не джойнов, а запросов. "Вложенных джойнов", насколько я понимаю, не может быть в принципе.
+3. Это на случай, если у вас могут быть дублирующиеся записи в таблице связей. В случае, когда у вас есть только связи, без какой-либо доп. информации о них (т.е. в таблице связей есть только 2 поля: ид1 и ид2), повторов быть и так не должно, ну и дистинкт тогда не нужен.
+4. g - псевдоним для результата подзапроса. Того, что выполняется в скобках.
+5. На верхнем уровне выводятся 2 поля: первое - само слово, второе - количество повторов этого слова. Сортировка выполняется после группировки; количество повторов - обычное поле результата, по нему спокойно можно сортировать.
+
+Почитайте хотя бы Грабера, что ли. Для понимания этого запроса будет имхо вполне достаточно.
+
+
+
+
+
+
+
+
+
+
+
+
+//для моей таблицы
+mysql_query ("
+select ts.s, count(*)
+from (
+  select t_s.id_n -- найденные id файлов, к которым привязаны сразу все наши заданные слова
+  from  ts -- искомые слова отбираются по фильтру WHERE
+  join t_s on t_s.id_s = ts.ids -- id всех файлов с заданнымим словами
+  where ts.s in ('word2','word4','word6')
+  -- оставить только файлы со всеми заданными словами сразу:
+  group by t_s.id_n having count(/*distinct*/ t_s.id_s) = 3 
+  ) g
+join t_s on t_s.id_n = g.id_n -- получить id всех слов, привязанных к найденным файлам
+join ts on ts.ids = t_s.id_s -- и сами слова по их id
+group by t_s.id_s -- для каждого слова посчитать частоту (количество в выборке)
+order by count(*) desc, ts.s -- отсортировать по частоте, для одинаковой частоты - по алфавиту
+;
+");
+//######################################################################################################
 
 
 
@@ -194,3 +266,17 @@ order by qty desc,w.keyword -- отсортировать по частоте, �
 ;
 ")
 ?>
+select tst_keywords.keyword, count(*)
+from (
+  select tst_filekeys.fid -- найденные id файлов, к которым привязаны сразу все наши заданные слова
+  from  tst_keywords -- искомые слова отбираются по фильтру WHERE
+  join tst_filekeys on tst_filekeys.wid = tst_keywords.id -- id всех файлов с заданнымим словами
+  where tst_keywords.keyword in ('word2','word4','word6')
+  -- оставить только файлы со всеми заданными словами сразу:
+  group by tst_filekeys.fid having count(/*distinct*/ tst_filekeys.wid) = 3 
+  ) g
+join tst_filekeys on tst_filekeys.fid = g.fid -- получить id всех слов, привязанных к найденным файлам
+join tst_keywords on tst_keywords.id = tst_filekeys.wid -- и сами слова по их id
+group by tst_filekeys.wid -- для каждого слова посчитать частоту (количество в выборке)
+order by count(*) desc, tst_keywords.keyword -- отсортировать по частоте, для одинаковой частоты - по алфавиту
+;

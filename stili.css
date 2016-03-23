@@ -15,8 +15,8 @@ body {
 	border-left-style: none;
 	text-align: center;
 	display: block;
-	color: #000;
-	background-color: #FFF;
+	color: #000000;
+	background-color: #CCCC99;
 }
 
 
@@ -32,47 +32,45 @@ p {
 	margin: 0px;
 }
 a {
-	color: #09F;
+	color: #0099FF;
 }
 .dopolnenie {
 	margin: 0px;
 	padding: 10px;
-	width: 220px;
+	width: 260px;
 	resize: none;
 	height: 120px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
 	float: left;
 	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
+	border-radius: 10px;
+	border: 1px solid #CCCC99;
 }
 
 
 
 
 .korobka {
-	width: 440px;
+	width: 480px;
 	margin-right: auto;
 	margin-left: auto;
-	color: #333;
 	margin-top: 48px;
 	margin-bottom: 48px;
 	text-align: left;
-	border: 1px none #CCC;
-	background-color: #f8ffdd;
+	border: 1px solid #CCCC99;
+	background-color: #F8FFDD;
 	border-radius: 20px;
 	padding-top: 40px;
 	padding-right: 60px;
 	padding-bottom: 60px;
 	padding-left: 60px;
+	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.298);
 }
 
 
 .knopka {
 	height: 28px;
-	width: 240px;
+	width: 280px;
 	font-size: 14px;
 	padding: 0px;
 	margin-top: 0px;
@@ -82,7 +80,7 @@ a {
 }
 .knopka_2 {
 	height: 28px;
-	width: 440px;
+	width: 480px;
 	font-size: 14px;
 	padding: 0px;
 	margin-top: 0px;
@@ -137,27 +135,39 @@ a {
 }
 .sbros {
 	text-align: right;
-	clear: both;
-	color: #F00;
+	clear: left;
+	color: #FF0000;
+	width: 280px;
 }
+
 .sbros a{
 	text-align: right;
 	clear: both;
-	color: #F00;
+	color: #FF0000;
 }
+.sbros_2 {
+	text-align: center;
+	clear: left;
+	color: #FF0000;
+	width: 100%;
+}
+.sbros_2 a {
+	text-align: right;
+	clear: both;
+	color: #FF0000;
+}
+
 .vvod_slov {
 	height: 120px;
-	width: 220px;
+	width: 260px;
 	margin: 0px;
 	resize: none;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
 	float: left;
 	padding: 10px;
 	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
+	border-radius: 10;
+	border: 1px solid #CCCC99;
 }
 .zagolovok {
 	margin: 0px;
@@ -166,19 +176,20 @@ a {
 }
 
 .zamechaniya {
-	color: #999;
+	color: #666666;
 	font-family: "PT Sans Italic";
 	float: left;
-	width: 180px;
+	width: 178px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 20px;
 }
+
 .zamechaniya_2 {
-	color: #999;
+	color: #666666;
 	font-family: "PT Sans Italic";
-	float: left;
 	width: 100%;
 	margin: 0px;
+	text-align: right;
 }
