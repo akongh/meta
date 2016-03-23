@@ -21,15 +21,16 @@ if ($massiv_itog)
 		for ($i = 0;$i < count($massiv_itog);$i++)
 		{
 			mysql_query("  
-			INSERT IGNORE INTO `ts` (`s`)  
-			VALUES ('".$massiv_itog[$i]."')");
-				
+			INSERT IGNORE INTO `ts` (`s`, `el_p`)  
+			VALUES ('".$massiv_itog[$i]."', '".$el_p_pol."')
+			");
 			//создаём связи
 			mysql_query("  
 			INSERT INTO `t_s` (`id_n`, `id_s`)  
 			VALUES ((SELECT `idn` FROM `tn` WHERE `vr` = '".$vr_nabora."' AND `el_p` = '".$el_p_pol."'),  
 					(SELECT `ids` FROM `ts` WHERE `s` = '".$massiv_itog[$i]."'))  
 			");
+			
 			mysql_query("  
 			INSERT INTO `".$id_pol."--t_s` (`id_n`, `id_s`)  
 			VALUES ((SELECT `idn` FROM `tn` WHERE `vr` = '".$vr_nabora."' AND `el_p` = '".$el_p_pol."'),  

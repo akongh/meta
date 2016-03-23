@@ -10,16 +10,35 @@
 <div class="korobka">
   <?php
 include('versiya.shtml');
-?>
-  <?php
 include('shapka.shtml');
 ?>
   <hr class="otbivka_48">
   <div class="obratnaya_svyaz"> <span class="zagolovok"> Кабинет </span>
     <hr class="otbivka_48">
-    <div class="kabinet_blok"> <span class="zagolovok_2">Смена пароля</span>
+    
+    <!--удаление наборов-->
+    
+    <div class="kabinet_blok_udal_nab"> <span class="zagolovok_2">Удаление личных наборов</span>
       <hr class="otbivka_24">
-      <form action="kabinet.php" method="post" name="smena_parolya">
+      Ваши текущие личные наборы ключевых слов будут удалены и&nbsp;вы&nbsp;сможете создать новую базу личных наборов для&nbsp;атрибутации новых серий своих произведений.
+      <hr class="otbivka_24">
+      <?php
+include('slova_nabory_pol.shtml');
+?>
+      <hr class="otbivka_24">
+      <form action="udalenie_nab.php" method="post">
+        <input name="udal_nab_1" type="submit" class="knopka" value="Удалить личные наборы">
+      </form>
+      <hr class="otbivka_0">
+    </div>
+    
+    <!--/удаление наборов-->
+    <hr class="otbivka_24">
+    <!--смена пароля-->
+    
+    <div class="kabinet_blok_smen_par"> <span class="zagolovok_2">Смена пароля</span>
+      <hr class="otbivka_24">
+      <form action="smen_par.php" method="post" name="smena_parolya">
         <input name="nov_parol" type="password" class="vxod_registraczya" value="<?php echo $parol; ?>">
         <div class="podpisi">Новый пароль (5—12, цифры)</div>
         <?php
@@ -39,7 +58,11 @@ echo $oshibka_raznye_paroli;
       </form>
       <hr class="otbivka_0">
     </div>
+    
+    <!--/смена пароля-->
     <hr class="otbivka_24">
+    <!--удаление регистрации-->
+    
     <div class="kabinet_blok_udal_reg"> <span class="zagolovok_2">Удаление регистрации</span>
       <hr class="otbivka_24">
       Ваши наборы ключевых слов и&nbsp;учётная запись будут удалены без&nbsp;возможности восстановления.
@@ -49,22 +72,19 @@ echo $oshibka_raznye_paroli;
       </form>
       <hr class="otbivka_0">
     </div>
+    
+    <!--/удаление регистрации-->
+    
     <hr class="otbivka_48">
-    <div class="vernutsya">
-    <a href="1_vvod_slov.php" title="Вернуться к подбору">Вернуться к подбору</a> 
-    &nbsp;&nbsp; 
-    <a href="obratnaya_svyaz.php" title="Обратная связь">Обратная связь</a>
-     &nbsp;&nbsp; 
-     <a href="spravka.php" title="Справка">Справка</a>
-     </div>
+    <div class="vernutsya"> <a href="1_vvod_slov.php" title="Вернуться к подбору">Вернуться к подбору</a> &nbsp;&nbsp; <a href="obratnaya_svyaz.php" title="Обратная связь">Обратная связь</a> &nbsp;&nbsp; <a href="spravka.php" title="Справка">Справка</a> </div>
     <hr class="otbivka_24">
     <?php
 include('podval.shtml');
 ?>
-  </div><?php
+  </div>
+  <?php
 include('yandex_metrika.shtml');
 ?>
 </div>
-
 </body>
 </html>

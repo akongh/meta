@@ -7,14 +7,17 @@
 <?php
 echo $imya_pol;
 ?>
-<br>
 </span>
+<br>
 
 <?php
 echo $el_p_pol;
-echo "<br>
-Учётная запись №" . $id_pol;
 ?>
-
 <br>
+
+<?php
+echo "Учётная запись №".$id_pol;
+?>
+<br>
+
 <a href="vyxod.php" title="Выход">Выход</a> </div>

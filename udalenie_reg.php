@@ -5,6 +5,11 @@ $id_pol = $_SESSION['id_pol'];
 $imya_pol = $_SESSION['imya_pol'];
 $el_pochta = $_SESSION['el_p_pol'];
 
+if($_POST['udal_reg_1'])
+{
+	include("podtv_udalenie_reg.html");
+	}
+	
 if($_POST['udal_reg_2'])
 {
 	include ('bd.php');
@@ -18,10 +23,5 @@ if($_POST['udal_reg_2'])
 	include("udalenie_reg.html");
 	mysql_close($podkluchenie);
 	session_destroy();
-	}
-	
-if($_POST['udal_reg_1'])
-{
-	include("podtv_udalenie_reg.html");
 	}
 ?>

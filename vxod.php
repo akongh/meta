@@ -43,8 +43,9 @@ if (isset($_POST["vojti"])) {
                 $id_pol = $id_pol['idp'];
                 $imya_pol = mysql_fetch_array(mysql_query("SELECT `imya` FROM `tp` WHERE `el_p` = '".$el_pochta_vxod."'"));
                 $imya_pol = $imya_pol['imya'];
-                $el_p_pol = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$el_pochta_vxod."'"));
-                $el_p_pol = $el_p_pol['el_p'];
+                //$el_p_pol = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$el_pochta_vxod."'"));
+                //$el_p_pol = $el_p_pol['el_p'];
+				$el_p_pol = $el_pochta_vxod;
                 $_SESSION['metka_vxoda'] = TRUE;
                 $_SESSION['id_pol'] = $id_pol;
                 $_SESSION['imya_pol'] = $imya_pol;

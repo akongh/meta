@@ -8,7 +8,7 @@ $el_p_pol = $_SESSION['el_p_pol'];
 
 if (isset($_POST["soobsshenie"]) && !empty($_POST["soobsshenie"]))
 {
-	$tema_pisma = "№".$_SESSION['id_pol'].", ".$_SESSION['imya_pol'].", ".$_SESSION['el_p_pol']."";
+	$tema_pisma = "№".$id_pol.", ".$imya_pol.", ".$el_p_pol."";
 	$tekst_pisma = trim(htmlspecialchars(strip_tags(stripslashes($_POST["soobsshenie"]))));
 	include('pismo_soobsshenie.php');
 	
