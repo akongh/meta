@@ -9,18 +9,24 @@
 <body>
 <div class="korobka">
   <?php
-require_once('versiya.shtml');
+include('versiya.shtml');
 ?>
-<div class="zagolovok">Подбор ключевых слов для&nbsp;стоков</div>
-<hr class="otbivka_24">
-Создавайте свои наборы слов, используя общую базу и регулируйте количеством значимых слов результат подбора.
-<hr class="otbivka_6">
-<a href="rukovodstvo.php" title="Руководство">Руководство</a>
-<hr class="otbivka_96">
+  <h1>Подбор ключевых слов для&nbsp;стоков</h1>
+  <hr class="otbivka_24">
+  <h2>Подбирайте ключевые слова на кирилице и латинице,
+    используйте общую базу наборов слов или созданную на её основе свою,
+    настраивайте точность подбора количеством значимых слов. </h2>
+  <hr class="otbivka_6">
+  <a href="spravka.php" title="Справка">Справка</a>
+  <hr class="otbivka_24">
+  <?php
+include('slova_nabory.shtml');
+?>
+  <hr class="otbivka_48">
   <div class="zagolovok">Вход</div>
   <hr class="otbivka_24">
   <form action="vxod.php" method="post" name="vxod">
-    <input name="el_pochta_vxod" type="text" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>">
+    <input name="el_pochta_vxod" type="email" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>" autofocus>
     <div class="podpisi">Эл. почта</div>
     <?php
 echo $pusto_el_pochta_vxod;
@@ -37,10 +43,12 @@ echo $oshibka_aktiv;
 ?>
     <hr class="otbivka_12">
     <input name="vojti" type="submit" class="knopka" value="Войти">
-    <div class="podpisi"><a href="smen_zab_par.html" title="Сменить забытый пароль">Сменить забытый пароль</a></div>
+    <div class="podpisi_knopka"><a href="smen_zab_par.html" title="Сменить забытый пароль">Сменить забытый пароль</a></div>
   </form>
   <hr class="otbivka_48">
   <div class="zagolovok">Регистрация</div>
+  <hr class="otbivka_6">
+  Создавайте и используйте свои наборы слов.
   <hr class="otbivka_24">
   <form action="registraczya.php" method="post" name="registraczya">
     <input name="reg_imya" type="text" class="vxod_registraczya" value="<?php echo $imya; ?>">
@@ -50,7 +58,7 @@ echo $pusto_imya;
 echo $oshibka_imya;
 ?>
     <hr class="otbivka_6">
-    <input name="reg_el_pochta" type="text" class="vxod_registraczya" value="<?php echo $el_pochta; ?>">
+    <input name="reg_el_pochta" type="email" class="vxod_registraczya" value="<?php echo $el_pochta; ?>">
     <div class="podpisi">Эл. почта</div>
     <?php
 echo $oshibka_zareg_el_pochta;
@@ -78,7 +86,10 @@ echo $oshibka_raznye_paroli;
   </form>
   <hr class="otbivka_48">
   <?php
-require_once('podval.shtml');
+include('podval.shtml');
+?>
+  <?php
+include('yandex_metrika.shtml');
 ?>
 </div>
 </body>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('bd.php');
+include('bd.php');
 
 if (isset($_POST["smen_zab_par_otprav"]))
 {
@@ -14,16 +14,16 @@ if (isset($_POST["smen_zab_par_otprav"]))
 		$nov_parol_md5 = md5($nov_parol);
 		mysql_query("UPDATE `tp` SET `par` = '".$nov_parol_md5."' WHERE `el_p` = '".$el_pochta."'");
 
-		$tema_pisma = "Новый пароль для входа на slova2.sferagrafiki.ru";
+		$tema_pisma = "Новый пароль для входа на сайт 200slov.andrej.by";
 		$tekst_pisma = "Вам назначен новый пароль: " . $nov_parol;
-		require_once('pismo.php');
+		include('pismo.php');
 		
-		require_once('smen_zab_par_otpravlen.html');
+		include('smen_zab_par_otpravlen.html');
 		}
 		else
 		{
 			$oshibka_smen_zab_par_el_pocta = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Такой адрес эл. почты не зарегистрирован.</span>";
-			require_once('smen_zab_par.html');
+			include('smen_zab_par.html');
 			}
 }
 

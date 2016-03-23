@@ -1,0 +1,11 @@
+<link href="stili.css" rel="stylesheet" type="text/css">
+<div class="slova_nabory"> В вашей базе слов — <span class="slova_nabory_czyfra">
+<?php
+echo $kol_slov_pol;
+?>
+</span>,&nbsp;
+наборов — <span class="slova_nabory_czyfra">
+<?php
+echo $kol_naborov_pol;  
+?>
+</span>.</div>

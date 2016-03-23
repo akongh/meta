@@ -9,10 +9,10 @@
 <body>
 <div class="korobka">
   <?php
-require_once('versiya.shtml');
+include('versiya.shtml');
 ?>
   <?php
-require_once('shapka.shtml');
+include('shapka.shtml');
 ?>
   <hr class="otbivka_48">
   <div class="obratnaya_svyaz"> <span class="zagolovok"> Кабинет </span>
@@ -42,7 +42,7 @@ echo $oshibka_raznye_paroli;
     <hr class="otbivka_24">
     <div class="kabinet_blok_udal_reg"> <span class="zagolovok_2">Удаление регистрации</span>
       <hr class="otbivka_24">
-      Будет удалена ваша учётная запись и&nbsp;все ваши наборы и&nbsp;связи без&nbsp;возможности восстановления.
+      Ваши наборы ключевых слов и&nbsp;учётная запись будут удалены без&nbsp;возможности восстановления.
       <hr class="otbivka_24">
       <form action="udalenie_reg.php" method="post">
         <input name="udal_reg_1" type="submit" class="knopka" value="Удалить регистрацию">
@@ -55,13 +55,16 @@ echo $oshibka_raznye_paroli;
     &nbsp;&nbsp; 
     <a href="obratnaya_svyaz.php" title="Обратная связь">Обратная связь</a>
      &nbsp;&nbsp; 
-     <a href="rukovodstvo.php" title="Руководство">Руководство</a>
+     <a href="spravka.php" title="Справка">Справка</a>
      </div>
     <hr class="otbivka_24">
     <?php
-require_once('podval.shtml');
+include('podval.shtml');
 ?>
-  </div>
+  </div><?php
+include('yandex_metrika.shtml');
+?>
 </div>
+
 </body>
 </html>

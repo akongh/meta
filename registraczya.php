@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once ('bd.php');
-require_once('regularnye_vyrazheniya.php');
+include ('bd.php');
+include('regularnye_vyrazheniya.php');
 
 if (isset($_POST["zaregistrirovatsya"])) {
     $imya = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_imya"]))));
@@ -9,12 +9,11 @@ if (isset($_POST["zaregistrirovatsya"])) {
     $parol = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_parol"]))));
     $parol_2 = trim(htmlspecialchars(strip_tags(stripslashes($_POST["reg_parol_2"]))));
 	
-	
     if (empty($imya)) {
         $pusto_imya = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Введите имя.</span>";
     } else {
         if (!preg_match($regulyar_imya, $imya)) {
-            $oshibka_imya = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кириллица (2—20).</span>";
+            $oshibka_imya = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кириллица, и только буквы (2—20).</span>";
         } else {
             unset($oshibka_imya);
         }
@@ -58,7 +57,7 @@ if (isset($_POST["zaregistrirovatsya"])) {
         unset($oshibka_raznye_paroli);
     }
     if ($oshibka_imya or $pusto_imya or $oshibka_el_pochta or $pusto_el_pochta or $oshibka_zareg_el_pochta or $oshibka_parol or $pusto_parol or $oshibka_parol_2 or $pusto_parol_2 or $oshibka_raznye_paroli ) {
-        require_once ('index.php');
+        include ('index.php');
     } else {
         $vr_reg = time();
         $kod = md5(rand());
@@ -66,11 +65,10 @@ if (isset($_POST["zaregistrirovatsya"])) {
         mysql_query(" 
             INSERT INTO `tp` (`imya`, `el_p`, `par`, `vr_reg`, `kod`) VALUES ('".$imya."', '".$el_pochta."', '".$parol."', '".$vr_reg."', '".$kod."') 
             ");
-        $tema_pisma = "Подтвердите регистрацию на slova2.sferagrafiki.ru";
-        $tekst_pisma = "Подтвердите регистрацию, перейдя по ссылке:\n 
-http://slova2.sferagrafiki.ru/proverka_koda.php?el_pochta=" . $el_pochta . "&kod=" . $kod;
-        require_once('pismo.php');
-        require_once ('reg_pismo.html');
+        $tema_pisma = "Регистрация на сайте 200slov.andrej.by";
+        $tekst_pisma = "Подтвердите регистрацию на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda.php?el_pochta=" . $el_pochta . "&kod=" . $kod . "\">этой ссылке</a>.";
+        include('pismo.php');
+        include ('reg_pismo.html');
     }
     unset($pusto_imya, $pusto_el_pochta, $pusto_parol, $pusto_parol_2, $imya, $el_pochta, $parol, $parol_2);
 }

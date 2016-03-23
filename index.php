@@ -1,3 +1,4 @@
 <?php
-require_once('_index.html');
+include('slova_nabory.php');
+include('_index.html');
 ?>

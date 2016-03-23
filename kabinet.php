@@ -1,11 +1,11 @@
 <?php
 session_start();
-require_once ('metka_vxoda.php');
+include ('metka_vxoda.php');
 $id_pol = $_SESSION['id_pol'];
 $imya_pol = $_SESSION['imya_pol'];
-$el_p_pol = $_SESSION['el_p_pol'];
-require_once ('bd.php');
-require_once ('regularnye_vyrazheniya.php');
+$el_pochta = $_SESSION['el_p_pol'];
+include ('bd.php');
+include ('regularnye_vyrazheniya.php');
 if (isset($_POST["smen_parol"])) {
     $parol = trim(htmlspecialchars(strip_tags(stripslashes($_POST["nov_parol"]))));
     $parol_2 = trim(htmlspecialchars(strip_tags(stripslashes($_POST["nov_parol_2"]))));
@@ -33,25 +33,22 @@ if (isset($_POST["smen_parol"])) {
         unset($oshibka_raznye_paroli);
     }
     if ($oshibka_parol or $oshibka_parol_2 or $oshibka_raznye_paroli or $pusto_parol or $pusto_parol_2) {
-        require_once ('kabinet.html');
+        include ('kabinet.html');
     } else {
         $kod = md5(rand());
         $parol = md5($parol);
         mysql_query("  
-        UPDATE `tp` SET `nov_par` = '" . $parol . "', `kod` = '" . $kod . "' 
-        WHERE `el_p` = '" . $el_p_pol . "' 
+        UPDATE `tp` SET `nov_par` = '" . $parol . "', `kod` = '" . $kod . "'
+        WHERE `el_p` = '" . $el_pochta . "' 
         ");
-        $tema_pisma = "Подтвердите смену пароля на slova2.sferagrafiki.ru";
-        $tekst_pisma = "Подтвердите смену пароля, перейдя по ссылке:\n  
-http://slova2.sferagrafiki.ru/proverka_koda_smen_par.php?el_pochta=" . $el_p_pol . "&kod=" . $kod;
-        //$dop_zagolovok = 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=utf-8' . "\r\n";
-        $dop_zagolovok = 'From: slova.by <admin@andrej.by>' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-        mail($el_p_pol, $tema_pisma, $tekst_pisma, $dop_zagolovok); //здесь письмо отправить
-        require_once ('smen_par_pismo.html');
+        $tema_pisma = "Смена пароля на сайте 200slov.andrej.by";
+        $tekst_pisma = "Подтвердите смену пароля на сайте 200slov.andrej.by, перейдя по <a href=\"http://200slov.andrej.by/proverka_koda_smen_par.php?el_pochta=" . $el_pochta . "&kod=" . $kod . "\">этой ссылке</a>.";
+        include('pismo.php');
+        include ('smen_par_pismo.html');
     }
 }
 else
 {
-	require_once ('kabinet.html');
+	include ('kabinet.html');
 	}
 ?>

@@ -9,10 +9,10 @@
 <body>
 <div class="korobka">
   <?php
-require_once('versiya.shtml');
+include('versiya.shtml');
 ?>
   <?php
-require_once('shapka.shtml');
+include('shapka.shtml');
 ?>
   <hr class="otbivka_48">
   <div class="obratnaya_svyaz"> <span class="zagolovok"> Обратная связь </span>
@@ -30,13 +30,16 @@ require_once('shapka.shtml');
     &nbsp;&nbsp;
     <a href="kabinet.php" title="Кабинет">Кабинет</a>
     &nbsp;&nbsp;
-    <a href="rukovodstvo.php" title="Руководство">Руководство</a>
+    <a href="spravka.php" title="Справка">Справка</a>
     </div>
     <hr class="otbivka_24">
     <?php
-require_once('podval.shtml');
+include('podval.shtml');
 ?>
-  </div>
+  </div><?php
+include('yandex_metrika.shtml');
+?>
 </div>
+
 </body>
 </html>

@@ -1,7 +1,8 @@
 <?php
 session_start();
-require_once ('bd.php');
-require_once('regularnye_vyrazheniya.php');
+include('slova_nabory.php');
+include ('bd.php');
+include('regularnye_vyrazheniya.php');
 
 
 if (isset($_POST["vojti"])) {
@@ -51,18 +52,18 @@ if (isset($_POST["vojti"])) {
 				header("Location: /1_vvod_slov.php");
             } else {
 				$_SESSION["el_pochta_vxod"] = trim(htmlspecialchars(strip_tags(stripslashes($_POST["el_pochta_vxod"]))));
-                $oshibka_aktiv = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Вы ещё не активировались.<br>
-				Активируйтесь, перейдя по ссылке, отправленой вам ранее<br>
-				или <a href=\"reg_pismo_povtor.php\" title=\"Получить ссылку для активации\">получите ссылку для активации</a> ещё раз.</span>";
-				require_once('_index.html');
+                $oshibka_aktiv = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Вы ещё не подтвердили регистрацию.<br>
+				Подтвердите регистрацию, перейдя по ссылке, отправленой вам ранее<br>
+				или <a href=\"reg_pismo_povtor.php\" title=\"Получить ссылку для подтверждения регистрации\">получите ссылку для подтверждения регистрации</a> ещё раз.</span>";
+				include('_index.html');
             }
         } else {
             $oshibka_dostup = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Комбинация данных не существует.</span>";
-            require_once('_index.html');
+            include('_index.html');
         }
     } else {
         $oshibka_dostup = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Комбинация данных не существует.</span>";
-        require_once('_index.html');
+        include('_index.html');
     }
 }
 ?>
