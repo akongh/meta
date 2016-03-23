@@ -1,39 +1,57 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Подбор ключевых слов для стоков</title>
-<link href="STILI.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
-</head>
-<body>
-<div class="korobka"> 
-  <!--PHP-->
-  <!--<?php include('versiya.shtml');?>-->
+  <head>
+  <meta charset="utf-8">
+  <title>Подбор ключевых слов для стоков на русском языке</title>
+  <link href="STILI.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
+  </head>
+  <body>
+  <div class="korobka"> 
+    <!--PHP-->
+    <!--<?php include('versiya.shtml');?>-->
   <!--<hr class="otbivka_24">-->
-  <!--PHP-->
-  <?php include('nazvanie.shtml');?>
-  <hr class="otbivka_12">
-  <!--PHP//////////////////////////-->
-  <?php include('statistika.shtml');?>
-  <hr class="otbivka_48">
-  <h2><span class="nomer_shaga">5/5</span>
-  <hr class="otbivka_12">
-  Результат строкой</h2>
-  <hr class="otbivka_48">
-  <!--PHP//////////////////////--> 
-  <?php echo $_REZULTAT;?>
-  <hr class="otbivka_24">
-  <div class="upravlenie">
-    <hr class="otbivka_12">
-    <a href="f_sbros.php" title="Начать новый подбор">&#9650; Начать новый подбор</a>
+    <!--PHP-->
+    <?php include('nazvanie.shtml');?>
+  
+    <hr class="otbivka_48">
+    <h2><span class="nomer_shaga">5/6</span>
+      <hr class="otbivka_12">
+      <!--Переводим (рус.—анг.) или пропускаем-->Выбираем перевод</h2>
+    <hr class="otbivka_48">
+    <form method="post" action="f_poluchit.php">
+    
+		<div class = "blok_perevoda">
+        <!--PHP//////////////////////--> 
+        <?php echo $s_perevodom;?>
+		</div>
+
+      <hr class="otbivka_24">
+	  <div class="statistika">
+      Слов в наборе — <span class="statistika_czyfra">
+      <!--PHP//////////////////////--> 
+      <?php echo $_SESSION["kol_slov_itog"]?></span>.
+      </div>
+	  <hr class="otbivka_12">
+      <a href="ne_xvataet_perevoda.php" target="_blank">Сообщите, если не хватает перевода</a>
+      <span class="upravlenie">(в отдельном окне откроется форма для заявки)</span>
+      <hr class="otbivka_12">
+      <hr class="otbivka_24">
+      <div class="vvod_slov">
+        <input name="poluchit" type="submit" class="knopka" value="&#9658; Получить результат строками">
+      </div>
+    </form>
+    <hr class="otbivka_24">
+    <div class="upravlenie"> 
+      <!--PHP-->
+      <?php include('f_sbros.shtml');?>
+    </div>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('podval.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('yandex_metrika.shtml');?>
   </div>
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('podval.shtml');?>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('yandex_metrika.shtml');?>
-</div>
 </body>
 </html>

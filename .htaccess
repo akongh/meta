@@ -1,0 +1,17 @@
+#200slov.andrej.by
+
+
+#запрет выдачи листинга пустого каталога 
+Options -Indexes
+
+#назначаем главный файл сайта
+DirectoryIndex shag_1.php
+
+# Установите директорию хранения сессий для сайта с помощью session.save_path.
+php_value session.save_path /home/webart/www/sessii_200slov/
+
+# Установите максимальное время жизни сессии в секундах.
+#php_value session.gc_maxlifetime 0
+
+# Установите время жизни cookie, которая сохраняет идентификатор сессии в браузере пользователя.
+#php_value session.cookie_lifetime 480

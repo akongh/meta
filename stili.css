@@ -61,6 +61,19 @@ a:hover {
 	color: #339933;
 	font-family: "PT Sans Caption Regular";
 }
+.blok_perevoda {
+	background-color: #FFFFEA;
+	padding-top: 2px;
+	padding-right: 12px;
+	padding-bottom: 2px;
+	padding-left: 12px;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 2px;
+	margin-left: -12px;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+}
 .oshibka {
 	color: #FF0000;
 	font-family: "PT Sans Italic";
@@ -213,6 +226,9 @@ a:hover {
 	padding-bottom: 0px;
 	padding-left: 4px;
 }
+.na_russk_angl {
+	font-family: "PT Sans Caption Bold";
+}
 .upravlenie {
 	text-align: left;
 	margin: 0px;
@@ -236,6 +252,59 @@ a:hover {
 	font-size: 12px;
 	color: #999999;
 	padding: 0px;
+}
+.russk {
+	font-family: "PT Sans Caption Bold";
+}
+.perevod {
+	color: #663300;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.rezultat_fon {
+	background-color: #FFFFEA;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 0px;
+	margin-left: -12px;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	border-radius: 4px;
+	border: 1px solid #E9E9E9;
+}
+.znachenie {
+	font-family: "PT Sans Italic";
+	margin: 0px;
+	padding: 0px;
+}
+.opornoe_slovo_zayavki {
+	border: 4px dashed #FFFFCC;
+	width: 588px;
+	font-family: "PT Sans Caption Bold";
+	font-size: 32px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+}
+.perevoda_net {
+	font-family: "PT Sans Italic";
+	color: #FF0000;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
 }
 .nomer_shaga {
 	font-size: 60px;

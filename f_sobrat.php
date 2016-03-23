@@ -92,7 +92,7 @@ if(count($dopolnenie_unikalnoe) > 0)
 	$proverka_simvola = implode("", $dopolnenie_unikalnoe);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		}
@@ -129,7 +129,7 @@ if (isset($massiv_itog))
 		$proverka_simvola = implode("", $massiv_itog);
 		if (!preg_match($regulyar_slova, $proverka_simvola))
 		{
-			$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и дефис.</span>";
+			$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 			//SESSION///////////////////////////////////////
 			$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 			}

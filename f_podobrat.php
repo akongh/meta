@@ -31,7 +31,7 @@ if(count($_MASSIV_op_slov) > 0)
 	$proverka_simvola = implode("", $_MASSIV_op_slov);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, цифры, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		header("Location: http://200slov.andrej.by");
@@ -46,7 +46,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 	$proverka_simvola = implode("", $proverka_simvola);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, цифры, пробел и дефис.</span>";
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
 		//SESSION///////////////////////////////////////
 		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		header("Location: http://200slov.andrej.by");

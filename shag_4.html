@@ -2,10 +2,12 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Подбор ключевых слов для стоков</title>
+  <title>Подбор ключевых слов для стоков на русском языке</title>
   <link href="STILI.css" rel="stylesheet" type="text/css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
+  <script src="jquery-1.10.2.js"></script>
+  <script src="jquery-ui.js"></script>
   <script>
   $(function() {
     $( "#sortable" ).sortable();
@@ -21,15 +23,13 @@
   <!--<hr class="otbivka_24">-->
     <!--PHP-->
     <?php include('nazvanie.shtml');?>
-    <hr class="otbivka_12">
-    <!--PHP//////////////////////////-->
-    <?php include('statistika.shtml');?>
+  
     <hr class="otbivka_48">
-    <h2><span class="nomer_shaga">4/5</span>
+    <h2><span class="nomer_shaga">4/6</span>
       <hr class="otbivka_12">
       Определяем очерёдность ключевых слов</h2>
     <hr class="otbivka_48">
-    <form method="post" action="f_poluchit.php">
+    <form method="post" action="f_perevod.php">
       <ul id="sortable">
         <!--PHP//////////////////////--> 
         <?php echo $ochered;?>
@@ -43,7 +43,8 @@
 	  <hr class="otbivka_12">
       <hr class="otbivka_24">
       <div class="vvod_slov">
-        <input name="poluchit" type="submit" class="knopka" value="&#9658; Получить результат строкой">
+        <!--<input name="poluchit" type="submit" class="knopka" value="&#9658; Перевести (рус.—анг.) или пропустить">-->
+        <input name="poluchit" type="submit" class="knopka" value="&#9658; Выбрать перевод">
       </div>
     </form>
     <hr class="otbivka_24">

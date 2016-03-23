@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('bd.php');
+include ('/home/webart/www/_200slov.andrej.by/bd.php');
 
 $_SQL_zapros_podbor = "select `l-ts`.`s`, count(*)    
 	  from (    

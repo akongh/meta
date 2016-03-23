@@ -1,29 +1,56 @@
 <?php //error_reporting(0);
 session_start();
 
-$massiv_itog = $_POST["spisok_mesto"];
+$russk = $_POST["russk"];//print_r($russk);
+$angl = $_POST["angl"];//print_r($angl);
 
-$massiv_itog_strokoj = implode("", $massiv_itog);
+if(isset($angl))
+{
+	$angl = array_values(array_unique($angl));
+	}
 
-unset($_SESSION["oshibka_kolichestva"]);
+$russk_strokoj = implode("", $russk);
+//$angl_strokoj = implode("", $angl);
 
-$_SESSION["kol_slov_itog"] = count($massiv_itog);
+if(!preg_match("/[а-яё]+/i", $russk_strokoj))
+{
+	$angl = $russk;
+	unset($russk);
+	}
+	
+$_SESSION["kol_slov_russk"] = count($russk);
+$_SESSION["kol_slov_angl"] = count($angl);
 
 $vr_nabora = time();
 $ses = session_id();
 
-if(!preg_match("/[a-z]+/i", $massiv_itog_strokoj))
+if(isset($russk))
 {
 	include ('SQL_sozdat_nabor_k.php');
+	$_REZULTAT_russk = implode("; ", $russk);
 	}
-	else if (!preg_match("/[а-яё]+/i", $massiv_itog_strokoj))
-	{
-		include ('SQL_sozdat_nabor_l.php');
-		}
+	
+if(isset($angl))
+{
+	include ('SQL_sozdat_nabor_l.php');
+	$_REZULTAT_angl = implode("; ", $angl);
+	}
 
-$_REZULTAT = implode("; ", $massiv_itog);
+//////////////////////////////////////////////////////////////////////////////////////
+//if(!preg_match("/[a-z]+/i", $massiv_itog_strokoj))
+//{
+//	include ('SQL_sozdat_nabor_k.php');
+//	}
+//	else if (!preg_match("/[а-яё]+/i", $massiv_itog_strokoj))
+//	{
+//		include ('SQL_sozdat_nabor_l.php');
+//		}
+//////////////////////////////////////////////////////////////////////////////////////
+
+
 //SESSION///////////////////////////
-$_SESSION["_REZULTAT"] = $_REZULTAT;
+$_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
+$_SESSION["_REZULTAT_angl"] = $_REZULTAT_angl;
 
-header("Location: http://200slov.andrej.by/shag_5.php");
+header("Location: http://200slov.andrej.by/shag_6.php");
 ?>

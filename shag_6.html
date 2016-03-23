@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков на русском языке</title>
+<link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
+</head>
+<body>
+<div class="korobka"> 
+  <!--PHP-->
+  <!--<?php include('versiya.shtml');?>-->
+  <!--<hr class="otbivka_24">-->
+  <!--PHP-->
+  <?php include('nazvanie.shtml');?>
+  
+  <hr class="otbivka_48">
+  <h2><span class="nomer_shaga">6/6</span>
+  <hr class="otbivka_12">
+  Результат строками</h2>
+  <hr class="otbivka_48">
+  
+  <div class = "rezultat_fon">
+  <span class = "na_russk_angl">На русском</span>
+  <hr class="otbivka_24">
+  <!--PHP//////////////////////--> 
+  <?php echo $_REZULTAT_russk;?>
+  </div>
+  
+  <hr class="otbivka_48">
+  
+  <div class = "rezultat_fon">
+  <span class = "na_russk_angl">На английском</span>
+  <hr class="otbivka_24">
+  <!--PHP//////////////////////--> 
+  <?php echo $_REZULTAT_angl;?>
+  </div>
+  
+  <hr class="otbivka_24">
+  <div class="upravlenie">
+    <hr class="otbivka_12">
+    <a href="f_sbros.php" title="Начать новый подбор">&#9650; Начать новый подбор</a>
+  </div>
+  <hr class="otbivka_96">
+  <!--PHP-->
+  <?php include('podval.shtml');?>
+  <hr class="otbivka_24">
+  <!--PHP-->
+  <?php include('yandex_metrika.shtml');?>
+</div>
+</body>
+</html>

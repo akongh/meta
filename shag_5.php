@@ -1,14 +1,11 @@
 <?php //error_reporting(0);
 session_start();
-include('SQL_statistika.php');
+if(!isset($_SESSION["metka"]))
+{
+	header("Location: http://200slov.andrej.by");
+	}
 
-$kir_kol_slov = $_SESSION["kir_kol_slov"];
-$kir_kol_naborov = $_SESSION["kir_kol_naborov"];
-$lat_kol_slov = $_SESSION["lat_kol_slov"];
-$lat_kol_naborov = $_SESSION["lat_kol_naborov"];
-
-$_REZULTAT = $_SESSION["_REZULTAT"] . "<hr class=\"otbivka_24\">
-<div class=\"statistika\">Слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
+$s_perevodom = $_SESSION["s_perevodom"];
 
 include('shag_5.html');
 
