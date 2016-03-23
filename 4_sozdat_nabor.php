@@ -23,7 +23,7 @@ $_SESSION["vvod_slov_utochnit"],
 $_SESSION['vyvod_spiska'],
 $_SESSION['dopolnenie_unikalnoe']
 );
-header("Location: http://proba.200slov.andrej.by");
+header("Location: http://200slov.andrej.by");
 
 //echo "Сессии <pre>";
 //print_r($_SESSION);

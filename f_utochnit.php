@@ -7,6 +7,6 @@ $_SESSION["massiv_itog"],
 $_SESSION['dopolnenie_unikalnoe']
 );
 
-header("Location: http://proba.200slov.andrej.by");
+header("Location: http://200slov.andrej.by");
 
 ?>

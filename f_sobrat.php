@@ -133,13 +133,13 @@ if (!isset($oshibka_massiv_itog_10) && !isset($oshibka_simvol))
 		$_SESSION["stroka_itog"] = $stroka_itog;
 		$_SESSION["massiv_itog"] = $massiv_itog;
 		}
-	header("Location: http://proba.200slov.andrej.by/3_rezultat.php");
+	header("Location: http://200slov.andrej.by/3_rezultat.php");
 	}
 	else
 		{
 			$_SESSION["oshibka_massiv_itog_10"] = $oshibka_massiv_itog_10;
 			$_SESSION["oshibka_simvol"] = $oshibka_simvol;
-			header("Location: http://proba.200slov.andrej.by/2_dopolnenie.php");
+			header("Location: http://200slov.andrej.by/2_dopolnenie.php");
 			}
 
 ?>

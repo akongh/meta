@@ -18,6 +18,6 @@ $_POST["vvod_slov"],
 $_POST["slova_s_flagom"], 
 $_POST["dopolnenie"]
 );
-header("Location: http://proba.200slov.andrej.by");
+header("Location: http://200slov.andrej.by");
 
 ?>
