@@ -1,0 +1,184 @@
+@charset "utf-8";
+@import url("webfonts/PT_Sans_Caption_Regular/stylesheet.css");
+@import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
+@import url("webfonts/PT_Sans_Italic/stylesheet.css");
+
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "PT Sans Caption Regular";
+	font-size: 14px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-align: center;
+	display: block;
+	color: #000;
+	background-color: #FFF;
+}
+
+
+form {
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+}
+p {
+	margin: 0px;
+}
+a {
+	color: #09F;
+}
+.dopolnenie {
+	margin: 0px;
+	padding: 10px;
+	width: 220px;
+	resize: none;
+	height: 120px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: left;
+	font-family: "PT Sans Caption Regular";
+	font-size: 14px;
+}
+
+
+
+
+.korobka {
+	width: 440px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #333;
+	margin-top: 48px;
+	margin-bottom: 48px;
+	text-align: left;
+	border: 1px none #CCC;
+	background-color: #f8ffdd;
+	border-radius: 20px;
+	padding-top: 40px;
+	padding-right: 60px;
+	padding-bottom: 60px;
+	padding-left: 60px;
+}
+
+
+.knopka {
+	height: 28px;
+	width: 240px;
+	font-size: 14px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 24px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.knopka_2 {
+	height: 28px;
+	width: 440px;
+	font-size: 14px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 24px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.otbivka_12 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 12px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_24 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 24px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_48 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 48px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_96 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 96px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.sbros {
+	text-align: right;
+	clear: both;
+	color: #F00;
+}
+.sbros a{
+	text-align: right;
+	clear: both;
+	color: #F00;
+}
+.vvod_slov {
+	height: 120px;
+	width: 220px;
+	margin: 0px;
+	resize: none;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: left;
+	padding: 10px;
+	font-family: "PT Sans Caption Regular";
+	font-size: 14px;
+}
+.zagolovok {
+	margin: 0px;
+	font-size: 24px;
+	font-family: "PT Sans Caption Bold";
+}
+
+.zamechaniya {
+	color: #999;
+	font-family: "PT Sans Italic";
+	float: left;
+	width: 180px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+}
+.zamechaniya_2 {
+	color: #999;
+	font-family: "PT Sans Italic";
+	float: left;
+	width: 100%;
+	margin: 0px;
+}
