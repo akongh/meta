@@ -169,6 +169,14 @@ if(isset($perevod))
 //		WHERE `s` = '".$slovo_k."' and `f` = 0
 //		");
 //		}
+	else if (!isset($perevod) && ($slovo_original == $slovo_k)) //простопомечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
+	{
+		mysql_query("
+		UPDATE `k-ts`
+		SET `f` = 1
+		WHERE `s` = '".$slovo_k."'
+		");
+		}
 
 mysql_close($podkluchenie);
 

@@ -17,5 +17,15 @@ $lat_kol_naborov_zapros = mysql_query("SELECT COUNT(*) FROM `l-tn`");
 $lat_kol_naborov_otvet = mysql_fetch_row($lat_kol_naborov_zapros);
 $_SESSION["lat_kol_naborov"] = $lat_kol_naborov_otvet[0];
 
+
+
+$na_zayavke_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
+$na_zayavke_otvet = mysql_fetch_row($na_zayavke_zapros);
+$na_zayavke = $na_zayavke_otvet[0];
+
+$perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
+$perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);
+$perevedeno = $perevedeno_otvet[0];
+
 mysql_close($podkluchenie);
 ?>

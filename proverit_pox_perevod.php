@@ -12,6 +12,19 @@ if(!isset($_POST["slovo_proverka"]))
 		$slovo = $_POST["slovo_proverka"];
 		}
 
+$slovo_kolichestvo = mysql_query("
+	SELECT `kol`
+	from `k-ts`
+	where `s` = '".$slovo."'
+	");
+$n = 0;
+while ($data = mysql_fetch_array($slovo_kolichestvo))
+{
+	$kol[$n] = $data['kol'];
+	$n++;
+	}
+$kol = $kol[0];
+
 $SQL_p_z = mysql_query("
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`

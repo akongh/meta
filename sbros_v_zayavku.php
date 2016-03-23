@@ -13,7 +13,7 @@ $perevedeno = $perevedeno_otvet[0];
 
 mysql_close($podkluchenie);	
 
-include('zayavka_na_perevod.html');
+include('sbros_v_zayavku.html');
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));
