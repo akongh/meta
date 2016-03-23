@@ -20,7 +20,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	
 	$_SQL_opornoe_slovo_zayavki = implode("','", $_MASSIV_opornoe_slovo_zayavki);
 	
-	include ('/home/webart/www/_z/bd.php');
+	include ('/home/webart/www/d_meta/bd_meta.php');
 	
 	$zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
@@ -44,7 +44,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 		join `k-ts` on `k-ts`.`ids` = `k-t_s`.`id_s`
 		where `k-ts`.`f` in (0, 1, 6, 7)
 		group by `k-t_s`.`id_s`, `k-ts`.`s`    
-		order by count(*) desc, `k-ts`.`s` LIMIT 0, 200) `k`
+		order by count(*) desc, `k-ts`.`s` LIMIT 0, 160) `k`
 	where `k`.`f` = 0)
 	";
 	mysql_query($zayavka_na_perevod);

@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/_z/bd.php');
+include ('/home/webart/www/d_meta/bd_meta.php');
 $zayavka_na_perevod = "
 update `k-ts`
 set `k-ts`.`f` = 0

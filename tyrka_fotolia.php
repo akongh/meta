@@ -5,7 +5,7 @@ $do = $_POST["do"];
 for($ot; $ot <= $do; $ot++)
 {
 	sleep(2);
-	include ('/home/webart/www/_z/bd.php');
+	include ('/home/webart/www/d_meta/bd_meta.php');
 	$kod_straniczy = file_get_contents('http://fotolia.com/id/'.$ot);
 	if($kod_straniczy == false)
 	{

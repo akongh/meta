@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('/home/webart/www/_z/bd.php');
+include ('/home/webart/www/d_meta/bd_meta.php');
 
 $kir_kol_slov_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts`");
 $kir_kol_slov_otvet = mysql_fetch_row($kir_kol_slov_zapros);

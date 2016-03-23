@@ -26,7 +26,7 @@ if(isset($znachenie))
 		}
 	}
 
-include ('/home/webart/www/_z/bd.php');
+include ('/home/webart/www/d_meta/bd_meta.php');
 
 if($slovo_original != $slovo_k)
 {

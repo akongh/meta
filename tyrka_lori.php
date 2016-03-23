@@ -5,18 +5,18 @@ $do = $_POST["do"];
 for($ot; $ot <= $do; $ot++)
 {
 	sleep(1);
-	include ('/home/webart/www/_z/bd.php');
+	include ('/home/webart/www/d_meta/bd_meta.php');
 	$kod_straniczy = file_get_contents('http://lori.ru/'.$ot);
 	if($kod_straniczy == false)
 	{
 		print_r($ot);
 		echo ("<hr>");
 		flush();
-		//mysql_query("
-//		UPDATE `tyrki`
-//		SET `lori` = '".$ot."'
-//		WHERE `f` = '1'
-//		");
+		mysql_query("
+		UPDATE `tyrki`
+		SET `lori` = '".$ot."'
+		WHERE `f` = '1'
+		");
 		mysql_close($podkluchenie);
 		}
 		else if ($kod_straniczy == true)

@@ -25,6 +25,9 @@
   <hr class="otbivka_48">
   <!--PHP//////////////////////////-->
   <?php include('shtml/statistika.shtml');?>
+  <hr class="otbivka_24">
+  <!--PHP-->
+  <?php include('shtml/yandex_metrika.shtml');?>
   <hr class="otbivka_48">
   <hr class="cherta">
   <hr class="otbivka_24">
@@ -57,14 +60,16 @@
   <h2>Обслуживание</h2>
   <hr class="otbivka_48">
   <a href="obnovlenie_chastoty.php">Обновление частоты</a>
+  <hr class="otbivka_12">
+  <div class="statistika"> 
+    <!--PHP--> 
+    Последний раз обновлено строк: <span class="statistika_czyfra"><?php echo $obnovlenie_chastoty;?></span></div>
   <hr class="otbivka_48">
   <hr class="cherta">
   <hr class="otbivka_96">
   <!--PHP-->
   <?php include('shtml/podval.shtml');?>
   <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
 </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('/home/webart/www/_z/bd.php');
+include ('/home/webart/www/d_meta/bd_meta.php');
 
 $nomer_straniczy_zapros = mysql_query("SELECT `fotolia` FROM `tyrki` WHERE `f` = 1");
 $nomer_straniczy_otvet = mysql_fetch_row($nomer_straniczy_zapros);

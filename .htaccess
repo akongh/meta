@@ -1,5 +1,11 @@
 #up.meta.afoteris.com
 
+#доступ
+AuthName "afoteris.com"
+AuthType Basic
+#Digest Basic
+AuthUserFile /home/webart/www/d_meta/.htpasswd
+require valid-user
 
 #запрет выдачи листинга пустого каталога 
 Options -Indexes
@@ -8,7 +14,7 @@ Options -Indexes
 DirectoryIndex upravlyalka.php
 
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
-php_value session.save_path /home/webart/www/sessii_up.meta.afoteris/
+#php_value session.save_path /home/webart/www/sessii_***/
 
 # Установите максимальное время жизни сессии в секундах.
 #php_value session.gc_maxlifetime 0
@@ -16,9 +22,10 @@ php_value session.save_path /home/webart/www/sessii_up.meta.afoteris/
 # Установите время жизни cookie, которая сохраняет идентификатор сессии в браузере пользователя.
 #php_value session.cookie_lifetime 480
 
-#доступ
-AuthName "A dva volshebnyx slova?"
-AuthType Basic
-#Digest Basic
-AuthUserFile /home/webart/www/_z/.htpasswd
-require valid-user
+#RewriteEngine on
+#RewriteCond %{REQUEST_URI} !/index.html$
+#RewriteCond %{REMOTE_ADDR} !^37.45.137.53
+#RewriteRule $ /shag_0.html [R=302,L]
+
+#для SSI
+#AddHandler server-parsed .html .shtml

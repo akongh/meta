@@ -11,11 +11,9 @@ $perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
 $perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
-mysql_close($podkluchenie);	
+mysql_close($podkluchenie);
 
-include('sbros_v_zayavku.html');
+$slovo_razbit = $_SESSION["slovo_original"];
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+include('razbit.html');
 ?>

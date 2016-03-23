@@ -26,7 +26,7 @@ if(isset($znachenie))
 		}
 	}
 
-include ('/home/webart/www/_z/bd.php');
+include ('/home/webart/www/d_meta/bd_meta.php');
 
 if($slovo_original != $slovo_k)
 {
@@ -169,7 +169,7 @@ if(isset($perevod))
 //		WHERE `s` = '".$slovo_k."' and `f` = 0
 //		");
 //		}
-	else if (!isset($perevod) && ($slovo_original == $slovo_k)) //простопомечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
+	else if (!isset($perevod) && ($slovo_original == $slovo_k)) //просто помечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
 	{
 		mysql_query("
 		UPDATE `k-ts`

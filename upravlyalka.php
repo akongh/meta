@@ -13,6 +13,8 @@ $oshibka_simvola = $_SESSION["oshibka_simvola"];
 
 $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 
+$obnovlenie_chastoty = $_SESSION["obnovlenie_chastoty"];
+
 include('upravlyalka.html');
 
 //echo "<pre>";
