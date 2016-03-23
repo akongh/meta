@@ -1,0 +1,25 @@
+<link href="stili.css" rel="stylesheet" type="text/css">
+<div class="zamechaniya_2">Версия…</div>
+<div class="imya_pochta">
+
+<?php
+$id_pol = $_SESSION['id_pol'];
+$imya_pol = $_SESSION['imya_pol'];
+$el_p_pol = $_SESSION['el_p_pol'];
+?>
+
+<span class="shapka_imya">
+<?php
+echo $imya_pol;
+?>
+<br>
+</span>
+
+<?php
+echo $el_p_pol;
+echo "<br>
+Учётная запись №" . $id_pol;
+?>
+
+<br>
+<a href="vyxod.php">Выход</a> </div>

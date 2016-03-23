@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков</title>
+<link href="stili.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="korobka">
+
+<div class="zagolovok">Вход</div>
+<hr class="otbivka_24">
+
+<form action="reg_pismo.php" method="post" name="vxod">
+<input name="el_pochta_vxod" type="text" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>"><div class="podpisi">Эл. почта</div>
+<?php
+echo $pusto_el_pochta_vxod;
+echo $oshibka_el_pochta_vxod;
+?>
+<hr class="otbivka_6">
+
+<input name="parol_vxod" type="password" class="vxod_registraczya" value="<?php echo $parol_vxod; ?>"><div class="podpisi">Пароль</div>
+<?php
+echo $pusto_parol_vxod;
+echo $oshibka_parol_vxod;
+echo $oshibka_dostup;
+echo $oshibka_aktiv;
+?>
+<hr class="otbivka_12">
+
+<input name="vojti" type="submit" class="knopka" value="Войти"><div class="podpisi"><a href="_vosst_par.html">Сбросить пароль</a></div>
+</form>
+<hr class="otbivka_48">
+
+<div class="zagolovok">Регистрация</div>
+<hr class="otbivka_24">
+
+<form action="reg_pismo.php" method="post" name="registraczya">
+<input name="reg_imya" type="text" class="vxod_registraczya" value="<?php echo $imya; ?>"><div class="podpisi">Имя</div>
+<?php
+echo $pusto_imya;
+echo $oshibka_imya;
+?>
+<hr class="otbivka_6">
+
+<input name="reg_el_pochta" type="text" class="vxod_registraczya" value="<?php echo $el_pochta; ?>"><div class="podpisi">Эл. почта</div>
+<?php
+echo $zareg_el_pochta;
+echo $pusto_el_pochta;
+echo $oshibka_el_pochta;
+?>
+<hr class="otbivka_6">
+
+<input name="reg_parol" type="password" class="vxod_registraczya" value="<?php echo $parol; ?>"><div class="podpisi">Пароль</div>
+<?php
+echo $pusto_parol;
+echo $oshibka_parol;
+?>
+<hr class="otbivka_6">
+
+<input name="reg_parol_2" type="password" class="vxod_registraczya" value="<?php echo $parol_2; ?>"><div class="podpisi">Повтор пароля</div>
+<?php
+echo $pusto_parol_2;
+echo $oshibka_parol_2;
+echo $oshibka_raznye_paroli;
+?>
+<hr class="otbivka_12">
+
+<input name="zaregistrirovatsya" type="submit" class="knopka" value="Зарегистрироваться">
+<hr class="otbivka_0">
+</form>
+</div>
+
+</body>
+</html>

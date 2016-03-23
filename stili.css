@@ -34,6 +34,9 @@ p {
 a {
 	color: #0099FF;
 }
+.shapka_imya {
+	font-family: "PT Sans Caption Bold";
+}
 .dopolnenie {
 	margin: 0px;
 	padding: 10px;
@@ -43,9 +46,16 @@ a {
 	float: left;
 	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
-	border-radius: 10px;
-	border: 1px solid #CCCC99;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
 }
+.imya_pochta {
+	text-align: left;
+	width: 100%;
+}
+
 
 
 
@@ -57,7 +67,6 @@ a {
 	margin-top: 48px;
 	margin-bottom: 48px;
 	text-align: left;
-	border: 1px solid #CCCC99;
 	background-color: #F8FFDD;
 	border-radius: 20px;
 	padding-top: 40px;
@@ -73,11 +82,17 @@ a {
 	width: 280px;
 	font-size: 14px;
 	padding: 0px;
-	margin-top: 0px;
-	margin-right: 24px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	float: left;
+	margin: 0px;
 }
+.vosst_par_knopka {
+	height: 28px;
+	width: 280px;
+	font-size: 14px;
+	padding: 0px;
+	margin: 0px;
+}
+
 .knopka_2 {
 	height: 28px;
 	width: 480px;
@@ -88,6 +103,31 @@ a {
 	margin-bottom: 0px;
 	margin-left: 0px;
 }
+.oshibka {
+	color: #FF0000;
+	font-family: "PT Sans Italic";
+	margin: 0px;
+}
+.otbivka_0 {
+	clear: both;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+}
+.otbivka_6 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 6px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
 
 .otbivka_12 {
 	clear: both;
@@ -100,6 +140,7 @@ a {
 	border-bottom-style: none;
 	border-left-style: none;
 }
+
 .otbivka_24 {
 	clear: both;
 	margin-top: 0px;
@@ -133,6 +174,31 @@ a {
 	border-bottom-style: none;
 	border-left-style: none;
 }
+.podpisi {
+	color: #666666;
+	font-family: "PT Sans Italic";
+	margin-top: 6px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: left;
+}
+.reg_pismo {
+	text-align: center;
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+
 .sbros {
 	text-align: right;
 	clear: left;
@@ -166,9 +232,44 @@ a {
 	padding: 10px;
 	font-family: "PT Sans Caption Regular";
 	font-size: 14px;
-	border-radius: 10;
-	border: 1px solid #CCCC99;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
 }
+.vosst_par {
+	margin: 0px;
+	resize: none;
+	font-family: "PT Sans Caption Regular";
+	font-size: 14px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	width: 260px;
+	padding-top: 4px;
+	padding-right: 10px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+}
+.vxod_registraczya {
+	margin: 0px;
+	resize: none;
+	font-family: "PT Sans Caption Regular";
+	font-size: 14px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	width: 260px;
+	padding-top: 4px;
+	padding-right: 10px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	float: left;
+}
+
+
 .zagolovok {
 	margin: 0px;
 	font-size: 24px;
@@ -179,12 +280,14 @@ a {
 	color: #666666;
 	font-family: "PT Sans Italic";
 	float: left;
-	width: 178px;
+	width: 180px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 20px;
 }
+
+
 
 .zamechaniya_2 {
 	color: #666666;
