@@ -22,5 +22,5 @@ $_SESSION["opornye_slova"],
 $_SESSION["oshibka_kolichestva"]
 );
 
-header("Location: http://200slov.andrej.by/shag_1.php");
+header("Location: http://meta.afoteris.com/shag_1.php");
 ?>

@@ -8,5 +8,5 @@ $_SESSION["sobranny_nabor"],
 $_SESSION["massiv_itog"]
 );
 
-header("Location: http://200slov.andrej.by/shag_2.php");
+header("Location: http://meta.afoteris.com/shag_2.php");
 ?>

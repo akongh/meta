@@ -11,7 +11,7 @@ if (count($massiv_itog) < 8)
 	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
 	//SESSION///////////////////////////////////////////////
 	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-	header("Location: http://200slov.andrej.by/shag_3.php");
+	header("Location: http://meta.afoteris.com/shag_3.php");
 	exit;
 	}
 	
@@ -23,7 +23,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/home/webart/www/_200slov.andrej.by/bd.php');
+		include ('/home/webart/www/_z/bd.php');
 		
 		$SQL_est_v_base = mysql_query("
 		select `s`, `kol`
@@ -72,5 +72,5 @@ $ochered = implode("", $ochered);
 //SESSION/////////////////////////////////////
 $_SESSION["ochered"] = $ochered;
 
-header("Location: http://200slov.andrej.by/shag_4.php");
+header("Location: http://meta.afoteris.com/shag_4.php");
 ?>

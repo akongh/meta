@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('/home/webart/www/_200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 $_SQL_zapros_ochered = "SELECT * FROM `k-ts` WHERE `f` = 7 order by `kol` desc";
 

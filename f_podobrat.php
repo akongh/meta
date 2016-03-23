@@ -73,7 +73,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 
 if (isset($oshibka_simvola) or isset($oshibka_mnogo_op_slov) or isset($oshibka_nichego_ne_vveli))
 {
-	header("Location: http://200slov.andrej.by/shag_1.php");
+	header("Location: http://meta.afoteris.com/shag_1.php");
 	exit;
 	}	
 
@@ -127,5 +127,5 @@ if (isset($_MASSIV_spisok_podbora))
 	$_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 	}
 
-header("Location: http://200slov.andrej.by/shag_2.php");
+header("Location: http://meta.afoteris.com/shag_2.php");
 ?>

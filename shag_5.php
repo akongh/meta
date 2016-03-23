@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION["metka"]))
 {
-	header("Location: http://200slov.andrej.by/o_servise.php");
+	header("Location: http://meta.afoteris.com/o_servise.php");
 	}
 
 $s_perevodom = $_SESSION["s_perevodom"];

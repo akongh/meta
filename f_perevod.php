@@ -7,7 +7,7 @@ $_SESSION["oshibka_kolichestva"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('/home/webart/www/_200slov.andrej.by/bd.php');
+include ('/home/webart/www/_z/bd.php');
 
 $rus = $_POST['spisok_mesto'];
 
@@ -101,6 +101,6 @@ if(isset($pro_zayavku))
 
 mysql_close($podkluchenie);	
 
-header("Location: http://200slov.andrej.by/shag_5.php");
+header("Location: http://meta.afoteris.com/shag_5.php");
 
 ?>

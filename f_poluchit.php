@@ -128,6 +128,6 @@ $_SESSION["_REZULTAT_angl"] = $_REZULTAT_angl;
 
 
 
-header("Location: http://200slov.andrej.by/shag_6.php");
+header("Location: http://meta.afoteris.com/shag_6.php");
 
 ?>
