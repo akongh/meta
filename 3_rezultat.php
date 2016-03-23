@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('metka_vxoda.php');
 $id_pol = $_SESSION['id_pol'];
 
 $slova_flazhkov = $_POST["flazhok"];
@@ -32,5 +32,5 @@ if ($massiv_itog) {
     $stroka_itog = $stroka_itog . "<hr class=\"otbivka_24\">";
 }
 
-require_once('_shag_3.html');
+require_once('shag_3.html');
 ?>

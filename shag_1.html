@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,23 +8,28 @@
 
 <body>
 <div class="korobka">
-
+  <?php
+require_once('versiya.shtml');
+?>
   <?php
 require_once('shapka.shtml');
 ?>
-
   <hr class="otbivka_48">
   <div class="zagolovok">1/3
     <hr class="otbivka_48">
     Задайте не менее одного значимого ключевого слова.</div>
   <hr class="otbivka_48">
-  <form method="post" action="shag_2.php">
+  <form method="post" action="2_dopolnenie.php">
     <textarea name="vvod_slov" wrap="off" class="vvod_slov" placeholder="" autofocus></textarea>
-    <div class="zamechaniya">Руководство</div>
+    <?php
+require_once('podskazka.shtml');
+?>
     <hr class="otbivka_24">
     <input name="podobrat" type="submit" class="knopka" value="Подобрать">
     <hr class="otbivka_48">
-    <div class="sbros"><a href="shag_4.php">Сбросить и сначала</a></div>
+    <?php
+require_once('sbros.shtml');
+?>
   </form>
 </div>
 </body>

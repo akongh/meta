@@ -1,5 +1,4 @@
 <!doctype html> 
-
 <html> 
 <head> 
 <meta charset="utf-8"> 
@@ -10,6 +9,9 @@
 <body> 
 <div class="korobka"> 
   
+  <?php
+require_once('versiya.shtml');
+?>
   <?php
 require_once('shapka.shtml');
 ?>
@@ -26,10 +28,12 @@ echo $stroka_itog;
 ?>
 <!-- /PHP -->
 
-  <form method="post" action="shag_4.php"> 
-    <input name="soxranit" type="submit" class="knopka_2" value="Создать набор и сначала"> 
+  <form method="post" action="4_novyj_nabor.php"> 
+    <input name="soxranit" type="submit" class="knopka" value="Создать набор и сначала"> 
     <hr class="otbivka_48"> 
-    <div class="sbros_2"><a href="shag_4.php">Сбросить и сначала</a></div> 
+    <?php
+require_once('sbros.shtml');
+?>
   </form> 
 </div> 
 </body> 

@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html>
 <head>
 <meta charset="utf-8">
@@ -11,6 +10,9 @@
 <div class="korobka">
 
 <?php
+require_once('versiya.shtml');
+?>
+<?php
 require_once('shapka.shtml');
 ?>
 
@@ -19,7 +21,7 @@ require_once('shapka.shtml');
     <hr class="otbivka_48">
     Уточните и дополните подбор своими ключевыми словами.</div>
   <hr class="otbivka_48">
-  <form method = "post" action="shag_3.php">
+  <form method = "post" action="3_rezultat.php">
     
     <!-- PHP -->
     <?php 
@@ -29,11 +31,15 @@ echo $vyvod_spiska;
     
     <!--продолжение формы-->
     <textarea name="dopolnenie" wrap="off" class="dopolnenie" placeholder="" autofocus></textarea>
-    <div class="zamechaniya">Руководство</div>
+    <?php
+require_once('podskazka.shtml');
+?>
     <hr class="otbivka_24">
     <input name="sobrat" type="submit" class="knopka" value="Собрать">
     <hr class="otbivka_48">
-    <div class="sbros"><a href="shag_4.php">Сбросить и сначала</a></div>
+    <?php
+require_once('sbros.shtml');
+?>
   </form>
 </div>
 </body>

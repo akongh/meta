@@ -9,10 +9,14 @@
 <body>
 <div class="korobka">
 
+<?php
+require_once('versiya.shtml');
+?>
+
 <div class="zagolovok">Вход</div>
 <hr class="otbivka_24">
 
-<form action="reg_pismo.php" method="post" name="vxod">
+<form action="vxod.php" method="post" name="vxod">
 <input name="el_pochta_vxod" type="text" class="vxod_registraczya" value="<?php echo $el_pochta_vxod; ?>"><div class="podpisi">Эл. почта</div>
 <?php
 echo $pusto_el_pochta_vxod;
@@ -29,14 +33,14 @@ echo $oshibka_aktiv;
 ?>
 <hr class="otbivka_12">
 
-<input name="vojti" type="submit" class="knopka" value="Войти"><div class="podpisi"><a href="_vosst_par.html">Сбросить пароль</a></div>
+<input name="vojti" type="submit" class="knopka" value="Войти"><div class="podpisi"><a href="smen_zab_par.html">Сменить забытый пароль</a></div>
 </form>
 <hr class="otbivka_48">
 
 <div class="zagolovok">Регистрация</div>
 <hr class="otbivka_24">
 
-<form action="reg_pismo.php" method="post" name="registraczya">
+<form action="registraczya.php" method="post" name="registraczya">
 <input name="reg_imya" type="text" class="vxod_registraczya" value="<?php echo $imya; ?>"><div class="podpisi">Имя</div>
 <?php
 echo $pusto_imya;

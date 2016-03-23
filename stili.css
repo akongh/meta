@@ -61,7 +61,7 @@ a {
 
 
 .korobka {
-	width: 480px;
+	width: 500px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 48px;
@@ -85,23 +85,12 @@ a {
 	float: left;
 	margin: 0px;
 }
-.vosst_par_knopka {
+.smen_zab_par_knopka {
 	height: 28px;
 	width: 280px;
 	font-size: 14px;
 	padding: 0px;
 	margin: 0px;
-}
-
-.knopka_2 {
-	height: 28px;
-	width: 480px;
-	font-size: 14px;
-	padding: 0px;
-	margin-top: 0px;
-	margin-right: 24px;
-	margin-bottom: 0px;
-	margin-left: 0px;
 }
 .oshibka {
 	color: #FF0000;
@@ -237,7 +226,7 @@ a {
 	border-bottom-style: none;
 	border-left-style: none;
 }
-.vosst_par {
+.smen_zab_par {
 	margin: 0px;
 	resize: none;
 	font-family: "PT Sans Caption Regular";
@@ -280,7 +269,7 @@ a {
 	color: #666666;
 	font-family: "PT Sans Italic";
 	float: left;
-	width: 180px;
+	width: 200px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;

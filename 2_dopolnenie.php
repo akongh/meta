@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('metka_vxoda.php');
 $id_pol = $_SESSION['id_pol'];
 
 if ($_POST["vvod_slov"]) {
@@ -19,15 +19,15 @@ if ($_POST["vvod_slov"]) {
         //%%%%%%%% SQL_zapros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         $SQL_zapros = "select `ts`.`s`, count(*)   
 from (   
-  select `$id_pol--t_s`.`id_n`   
+  select `".$id_pol."--t_s`.`id_n`   
   from  `ts`   
-  join `$id_pol--t_s` on `$id_pol--t_s`.`id_s` = `ts`.`ids`   
-  where `ts`.`s` in ('" . $oporn_slova . "')   
-  group by `$id_pol--t_s`.`id_n` having count(/*distinct*/ `$id_pol--t_s`.`id_s`) = " . $kolichestvo_opornyx_slov . "   
+  join `".$id_pol."--t_s` on `".$id_pol."--t_s`.`id_s` = `ts`.`ids`   
+  where `ts`.`s` in ('".$oporn_slova."')   
+  group by `".$id_pol."--t_s`.`id_n` having count(/*distinct*/ `".$id_pol."--t_s`.`id_s`) = '".$kolichestvo_opornyx_slov."'   
   ) `g`  
-join `$id_pol--t_s` on `$id_pol--t_s`.`id_n` = `g`.`id_n`   
-join `ts` on `ts`.`ids` = `$id_pol--t_s`.`id_s`   
-group by `$id_pol--t_s`.`id_s`, `ts`.`s`   
+join `".$id_pol."--t_s` on `".$id_pol."--t_s`.`id_n` = `g`.`id_n`   
+join `ts` on `ts`.`ids` = `".$id_pol."--t_s`.`id_s`   
+group by `".$id_pol."--t_s`.`id_s`, `ts`.`s`   
 order by count(*) desc, `ts`.`s` 
 ;   
 ";
@@ -63,5 +63,5 @@ order by count(*) desc, `ts`.`s`
         $vyvod_spiska = implode("<br>\n", $spisok) . "<hr class=\"otbivka_24\">";
     }
 }
-require_once ('_shag_2.html');
+require_once ('shag_2.html');
 ?>
