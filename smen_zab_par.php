@@ -4,7 +4,7 @@ require_once('bd.php');
 
 if (isset($_POST["smen_zab_par_otprav"]))
 {
-	$smen_zab_par_el_pochta = trim(htmlspecialchars(stripslashes($_POST["smen_zab_par_el_pochta"])));
+	$smen_zab_par_el_pochta = trim(htmlspecialchars(strip_tags(stripslashes($_POST["smen_zab_par_el_pochta"]))));
 	$smen_zab_par_el_pochta = mysql_fetch_array(mysql_query("SELECT `el_p` FROM `tp` WHERE `el_p` = '".$smen_zab_par_el_pochta."'"));
 	$el_pochta = $smen_zab_par_el_pochta['el_p'];
 
@@ -14,7 +14,7 @@ if (isset($_POST["smen_zab_par_otprav"]))
 		$nov_parol_md5 = md5($nov_parol);
 		mysql_query("UPDATE `tp` SET `par` = '".$nov_parol_md5."' WHERE `el_p` = '".$el_pochta."'");
 
-		$tema_pisma = "Новый пароль для входа на slova.sferagrafiki.ru";
+		$tema_pisma = "Новый пароль для входа на slova2.sferagrafiki.ru";
 		$tekst_pisma = "Вам назначен новый пароль: " . $nov_parol;
 		require_once('pismo.php');
 		

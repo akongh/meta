@@ -10,7 +10,7 @@ $bd_kod = $bd_kod['kod'];
 
 if ($bd_kod == $kod)
 {
-	mysql_query("UPDATE `tp` SET `aktiv`='1' WHERE `el_p` = '".$el_pochta."'");
+	mysql_query("UPDATE `tp` SET `aktiv` = 1 WHERE `el_p` = '".$el_pochta."'");
 	
 	$idp = mysql_fetch_array(mysql_query("SELECT `idp` FROM `tp` WHERE `el_p` = '".$el_pochta."'"));
 	$idp = $idp['idp'];
@@ -26,6 +26,8 @@ if ($bd_kod == $kod)
 	`id_n` mediumint(9) NOT NULL,
 	`id_s` mediumint(9) NOT NULL
 	)");
+	
+	mysql_query("UPDATE `tp` SET `kod` = NULL WHERE `el_p` = '".$el_pochta."'");
 
 	require_once('uspex_reg.html');
 	}

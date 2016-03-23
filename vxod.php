@@ -1,12 +1,12 @@
 <?php
 session_start();
 require_once ('bd.php');
-require_once('regul_pochta_parol.php');
+require_once('regularnye_vyrazheniya.php');
 
 
 if (isset($_POST["vojti"])) {
-    $el_pochta_vxod = trim(htmlspecialchars(stripslashes($_POST["el_pochta_vxod"])));
-    $parol_vxod = trim(htmlspecialchars(stripslashes($_POST["parol_vxod"])));
+    $el_pochta_vxod = trim(htmlspecialchars(strip_tags(stripslashes($_POST["el_pochta_vxod"]))));
+    $parol_vxod = trim(htmlspecialchars(strip_tags(stripslashes($_POST["parol_vxod"]))));
     if (empty($el_pochta_vxod)) {
         $pusto_el_pochta_vxod = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Введите адрес эл. почты.</span>";
     } else {
@@ -24,7 +24,7 @@ if (isset($_POST["vojti"])) {
         $pusto_parol_vxod = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Введите пароль.</span>";
     } else {
         if (!preg_match($regulyar_parol, $parol_vxod)) {
-            $oshibka_parol_vxod = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кирилица и цифры.</span>";
+            $oshibka_parol_vxod = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только цифры (5—12).</span>";
         } else {
             $status_parol_vxod = TRUE;
             unset($$oshibka_parol_vxod);
@@ -50,10 +50,10 @@ if (isset($_POST["vojti"])) {
                 $_SESSION['el_p_pol'] = $el_p_pol;
 				header("Location: /1_vvod_slov.php");
             } else {
-				$_SESSION["el_pochta_vxod"] = $_POST["el_pochta_vxod"];
+				$_SESSION["el_pochta_vxod"] = trim(htmlspecialchars(strip_tags(stripslashes($_POST["el_pochta_vxod"]))));
                 $oshibka_aktiv = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Вы ещё не активировались.<br>
 				Активируйтесь, перейдя по ссылке, отправленой вам ранее<br>
-				или <a href=\"reg_pismo_povtor.php\">получите ссылку для активации</a> ещё раз.</span>";
+				или <a href=\"reg_pismo_povtor.php\" title=\"Получить ссылку для активации\">получите ссылку для активации</a> ещё раз.</span>";
 				require_once('_index.html');
             }
         } else {

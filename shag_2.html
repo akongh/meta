@@ -17,9 +17,8 @@ require_once('shapka.shtml');
 ?>
 
   <hr class="otbivka_48">
-  <div class="zagolovok">2/3
-    <hr class="otbivka_48">
-    Уточните и дополните подбор своими ключевыми словами.</div>
+  <div class="zagolovok">
+    2/3. Уточните и дополните подбор своими ключевыми словами</div>
   <hr class="otbivka_48">
   <form method = "post" action="3_rezultat.php">
     
@@ -30,17 +29,25 @@ echo $vyvod_spiska;
     <!-- /PHP --> 
     
     <!--продолжение формы-->
-    <textarea name="dopolnenie" wrap="off" class="dopolnenie" placeholder="" autofocus></textarea>
+    <textarea name="dopolnenie" wrap="on" class="dopolnenie" placeholder="" autofocus></textarea>
     <?php
 require_once('podskazka.shtml');
 ?>
     <hr class="otbivka_24">
-    <input name="sobrat" type="submit" class="knopka" value="Собрать">
-    <hr class="otbivka_48">
+    <input name="sobrat" type="submit" class="knopka" value="2/3. Собрать">
+    
     <?php
 require_once('sbros.shtml');
 ?>
   </form>
+  <hr class="otbivka_96">
+  <?php
+require_once('panel.shtml');
+?>
+<hr class="otbivka_24">
+<?php
+require_once('podval.shtml');
+?>
 </div>
 </body>
 </html>

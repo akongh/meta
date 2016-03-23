@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков</title>
+<link href="stili.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="korobka">
+  <?php
+require_once('versiya.shtml');
+?>
+  <?php
+require_once('shapka.shtml');
+?>
+  <hr class="otbivka_48">
+  <div class="obratnaya_svyaz"> <span class="zagolovok"> Обратная связь </span>
+    <hr class="otbivka_12">
+    Если вы нашли ошибку или у вас появились вопросы, напишите нам.
+    <hr class="otbivka_48">
+    <form action="obratnaya_svyaz.php" method="post" name="obratnaya_svyaz">
+      <textarea name="soobsshenie" wrap="on" class="soobsshenie" placeholder="" autofocus></textarea>
+      <hr class="otbivka_24">
+      <input name="otprav_soobsshenie" type="submit" class="knopka" value="Отправить сообщение">
+    </form>
+    <hr class="otbivka_48">
+    <div class="vernutsya">
+    <a href="1_vvod_slov.php" title="Вернуться к подбору">Вернуться к подбору</a>
+    &nbsp;&nbsp;
+    <a href="kabinet.php" title="Кабинет">Кабинет</a>
+    &nbsp;&nbsp;
+    <a href="rukovodstvo.php" title="Руководство">Руководство</a>
+    </div>
+    <hr class="otbivka_24">
+    <?php
+require_once('podval.shtml');
+?>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков</title>
+<link href="stili.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="korobka">
+<?php
+require_once('versiya.shtml');
+?>
+<hr class="otbivka_48">
+<div class="zagolovok">Руководство</div>
+<hr class="otbivka_48">
+
+<?php
+  if (isset($id_pol))
+  {
+  echo "<div class=\"vernutsya\"> <a href=\"1_vvod_slov.php\" title=\"Вернуться к подбору\">Вернуться к подбору</a> &nbsp;&nbsp; <a href=\"kabinet.php\" title=\"Кабинет\">Кабинет</a> &nbsp;&nbsp; <a href=\"obratnaya_svyaz.php\" title=\"Обратная связь\">Обратная связь</a> </div>";
+  }
+  else
+  {
+  echo "<a href=\"http://slova2.sferagrafiki.ru\" title = \"Вернуться на главную\">Вернуться на главную</a> ";
+  }
+  ?>
+<hr class="otbivka_24">
+<?php  
+  require_once('podval.shtml');
+?>
+</div>
+</body>
+</html>

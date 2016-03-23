@@ -1,40 +1,43 @@
-<!doctype html> 
-<html> 
-<head> 
-<meta charset="utf-8"> 
-<title>Подбор ключевых слов для стоков</title> 
-<link href="stili.css" rel="stylesheet" type="text/css"> 
-</head> 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков</title>
+<link href="stili.css" rel="stylesheet" type="text/css">
+</head>
 
-<body> 
-<div class="korobka"> 
-  
+<body>
+<div class="korobka">
   <?php
 require_once('versiya.shtml');
 ?>
   <?php
 require_once('shapka.shtml');
 ?>
-
   <hr class="otbivka_48">
-  <div class="zagolovok">3/3
+  <div class="zagolovok"> 3/3. Результат</div>
   <hr class="otbivka_48">
-    Результат.</div> 
-  <hr class="otbivka_48"> 
   
-<!-- PHP -->
-<?php
+  <!-- PHP -->
+  <?php
 echo $stroka_itog;
 ?>
-<!-- /PHP -->
-
-  <form method="post" action="4_novyj_nabor.php"> 
-    <input name="soxranit" type="submit" class="knopka" value="Создать набор и сначала"> 
-    <hr class="otbivka_48"> 
+  <!-- /PHP -->
+  
+  <form method="post" action="4_novyj_nabor.php">
+    <input name="soxranit" type="submit" class="knopka" value="3/3. Создать набор и сначала">
     <?php
 require_once('sbros.shtml');
 ?>
-  </form> 
-</div> 
-</body> 
+  </form>
+  <hr class="otbivka_96">
+  <?php
+require_once('panel.shtml');
+?>
+<hr class="otbivka_24">
+  <?php
+require_once('podval.shtml');
+?>
+</div>
+</body>
 </html>

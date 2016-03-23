@@ -1,7 +1,10 @@
 <?php
 session_start();
 require_once('metka_vxoda.php');
+
 $id_pol = $_SESSION['id_pol'];
+$imya_pol = $_SESSION['imya_pol'];
+$el_p_pol = $_SESSION['el_p_pol'];
 
 $slova_flazhkov = $_POST["flazhok"];
 if ($slova_flazhkov) {
@@ -10,7 +13,7 @@ if ($slova_flazhkov) {
     }
 }
 if ($_POST["dopolnenie"]) {
-	$dopolnenie = strip_tags(stripslashes($_POST["dopolnenie"]));
+	$dopolnenie = trim(htmlspecialchars(strip_tags(stripslashes($_POST["dopolnenie"]))));
     //разбиваем строку дополнительных слов на части и заносим их в массив(есть лишние пробелы)
     $dopolnitelnye_slova = preg_split("[\n|,|;]", $dopolnenie, -1, PREG_SPLIT_NO_EMPTY);
     for ($i = 0;$i < count($dopolnitelnye_slova);$i++) //перебираем массив из строки в новый массив (без лишних пробелов)

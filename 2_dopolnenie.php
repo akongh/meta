@@ -1,11 +1,17 @@
 <?php
 session_start();
 require_once('metka_vxoda.php');
+
+
 $id_pol = $_SESSION['id_pol'];
+$imya_pol = $_SESSION['imya_pol'];
+$el_p_pol = $_SESSION['el_p_pol'];
+
 
 if ($_POST["vvod_slov"]) {
     require_once ('bd.php');
-    $vvod_slov = strip_tags(stripslashes($_POST["vvod_slov"])); //помещаем в переменную опорные слова строкой
+    $vvod_slov = trim(htmlspecialchars(strip_tags(stripslashes($_POST["vvod_slov"])))); //помещаем в переменную опорные слова строкой
+	
     $oporn_slova = preg_split("[\n|,|;]", $vvod_slov, -1, PREG_SPLIT_NO_EMPTY); //разбиваем строку опорных слов на части и заносим их в массив(есть лишние пробелы)
     if ($oporn_slova) {
         for ($i = 0;$i < count($oporn_slova);$i++) //перебираем массив из строки в новый массив (без лишних пробелов)
@@ -28,7 +34,7 @@ from (
 join `".$id_pol."--t_s` on `".$id_pol."--t_s`.`id_n` = `g`.`id_n`   
 join `ts` on `ts`.`ids` = `".$id_pol."--t_s`.`id_s`   
 group by `".$id_pol."--t_s`.`id_s`, `ts`.`s`   
-order by count(*) desc, `ts`.`s` 
+order by count(*) desc, `ts`.`s` LIMIT 0, 200
 ;   
 ";
         //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

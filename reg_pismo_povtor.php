@@ -10,9 +10,9 @@
   $imya = mysql_fetch_array(mysql_query("SELECT `imya` FROM `tp` WHERE `el_p` = '".$el_pochta."'"));
   $imya = $imya['imya'];
 
-  $tema_pisma = "Повторная ссылка для регистрации на slova.sferagrafiki.ru";
+  $tema_pisma = "Повторная ссылка для регистрации на slova2.sferagrafiki.ru";
   $tekst_pisma = "Подтвердите регистрацию, перейдя по ссылке:\n 
-  http://slova.sferagrafiki.ru/proverka_koda.php?el_pochta=" . $el_pochta . "&kod=" . $kod;
+  http://slova2.sferagrafiki.ru/proverka_koda.php?el_pochta=" . $el_pochta . "&kod=" . $kod;
   require_once('pismo.php');
   
   require_once ('reg_pismo_povtor.html');

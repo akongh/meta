@@ -1,11 +1,7 @@
 <link href="stili.css" rel="stylesheet" type="text/css">
 <div class="imya_pochta">
 
-<?php
-$id_pol = $_SESSION['id_pol'];
-$imya_pol = $_SESSION['imya_pol'];
-$el_p_pol = $_SESSION['el_p_pol'];
-?>
+
 
 <span class="shapka_imya">
 <?php
@@ -21,4 +17,4 @@ echo "<br>
 ?>
 
 <br>
-<a href="vyxod.php">Выход</a> </div>
+<a href="vyxod.php" title="Выход">Выход</a> </div>

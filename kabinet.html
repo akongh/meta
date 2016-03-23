@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков</title>
+<link href="stili.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="korobka">
+  <?php
+require_once('versiya.shtml');
+?>
+  <?php
+require_once('shapka.shtml');
+?>
+  <hr class="otbivka_48">
+  <div class="obratnaya_svyaz"> <span class="zagolovok"> Кабинет </span>
+    <hr class="otbivka_48">
+    <div class="kabinet_blok"> <span class="zagolovok_2">Смена пароля</span>
+      <hr class="otbivka_24">
+      <form action="kabinet.php" method="post" name="smena_parolya">
+        <input name="nov_parol" type="password" class="vxod_registraczya" value="<?php echo $parol; ?>">
+        <div class="podpisi">Новый пароль (5—12, цифры)</div>
+        <?php
+echo $pusto_parol;
+echo $oshibka_parol;
+?>
+        <hr class="otbivka_6">
+        <input name="nov_parol_2" type="password" class="vxod_registraczya" value="<?php echo $parol_2; ?>">
+        <div class="podpisi">Повтор нового пароля</div>
+        <?php
+echo $pusto_parol_2;
+echo $oshibka_parol_2;
+echo $oshibka_raznye_paroli;
+?>
+        <hr class="otbivka_12">
+        <input name="smen_parol" type="submit" class="knopka" value="Сменить пароль">
+      </form>
+      <hr class="otbivka_0">
+    </div>
+    <hr class="otbivka_24">
+    <div class="kabinet_blok_udal_reg"> <span class="zagolovok_2">Удаление регистрации</span>
+      <hr class="otbivka_24">
+      Будет удалена ваша учётная запись и&nbsp;все ваши наборы и&nbsp;связи без&nbsp;возможности восстановления.
+      <hr class="otbivka_24">
+      <form action="udalenie_reg.php" method="post">
+        <input name="udal_reg_1" type="submit" class="knopka" value="Удалить регистрацию">
+      </form>
+      <hr class="otbivka_0">
+    </div>
+    <hr class="otbivka_48">
+    <div class="vernutsya">
+    <a href="1_vvod_slov.php" title="Вернуться к подбору">Вернуться к подбору</a> 
+    &nbsp;&nbsp; 
+    <a href="obratnaya_svyaz.php" title="Обратная связь">Обратная связь</a>
+     &nbsp;&nbsp; 
+     <a href="rukovodstvo.php" title="Руководство">Руководство</a>
+     </div>
+    <hr class="otbivka_24">
+    <?php
+require_once('podval.shtml');
+?>
+  </div>
+</div>
+</body>
+</html>
