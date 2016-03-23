@@ -1,4 +1,5 @@
 <?php
+include ('bd.php');
 
 mysql_query("  
 INSERT INTO `tn` (`vr`, `ses`)  

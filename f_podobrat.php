@@ -1,135 +1,89 @@
 <?php
 session_start();
 unset(
-$_SESSION["oshibka_net_slov"],
-$_SESSION["oshibka_simvol"],
-$_SESSION["vvod_slov"],
-$_SESSION["massiv_rezultata"],
-$_SESSION["vyvod_spiska"]
+$_SESSION["oshibka_nalichiya"],
+$_SESSION["oshibka_simvola"]
 );
 
 include ('regularnye_vyrazheniya.php');
-include('SQL_slova_nabory.php');
 
-$massiv_itog_zapom = $_SESSION["massiv_itog_zapom"];//для проверки на ошибку символов во втором и т. д. кругах
-$vvod_slov = $_POST["vvod_slov"];
-$vvod_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_slov))), "utf-8"));
-$vvod_slov = preg_replace("/ {2,}/", " ", $vvod_slov);
-$oporn_slova = preg_split("[\n|,|;]", $vvod_slov, -1, PREG_SPLIT_NO_EMPTY);
-for ($i = 0;$i < count($oporn_slova);$i++)
+$vvod_op_slov = $_POST["vvod_op_slov"];
+$vvod_op_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_op_slov))), "utf-8"));
+$vvod_op_slov = preg_replace("/ {2,}/", " ", $vvod_op_slov);
+$vvod_op_slov = preg_replace("/-{2,}/", "-", $vvod_op_slov);
+
+$_MASSIV_op_slov = preg_split("[\n|,|;]", $vvod_op_slov, -1, PREG_SPLIT_NO_EMPTY);
+
+for ($i = 0;$i < count($_MASSIV_op_slov);$i++)
 {
-	$oporn_slova_bez_probelov[$i] = trim($oporn_slova[$i]);
-    }
-if (isset($oporn_slova_bez_probelov))
+	$_MASSIV_op_slov[$i] = trim($_MASSIV_op_slov[$i]);
+	}
+
+$_MASSIV_op_slov = array_values(array_unique((array_diff($_MASSIV_op_slov, array('')))));
+
+$opornye_slova = implode("\n", $_MASSIV_op_slov);
+
+if(count($_MASSIV_op_slov) == 0)
 {
-	$oporn_slova_bez_probelov = array_values(array_unique((array_diff($oporn_slova_bez_probelov, array('')))));
-	
-	
-	
-	
-	
-	if(isset($massiv_itog_zapom) && $oporn_slova_bez_probelov != NULL)
+	$oshibka_nalichiya = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Нет значимых ключевых слов для подбора.</span>";
+	//SESSION///////////////////////////////////////////
+	$_SESSION["oshibka_nalichiya"] = $oshibka_nalichiya;
+	}
+
+if(count($_MASSIV_op_slov) > 0)
+{
+	$proverka_simvola = implode("", $_MASSIV_op_slov);
+	if (!preg_match($regulyar_slova, $proverka_simvola))
 	{
-		$proverka_simvol = array_merge($massiv_itog_zapom, $oporn_slova_bez_probelov);
-		$proverka_simvol = implode("", $proverka_simvol);
-		if (!preg_match($regulyar_slova, $proverka_simvol))
-		{
-			$vvod_slov = implode("\n", $oporn_slova_bez_probelov);
-			$_SESSION["vvod_slov"] = $vvod_slov;
-			
-			$oshibka_simvol = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кириллица или только латиница, пробел и дефис.</span>";
-			$_SESSION["oshibka_simvol"] = $oshibka_simvol;
-			header("Location: http://200slov.andrej.by");
-			exit;
-			}
+		$oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица или только латиница, пробел и дефис.</span>";
+		//SESSION///////////////////////////////////////
+		$_SESSION["oshibka_simvola"] = $oshibka_simvola;
 		}
-	
-	
-	
-	
+	}
+ 
+if(isset($oshibka_nalichiya) or isset($oshibka_simvola))
+{
+	header("Location: http://proba.200slov.andrej.by");
+	exit;
+	}
 
-	if (count($oporn_slova_bez_probelov) > 0)
-			{
-				$oporn_slova = implode("", $oporn_slova_bez_probelov);
-				if (preg_match($regulyar_slova, $oporn_slova))
-				{
-					$oporn_slova = implode("','", $oporn_slova_bez_probelov);
-					$kolichestvo_opornyx_slov = count($oporn_slova_bez_probelov);
-					include ('SQL_zapros_podbor.php');
-					$n = 0;
-					while ($data = mysql_fetch_array($rezultat_podbora))
-					{
-						$massiv_rezultata[$n] = $data['s'];
-						$n++;
-						}
-					if ($massiv_rezultata != NULL)
-					{
-						$massiv_rezultata = array_values(array_unique(array_merge($oporn_slova_bez_probelov, $massiv_rezultata)));
-						}
-						else
-						{
-							$massiv_rezultata = $oporn_slova_bez_probelov;
-							}
-				$_SESSION["massiv_rezultata"] = $massiv_rezultata;
+//SESSION///////////////////////////////////
+$_SESSION["opornye_slova"] = $opornye_slova; 
 
-	
-
-
-
-
-			for ($i = 0;$i < count($massiv_rezultata);$i++)
-			{
-				if ($i < $kolichestvo_opornyx_slov)
-				{
-					$spisok[$i] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $massiv_rezultata[$i] . "'> " . $massiv_rezultata[$i];
-				    }
-					else
-					{
-						$spisok[$i] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $massiv_rezultata[$i] . "'> " . $massiv_rezultata[$i];
-						}
-				}
-			$vyvod_spiska = implode("<br>\n", $spisok) . "<hr class=\"otbivka_24\">";
-			$_SESSION["vyvod_spiska"] = $vyvod_spiska;
-			header("Location: http://200slov.andrej.by/2_dopolnenie.php");
-			}
-			else
-			{
-				if (isset($oporn_slova_bez_probelov))
-				{
-					$vvod_slov = implode("\n", array_unique($oporn_slova_bez_probelov));
-					$_SESSION["vvod_slov"] = $vvod_slov;
-					}
-				$oshibka_simvol = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кириллица или только латиница, пробел и дефис.</span>";
-				$_SESSION["oshibka_simvol"] = $oshibka_simvol;
-                header("Location: http://200slov.andrej.by");
-				}
-		}
-		else
-		{
-			if(isset($_SESSION["stroka_itog_zapom"]))
-			{
-				header("Location: http://200slov.andrej.by/2_dopolnenie.php");
-				}
-				else
-				{
-					$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
-					$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
-					header("Location: http://200slov.andrej.by");
-					}
-			}
+$_SQL_stroka_dlya_podbora = implode("','", $_MASSIV_op_slov);
+$kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
+include ('SQL_podbor.php');
+$n = 0;
+while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+{
+	$_MASSIV_rezultata[$n] = $data['s'];
+	$n++;
+	}
+if ($_MASSIV_rezultata != NULL)
+{
+	$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
 	}
 	else
 	{
-		if(isset($_SESSION["stroka_itog_zapom"]))
-			{
-				header("Location: http://200slov.andrej.by/2_dopolnenie.php");
-				}
-				else
-				{
-					$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
-					$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
-					header("Location: http://200slov.andrej.by");
-					}
+		$_MASSIV_rezultata = $_MASSIV_op_slov;
 		}
+//SESSION///////////////////////////////////////////	
+$_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
 
+for ($i = 0;$i < count($_MASSIV_rezultata);$i++)
+{
+	if ($i < $kolichestvo_opornyx_slov)
+	{
+		$_MASSIV_spisok_podbora[$i] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[$i] . "'> " . $_MASSIV_rezultata[$i];
+		}
+		else
+		{
+			$_MASSIV_spisok_podbora[$i] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[$i] . "'> " . $_MASSIV_rezultata[$i];
+			}
+	}
+
+$vyvod_spiska_flagov = implode("<br>\n", $_MASSIV_spisok_podbora) . "<hr class=\"otbivka_24\">";
+//SESSION/////////////////////////////////
+$_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
+header("Location: http://proba.200slov.andrej.by/shag_2.php");
 ?>
