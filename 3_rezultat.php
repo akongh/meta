@@ -1,18 +1,14 @@
 <?php
 session_start();
-include ('metka_vxoda.php');
+
 include ('regularnye_vyrazheniya.php');
 
-$id_pol = $_SESSION['id_pol'];
-$imya_pol = $_SESSION['imya_pol'];
-$el_p_pol = $_SESSION['el_p_pol'];
 $slova_s_flagom = $_POST["slova_s_flagom"];//var_dump($slova_s_flagom);
 $dopolnenie = $_POST["dopolnenie"];//var_dump($dopolnenie);
 $massiv_rezultata = $_SESSION["massiv_rezultata"];//var_dump($massiv_rezultata);
 $kolichestvo_opornyx_slov = $_SESSION["kolichestvo_opornyx_slov"];
 
 include('slova_nabory.php');
-include('slova_nabory_pol.php');
 
 ////////////////////////////////////////обеспробеливаем массив отмеченных слов///////////////////////////////////////////////////////////////////
 if ($slova_s_flagom != NULL)

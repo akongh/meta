@@ -10,32 +10,24 @@
 <div class="korobka">
   <?php
 include('versiya.shtml');
-include('shapka.shtml');
+
 ?>
   <hr class="otbivka_24">
   <?php
 include('slova_nabory.shtml');
-include('slova_nabory_pol.shtml');
+
 ?>
   <hr class="otbivka_48">
   <div class="zagolovok"> 1/3. Задайте не менее одного опорного значимого ключевого слова</div>
   <hr class="otbivka_48">
   <form method="post" action="2_dopolnenie.php">
-    <input type="radio" name="vybor_nabora" value="obsshie_nabory" checked>
-    в общих наборах
-    <hr class="otbivka_6">
-    <input type="radio" name="vybor_nabora" value="svoi_nabory">
-    в своих наборах
-    <hr class="otbivka_24">
     <textarea name="vvod_slov" wrap="on" class="vvod_slov" placeholder="" autofocus><?php echo $vvod_slov; ?></textarea>
     <?php
 include('podskazka.shtml');
 ?>
     <hr class="otbivka_6">
-    <?php
+<?php
 echo $oshibka_net_slov;
-?>
-    <?php
 echo $oshibka_simvol;
 ?>
     <hr class="otbivka_24">
@@ -45,10 +37,6 @@ include('sbros.shtml');
 ?>
   </form>
   <hr class="otbivka_96">
-  <?php
-include('panel.shtml');
-?>
-  <hr class="otbivka_24">
   <?php
 include('podval.shtml');
 ?>

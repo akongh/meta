@@ -8,54 +8,30 @@
 
 <body>
 <div class="korobka">
-  <?php
-include('versiya.shtml');
-include('shapka.shtml');
-?>
+  <?php include('versiya.shtml');?>
   <hr class="otbivka_24">
-  <?php
-include('slova_nabory.shtml');
-include('slova_nabory_pol.shtml');
-?>
+  <?php include('slova_nabory.shtml');?>
   <hr class="otbivka_48">
   <div class="zagolovok"> 2/3. Уточните и дополните подбор своими ключевыми словами</div>
   <hr class="otbivka_48">
   <form method = "post" action="3_rezultat.php">
-    <?php 
-echo $vyvod_spiska;
-?>
-    <?php
-include('utochnit.shtml');
-?>
+    <?php echo $vyvod_spiska;?>
+    <?php include('utochnit.shtml');?>
     <hr class="otbivka_24">
     <textarea name="dopolnenie" wrap="on" class="dopolnenie" placeholder="" autofocus><?php echo $dopolnenie_unikalnoe; ?></textarea>
-    <?php
-include('podskazka.shtml');
-?>
+    <?php include('podskazka.shtml');?>
     <hr class="otbivka_6">
     <?php
-echo $oshibka_simvol;
-?>
-    <?php
-echo $oshibka_massiv_itog_10;
-?>
+    echo $oshibka_simvol;
+    echo $oshibka_massiv_itog_10;
+    ?>
     <hr class="otbivka_24">
     <input name="sobrat" type="submit" class="knopka" value="2/3. Собрать набор">
-    <?php
-include('sbros.shtml');
-?>
+    <?php include('sbros.shtml');?>
   </form>
   <hr class="otbivka_96">
-  <?php
-include('panel.shtml');
-?>
-  <hr class="otbivka_24">
-  <?php
-include('podval.shtml');
-?>
-  <?php
-include('yandex_metrika.shtml');
-?>
+  <?php include('podval.shtml');?>
+  <?php include('yandex_metrika.shtml');?>
 </div>
 </body>
 </html>

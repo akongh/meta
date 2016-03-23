@@ -1,8 +1,0 @@
-<link href="stili.css" rel="stylesheet" type="text/css">
-<div class="panel">
-<a href="kabinet.php" title="Кабинет">Кабинет</a>
-&nbsp;&nbsp;
-<a href="obratnaya_svyaz.php" title="Обратная связь">Обратная связь</a>
-&nbsp;&nbsp;
-<a href="spravka.php" title="Справка">Справка</a>
-</div>
