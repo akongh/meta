@@ -1,4 +1,4 @@
-<?php //error_reporting(0);
+<?php error_reporting(0);
 session_start();
 
 //$_SESSION["sostoyanie_nabora"] = implode("; ", $_SESSION["massiv_itog"]) . "<hr class=\"otbivka_24\">

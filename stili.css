@@ -37,6 +37,11 @@ video {
 	border: 1px solid #F2F2F2;
 	width: 598px;
 }
+.bolee-1000 {
+	font-size: 56px;
+	color: #FF2222;
+	font-family: "PT Sans Caption Bold";
+}
 .bez-video {
 	border: 1px solid #F2F2F2;
 	width: 598px;
@@ -95,6 +100,19 @@ a:hover {
 	border: 1px solid #E9E9E9;
 	border-radius: 4px;
 }
+.blok_perevoda_netu {
+	background-color: #EEEEEE;
+	padding-top: 2px;
+	padding-right: 12px;
+	padding-bottom: 2px;
+	padding-left: 12px;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 2px;
+	margin-left: -12px;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+}
 .blok_zayavki {
 	background-color: #FFFFEE;
 	margin-top: 0px;
@@ -108,7 +126,6 @@ a:hover {
 	padding-bottom: 20px;
 	padding-left: 32px;
 }
-
 .otbivka_0 {
 	clear: both;
 	border-top-style: none;
@@ -178,8 +195,6 @@ a:hover {
 	border-left-style: none;
 	overflow: hidden;
 }
-
-
 .informaczya {
 	text-align: left;
 	margin: 0px;
@@ -379,7 +394,58 @@ a:hover {
 }
 .perevoda_net {
 	font-family: "PT Sans Italic";
-	color: #FF0000;
+	/*color: #FF0000;*/
+	color: #666666;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevoda_net a {
+	font-family: "PT Sans Italic";
+	/*color: #FF0000;*/
+	color: #666666;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevoda_net a:hover {
+	font-family: "PT Sans Italic";
+	/*color: #FF0000;*/
+	color: #000000;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevod_v_zayavke {
+	font-family: "PT Sans Italic";
+	/*color: #FF9900;*/
+	color: #666666;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevod_v_zayavke a {
+	font-family: "PT Sans Italic";
+	/*color: #FF9900;*/
+	color: #666666;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevod_v_zayavke a:hover {
+	font-family: "PT Sans Italic";
+	/*color: #FF9900;*/
+	color: #000000;
 	padding: 0px;
 	margin-top: 0px;
 	margin-right: 0px;

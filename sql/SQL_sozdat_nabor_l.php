@@ -1,5 +1,5 @@
-<?php //error_reporting(0);
-include ('/home/webart/www/_z/bd.php');
+<?php error_reporting(0);
+include ('/home/webart/www/d_meta/bd_meta.php');
 
 if(isset($angl))
 {

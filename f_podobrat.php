@@ -1,4 +1,4 @@
-<?php //error_reporting(0);
+<?php error_reporting(0);
 session_start();
 
 unset(
@@ -95,20 +95,17 @@ if (isset($sposob321) && $kolichestvo_opornyx_slov>1)
 			$_MASSIV_rezultata[$n] = $data['s'];
 			$n++;
 			}
-		
-		if ($_MASSIV_rezultata != NULL && $i>0 /*&& count($_MASSIV_rezultata)>$kolichestvo_opornyx_slov*/)
+		if ($_MASSIV_rezultata != NULL)
 		{
 			$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
-			break;
-			}
-			
-		/*if ($i == 1)
-		{
-			$_MASSIV_rezultata = $_MASSIV_op_slov;
-			}*/
-		if ($i < $kolichestvo_opornyx_slov)//чтобы результат небыл больше границы подбора
-		{
-			$granicza--;
+			if (count($_MASSIV_rezultata) > $kolichestvo_opornyx_slov)
+			{
+				if (count($_MASSIV_rezultata) > $granicza)
+				{
+					$_MASSIV_rezultata = array_slice($_MASSIV_rezultata, 0, $granicza);
+					}
+				break;
+				}
 			}
 		}
 	}

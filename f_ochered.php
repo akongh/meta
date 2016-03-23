@@ -1,4 +1,4 @@
-<?php //error_reporting(0);
+<?php error_reporting(0);
 session_start();
 
 //$massiv_itog = $_SESSION["massiv_itog"];
@@ -23,7 +23,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/home/webart/www/_z/bd.php');
+		include ('/home/webart/www/d_meta/bd_meta.php');
 		
 		$SQL_est_v_base = mysql_query("
 		select `s`, `kol`
