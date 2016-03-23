@@ -2,45 +2,42 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Сервис подбора ключевых слов для стоков (рус.—анг.)</title>
+<title>Русско-английский подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
-<div class="korobka"> 
-  
+<div class="korobka">
   <?php include('nazvanie.shtml');?>
-  
   <hr class="otbivka_48">
-  <h2><span class="nomer_shaga">2/6</span>
+  <h2><span class="nomer_shaga">2/6</span></h2>
   <hr class="otbivka_12">
-  Выбираем из подобранных…</h2>
+  <h2>Выбираем из подобранных…</h2>
   <hr class="otbivka_48">
-    <form action="f_sobrat.php" method="post">
-      <div class="vyvod_spiska_flagov">
-      <!--PHP////////////////////////-->
-      <?php echo $vyvod_spiska_flagov;?>
-      </div>
-      <!--PHP//////////////////////-->
-      <?php echo $sostoyanie_nabora;?>
-      <hr class="otbivka_24">
-      <h2>…и добавляем свои (е≠ё)</h2>
-      <hr class="otbivka_6">
-      <div class="vvod_slov">
+  <form action="f_sobrat.php" method="post">
+    <div class="vyvod_spiska_flagov"> 
+      <!--PHP////////////////////////--> 
+      <?php echo $vyvod_spiska_flagov;?> </div>
+    <!--PHP//////////////////////--> 
+    <?php echo $sostoyanie_nabora;?>
+    <hr class="otbivka_24">
+    <h2>…и добавляем свои (е≠ё)</h2>
+    <hr class="otbivka_6">
+    <div class="vvod_slov"> 
       <!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
       <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>
       <hr class="otbivka_12">
-      <!--PHP////////////////////-->
+      <!--PHP////////////////////--> 
       <?php echo $oshibka_simvola;?>
       <hr class="otbivka_12">
       <input name="sobrat" type="submit" class="knopka" value="2/6 &#9658; Собрать в список">
-      </div>
-      <!--PHP-->
-      <?php include('informaczya.shtml');?>
+    </div>
+    <!--PHP-->
+    <?php include('informaczya.shtml');?>
   </form>
   <hr class="otbivka_24">
   <div class="upravlenie"> 
-  	<!--PHP-->
+    <!--PHP-->
     <?php include('f_utochnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
@@ -49,7 +46,6 @@
   <hr class="otbivka_96">
   <!--PHP-->
   <?php include('podval.shtml');?>
-  
 </div>
 </body>
 </html>

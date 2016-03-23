@@ -12,5 +12,5 @@ $_SESSION["sobranny_nabor"],
 $_SESSION["massiv_itog"]
 );
 
-header("Location: http://200slov.andrej.by");
+header("Location: http://200slov.andrej.by/shag_1.php");
 ?>

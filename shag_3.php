@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["metka"]))
 {
-	header("Location: http://200slov.andrej.by");
+	header("Location: http://200slov.andrej.by/o_servise.php");
 	}
 
 $sobranny_nabor = $_SESSION["sobranny_nabor"] . "<hr class=\"otbivka_24\">

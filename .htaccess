@@ -5,7 +5,7 @@
 Options -Indexes
 
 #назначаем главный файл сайта
-DirectoryIndex shag_1.php
+DirectoryIndex o_servise.php
 
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
 #php_value session.save_path /home/webart/www/sessii_200slov/

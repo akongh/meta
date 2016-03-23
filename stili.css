@@ -3,20 +3,22 @@
 @import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
 @import url("webfonts/PT_Sans_Italic/stylesheet.css");
 @import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
+@import url("webfonts/PT_Sans_Narrow_Regular/stylesheet.css");
+@import url("webfonts/PT_Sans_Narrow_Bold/stylesheet.css");
 body {
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
 	font-size: 14px;
 	font-style: normal;
-	color: #333333;
+	color: #000000;
 	text-decoration: none;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
-	background-image: url(ukrashalki/fonchik-vesna.jpg);
+	background-image: url(ukrashalki/fonchik.jpg);
 	background-attachment: fixed;
 }
 form {
@@ -27,13 +29,27 @@ form {
 	border-left-style: none;
 	margin: 0px;
 }
+textarea {
+	outline: none;
+	overflow: auto;
+}
 video {
 	border: 1px solid #F2F2F2;
 	width: 598px;
 }
+.bez-video {
+	border: 1px solid #F2F2F2;
+	width: 598px;
+	background-color: #FFFFEE;
+	text-align: center;
+	font-family: "PT Sans Caption Bold";
+	color: #F00;
+	padding-top: 140px;
+	height: 196px;
+}
 h1 {
 	font-family: "PT Sans Caption Bold";
-	font-size: 32px;
+	font-size: 40px;
 	margin: 0px;
 	padding: 0px;
 	border-top-style: none;
@@ -63,11 +79,11 @@ a {
 	font-family: "PT Sans Caption Regular";
 }
 a:hover {
-	color: #80EA15;
+	color: #33CCCC;
 	font-family: "PT Sans Caption Regular";
 }
 .blok_perevoda {
-	background-color: #FFFFEA;
+	background-color: #FFFFEE;
 	padding-top: 2px;
 	padding-right: 12px;
 	padding-bottom: 2px;
@@ -79,19 +95,6 @@ a:hover {
 	border: 1px solid #E9E9E9;
 	border-radius: 4px;
 }
-.oshibka {
-	color: #FF0000;
-	font-family: "PT Sans Italic";
-	margin: 0px;
-	display: block;
-	text-align: left;
-	padding: 0px;
-	width: 100%;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-}
 .otbivka_0 {
 	clear: both;
 	border-top-style: none;
@@ -99,6 +102,7 @@ a:hover {
 	border-bottom-style: none;
 	border-left-style: none;
 	margin: 0px;
+	overflow: hidden;
 }
 .otbivka_6 {
 	clear: both;
@@ -110,6 +114,7 @@ a:hover {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	overflow: hidden;
 }
 .otbivka_12 {
 	clear: both;
@@ -121,6 +126,7 @@ a:hover {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	overflow: hidden;
 }
 .otbivka_24 {
 	clear: both;
@@ -132,6 +138,7 @@ a:hover {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	overflow: hidden;
 }
 .otbivka_48 {
 	clear: both;
@@ -143,17 +150,19 @@ a:hover {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	overflow: hidden;
 }
 .otbivka_96 {
+	margin-bottom: 96px;
 	clear: both;
 	margin-top: 0px;
 	margin-right: 0px;
-	margin-bottom: 96px;
 	margin-left: 0px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	overflow: hidden;
 }
 .informaczya {
 	text-align: left;
@@ -174,6 +183,14 @@ a:hover {
 .informaczya_vydelenie {
 	font-family: "PT Sans Bold Italic";
 }
+.kartinka_600 {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	width: 598px;
+	height: auto;
+	border: 1px solid #CCCCCC;
+}
 .korobka {
 	width: 600px;
 	margin-right: auto;
@@ -181,7 +198,6 @@ a:hover {
 	margin-top: 24px;
 	margin-bottom: 24px;
 	text-align: left;
-	background-color: #FFFFFF;
 	padding-top: 48px;
 	padding-right: 60px;
 	padding-bottom: 0px;
@@ -189,23 +205,27 @@ a:hover {
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
 	background-attachment: scroll;
 	background-repeat: no-repeat;
-	background-position: 480px 120px;
+	background-position: 560px 0px;
+	background-color: #FFFFFF;
 }
-.korobka_2 {
+.korobka_glavnaya {
 	width: 600px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 24px;
 	margin-bottom: 24px;
 	text-align: left;
-	background-color: #FFFFFF;
 	padding-top: 48px;
 	padding-right: 60px;
 	padding-bottom: 0px;
 	padding-left: 60px;
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
+	background-attachment: scroll;
+	background-image: url(glavnaya.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 180px;
+	background-color: #FFF;
 }
-
 .knopka {
 	height: 36px;
 	width: 300px;
@@ -213,6 +233,58 @@ a:hover {
 	padding: 0px;
 	margin: 0px;
 	color: #333333;
+}
+.knopka_2 {
+	width: 300px;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 4px;
+	background-color: #33CCCC;
+	padding-right: 0px;
+	padding-left: 0px;
+	font-family: "PT Sans Caption Bold";
+	color: #FFF;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-width: 2px;
+	border-bottom-color: #2BAAAA;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	text-decoration: none;
+	text-shadow: 0px 1px 1px #333333;
+}
+.knopka_2 a {
+	font-family: "PT Sans Caption Bold";
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	width: 100%;
+	padding-top: 16px;
+	padding-bottom: 18px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-radius: 4px;
+}
+.knopka_2 a:hover {
+	text-decoration: none;
+	font-family: "PT Sans Caption Bold";
+	color: #FFF;
+	display: block;
+	width: 100%;
+	padding-top: 16px;
+	padding-bottom: 18px;
+	background-color: #55D5D5;
+	border-radius: 4px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
 }
 .krasnaya {
 	font-family: "PT Sans Caption Regular";
@@ -250,74 +322,22 @@ a:hover {
 .na_russk_angl {
 	font-family: "PT Sans Caption Bold";
 }
-.upravlenie {
-	text-align: left;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	font-family: "PT Sans Italic";
+.nomer_shaga {
+	font-size: 60px;
 	color: #666666;
 }
-.perevod {
-	color: #663300;
-	padding: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 12px;
-}
-.podval {
-	width: 100%;
+.oshibka {
+	color: #FF0000;
+	font-family: "PT Sans Italic";
+	margin: 0px;
+	display: block;
 	text-align: left;
+	padding: 0px;
+	width: 100%;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	background-color: #F2F2F2;
-	padding-top: 24px;
-	padding-right: 60px;
-	padding-bottom: 48px;
-	padding-left: 60px;
-	margin-top: 0px;
-	margin-right: -60px;
-	margin-bottom: 0px;
-	margin-left: -60px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-}
-.podval_tekst {
-	text-align: left;
-	font-size: 12px;
-	color: #999999;
-}
-
-.russk {
-	font-family: "PT Sans Caption Bold";
-}
-.rezultat_fon {
-	background-color: #FFFFEA;
-	width: 100%;
-	margin-top: 0px;
-	margin-right: -12px;
-	margin-bottom: 0px;
-	margin-left: -12px;
-	padding-top: 6px;
-	padding-right: 12px;
-	padding-bottom: 6px;
-	padding-left: 12px;
-	border-radius: 4px;
-	border: 1px solid #E9E9E9;
-}
-.znachenie {
-	font-family: "PT Sans Italic";
-	margin: 0px;
-	padding: 0px;
 }
 .opornoe_slovo_zayavki {
 	border: 4px dashed #FFFFCC;
@@ -333,6 +353,14 @@ a:hover {
 	margin-bottom: 0px;
 	margin-left: -4px;
 }
+.perevod {
+	color: #663300;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
 .perevoda_net {
 	font-family: "PT Sans Italic";
 	color: #FF0000;
@@ -342,9 +370,102 @@ a:hover {
 	margin-bottom: 0px;
 	margin-left: 12px;
 }
-.nomer_shaga {
-	font-size: 60px;
-	color: #666666;
+.podderzhat {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.podderzhat a {
+	background-color: #FF9900;
+	margin-top: 0px;
+	margin-right: -6px;
+	margin-bottom: 0px;
+	margin-left: -6px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 2px;
+	padding-left: 6px;
+	border-radius: 4px;
+}
+.podderzhat a:hover {
+	background-color: #FF9900;
+	margin-top: 0px;
+	margin-right: -6px;
+	margin-bottom: 0px;
+	margin-left: -6px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 2px;
+	padding-left: 6px;
+	border-radius: 4px;
+}
+.podval {
+	width: 100%;
+	text-align: left;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-color: #7B7B7B;
+	padding-top: 24px;
+	padding-right: 60px;
+	padding-bottom: 48px;
+	padding-left: 60px;
+	margin-top: 0px;
+	margin-right: -60px;
+	margin-bottom: 0px;
+	margin-left: -60px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	color: #000000;
+	font-family: "PT Sans Caption Bold";
+}
+.podval a {
+	color: #F2F2F2;
+}
+.podval a:hover {
+	color: #FFFFFF;
+}
+.podval_tekst {
+	text-align: right;
+	font-size: 12px;
+	color: #333333;
+	display: block;
+	width: 100%;
+}
+.russk {
+	font-family: "PT Sans Caption Bold";
+}
+.rezultat_fon {
+	background-color: #FFFFEE;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 0px;
+	margin-left: -12px;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	border-radius: 4px;
+	border: 1px solid #E9E9E9;
+}
+.rezultat_fon_neperevedennye {
+	background-color: #F6F6F6;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 0px;
+	margin-left: -12px;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	border-radius: 4px;
+	border: 1px solid #E9E9E9;
 }
 .statistika {
 	border-top-style: none;
@@ -361,6 +482,18 @@ a:hover {
 .statistika_czyfra {
 	font-family: "PT Sans Caption Bold";
 	color: #000000;
+}
+.upravlenie {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-family: "PT Sans Italic";
+	color: #666666;
 }
 .versiya {
 	font-family: "PT Sans Italic";
@@ -386,14 +519,12 @@ a:hover {
 	font-size: 10px;
 	text-align: center;
 	font-family: "PT Sans Caption Bold";
-	/* [disabled]border-radius: 6px; */
 	float: left;
 	margin-top: 0px;
 	margin-right: 6px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 }
-
 .vyvod_spiska_flagov {
 	text-align: left;
 	margin: 0px;
@@ -433,11 +564,36 @@ a:hover {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: -24px;
-	margin-left: 0px;
+	margin-left: -10000px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	height: 0px;
+}
+.zagolovok {
+	color: #000;
+}
+.zhyrny {
+	font-family: "PT Sans Caption Bold";
+}
+.znachenie {
+	font-family: "PT Sans Italic";
+	margin: 0px;
+	padding: 0px;
+}
+.znak {
+	background-color: #FFFFFF;
+	height: 22px;
+	width: 22px;
+	border: 3px solid #F00;
+	font-family: "PT Sans Caption Bold";
+	color: #000;
+	text-align: center;
+	font-size: 18px;
+	border-radius: 15px;
+	margin: 0px;
+	padding: 0px;
 }
 #sortable {
 	list-style-type: none;
@@ -454,7 +610,7 @@ a:hover {
 	padding-right: 12px;
 	padding-bottom: 2px;
 	padding-left: 24px;
-	background-color: #FFFFEA;
+	background-color: #FFFFEE;
 	border: 1px solid #E9E9E9;
 	border-radius: 4px;
 	background-image: url(strelki-vverh-vniz.png);

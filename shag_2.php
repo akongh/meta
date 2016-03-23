@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["metka"]))
 {
-	header("Location: http://200slov.andrej.by");
+	header("Location: http://200slov.andrej.by/o_servise.php");
 	}
 
 $vyvod_spiska_flagov = $_SESSION["vyvod_spiska_flagov"];
