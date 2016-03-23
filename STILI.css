@@ -1,0 +1,503 @@
+@charset "utf-8";
+@import url("webfonts/PT_Sans_Caption_Regular/stylesheet.css");
+@import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
+@import url("webfonts/PT_Sans_Italic/stylesheet.css");
+@import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
+body {
+	background-image: url(ukrashalki/fonchik-14_fev-1.jpg);
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	font-style: normal;
+	color: #333333;
+	text-decoration: none;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-family: "PT Sans Caption Regular";
+	background-attachment: fixed;
+}
+form {
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+}
+h1 {
+	font-size: 32px;
+	margin: 0px;
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-weight: normal;
+	display: block;
+	font-family: "PT Sans Caption Bold";
+}
+h2 {
+	font-size: 18px;
+	margin: 0px;
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-weight: normal;
+	display: block;
+	font-family: "PT Sans Caption Bold";
+}
+p {
+	margin: 0px;
+}
+a {
+	color: #0099FF;
+	font-family: "PT Sans Caption Regular";
+}
+a:hover {
+	color: #339933;
+	font-family: "PT Sans Caption Regular";
+}
+.blok_perevoda {
+	background-color: #FFFFEA;
+	padding-top: 2px;
+	padding-right: 12px;
+	padding-bottom: 2px;
+	padding-left: 12px;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 2px;
+	margin-left: -12px;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+}
+.perevod {
+	color: #663300;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.perevoda_net {
+	font-family: "PT Sans Italic";
+	color: #FF0000;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 12px;
+}
+.russk {
+	font-family: "PT Sans Caption Bold";
+}
+.znachenie {
+	font-family: "PT Sans Italic";
+	margin: 0px;
+	padding: 0px;
+}
+.oshibka {
+	color: #FF0000;
+	margin: 0px;
+	display: block;
+	text-align: left;
+	padding: 0px;
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-family: "PT Sans Italic";
+}
+.otbivka_0 {
+	clear: both;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+}
+.otbivka_6 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 6px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_12 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 12px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_24 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 24px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_48 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 48px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.otbivka_96 {
+	clear: both;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 96px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.informaczya {
+	text-align: left;
+	margin: 0px;
+	float: left;
+	width: 280px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #666666;
+	font-family: "PT Sans Italic";
+}
+.informaczya_vydelenie {
+	font-family: "PT Sans Bold Italic";
+}
+.opornoe_slovo_zayavki {
+	border: 4px dashed #FFFFCC;
+	width: 588px;
+	font-family: "PT Sans Caption Bold";
+	font-size: 32px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+}
+.podval {
+	margin: 0px;
+	width: 100%;
+	text-align: left;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-size: 12px;
+	color: #999999;
+	padding: 0px;
+}
+.poyasnenie {
+}
+.proverit_pox_perevod {
+	display: block;
+	float: right;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 36px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.korobka {
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 24px;
+	margin-bottom: 24px;
+	text-align: left;
+	background-color: #FFFFFF;
+	padding-top: 48px;
+	padding-right: 60px;
+	padding-bottom: 48px;
+	padding-left: 60px;
+	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
+}
+.cherta {
+	margin: 0px;
+	padding: 0px;
+	border: 1px dashed #CCCCCC;
+}
+.knopka {
+	height: 36px;
+	width: 300px;
+	font-size: 14px;
+	padding: 0px;
+	margin: 0px;
+	color: #333333;
+}
+.krasnaya {
+	color: #FF0000;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	font-family: "PT Sans Caption Regular";
+}
+.krasnaya a {
+	color: #FF0000;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	font-family: "PT Sans Caption Regular";
+}
+.krasnaya a:hover {
+	color: #FFFFFF;
+	background-color: #FF0000;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
+	font-family: "PT Sans Caption Regular";
+}
+.upravlenie {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #666666;
+	font-family: "PT Sans Italic";
+}
+.nomer_shaga {
+	font-size: 60px;
+	color: #666666;
+}
+.statistika {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	color: #666666;
+	font-family: "PT Sans Italic";
+}
+.statistika_czyfra {
+	color: #000000;
+	font-family: "PT Sans Caption Bold";
+}
+.stop {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+.versiya {
+	color: #666666;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	text-align: right;
+	font-family: "PT Sans Italic";
+}
+.vyvod_spiska_flagov {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	width: 600px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.vvod_slov {
+	width: 300px;
+	margin: 0px;
+	float: left;
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.vvod_slov_tekst {
+	height: 178px;
+	width: 278px;
+	margin: 0px;
+	resize: none;
+	padding: 10px;
+	border: 1px solid #FFCC66;
+	font-size: 14px;
+	text-align: left;
+	display: block;
+	font-family: "PT Sans Caption Regular";
+}
+.vvod_slovo {
+	border: 4px dashed #FFFFCC;
+	width: 553px;
+	font-family: "PT Sans Caption Bold";
+	font-size: 32px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	margin-top: 0px;
+	margin-right: -4px;
+	margin-bottom: 0px;
+	margin-left: -4px;
+}
+.kol {
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+}
+.vvod_perevod {
+	width: 160px;
+	height: 24px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+	font-family: "PT Sans Caption Bold";
+	font-size: 14px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 1px solid #CCCCCC;
+}
+.vvod_prisutstvie {
+	width: 286px;
+	height: 24px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+	font-family: "PT Sans Caption Bold";
+	font-size: 14px;
+	border: 1px solid #CCCCCC;
+	margin: 0px;
+}
+.vvod_znachenie {
+	width: 356px;
+	padding-top: 0px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+	font-size: 14px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 1px solid #CCCCCC;
+	height: 24px;
+	font-family: "PT Sans Italic";
+}
+.minus_plus {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	float: right;
+}
+.minus_plus_prisutstvie {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	width: 290px;
+	float: right;
+}
+.minus_plus_dobavit {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+}
+.pm_knopka {
+	width: 26px;
+	height: 26px;
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+	color: #FF0000;
+	background-color: #FFFFCC;
+	border: 1px solid #CCCCCC;
+}
+.pm_knopka_dobavit {
+	width: 565px;
+	height: 38px;
+	font-size: 40px;
+	margin: 0px;
+	color: #FF0000;
+	background-color: #FFFFCC;
+	border: 1px solid #CCCCCC;
+	text-align: left;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 40px;
+}
+.pm_knopka_dobavit_prisutstvie {
+	width: 300px;
+	height: 38px;
+	font-size: 40px;
+	margin: 0px;
+	color: #FF0000;
+	background-color: #FFFFCC;
+	border: 1px solid #CCCCCC;
+	text-align: left;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 40px;
+}
+.yandex_metrika {
+	padding: 0px;
+	width: 100%;
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: -24px;
+	margin-left: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}

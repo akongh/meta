@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Подбор ключевых слов для стоков на русском языке</title>
+<link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
+</head>
+<body>
+<div class="korobka">
+  <h2>Заявка на перевод</h2>
+  <hr class="otbivka_24">
+  <!--PHP-->
+  <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span> <br>
+    Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span> </div>
+  <hr class="otbivka_96">
+  <form action="zayavka_na_perevod.php" method="post">
+    <textarea name="opornoe_slovo_zayavki" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
+    <hr class="otbivka_24">
+    <input name="zayavka" type="submit" class="knopka" value="Отправить заявку на перевод">
+  </form>
+  <hr class="otbivka_96">
+  <div class="upravlenie">
+  <a href="sbros_zayavok.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
+    <hr class="otbivka_96">
+    <a href="upravlyalka.php">На главную</a> </div>
+  <hr class="otbivka_96">
+  <!--PHP-->
+  <?php include('shtml/podval.shtml');?>
+  <hr class="otbivka_24">
+  <!--PHP-->
+  <?php include('shtml/yandex_metrika.shtml');?>
+</div>
+</body>
+</html>
