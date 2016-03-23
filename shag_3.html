@@ -7,14 +7,12 @@
 <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
-<div class="korobka"> 
-  
-  <?php include('nazvanie.shtml');?>
-  
+<div class="korobka">
+  <?php include('vstavki/nazvanie.shtml');?>
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">3/6</span></h2>
-    <hr class="otbivka_12">
-    <h2>Получаем текущий результат списком</h2>
+  <hr class="otbivka_12">
+  <h2>Получаем текущий результат списком</h2>
   <hr class="otbivka_48">
   <form method="post" action="f_ochered.php">
     <!--PHP//////////////////////--> 
@@ -24,27 +22,28 @@
       <!--PHP////////////////////////--> 
       <?php echo $oshibka_kolichestva;?>
       <hr class="otbivka_12">
+      <input type="checkbox" name="po_chastote"> по частоте в базе
+      <hr class="otbivka_12">
       <input name="ochered" type="submit" class="knopka" value="3/6 &#9658; Определить очерёдность">
     </div>
   </form>
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
-    <?php include('f_izmenit.shtml');?>
+    <?php include('vstavki/f_zapomnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('f_utochnit.shtml');?>
+    <?php include('vstavki/f_izmenit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('f_zapomnit.shtml');?>
+    <?php include('vstavki/f_utochnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('f_sbros.shtml');?>
+    <?php include('vstavki/f_sbros.shtml');?>
   </div>
   <hr class="otbivka_96">
   <!--PHP-->
-  <?php include('podval.shtml');?>
-  
+  <?php include('vstavki/podval.shtml');?>
 </div>
 </body>
 </html>

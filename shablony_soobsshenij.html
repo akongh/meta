@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,14 +7,17 @@
 <link href="STILI.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
+
 <body>
 <div class="korobka">
   <h1>Шаблоны сообщений для&nbsp;редакторов</h1>
   <hr class="otbivka_24">
   <div class="upravlenie"> <a href="shag_1.php" title="К подбору">К подбору</a> </div>
   <hr class="otbivka_12">
+  
   <!--PHP-->
-  <?php include('nazvanie.shtml');?>
+  
+  <?php include('vstavki/nazvanie.shtml');?>
   <hr class="otbivka_96">
   Ниже приведены шаблоны сообщений для редакторов при переотправке уже принятых или отклонённых изображений. Возможно, это не полный список сообщений: мы рассмотрели только те ситуации, с которыми столкнулись сами. Пометка «Внимание рецензенту» («Attention reviewer») у некоторых стоков очень желательна для сообщений, поэтому мы её включили в шаблоны.
   <hr class="otbivka_48">
@@ -73,12 +77,26 @@
   <hr class="otbivka_48">
   <h2>Причина для удаления изображения — загружена улучшенная версия</h2>
   <hr class="otbivka_24">
-  Загружена улучшенная версия изображения ID ***.
+  Внимание рецензенту: загружена улучшенная версия изображения ID ***.
   <hr class="otbivka_12">
-  Improving version of image ID *** was uploaded.
+  Attention reviewer: improving version of image ID *** was uploaded.
+  <hr class="otbivka_48">
+  <h2>Причина для удаления изображения — будет загружена улучшенная версия</h2>
+  <hr class="otbivka_24">
+  Внимание рецензенту: будет загружена улучшенная версия изображения ID ***.
+  <hr class="otbivka_12">
+  Attention reviewer: improving version of image ID *** will be uploaded.
+  <hr class="otbivka_48">
+  <h2>Удаление файла для загрузки его улучшенной версии</h2>
+  <hr class="otbivka_24">
+  Внимание рецензенту: пожалуйста, удалите моё изображение ID ***.  Изображение будет улучшено и переотправлено.
+  <hr class="otbivka_12">
+  Attention reviewer: please delete my image ID ***. Image will be improved and resubmitted.
   <hr class="otbivka_96">
+  
   <!--PHP-->
-  <?php include('podval.shtml');?>
+  
+  <?php include('vstavki/podval.shtml');?>
 </div>
 </body>
 </html>

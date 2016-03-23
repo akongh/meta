@@ -4,15 +4,38 @@
 <meta charset="utf-8">
 <title>Русско-английский подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+
+
+
+
 <link rel="shortcut icon" href="http://200slov.andrej.by/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-  <?php include('nazvanie.shtml');?>
+
+  <?php include('vstavki/nazvanie.shtml');?>
+  
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">5/6</span></h2>
     <hr class="otbivka_12">
     <h2>Выбираем перевод</h2>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   <hr class="otbivka_48">
   <form method="post" action="f_poluchit.php">
     <div class = "blok_perevoda"> 
@@ -31,12 +54,12 @@
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
-    <?php include('f_sbros.shtml');?>
+    <?php include('vstavki/f_sbros.shtml');?>
   </div>
   <hr class="otbivka_96">
   <?php echo $pro_zayavku;?> 
   <!--PHP-->
-  <?php include('podval.shtml');?>
+  <?php include('vstavki/podval.shtml');?>
 </div>
 </body>
 </html>

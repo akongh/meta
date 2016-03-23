@@ -58,7 +58,7 @@ if(isset($russk))
 
 {
 
-	include ('SQL_sozdat_nabor_k.php');
+	include ('sql/SQL_sozdat_nabor_k.php');
 
 	$_REZULTAT_russk = implode("; ", $russk);
 
@@ -70,7 +70,7 @@ if(isset($angl))
 
 {
 
-	include ('SQL_sozdat_nabor_l.php');
+	include ('sql/SQL_sozdat_nabor_l.php');
 
 	$_REZULTAT_angl = implode("; ", $angl);
 
@@ -84,7 +84,7 @@ if(isset($angl))
 
 //{
 
-//	include ('SQL_sozdat_nabor_k.php');
+//	include ('sql/SQL_sozdat_nabor_k.php');
 
 //	}
 
@@ -92,7 +92,7 @@ if(isset($angl))
 
 //	{
 
-//		include ('SQL_sozdat_nabor_l.php');
+//		include ('sql/SQL_sozdat_nabor_l.php');
 
 //		}
 

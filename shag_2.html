@@ -8,7 +8,9 @@
 </head>
 <body>
 <div class="korobka">
-  <?php include('nazvanie.shtml');?>
+
+  <?php include('vstavki/nazvanie.shtml');?>
+  
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">2/6</span></h2>
   <hr class="otbivka_12">
@@ -30,22 +32,24 @@
       <!--PHP////////////////////--> 
       <?php echo $oshibka_simvola;?>
       <hr class="otbivka_12">
+      <input type="checkbox" checked name="abv"> алфавитный порядок
+      <hr class="otbivka_12">
       <input name="sobrat" type="submit" class="knopka" value="2/6 &#9658; Собрать в список">
     </div>
     <!--PHP-->
-    <?php include('informaczya.shtml');?>
+    <?php include('vstavki/informaczya.shtml');?>
   </form>
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
-    <?php include('f_utochnit.shtml');?>
+    <?php include('vstavki/f_utochnit.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('f_sbros.shtml');?>
+    <?php include('vstavki/f_sbros.shtml');?>
   </div>
   <hr class="otbivka_96">
   <!--PHP-->
-  <?php include('podval.shtml');?>
+  <?php include('vstavki/podval.shtml');?>
 </div>
 </body>
 </html>

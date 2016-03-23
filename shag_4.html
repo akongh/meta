@@ -6,8 +6,8 @@
   <link href="STILI.css" rel="stylesheet" type="text/css">
   <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
-  <script src="jquery-1.10.2.js"></script>
-  <script src="jquery-ui.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
   <script>
   $(function() {
     $( "#sortable" ).sortable();
@@ -18,7 +18,9 @@
   </head>
   <body>
   <div class="korobka">
-    <?php include('nazvanie.shtml');?>
+  
+    <?php include('vstavki/nazvanie.shtml');?>
+    
     <hr class="otbivka_48">
     <h2><span class="nomer_shaga">4/6</span></h2>
     <hr class="otbivka_12">
@@ -42,11 +44,11 @@
     <hr class="otbivka_24">
     <div class="upravlenie"> 
       <!--PHP-->
-      <?php include('f_sbros.shtml');?>
+      <?php include('vstavki/f_sbros.shtml');?>
     </div>
     <hr class="otbivka_96">
     <!--PHP-->
-    <?php include('podval.shtml');?>
+    <?php include('vstavki/podval.shtml');?>
   </div>
 </body>
 </html>

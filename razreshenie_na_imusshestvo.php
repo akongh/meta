@@ -4,7 +4,7 @@ session_start();
 session_unset();
 unset($_POST);
 
-include('raspiska_modeli.html');
+include('razreshenie_na_imusshestvo.html');
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));

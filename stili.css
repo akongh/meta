@@ -18,7 +18,7 @@ body {
 	border-bottom-style: none;
 	border-left-style: none;
 	font-family: "PT Sans Caption Regular";
-	background-image: url(ukrashalki/fonchik.jpg);
+	background-image: url(ukrashalki/fonchik-zima.JPG);
 	background-attachment: fixed;
 }
 form {
@@ -95,6 +95,20 @@ a:hover {
 	border: 1px solid #E9E9E9;
 	border-radius: 4px;
 }
+.blok_zayavki {
+	background-color: #FFFFEE;
+	margin-top: 0px;
+	margin-right: -12px;
+	margin-bottom: 0px;
+	margin-left: -12px;
+	border: 1px solid #E9E9E9;
+	border-radius: 4px;
+	padding-top: 20px;
+	padding-right: 32px;
+	padding-bottom: 20px;
+	padding-left: 32px;
+}
+
 .otbivka_0 {
 	clear: both;
 	border-top-style: none;
@@ -221,7 +235,7 @@ a:hover {
 	padding-left: 60px;
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
 	background-attachment: scroll;
-	background-image: url(glavnaya.jpg);
+	background-image: url(oformlenie/glavnaya.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 180px;
 	background-color: #FFF;
@@ -560,16 +574,15 @@ a:hover {
 .yandex_metrika {
 	padding: 0px;
 	width: 100%;
-	text-align: left;
+	text-align: right;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: -24px;
-	margin-left: -10000px;
+	margin-left: 0px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	height: 0px;
 }
 .zagolovok {
 	color: #000;
@@ -613,7 +626,7 @@ a:hover {
 	background-color: #FFFFEE;
 	border: 1px solid #E9E9E9;
 	border-radius: 4px;
-	background-image: url(strelki-vverh-vniz.png);
+	background-image: url(oformlenie/strelki-vverh-vniz.png);
 	background-repeat: no-repeat;
 	background-position: 11px center;
 }

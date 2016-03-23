@@ -4,11 +4,13 @@ session_start();
 unset(
 $_SESSION["oshibka_simvola"],
 $_SESSION["oshibka_kolichestva"],
-$_SESSION["dopolnitelnye_slova"]
+$_SESSION["dopolnitelnye_slova"],
+$_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('regularnye_vyrazheniya.php');
+include ('vstavki/regularnye_vyrazheniya.php');
 
+$abv = $_POST["abv"];
 $slova_s_flagom = $_POST["slova_s_flagom"];
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
 
@@ -124,6 +126,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && $massiv_itog != NULL)
 if (isset($massiv_itog))
 {
 	$massiv_itog = array_values(array_unique((array_diff($massiv_itog, array('')))));
+
 	if (count($massiv_itog) > 0)
 	{
 		$proverka_simvola = implode("", $massiv_itog);
@@ -152,7 +155,13 @@ for ($i = 0; $i < count($massiv_itog); $i++)
 	}
 if (isset($sobranny_nabor))
 {
-	sort($sobranny_nabor, SORT_STRING);
+	/////////////////////////////////сортировать или нет по алфавиту//////////////////////////////////////////////////////////
+	if (isset($abv) && $abv == "on")
+	{
+		sort($sobranny_nabor, SORT_STRING);
+		}
+		unset($abv);
+	
 	$sobranny_nabor = implode("<br>\n", $sobranny_nabor);
 	}
 

@@ -4,10 +4,11 @@ session_start();
 unset(
 $_SESSION["oshibka_nichego_ne_vveli"],
 $_SESSION["oshibka_simvola"],
-$_SESSION["oshibka_mnogo_op_slov"]
+$_SESSION["oshibka_mnogo_op_slov"],
+$_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('regularnye_vyrazheniya.php');
+include ('vstavki/regularnye_vyrazheniya.php');
 
 $granicza = $_POST["granicza"];
 $vvod_op_slov = $_POST["vvod_op_slov"];//var_dump($_POST["vvod_op_slov"]);
@@ -83,11 +84,11 @@ $kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
 $_MASSIV_op_slov_strokoj = implode("", $_MASSIV_op_slov);
 if(!preg_match("/[a-z]+/i", $_MASSIV_op_slov_strokoj))
 {
-	include ('SQL_podbor_k.php');
+	include ('sql/SQL_podbor_k.php');
 	}
 	else if(!preg_match("/[а-яё]+/i", $_MASSIV_op_slov_strokoj))
 	{
-		include ('SQL_podbor_l.php');
+		include ('sql/SQL_podbor_l.php');
 		}
 
 $n = 0;
