@@ -1,4 +1,11 @@
-<div class="podval">
-© Андрей К., Елена А., 2014<br>
-<!--pochta@200slov.andrej.by-->
+
+<div class="podval"> <span class="statistika_czyfra">Дополнительно:</span>
+  <hr class="otbivka_12">
+  <a href="shablony_soobsshenij.php" title="Шаблоны сообщений для редакторов">Шаблоны сообщений для редакторов</a>
+  <hr class="otbivka_48">
+  <span class="podval_tekst">© Андрей К., Елена А., 2014</span> 
+  <!--pochta@200slov.andrej.by-->
+  <hr class="otbivka_24">
+  <!--PHP-->
+  <?php include('yandex_metrika.shtml');?>
 </div>

@@ -180,12 +180,12 @@ a:hover {
 	background-color: #FFFFFF;
 	padding-top: 48px;
 	padding-right: 60px;
-	padding-bottom: 48px;
+	padding-bottom: 0px;
 	padding-left: 60px;
 	box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
 	background-attachment: scroll;
 	background-repeat: no-repeat;
-	background-position: 500px 60px;
+	background-position: 500px 140px;
 	background-image: url(ukrashalki/kartinka-ng-4.jpg);
 }
 .knopka {
@@ -244,21 +244,6 @@ a:hover {
 	font-family: "PT Sans Italic";
 	color: #666666;
 }
-.podval {
-	margin: 0px;
-	width: 100%;
-	text-align: left;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	font-size: 12px;
-	color: #999999;
-	padding: 0px;
-}
-.russk {
-	font-family: "PT Sans Caption Bold";
-}
 .perevod {
 	color: #663300;
 	padding: 0px;
@@ -266,6 +251,36 @@ a:hover {
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-left: 12px;
+}
+.podval {
+	width: 100%;
+	text-align: left;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-color: #F2F2F2;
+	padding-top: 24px;
+	padding-right: 60px;
+	padding-bottom: 48px;
+	padding-left: 60px;
+	margin-top: 0px;
+	margin-right: -60px;
+	margin-bottom: 0px;
+	margin-left: -60px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+.podval_tekst {
+	text-align: left;
+	font-size: 12px;
+	color: #999999;
+}
+
+.russk {
+	font-family: "PT Sans Caption Bold";
 }
 .rezultat_fon {
 	background-color: #FFFFEA;
