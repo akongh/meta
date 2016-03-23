@@ -3,7 +3,9 @@ session_start();
 unset(
 $_SESSION["oshibka_net_slov"],
 $_SESSION["oshibka_simvol"],
-$_SESSION["vvod_slov"]
+$_SESSION["vvod_slov"],
+$_SESSION["massiv_rezultata"],
+$_SESSION["vyvod_spiska"]
 );
 
 include ('regularnye_vyrazheniya.php');
@@ -57,7 +59,7 @@ if (isset($oporn_slova_bez_probelov))
 				}
 			$vyvod_spiska = implode("<br>\n", $spisok) . "<hr class=\"otbivka_24\">";
 			$_SESSION["vyvod_spiska"] = $vyvod_spiska;
-			header("Location: http://proba.200slov.andrej.by/2_dopolnenie.php");	
+			header("Location: http://200slov.andrej.by/2_dopolnenie.php");
 			}
 			else
 			{
@@ -68,20 +70,34 @@ if (isset($oporn_slova_bez_probelov))
 					}
 				$oshibka_simvol = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Только кириллица или только латиница, пробел и дефис.</span>";
 				$_SESSION["oshibka_simvol"] = $oshibka_simvol;
-                header("Location: http://proba.200slov.andrej.by");
+                header("Location: http://200slov.andrej.by");
 				}
 		}
 		else
 		{
-			$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
-			$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
-			header("Location: http://proba.200slov.andrej.by");
+			if(isset($_SESSION["stroka_itog_zapom"]))
+			{
+				header("Location: http://200slov.andrej.by/2_dopolnenie.php");
+				}
+				else
+				{
+					$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
+					$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
+					header("Location: http://200slov.andrej.by");
+					}
 			}
 	}
 	else
 	{
-		$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
-		$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
-        header("Location: http://proba.200slov.andrej.by");
+		if(isset($_SESSION["stroka_itog_zapom"]))
+			{
+				header("Location: http://200slov.andrej.by/2_dopolnenie.php");
+				}
+				else
+				{
+					$oshibka_net_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">Нет значимых ключевых слов для подбора.</span>";
+					$_SESSION["oshibka_net_slov"] = $oshibka_net_slov;
+					header("Location: http://200slov.andrej.by");
+					}
 		}
 ?>

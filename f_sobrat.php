@@ -96,6 +96,11 @@ if (isset($slova_s_flagom_bez_probelov) && isset($dop_slova_bez_probelov)) {
 } else if (!isset($slova_s_flagom_bez_probelov) && isset($dop_slova_bez_probelov)) {
     $massiv_itog = $dop_slova_bez_probelov;
 }
+if(isset($_SESSION["massiv_itog_zapom"]) && $massiv_itog != NULL)
+{
+	$massiv_itog_zapom = $_SESSION["massiv_itog_zapom"];
+	$massiv_itog = array_values(array_unique(array_merge($massiv_itog_zapom, $massiv_itog)));
+	}
 //////////////////////////////////////////////////////ещё одна проверка на смесь кирилицы и латиницы//////////////////////////////////////////////////////////
 if (isset($massiv_itog))
 {
@@ -110,27 +115,30 @@ if (isset($massiv_itog))
 		}
 	}
 //////////////////////////////////////////////////////ошибка малого количества слов для набора////////////////////////////////////////////////////////////////
-//if (!isset($_SESSION["massiv_itog"]))
-//{
+if (!isset($_SESSION["massiv_itog_zapom"]))
+{
 	if (count($massiv_itog) < 10 )
 	{
 		$oshibka_massiv_itog_10 = "<hr class=\"otbivka_0\"><span class=\"oshibka\">В наборе менее 10-ти уникальных ключевых слов.</span>";
 		}
-	//}
+	}
 ///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////////////////////////////////////////////////////////////
 if (!isset($oshibka_massiv_itog_10) && !isset($oshibka_simvol))
 {
-	$kol_slov_itog = count($massiv_itog);
-	$stroka_itog = implode("; ", $massiv_itog);
-	$_SESSION["kol_slov_itog"] = $kol_slov_itog;
-	$_SESSION["stroka_itog"] = $stroka_itog;
-	$_SESSION["massiv_itog"] = $massiv_itog;
-	header("Location: http://proba.200slov.andrej.by/3_rezultat.php");
+	if(isset($massiv_itog))
+	{
+		$kol_slov_itog = count($massiv_itog);
+		$stroka_itog = implode("; ", $massiv_itog);
+		$_SESSION["kol_slov_itog"] = $kol_slov_itog;
+		$_SESSION["stroka_itog"] = $stroka_itog;
+		$_SESSION["massiv_itog"] = $massiv_itog;
+		}
+	header("Location: http://200slov.andrej.by/3_rezultat.php");
 	}
 	else
 		{
 			$_SESSION["oshibka_massiv_itog_10"] = $oshibka_massiv_itog_10;
 			$_SESSION["oshibka_simvol"] = $oshibka_simvol;
-			header("Location: http://proba.200slov.andrej.by/2_dopolnenie.php");
+			header("Location: http://200slov.andrej.by/2_dopolnenie.php");
 			}
 ?>
