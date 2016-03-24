@@ -259,7 +259,7 @@ a:hover {
 }
 .knopka {
 	height: 36px;
-	width: 300px;
+	width: 100%;
 	font-size: 14px;
 	padding: 0px;
 	margin: 0px;
@@ -618,7 +618,7 @@ a:hover {
 	border-left-style: none;
 }
 .vvod_slov {
-	width: 300px;
+	width: 100%;
 	margin: 0px;
 	float: left;
 	padding: 0px;
@@ -628,8 +628,8 @@ a:hover {
 	border-left-style: none;
 }
 .vvod_slov_tekst {
-	height: 178px;
-	width: 278px;
+	height: 216px;
+	width: 578px;
 	margin: 0px;
 	resize: none;
 	padding: 10px;
@@ -680,7 +680,7 @@ a:hover {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	width: 298px;
+	width: 100%;
 }
 #sortable li {
 	margin-top: 0px;
