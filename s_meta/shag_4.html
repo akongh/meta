@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>Русско-английский подбор ключевых слов для стоков</title>
+  <link href="STILI.css" rel="stylesheet" type="text/css">
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>-->
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
+  <link rel="shortcut icon" href="http://meta.afoteris.com/favicon.ico" type="image/ven.microsoft.ico">
+  </head>
+  <body>
+  <div class="korobka">
+  
+    <?php include('vstavki/nazvanie.shtml');?>
+    
+    <hr class="otbivka_48">
+    <h2><span class="nomer_shaga">4/6</span></h2>
+    <hr class="otbivka_12">
+    <h2>Определяем очерёдность ключевых слов</h2>
+    <hr class="otbivka_48">
+    <form method="post" action="f_perevod.php">
+      <ul id="sortable">
+        <!--PHP//////////////////////--> 
+        <?php echo $ochered;?>
+      </ul>
+      <hr class="otbivka_24">
+      <div class="statistika"> Ключевых слов в наборе — <span class="statistika_czyfra"> 
+        <!--PHP//////////////////////--> 
+        <?php echo $_SESSION["kol_slov_itog"]?></span>. </div>
+      <hr class="otbivka_12">
+      <hr class="otbivka_24">
+      <div class="vvod_slov">
+        <input name="poluchit" type="submit" class="knopka" value="4/6 &#9658; Выбрать перевод">
+      </div>
+    </form>
+    <hr class="otbivka_24">
+    <div class="upravlenie"> 
+      <!--PHP-->
+      <?php include('vstavki/f_sbros.shtml');?>
+    </div>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('vstavki/podval.shtml');?>
+  </div>
+</body>
+</html>

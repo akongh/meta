@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Русско-английский подбор ключевых слов для стоков</title>
+<link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://meta.afoteris.com/favicon.ico" type="image/ven.microsoft.ico">
+</head>
+<body>
+<div class="korobka">
+
+  <?php include('vstavki/nazvanie.shtml');?>
+  
+  <hr class="otbivka_48">
+  <h2><span class="nomer_shaga">1/6</span></h2>
+  <hr class="otbivka_12">
+  <h2>Задаём опорные ключевые слова для подбора (е≠ё)</h2>
+  <hr class="otbivka_48">
+  <!--PHP//////////////////////--> 
+  <?php echo $sostoyanie_nabora;?>
+  <hr class="otbivka_24">
+  
+  <form action="f_podobrat.php" method="post">
+    <div class="vvod_slov"> 
+      <!--PHP//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <textarea name="vvod_op_slov" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $opornye_slova;?></textarea>
+      <hr class="otbivka_12">
+      <!--PHP////////////////////--> 
+      <?php echo $oshibka_nichego_ne_vveli;?> <?php echo $oshibka_simvola;?> <?php echo $oshibka_mnogo_op_slov;?>
+      <hr class="otbivka_12">
+      До&nbsp;
+      <select  size="1" name="granicza">
+        <option selected value="80">80</option>
+        <option value="160">160</option>
+      </select>
+      &nbsp;слов в результате подбора.
+      <hr class="otbivka_12">
+      <input type="checkbox" name="sposob321" checked> По бо́льшему числу совпадений.
+  	  <hr class="otbivka_24">
+      <input name="podobrat" type="submit" class="knopka" value="1/6 &#9658; Подобрать">
+    </div>
+    <!--PHP-->
+    <?php include('vstavki/informaczya.shtml');?>
+  </form>
+  <hr class="otbivka_24">
+  <div class="upravlenie"> 
+    <!--PHP-->
+    <?php include('vstavki/f_sbros.shtml');?>
+  </div>
+  <hr class="otbivka_96">
+  <!--PHP-->
+  <?php include('vstavki/podval.shtml');?>
+</div>
+</body>
+</html>
