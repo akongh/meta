@@ -79,11 +79,11 @@ p {
 	margin: 0px;
 }
 a {
-	color: #0099FF;
+	color: #00A6AE;
 	font-family: "PT Sans Caption Regular";
 }
 a:hover {
-	color: #33CCCC;
+	color: #86D2D7;
 	font-family: "PT Sans Caption Regular";
 }
 .blok_perevoda {
@@ -632,7 +632,7 @@ a:hover {
 	margin: 0px;
 	resize: none;
 	padding: 10px;
-	border: 1px solid #BFDFFF;
+	border: 1px solid #86D2D7;
 	font-size: 14px;
 	font-family: "PT Sans Caption Regular";
 	text-align: left;
