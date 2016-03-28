@@ -42,10 +42,10 @@ video {
 }
 
 .bolee-1000 {
-	font-size: 48px;
+	font-size: 36px;
 	color: #FFFFFF;
 	font-family: "PT Sans Caption Bold";
-	background-color: #FF2B2B;
+	background-color: #FF6600;
 	border-radius: 4px;
 	padding-top: 0px;
 	padding-right: 20px;
@@ -285,12 +285,19 @@ a:hover {
 	background-attachment: scroll;
 	background-image: url(oformlenie/glavnaya.jpg);
 	background-repeat: no-repeat;
-	background-position: 0px 310px;
+	background-position: 0px 302px;
 	background-color: #FFF;
 }
-.korobka_glavnaya h2{
-	font-size: 24px;	
+
+.korobka_glavnaya h1 {
+	font-family: "PT Sans Caption Regular";
 }
+
+.korobka_glavnaya h2 {
+	font-size: 24px;
+	font-family: "PT Sans Caption Regular";
+}
+
 .knopka {
 	height: 36px;
 	width: 100%;
@@ -391,7 +398,6 @@ a:hover {
 	padding-left: 4px;
 }
 
-
 .na_russk_angl {
 	font-family: "PT Sans Caption Bold";
 }
@@ -400,9 +406,11 @@ a:hover {
 	font-size: 60px;
 	color: #666666;
 }
+
 .nzv_meta {
 	color: #FF2B2B;
-	font-size: 96px;
+	font-size: 72px;
+	font-family: "PT Sans Caption Bold";
 }
 
 .oshibka {
