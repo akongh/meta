@@ -285,7 +285,7 @@ a:hover {
 	background-attachment: scroll;
 	background-image: url(oformlenie/glavnaya.jpg);
 	background-repeat: no-repeat;
-	background-position: 0px 180px;
+	background-position: 0px 310px;
 	background-color: #FFF;
 }
 .korobka_glavnaya h2{
@@ -391,6 +391,7 @@ a:hover {
 	padding-left: 4px;
 }
 
+
 .na_russk_angl {
 	font-family: "PT Sans Caption Bold";
 }
@@ -398,6 +399,10 @@ a:hover {
 .nomer_shaga {
 	font-size: 60px;
 	color: #666666;
+}
+.nzv_meta {
+	color: #FF2B2B;
+	font-size: 96px;
 }
 
 .oshibka {
