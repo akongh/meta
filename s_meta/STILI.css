@@ -43,15 +43,15 @@ video {
 
 .bolee-1000 {
 	font-size: 36px;
-	color: #FFFFFF;
+	color: #FF6600;
 	font-family: "PT Sans Caption Bold";
-	background-color: #FF6600;
 	border-radius: 4px;
 	padding-top: 0px;
 	padding-right: 20px;
 	padding-bottom: 0px;
 	padding-left: 20px;
 	margin: 0px;
+	border: 1px solid #FF6600;
 }
 
 .bez-video {
@@ -408,7 +408,7 @@ a:hover {
 }
 
 .nzv_meta {
-	color: #FF2B2B;
+	color: #FF6600;
 	font-size: 72px;
 	font-family: "PT Sans Caption Bold";
 }
