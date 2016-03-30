@@ -411,6 +411,7 @@ a:hover {
 	color: #FF6600;
 	font-size: 96px;
 	font-family: "PT Sans Caption Bold";
+	text-shadow: 0px 6px 6px rgba(122, 122, 122, 0.366);
 }
 
 .oshibka {
