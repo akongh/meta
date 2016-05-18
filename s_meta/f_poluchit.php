@@ -29,13 +29,13 @@ $ses = session_id();
 if(isset($russk))
 {
 	include ('sql/SQL_sozdat_nabor_k.php');
-	$_REZULTAT_russk = implode("; ", $russk);
+	$_REZULTAT_russk = implode(", ", $russk);
 	}
 
 if(isset($angl))
 {
 	include ('sql/SQL_sozdat_nabor_l.php');
-	$_REZULTAT_angl = implode("; ", $angl);
+	$_REZULTAT_angl = implode(", ", $angl);
 	}
 
 //////////////////////////////////////////////////////////////////////////////////////
