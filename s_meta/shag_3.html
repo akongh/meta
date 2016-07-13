@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
 <link href="STILI.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.10.2.js"></script>
 <link rel="shortcut icon" href="http://meta.afoteris.com/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
@@ -19,7 +20,26 @@
   <form method="post" action="f_ochered.php">
     <!--PHP//////////////////////--> 
     <?php echo $sobranny_nabor;?>
+
+	<script>
+		$(function(){
+		function countChecked() {
+		var n = $("input:checked").length;
+		$(document.getElementsByClassName('statistika_czyfra')).text(n);
+		}
+		countChecked();
+		$(document.getElementsByName('massiv_itog[]')).click(countChecked);
+		});
+	</script>
+
     <hr class="otbivka_24">
+
+	<!--<div class="upravlenie">-->
+	<!--PHP-->
+    <!--<?php include('vstavki/f_prokrutit.shtml');?>
+    <hr class="otbivka_12">-->
+    <!--PHP-->
+	<!--</div>-->
     <div class="vvod_slov"> 
       <!--PHP////////////////////////--> 
       <?php echo $oshibka_kolichestva;?>
