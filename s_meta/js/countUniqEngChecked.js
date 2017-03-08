@@ -1,12 +1,12 @@
 /**
  * Created by Andrei on 07.03.2017.
  */
-countUnicEngChecked();
+countUniqEngChecked();
 
-function countUnicEngChecked() {
+function countUniqEngChecked() {
     var arrAngl = document.getElementsByName("angl[]");
     for (var i = 0; i < arrAngl.length; i++) {
-        arrAngl[i].onclick = countUnicEngChecked;
+        arrAngl[i].onclick = countUniqEngChecked;
     }
     ;
     var checked = [];
@@ -35,6 +35,6 @@ function countUnicEngChecked() {
         ;
     }
     ;
-    document.getElementById("countUnicEngChecked").innerHTML = checked.length;
+    document.getElementById("countUniqEngChecked").innerHTML = checked.length;
 }
 ;
