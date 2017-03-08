@@ -5,8 +5,7 @@ if(!isset($_SESSION["metka"]))
 	header("Location: http://meta.afoteris.com/o_servise.php");
 	}
 
-$sobranny_nabor = $_SESSION["sobranny_nabor"] . "<hr class=\"otbivka_24\">
-<div class=\"statistika\">Ключевых слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
+$sobranny_nabor = $_SESSION["sobranny_nabor"];
 
 $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 
