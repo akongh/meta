@@ -1,14 +1,15 @@
 /**
  * Created by Andrei on 07.03.2017.
  */
+var arrAngl = document.getElementsByName("angl[]");
+for (var i = 0; i < arrAngl.length; i++) {
+    arrAngl[i].onclick = countUniqEngChecked;
+}
+;
+
 countUniqEngChecked();
 
 function countUniqEngChecked() {
-    var arrAngl = document.getElementsByName("angl[]");
-    for (var i = 0; i < arrAngl.length; i++) {
-        arrAngl[i].onclick = countUniqEngChecked;
-    }
-    ;
     var checked = [];
     var f = false;
     for (var i = 0; i < arrAngl.length; i++) {
