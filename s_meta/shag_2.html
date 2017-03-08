@@ -8,48 +8,47 @@
 </head>
 <body>
 <div class="korobka">
-
-  <?php include('vstavki/nazvanie.shtml');?>
-  
-  <hr class="otbivka_48">
-  <h2><span class="nomer_shaga">2/6</span></h2>
-  <hr class="otbivka_12">
-  <h2>Выбираем из подобранных…</h2>
-  <hr class="otbivka_24">
-  <a href="http://afoteris.com/stt.php?n_stt=1" title="Как правильно подбирать (руководство Меты)" target="_blank">Как правильно подбирать (руководство Меты)</a>
-  <hr class="otbivka_48">
-  <form action="f_sobrat.php" method="post">
-    <div class="vyvod_spiska_flagov"> 
-      <!--PHP////////////////////////--> 
-      <?php echo $vyvod_spiska_flagov;?> </div>
-    <!--PHP//////////////////////--> 
-    <?php echo $sostoyanie_nabora;?>
-    <hr class="otbivka_24">
-    <h2>…и добавляем свои</h2>
-    <hr class="otbivka_6">
-    <div class="vvod_slov"> 
-      <!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-      <textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>
-      <hr class="otbivka_12">
-      <!--PHP////////////////////--> 
-      <?php echo $oshibka_simvola;?>
-      <hr class="otbivka_12">
-      <input type="checkbox" checked name="abv"> алфавитный порядок
-      <hr class="otbivka_12">
-      <input name="sobrat" type="submit" class="knopka" value="2/6 &#9658; Собрать в список">
-    </div>
-  </form>
-  <hr class="otbivka_24">
-  <div class="upravlenie"> 
-    <!--PHP-->
-    <?php include('vstavki/f_utochnit.shtml');?>
-    <hr class="otbivka_12">
-    <!--PHP-->
-    <?php include('vstavki/f_sbros.shtml');?>
-  </div>
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('vstavki/podval.shtml');?>
+	<?php include('vstavki/nazvanie.shtml');?>
+	<hr class="otbivka_48">
+	<h2><span class="nomer_shaga">2/6</span></h2>
+	<hr class="otbivka_12">
+	<h2>Выбираем из подобранных…</h2>
+	<hr class="otbivka_24">
+	<a href="http://afoteris.com/rukovodstvo-mety/.html" title="Как правильно подбирать (руководство Меты)" target="_blank">Как правильно подбирать (руководство Меты)</a>
+	<hr class="otbivka_48">
+	<form action="f_sobrat.php" method="post">
+		<div class="vyvod_spiska_flagov">
+			<!--PHP////////////////////////-->
+			<?php echo $vyvod_spiska_flagov;?> </div>
+		<!--PHP//////////////////////-->
+		<?php echo $sostoyanie_nabora;?>
+		<hr class="otbivka_24">
+		<h2>…и добавляем свои</h2>
+		<hr class="otbivka_6">
+		<div class="vvod_slov">
+			<!--PHP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+			<textarea name="vvod_dop_slov" wrap="soft" class="vvod_slov_tekst" placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>
+			<hr class="otbivka_12">
+			<!--PHP////////////////////-->
+			<?php echo $oshibka_simvola;?>
+			<hr class="otbivka_12">
+			<input type="checkbox" checked name="abv">
+			алфавитный порядок
+			<hr class="otbivka_12">
+			<input name="sobrat" type="submit" class="knopka" value="2/6 &#9658; Собрать в список">
+		</div>
+	</form>
+	<hr class="otbivka_24">
+	<div class="upravlenie">
+		<!--PHP-->
+		<?php include('vstavki/f_utochnit.shtml');?>
+		<hr class="otbivka_12">
+		<!--PHP-->
+		<?php include('vstavki/f_sbros.shtml');?>
+	</div>
+	<hr class="otbivka_96">
+	<!--PHP-->
+	<?php include('vstavki/podval.shtml');?>
 </div>
 </body>
 </html>
