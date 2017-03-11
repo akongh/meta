@@ -109,7 +109,7 @@ a:hover {
 	background-color: #FFFFEE;
 	padding-top: 2px;
 	padding-right: 12px;
-	padding-bottom: 2px;
+	padding-bottom: 4px;
 	padding-left: 12px;
 	margin-top: 0px;
 	margin-right: -12px;
@@ -123,7 +123,7 @@ a:hover {
 	background-color: #EEEEEE;
 	padding-top: 2px;
 	padding-right: 12px;
-	padding-bottom: 2px;
+	padding-bottom: 4px;
 	padding-left: 12px;
 	margin-top: 0px;
 	margin-right: -12px;
@@ -766,8 +766,8 @@ a:hover {
 
 #sortable {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	width: 100%;
 }
 
