@@ -1,14 +1,15 @@
 /**
  * Created by Andrei on 10.03.2017.
  */
+var inputsEngListAddEvent = document.querySelectorAll("input[name='angl[]']");
+for (var l = 0; l < inputsEngListAddEvent.length; l++) {
+    inputsEngListAddEvent[l].addEventListener("click", missedTranslations);
+}
+;
+
 missedTranslations();
 
 function missedTranslations() {
-    var inputsEngListAddEvent = document.querySelectorAll("input[name='angl[]']");
-    for (var l = 0; l < inputsEngListAddEvent.length; l++) {
-        inputsEngListAddEvent[l].addEventListener("click", missedTranslations);
-    }
-    ;
     var blocksTranslation = document.getElementsByClassName("blok_perevoda");
     for (var i = 0; i < blocksTranslation.length; i++) {
         var inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
