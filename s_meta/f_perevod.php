@@ -94,7 +94,7 @@ if ( isset( $neperevedennye ) ) {
 		"<div class = \"rezultat_fon_neperevedennye\">
 	<span class = \"na_russk_angl\">Непереведённые</span>
 	<hr class=\"otbivka_24\">
-	<div class=\"select_result\">"
+	<div class=\"select_result_not_transl\">"
 		. $neperevedennye .
 		"</div>
 	<hr class=\"otbivka_24\">
