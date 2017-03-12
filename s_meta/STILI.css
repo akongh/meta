@@ -60,7 +60,7 @@ video {
 	background-color: #FFFFEE;
 	text-align: center;
 	font-family: "PT Sans Caption Bold";
-	color: #F00;
+	color: #FF0000;
 	padding-top: 140px;
 	height: 196px;
 }
@@ -286,7 +286,7 @@ a:hover {
 	background-image: url(oformlenie/glavnaya.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 332px;
-	background-color: #FFF;
+	background-color: #FFFFFF;
 }
 
 .korobka_glavnaya h1 {
@@ -316,7 +316,7 @@ a:hover {
 	padding-right: 0px;
 	padding-left: 0px;
 	font-family: "PT Sans Caption Bold";
-	color: #FFF;
+	color: #FFFFFF;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: solid;
@@ -334,7 +334,7 @@ a:hover {
 .knopka_2 a {
 	font-family: "PT Sans Caption Bold";
 	text-decoration: none;
-	color: #FFF;
+	color: #FFFFFF;
 	display: block;
 	width: 100%;
 	padding-top: 16px;
@@ -349,7 +349,7 @@ a:hover {
 .knopka_2 a:hover {
 	text-decoration: none;
 	font-family: "PT Sans Caption Bold";
-	color: #FFF;
+	color: #FFFFFF;
 	display: block;
 	width: 100%;
 	padding-top: 16px;
@@ -552,7 +552,7 @@ a:hover {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	background-color: #333;
+	background-color: #333333;
 	padding-top: 24px;
 	padding-right: 60px;
 	padding-bottom: 48px;
@@ -569,7 +569,7 @@ a:hover {
 }
 
 .podval a {
-	color: #999;
+	color: #999999;
 }
 
 .podval a:hover {
@@ -616,6 +616,20 @@ a:hover {
 	padding-left: 12px;
 	border-radius: 4px;
 	border: 1px solid #E9E9E9;
+}
+
+.select_result {
+	margin: 0px;
+	border: 1px solid #ffffee;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+.select_result:hover{
+	cursor: pointer;
+	border: 1px dashed #3399ff;
 }
 
 .statistika {
@@ -731,7 +745,7 @@ a:hover {
 }
 
 .zagolovok {
-	color: #000;
+	color: #000000;
 }
 
 .zhyrny {
@@ -748,9 +762,9 @@ a:hover {
 	background-color: #FFFFFF;
 	height: 22px;
 	width: 22px;
-	border: 3px solid #F00;
+	border: 3px solid #FF0000;
 	font-family: "PT Sans Caption Bold";
-	color: #000;
+	color: #000000;
 	text-align: center;
 	font-size: 18px;
 	border-radius: 15px;

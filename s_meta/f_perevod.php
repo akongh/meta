@@ -108,9 +108,11 @@ if(isset($neperevedennye))
 	$_REZULTAT_russk_neperevedennye =
 	"<div class = \"rezultat_fon_neperevedennye\">
 	<span class = \"na_russk_angl\">Непереведённые</span>
-	<hr class=\"otbivka_24\">"
+	<hr class=\"otbivka_24\">
+	<div class=\"select_result\">"
 	.$neperevedennye.
-	"<hr class=\"otbivka_24\">
+	"</div>
+	<hr class=\"otbivka_24\">
 	<div class=\"statistika\">Ключевых слов в группе — <span class=\"statistika_czyfra\">" . $neperevedennye_kol . "</span>.</div>
 	<hr class=\"otbivka_6\">
 	<span class=\"upravlenie\">Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
