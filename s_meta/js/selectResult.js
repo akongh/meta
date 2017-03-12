@@ -5,12 +5,20 @@
 var resultNode = document.querySelectorAll(".select_result");
 for (var i = 0; i < resultNode.length; i++) {
     resultNode[i].addEventListener('click', selectResult);
+    resultNode[i].addEventListener("copy", function (e) {
+        e.preventDefault();
+        e.clipboardData.setData('text/plain', e.target.textContent);
+    });
 }
 ;
 
 var resultNodeNotTransl = document.querySelectorAll(".select_result_not_transl");
 for (var i = 0; i < resultNodeNotTransl.length; i++) {
     resultNodeNotTransl[i].addEventListener('click', selectResult);
+    resultNodeNotTransl[i].addEventListener("copy", function (e) {
+        e.preventDefault();
+        e.clipboardData.setData('text/plain', e.target.textContent);
+    });
 }
 ;
 
