@@ -1,7 +1,7 @@
 #up.meta.afoteris.com
 
 #доступ
-AuthName "afoteris.com"
+AuthName "meta.afoteris.com"
 AuthType Basic
 #Digest Basic
 AuthUserFile /home/webart/www/d_meta/.htpasswd
