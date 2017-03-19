@@ -1,12 +1,19 @@
 <?php
 
-$db_server = "127.0.0.1";//by114.atservers.net
+//На удалённом сервере
 
-$db_user = "root";//andrej
+//$db_server = "by114.atservers.net";
+//$db_user = "andrej";
+//$db_password = "ss4TU0BH";
+//$db_name = "webart_meta";
 
-$db_password = "root";//ss4TU0BH
 
-$db_name = "_meta";//webart_meta
+//На внутреннем сервере
+
+$db_server = "127.0.0.1";
+$db_user = "root";
+$db_password = "root";
+$db_name = "_meta";
 
 
 $db_connect = mysqli_connect( $db_server, $db_user, $db_password, $db_name );
