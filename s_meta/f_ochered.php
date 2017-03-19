@@ -23,7 +23,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/home/webart/www/d_meta/bd_meta.php');
+		include ('/home/webart/www/d_meta/db_connect.php');
 		
 		$SQL_est_v_base = mysql_query("
 		select `s`, `kol`

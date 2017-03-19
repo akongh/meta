@@ -7,7 +7,7 @@ unset(
 	$_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( '/home/webart/www/d_meta/bd_meta.php' );
+include( '/home/webart/www/d_meta/db_connect.php' );
 
 $rus = $_POST['spisok_mesto'];
 

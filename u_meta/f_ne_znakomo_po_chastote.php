@@ -3,7 +3,7 @@ session_start();
 
 $slovo_k = $_SESSION["slovo_original"];
 
-include ('/home/webart/www/d_meta/bd_meta.php');
+include ('/home/webart/www/d_meta/db_connect.php');
 	
 mysql_query("
 UPDATE `k-ts`

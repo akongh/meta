@@ -27,7 +27,7 @@ for ($i = 0; $i < count($_MASSIV_novoe_slovo_razbit); $i++)
 $_SQL_stroka_novoe_slovo_razbit = implode("','", $_MASSIV_novoe_slovo_razbit);//строка новых слов для запросов
 
 ///////////////
-include ('/home/webart/www/d_meta/bd_meta.php');
+include ('/home/webart/www/d_meta/db_connect.php');
 
 $nomera_naborov_s_originalom = mysql_query("
 	SELECT `k-t_s`.`id_n`

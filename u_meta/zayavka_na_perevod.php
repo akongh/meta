@@ -20,7 +20,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	
 	$_SQL_opornoe_slovo_zayavki = implode("','", $_MASSIV_opornoe_slovo_zayavki);
 	
-	include ('/home/webart/www/d_meta/bd_meta.php');
+	include ('/home/webart/www/d_meta/db_connect.php');
 	
 	$zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
