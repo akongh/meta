@@ -7,7 +7,7 @@ unset(
 	$_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( '/meta_config.php' );
+include( '/meta_config_db.php' );
 
 $rus = $_POST['spisok_mesto'];
 

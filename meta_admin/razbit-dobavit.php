@@ -27,7 +27,7 @@ for ($i = 0; $i < count($_MASSIV_novoe_slovo_razbit); $i++)
 $_SQL_stroka_novoe_slovo_razbit = implode("','", $_MASSIV_novoe_slovo_razbit);//строка новых слов для запросов
 
 ///////////////
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 $nomera_naborov_s_originalom = mysqli_query( $db_connect, "
 	SELECT `k-t_s`.`id_n`
@@ -93,5 +93,5 @@ for ($i = 0; $i < count($MASSIV_nomera_naborov_s_originalom); $i++)//добав�
 mysqli_close($db_connect);
 ///////////////
 
-header("Location: http://up.meta.afoteris.com/perevod_po_zayavke.php");
+header("Location: http://meta.afoteris.com/meta_admin/perevod_po_zayavke.php");
 ?>

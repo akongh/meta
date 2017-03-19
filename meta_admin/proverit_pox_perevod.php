@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 if(!isset($_POST["slovo_proverka"]))
 {

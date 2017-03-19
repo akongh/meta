@@ -7,7 +7,7 @@ $_SESSION["oshibka_kolichestva"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 $rus = $_POST['spisok_mesto'];
 

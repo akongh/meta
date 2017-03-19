@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 $nomer_straniczy_zapros = mysqli_query( $db_connect, "SELECT `fotolia` FROM `tyrki` WHERE `f` = 1");
 $nomer_straniczy_otvet = mysqli_fetch_row($nomer_straniczy_zapros);

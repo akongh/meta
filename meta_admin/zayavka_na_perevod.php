@@ -20,7 +20,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	
 	$_SQL_opornoe_slovo_zayavki = implode("','", $_MASSIV_opornoe_slovo_zayavki);
 	
-	include ('/meta/meta_config.php');
+	include ('/meta/meta_config_db.php');
 	
 	$zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
@@ -51,7 +51,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 	mysqli_close($db_connect);
 	}
 
-header("Location: http://up.meta.afoteris.com/ne_xvataet_perevoda.php");
+header("Location: http://meta.afoteris.com/meta_admin/ne_xvataet_perevoda.php");
 
 //echo "<pre>";
 //print_r(array_keys($_SESSION));

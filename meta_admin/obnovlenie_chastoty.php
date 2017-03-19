@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 mysqli_query( $db_connect, "
 	UPDATE `k-ts` SET `k-ts`.`kol` = (SELECT COUNT(*) FROM `k-t_s` WHERE `k-t_s`.`id_s` = `k-ts`.`ids`)
@@ -14,6 +14,6 @@ $_SESSION["obnovlenie_chastoty"] = mysqli_affected_rows();
 
 mysqli_close($db_connect);
 
-header("Location: http://up.meta.afoteris.com/upravlyalka.php");
+header("Location: http://meta.afoteris.com/meta_admin/upravlyalka.php");
 
 ?>

@@ -4,7 +4,7 @@ $ot = $_POST["ot"];
 $do = $_POST["do"];
 for ( $ot; $ot <= $do; $ot ++ ) {
 	sleep( 1 );
-	include( '/meta_config.php' );
+	include( '/meta_config_db.php' );
 	$kod_straniczy = file_get_contents( 'http://lori.ru/' . $ot );
 	if ( $kod_straniczy == false ) {
 		print_r( $ot );

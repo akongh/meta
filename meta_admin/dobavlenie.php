@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 $perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
 $perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);

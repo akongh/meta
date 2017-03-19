@@ -3,12 +3,11 @@
  * Created by PhpStorm.
  * User: Andrei
  * Date: 19.03.2017
- * Time: 18:22
+ * Time: 16:07
  */
 
 //На удалённом сервере
-//$site_name = "meta.afoteris.com";
-
+//include ('/home/webart/www/meta_access/db_connect.php');
 
 //На внутреннем сервере
-$site_name = "meta";
+include ('/meta/meta_access/db_connect.php');

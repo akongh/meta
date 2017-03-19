@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 $na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
 $na_zayavke_otvet = mysqli_fetch_row($na_zayavke_zapros);

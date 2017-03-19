@@ -26,7 +26,7 @@ if(isset($znachenie))
 		}
 	}
 
-include ('/meta/meta_config.php');
+include ('/meta/meta_config_db.php');
 
 if($slovo_original != $slovo_k)
 {
@@ -174,6 +174,6 @@ mysqli_close($db_connect);
 
 $_SESSION['slovo_k'] = $slovo_k;
 
-header("Location: http://up.meta.afoteris.com/perevod_prosmotr_po_chastote.php");
+header("Location: http://meta.afoteris.com/meta_admin/perevod_prosmotr_po_chastote.php");
 
 ?>

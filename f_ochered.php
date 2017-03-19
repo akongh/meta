@@ -23,7 +23,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/meta/meta_config.php');
+		include ('/meta/meta_config_db.php');
 		
 		$SQL_est_v_base = mysqli_query( $db_connect, "
 		select `s`, `kol`
