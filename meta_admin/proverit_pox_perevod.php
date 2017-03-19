@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/access_meta/db_connect.php');
+include ('/home/webart/www/meta_access/db_connect.php');
 
 if(!isset($_POST["slovo_proverka"]))
 {

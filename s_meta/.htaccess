@@ -4,7 +4,7 @@
 #AuthName "meta.afoteris.com"
 #AuthType Basic
 #Digest Basic
-#AuthUserFile /home/webart/www/access_meta/.htpasswd
+#AuthUserFile /home/webart/www/meta_access/.htpasswd
 #require valid-user
 
 #запрет выдачи листинга пустого каталога 

@@ -4,7 +4,7 @@ $ot = $_POST["ot"];
 $do = $_POST["do"];
 for ( $ot; $ot <= $do; $ot ++ ) {
 	sleep( 1 );
-	include( '/home/webart/www/access_meta/db_connect.php' );
+	include( '/home/webart/www/meta_access/db_connect.php' );
 	$kod_straniczy = file_get_contents( 'http://lori.ru/' . $ot );
 	if ( $kod_straniczy == false ) {
 		print_r( $ot );

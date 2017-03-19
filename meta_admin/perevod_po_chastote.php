@@ -3,11 +3,7 @@ session_start();
 
 unset($_SESSION["slovo_original"]);
 
-include ('/home/webart/www/access_meta/db_connect.php');
-
-$na_zayavke_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
-$na_zayavke_otvet = mysql_fetch_row($na_zayavke_zapros);
-$na_zayavke = $na_zayavke_otvet[0];
+include ('/home/webart/www/meta_access/db_connect.php');
 
 $propustit_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
 $propustit_otvet = mysql_fetch_row($propustit_zapros);
@@ -42,7 +38,7 @@ $s_oshibkoj = $s_oshibkoj_otvet[0];
 $slovo_kolichestvo = mysql_query("
 	SELECT `s` slovo, `kol`
 	from `k-ts`
-	where `f` = 7
+	where `f` in (0, 6)
 	ORDER BY `k-ts`.`kol` DESC
 	LIMIT 1
 	");
@@ -108,11 +104,11 @@ $_SESSION["slovo_original"] = $slovo;
 
 if(isset($slovo))
 {
-	include('perevod_po_zayavke.html');
+	include('perevod_po_chastote.html');
 	}
 	else
 	{
-		include('net_zayavok_na_perevod.html');
+		include('net_slov_na_perevod.html');
 		}
 
 unset($slovo);

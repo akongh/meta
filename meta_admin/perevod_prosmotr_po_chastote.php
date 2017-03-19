@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/access_meta/db_connect.php');
+include ('/home/webart/www/meta_access/db_connect.php');
 
 $slovo_k = $_SESSION['slovo_k'];
 $aaa = $_SESSION["aaa"];
@@ -40,5 +40,5 @@ $s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);//
 
 mysql_close($podkluchenie);	
 
-include('perevod_prosmotr_po_zayavke.html');
+include('perevod_prosmotr_po_chastote.html');
 ?>

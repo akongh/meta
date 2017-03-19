@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include ('/home/webart/www/access_meta/db_connect.php');
+include ('/home/webart/www/meta_access/db_connect.php');
 
 $perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
 $perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);

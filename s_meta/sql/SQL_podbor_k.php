@@ -1,5 +1,5 @@
 <?php error_reporting(0);
-include ('/home/webart/www/access_meta/db_connect.php');
+include ('/home/webart/www/meta_access/db_connect.php');
 
 //$_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)    
 //	  from (    
