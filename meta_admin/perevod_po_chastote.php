@@ -3,7 +3,7 @@ session_start();
 
 unset($_SESSION["slovo_original"]);
 
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
 $propustit_otvet = mysqli_fetch_row($propustit_zapros);

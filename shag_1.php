@@ -10,6 +10,8 @@ $oshibka_mnogo_op_slov = $_SESSION["oshibka_mnogo_op_slov"];
 
 $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 
+include( 'meta_config.php' );
+
 include( 'shag_1.html' );
 //include('shag_0.html');
 

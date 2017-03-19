@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
+
 $slovo_original = $_SESSION["slovo_original"];
 $slovo_k = $_POST["slovo"];
 $perevod = $_POST["perevod"];
@@ -26,7 +28,7 @@ if(isset($znachenie))
 		}
 	}
 
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 if($slovo_original != $slovo_k)
 {
@@ -174,6 +176,6 @@ mysqli_close($db_connect);
 
 $_SESSION['slovo_k'] = $slovo_k;
 
-header("Location: http://meta.afoteris.com/meta_admin/perevod_prosmotr_po_chastote.php");
+header("Location: http://".$site_domain_name."/meta_admin/perevod_prosmotr_po_chastote.php");
 
 ?>

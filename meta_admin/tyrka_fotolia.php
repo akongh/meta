@@ -5,7 +5,7 @@ $do = $_POST["do"];
 for($ot; $ot <= $do; $ot++)
 {
 	sleep(2);
-	include ('/meta/meta_config_db.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 	$kod_straniczy = file_get_contents('http://fotolia.com/id/'.$ot);
 	if($kod_straniczy == false)
 	{

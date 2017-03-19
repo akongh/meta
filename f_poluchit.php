@@ -2,6 +2,8 @@
 
 session_start();
 
+include( 'meta_config.php' );
+
 $russk   = $_POST["russk"];//print_r($russk);
 $angl    = $_POST["angl"];//print_r($angl);
 $zayavka = $_POST["zayavka"];
@@ -64,6 +66,6 @@ if ( isset( $zayavka ) ) {
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
 $_SESSION["_REZULTAT_angl"]  = $_REZULTAT_angl;
 
-header( "Location: http://meta.afoteris.com/shag_6.php" );
+header( "Location: http://".$site_domain_name."/shag_6.php" );
 
 ?>

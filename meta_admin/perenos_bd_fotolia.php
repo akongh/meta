@@ -6,7 +6,7 @@ for($i = 6175; $i <= 6175; $i++)
 	$vr_nabora = time();
 	$ses = "lori";
 	
-	include ('/home/webart/www/_z/bd_p.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/meta_access/db_connect.php');
 
 	$slova = mysqli_query( $db_connect, "
 	select `s`

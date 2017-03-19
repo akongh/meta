@@ -7,7 +7,8 @@ $_SESSION["oshibka_kolichestva"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
+include( 'meta_config.php' );
 
 $rus = $_POST['spisok_mesto'];
 
@@ -126,6 +127,6 @@ if(isset($pro_zayavku))
 
 mysqli_close($db_connect);
 
-header("Location: http://meta.afoteris.com/shag_5.php");
+header("Location: http://".$site_domain_name."/shag_5.php");
 
 ?>

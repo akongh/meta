@@ -4,6 +4,7 @@ session_start();
 $slovo_original = $_SESSION["slovo_original"];//разбиваемое слово
 
 include ('regularnye_vyrazheniya.php');
+include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
 
 $novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];//var_dump($_POST["slovo_razbit"]);
 $novoe_slovo_razbit = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($novoe_slovo_razbit))), "utf-8"));
@@ -27,7 +28,7 @@ for ($i = 0; $i < count($_MASSIV_novoe_slovo_razbit); $i++)
 $_SQL_stroka_novoe_slovo_razbit = implode("','", $_MASSIV_novoe_slovo_razbit);//строка новых слов для запросов
 
 ///////////////
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $nomera_naborov_s_originalom = mysqli_query( $db_connect, "
 	SELECT `k-t_s`.`id_n`
@@ -93,5 +94,5 @@ for ($i = 0; $i < count($MASSIV_nomera_naborov_s_originalom); $i++)//добав�
 mysqli_close($db_connect);
 ///////////////
 
-header("Location: http://meta.afoteris.com/meta_admin/perevod_po_zayavke.php");
+header("Location: http://".$site_domain_name."/meta_admin/perevod_po_zayavke.php");
 ?>

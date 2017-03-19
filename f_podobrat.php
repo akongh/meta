@@ -9,6 +9,7 @@ $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( 'vstavki/regularnye_vyrazheniya.php' );
+include( 'meta_config.php' );
 
 $sposob321 = $_POST["sposob321"];//var_dump($_POST["sposob321"]);
 $granicza = $_POST["granicza"];
@@ -74,7 +75,7 @@ if (isset($_SESSION["_MASSIV_sostoyanie_nabora"]) && count($_MASSIV_op_slov) > 0
 
 if (isset($oshibka_simvola) or isset($oshibka_mnogo_op_slov) or isset($oshibka_nichego_ne_vveli))
 {
-	header("Location: http://meta.afoteris.com/shag_1.php");
+	header("Location: http://".$site_domain_name."/shag_1.php");
 	exit;
 	}	
 
@@ -150,5 +151,5 @@ if (isset($_MASSIV_spisok_podbora))
 	$_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 	}
 
-header("Location: http://meta.afoteris.com/shag_2.php");
+header("Location: http://".$site_domain_name."/shag_2.php");
 ?>

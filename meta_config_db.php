@@ -10,4 +10,4 @@
 //include ('/home/webart/www/meta_access/db_connect.php');
 
 //На внутреннем сервере
-include ('/meta/meta_access/db_connect.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_access/db_connect.php');

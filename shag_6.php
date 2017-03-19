@@ -1,8 +1,11 @@
 <?php error_reporting(0);
 session_start();
+
+include( 'meta_config.php' );
+
 if(!isset($_SESSION["metka"]))
 {
-	header("Location: http://meta.afoteris.com/o_servise.php");
+	header("Location: http://".$site_domain_name."/o_servise.php");
 	}
 
 $kol_slov_russk = $_SESSION["kol_slov_russk"];

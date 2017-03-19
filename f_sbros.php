@@ -4,5 +4,7 @@ session_start();
 session_unset();
 unset($_POST);
 
-header("Location: http://meta.afoteris.com/shag_1.php");
+include( 'meta_config.php' );
+
+header("Location: http://".$site_domain_name."/shag_1.php");
 ?>

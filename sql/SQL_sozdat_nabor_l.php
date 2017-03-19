@@ -1,5 +1,5 @@
 <?php error_reporting(0);
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 if(isset($angl))
 {

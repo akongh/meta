@@ -1,6 +1,8 @@
 <?php error_reporting(0);
 session_start();
 
+include( 'meta_config.php' );
+
 //$massiv_itog = $_SESSION["massiv_itog"];
 
 $po_chastote = $_POST["po_chastote"];
@@ -11,7 +13,7 @@ if (count($massiv_itog) < 8)
 	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
 	//SESSION///////////////////////////////////////////////
 	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-	header("Location: http://meta.afoteris.com/shag_3.php");
+	header("Location: http://".$site_domain_name."/shag_3.php");
 	exit;
 	}
 	
@@ -23,7 +25,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/meta/meta_config_db.php');
+		include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 		
 		$SQL_est_v_base = mysqli_query( $db_connect, "
 		select `s`, `kol`
@@ -72,5 +74,5 @@ $ochered = implode("", $ochered);
 //SESSION/////////////////////////////////////
 $_SESSION["ochered"] = $ochered;
 
-header("Location: http://meta.afoteris.com/shag_4.php");
+header("Location: http://".$site_domain_name."/shag_4.php");
 ?>

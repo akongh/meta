@@ -1,6 +1,8 @@
 <?php error_reporting(0);
 session_start();
 
+include( 'meta_config.php' );
+
 //$_SESSION["sostoyanie_nabora"] = implode("; ", $_SESSION["massiv_itog"]) . "<hr class=\"otbivka_24\">
 //<div class=\"statistika\">Ключевых слов в наборе — <span class=\"statistika_czyfra\">" . $_SESSION["kol_slov_itog"] . "</span>.</div>";
 
@@ -22,5 +24,5 @@ $_SESSION["opornye_slova"],
 $_SESSION["oshibka_kolichestva"]
 );
 
-header("Location: http://meta.afoteris.com/shag_1.php");
+header("Location: http://".$site_domain_name."/shag_1.php");
 ?>

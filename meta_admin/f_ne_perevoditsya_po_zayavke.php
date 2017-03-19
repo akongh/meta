@@ -3,7 +3,8 @@ session_start();
 
 $slovo_k = $_SESSION["slovo_original"];
 
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
+include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
 	
 mysqli_query( $db_connect, "
 UPDATE `k-ts`
@@ -13,6 +14,6 @@ WHERE `s` = '".$slovo_k."'
 	
 mysqli_close($db_connect);
 
-header("Location: http://meta.afoteris.com/meta_admin/perevod_po_zayavke.php");
+header("Location: http://".$site_domain_name."/meta_admin/perevod_po_zayavke.php");
 
 ?>

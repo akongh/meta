@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/meta/meta_config_db.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $slovo_k = $_SESSION['slovo_k'];
 $aaa = $_SESSION["aaa"];

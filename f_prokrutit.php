@@ -9,6 +9,7 @@ $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( 'vstavki/regularnye_vyrazheniya.php' );
+include( 'meta_config.php' );
 
 $abv = $_POST["abv"];
 $slova_s_flagom = $_POST["slova_s_flagom"];
@@ -141,7 +142,7 @@ if (isset($massiv_itog))
 ///////////////////////////////////////////////остаёмся исправлять ошибки/////////////////////////////
 if(isset($oshibka_simvola))
 {
-	header("Location: http://meta.afoteris.com/shag_2.php");
+	header("Location: http://".$site_domain_name."/shag_2.php");
 	exit;
 	}
 ///////////////////////////////////////////////переходим к третьему шагу, если нет ошибок/////////////
@@ -174,5 +175,5 @@ $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 //SESSION///////////////////////////////
 $_SESSION["massiv_itog"] = $massiv_itog;
 
-header("Location: http://meta.afoteris.com/shag_3.php");
+header("Location: http://".$site_domain_name."/shag_3.php");
 ?>
