@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Очередь на перевод</title>
+<link href="STILI.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="http://meta.afoteris.com/favicon.ico" type="image/ven.microsoft.ico">
+</head>
+<body>
+<div class="korobka">
+  <h1>Очередь на перевод</h1>
+  <hr class="otbivka_24">
+  <div class="upravlenie"> <a href="shag_1.php" title="К подбору">К подбору</a> </div>
+  <hr class="otbivka_12">
+  <!--PHP-->
+  <?php include('vstavki/nazvanie.shtml');?>
+  <hr class="otbivka_96">
+  Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
+  <hr class="otbivka_6">
+  Данные ключевые слова к&nbsp;таковым и&nbsp;относятся и&nbsp;мы&nbsp;их&nbsp;переведём в&nbsp;течение двух или&nbsp;более дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
+  <hr class="otbivka_48">
+  <!--PHP//////////////////////--> 
+  <?php echo $_SESSION["kol_slov_ochered"]?>
+  <hr class="otbivka_24">
+  <div class = "blok_zayavki">
+  <!--PHP-->
+  <?php echo $_MASSIV_spisok_ochered;?>
+  </div>
+  <hr class="otbivka_96">
+  <!--PHP-->
+  <?php include('vstavki/podval.shtml');?>
+</div>
+</body>
+</html>
