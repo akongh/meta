@@ -1,17 +1,17 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
-$na_zayavke_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
-$na_zayavke_otvet = mysql_fetch_row($na_zayavke_zapros);
+$na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
+$na_zayavke_otvet = mysqli_fetch_row($na_zayavke_zapros);
 $na_zayavke = $na_zayavke_otvet[0];
 
-$perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
-$perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);
+$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
+$perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 
 $slovo_razbit = $_SESSION["slovo_original"];
 

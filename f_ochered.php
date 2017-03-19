@@ -23,20 +23,20 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ('/home/webart/www/meta_access/db_connect.php');
+		include ('/meta/meta_config.php');
 		
-		$SQL_est_v_base = mysql_query("
+		$SQL_est_v_base = mysqli_query( $db_connect, "
 		select `s`, `kol`
 		from `k-ts`
 		where `s` in ('".$massiv_itog_2."')
 		order by `k-ts`.`kol` desc
 		");
 	
-		mysql_close($podkluchenie);	
+		mysqli_close($db_connect);
 	
 		$n = 0;
 	
-		while ($rez = mysql_fetch_array($SQL_est_v_base))
+		while ($rez = mysqli_fetch_array($SQL_est_v_base))
 	
 		{
 			$massiv_itog_est_v_base_slovo[$n] = $rez['s'];

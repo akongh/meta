@@ -7,14 +7,14 @@ $_SESSION["oshibka_kolichestva"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
 $rus = $_POST['spisok_mesto'];
 
 for($i = 0; $i < count($rus); $i++)
 
 {
-	$SQL_p_z = mysql_query("
+	$SQL_p_z = mysqli_query( $db_connect, "
 	select `l-ts`.`s`, `tz`.`z`
 	from `k-ts`
 	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -25,7 +25,7 @@ for($i = 0; $i < count($rus); $i++)
 
 	$n = 0;
 
-	while ($rez = mysql_fetch_array($SQL_p_z))
+	while ($rez = mysqli_fetch_array($SQL_p_z))
 
 	{
 		$p[$n] = $rez['s'];
@@ -36,7 +36,7 @@ for($i = 0; $i < count($rus); $i++)
 		}
 	
 	//выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-	$SQL_f = mysql_query("
+	$SQL_f = mysqli_query( $db_connect, "
 	select `k-ts`.`f`
 	from `k-ts`
 	where `k-ts`.`s`='".$rus[$i]."'
@@ -44,7 +44,7 @@ for($i = 0; $i < count($rus); $i++)
 
 	$n = 0;
 
-	while ($rez = mysql_fetch_array($SQL_f))
+	while ($rez = mysqli_fetch_array($SQL_f))
 
 	{
 		$f[$n] = $rez['f'];
@@ -124,7 +124,7 @@ if(isset($pro_zayavku))
 	$_SESSION["pro_zayavku"] = $pro_zayavku;
 	}
 
-mysql_close($podkluchenie);	
+mysqli_close($db_connect);
 
 header("Location: http://meta.afoteris.com/shag_5.php");
 

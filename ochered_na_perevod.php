@@ -7,7 +7,7 @@ unset($_POST);
 include( 'sql/SQL_ochered_na_perevod.php' );
 
 $n = 0;
-while ($data = mysql_fetch_array($_SQL_rezultat_ochered))
+while ($data = mysqli_fetch_array($_SQL_rezultat_ochered))
 {
 	$_MASSIV_ochered[$n] = $data['s'];
 	$n++;

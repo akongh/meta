@@ -8,16 +8,16 @@ for($i = 538754; $i <= 538754; $i++)
 	
 	include ('/home/webart/www/_z/bd_p.php');
 
-	$slova = mysql_query("
+	$slova = mysqli_query( $db_connect, "
 	select `s`
 	from `k-ts`
 	join `k-t_s` on `k-ts`.`ids` = `k-t_s`.`id_s` and `k-t_s`.`id_n` = '" . $i . "'
 	");
 	
-	mysql_close($podkluchenie);
+	mysqli_close($db_connect);
 	
 	$n = 0;
-	while ($data = mysql_fetch_array($slova))
+	while ($data = mysqli_fetch_array($slova))
 	{
 		$slova2[$n] = $data['s'];
 		$n++;
@@ -25,27 +25,27 @@ for($i = 538754; $i <= 538754; $i++)
 		
 	if($slova2 != NULL)
 	{
-		$podkluchenie2 = mysql_connect("by114", "andrej", "ss4TU0BH");
-		mysql_query("SET character_set_database=utf8");
-		mysql_query("SET NAMES utf8");
-		mysql_select_db("webart_200slov", $podkluchenie2);
+		$podkluchenie2 = mysqli_connect("by114", "andrej", "ss4TU0BH");
+		mysqli_query( $db_connect, "SET character_set_database=utf8");
+		mysqli_query( $db_connect, "SET NAMES utf8");
+		mysqli_select_db("webart_200slov", $podkluchenie2);
 		
 		$stroka_slov = implode("", $slova2);
 		
 		if(!preg_match("/[а-яё]+/i", $stroka_slov))
 		{
-			mysql_query("  
+			mysqli_query( $db_connect, "  
 			INSERT INTO `l-tn` (`vr`, `ses`)  
 			VALUES ('".$vr_nabora."', '".$ses."')
 			");
 			
 			for ($j = 0; $j < count($slova2); $j++)
 			{
-				mysql_query("  
+				mysqli_query( $db_connect, "  
 				INSERT IGNORE INTO `l-ts` (`s`)
 				VALUES ('".$slova2[$j]."')
 				");
-				mysql_query("  
+				mysqli_query( $db_connect, "  
 				INSERT INTO `l-t_s` (`id_n`, `id_s`)  
 				VALUES ((SELECT `idn` FROM `l-tn` WHERE /*`vr` = '".$vr_nabora."' AND*/ `ses` = '".$ses."'),  
 						(SELECT `ids` FROM `l-ts` WHERE `s` = '".$slova2[$j]."'))  
@@ -62,18 +62,18 @@ for($i = 538754; $i <= 538754; $i++)
 			}
 			else if(!preg_match("/[a-z]+/i", $stroka_slov))
 			{
-				mysql_query("  
+				mysqli_query( $db_connect, "  
 				INSERT INTO `k-tn` (`vr`, `ses`)  
 				VALUES ('".$vr_nabora."', '".$ses."')
 				");
 				
 				for ($h = 0; $h < count($slova2); $h++)
 				{
-					mysql_query("  
+					mysqli_query( $db_connect, "  
 					INSERT IGNORE INTO `k-ts` (`s`)
 					VALUES ('".$slova2[$h]."')
 					");
-					mysql_query("  
+					mysqli_query( $db_connect, "  
 					INSERT INTO `k-t_s` (`id_n`, `id_s`)  
 					VALUES ((SELECT `idn` FROM `k-tn` WHERE /*`vr` = '".$vr_nabora."' AND*/ `ses` = '".$ses."'),  
 							(SELECT `ids` FROM `k-ts` WHERE `s` = '".$slova2[$h]."'))  
@@ -89,7 +89,7 @@ for($i = 538754; $i <= 538754; $i++)
 				flush();
 				}
 				
-		mysql_close($podkluchenie2);	
+		mysqli_close($podkluchenie2);
 		}
 		else
 		{

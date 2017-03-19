@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
-$perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
-$perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);
+$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
+$perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
-$propustit_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
-$propustit_otvet = mysql_fetch_row($propustit_zapros);
+$propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
+$propustit_otvet = mysqli_fetch_row($propustit_zapros);
 $propustit = $propustit_otvet[0];
 
-$slovo_kolichestvo = mysql_query("
+$slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 5
@@ -20,14 +20,14 @@ $slovo_kolichestvo = mysql_query("
 	");
 	
 $n = 0;
-while ($data = mysql_fetch_array($slovo_kolichestvo))
+while ($data = mysqli_fetch_array($slovo_kolichestvo))
 {
 	$slovo[$n] = $data['slovo'];
 	$kol[$n] = $data['kol'];
 	$n++;
 	}
 	
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 
 $slovo = $slovo[0];//var_dump($slovo);
 $kol = $kol[0];//var_dump($kol);

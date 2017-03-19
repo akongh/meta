@@ -3,15 +3,15 @@ session_start();
 
 $slovo_k = $_SESSION["slovo_original"];
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 	
-mysql_query("
+mysqli_query( $db_connect, "
 UPDATE `k-ts`
 SET `f` = 4
 WHERE `s` = '".$slovo_k."' 
 ");
 	
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 
 header("Location: http://up.meta.afoteris.com/perevod_po_chastote.php");
 

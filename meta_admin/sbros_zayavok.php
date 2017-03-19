@@ -1,14 +1,14 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 $zayavka_na_perevod = "
 update `k-ts`
 set `k-ts`.`f` = 0
 where `k-ts`.`f` = 7
 ";
-mysql_query($zayavka_na_perevod);
-mysql_close($podkluchenie);
+mysqli_query( $db_connect, $zayavka_na_perevod);
+mysqli_close($db_connect);
 
 header("Location: http://up.meta.afoteris.com/ne_xvataet_perevoda.php");
 

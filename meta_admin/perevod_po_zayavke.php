@@ -3,33 +3,33 @@ session_start();
 
 unset($_SESSION["slovo_original"]);
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
-$na_zayavke_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
-$na_zayavke_otvet = mysql_fetch_row($na_zayavke_zapros);
+$na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
+$na_zayavke_otvet = mysqli_fetch_row($na_zayavke_zapros);
 $na_zayavke = $na_zayavke_otvet[0];
 
-$propustit_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
-$propustit_otvet = mysql_fetch_row($propustit_zapros);
+$propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
+$propustit_otvet = mysqli_fetch_row($propustit_zapros);
 $propustit = $propustit_otvet[0];
 
-$perevedeno_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
-$perevedeno_otvet = mysql_fetch_row($perevedeno_zapros);
+$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
+$perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
-$ne_perevoditsya_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '2'");
-$ne_perevoditsya_otvet = mysql_fetch_row($ne_perevoditsya_zapros);
+$ne_perevoditsya_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '2'");
+$ne_perevoditsya_otvet = mysqli_fetch_row($ne_perevoditsya_zapros);
 $ne_perevoditsya = $ne_perevoditsya_otvet[0];
 
-$ne_znakomo_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '4'");
-$ne_znakomo_otvet = mysql_fetch_row($ne_znakomo_zapros);
+$ne_znakomo_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '4'");
+$ne_znakomo_otvet = mysqli_fetch_row($ne_znakomo_zapros);
 $ne_znakomo = $ne_znakomo_otvet[0];
 
-$s_oshibkoj_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '3'");
-$s_oshibkoj_otvet = mysql_fetch_row($s_oshibkoj_zapros);
+$s_oshibkoj_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '3'");
+$s_oshibkoj_otvet = mysqli_fetch_row($s_oshibkoj_zapros);
 $s_oshibkoj = $s_oshibkoj_otvet[0];
 
-//$slovo_kolichestvo = mysql_query("
+//$slovo_kolichestvo = mysqli_query( $db_connect, "
 //	SELECT `k-ts`.`s` slovo, count(*) kol
 //	FROM `k-t_s`
 //	join `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
@@ -39,7 +39,7 @@ $s_oshibkoj = $s_oshibkoj_otvet[0];
 //	LIMIT 1
 //	");
 
-$slovo_kolichestvo = mysql_query("
+$slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 7
@@ -47,7 +47,7 @@ $slovo_kolichestvo = mysql_query("
 	LIMIT 1
 	");
 
-//$slovo_kolichestvo = mysql_query("
+//$slovo_kolichestvo = mysqli_query( $db_connect, "
 //	SELECT `s` slovo, `kol`
 //	from `k-ts`
 //	where `f` = 0 and `s` regexp ' '
@@ -56,14 +56,14 @@ $slovo_kolichestvo = mysql_query("
 //	");
 
 $n = 0;
-while ($data = mysql_fetch_array($slovo_kolichestvo))
+while ($data = mysqli_fetch_array($slovo_kolichestvo))
 {
 	$slovo[$n] = $data['slovo'];
 	$kol[$n] = $data['kol'];
 	$n++;
 	}
 
-//mysql_query("
+//mysqli_query( $db_connect, "
 //	UPDATE `k-ts`
 //	SET `f` = 10
 //	WHERE `s` = '".$slovo."' 
@@ -71,7 +71,7 @@ while ($data = mysql_fetch_array($slovo_kolichestvo))
 
 $slovo = $slovo[0];//var_dump($slovo);
 /////////////////////////////////////////////////////////////////////
-$SQL_p_z = mysql_query("
+$SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -81,7 +81,7 @@ where `k-ts`.`s`='".$slovo."'
 ");
 
 $n = 0;
-while ($rez = mysql_fetch_array($SQL_p_z))
+while ($rez = mysqli_fetch_array($SQL_p_z))
 {
 	$p[$n] = $rez['s'];
 	$z[$n] = $rez['z'];
@@ -101,7 +101,7 @@ if (isset($p_z))
 
 unset($p_z, $p, $z);
 
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 ////////////////////////////////////////////////////////////////////
 $kol = $kol[0];//var_dump($kol);
 $_SESSION["slovo_original"] = $slovo;

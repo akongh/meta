@@ -5,19 +5,19 @@ $do = $_POST["do"];
 for($ot; $ot <= $do; $ot++)
 {
 	sleep(2);
-	include ('/home/webart/www/meta_access/db_connect.php');
+	include ('/meta/meta_config.php');
 	$kod_straniczy = file_get_contents('http://fotolia.com/id/'.$ot);
 	if($kod_straniczy == false)
 	{
 		print_r($ot);
 		echo ("<hr>");
 		flush();
-		//mysql_query("
+		//mysqli_query( $db_connect, "
 //		UPDATE `tyrki`
 //		SET `fotolia` = '".$ot."'
 //		WHERE `f` = '1'
 //		");
-		mysql_close($podkluchenie);
+		mysqli_close($db_connect);
 		}
 		else if ($kod_straniczy == true)
 		{
@@ -46,23 +46,23 @@ for($ot; $ot <= $do; $ot++)
 				{
 					$vr_nabora = time();
 					$ses = 'fotolia';
-					mysql_query("  
+					mysqli_query( $db_connect, "  
 					INSERT INTO `l-tn` (`vr`, `ses`)  
 					VALUES ('".$vr_nabora."', '".$ses."')
 					");
 					for ($i = 0;$i < count($stroka);$i++)
 					{
-						mysql_query("  
+						mysqli_query( $db_connect, "  
 						INSERT IGNORE INTO `l-ts` (`s`)
 						VALUES ('".$stroka[$i]."')
 						");
-						mysql_query("  
+						mysqli_query( $db_connect, "  
 						INSERT INTO `l-t_s` (`id_n`, `id_s`)  
 						VALUES ((SELECT `idn` FROM `l-tn` WHERE `vr` = '".$vr_nabora."' AND `ses` = '".$ses."'),  
 								(SELECT `ids` FROM `l-ts` WHERE `s` = '".$stroka[$i]."'))  
 						");
 						}
-					mysql_query("
+					mysqli_query( $db_connect, "
 					UPDATE `tyrki`
 					SET `fotolia` = '".$ot."'
 					/*WHERE `f` = '1'*/
@@ -79,7 +79,7 @@ for($ot; $ot <= $do; $ot++)
 				$kod_straniczy,
 				$stroka,
 				$stroka_lat);
-				mysql_close($podkluchenie);
+				mysqli_close($db_connect);
 				}
 				else
 				{
@@ -90,7 +90,7 @@ for($ot; $ot <= $do; $ot++)
 					$kod_straniczy,
 					$stroka,
 					$stroka_lat);
-					mysql_close($podkluchenie);
+					mysqli_close($db_connect);
 					}
 			}
 			

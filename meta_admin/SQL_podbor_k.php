@@ -15,6 +15,6 @@ $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)
 	  order by count(*) desc, `k-ts`.`s` LIMIT 0,200   
 	  ";
 
-$_SQL_rezultat_podbora = mysql_query($_SQL_zapros_podbor);
+$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
 
 ?>

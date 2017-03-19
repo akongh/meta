@@ -90,7 +90,7 @@ if (isset($sposob321) && $kolichestvo_opornyx_slov>1)
 	{
 		include( 'sql/SQL_podbor_k.php' );
 		$n = 0;
-		while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+		while ($data = mysqli_fetch_array($_SQL_rezultat_podbora))
 		{
 			$_MASSIV_rezultata[$n] = $data['s'];
 			$n++;
@@ -113,7 +113,7 @@ if (isset($sposob321) && $kolichestvo_opornyx_slov>1)
 	{
 		include( 'sql/SQL_podbor_k.php' );
 		$n = 0;
-		while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+		while ($data = mysqli_fetch_array($_SQL_rezultat_podbora))
 		{
 			$_MASSIV_rezultata[$n] = $data['s'];
 			$n++;

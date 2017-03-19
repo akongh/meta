@@ -13,11 +13,11 @@ for ($i = 0;$i < count($_MASSIV_na_sbros);$i++)
 $_MASSIV_na_sbros = array_values(array_unique((array_diff($_MASSIV_na_sbros, array('')))));
 $_SQL_stroka_na_sbros = implode("','", $_MASSIV_na_sbros); //print_r($_SQL_stroka_na_sbros);
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
-mysql_query("UPDATE `k-ts` SET `k-ts`.`f` = 7 WHERE `k-ts`.`s` in ('" . $_SQL_stroka_na_sbros . "')");
+mysqli_query( $db_connect, "UPDATE `k-ts` SET `k-ts`.`f` = 7 WHERE `k-ts`.`s` in ('" . $_SQL_stroka_na_sbros . "')");
 
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 
 session_unset();
 unset($_POST);

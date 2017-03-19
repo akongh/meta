@@ -52,7 +52,7 @@ if ( isset( $angl )) {
 
 if ( isset( $zayavka ) ) {
 	$zayavka     = implode( "', '", $zayavka );
-	$SQL_zayavka = mysql_query( "
+	$SQL_zayavka = mysqli_query( $db_connect,  "
 	update `k-ts`
 	set `f` = 7
 	where `s` in ('" . $zayavka . "')

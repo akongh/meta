@@ -1,7 +1,7 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
 if(!isset($_POST["slovo_proverka"]))
 {
@@ -12,20 +12,20 @@ if(!isset($_POST["slovo_proverka"]))
 		$slovo = $_POST["slovo_proverka"];
 		}
 
-$slovo_kolichestvo = mysql_query("
+$slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `kol`
 	from `k-ts`
 	where `s` = '".$slovo."'
 	");
 $n = 0;
-while ($data = mysql_fetch_array($slovo_kolichestvo))
+while ($data = mysqli_fetch_array($slovo_kolichestvo))
 {
 	$kol[$n] = $data['kol'];
 	$n++;
 	}
 $kol = $kol[0];
 
-$SQL_p_z = mysql_query("
+$SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -35,7 +35,7 @@ where `k-ts`.`s`='".$slovo."'
 ");
 
 $n = 0;
-while ($rez = mysql_fetch_array($SQL_p_z))
+while ($rez = mysqli_fetch_array($SQL_p_z))
 {
 	$p[$n] = $rez['s'];
 	$z[$n] = $rez['z'];
@@ -59,7 +59,7 @@ unset($p_z, $p, $z);
 include ('SQL_podbor_k.php');
 
 $n = 0;
-while ($data = mysql_fetch_array($_SQL_rezultat_podbora))
+while ($data = mysqli_fetch_array($_SQL_rezultat_podbora))
 {
 	$_MASSIV_rezultata[$n] = $data['s'];
 	$n++;
@@ -81,7 +81,7 @@ if (isset($_MASSIV_spisok_podbora))
 	}
 //////////////////////////////////////////////////////////////////////
 
-mysql_close($podkluchenie);	
+mysqli_close($db_connect);
 
 include('proverit_pox_perevod.html');
 ?>

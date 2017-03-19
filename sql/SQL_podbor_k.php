@@ -1,5 +1,5 @@
 <?php error_reporting(0);
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
 //$_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)    
 //	  from (    
@@ -33,6 +33,6 @@ $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)
 	  ;    
 	  ";
 
-$_SQL_rezultat_podbora = mysql_query($_SQL_zapros_podbor);
-mysql_close($podkluchenie);
+$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
+mysqli_close($db_connect);
 ?>

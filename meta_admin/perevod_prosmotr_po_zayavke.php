@@ -1,12 +1,12 @@
 <?php //error_reporting(0);
 session_start();
 
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
 $slovo_k = $_SESSION['slovo_k'];
 $aaa = $_SESSION["aaa"];
 
-$SQL_p_z = mysql_query("
+$SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -16,7 +16,7 @@ where `k-ts`.`s`='".$slovo_k."'
 ");
 
 $n = 0;
-while ($rez = mysql_fetch_array($SQL_p_z))
+while ($rez = mysqli_fetch_array($SQL_p_z))
 {
 	$p[$n] = $rez['s'];
 	$z[$n] = $rez['z'];
@@ -38,7 +38,7 @@ unset($p_z, $p, $z);
 	
 $s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);//print_r($s_perevodom);
 
-mysql_close($podkluchenie);	
+mysqli_close($db_connect);
 
 include('perevod_prosmotr_po_zayavke.html');
 ?>

@@ -27,15 +27,15 @@ for ($i = 0; $i < count($_MASSIV_novoe_slovo_razbit); $i++)
 $_SQL_stroka_novoe_slovo_razbit = implode("','", $_MASSIV_novoe_slovo_razbit);//строка новых слов для запросов
 
 ///////////////
-include ('/home/webart/www/meta_access/db_connect.php');
+include ('/meta/meta_config.php');
 
-$nomera_naborov_s_originalom = mysql_query("
+$nomera_naborov_s_originalom = mysqli_query( $db_connect, "
 	SELECT `k-t_s`.`id_n`
 	from `k-t_s` LEFT JOIN  `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
 	where `k-ts`.`s`  = '".$slovo_original."'
 	");
 $n = 0;
-while ($data = mysql_fetch_array($nomera_naborov_s_originalom))
+while ($data = mysqli_fetch_array($nomera_naborov_s_originalom))
 {
 	$MASSIV_nomera_naborov_s_originalom[$n] = $data['id_n'];//массив номеров наборов с оригиналом
 	$n++;
@@ -43,37 +43,37 @@ while ($data = mysql_fetch_array($nomera_naborov_s_originalom))
 	
 //var_dump($MASSIV_nomera_naborov_s_originalom);
 
-mysql_query("
+mysqli_query( $db_connect, "
 	delete `k-t_s`
 	FROM `k-t_s` LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids` 
 	WHERE `k-ts`.`s` = '".$slovo_original."'
 	");//удаляем оригинальное слово из наборов
 	
-mysql_query("
+mysqli_query( $db_connect, "
 	delete FROM `k-ts` WHERE `k-ts`.`s` = '".$slovo_original."'
 	");//удаляем оригинальное слово из слов
 
 for ($i = 0;$i < count($_MASSIV_novoe_slovo_razbit);$i++)
 {
-	mysql_query("  
+	mysqli_query( $db_connect, "  
 	INSERT IGNORE INTO `k-ts` (`s`)
 	VALUES ('".$_MASSIV_novoe_slovo_razbit[$i]."')
 	");//вставляем в бд новые слова
 	}	
 
-mysql_query("
+mysqli_query( $db_connect, "
 	update `k-ts`
 	set `f` = 7
 	where `s` in ('".$_SQL_stroka_novoe_slovo_razbit."')
 	");//помечаем новые слова в заявку на перевод
 
-$nomera_novyx_slov = mysql_query("
+$nomera_novyx_slov = mysqli_query( $db_connect, "
 	SELECT `ids`
 	from `k-ts`
 	where `s` in ('".$_SQL_stroka_novoe_slovo_razbit."')
 	");
 $n = 0;
-while ($data = mysql_fetch_array($nomera_novyx_slov))
+while ($data = mysqli_fetch_array($nomera_novyx_slov))
 {
 	$MASSIV_nomera_novyx_slov[$n] = $data['ids'];//массив номеров новых слов
 	$n++;
@@ -83,14 +83,14 @@ for ($i = 0; $i < count($MASSIV_nomera_naborov_s_originalom); $i++)//добав�
 {
 	for ($j = 0; $j < count($MASSIV_nomera_novyx_slov); $j++)
 	{
-		mysql_query("  
+		mysqli_query( $db_connect, "  
 		INSERT INTO `k-t_s` (`id_n`, `id_s`)  
 		VALUES ('".$MASSIV_nomera_naborov_s_originalom[$i]."','".$MASSIV_nomera_novyx_slov[$j]."')  
 		");
 		}
 	}
 
-mysql_close($podkluchenie);
+mysqli_close($db_connect);
 ///////////////
 
 header("Location: http://up.meta.afoteris.com/perevod_po_zayavke.php");
