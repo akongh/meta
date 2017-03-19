@@ -7,7 +7,7 @@ $_SESSION["oshibka_kolichestva"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include ('/home/webart/www/d_meta/db_connect.php');
+include ('/home/webart/www/access_meta/db_connect.php');
 
 $rus = $_POST['spisok_mesto'];
 

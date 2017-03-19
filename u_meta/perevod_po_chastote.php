@@ -3,7 +3,7 @@ session_start();
 
 unset($_SESSION["slovo_original"]);
 
-include ('/home/webart/www/d_meta/db_connect.php');
+include ('/home/webart/www/access_meta/db_connect.php');
 
 $propustit_zapros = mysql_query("SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
 $propustit_otvet = mysql_fetch_row($propustit_zapros);

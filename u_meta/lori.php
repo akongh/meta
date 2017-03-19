@@ -1,5 +1,5 @@
 <?php //error_reporting(0);
-include ('/home/webart/www/d_meta/db_connect.php');
+include ('/home/webart/www/access_meta/db_connect.php');
 
 $nomer_straniczy_zapros = mysql_query("SELECT `lori` FROM `tyrki` WHERE `f` = 1");
 $nomer_straniczy_otvet = mysql_fetch_row($nomer_straniczy_zapros);

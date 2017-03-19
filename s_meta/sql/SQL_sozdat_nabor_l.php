@@ -1,5 +1,5 @@
 <?php error_reporting(0);
-include ('/home/webart/www/d_meta/db_connect.php');
+include ('/home/webart/www/access_meta/db_connect.php');
 
 if(isset($angl))
 {
