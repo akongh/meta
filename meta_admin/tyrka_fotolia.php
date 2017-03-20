@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL ^E_NOTICE);
 
 $ot = $_POST["ot"];
 $do = $_POST["do"];

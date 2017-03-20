@@ -1,4 +1,4 @@
-<?php error_reporting(0);
+<?php error_reporting(E_ALL ^E_NOTICE);
 include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $_SQL_zapros_podbor = "select `l-ts`.`s`, count(*)    

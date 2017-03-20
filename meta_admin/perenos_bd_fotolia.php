@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL ^E_NOTICE);
 for($i = 6175; $i <= 6175; $i++)
 {
 	sleep(1);

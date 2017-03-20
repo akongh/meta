@@ -1,4 +1,4 @@
-<?php //error_reporting(0);
+<?php error_reporting(E_ALL ^E_NOTICE);
 session_start();
 
 $slovo_original = $_SESSION["slovo_original"];//разбиваемое слово

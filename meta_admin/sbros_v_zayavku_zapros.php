@@ -1,4 +1,4 @@
-<?php //error_reporting(0);
+<?php error_reporting(E_ALL ^E_NOTICE);
 session_start();
 
 $na_sbros = $_POST["opornoe_slovo_sbrosa"];

@@ -1,4 +1,4 @@
-<?php error_reporting(0);
+<?php error_reporting(E_ALL ^E_NOTICE);
 include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 if(isset($angl))
