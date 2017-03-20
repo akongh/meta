@@ -7,7 +7,7 @@ unset(
 	$_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( '/meta_config_db.php' );
+include( 'meta_config_db.php' );
 include( 'meta_config.php' );
 
 $rus = $_POST['spisok_mesto'];
@@ -114,7 +114,7 @@ if ( isset( $pro_zayavku ) ) {
 	$_SESSION["pro_zayavku"] = $pro_zayavku;
 }
 
-mysqli_close( $podkluchenie );
+mysqli_close( $db_connect );
 
 header( "Location: http://".$site_domain_name."/shag_5.php" );
 

@@ -4,7 +4,7 @@ $ot = $_POST["ot"];
 $do = $_POST["do"];
 for ( $ot; $ot <= $do; $ot ++ ) {
 	sleep( 1 );
-	include( '/meta_config_db.php' );
+	include( 'meta_config_db.php' );
 	$kod_straniczy = file_get_contents( 'http://lori.ru/' . $ot );
 	if ( $kod_straniczy == false ) {
 		print_r( $ot );
@@ -15,7 +15,7 @@ for ( $ot; $ot <= $do; $ot ++ ) {
 		SET `lori` = '" . $ot . "'
 		WHERE `f` = '1'
 		" );
-		mysqli_close( $podkluchenie );
+		mysqli_close( $db_connect );
 	} else if ( $kod_straniczy == true ) {
 		preg_match_all( "/<a href=\"\/search\/images\/.*<\/a>/", $kod_straniczy, $stroka );
 		$stroka = $stroka[0];
@@ -63,7 +63,7 @@ for ( $ot; $ot <= $do; $ot ++ ) {
 			$kod_straniczy,
 			$stroka,
 			$stroka_kir );
-		mysqli_close( $podkluchenie );
+		mysqli_close( $db_connect );
 	}
 }
 ?>

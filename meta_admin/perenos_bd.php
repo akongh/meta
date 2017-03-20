@@ -25,10 +25,10 @@ for($i = 538754; $i <= 538754; $i++)
 		
 	if($slova2 != NULL)
 	{
-		$podkluchenie2 = mysqli_connect("by114", "andrej", "ss4TU0BH");
+		$db_connect2 = mysqli_connect("by114", "andrej", "ss4TU0BH");
 		mysqli_query( $db_connect, "SET character_set_database=utf8");
 		mysqli_query( $db_connect, "SET NAMES utf8");
-		mysqli_select_db("webart_200slov", $podkluchenie2);
+		mysqli_select_db("webart_200slov", $db_connect2);
 		
 		$stroka_slov = implode("", $slova2);
 		
@@ -89,7 +89,7 @@ for($i = 538754; $i <= 538754; $i++)
 				flush();
 				}
 				
-		mysqli_close($podkluchenie2);
+		mysqli_close($db_connect2);
 		}
 		else
 		{
