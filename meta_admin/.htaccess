@@ -1,10 +1,11 @@
 #meta.afoteris.com/meta_admin
 
 #доступ
-AuthName "meta.afoteris.com"
+AuthName "Управление Меты"
 AuthType Basic
 #Digest Basic
-AuthUserFile $_SERVER['DOCUMENT_ROOT']./meta_access/.htpasswd
+AuthUserFile E:/www/meta/meta_access/.htpasswd
+#AuthUserFile /home/webart/www/meta_access/.htpasswd
 require valid-user
 
 #запрет выдачи листинга пустого каталога 
