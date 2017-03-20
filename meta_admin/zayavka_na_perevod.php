@@ -55,7 +55,7 @@ if (isset($_POST["opornoe_slovo_zayavki"]))
 
 header("Location: http://".$site_domain_name."/meta_admin/ne_xvataet_perevoda.php");
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

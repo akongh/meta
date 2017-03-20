@@ -11,9 +11,9 @@ $_SESSION["_REZULTAT_russk_neperevedennye"]
 include( 'vstavki/regularnye_vyrazheniya.php' );
 include( 'meta_config.php' );
 
-$sposob321 = $_POST["sposob321"];//var_dump($_POST["sposob321"]);
+$sposob321 = $_POST["sposob321"];
 $granicza = $_POST["granicza"];
-$vvod_op_slov = $_POST["vvod_op_slov"];//var_dump($_POST["vvod_op_slov"]);
+$vvod_op_slov = $_POST["vvod_op_slov"];
 $vvod_op_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_op_slov))), "utf-8"));
 $vvod_op_slov = preg_replace("/ {2,}/", " ", $vvod_op_slov);
 $vvod_op_slov = preg_replace("/-{2,}/", "-", $vvod_op_slov);

@@ -26,7 +26,7 @@ if ($_MASSIV_ochered != NULL)
 
 include( 'ochered_na_perevod.html' );
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

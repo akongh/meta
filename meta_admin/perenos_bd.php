@@ -1,10 +1,9 @@
 <?php error_reporting(E_ALL ^E_NOTICE);
 for($i = 538754; $i <= 538754; $i++)
 {
-	//sleep(1);
 	
 	$vr_nabora = time();
-	$ses = "lori—".$i;//print_r($ses);
+	$ses = "lori—".$i;
 	
 	include ($_SERVER['DOCUMENT_ROOT'].'/meta_access/db_connect.php');
 
@@ -21,7 +20,7 @@ for($i = 538754; $i <= 538754; $i++)
 	{
 		$slova2[$n] = $data['s'];
 		$n++;
-		}//var_dump($slova2);
+		}
 		
 	if($slova2 != NULL)
 	{

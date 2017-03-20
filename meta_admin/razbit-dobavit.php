@@ -6,7 +6,7 @@ $slovo_original = $_SESSION["slovo_original"];//разбиваемое слов�
 include ('regularnye_vyrazheniya.php');
 include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
 
-$novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];//var_dump($_POST["slovo_razbit"]);
+$novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];
 $novoe_slovo_razbit = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($novoe_slovo_razbit))), "utf-8"));
 $novoe_slovo_razbit = preg_replace("/ {2,}/", " ", $novoe_slovo_razbit);
 $novoe_slovo_razbit = preg_replace("/-{2,}/", "-", $novoe_slovo_razbit);
@@ -42,7 +42,7 @@ while ($data = mysqli_fetch_array($nomera_naborov_s_originalom))
 	$n++;
 	}
 	
-//var_dump($MASSIV_nomera_naborov_s_originalom);
+
 
 mysqli_query( $db_connect, "
 	delete `k-t_s`

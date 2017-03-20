@@ -52,7 +52,7 @@ for($i = 0; $i < count($rus); $i++)
 		$n++;
 		}
 	
-	$f = $f[0];//var_dump($f);
+	$f = $f[0];
 
 	if (isset($p_z) && count($p_z) > 1)
 
@@ -95,7 +95,7 @@ for($i = 0; $i < count($rus); $i++)
 	unset($p_z, $p, $z, $f);
 	}
 
-$s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);//print_r($s_perevodom);
+$s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);
 
 if(isset($neperevedennye))
 {

@@ -167,7 +167,6 @@ if (isset($sobranny_nabor))
 	}
 
 
-//$sobranny_nabor = implode("<br>", $massiv_itog);
 
 
 //SESSION/////////////////////////////////////

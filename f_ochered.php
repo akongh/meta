@@ -3,7 +3,6 @@ session_start();
 
 include( 'meta_config.php' );
 
-//$massiv_itog = $_SESSION["massiv_itog"];
 
 $po_chastote = $_POST["po_chastote"];
 $massiv_itog = $_POST["massiv_itog"];

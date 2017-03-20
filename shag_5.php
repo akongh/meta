@@ -15,7 +15,7 @@ include( 'shag_5.html' );
 
 unset($_SESSION["pro_zayavku"]);
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

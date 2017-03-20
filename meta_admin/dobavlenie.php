@@ -29,8 +29,8 @@ while ($data = mysqli_fetch_array($slovo_kolichestvo))
 	
 mysqli_close($db_connect);
 
-$slovo = $slovo[0];//var_dump($slovo);
-$kol = $kol[0];//var_dump($kol);
+$slovo = $slovo[0];
+$kol = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
 

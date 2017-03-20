@@ -8,7 +8,7 @@ include( 'meta_config.php' );
 
 include( 'o_servise.html' );
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

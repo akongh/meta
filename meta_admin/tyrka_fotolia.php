@@ -21,8 +21,8 @@ for($ot; $ot <= $do; $ot++)
 		}
 		else if ($kod_straniczy == true)
 		{
-			preg_match_all("/<a class=\"tags.*<\/a>/", $kod_straniczy, $stroka);//var_dump($stroka);
-			$stroka = $stroka[0];//print_r($stroka);
+			preg_match_all("/<a class=\"tags.*<\/a>/", $kod_straniczy, $stroka);
+			$stroka = $stroka[0];
 			if (!empty($stroka))
 			{
 				$stroka = implode("", $stroka);

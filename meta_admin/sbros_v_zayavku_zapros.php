@@ -11,7 +11,7 @@ for ($i = 0;$i < count($_MASSIV_na_sbros);$i++)
 	}
 
 $_MASSIV_na_sbros = array_values(array_unique((array_diff($_MASSIV_na_sbros, array('')))));
-$_SQL_stroka_na_sbros = implode("','", $_MASSIV_na_sbros); //print_r($_SQL_stroka_na_sbros);
+$_SQL_stroka_na_sbros = implode("','", $_MASSIV_na_sbros);
 
 include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
@@ -30,8 +30,8 @@ $_SQL_stroka_na_sbros
 
 header("Location: http://".$site_domain_name."/meta_admin/perevod_po_zayavke.php");
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 
 ?>

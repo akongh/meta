@@ -17,8 +17,8 @@ $obnovlenie_chastoty = $_SESSION["obnovlenie_chastoty"];
 
 include('upravlyalka.html');
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
-//phpinfo();
+
+
+
+
 ?>

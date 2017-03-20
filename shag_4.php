@@ -14,7 +14,7 @@ $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 
 include( 'shag_4.html' );
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

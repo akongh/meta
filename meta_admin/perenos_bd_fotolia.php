@@ -21,7 +21,7 @@ for($i = 6175; $i <= 6175; $i++)
 	{
 		$slova2[$n] = $data['s'];
 		$n++;
-		}//var_dump($slova2);
+		}
 		
 	if($slova2 != NULL)
 	{

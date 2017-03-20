@@ -36,7 +36,7 @@ if (isset($p_z))
 
 unset($p_z, $p, $z);
 	
-$s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);//print_r($s_perevodom);
+$s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);
 
 mysqli_close($db_connect);
 

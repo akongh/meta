@@ -15,7 +15,7 @@ include( 'meta_config.php' );
 include( 'shag_1.html' );
 //include('shag_0.html');
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

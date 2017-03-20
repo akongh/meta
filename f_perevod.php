@@ -13,7 +13,7 @@ include( 'meta_config.php' );
 $rus = $_POST['spisok_mesto'];
 
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
-	$SQL_p_z = mysqli_query( $db_connect,  "
+	$SQL_p_z = mysqli_query( $db_connect, "
 	select `l-ts`.`s`, `tz`.`z`
 	from `k-ts`
 	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -33,7 +33,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 	}
 
 	//выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-	$SQL_f = mysqli_query( $db_connect,  "
+	$SQL_f = mysqli_query( $db_connect, "
 	select `k-ts`.`f`
 	from `k-ts`
 	where `k-ts`.`s`='" . $rus[ $i ] . "'
@@ -46,7 +46,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 		$n ++;
 	}
 
-	$f = $f[0];//var_dump($f);
+	$f = $f[0];
 
 	if ( isset( $p_z ) && count( $p_z ) > 1 ) {
 		$p_z               = implode( "<hr class=\"otbivka_0\">", $p_z );
@@ -85,7 +85,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 	unset( $p_z, $p, $z, $f );
 }
 
-$s_perevodom = implode( "", $s_perevodom );//print_r($s_perevodom);
+$s_perevodom = implode( "", $s_perevodom );
 
 if ( isset( $neperevedennye ) ) {
 	$neperevedennye_kol = count( $neperevedennye );
@@ -116,6 +116,6 @@ if ( isset( $pro_zayavku ) ) {
 
 mysqli_close( $db_connect );
 
-header( "Location: http://".$site_domain_name."/shag_5.php" );
+header( "Location: http://" . $site_domain_name . "/shag_5.php" );
 
 ?>

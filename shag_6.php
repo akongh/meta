@@ -21,7 +21,7 @@ if(isset($_SESSION["_REZULTAT_russk_neperevedennye"]))
 
 include( 'shag_6.html' );
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

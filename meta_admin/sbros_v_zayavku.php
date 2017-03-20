@@ -15,7 +15,7 @@ mysqli_close($db_connect);
 
 include('sbros_v_zayavku.html');
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

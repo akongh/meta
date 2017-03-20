@@ -18,7 +18,7 @@ $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 
 include( 'shag_2.html' );
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

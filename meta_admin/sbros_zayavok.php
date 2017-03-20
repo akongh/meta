@@ -14,7 +14,7 @@ mysqli_close($db_connect);
 
 header("Location: http://".$site_domain_name."/meta_admin/ne_xvataet_perevoda.php");
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

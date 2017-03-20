@@ -15,7 +15,7 @@ mysqli_close($db_connect);
 
 include('zayavka_na_perevod.html');
 
-//echo "<pre>";
-//print_r(array_keys($_SESSION));
-//echo "</pre>";
+
+
+
 ?>

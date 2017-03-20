@@ -25,15 +25,6 @@ $s_oshibkoj_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHE
 $s_oshibkoj_otvet = mysqli_fetch_row($s_oshibkoj_zapros);
 $s_oshibkoj = $s_oshibkoj_otvet[0];
 
-//$slovo_kolichestvo = mysqli_query( $db_connect, "
-//	SELECT `k-ts`.`s` slovo, count(*) kol
-//	FROM `k-t_s`
-//	join `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
-//	where `k-ts`.`f` = 0
-//	GROUP BY `k-t_s`.`id_s`
-//	ORDER BY count(`k-t_s`.`id_s`) DESC
-//	LIMIT 1
-//	");
 
 $slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
@@ -43,13 +34,6 @@ $slovo_kolichestvo = mysqli_query( $db_connect, "
 	LIMIT 1
 	");
 
-//$slovo_kolichestvo = mysqli_query( $db_connect, "
-//	SELECT `s` slovo, `kol`
-//	from `k-ts`
-//	where `f` = 0 and `s` regexp ' '
-//	ORDER BY `k-ts`.`kol` DESC
-//	LIMIT 1
-//	");
 
 $n = 0;
 while ($data = mysqli_fetch_array($slovo_kolichestvo))
@@ -59,13 +43,8 @@ while ($data = mysqli_fetch_array($slovo_kolichestvo))
 	$n++;
 	}
 
-//mysqli_query( $db_connect, "
-//	UPDATE `k-ts`
-//	SET `f` = 10
-//	WHERE `s` = '".$slovo."' 
-//	");
 
-$slovo = $slovo[0];//var_dump($slovo);
+$slovo = $slovo[0];
 /////////////////////////////////////////////////////////////////////
 $SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
@@ -99,7 +78,7 @@ unset($p_z, $p, $z);
 
 mysqli_close($db_connect);
 ////////////////////////////////////////////////////////////////////
-$kol = $kol[0];//var_dump($kol);
+$kol = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
 if(isset($slovo))
