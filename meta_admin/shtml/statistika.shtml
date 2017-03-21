@@ -10,7 +10,7 @@
 на латинице — 
 <span class="statistika_czyfra">
 
-<?php echo $lat_kol_slov;?> / <?php echo $lat_kol_naborov;?>
+<?php echo $lat_kol_slov;?> / не нужны
 </span><br>
 
 <hr class="otbivka_12">

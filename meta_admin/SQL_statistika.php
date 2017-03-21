@@ -13,10 +13,6 @@ $lat_kol_slov_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `l-ts`")
 $lat_kol_slov_otvet = mysqli_fetch_row($lat_kol_slov_zapros);
 $_SESSION["lat_kol_slov"] = $lat_kol_slov_otvet[0];
 
-$lat_kol_naborov_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `l-tn`");
-$lat_kol_naborov_otvet = mysqli_fetch_row($lat_kol_naborov_zapros);
-$_SESSION["lat_kol_naborov"] = $lat_kol_naborov_otvet[0];
-
 
 
 $na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");

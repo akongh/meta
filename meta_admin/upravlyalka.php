@@ -5,7 +5,6 @@ include('SQL_statistika.php');
 $kir_kol_slov = $_SESSION["kir_kol_slov"];
 $kir_kol_naborov = $_SESSION["kir_kol_naborov"];
 $lat_kol_slov = $_SESSION["lat_kol_slov"];
-$lat_kol_naborov = $_SESSION["lat_kol_naborov"];
 
 $opornye_slova = $_SESSION["opornye_slova"];
 

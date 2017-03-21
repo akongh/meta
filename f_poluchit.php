@@ -30,7 +30,6 @@ if ( isset( $russk ) ) {
 }
 
 if ( isset( $angl )) {
-	include( 'sql/SQL_sozdat_nabor_l.php' );
 	$_REZULTAT_angl = implode( ", ", $angl );
 }
 
