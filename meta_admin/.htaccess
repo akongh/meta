@@ -1,5 +1,3 @@
-#meta.afoteris.com/meta_admin
-
 #доступ
 AuthName "Управление Меты"
 AuthType Basic
@@ -12,10 +10,10 @@ require valid-user
 Options -Indexes
 
 #назначаем главный файл сайта
-DirectoryIndex upravlyalka.php
+DirectoryIndex index.php
 
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
-#php_value session.save_path /home/webart/www/sessii_***/
+#php_value session.save_path /home/webart/www/…
 
 # Установите максимальное время жизни сессии в секундах.
 #php_value session.gc_maxlifetime 0
