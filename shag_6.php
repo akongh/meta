@@ -5,7 +5,7 @@ include( 'meta_config.php' );
 
 if(!isset($_SESSION["metka"]))
 {
-	header("Location: http://".$site_domain_name."/o_servise.php");
+	header("Location: http://".$site_domain_name."/index.php");
 	}
 
 $kol_slov_russk = $_SESSION["kol_slov_russk"];

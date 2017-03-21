@@ -1,2 +1,16 @@
+User-agent: Googlebot
+Disallow: /
+Allow: /index.php
+Allow: /shag_1.php
+
+User-agent: Yandexbot
+Disallow: /
+Allow: /index.php
+Allow: /shag_1.php
+
 User-agent: *
-Disallow:
+Disallow: /
+Allow: /index.php
+Allow: /shag_1.php
+
+Host: meta.afoteris.com
