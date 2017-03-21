@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL ^E_NOTICE);
+<?php error_reporting(-1);
 
 $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)    
 	  from (    

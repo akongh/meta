@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL ^E_NOTICE);
+<?php error_reporting(-1);
 //1 000 000 ≠ 1 020 000
 $ot = $_POST["ot"];
 $do = $_POST["do"];

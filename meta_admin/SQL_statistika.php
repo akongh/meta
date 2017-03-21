@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL ^E_NOTICE);
+<?php error_reporting(-1);
 include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $kir_kol_slov_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts`");

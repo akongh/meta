@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL ^E_NOTICE);
+<?php error_reporting(-1);
 include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
 
 $_SQL_zapros_ochered = "SELECT * FROM `k-ts` WHERE `f` = 7 order by `kol` desc";

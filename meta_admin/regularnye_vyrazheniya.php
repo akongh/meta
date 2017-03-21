@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL ^E_NOTICE);
+<?php error_reporting(-1);
 $regulyar_slova = "/^([а-яё0-9\s\-]+)$/iu";
 $regulyar_razdeliteli = "/^[,;\n]+$/iu";
 ?>
