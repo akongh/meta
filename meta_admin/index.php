@@ -1,6 +1,6 @@
 <?php error_reporting(-1);
 session_start();
-include('SQL_statistika.php');
+include( 'sql/SQL_statistika.php' );
 
 $kir_kol_slov = $_SESSION["kir_kol_slov"];
 $kir_kol_naborov = $_SESSION["kir_kol_naborov"];

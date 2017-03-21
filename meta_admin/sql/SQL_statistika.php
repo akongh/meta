@@ -1,5 +1,5 @@
 <?php error_reporting(-1);
-include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $kir_kol_slov_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts`");
 $kir_kol_slov_otvet = mysqli_fetch_row($kir_kol_slov_zapros);

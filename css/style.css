@@ -1,10 +1,10 @@
 @charset "utf-8";
-@import url("webfonts/PT_Sans_Caption_Regular/stylesheet.css");
-@import url("webfonts/PT_Sans_Caption_Bold/stylesheet.css");
-@import url("webfonts/PT_Sans_Italic/stylesheet.css");
-@import url("webfonts/PT_Sans_Bold_Italic/stylesheet.css");
-@import url("webfonts/PT_Sans_Narrow_Regular/stylesheet.css");
-@import url("webfonts/PT_Sans_Narrow_Bold/stylesheet.css");
+@import url("../webfonts/PT_Sans_Caption_Regular/stylesheet.css");
+@import url("../webfonts/PT_Sans_Caption_Bold/stylesheet.css");
+@import url("../webfonts/PT_Sans_Italic/stylesheet.css");
+@import url("../webfonts/PT_Sans_Bold_Italic/stylesheet.css");
+@import url("../webfonts/PT_Sans_Narrow_Regular/stylesheet.css");
+@import url("../webfonts/PT_Sans_Narrow_Bold/stylesheet.css");
 
 body {
     text-align: center;
@@ -19,7 +19,7 @@ body {
     border-bottom-style: none;
     border-left-style: none;
     font-family: "PT Sans Caption Regular";
-    background-image: url(ukrashalki/fonchik.JPG);
+    background-image: url(../images/fonchik.JPG);
 }
 
 form {
@@ -283,7 +283,7 @@ a:hover {
     padding-left: 60px;
     box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
     background-attachment: scroll;
-    background-image: url(oformlenie/glavnaya.jpg);
+    background-image: url(../images/glavnaya.jpg);
     background-repeat: no-repeat;
     background-position: 0px 332px;
     background-color: #FFFFFF;
@@ -805,7 +805,7 @@ a:hover {
     background-color: #FFFFEE;
     border: 1px solid #E9E9E9;
     border-radius: 4px;
-    background-image: url(oformlenie/strelki-vverh-vniz.png);
+    background-image: url(../images/strelki-vverh-vniz.png);
     background-repeat: no-repeat;
     background-position: 11px center;
 }

@@ -6,7 +6,7 @@ unset($_POST);
 
 include( 'meta_config.php' );
 
-include( 'o_servise.html' );
+include( 'meta.html' );
 
 
 

@@ -10,5 +10,5 @@ $_SESSION["sobranny_nabor"],
 $_SESSION["massiv_itog"]
 );
 
-header("Location: http://".$site_domain_name."/shag_2.php");
+header("Location: http://".$site_domain_name."/step_2.php");
 ?>

@@ -8,11 +8,12 @@ if(!isset($_SESSION["metka"]))
 	header("Location: http://".$site_domain_name."/index.php");
 	}
 
-$sobranny_nabor = $_SESSION["sobranny_nabor"];
+$s_perevodom = $_SESSION["s_perevodom"];
+$pro_zayavku = $_SESSION["pro_zayavku"];
 
-$oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
+include( 'step_5.html' );
 
-include( 'shag_3.html' );
+unset($_SESSION["pro_zayavku"]);
 
 
 

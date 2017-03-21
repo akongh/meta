@@ -49,6 +49,6 @@ if ( isset( $zayavka ) ) {
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
 $_SESSION["_REZULTAT_angl"]  = $_REZULTAT_angl;
 
-header( "Location: http://".$site_domain_name."/shag_6.php" );
+header( "Location: http://".$site_domain_name."/step_6.php" );
 
 ?>

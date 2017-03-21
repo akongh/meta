@@ -12,7 +12,7 @@ if (count($massiv_itog) < 8)
 	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
 	//SESSION///////////////////////////////////////////////
 	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-	header("Location: http://".$site_domain_name."/shag_3.php");
+	header("Location: http://".$site_domain_name."/step_3.php");
 	exit;
 	}
 	
@@ -73,5 +73,5 @@ $ochered = implode("", $ochered);
 //SESSION/////////////////////////////////////
 $_SESSION["ochered"] = $ochered;
 
-header("Location: http://".$site_domain_name."/shag_4.php");
+header("Location: http://".$site_domain_name."/step_4.php");
 ?>

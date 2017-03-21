@@ -6,5 +6,5 @@ unset($_POST);
 
 include( 'meta_config.php' );
 
-header("Location: http://".$site_domain_name."/shag_1.php");
+header("Location: http://".$site_domain_name."/step_1.php");
 ?>

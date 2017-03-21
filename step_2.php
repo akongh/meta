@@ -16,7 +16,7 @@ $oshibka_simvola = $_SESSION["oshibka_simvola"];
 
 $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 
-include( 'shag_2.html' );
+include( 'step_2.html' );
 
 
 

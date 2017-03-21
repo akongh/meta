@@ -127,6 +127,6 @@ if(isset($pro_zayavku))
 
 mysqli_close($db_connect);
 
-header("Location: http://".$site_domain_name."/shag_5.php");
+header("Location: http://".$site_domain_name."/step_5.php");
 
 ?>

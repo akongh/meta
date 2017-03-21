@@ -24,7 +24,7 @@ DirectoryIndex index.php
 #RewriteEngine on
 #RewriteCond %{REQUEST_URI} !/index.html$
 #RewriteCond %{REMOTE_ADDR} !^37.45.137.53
-#RewriteRule $ /shag_0.html [R=302,L]
+#RewriteRule $ /meta_maintenance.php [R=302,L]
 
 #для SSI
 #AddHandler server-parsed .html .shtml

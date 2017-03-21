@@ -19,7 +19,7 @@ if(isset($_SESSION["_REZULTAT_russk_neperevedennye"]))
 	$_REZULTAT_russk_neperevedennye = $_SESSION["_REZULTAT_russk_neperevedennye"];
 	}
 
-include( 'shag_6.html' );
+include( 'step_6.html' );
 
 
 

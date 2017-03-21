@@ -1,3 +1,7 @@
+<?php
+include( 'meta_config.php' );
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -6,7 +10,7 @@
 
 <meta charset="utf-8">
 <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
-<link href="STILI.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
@@ -20,9 +24,10 @@
   <a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a></span>
   <hr class="otbivka_12">
 
-<!--#include virtual="vstavki/yandex_metrika.shtml"-->
+<!--#include virtual="shtml/yandex_metrika.shtml"-->
 
 </div>
 </div>
 </body>
 </html>
+
