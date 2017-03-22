@@ -3,8 +3,8 @@
 session_start();
 
 unset(
-	$_SESSION["oshibka_kolichestva"],
-	$_SESSION["_REZULTAT_russk_neperevedennye"]
+    $_SESSION["oshibka_kolichestva"],
+    $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( '../meta_config_db.php' );
@@ -13,7 +13,7 @@ include( '../meta_config.php' );
 $rus = $_POST['spisok_mesto'];
 
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
-	$SQL_p_z = mysqli_query( $db_connect, "
+    $SQL_p_z = mysqli_query( $db_connect, "
 	select `l-ts`.`s`, `tz`.`z`
 	from `k-ts`
 	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -22,82 +22,80 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 	where `k-ts`.`s`='" . $rus[ $i ] . "'
 	" );
 
-	$n = 0;
+    $n = 0;
 
-	while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-		$p[ $n ]   = $rez['s'];
-		$p2[ $n ]  = preg_replace( "/'/", "&#039;", $p[ $n ] );
-		$z[ $n ]   = $rez['z'];
-		$p_z[ $n ] = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
+    while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
+        $p[ $n ]   = $rez['s'];
+        $p2[ $n ]  = preg_replace( "/'/", "&#039;", $p[ $n ] );
+        $z[ $n ]   = $rez['z'];
+        $p_z[ $n ] = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" value = "" . $p2[ $n ] . "EXTERNAL_FRAGMENT"> " . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
 		$n ++;
 	}
 
-	//выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-	$SQL_f = mysqli_query( $db_connect, "
+    //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
+    $SQL_f = mysqli_query( $db_connect, "
 	select `k-ts`.`f`
 	from `k-ts`
 	where `k-ts`.`s`='" . $rus[ $i ] . "'
 	" );
 
-	$n = 0;
+    $n = 0;
 
-	while ( $rez = mysqli_fetch_array( $SQL_f ) ) {
-		$f[ $n ] = $rez['f'];
-		$n ++;
-	}
+    while ( $rez = mysqli_fetch_array( $SQL_f ) ) {
+        $f[ $n ] = $rez['f'];
+        $n ++;
+    }
 
-	$f = $f[0];
+    $f = $f[0];
 
-	if ( isset( $p_z ) && count( $p_z ) > 1 ) {
-		$p_z               = implode( "<hr class=\"otbivka_0\">", $p_z );
-		$s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
+    if ( isset( $p_z ) && count( $p_z ) > 1 ) {
+        $p_z               = implode( "<hr class=\"otbivka_0\">", $p_z );
+        $s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
 		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\">" . $p_z .
-		                     "</div>";
-	} else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
-		$p_z               = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span><span class=\"znachenie\"> — " . $z[0] . "</span>";
+                             "</div>";
+    } else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
+        $p_z = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = "" . $p2[0] . "EXTERNAL_FRAGMENT"> " . $p[0] . "</span><span class=\"znachenie\"> — " . $z[0] . "</span>";
 		$s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
-		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\">" . $p_z .
-		                     "</div>";
-	} else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) )
-	{
-		$neperevedennye[ $i ] = $rus[ $i ];
-		$s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
-			<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\"></span></div>";
+		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = "" . $rus[ $i ] . "EXTERNAL_FRAGMENT" hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\">" . $p_z .
+                                                                                                                              "</div>";
+	} else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) ) {
+        $neperevedennye[ $i ] = $rus[ $i ];
+        $s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
+			<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = "" . $rus[ $i ] . "EXTERNAL_FRAGMENT" hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\"></span></div>";
 		if ( ! isset( $pro_zayavku ) ) {
-			$pro_zayavku = "<span class=\"upravlenie\">* Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
+            $pro_zayavku = "<span class=\"upravlenie\">* Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
 <hr class=\"otbivka_6\">
 Данное ключевое слово к&nbsp;таковым и&nbsp;относится, и,&nbsp;если оно&nbsp;ещё&nbsp;не&nbsp;в&nbsp;списке первоочерёдных на&nbsp;перевод, оно&nbsp;будет в&nbsp;него добавлено, и&nbsp;мы&nbsp;его&nbsp;переведём в&nbsp;течение двух или&nbsp;более дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
 <hr class=\"otbivka_48\"></span>";
-		}
-	} else if ( ! isset( $p_z ) && $f == 7 )
-	{
-		$neperevedennye[ $i ] = $rus[ $i ];
-		$s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
+        }
+	} else if ( ! isset( $p_z ) && $f == 7 ) {
+        $neperevedennye[ $i ] = $rus[ $i ];
+        $s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
 				<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\"><span class = \"perevod_v_zayavke\">* В заявке на перевод<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\"></span></div>";
-		if ( ! isset( $pro_zayavku ) ) {
-			$pro_zayavku = "<span class=\"upravlenie\">* Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
+        if ( ! isset( $pro_zayavku ) ) {
+            $pro_zayavku = "<span class=\"upravlenie\">* Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока непереведённые ключевые слова, которые автоматически попадают в список первоочерёдных на перевод при переходе к&nbsp;получению результата строками.
 	<hr class=\"otbivka_6\">
 	Данное ключевое слово к&nbsp;таковым и&nbsp;относится, и,&nbsp;если оно&nbsp;ещё&nbsp;не&nbsp;в&nbsp;списке первоочерёдных на&nbsp;перевод, оно&nbsp;будет в&nbsp;него добавлено, и&nbsp;мы&nbsp;его&nbsp;переведём в&nbsp;течение двух или&nbsp;более дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
 	<hr class=\"otbivka_48\"></span>";
-		}
-	}
+        }
+    }
 
-	unset( $p_z, $p, $z, $f );
+    unset( $p_z, $p, $z, $f );
 }
 
 $s_perevodom = implode( "", $s_perevodom );
 
 if ( isset( $neperevedennye ) ) {
-	$neperevedennye_kol = count( $neperevedennye );
-	$neperevedennye     = implode( ", ", $neperevedennye );
+    $neperevedennye_kol = count( $neperevedennye );
+    $neperevedennye     = implode( ", ", $neperevedennye );
 
-	$_REZULTAT_russk_neperevedennye             =
-		"<div class = \"rezultat_fon_neperevedennye\">
+    $_REZULTAT_russk_neperevedennye             =
+        "<div class = \"rezultat_fon_neperevedennye\">
 	<span class = \"na_russk_angl\">Непереведённые</span>
 	<hr class=\"otbivka_24\">
 	<div class=\"select_result_not_transl\">"
-		. $neperevedennye .
-		"</div>
+        . $neperevedennye .
+        "</div>
 	<hr class=\"otbivka_24\">
 	<div class=\"statistika\">Ключевых слов в группе — <span class=\"statistika_czyfra\">" . $neperevedennye_kol . "</span>.</div>
 	<hr class=\"otbivka_6\">
@@ -105,13 +103,13 @@ if ( isset( $neperevedennye ) ) {
 <hr class=\"otbivka_6\">
 Данные ключевые слова к&nbsp;таковым и&nbsp;относится и&nbsp;мы&nbsp;их&nbsp;переведём в&nbsp;течение двух или&nbsp;более дней, в&nbsp;зависимости от&nbsp;нашей загрузки.</span>
 	</div>";
-	$_SESSION["_REZULTAT_russk_neperevedennye"] = $_REZULTAT_russk_neperevedennye;
+    $_SESSION["_REZULTAT_russk_neperevedennye"] = $_REZULTAT_russk_neperevedennye;
 }
 
 $_SESSION["s_perevodom"] = $s_perevodom;
 
 if ( isset( $pro_zayavku ) ) {
-	$_SESSION["pro_zayavku"] = $pro_zayavku;
+    $_SESSION["pro_zayavku"] = $pro_zayavku;
 }
 
 mysqli_close( $db_connect );

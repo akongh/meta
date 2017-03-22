@@ -620,7 +620,7 @@ a:hover {
 
 .select_result {
     margin: 0px;
-    border: 1px solid #ffffee;
+    border: 1px solid #FFFFEE;
     padding-left: 6px;
     padding-right: 6px;
     padding-bottom: 4px;
@@ -629,7 +629,7 @@ a:hover {
 
 .select_result:hover {
     cursor: pointer;
-    border: 1px dashed #3399ff;
+    border: 1px dashed #3399FF;
 }
 
 .select_result_not_transl {
@@ -643,7 +643,7 @@ a:hover {
 
 .select_result_not_transl:hover {
     cursor: pointer;
-    border: 1px dashed #3399ff;
+    border: 1px dashed #3399FF;
 }
 
 .statistika {

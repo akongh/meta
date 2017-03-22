@@ -1,33 +1,47 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Подбор ключевых слов для стоков на русском языке</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta charset="utf-8">
+    <title>Подбор ключевых слов для стоков на русском языке</title>
+    <link href="css/style.css"
+          rel="stylesheet"
+          type="text/css">
+    <link rel="shortcut icon"
+          href="http://<?php $site_domain_name ?>/favicon.ico"
+          type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-  <h2>Заявка на перевод</h2>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span> <br>
-    Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span> </div>
-  <hr class="otbivka_96">
-  <form action="sbros_v_zayavku_zapros.php" method="post">
-    <textarea name="opornoe_slovo_sbrosa" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
+    <h2>Заявка на перевод</h2>
     <hr class="otbivka_24">
-    <input name="zayavka" type="submit" class="knopka" value="Сбросить в заявку">
-  </form>
-  <hr class="otbivka_96">
-  <div class="upravlenie">
-    <a href="index.php">На главную</a> </div>
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('shtml/footer.shtml');?>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
+    <!--PHP-->
+    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+        <br>
+        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span>
+    </div>
+    <hr class="otbivka_96">
+    <form action="sbros_v_zayavku_zapros.php"
+          method="post">
+        <textarea name="opornoe_slovo_sbrosa"
+                  wrap="soft"
+                  class="vvod_slov_tekst"
+                  placeholder=""
+                  autofocus></textarea>
+        <hr class="otbivka_24">
+        <input name="zayavka"
+               type="submit"
+               class="knopka"
+               value="Сбросить в заявку">
+    </form>
+    <hr class="otbivka_96">
+    <div class="upravlenie">
+        <a href="index.php">На главную</a></div>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('shtml/footer.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('shtml/yandex_metrika.shtml');?>
 </div>
 </body>
 </html>

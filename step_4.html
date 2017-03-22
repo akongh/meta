@@ -1,54 +1,63 @@
 <!doctype html>
 <html>
-  <head>
-  <meta charset="utf-8">
-  <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script>
-  $(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-  });
-  </script>
-  </head>
-  <body>
-  <div class="korobka">
-  
+<head>
+    <meta charset="utf-8">
+    <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
+    <link href="css/style.css"
+          rel="stylesheet"
+          type="text/css">
+    <link rel="shortcut icon"
+          href="http://<?php $site_domain_name ?>/favicon.ico"
+          type="image/ven.microsoft.ico">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+</head>
+<body>
+<div class="korobka">
     <?php include('shtml/meta_name_and_description.shtml');?>
-    
     <hr class="otbivka_48">
     <h2><span class="nomer_shaga">4/6</span></h2>
     <hr class="otbivka_12">
     <h2>Определяем очерёдность ключевых слов</h2>
-	<hr class="otbivka_24">
-  <a href="http://afoteris.com/rukovodstvo-mety/.html" title="Как правильно подбирать (руководство Меты)" target="_blank">Как правильно подбирать (руководство Меты)</a>
+    <hr class="otbivka_24">
+    <a href="http://afoteris.com/rukovodstvo-mety/.html"
+       title="Как правильно подбирать (руководство Меты)"
+       target="_blank">Как правильно подбирать (руководство Меты)</a>
     <hr class="otbivka_48">
-    <form method="post" action="php/create_translation_list.php">
-      <ul id="sortable">
+    <form method="post"
+          action="php/create_translation_list.php">
+        <ul id="sortable">
+            <!--PHP-->
+            <?php echo $ochered;?>
+        </ul>
+        <hr class="otbivka_24">
+        <div class="statistika"> Ключевых слов в наборе — <span class="statistika_czyfra">
         <!--PHP-->
-        <?php echo $ochered;?>
-      </ul>
-      <hr class="otbivka_24">
-      <div class="statistika"> Ключевых слов в наборе — <span class="statistika_czyfra"> 
-        <!--PHP-->
-        <?php echo $_SESSION["kol_slov_itog"]?></span>. </div>
-      <hr class="otbivka_12">
-      <hr class="otbivka_24">
-      <div class="vvod_slov">
-        <input name="poluchit" type="submit" class="knopka" value="4/6 &#9658; Выбрать перевод">
-      </div>
+            <?php echo $_SESSION["kol_slov_itog"]?></span>.
+        </div>
+        <hr class="otbivka_12">
+        <hr class="otbivka_24">
+        <div class="vvod_slov">
+            <input name="poluchit"
+                   type="submit"
+                   class="knopka"
+                   value="4/6 &#9658; Выбрать перевод">
+        </div>
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"> 
-      <!--PHP-->
-      <?php include('shtml/reset_choice.shtml');?>
+    <div class="upravlenie">
+        <!--PHP-->
+        <?php include('shtml/reset_choice.shtml');?>
     </div>
     <hr class="otbivka_96">
     <!--PHP-->
     <?php include('shtml/footer.shtml');?>
-  </div>
+</div>
 </body>
 </html>

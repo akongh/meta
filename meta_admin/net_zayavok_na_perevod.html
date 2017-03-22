@@ -1,28 +1,34 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Перевод по заявке</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta charset="utf-8">
+    <title>Перевод по заявке</title>
+    <link href="css/style.css"
+          rel="stylesheet"
+          type="text/css">
+    <link rel="shortcut icon"
+          href="http://<?php $site_domain_name ?>/favicon.ico"
+          type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-  <h2>Пераквох па заяуцы;)</h2>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span> <br>
-    Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span> </div>
-  <hr class="otbivka_96">
-  Заявок на перевод пока нет.
-  <hr class="otbivka_96">
-  <div class="upravlenie"><a href="index.php">На главную</a></div>
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('shtml/footer.shtml');?>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
+    <h2>Пераквох па заяуцы;)</h2>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+        <br>
+        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span>
+    </div>
+    <hr class="otbivka_96">
+    Заявок на перевод пока нет.
+    <hr class="otbivka_96">
+    <div class="upravlenie"><a href="index.php">На главную</a></div>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('shtml/footer.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('shtml/yandex_metrika.shtml');?>
 </div>
 </body>
 </html>

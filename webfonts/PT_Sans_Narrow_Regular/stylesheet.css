@@ -1,8 +1,8 @@
 @font-face {
-	font-family: 'PT Sans Narrow Regular';
-	src: url('PT-Sans-Narrow-Regular.eot');
-	src: url('PT-Sans-Narrow-Regular.eot?#iefix') format('embedded-opentype'),
-		url('PT-Sans-Narrow-Regular.woff') format('woff'),
-		url('PT-Sans-Narrow-Regular.ttf') format('truetype'),
-		url('PT-Sans-Narrow-Regular.svg') format('svg');
+    font-family: 'PT Sans Narrow Regular';
+    src: url('PT-Sans-Narrow-Regular.eot');
+    src: url('PT-Sans-Narrow-Regular.eot?#iefix') format('embedded-opentype'),
+    url('PT-Sans-Narrow-Regular.woff') format('woff'),
+    url('PT-Sans-Narrow-Regular.ttf') format('truetype'),
+    url('PT-Sans-Narrow-Regular.svg') format('svg');
 }
