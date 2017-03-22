@@ -9,7 +9,7 @@
 <body>
 <div class="korobka">
 
-  <?php include('shtml/nazvanie.shtml');?>
+  <?php include('shtml/meta_name_and_description.shtml');?>
   
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">1/6</span></h2>
@@ -22,7 +22,7 @@
   <?php echo $sostoyanie_nabora;?>
   <hr class="otbivka_24">
   
-  <form action="php/f_podobrat.php" method="post">
+  <form action="php/create_choice_list.php" method="post">
     <div class="vvod_slov"> 
       <!--PHP//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
       <textarea name="vvod_op_slov" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus><?php echo $opornye_slova;?></textarea>
@@ -45,11 +45,11 @@
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
-    <?php include('shtml/f_sbros.shtml');?>
+    <?php include('shtml/reset_choice.shtml');?>
   </div>
   <hr class="otbivka_96">
   <!--PHP-->
-  <?php include('shtml/podval.shtml');?>
+  <?php include('shtml/footer.shtml');?>
 </div>
 </body>
 </html>

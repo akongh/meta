@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="korobka">
-    <?php include('shtml/nazvanie.shtml');?>
+    <?php include('shtml/meta_name_and_description.shtml');?>
     <hr class="otbivka_48">
     <h2><span class="nomer_shaga">5/6</span></h2>
     <hr class="otbivka_12">
@@ -18,7 +18,7 @@
        title="Как правильно подбирать (руководство Меты)" target="_blank">Как
         правильно подбирать (руководство Меты)</a>
     <hr class="otbivka_48">
-    <form method="post" action="php/f_poluchit.php">
+    <form method="post" action="php/create_results_choice.php">
         <!--<div class = "blok_perevoda">-->
         <!--PHP//////////////////////-->
         <?php echo $s_perevodom;?> <!--</div>-->
@@ -27,8 +27,8 @@
             Ключевых слов в наборе: на русском —
             <span class="statistika_czyfra">
       <!--PHP//////////////////////-->
-            <?php echo $_SESSION["kol_slov_itog"]?></span>; на английском —
-            <span id ="countUniqEngChecked" class="statistika_czyfra"></span>.
+                <?php echo $_SESSION["kol_slov_itog"]?></span>; на английском —
+            <span id="countUniqEngChecked" class="statistika_czyfra"></span>.
         </div>
         <hr class="otbivka_12">
         <hr class="otbivka_24">
@@ -40,14 +40,14 @@
     <hr class="otbivka_24">
     <div class="upravlenie">
         <!--PHP-->
-        <?php include('shtml/f_sbros.shtml');?>
+        <?php include('shtml/reset_choice.shtml');?>
     </div>
     <hr class="otbivka_96">
     <?php echo $pro_zayavku;?>
     <!--PHP-->
-    <?php include('shtml/podval.shtml');?>
+    <?php include('shtml/footer.shtml');?>
 </div>
 <script src="js/countUniqEngChecked.js"></script>
-<script src="js/missedTranslations.js"></script>
+<script src="js/uncheckedTranslations.js"></script>
 </body>
 </html>

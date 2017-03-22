@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="korobka">
-  <?php include('shtml/nazvanie.shtml');?>
+  <?php include('shtml/meta_name_and_description.shtml');?>
   <hr class="otbivka_48">
   <h2><span class="nomer_shaga">3/6</span></h2>
   <hr class="otbivka_12">
@@ -17,7 +17,7 @@
   <a href="http://afoteris.com/rukovodstvo-mety/.html" title="Как правильно подбирать (руководство Меты)"
      target="_blank">Как правильно подбирать (руководство Меты)</a>
   <hr class="otbivka_48">
-  <form method="post" action="php/f_ochered.php">
+  <form method="post" action="php/create_ordering_list.php">
     <!--PHP//////////////////////--> 
     <?php echo $sobranny_nabor;?>
     <hr class="otbivka_24">
@@ -44,20 +44,20 @@
   <hr class="otbivka_24">
   <div class="upravlenie"> 
     <!--PHP-->
-    <?php include('shtml/f_zapomnit.shtml');?>
+    <?php include('shtml/create_current_result.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('shtml/f_izmenit.shtml');?>
+    <?php include('shtml/back_to_step_2_of_current_choice.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('shtml/f_utochnit.shtml');?>
+    <?php include('shtml/back_to_step_1_of_current_choice.shtml');?>
     <hr class="otbivka_12">
     <!--PHP-->
-    <?php include('shtml/f_sbros.shtml');?>
+    <?php include('shtml/reset_choice.shtml');?>
   </div>
   <hr class="otbivka_96">
   <!--PHP-->
-  <?php include('shtml/podval.shtml');?>
+  <?php include('shtml/footer.shtml');?>
 </div>
 <script src="js/countRusChecked.js"></script>
 </body>

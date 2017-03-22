@@ -1,38 +1,38 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Проверка похожего перевода</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta charset="utf-8">
+    <title>Проверка похожего перевода</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-  <h2>Проверка похожего перевода</h2>
-  <hr class="otbivka_96">
-  <form method="post" action="proverit_pox_perevod.php">
-    <!--PHP-->
-    <h1>
-      <input name="slovo_proverka" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
-    </h1>
-    <hr class="otbivka_12">
-    <!--PHP-->
-    <div class="kol"><?php echo $kol;?></div>
-    <hr class="otbivka_24">
-    <div class = "blok_perevoda"> 
-      <!--PHP//////////////////////--> 
-      <?php echo $s_perevodom;?> </div>
+    <h2>Проверка похожего перевода</h2>
+    <hr class="otbivka_96">
+    <form method="post" action="proverit_pox_perevod.php">
+        <!--PHP-->
+        <h1>
+            <input name="slovo_proverka" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
+        </h1>
+        <hr class="otbivka_12">
+        <!--PHP-->
+        <div class="kol"><?php if ( isset ( $kol ) ) { echo $kol; }; ?></div>
+        <hr class="otbivka_24">
+        <div class="blok_perevoda">
+            <!--PHP//////////////////////-->
+            <?php echo $s_perevodom;?> </div>
+        <hr class="otbivka_48">
+        <input name="proverit_pox_perevod" type="submit" class="knopka" value="&#9658; Проверить похожий перевод">
+    </form>
     <hr class="otbivka_48">
-    <input name="proverit_pox_perevod" type="submit" class="knopka" value="&#9658; Проверить похожий перевод">
-  </form>
-  <hr class="otbivka_48">
-  <?php echo $vyvod_spiska_flagov;?>
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('shtml/podval.shtml');?>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
+    <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('shtml/footer.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('shtml/yandex_metrika.shtml');?>
 </div>
 </body>
 </html>
