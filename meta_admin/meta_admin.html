@@ -1,79 +1,79 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Управлялка</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-<style>
-.ot-do {
-	text-align: right;
-	margin: 0px;
-	padding: 12px;
-	border: 1px solid #3399FF;
-	width: 112px;
-	font-family: "PT Sans Caption Bold";
-	font-size: 24px;
-}
-</style>
-<link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta charset="utf-8">
+    <title>Управлялка</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <style>
+        .ot-do {
+            text-align: right;
+            margin: 0px;
+            padding: 12px;
+            border: 1px solid #3399FF;
+            width: 112px;
+            font-family: "PT Sans Caption Bold";
+            font-size: 24px;
+        }
+    </style>
+    <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
-<div class="korobka"> 
-  <!--PHP-->
-  <?php include('shtml/meta_name_and_description.shtml');?>
-  <hr class="otbivka_48">
-  <!--PHP-->
-  <?php include('shtml/statistika.shtml');?>
-  <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
-  <hr class="otbivka_48">
-  <hr class="cherta">
-  <hr class="otbivka_24">
-  <h2>Переводы </h2>
-  <hr class="otbivka_48">
-  <a href="perevod_po_chastote.php">По частоте</a>
-  <hr class="otbivka_24">
-  <a href="perevod_po_zayavke.php">По заявке</a>
-  <hr class="otbivka_24">
-  <a href="sbros_v_zayavku.php">Сброс в заявку</a>
-  <hr class="otbivka_24">
-  <a href="ne_xvataet_perevoda.php">Заявка на перевод</a>
-  <hr class="otbivka_48">
-  <hr class="cherta">
-  <hr class="otbivka_24">
-  <h2>Правка по связям</h2>
-  <hr class="otbivka_48">
-  <a href="dobavlenie.php">Добавление</a>
-  <hr class="otbivka_48">
-  <hr class="cherta">
-  <hr class="otbivka_24">
-  <h2>Тырки </h2>
-  <hr class="otbivka_48">
-  <a href="lori.php">Лори</a>
-  <hr class="otbivka_48">
-  <hr class="cherta">
-  <hr class="otbivka_24">
-  <h2>Обслуживание</h2>
-  <hr class="otbivka_48">
-  <a href="obnovlenie_chastoty.php">Обновление частоты</a>
-  <hr class="otbivka_12">
-  <div class="statistika">
+<div class="korobka">
     <!--PHP-->
-    Последний раз обновлено строк: <span class="statistika_czyfra">
+    <?php include('shtml/meta_name_and_description.shtml');?>
+    <hr class="otbivka_48">
+    <!--PHP-->
+    <?php include('shtml/statistika.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('shtml/yandex_metrika.shtml');?>
+    <hr class="otbivka_48">
+    <hr class="cherta">
+    <hr class="otbivka_24">
+    <h2>Переводы </h2>
+    <hr class="otbivka_48">
+    <a href="perevod_po_chastote.php">По частоте</a>
+    <hr class="otbivka_24">
+    <a href="perevod_po_zayavke.php">По заявке</a>
+    <hr class="otbivka_24">
+    <a href="sbros_v_zayavku.php">Сброс в заявку</a>
+    <hr class="otbivka_24">
+    <a href="ne_xvataet_perevoda.php">Заявка на перевод</a>
+    <hr class="otbivka_48">
+    <hr class="cherta">
+    <hr class="otbivka_24">
+    <h2>Правка по связям</h2>
+    <hr class="otbivka_48">
+    <a href="dobavlenie.php">Добавление</a>
+    <hr class="otbivka_48">
+    <hr class="cherta">
+    <hr class="otbivka_24">
+    <h2>Тырки </h2>
+    <hr class="otbivka_48">
+    <a href="lori.php">Лори</a>
+    <hr class="otbivka_48">
+    <hr class="cherta">
+    <hr class="otbivka_24">
+    <h2>Обслуживание</h2>
+    <hr class="otbivka_48">
+    <a href="obnovlenie_chastoty.php">Обновление частоты</a>
+    <hr class="otbivka_12">
+    <div class="statistika">
+        <!--PHP-->
+        Последний раз обновлено строк: <span class="statistika_czyfra">
 <?php
 if ( isset( $obnovlenie_chastoty ) ) {
 	echo $obnovlenie_chastoty;
 };
 ?>
   </span></div>
-  <hr class="otbivka_48">
-  <hr class="cherta">
-  <hr class="otbivka_96">
-  <!--PHP-->
-  <?php include('shtml/footer.shtml');?>
-  <hr class="otbivka_24">
+    <hr class="otbivka_48">
+    <hr class="cherta">
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('shtml/footer.shtml');?>
+    <hr class="otbivka_24">
 </div>
 </body>
 </html>

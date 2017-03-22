@@ -1,94 +1,97 @@
 <!doctype html>
 <html>
-     <head>
-     <meta charset="utf-8">
-     <title>Добавление по присутствию</title>
-     <link href="css/style.css" rel="stylesheet" type="text/css">
-         <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-     <script type="text/javascript">
-var countOfFields = 1; // Текущее число полей
-var curFieldNameId = 1; // Уникальное значение для атрибута name
-//var maxFieldLimit = 6; // Максимальное число возможных полей
-function deleteField(a) {
-    // Получаем доступ к ДИВу, содержащему поле
-    var contDiv = a.parentNode;
-    // Удаляем этот ДИВ из DOM-дерева
-    contDiv.parentNode.removeChild(contDiv);
-    // Уменьшаем значение текущего числа полей
-    countOfFields--;
-    // Возвращаем false, чтобы не было перехода по сслыке
-    return false;
-}
-function addField() {
-    // Проверяем, не достигло ли число полей максимума
-    //if (countOfFields >= maxFieldLimit) {
+<head>
+    <meta charset="utf-8">
+    <title>Добавление по присутствию</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <script type="text/javascript">
+        var countOfFields = 1; // Текущее число полей
+        var curFieldNameId = 1; // Уникальное значение для атрибута name
+        //var maxFieldLimit = 6; // Максимальное число возможных полей
+        function deleteField(a) {
+            // Получаем доступ к ДИВу, содержащему поле
+            var contDiv = a.parentNode;
+            // Удаляем этот ДИВ из DOM-дерева
+            contDiv.parentNode.removeChild(contDiv);
+            // Уменьшаем значение текущего числа полей
+            countOfFields--;
+            // Возвращаем false, чтобы не было перехода по сслыке
+            return false;
+        }
+        function addField() {
+            // Проверяем, не достигло ли число полей максимума
+            //if (countOfFields >= maxFieldLimit) {
 //        alert("Число полей достигло своего максимума = " + maxFieldLimit);
 //        return false;
 //    }
-    // Увеличиваем текущее значение числа полей
-    countOfFields++;
-    // Увеличиваем ID
-    curFieldNameId++;
-    // Создаем элемент ДИВ
-    var div = document.createElement("div");
-    // Добавляем HTML-контент с пом. свойства innerHTML
+            // Увеличиваем текущее значение числа полей
+            countOfFields++;
+            // Увеличиваем ID
+            curFieldNameId++;
+            // Создаем элемент ДИВ
+            var div = document.createElement("div");
+            // Добавляем HTML-контент с пом. свойства innerHTML
 
-    div.innerHTML = "<input name=\"perevod[]\" type=\"text\" class=\"vvod_prisutstvie\"><a onclick=\"return deleteField(this)\" href=\"#\" class=\"link\"><div class=\"minus_plus_prisutstvie\"><input type=\"button\" class=\"pm_knopka\" onclick=\"return deleteField(this)\" value=\"×\"></div></a><hr class=\"otbivka_12\">";
-			// " + curFieldNameId + "
+            div.innerHTML = "<input name=\"perevod[]\" type=\"text\" class=\"vvod_prisutstvie\"><a onclick=\"return deleteField(this)\" href=\"#\" class=\"link\"><div class=\"minus_plus_prisutstvie\"><input type=\"button\" class=\"pm_knopka\" onclick=\"return deleteField(this)\" value=\"×\"></div></a><hr class=\"otbivka_12\">";
+            // " + curFieldNameId + "
 
-    // Добавляем новый узел в конец списка полей
-    document.getElementById("parentId").appendChild(div);
-    // Возвращаем false, чтобы не было перехода по сслыке
-    return false;
-}
-     </script>
-     </head>
-     <body>
-     <div class="korobka">
-       <h2>Добавление по присутствию</h2>
-       <hr class="otbivka_24">
-       <!--PHP-->
-       <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span></div>
-       <hr class="otbivka_96">
-       <form method="post" action="dobavlenie.php">
-         <!--PHP-->
-         <h1>
-           <input name="slovo" type="text" class="vvod_slovo"  value="<?php echo $slovo;?>">
-         </h1>
-         <hr class="otbivka_12">
-         <!--PHP-->
-         <div class="kol"><?php echo $kol;?><a href="proverit_pox_perevod.php" target="_blank" class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
-         <hr class="otbivka_48">
-         <div id="parentId">
-           <div>
-             <input name="perevod[]" type="text" class="vvod_prisutstvie" autofocus>
-             <a onclick="return deleteField(this)" href="#" class="link">
-             <div class="minus_plus_prisutstvie">
-               <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
-             </div>
-             </a>
-             <hr class="otbivka_12">
-           </div>
-         </div>
-         <hr class="otbivka_12">
-         <a onclick="return addField()" href="#" class="link">
-         <div class="minus_plus_dobavit">
-           <input type="button" class="pm_knopka_dobavit_prisutstvie" value="+">
-         </div>
-         </a>
-         <hr class="otbivka_96">
-         <input name="dobavlenie" type="submit" class="knopka" value="&#9658; Добавить">
-       </form>
-       <hr class="otbivka_24">
-       <div class="upravlenie"><a href="php/f_propustit_po_zayavke.php" title="Пропустить">&#9660; Прапускунчунец</a> — <span class="statistika_czyfra"><?php echo $propustit;?></span>
-         <hr class="otbivka_96">
-         <a href="index.php">На главную</a> </div>
-       <hr class="otbivka_96">
-       <!--PHP-->
-       <?php include('shtml/footer.shtml');?>
-       <hr class="otbivka_24">
-       <!--PHP-->
-       <?php include('shtml/yandex_metrika.shtml');?>
-     </div>
+            // Добавляем новый узел в конец списка полей
+            document.getElementById("parentId").appendChild(div);
+            // Возвращаем false, чтобы не было перехода по сслыке
+            return false;
+        }
+    </script>
+</head>
+<body>
+<div class="korobka">
+    <h2>Добавление по присутствию</h2>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+    </div>
+    <hr class="otbivka_96">
+    <form method="post" action="dobavlenie.php">
+        <!--PHP-->
+        <h1>
+            <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
+        </h1>
+        <hr class="otbivka_12">
+        <!--PHP-->
+        <div class="kol"><?php echo $kol;?><a href="proverit_pox_perevod.php" target="_blank"
+                                              class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
+        <hr class="otbivka_48">
+        <div id="parentId">
+            <div>
+                <input name="perevod[]" type="text" class="vvod_prisutstvie" autofocus>
+                <a onclick="return deleteField(this)" href="#" class="link">
+                    <div class="minus_plus_prisutstvie">
+                        <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
+                    </div>
+                </a>
+                <hr class="otbivka_12">
+            </div>
+        </div>
+        <hr class="otbivka_12">
+        <a onclick="return addField()" href="#" class="link">
+            <div class="minus_plus_dobavit">
+                <input type="button" class="pm_knopka_dobavit_prisutstvie" value="+">
+            </div>
+        </a>
+        <hr class="otbivka_96">
+        <input name="dobavlenie" type="submit" class="knopka" value="&#9658; Добавить">
+    </form>
+    <hr class="otbivka_24">
+    <div class="upravlenie"><a href="php/f_propustit_po_zayavke.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+        <span class="statistika_czyfra"><?php echo $propustit;?></span>
+        <hr class="otbivka_96">
+        <a href="index.php">На главную</a></div>
+    <hr class="otbivka_96">
+    <!--PHP-->
+    <?php include('shtml/footer.shtml');?>
+    <hr class="otbivka_24">
+    <!--PHP-->
+    <?php include('shtml/yandex_metrika.shtml');?>
+</div>
 </body>
 </html>
