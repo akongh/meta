@@ -3,8 +3,8 @@ session_start();
 
 $slovo_k = $_SESSION["slovo_original"];
 
-include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
-include( $_SERVER['DOCUMENT_ROOT'].'/meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 	
 mysqli_query( $db_connect, "
 UPDATE `k-ts`

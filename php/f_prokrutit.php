@@ -8,7 +8,7 @@ $_SESSION["dopolnitelnye_slova"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( 'shtml/regularnye_vyrazheniya.php' );
+include( 'shtml/regexp.php' );
 include( 'meta_config.php' );
 
 $abv = $_POST["abv"];
@@ -165,6 +165,7 @@ if (isset($sobranny_nabor))
 	
 	$sobranny_nabor = implode("<br>\n", $sobranny_nabor);
 	}
+
 
 
 

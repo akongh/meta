@@ -1,7 +1,7 @@
 <?php error_reporting(-1);
 session_start();
 
-include( 'meta_config.php' );
+include( '../meta_config.php' );
 
 
 /////////////////////////////

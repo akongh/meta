@@ -27,16 +27,15 @@ while ($rez = mysqli_fetch_array($SQL_p_z))
 if (isset($p_z))
 {
 	$p_z = implode("<hr class=\"otbivka_0\">", $p_z);
-	$s_perevodom[$i] = "<span class = \"russk\">".$slovo_k."</span><hr class=\"otbivka_6\">".$p_z;
-	}
+	$s_perevodom = "<span class = \"russk\">" . $slovo_k . "</span><hr class=\"otbivka_6\">" . $p_z;
+
+}
 	else
 	{
-		$s_perevodom[$i] = "<span class = \"russk\">".$slovo_k."</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">…</span>";
+		$s_perevodom = "<span class = \"russk\">" . $slovo_k . "</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">…</span>";
 		}
 
 unset($p_z, $p, $z);
-	
-$s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);
 
 mysqli_close($db_connect);
 

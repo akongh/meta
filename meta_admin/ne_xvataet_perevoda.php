@@ -16,6 +16,4 @@ mysqli_close($db_connect);
 include('zayavka_na_perevod.html');
 
 
-
-
 ?>

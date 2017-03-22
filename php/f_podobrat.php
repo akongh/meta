@@ -8,10 +8,12 @@ $_SESSION["oshibka_mnogo_op_slov"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( 'shtml/regularnye_vyrazheniya.php' );
-include( 'meta_config.php' );
+include( 'regexp.php' );
+include( '../meta_config.php' );
 
-$sposob321 = $_POST["sposob321"];
+if(isset($_POST["sposob321"])){
+	$sposob321 = $_POST["sposob321"];
+};
 $granicza = $_POST["granicza"];
 $vvod_op_slov = $_POST["vvod_op_slov"];
 $vvod_op_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_op_slov))), "utf-8"));
@@ -112,14 +114,14 @@ if (isset($sposob321) && $kolichestvo_opornyx_slov>1)
 	}
 	else
 	{
-		include( 'sql/SQL_podbor_k.php' );
+		include( '../sql/SQL_podbor_k.php' );
 		$n = 0;
 		while ($data = mysqli_fetch_array($_SQL_rezultat_podbora))
 		{
 			$_MASSIV_rezultata[$n] = $data['s'];
 			$n++;
 			}
-		if ($_MASSIV_rezultata != NULL)
+		if (isset($_MASSIV_rezultata) && $_MASSIV_rezultata != NULL)
 		{
 			$_MASSIV_rezultata = array_values(array_unique(array_merge($_MASSIV_op_slov, $_MASSIV_rezultata)));
 			}

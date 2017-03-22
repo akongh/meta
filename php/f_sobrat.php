@@ -8,17 +8,21 @@ $_SESSION["dopolnitelnye_slova"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( 'shtml/regularnye_vyrazheniya.php' );
-include( 'meta_config.php' );
+include( 'regexp.php' );
+include( '../meta_config.php' );
 
-$abv = $_POST["abv"];
-$slova_s_flagom = $_POST["slova_s_flagom"];
+if (isset($_POST["abv"])){
+	$abv = $_POST["abv"];
+};
+if(isset($_POST["slova_s_flagom"])){
+	$slova_s_flagom = $_POST["slova_s_flagom"];
+};
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////обеспробеливаем массив отмеченных слов///////////////////////////////////////////////////////////////////
-if ($slova_s_flagom != NULL)
+if (isset($slova_s_flagom) && $slova_s_flagom != NULL)
 {
 	for ($i = 0; $i < count($slova_s_flagom); $i++)
 	{
@@ -44,7 +48,7 @@ for ($i = 0; $i < count($_MASSIV_rezultata); $i++)
 			$spisok[$i] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[$i] . "'> " . $_MASSIV_rezultata[$i];
 			}
 	}
-if ($spisok != NULL)
+if (isset($spisok) && $spisok != NULL)
 {
 	$vyvod_spiska_flagov = implode("<br>", $spisok) . "<hr class=\"otbivka_24\">";
 	//SESSION///////////////////////////////////////////////
@@ -90,7 +94,7 @@ if (isset($dopolnenie_unikalnoe))
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////делаем вывод ошибки символа, если она есть//////////////////////////////////////////
-if(count($dopolnenie_unikalnoe) > 0)
+if(isset($dopolnenie_unikalnoe) && count($dopolnenie_unikalnoe) > 0)
 {
 	$proverka_simvola = implode("", $dopolnenie_unikalnoe);
 	if (!preg_match($regulyar_slova, $proverka_simvola))
@@ -165,7 +169,6 @@ if (isset($sobranny_nabor))
 	
 	$sobranny_nabor = implode("<br>\n", $sobranny_nabor);
 	}
-
 
 
 

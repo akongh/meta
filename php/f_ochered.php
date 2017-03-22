@@ -1,10 +1,12 @@
 <?php error_reporting(-1);
 session_start();
 
-include( 'meta_config.php' );
+include( '../meta_config.php' );
 
 
-$po_chastote = $_POST["po_chastote"];
+if ( isset( $_POST["po_chastote"] ) ) {
+	$po_chastote = $_POST["po_chastote"];
+}
 $massiv_itog = $_POST["massiv_itog"];
 
 if (count($massiv_itog) < 8)
@@ -24,7 +26,7 @@ if (count($massiv_itog) < 8)
 	{
 		$massiv_itog_2 = implode("','", $massiv_itog);
 		
-		include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
+		include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 		
 		$SQL_est_v_base = mysqli_query( $db_connect, "
 		select `s`, `kol`

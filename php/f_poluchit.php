@@ -2,11 +2,13 @@
 
 session_start();
 
-include( 'meta_config.php' );
+include( '../meta_config.php' );
 
 $russk   = $_POST["russk"];
 $angl    = $_POST["angl"];
-$zayavka = $_POST["zayavka"];
+if ( isset( $_POST["zayavka"] ) ) {
+	$zayavka = $_POST["zayavka"];
+};
 
 if ( isset( $angl ) ) {
 	$angl = array_values( array_unique( $angl ) );
@@ -25,7 +27,7 @@ $vr_nabora = time();
 $ses       = session_id();
 
 if ( isset( $russk ) ) {
-	include( 'sql/SQL_sozdat_nabor_k.php' );
+	include( '../sql/SQL_sozdat_nabor_k.php' );
 	$_REZULTAT_russk = implode( ", ", $russk );
 }
 

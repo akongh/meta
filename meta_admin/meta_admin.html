@@ -59,9 +59,15 @@
   <hr class="otbivka_48">
   <a href="obnovlenie_chastoty.php">Обновление частоты</a>
   <hr class="otbivka_12">
-  <div class="statistika"> 
-    <!--PHP--> 
-    Последний раз обновлено строк: <span class="statistika_czyfra"><?php echo $obnovlenie_chastoty;?></span></div>
+  <div class="statistika">
+    <!--PHP-->
+    Последний раз обновлено строк: <span class="statistika_czyfra">
+<?php
+if ( isset( $obnovlenie_chastoty ) ) {
+	echo $obnovlenie_chastoty;
+};
+?>
+  </span></div>
   <hr class="otbivka_48">
   <hr class="cherta">
   <hr class="otbivka_96">
