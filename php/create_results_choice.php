@@ -8,7 +8,7 @@ $russk = $_POST["russk"];
 $angl  = $_POST["angl"];
 if ( isset( $_POST["zayavka"] ) ) {
 	$zayavka = $_POST["zayavka"];
-};
+}
 
 if ( isset( $angl ) ) {
 	$angl = array_values( array_unique( $angl ) );
@@ -20,7 +20,7 @@ if ( isset( $angl ) ) {
 	$_SESSION["kol_slov_angl"] = count( $angl );
 } else {
 	$_SESSION["kol_slov_angl"] = 0;
-};
+}
 
 $vr_nabora = time();
 $ses       = session_id();
@@ -50,5 +50,3 @@ $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
 $_SESSION["_REZULTAT_angl"]  = $_REZULTAT_angl;
 
 header( "Location: http://" . $site_domain_name . "/step_6.php" );
-
-?>

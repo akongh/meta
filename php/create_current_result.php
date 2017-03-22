@@ -23,4 +23,3 @@ $_SESSION["oshibka_kolichestva"]
 );
 
 header("Location: http://".$site_domain_name."/step_1.php");
-?>

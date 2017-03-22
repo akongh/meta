@@ -23,4 +23,4 @@ mysqli_query( $db_connect, "SET NAMES utf8" );
 if ( ! $db_connect ) {
 	echo "MySQL-сервер недоступен." . PHP_EOL;
 	exit;
-};
+}

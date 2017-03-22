@@ -66,4 +66,3 @@ for ( $ot; $ot <= $do; $ot ++ ) {
 		mysqli_close( $db_connect );
 	}
 }
-?>

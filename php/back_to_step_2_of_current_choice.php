@@ -11,4 +11,3 @@ unset(
 );
 
 header( "Location: http://" . $site_domain_name . "/step_2.php" );
-?>

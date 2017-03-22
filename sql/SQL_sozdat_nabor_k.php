@@ -29,5 +29,3 @@ for ($i = 0;$i < count($russk2);$i++)
 			(SELECT `ids` FROM `k-ts` WHERE `s` = '".$russk2[$i]."'))  
 	");
 	}
-
-?>

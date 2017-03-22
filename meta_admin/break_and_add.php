@@ -16,4 +16,3 @@ mysqli_close($db_connect);
 $slovo_razbit = $_SESSION["slovo_original"];
 
 include( 'break_and_add.html' );
-?>

@@ -24,4 +24,3 @@ $perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
 mysqli_close($db_connect);
-?>

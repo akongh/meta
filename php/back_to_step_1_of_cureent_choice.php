@@ -15,4 +15,3 @@ $_SESSION["massiv_itog"]
 );
 
 header("Location: http://".$site_domain_name."/step_1.php");
-?>

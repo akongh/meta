@@ -13,8 +13,3 @@ $sobranny_nabor = $_SESSION["sobranny_nabor"];
 $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 
 include( 'step_3.html' );
-
-
-
-
-?>

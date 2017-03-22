@@ -13,7 +13,7 @@ include( '../meta_config.php' );
 
 if ( isset( $_POST["sposob321"] ) ) {
 	$sposob321 = $_POST["sposob321"];
-};
+}
 $granicza     = $_POST["granicza"];
 $vvod_op_slov = $_POST["vvod_op_slov"];
 $vvod_op_slov = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $vvod_op_slov ) ) ), "utf-8" ) );
@@ -127,4 +127,3 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 }
 
 header( "Location: http://" . $site_domain_name . "/step_2.php" );
-?>

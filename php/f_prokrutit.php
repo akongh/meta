@@ -175,4 +175,3 @@ $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 $_SESSION["massiv_itog"] = $massiv_itog;
 
 header("Location: http://".$site_domain_name."/step_3.php");
-?>

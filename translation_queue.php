@@ -25,8 +25,3 @@ if ($_MASSIV_ochered != NULL)
 		}
 
 include( 'translation_queue.html' );
-
-
-
-
-?>

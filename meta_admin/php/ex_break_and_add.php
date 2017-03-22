@@ -95,4 +95,3 @@ mysqli_close($db_connect);
 ///////////////
 
 header("Location: http://".$site_domain_name."/meta_admin/perevod_po_zayavke.php");
-?>

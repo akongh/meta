@@ -21,7 +21,7 @@ while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
 }
 if ( isset( $kol[0] ) ) {
 	$kol = $kol[0];
-};
+}
 
 $SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
@@ -73,4 +73,3 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 mysqli_close( $db_connect );
 
 include( 'proverit_pox_perevod.html' );
-?>

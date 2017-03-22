@@ -20,4 +20,3 @@ $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)
 
 $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
 mysqli_close($db_connect);
-?>

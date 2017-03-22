@@ -67,4 +67,3 @@ $ochered = implode( "", $ochered );
 $_SESSION["ochered"] = $ochered;
 
 header( "Location: http://" . $site_domain_name . "/step_4.php" );
-?>

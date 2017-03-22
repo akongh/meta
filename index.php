@@ -7,8 +7,3 @@ unset($_POST);
 include( 'meta_config.php' );
 
 include( 'meta.html' );
-
-
-
-
-?>

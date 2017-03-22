@@ -41,4 +41,3 @@ $s_perevodom = implode("</div><div class = \"blok_perevoda\">", $s_perevodom);
 mysqli_close($db_connect);
 
 include('perevod_prosmotr_po_zayavke.html');
-?>

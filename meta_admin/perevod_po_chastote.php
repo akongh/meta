@@ -91,5 +91,3 @@ if(isset($slovo))
 		}
 
 unset($slovo);
-
-?>

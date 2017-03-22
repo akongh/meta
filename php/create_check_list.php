@@ -13,10 +13,10 @@ include( '../meta_config.php' );
 
 if ( isset( $_POST["abv"] ) ) {
 	$abv = $_POST["abv"];
-};
+}
 if ( isset( $_POST["slova_s_flagom"] ) ) {
 	$slova_s_flagom = $_POST["slova_s_flagom"];
-};
+}
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
 
 
@@ -143,4 +143,3 @@ $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 $_SESSION["massiv_itog"] = $massiv_itog;
 
 header( "Location: http://" . $site_domain_name . "/step_3.php" );
-?>

@@ -36,4 +36,3 @@ $_SESSION["slovo_original"] = $slovo;
 
 
 include ('dobavlenie.html');
-?>

@@ -20,8 +20,3 @@ if(isset($_SESSION["_REZULTAT_russk_neperevedennye"]))
 	}
 
 include( 'step_6.html' );
-
-
-
-
-?>

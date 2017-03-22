@@ -12,6 +12,3 @@ $ochered = $_SESSION["ochered"];
 $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 
 include( 'step_4.html' );
-
-
-?>

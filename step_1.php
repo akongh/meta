@@ -13,9 +13,3 @@ $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 include( 'meta_config.php' );
 
 include( 'step_1.html' );
-//include('meta_maintenance.php');
-
-
-
-
-?>
