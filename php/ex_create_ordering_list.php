@@ -6,7 +6,8 @@ if ( isset( $_POST["po_chastote"] ) ) {
 }
 $massiv_itog = $_POST["massiv_itog"];
 if ( count( $massiv_itog ) < 8 ) {
-    $oshibka_kolichestva             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
+    $oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
+
     $_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
     header( "Location: http://" . $site_domain_name . "/step_3.php" );
     exit;
@@ -37,10 +38,12 @@ if ( isset( $po_chastote ) && $po_chastote == "on" ) {
 }
 unset( $massiv_itog_2 );
 unset( $po_chastote );
+
 $_SESSION["kol_slov_itog"] = count( $_POST["massiv_itog"] );
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
     $ochered[ $i ] = "<li><input type=\"checkbox\" name=\"spisok_mesto[]\" checked value = "" . $massiv_itog[ $i ] . "EXTERNAL_FRAGMENT" hidden=\"true\">" . $massiv_itog[ $i ] . "</li>";
 }
-$ochered             = implode( "", $ochered );
+$ochered = implode( "", $ochered );
+
 $_SESSION["ochered"] = $ochered;
 header( "Location: http://" . $site_domain_name . "/step_4.php" );
