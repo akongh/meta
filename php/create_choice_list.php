@@ -15,25 +15,21 @@ $_MASSIV_op_slov = preg_split( "[\n|,|;]", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMP
 for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
     $_MASSIV_op_slov[ $i ] = trim( $_MASSIV_op_slov[ $i ] );
 }
-$_MASSIV_op_slov = array_values( array_unique( ( array_diff( $_MASSIV_op_slov, array( '' ) ) ) ) );
-$opornye_slova   = implode( "\n", $_MASSIV_op_slov );
-//SESSION
+$_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_op_slov, array( '' ) ) ) ) );
+$opornye_slova             = implode( "\n", $_MASSIV_op_slov );
 $_SESSION["opornye_slova"] = $opornye_slova;
 if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $vvod_op_slov == null ) {
-    $oshibka_nichego_ne_vveli = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Необходимы опорные ключевые слова.</span>";
-    //SESSION
+    $oshibka_nichego_ne_vveli             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Необходимы опорные ключевые слова.</span>";
     $_SESSION["oshibka_nichego_ne_vveli"] = $oshibka_nichego_ne_vveli;
 }
 if ( count( $_MASSIV_op_slov ) > 80 ) {
-    $oshibka_mnogo_op_slov = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Не более 80-ти опорных ключевых слов.</span>";
-    //SESSION
+    $oshibka_mnogo_op_slov             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Не более 80-ти опорных ключевых слов.</span>";
     $_SESSION["oshibka_mnogo_op_slov"] = $oshibka_mnogo_op_slov;
 }
 if ( count( $_MASSIV_op_slov ) > 0 ) {
     $proverka_simvola = implode( "", $_MASSIV_op_slov );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
-        //SESSION
+        $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -42,8 +38,7 @@ if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && count( $_MASSIV_op_slov 
     $proverka_simvola          = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_sostoyanie_nabora ) ) );
     $proverka_simvola          = implode( "", $proverka_simvola );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
-        //SESSION
+        $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -86,7 +81,6 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
         $_MASSIV_rezultata = $_MASSIV_op_slov;
     }
 }
-//SESSION
 $_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( $i < $kolichestvo_opornyx_slov ) {
@@ -96,8 +90,7 @@ for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     }
 }
 if ( isset( $_MASSIV_spisok_podbora ) ) {
-    $vyvod_spiska_flagov = implode( "<br>", $_MASSIV_spisok_podbora ) . "<hr class=\"otbivka_24\">";
-    //SESSION
+    $vyvod_spiska_flagov             = implode( "<br>", $_MASSIV_spisok_podbora ) . "<hr class=\"otbivka_24\">";
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
 header( "Location: http://" . $site_domain_name . "/step_2.php" );

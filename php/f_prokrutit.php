@@ -25,8 +25,7 @@ for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     }
 }
 if ( $spisok != null ) {
-    $vyvod_spiska_flagov = implode( "<br>", $spisok ) . "<hr class=\"otbivka_24\">";
-    //SESSION
+    $vyvod_spiska_flagov             = implode( "<br>", $spisok ) . "<hr class=\"otbivka_24\">";
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
 //делаем массив из дополнительных слов
@@ -51,16 +50,14 @@ if ( isset( $slova_s_flagom_bez_probelov ) && isset( $_MASSIV_dop_slov ) ) {
 }
 //делаем строку с переносами из массива уникального дополненния
 if ( isset( $dopolnenie_unikalnoe ) ) {
-    $dopolnitelnye_slova = implode( "\n", $dopolnenie_unikalnoe );
-    //SESSION
+    $dopolnitelnye_slova             = implode( "\n", $dopolnenie_unikalnoe );
     $_SESSION["dopolnitelnye_slova"] = $dopolnitelnye_slova;
 }
 //делаем вывод ошибки символа, если она есть
 if ( count( $dopolnenie_unikalnoe ) > 0 ) {
     $proverka_simvola = implode( "", $dopolnenie_unikalnoe );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
-        //SESSION
+        $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -84,8 +81,7 @@ if ( isset( $massiv_itog ) ) {
     if ( count( $massiv_itog ) > 0 ) {
         $proverka_simvola = implode( "", $massiv_itog );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-            $oshibka_simvola = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
-            //SESSION
+            $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
             $_SESSION["oshibka_simvola"] = $oshibka_simvola;
         }
     }
@@ -96,8 +92,7 @@ if ( isset( $oshibka_simvola ) ) {
     exit;
 }
 //переходим к третьему шагу, если нет ошибок
-$kol_slov_itog = count( $massiv_itog );
-//SESSION
+$kol_slov_itog             = count( $massiv_itog );
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
     $sobranny_nabor[ $i ] = "<input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ];
@@ -110,7 +105,6 @@ if ( isset( $sobranny_nabor ) ) {
     unset( $abv );
     $sobranny_nabor = implode( "<br>\n", $sobranny_nabor );
 }
-//SESSION
 $_SESSION["sobranny_nabor"] = $sobranny_nabor;
 $_SESSION["massiv_itog"]    = $massiv_itog;
 header( "Location: http://" . $site_domain_name . "/step_3.php" );
