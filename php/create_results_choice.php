@@ -44,7 +44,7 @@ if ( isset( $zayavka ) ) {
 	" );
 }
 
-//SESSION///////////////////////////
+//SESSION
 
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
 $_SESSION["_REZULTAT_angl"]  = $_REZULTAT_angl;

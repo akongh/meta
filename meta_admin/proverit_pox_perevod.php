@@ -49,7 +49,7 @@ if ( isset( $p_z ) ) {
 
 unset( $p_z, $p, $z );
 
-//////////////////////////////////////////////////////////////////////
+// написать комментарий
 include( 'sql/SQL_podbor_k.php' );
 
 $n = 0;
@@ -68,7 +68,7 @@ if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
 if ( isset( $_MASSIV_spisok_podbora ) ) {
 	$vyvod_spiska_flagov = implode( "<br>", $_MASSIV_spisok_podbora );
 }
-//////////////////////////////////////////////////////////////////////
+// написать комментарий
 
 mysqli_close( $db_connect );
 

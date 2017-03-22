@@ -11,14 +11,13 @@ $massiv_itog = $_POST["massiv_itog"];
 
 if ( count( $massiv_itog ) < 8 ) {
 	$oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
-	//SESSION///////////////////////////////////////////////
+	//SESSION
 	$_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
 	header( "Location: http://" . $site_domain_name . "/step_3.php" );
 	exit;
 }
 
-//*******************************************************************************************************************
-/////////////////////////////////сортировать или нет по частоте//////////////////////////////////////////////////////////
+//сортировать или нет по частоте
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
 	$massiv_itog_2 = implode( "','", $massiv_itog );
 
@@ -51,10 +50,8 @@ if ( isset( $po_chastote ) && $po_chastote == "on" ) {
 
 unset( $massiv_itog_2 );
 unset( $po_chastote );
-//*******************************************************************************************************************
 
-
-//SESSION/////////////////////////////////////
+//SESSION
 $_SESSION["kol_slov_itog"] = count( $_POST["massiv_itog"] );
 
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
@@ -63,7 +60,7 @@ for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
 
 $ochered = implode( "", $ochered );
 
-//SESSION/////////////////////////////////////
+//SESSION
 $_SESSION["ochered"] = $ochered;
 
 header( "Location: http://" . $site_domain_name . "/step_4.php" );

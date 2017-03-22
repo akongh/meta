@@ -53,7 +53,7 @@ if($slovo_original != $slovo_k)
 		}
 		else if(isset($proverka_nalichiya))
 		{
-			/////////////////////////////////////////////////////////////////////
+			// написать комментарий
 			
 			$ids_original = mysqli_query( $db_connect, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '".$slovo_original."'
@@ -68,7 +68,7 @@ if($slovo_original != $slovo_k)
 			
 			$ids_original = $ids_orig[0];
 			
-			//////////////////////////////////////////////////////////////////////
+			// написать комментарий
 			
 			$ids_ispravlennogo = mysqli_query( $db_connect, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '".$slovo_k."'
@@ -83,7 +83,7 @@ if($slovo_original != $slovo_k)
 			
 			$ids_ispravlennogo = $ids_ispr[0];
 			
-			//////////////////////////////////////////////////////////////////////
+			// написать комментарий
 			
 			mysqli_query( $db_connect, "
 			UPDATE LOW_PRIORITY IGNORE `k-t_s`
@@ -132,7 +132,7 @@ if(isset($perevod))
 		");
 		$b++;
 		}
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	// написать комментарий
 	//for($i = 0; $i < count($perevod); $i++)
 //	{
 //		mysqli_query( $db_connect, "
@@ -152,10 +152,9 @@ if(isset($perevod))
 //		$b++;
 //		}
 //		file_put_contents('kontrol.txt',$kontrol, FILE_APPEND);
-	///////////////////////file_put_content('kontrol.txt',$kontrol, FILE_APPEND)/////////////////////////////
-	/////////////////////////
+	//file_put_content('kontrol.txt',$kontrol, FILE_APPEND)
 	$_SESSION["aaa"] = $b;
-	/////////////////////////
+	// написать комментарий
 	
 	mysqli_query( $db_connect, "
 	UPDATE `k-ts`

@@ -49,7 +49,7 @@ while ($data = mysqli_fetch_array($slovo_kolichestvo))
 
 
 $slovo = $slovo[0];
-/////////////////////////////////////////////////////////////////////
+// написать комментарий
 $SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
@@ -81,7 +81,7 @@ if (isset($p_z))
 unset($p_z, $p, $z);
 
 mysqli_close($db_connect);
-////////////////////////////////////////////////////////////////////
+// написать комментарий
 $kol = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 

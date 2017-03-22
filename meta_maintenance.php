@@ -23,9 +23,6 @@ include( 'meta_config.php' );
   <span class="podval_tekst">© Андрей Коржиц, Елена Абражевич, 2014&mdash;2015<br>
   <a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a></span>
   <hr class="otbivka_12">
-
-<!--#include virtual="shtml/yandex_metrika.shtml"-->
-
 </div>
 </div>
 </body>

@@ -52,13 +52,13 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 		$p_z               = implode( "<hr class=\"otbivka_0\">", $p_z );
 		$s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
 		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\">" . $p_z .
-		                     "</div>";//*************************************************************************************************
+		                     "</div>";
 	} else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
 		$p_z               = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span><span class=\"znachenie\"> — " . $z[0] . "</span>";
 		$s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
 		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span><hr class=\"otbivka_6\">" . $p_z .
-		                     "</div>";//**************************************************************************************************
-	} else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) )/////////////////
+		                     "</div>";
+	} else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) )
 	{
 		$neperevedennye[ $i ] = $rus[ $i ];
 		$s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
@@ -69,7 +69,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 Данное ключевое слово к&nbsp;таковым и&nbsp;относится, и,&nbsp;если оно&nbsp;ещё&nbsp;не&nbsp;в&nbsp;списке первоочерёдных на&nbsp;перевод, оно&nbsp;будет в&nbsp;него добавлено, и&nbsp;мы&nbsp;его&nbsp;переведём в&nbsp;течение двух или&nbsp;более дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
 <hr class=\"otbivka_48\"></span>";
 		}
-	} else if ( ! isset( $p_z ) && $f == 7 )/////////////////
+	} else if ( ! isset( $p_z ) && $f == 7 )
 	{
 		$neperevedennye[ $i ] = $rus[ $i ];
 		$s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
