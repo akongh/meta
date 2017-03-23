@@ -3,6 +3,7 @@ session_start();
 include( '../meta_config.php' );
 $russk = $_POST["russk"];
 $angl  = $_POST["angl"];
+
 if ( isset( $_POST["zayavka"] ) ) {
     $zayavka = $_POST["zayavka"];
 }
@@ -15,10 +16,12 @@ if ( isset( $angl ) ) {
 } else {
     $_SESSION["kol_slov_angl"] = 0;
 }
+
 $vr_nabora = time();
 $ses       = session_id();
+
 if ( isset( $russk ) ) {
-    include( '../sql/SQL_sozdat_nabor_k.php' );
+    include( '../sql/SQL_create_results_choice.php' );
     $_REZULTAT_russk = implode( ", ", $russk );
 }
 if ( isset( $angl ) ) {

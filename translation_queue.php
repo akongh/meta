@@ -4,7 +4,7 @@ session_start();
 session_unset();
 unset($_POST);
 
-include( 'sql/SQL_ochered_na_perevod.php' );
+include( 'sql/SQL_translation_queue.php' );
 include( 'meta_config.php' );
 
 $n = 0;
