@@ -17,19 +17,6 @@ $perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHE
 $perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
 $perevedeno = $perevedeno_otvet[0];
 
-$ne_perevoditsya_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '2'");
-$ne_perevoditsya_otvet = mysqli_fetch_row($ne_perevoditsya_zapros);
-$ne_perevoditsya = $ne_perevoditsya_otvet[0];
-
-$ne_znakomo_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '4'");
-$ne_znakomo_otvet = mysqli_fetch_row($ne_znakomo_zapros);
-$ne_znakomo = $ne_znakomo_otvet[0];
-
-$s_oshibkoj_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '3'");
-$s_oshibkoj_otvet = mysqli_fetch_row($s_oshibkoj_zapros);
-$s_oshibkoj = $s_oshibkoj_otvet[0];
-
-
 $slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
@@ -38,7 +25,6 @@ $slovo_kolichestvo = mysqli_query( $db_connect, "
 	LIMIT 1
 	");
 
-
 $n = 0;
 while ($data = mysqli_fetch_array($slovo_kolichestvo))
 {
@@ -46,7 +32,6 @@ while ($data = mysqli_fetch_array($slovo_kolichestvo))
 	$kol[$n] = $data['kol'];
 	$n++;
 	}
-
 
 $slovo = $slovo[0];
 // написать комментарий
