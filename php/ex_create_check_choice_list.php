@@ -1,8 +1,16 @@
 <?php error_reporting( - 1 );
 session_start();
-unset( $_SESSION["oshibka_simvola"], $_SESSION["oshibka_kolichestva"], $_SESSION["dopolnitelnye_slova"], $_SESSION["_REZULTAT_russk_neperevedennye"] );
+
+unset(
+	$_SESSION["oshibka_simvola"],
+	$_SESSION["oshibka_kolichestva"],
+	$_SESSION["dopolnitelnye_slova"],
+	$_SESSION["_REZULTAT_russk_neperevedennye"]
+);
+
 include( 'regexp.php' );
 include( '../meta_config.php' );
+
 if ( isset( $_POST["abv"] ) ) {
     $abv = $_POST["abv"];
 }
@@ -38,9 +46,11 @@ $vvod_dop_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslas
 $vvod_dop_slov    = preg_replace( "/ {2,}/", " ", $vvod_dop_slov );
 $vvod_dop_slov    = preg_replace( "/-{2,}/", "-", $vvod_dop_slov );
 $_MASSIV_dop_slov = preg_split( "[\n|,|;]", $vvod_dop_slov, - 1, PREG_SPLIT_NO_EMPTY );
+
 for ( $i = 0; $i < count( $_MASSIV_dop_slov ); $i ++ ) {
     $_MASSIV_dop_slov[ $i ] = trim( $_MASSIV_dop_slov[ $i ] );
 }
+
 $_MASSIV_dop_slov = array_values( array_unique( ( array_diff( $_MASSIV_dop_slov, array( '' ) ) ) ) );
 //удаляем из дополнительных слов те, которые отмечены флажком в подборе
 if ( isset( $slova_s_flagom_bez_probelov ) && isset( $_MASSIV_dop_slov ) ) {
@@ -57,6 +67,7 @@ if ( isset( $dopolnenie_unikalnoe ) ) {
     $dopolnitelnye_slova             = implode( "\n", $dopolnenie_unikalnoe );
     $_SESSION["dopolnitelnye_slova"] = $dopolnitelnye_slova;
 }
+
 //делаем вывод ошибки символа, если она есть
 if ( isset( $dopolnenie_unikalnoe ) && count( $dopolnenie_unikalnoe ) > 0 ) {
     $proverka_simvola = implode( "", $dopolnenie_unikalnoe );
@@ -73,6 +84,7 @@ if ( isset( $slova_s_flagom_bez_probelov ) && isset( $dopolnenie_unikalnoe ) ) {
 } else if ( ! isset( $slova_s_flagom_bez_probelov ) && isset( $dopolnenie_unikalnoe ) ) {
     $massiv_itog = $dopolnenie_unikalnoe;
 }
+
 if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $massiv_itog != null ) {
     $_MASSIV_sostoyanie_nabora = $_SESSION["_MASSIV_sostoyanie_nabora"];
     $massiv_itog               = array_values( array_unique( array_merge( $_MASSIV_sostoyanie_nabora, $massiv_itog ) ) );
@@ -98,6 +110,7 @@ if ( isset( $oshibka_simvola ) ) {
 //переходим к третьему шагу, если нет ошибок
 $kol_slov_itog             = count( $massiv_itog );
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
+
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
     $sobranny_nabor[ $i ] = "<input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ];
 }

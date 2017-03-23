@@ -1,38 +1,53 @@
-<?php error_reporting( - 1 );
+<?php error_reporting(-1);
 session_start();
-unset( $_SESSION["slovo_original"] );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-$na_zayavke_zapros      = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'" );
-$na_zayavke_otvet       = mysqli_fetch_row( $na_zayavke_zapros );
-$na_zayavke             = $na_zayavke_otvet[0];
-$propustit_zapros       = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
-$propustit_otvet        = mysqli_fetch_row( $propustit_zapros );
-$propustit              = $propustit_otvet[0];
-$perevedeno_zapros      = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
-$perevedeno_otvet       = mysqli_fetch_row( $perevedeno_zapros );
-$perevedeno             = $perevedeno_otvet[0];
-$ne_perevoditsya_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '2'" );
-$ne_perevoditsya_otvet  = mysqli_fetch_row( $ne_perevoditsya_zapros );
-$ne_perevoditsya        = $ne_perevoditsya_otvet[0];
-$ne_znakomo_zapros      = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '4'" );
-$ne_znakomo_otvet       = mysqli_fetch_row( $ne_znakomo_zapros );
-$ne_znakomo             = $ne_znakomo_otvet[0];
-$s_oshibkoj_zapros      = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '3'" );
-$s_oshibkoj_otvet       = mysqli_fetch_row( $s_oshibkoj_zapros );
-$s_oshibkoj             = $s_oshibkoj_otvet[0];
-$slovo_kolichestvo      = mysqli_query( $db_connect, "
+
+unset($_SESSION["slovo_original"]);
+
+include ($_SERVER['DOCUMENT_ROOT'].'/meta_config_db.php');
+
+$na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'");
+$na_zayavke_otvet = mysqli_fetch_row($na_zayavke_zapros);
+$na_zayavke = $na_zayavke_otvet[0];
+
+$propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'");
+$propustit_otvet = mysqli_fetch_row($propustit_zapros);
+$propustit = $propustit_otvet[0];
+
+$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
+$perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);
+$perevedeno = $perevedeno_otvet[0];
+
+$ne_perevoditsya_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '2'");
+$ne_perevoditsya_otvet = mysqli_fetch_row($ne_perevoditsya_zapros);
+$ne_perevoditsya = $ne_perevoditsya_otvet[0];
+
+$ne_znakomo_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '4'");
+$ne_znakomo_otvet = mysqli_fetch_row($ne_znakomo_zapros);
+$ne_znakomo = $ne_znakomo_otvet[0];
+
+$s_oshibkoj_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '3'");
+$s_oshibkoj_otvet = mysqli_fetch_row($s_oshibkoj_zapros);
+$s_oshibkoj = $s_oshibkoj_otvet[0];
+
+
+$slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 7
 	ORDER BY `k-ts`.`kol` DESC
 	LIMIT 1
-	" );
-$n                      = 0;
-while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-    $kol[ $n ]   = $data['kol'];
-    $n ++;
-}
+	");
+
+
+$n = 0;
+while ($data = mysqli_fetch_array($slovo_kolichestvo))
+{
+	$slovo[$n] = $data['slovo'];
+	$kol[$n] = $data['kol'];
+	$n++;
+	}
+
+
 $slovo = $slovo[0];
 // написать комментарий
 $SQL_p_z = mysqli_query( $db_connect, "
@@ -41,29 +56,42 @@ from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
 join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
 join `tz` on `tz`.`idz`=`k_l`.`idz`
-where `k-ts`.`s`='" . $slovo . "'
-" );
-$n       = 0;
-while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-    $p[ $n ]   = $rez['s'];
-    $z[ $n ]   = $rez['z'];
-    $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
-    $n ++;
-}
-if ( isset( $p_z ) ) {
-    $p_z         = implode( "<hr class=\"otbivka_0\">", $p_z );
-    $s_perevodom = "<hr class=\"otbivka_6\">" . $p_z . "<hr class=\"otbivka_6\">";
-} else {
-    $s_perevodom = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
-}
-unset( $p_z, $p, $z );
-mysqli_close( $db_connect );
+where `k-ts`.`s`='".$slovo."'
+");
+
+$n = 0;
+while ($rez = mysqli_fetch_array($SQL_p_z))
+{
+	$p[$n] = $rez['s'];
+	$z[$n] = $rez['z'];
+	$p_z[$n] = "<span class=\"perevod\">".$p[$n]."</span><span class=\"znachenie\"> — ".$z[$n]."</span>";
+
+	$n++;
+	}
+if (isset($p_z))
+{
+	$p_z = implode("<hr class=\"otbivka_0\">", $p_z);
+	$s_perevodom = "<hr class=\"otbivka_6\">".$p_z."<hr class=\"otbivka_6\">";
+	}
+	else
+	{
+		$s_perevodom = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
+		}
+
+unset($p_z, $p, $z);
+
+mysqli_close($db_connect);
 // написать комментарий
-$kol                        = $kol[0];
+$kol = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
-if ( isset( $slovo ) ) {
-    include( 'perevod_po_zayavke.html' );
-} else {
-    include( 'net_zayavok_na_perevod.html' );
-}
-unset( $slovo );
+
+if(isset($slovo))
+{
+	include('perevod_po_zayavke.html');
+	}
+	else
+	{
+		include('net_zayavok_na_perevod.html');
+		}
+
+unset($slovo);

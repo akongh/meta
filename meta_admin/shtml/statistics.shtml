@@ -1,23 +1,28 @@
-<div class="statistika">
-    В базе ключевых слов/наборов:<br>
-    на кириллице —
-    <span class="statistika_czyfra">
+<div class="statistika"> 
+В базе ключевых слов/наборов:<br>
+
+на кириллице — 
+<span class="statistika_czyfra">
 
 <?php echo $kir_kol_slov;?> / <?php echo $kir_kol_naborov;?>
 </span><br>
-    на латинице —
-    <span class="statistika_czyfra">
+
+на латинице — 
+<span class="statistika_czyfra">
 
 <?php echo $lat_kol_slov;?> / не нужны
 </span><br>
-    <hr class="otbivka_12">
-    Ключевых слов переведено:
-    <span class="statistika_czyfra">
+
+<hr class="otbivka_12">
+
+Ключевых слов переведено: 
+<span class="statistika_czyfra">
 
 <?php echo $perevedeno;?>
 </span><br>
-    Ключевых слов на заявке:
-    <span class="statistika_czyfra">
+
+Ключевых слов на заявке: 
+<span class="statistika_czyfra">
 <?php echo $na_zayavke;?>
 </span>
 </div>

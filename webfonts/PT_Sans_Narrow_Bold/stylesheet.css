@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'PT Sans Narrow Bold';
-    src: url('PT-Sans-Narrow-Bold.eot');
-    src: url('PT-Sans-Narrow-Bold.eot?#iefix') format('embedded-opentype'),
-    url('PT-Sans-Narrow-Bold.woff') format('woff'),
-    url('PT-Sans-Narrow-Bold.ttf') format('truetype'),
-    url('PT-Sans-Narrow-Bold.svg') format('svg');
+	font-family: 'PT Sans Narrow Bold';
+	src: url('PT-Sans-Narrow-Bold.eot');
+	src: url('PT-Sans-Narrow-Bold.eot?#iefix') format('embedded-opentype'),
+		url('PT-Sans-Narrow-Bold.woff') format('woff'),
+		url('PT-Sans-Narrow-Bold.ttf') format('truetype'),
+		url('PT-Sans-Narrow-Bold.svg') format('svg');
 }

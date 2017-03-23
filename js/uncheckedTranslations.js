@@ -13,20 +13,20 @@ function missedTranslations() {
     var blocksTranslation = document.getElementsByClassName("blok_perevoda");
     for (var i = 0; i < blocksTranslation.length; i++) {
         var inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
-        var f = false;
-        for (var j = 0; j < inputsEngList.length; j++) {
-            if (inputsEngList[j].checked == true) {
-                blocksTranslation[i].style.backgroundColor = "";
-                f = true;
-                break;
+            var f = false;
+            for (var j = 0; j < inputsEngList.length; j++) {
+                if (inputsEngList[j].checked == true) {
+                    blocksTranslation[i].style.backgroundColor = "";
+                    f = true;
+                    break;
+                }
+                ;
             }
             ;
-        }
-        ;
-        if (f == false) {
-            blocksTranslation[i].style.backgroundColor = "#FFEEEE";
-        }
-        ;
+            if (f == false) {
+                blocksTranslation[i].style.backgroundColor = "#FFEEEE";
+            }
+            ;
     }
     ;
 };

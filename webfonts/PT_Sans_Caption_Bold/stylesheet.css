@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'PT Sans Caption Bold';
-    src: url('PT-Sans-Caption-Bold.eot');
-    src: url('PT-Sans-Caption-Bold.eot?#iefix') format('embedded-opentype'),
-    url('PT-Sans-Caption-Bold.woff') format('woff'),
-    url('PT-Sans-Caption-Bold.ttf') format('truetype'),
-    url('PT-Sans-Caption-Bold.svg') format('svg');
+	font-family: 'PT Sans Caption Bold';
+	src: url('PT-Sans-Caption-Bold.eot');
+	src: url('PT-Sans-Caption-Bold.eot?#iefix') format('embedded-opentype'),
+		url('PT-Sans-Caption-Bold.woff') format('woff'),
+		url('PT-Sans-Caption-Bold.ttf') format('truetype'),
+		url('PT-Sans-Caption-Bold.svg') format('svg');
 }

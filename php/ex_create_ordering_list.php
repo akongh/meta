@@ -5,6 +5,7 @@ if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
 }
 $massiv_itog = $_POST["massiv_itog"];
+
 if ( count( $massiv_itog ) < 8 ) {
     $oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
 
@@ -36,13 +37,16 @@ if ( isset( $po_chastote ) && $po_chastote == "on" ) {
         ( $massiv_itog = $massiv_itog_est_v_base_slovo );
     }
 }
+
 unset( $massiv_itog_2 );
 unset( $po_chastote );
 
 $_SESSION["kol_slov_itog"] = count( $_POST["massiv_itog"] );
+
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-    $ochered[ $i ] = "<li><input type=\"checkbox\" name=\"spisok_mesto[]\" checked value = "" . $massiv_itog[ $i ] . "EXTERNAL_FRAGMENT" hidden=\"true\">" . $massiv_itog[ $i ] . "</li>";
+	$ochered[ $i ] = "<li><input type=\"checkbox\" name=\"spisok_mesto[]\" checked value = '" . $massiv_itog[ $i ] . "' hidden=\"true\">" . $massiv_itog[ $i ] . "</li>";
 }
+
 $ochered = implode( "", $ochered );
 
 $_SESSION["ochered"] = $ochered;

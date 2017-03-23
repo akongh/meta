@@ -1,8 +1,16 @@
 <?php error_reporting( - 1 );
 session_start();
-unset( $_SESSION["oshibka_nichego_ne_vveli"], $_SESSION["oshibka_simvola"], $_SESSION["oshibka_mnogo_op_slov"], $_SESSION["_REZULTAT_russk_neperevedennye"] );
+
+unset(
+	$_SESSION["oshibka_nichego_ne_vveli"],
+	$_SESSION["oshibka_simvola"],
+	$_SESSION["oshibka_mnogo_op_slov"],
+	$_SESSION["_REZULTAT_russk_neperevedennye"]
+);
+
 include( 'regexp.php' );
 include( '../meta_config.php' );
+
 if ( isset( $_POST["sposob321"] ) ) {
     $sposob321 = $_POST["sposob321"];
 }
@@ -12,6 +20,7 @@ $vvod_op_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslash
 $vvod_op_slov    = preg_replace( "/ {2,}/", " ", $vvod_op_slov );
 $vvod_op_slov    = preg_replace( "/-{2,}/", "-", $vvod_op_slov );
 $_MASSIV_op_slov = preg_split( "[\n|,|;]", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMPTY );
+
 for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
     $_MASSIV_op_slov[ $i ] = trim( $_MASSIV_op_slov[ $i ] );
 }
@@ -81,7 +90,9 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
         $_MASSIV_rezultata = $_MASSIV_op_slov;
     }
 }
+//SESSION
 $_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
+
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( $i < $kolichestvo_opornyx_slov ) {
         $_MASSIV_spisok_podbora[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];

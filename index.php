@@ -1,6 +1,9 @@
-<?php error_reporting( - 1 );
+<?php error_reporting(-1);
 session_start();
+
 session_unset();
-unset( $_POST );
+unset($_POST);
+
 include( 'meta_config.php' );
+
 include( 'meta.html' );

@@ -1,17 +1,26 @@
-<?php error_reporting( - 1 );
+<?php error_reporting(-1);
 session_start();
-unset( $_SESSION["oshibka_simvola"], $_SESSION["oshibka_kolichestva"], $_SESSION["dopolnitelnye_slova"], $_SESSION["_REZULTAT_russk_neperevedennye"] );
+
+unset(
+$_SESSION["oshibka_simvola"],
+$_SESSION["oshibka_kolichestva"],
+$_SESSION["dopolnitelnye_slova"],
+$_SESSION["_REZULTAT_russk_neperevedennye"]
+);
+
 include( 'shtml/regexp.php' );
 include( 'meta_config.php' );
 $abv               = $_POST["abv"];
 $slova_s_flagom    = $_POST["slova_s_flagom"];
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
 //обеспробеливаем массив отмеченных слов
-if ( $slova_s_flagom != null ) {
-    for ( $i = 0; $i < count( $slova_s_flagom ); $i ++ ) {
-        $slova_s_flagom_bez_probelov[ $i ] = trim( $slova_s_flagom[ $i ] );
-    }
-}
+if ($slova_s_flagom != NULL)
+{
+	for ($i = 0; $i < count($slova_s_flagom); $i++)
+	{
+		$slova_s_flagom_bez_probelov[$i] = trim($slova_s_flagom[$i]);
+		}
+	}
 //рисуем массив результата с отмеченными словами
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( isset( $slova_s_flagom_bez_probelov ) ) {

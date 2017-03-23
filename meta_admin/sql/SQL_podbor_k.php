@@ -1,5 +1,6 @@
-<?php error_reporting( - 1 );
-$_SQL_zapros_podbor    = "select `k-ts`.`s`, count(*)    
+<?php error_reporting(-1);
+
+$_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)    
 	  from (    
 		select `k-t_s`.`id_n`    
 		from  `k-ts`    
@@ -13,4 +14,5 @@ $_SQL_zapros_podbor    = "select `k-ts`.`s`, count(*)
 	  group by `k-t_s`.`id_s`, `k-ts`.`s`    
 	  order by count(*) desc, `k-ts`.`s` LIMIT 0,200   
 	  ";
-$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
+
+$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
