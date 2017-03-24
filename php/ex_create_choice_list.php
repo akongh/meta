@@ -2,10 +2,10 @@
 session_start();
 
 unset(
-	$_SESSION["oshibka_nichego_ne_vveli"],
-	$_SESSION["oshibka_simvola"],
-	$_SESSION["oshibka_mnogo_op_slov"],
-	$_SESSION["_REZULTAT_russk_neperevedennye"]
+    $_SESSION["oshibka_nichego_ne_vveli"],
+    $_SESSION["oshibka_simvola"],
+    $_SESSION["oshibka_mnogo_op_slov"],
+    $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( 'regexp.php' );
@@ -67,7 +67,7 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
             $_MASSIV_rezultata[ $n ] = $data['s'];
             $n ++;
         }
-        if ( isset($_MASSIV_rezultata) && $_MASSIV_rezultata != null ) {
+        if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
             $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
             if ( count( $_MASSIV_rezultata ) > $kolichestvo_opornyx_slov ) {
                 if ( count( $_MASSIV_rezultata ) > $granicza ) {
@@ -75,6 +75,8 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
                 }
                 break;
             }
+        } else {
+            $_MASSIV_rezultata = $_MASSIV_op_slov;
         }
     }
 } else {
