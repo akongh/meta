@@ -23,7 +23,7 @@
        target="_blank">Как правильно подбирать (руководство Меты)</a>
     <hr class="otbivka_48">
     <!--PHP-->
-    <?php echo $sostoyanie_nabora;?>
+    <?php if (isset( $sostoyanie_nabora )) { echo $sostoyanie_nabora; };?>
     <hr class="otbivka_24">
     <form action="php/ex_create_choice_list.php"
           method="post">
@@ -33,10 +33,12 @@
                       wrap="soft"
                       class="vvod_slov_tekst"
                       placeholder=""
-                      autofocus><?php echo $opornye_slova;?></textarea>
+                      autofocus><?php if (isset( $opornye_slova )){echo $opornye_slova;};?></textarea>
             <hr class="otbivka_12">
             <!--PHP-->
-            <?php echo $oshibka_nichego_ne_vveli;?> <?php echo $oshibka_simvola;?> <?php echo $oshibka_mnogo_op_slov;?>
+            <?php if (isset( $oshibka_nichego_ne_vveli )) { echo $oshibka_nichego_ne_vveli; };?>
+            <?php if (isset( $oshibka_simvola )) { echo $oshibka_simvola; };?>
+            <?php if (isset( $oshibka_mnogo_op_slov )) { echo $oshibka_mnogo_op_slov; };?>
             <hr class="otbivka_12">
             До&nbsp;
             <select size="1"

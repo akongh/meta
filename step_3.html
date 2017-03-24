@@ -40,7 +40,7 @@
         <!--</div>-->
         <div class="vvod_slov">
             <!--PHP-->
-            <?php echo $oshibka_kolichestva;?>
+            <?php if (isset($oshibka_kolichestva)){echo $oshibka_kolichestva;};?>
             <hr class="otbivka_12">
             <input type="checkbox"
                    name="po_chastote"> по частоте в базе

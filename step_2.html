@@ -26,9 +26,9 @@
           method="post">
         <div class="vyvod_spiska_flagov">
             <!--PHP-->
-            <?php echo $vyvod_spiska_flagov;?> </div>
+            <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?> </div>
         <!--PHP-->
-        <?php echo $sostoyanie_nabora;?>
+        <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
         <hr class="otbivka_24">
         <h2>…и добавляем свои</h2>
         <hr class="otbivka_6">
@@ -37,10 +37,10 @@
             <textarea name="vvod_dop_slov"
                       wrap="soft"
                       class="vvod_slov_tekst"
-                      placeholder=""><?php echo $dopolnitelnye_slova;?></textarea>
+                      placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
             <hr class="otbivka_12">
             <!--PHP-->
-            <?php echo $oshibka_simvola;?>
+            <?php if (isset($oshibka_simvola)){echo $oshibka_simvola;};?>
             <hr class="otbivka_12">
             <input type="checkbox"
                    checked
