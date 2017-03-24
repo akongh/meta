@@ -51,7 +51,7 @@
     <div class="statistika">Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
     </div>
     <hr class="otbivka_96">
-    <form method="post" action="perevod_soxranit_po_chastote.php">
+    <form method="post" action="php/ex_save_frequency_translation.php">
         <!--PHP-->
         <h1>
             <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
@@ -88,7 +88,7 @@
         <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить пераквох ;)">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/f_propustit_po_chastote.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+    <div class="upravlenie"><a href="php/ex_omit_by_frequency.php" title="Пропустить">&#9660; Прапускунчунец</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         <hr class="otbivka_96">
         <a href="index.php">На главную</a></div>

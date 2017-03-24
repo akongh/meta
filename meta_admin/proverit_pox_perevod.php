@@ -50,7 +50,7 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 // написать комментарий
-include( 'sql/SQL_podbor_k.php' );
+include( 'sql/SQL_choice.php' );
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {

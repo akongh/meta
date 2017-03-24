@@ -24,4 +24,4 @@ if ($_MASSIV_ochered != NULL)
 		$_MASSIV_spisok_ochered = "Заявок на перевод пока нет.";
 		}
 
-include( 'translation_queue.html' );
+include( 'translation_request.html' );
