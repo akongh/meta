@@ -61,13 +61,13 @@ $_MASSIV_op_slov_strokoj  = implode( "", $_MASSIV_op_slov );
 // написать комментарий
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        include( 'sql/SQL_create_choice_list.php' );
+        include( '../sql/SQL_create_choice_list.php' );
         $n = 0;
         while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
             $_MASSIV_rezultata[ $n ] = $data['s'];
             $n ++;
         }
-        if ( $_MASSIV_rezultata != null ) {
+        if ( isset($_MASSIV_rezultata) && $_MASSIV_rezultata != null ) {
             $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
             if ( count( $_MASSIV_rezultata ) > $kolichestvo_opornyx_slov ) {
                 if ( count( $_MASSIV_rezultata ) > $granicza ) {

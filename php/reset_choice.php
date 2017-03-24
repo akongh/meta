@@ -1,7 +1,8 @@
-<?php error_reporting( - 1 );
-session_start();
+<?php error_reporting(-1);
 
+session_start();
 session_unset();
+
 unset( $_POST );
 
 include( '../meta_config.php' );

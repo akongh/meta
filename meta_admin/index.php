@@ -9,7 +9,6 @@ $lat_kol_slov = $_SESSION["lat_kol_slov"];
 if ( isset( $_SESSION["opornye_slova"] ) ) {
 	$opornye_slova = $_SESSION["opornye_slova"];
 }
-
 if ( isset( $_SESSION["oshibka_simvola"] ) ) {
 	$oshibka_simvola = $_SESSION["oshibka_simvola"];
 

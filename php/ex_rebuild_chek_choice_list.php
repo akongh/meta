@@ -8,8 +8,8 @@ $_SESSION["dopolnitelnye_slova"],
 $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( 'shtml/regexp.php' );
-include( 'meta_config.php' );
+include( 'regexp.php' );
+include( '../meta_config.php' );
 $abv               = $_POST["abv"];
 $slova_s_flagom    = $_POST["slova_s_flagom"];
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];

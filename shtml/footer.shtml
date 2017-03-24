@@ -11,5 +11,5 @@
   <a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a></span>
   <hr class="otbivka_24">
   <!--PHP-->
-  <?php include('shtml/yandex_metrika.shtml');?>
+  <?php include('shtml/yandex_metric_meta.shtml');?>
 </div>
