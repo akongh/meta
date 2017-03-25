@@ -4,7 +4,6 @@ session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $slovo_k = $_SESSION['slovo_k'];
-$aaa     = $_SESSION["aaa"];
 
 $SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`

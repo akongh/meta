@@ -101,7 +101,6 @@ if ( $slovo_original != $slovo_k ) {
 }
 
 if ( isset( $perevod ) ) {
-	$b = 0;
 	for ( $i = 0; $i < count( $perevod ); $i ++ ) {
 		mysqli_query( $db_connect, "  
 		INSERT IGNORE INTO `l-ts` (`s`)
@@ -117,11 +116,7 @@ if ( isset( $perevod ) ) {
 				(SELECT `ids` FROM `l-ts` WHERE `s` = '" . $perevod[ $i ] . "'),
 				(SELECT `idz` FROM `tz` WHERE `z` = '" . $znachenie[ $i ] . "'))  
 		" );
-		$b ++;
 	}
-	// написать комментарий
-	$_SESSION["aaa"] = $b;
-	// написать комментарий
 
 	mysqli_query( $db_connect, "
 	UPDATE `k-ts`
