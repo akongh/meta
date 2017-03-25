@@ -8,6 +8,14 @@
 //$db_name = "webart_meta";
 
 
+//На удалённом тестовом сервере
+
+//$db_server = "by114.atservers.net";
+//$db_user = "andrej";
+//$db_password = "ss4TU0BH";
+//$db_name = "webart_meta2";
+
+
 //На внутреннем сервере
 
 $db_server = "127.0.0.1";

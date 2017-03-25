@@ -1,9 +1,8 @@
 #доступ
 AuthName "Управление Меты"
 AuthType Basic
-#Digest Basic
-AuthUserFile E:/www/meta/meta_access/.htpasswd
 #AuthUserFile /home/webart/www/meta_access/.htpasswd
+AuthUserFile E:/www/meta/meta_access/.htpasswd
 require valid-user
 
 #запрет выдачи листинга пустого каталога 

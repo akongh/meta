@@ -9,6 +9,8 @@
 //На удалённом сервере
 //$site_domain_name = "meta.afoteris.com";
 
+//На удалённом тестовом сервере
+//$site_domain_name = "meta2.afoteris.com";
 
 //На внутреннем сервере
 $site_domain_name = "meta";
