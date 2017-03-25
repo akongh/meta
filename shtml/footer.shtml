@@ -10,6 +10,4 @@
   <span class="podval_tekst">© META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?> <br>
   <a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a></span>
   <hr class="otbivka_24">
-  <!--PHP-->
-  <?php include('shtml/yandex_metric_meta.shtml');?>
 </div>

@@ -9,14 +9,11 @@
     <link rel="shortcut icon"
           href="http://<?php $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
+    <!--PHP-->
+    <?php include('shtml/yandex_metric_meta.shtml');?>
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
-        });
-    </script>
+    <script src="js/changeOrderingList.js"></script>
 </head>
 <body>
 <div class="korobka">
@@ -58,6 +55,6 @@
     <hr class="otbivka_96">
     <!--PHP-->
     <?php include('shtml/footer.shtml');?>
-  </div>
+</div>
 </body>
 </html>
