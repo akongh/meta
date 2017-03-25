@@ -1,5 +1,6 @@
 <?php error_reporting(-1);
 session_start();
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 unset(
 $_SESSION["oshibka_simvola"],
@@ -9,7 +10,7 @@ $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( 'regexp.php' );
-include( '../meta_config.php' );
+
 $abv               = $_POST["abv"];
 $slova_s_flagom    = $_POST["slova_s_flagom"];
 $_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];

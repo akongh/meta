@@ -1,5 +1,5 @@
 <?php
-include( 'meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 ?>
 
 <!doctype html>

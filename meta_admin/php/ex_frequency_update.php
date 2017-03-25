@@ -1,7 +1,5 @@
 <?php error_reporting( - 1 );
-
 session_start();
-
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
@@ -15,5 +13,4 @@ mysqli_query( $db_connect, "
 $_SESSION["obnovlenie_chastoty"] = mysqli_affected_rows( $db_connect );
 
 mysqli_close( $db_connect );
-
 header( "Location: http://" . $site_domain_name . "/meta_admin/index.php" );

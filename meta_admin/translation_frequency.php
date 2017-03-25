@@ -1,9 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 unset( $_SESSION["slovo_original"] );
-
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
@@ -56,8 +55,6 @@ if ( isset( $p_z ) ) {
 
 unset( $p_z, $p, $z );
 
-mysqli_close( $db_connect );
-// написать комментарий
 $kol                        = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
@@ -67,4 +64,5 @@ if ( isset( $slovo ) ) {
     include( 'no_keyword_for_translation.html' );
 }
 
+mysqli_close( $db_connect );
 unset( $slovo );

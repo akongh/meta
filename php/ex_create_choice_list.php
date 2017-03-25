@@ -1,5 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 unset(
     $_SESSION["oshibka_nichego_ne_vveli"],
@@ -9,7 +11,6 @@ unset(
 );
 
 include( 'regexp.php' );
-include( '../meta_config.php' );
 
 if ( isset( $_POST["sposob321"] ) ) {
     $sposob321 = $_POST["sposob321"];
@@ -62,6 +63,8 @@ $_MASSIV_op_slov_strokoj  = implode( "", $_MASSIV_op_slov );
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
         include( '../sql/SQL_create_choice_list.php' );
+        $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
+
         $n = 0;
         while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
             $_MASSIV_rezultata[ $n ] = $data['s'];
@@ -81,6 +84,8 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     }
 } else {
     include( '../sql/SQL_create_choice_list.php' );
+    $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
+
     $n = 0;
     while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
         $_MASSIV_rezultata[ $n ] = $data['s'];
@@ -106,4 +111,6 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
     $vyvod_spiska_flagov             = implode( "<br>", $_MASSIV_spisok_podbora ) . "<hr class=\"otbivka_24\">";
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
+
+mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/step_2.php" );

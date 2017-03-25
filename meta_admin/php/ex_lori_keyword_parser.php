@@ -1,10 +1,10 @@
 <?php error_reporting( - 1 );
 //1 000 000 ≠ 1 020 000
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 $ot = $_POST["ot"];
 $do = $_POST["do"];
 for ( $ot; $ot <= $do; $ot ++ ) {
     sleep( 1 );
-    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
     $kod_straniczy = file_get_contents( 'http://lori.ru/' . $ot );
     if ( $kod_straniczy == false ) {
         print_r( $ot );
@@ -15,7 +15,6 @@ for ( $ot; $ot <= $do; $ot ++ ) {
 		SET `lori` = '" . $ot . "'
 		WHERE `f` = '1'
 		" );
-        mysqli_close( $db_connect );
     } else if ( $kod_straniczy == true ) {
         preg_match_all( "/<a href=\"\/search\/images\/.*<\/a>/", $kod_straniczy, $stroka );
         $stroka = $stroka[0];
@@ -63,6 +62,6 @@ for ( $ot; $ot <= $do; $ot ++ ) {
             $kod_straniczy,
             $stroka,
             $stroka_kir );
-        mysqli_close( $db_connect );
     }
 }
+mysqli_close( $db_connect );

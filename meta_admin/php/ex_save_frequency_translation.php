@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $slovo_original = $_SESSION["slovo_original"];
@@ -23,9 +23,6 @@ if ( isset( $znachenie ) ) {
 		$znachenie[ $i ] = preg_replace( "/'/", "\'", $znachenie[ $i ] );
 	}
 }
-
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-
 if ( $slovo_original != $slovo_k ) {
 	$proverka_nalichiya_slova = mysqli_query( $db_connect, "  
 	SELECT `s` FROM `k-ts` WHERE `s` = '" . $slovo_k . "'
@@ -124,8 +121,8 @@ if ( isset( $perevod ) ) {
 	WHERE `s` = '" . $slovo_k . "' 
 	" );
 }
-mysqli_close( $db_connect );
 
 $_SESSION['slovo_k'] = $slovo_k;
 
+mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/meta_admin/review_translation_frequency.php" );

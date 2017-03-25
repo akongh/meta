@@ -1,7 +1,6 @@
 <?php error_reporting(-1);
 session_start();
-
-include( 'meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 if(!isset($_SESSION["metka"]))
 {

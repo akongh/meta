@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 if ( ! isset( $_POST["slovo_proverka"] ) ) {
@@ -51,6 +50,7 @@ unset( $p_z, $p, $z );
 
 // написать комментарий
 include( 'sql/SQL_choice.php' );
+$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
@@ -71,5 +71,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 // написать комментарий
 
 mysqli_close( $db_connect );
-
 include( 'check_similar_translation.html' );

@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
@@ -19,8 +19,6 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
     $_MASSIV_opornoe_slovo_zayavki = array_values( array_unique( ( array_diff( $_MASSIV_opornoe_slovo_zayavki, array( '' ) ) ) ) );
 
     $_SQL_opornoe_slovo_zayavki = implode( "','", $_MASSIV_opornoe_slovo_zayavki );
-
-    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
     $zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
@@ -48,7 +46,6 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
 	where `k`.`f` = 0)
 	";
     mysqli_query( $db_connect, $zayavka_na_perevod );
-    mysqli_close( $db_connect );
 }
-
+mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/meta_admin/add_related_in_request.php" );

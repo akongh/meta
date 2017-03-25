@@ -1,7 +1,5 @@
 <?php error_reporting( - 1 );
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-
 $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)    
 	  from (    
 		select `k-t_s`.`id_n`    
@@ -17,6 +15,3 @@ $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)
 	  order by count(*) desc, `k-ts`.`s` LIMIT 0," . $granicza . "
 	  ;    
 	  ";
-
-$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
-mysqli_close( $db_connect );

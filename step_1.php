@@ -1,5 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
+
 $_SESSION["metka"] = true;
 if ( isset( $_SESSION["opornye_slova"] ) ) {
     $opornye_slova = $_SESSION["opornye_slova"];
@@ -16,5 +17,6 @@ if ( isset( $_SESSION["oshibka_mnogo_op_slov"] ) ) {
 if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 };
-include( 'meta_config.php' );
+
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 include( 'step_1.html' );

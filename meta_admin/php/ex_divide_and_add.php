@@ -1,10 +1,11 @@
 <?php error_reporting( - 1 );
 session_start();
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $slovo_original = $_SESSION["slovo_original"];//разбиваемое слово
 
 include( '../../php/regexp.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];
 $novoe_slovo_razbit = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $novoe_slovo_razbit ) ) ), "utf-8" ) );
@@ -22,7 +23,6 @@ for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
 }
 $_SQL_stroka_novoe_slovo_razbit = implode( "','", $_MASSIV_novoe_slovo_razbit );//строка новых слов для запросов
 // написать комментарий
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 $nomera_naborov_s_originalom = mysqli_query( $db_connect, "
 	SELECT `k-t_s`.`id_n`
 	from `k-t_s` LEFT JOIN  `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
@@ -73,6 +73,6 @@ if ( isset( $MASSIV_nomera_naborov_s_originalom ) ) {
         }
     }
 };
+
 mysqli_close( $db_connect );
-// написать комментарий
 header( "Location: http://" . $site_domain_name . "/meta_admin/translation_request.php" );

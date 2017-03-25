@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $slovo_k = $_SESSION['slovo_k'];
@@ -32,5 +31,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $db_connect );
-
 include( 'review_translation_frequency.html' );

@@ -1,17 +1,14 @@
-<?php error_reporting(-1);
-
+<?php error_reporting( - 1 );
 session_start();
-
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 unset(
-	$_SESSION["oshibka_simvola"],
-	$_SESSION["oshibka_kolichestva"],
-	$_SESSION["dopolnitelnye_slova"],
-	$_SESSION["_REZULTAT_russk_neperevedennye"]
+    $_SESSION["oshibka_simvola"],
+    $_SESSION["oshibka_kolichestva"],
+    $_SESSION["dopolnitelnye_slova"],
+    $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
 include( 'regexp.php' );
-include( '../meta_config.php' );
-
 if ( isset( $_POST["abv"] ) ) {
     $abv = $_POST["abv"];
 }

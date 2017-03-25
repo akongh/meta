@@ -1,6 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
-include( '../meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
 }
@@ -16,14 +18,13 @@ if ( count( $massiv_itog ) < 8 ) {
 //сортировать или нет по частоте
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $massiv_itog_2 = implode( "','", $massiv_itog );
-    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+
     $SQL_est_v_base = mysqli_query( $db_connect, "
 		select `s`, `kol`
 		from `k-ts`
 		where `s` in ('" . $massiv_itog_2 . "')
 		order by `k-ts`.`kol` desc
 		" );
-    mysqli_close( $db_connect );
     $n = 0;
     while ( $rez = mysqli_fetch_array( $SQL_est_v_base ) ) {
         $massiv_itog_est_v_base_slovo[ $n ] = $rez['s'];
@@ -50,4 +51,6 @@ for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
 $ochered = implode( "", $ochered );
 
 $_SESSION["ochered"] = $ochered;
+
+mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/step_4.php" );
