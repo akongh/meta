@@ -1,6 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
+
 unset(
     $_SESSION["oshibka_simvola"],
     $_SESSION["oshibka_kolichestva"],
@@ -8,7 +10,6 @@ unset(
     $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
 
-include( 'regexp.php' );
 if ( isset( $_POST["abv"] ) ) {
     $abv = $_POST["abv"];
 }

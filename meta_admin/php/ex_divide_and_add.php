@@ -5,8 +5,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $slovo_original = $_SESSION["slovo_original"];//разбиваемое слово
 
-include( '../../php/regexp.php' );
-
 $novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];
 $novoe_slovo_razbit = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $novoe_slovo_razbit ) ) ), "utf-8" ) );
 $novoe_slovo_razbit = preg_replace( "/ {2,}/", " ", $novoe_slovo_razbit );

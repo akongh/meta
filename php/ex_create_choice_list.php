@@ -2,6 +2,7 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
 
 unset(
     $_SESSION["oshibka_nichego_ne_vveli"],
@@ -9,8 +10,6 @@ unset(
     $_SESSION["oshibka_mnogo_op_slov"],
     $_SESSION["_REZULTAT_russk_neperevedennye"]
 );
-
-include( 'regexp.php' );
 
 if ( isset( $_POST["sposob321"] ) ) {
     $sposob321 = $_POST["sposob321"];
