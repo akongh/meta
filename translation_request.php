@@ -14,7 +14,7 @@ while ( $data = mysqli_fetch_array( $_SQL_rezultat_ochered ) ) {
     $n ++;
 }
 
-if ( $_MASSIV_ochered != null ) {
+if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
     $_MASSIV_spisok_ochered       = implode( "<br>", $_MASSIV_ochered );
     $_SESSION["kol_slov_ochered"] = "<div class=\"statistika\">Слов на заявке — <span class=\"statistika_czyfra\">" . count( $_MASSIV_ochered ) . "</span>. </div>";
 } else {

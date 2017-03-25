@@ -33,7 +33,7 @@
     дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
     <hr class="otbivka_48">
     <!--PHP-->
-    <?php echo $_SESSION["kol_slov_ochered"]?>
+    <?php if (isset($_SESSION["kol_slov_ochered"])) {echo $_SESSION["kol_slov_ochered"];};?>
     <hr class="otbivka_24">
     <div class="blok_zayavki">
         <!--PHP-->
