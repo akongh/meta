@@ -90,21 +90,6 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `l-tn`
---
-
-CREATE TABLE IF NOT EXISTS `l-tn` (
-  `idn` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `vr` int(11) NOT NULL,
-  `ses` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`idn`),
-  KEY `vr` (`vr`),
-  KEY `ses` (`ses`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Наборы на латинице' AUTO_INCREMENT=10624 ;
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `l-ts`
 --
 
@@ -114,22 +99,6 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Слова на латинице' AUTO_INCREMENT=208802 ;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `l-t_s`
---
-
-CREATE TABLE IF NOT EXISTS `l-t_s` (
-  `id_sv` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `id_n` int(10) unsigned zerofill NOT NULL,
-  `id_s` int(10) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`id_sv`),
-  UNIQUE KEY `sost` (`id_n`,`id_s`),
-  KEY `id_s` (`id_s`),
-  KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Связи для латиницы' AUTO_INCREMENT=185234 ;
 
 -- --------------------------------------------------------
 
