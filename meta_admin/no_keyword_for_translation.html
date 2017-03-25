@@ -13,7 +13,7 @@
     <!--PHP-->
     <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
         <br>
-        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
+        Ключевых слов на заявке: <span class="statistika_czyfra"><?php if (isset($na_zayavke)){echo $na_zayavke;};?></span></div>
     <hr class="otbivka_96">
     Слов на перевод пока нет.
     <hr class="otbivka_96">

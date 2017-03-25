@@ -4,7 +4,9 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $russk = $_POST["russk"];
-$angl  = $_POST["angl"];
+if ( isset( $_POST["angl"] ) ) {
+    $angl = $_POST["angl"];
+};
 
 if ( isset( $_POST["zayavka"] ) ) {
     $zayavka = $_POST["zayavka"];
@@ -44,7 +46,9 @@ if ( isset( $zayavka ) ) {
 	" );
 }
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
-$_SESSION["_REZULTAT_angl"]  = $_REZULTAT_angl;
+if ( isset( $_REZULTAT_angl ) ) {
+    $_SESSION["_REZULTAT_angl"] = $_REZULTAT_angl;
+};
 
 mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/step_6.php" );
