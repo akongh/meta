@@ -33,4 +33,4 @@ unset( $p_z, $p, $z );
 
 mysqli_close( $db_connect );
 
-include( 'perevod_prosmotr_po_zayavke.html' );
+include( 'review_translation_request.html' );

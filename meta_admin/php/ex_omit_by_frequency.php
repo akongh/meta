@@ -14,4 +14,4 @@ WHERE `s` = '" . $slovo_k . "'
 " );
 mysqli_close( $db_connect );
 
-header( "Location: http://" . $site_domain_name . "/meta_admin/perevod_po_chastote.php" );
+header( "Location: http://" . $site_domain_name . "/meta_admin/translation_frequency.php" );

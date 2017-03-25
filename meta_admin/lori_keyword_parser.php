@@ -6,4 +6,4 @@ $nomer_straniczy_otvet = mysqli_fetch_row($nomer_straniczy_zapros);
 $nomer_straniczy = $nomer_straniczy_otvet[0] + 1;
 $nomer_straniczy_2 = $nomer_straniczy + 999;
 
-include('tyrka_lori.html');
+include('lori_keyword_parser.html');

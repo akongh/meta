@@ -75,4 +75,4 @@ if ( isset( $MASSIV_nomera_naborov_s_originalom ) ) {
 };
 mysqli_close( $db_connect );
 // написать комментарий
-header( "Location: http://" . $site_domain_name . "/meta_admin/perevod_po_zayavke.php" );
+header( "Location: http://" . $site_domain_name . "/meta_admin/translation_request.php" );

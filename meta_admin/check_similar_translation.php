@@ -72,4 +72,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 
 mysqli_close( $db_connect );
 
-include( 'proverit_pox_perevod.html' );
+include( 'check_similar_translation.html' );

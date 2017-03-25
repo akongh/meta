@@ -51,4 +51,4 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
     mysqli_close( $db_connect );
 }
 
-header( "Location: http://" . $site_domain_name . "/meta_admin/ne_xvataet_perevoda.php" );
+header( "Location: http://" . $site_domain_name . "/meta_admin/add_related_in_request.php" );

@@ -72,9 +72,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["slovo_original"] = $slovo;
-    include( 'perevod_po_zayavke.html' );
+    include( 'translation_request.html' );
 } else {
-    include( 'net_zayavok_na_perevod.html' );
+    include( 'no_request_for_translation.html' );
 }
 
 unset( $slovo );

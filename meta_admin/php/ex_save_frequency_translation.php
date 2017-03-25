@@ -128,4 +128,4 @@ mysqli_close( $db_connect );
 
 $_SESSION['slovo_k'] = $slovo_k;
 
-header( "Location: http://" . $site_domain_name . "/meta_admin/perevod_prosmotr_po_chastote.php" );
+header( "Location: http://" . $site_domain_name . "/meta_admin/review_translation_frequency.php" );

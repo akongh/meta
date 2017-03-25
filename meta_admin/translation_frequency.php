@@ -62,9 +62,9 @@ $kol                        = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
 if ( isset( $slovo ) ) {
-    include( 'perevod_po_chastote.html' );
+    include( 'translation_frequency.html' );
 } else {
-    include( 'net_slov_na_perevod.html' );
+    include( 'no_keyword_for_translation.html' );
 }
 
 unset( $slovo );

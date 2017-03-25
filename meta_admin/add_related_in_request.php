@@ -13,4 +13,4 @@ $perevedeno = $perevedeno_otvet[0];
 
 mysqli_close($db_connect);
 
-include('zayavka_na_perevod.html');
+include( 'add_related_in_request.html' );
