@@ -2,42 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Перевод по заявке</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>Добавление по присутствию</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-    <h2>Пераквох па заяуцы;)</h2>
+    <h2>Добавление по присутствию</h2>
     <hr class="otbivka_24">
     <!--PHP-->
     <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
-        <br>
-        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
+    </div>
     <hr class="otbivka_96">
-    <form method="post" action="php/ex_save_request_translation.php">
-        <div class="kol"><a href="divide_and_add.php" class="proverit_pox_perevod">РАЗБИТЬ / ДОБАВИТЬ &#9658;</a></div>
-        <hr class="otbivka_12">
+    <form method="post" action="../add.php">
         <!--PHP-->
         <h1>
             <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
         </h1>
         <hr class="otbivka_12">
         <!--PHP-->
-        <div class="kol"><?php echo $kol;?><a href="check_similar_translation.php" target="_blank"
+        <div class="kol"><?php echo $kol;?><a href="../check_similar_translation.php" target="_blank"
                                               class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
-        <hr class="otbivka_24">
-        <div class="blok_perevoda">
-            <!--PHP-->
-            <?php echo $s_perevodom;?> </div>
         <hr class="otbivka_48">
         <div id="parentId">
             <div>
-                <input name="perevod[]" type="text" class="vvod_perevod" autofocus>
-                —
-                <input name="znachenie[]" type="text" class="vvod_znachenie" value="<?php echo $slovo;?>">
+                <input name="perevod[]" type="text" class="vvod_prisutstvie" autofocus>
                 <a onclick="return deleteField(this)" href="#" class="link">
-                    <div class="minus_plus">
+                    <div class="minus_plus_prisutstvie">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
                 </a>
@@ -47,21 +38,21 @@
         <hr class="otbivka_12">
         <a onclick="return addField()" href="#" class="link">
             <div class="minus_plus_dobavit">
-                <input type="button" class="pm_knopka_dobavit" value="+">
+                <input type="button" class="pm_knopka_dobavit_prisutstvie" value="+">
             </div>
         </a>
         <hr class="otbivka_96">
-        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить пераквох ;)">
+        <input name="dobavlenie" type="submit" class="knopka" value="&#9658; Добавить">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+    <div class="upravlenie"><a href="../php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         <hr class="otbivka_96">
-        <a href="index.php">На главную</a></div>
+        <a href="../index.php">На главную</a></div>
     <hr class="otbivka_96">
     <!--PHP-->
-    <?php include('shtml/footer.shtml');?>
+    <?php include('../shtml/footer.shtml');?>
 </div>
-<script src="js/addAndDeleteField.js"></script>
+<script src="../js/addAndDeleteField.js"></script>
 </body>
 </html>

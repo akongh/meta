@@ -18,4 +18,4 @@ if(isset($_SESSION["_REZULTAT_russk_neperevedennye"]))
 	$_REZULTAT_russk_neperevedennye = $_SESSION["_REZULTAT_russk_neperevedennye"];
 	}
 
-include( 'step_6.html' );
+include( 'html/step_6.html' );

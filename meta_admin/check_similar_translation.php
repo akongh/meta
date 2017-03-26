@@ -71,4 +71,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 // написать комментарий
 
 mysqli_close( $db_connect );
-include( 'check_similar_translation.html' );
+include( 'html/check_similar_translation.html' );

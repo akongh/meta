@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
-    <link href="css/style.css"
+    <link href="../css/style.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
           href="http://<?php $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
     <!--PHP-->
-    <?php include('shtml/yandex_metric_meta.shtml');?>
+    <?php include('../shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
 <div class="korobka">
-    <?php include('shtml/link_to_index.shtml');?>
+    <?php include('../shtml/link_to_index.shtml');?>
     <hr class="otbivka_48">
     <h2><span class="nomer_shaga">1/6</span></h2>
     <hr class="otbivka_12">
@@ -27,7 +27,7 @@
     <!--PHP-->
     <?php if (isset( $sostoyanie_nabora )) { echo $sostoyanie_nabora; };?>
     <hr class="otbivka_24">
-    <form action="php/ex_create_choice_list.php"
+    <form action="../php/ex_create_choice_list.php"
           method="post">
         <div class="vvod_slov">
             <!--PHP-->
@@ -65,11 +65,11 @@
     <hr class="otbivka_24">
     <div class="upravlenie">
         <!--PHP-->
-        <?php include('shtml/link_reset_choice.shtml');?>
+        <?php include('../shtml/link_reset_choice.shtml');?>
     </div>
     <hr class="otbivka_96">
     <!--PHP-->
-    <?php include('shtml/footer.shtml');?>
+    <?php include('../shtml/footer.shtml');?>
 </div>
 </body>
 </html>

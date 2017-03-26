@@ -10,6 +10,6 @@ if ( isset( $_SESSION["pro_zayavku"] ) ) {
     $pro_zayavku = $_SESSION["pro_zayavku"];
 };
 
-include( 'step_5.html' );
+include( 'html/step_5.html' );
 
 unset( $_SESSION["pro_zayavku"] );

@@ -11,4 +11,4 @@ $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
 mysqli_close( $db_connect );
-include( 'add_related_in_request.html' );
+include( 'html/add_related_in_request.html' );

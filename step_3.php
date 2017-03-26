@@ -11,4 +11,4 @@ if ( isset( $_SESSION["sobranny_nabor"] ) ) {
 if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
 };
-include( 'step_3.html' );
+include( 'html/step_3.html' );

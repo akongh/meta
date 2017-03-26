@@ -32,4 +32,4 @@ if ( isset( $_SESSION["obnovlenie_chastoty"] ) ) {
 }
 
 mysqli_close( $db_connect );
-include( 'meta_admin.html' );
+include( 'html/meta_admin.html' );

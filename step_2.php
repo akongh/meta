@@ -17,4 +17,4 @@ if ( isset( $_SESSION["oshibka_simvola"] ) ) {
 if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
 };
-include( 'step_2.html' );
+include( 'html/step_2.html' );

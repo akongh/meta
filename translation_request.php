@@ -22,4 +22,4 @@ if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
 }
 
 mysqli_close( $db_connect );
-include( 'translation_request.html' );
+include( 'html/translation_request.html' );

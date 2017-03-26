@@ -31,4 +31,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $db_connect );
-include( 'review_translation_frequency.html' );
+include( 'html/review_translation_frequency.html' );

@@ -68,9 +68,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["slovo_original"] = $slovo;
-    include( 'translation_request.html' );
+    include( 'html/translation_request.html' );
 } else {
-    include( 'no_request_for_translation.html' );
+    include( 'html/no_request_for_translation.html' );
 }
 
 mysqli_close( $db_connect );

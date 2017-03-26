@@ -3,4 +3,4 @@ session_start();
 session_unset();
 unset($_POST);
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
-include( 'meta.html' );
+include( 'html/meta.html' );

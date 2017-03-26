@@ -19,4 +19,4 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
 };
 
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
-include( 'step_1.html' );
+include( 'html/step_1.html' );

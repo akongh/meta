@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Проверка похожего перевода</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
     <h2>Проверка похожего перевода</h2>
     <hr class="otbivka_96">
-    <form method="post" action="check_similar_translation.php">
+    <form method="post" action="../check_similar_translation.php">
         <!--PHP-->
         <h1>
             <input name="slovo_proverka" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
@@ -29,7 +29,7 @@
     <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
     <hr class="otbivka_96">
     <!--PHP-->
-    <?php include('shtml/footer.shtml');?>
+    <?php include('../shtml/footer.shtml');?>
 </div>
 </body>
 </html>
