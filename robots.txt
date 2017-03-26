@@ -2,15 +2,18 @@ User-agent: Googlebot
 Disallow: /
 Allow: /index.php
 Allow: /step_1.php
+Allow: /translation_request.php
 
 User-agent: Yandexbot
 Disallow: /
 Allow: /index.php
 Allow: /step_1.php
+Allow: /translation_request.php
 
 User-agent: *
 Disallow: /
 Allow: /index.php
 Allow: /step_1.php
+Allow: /translation_request.php
 
 Host: meta.afoteris.com
