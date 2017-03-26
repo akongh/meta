@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Управлялка</title>
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
     <style>
         .ot-do {
@@ -21,25 +21,25 @@
 <body>
 <div class="korobka">
     <!--PHP-->
-    <?php include('../shtml/meta_admin_title.shtml');?>
+    <?php include('shtml/meta_admin_title.shtml');?>
     <hr class="otbivka_48">
     <!--PHP-->
-    <?php include('../shtml/statistic.shtml');?>
+    <?php include('shtml/statistic.shtml');?>
     <hr class="otbivka_24">
     <!--PHP-->
-    <?php include('../shtml/yandex_metric_admin.shtml');?>
+    <?php include('shtml/yandex_metric_admin.shtml');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
     <h2>Переводы </h2>
     <hr class="otbivka_48">
-    <a href="../translation_frequency.php">По частоте</a>
+    <a href="translation_frequency.php">По частоте</a>
     <hr class="otbivka_24">
-    <a href="../translation_request.php">По заявке</a>
+    <a href="translation_request.php">По заявке</a>
     <hr class="otbivka_24">
-    <a href="../add_in_request.php">Сброс в заявку</a>
+    <a href="add_in_request.php">Сброс в заявку</a>
     <hr class="otbivka_24">
-    <a href="../add_related_in_request.php">Заявка на перевод</a>
+    <a href="add_related_in_request.php">Заявка на перевод</a>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -51,13 +51,13 @@
     <hr class="otbivka_24">
     <h2>Тырки </h2>
     <hr class="otbivka_48">
-    <a href="../lori_keyword_parser.php">Лори</a>
+    <a href="lori_keyword_parser.php">Лори</a>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
     <h2>Обслуживание</h2>
     <hr class="otbivka_48">
-    <a href="../php/ex_frequency_update.php">Обновление частоты</a>
+    <a href="php/ex_frequency_update.php">Обновление частоты</a>
     <hr class="otbivka_12">
     <div class="statistika">
         <!--PHP-->
@@ -72,7 +72,7 @@ if ( isset( $obnovlenie_chastoty ) ) {
     <hr class="cherta">
     <hr class="otbivka_96">
     <!--PHP-->
-    <?php include('../shtml/footer.shtml');?>
+    <?php include('shtml/footer.shtml');?>
     <hr class="otbivka_24">
 </div>
 </body>
