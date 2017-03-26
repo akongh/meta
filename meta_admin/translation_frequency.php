@@ -15,16 +15,14 @@ $perevedeno        = $perevedeno_otvet[0];
 $slovo_kolichestvo = mysqli_query( $db_connect, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
-	where `f` in (0, 6)
+	where `f` = 0
 	ORDER BY `k-ts`.`kol` DESC
 	LIMIT 1
 	" );
 
-$n = 0;
 while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-    $kol[ $n ]   = $data['kol'];
-    $n ++;
+    $slovo[0] = $data['slovo'];
+    $kol[0]   = $data['kol'];
 }
 
 if ( isset( $slovo[0] ) ) {
@@ -45,7 +43,6 @@ if ( isset( $slovo ) ) {
         $p[ $n ]   = $rez['s'];
         $z[ $n ]   = $rez['z'];
         $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
-
         $n ++;
     }
 };
