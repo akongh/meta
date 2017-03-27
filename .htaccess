@@ -1,9 +1,9 @@
 #доступ
-#AuthName "Мета"
-#AuthType Basic
+AuthName "Мета"
+AuthType Basic
 #AuthUserFile /home/webart/www/meta_access/.htpasswd
-#AuthUserFile E:/www/meta/meta_access/.htpasswd
-#require valid-user
+AuthUserFile E:/www/meta/meta_access/.htpasswd
+require valid-user
 
 #запрет выдачи листинга пустого каталога 
 Options -Indexes
@@ -11,19 +11,16 @@ Options -Indexes
 #назначаем главный файл сайта
 DirectoryIndex index.php
 
-# Установите директорию хранения сессий для сайта с помощью session.save_path.
-#php_value session.save_path /home/webart/www/…
+#404
+ErrorDocument 404 /php/404.php
 
-# Установите максимальное время жизни сессии в секундах.
-#php_value session.gc_maxlifetime 0
+#503
+ErrorDocument 503 /php/503.php
 
-# Установите время жизни cookie, которая сохраняет идентификатор сессии в браузере пользователя.
-#php_value session.cookie_lifetime 480
-
-#RewriteEngine on
-#RewriteCond %{REQUEST_URI} !/index.html$
-#RewriteCond %{REMOTE_ADDR} !^37.45.137.53
-#RewriteRule $ /meta_maintenance.php [R=302,L]
-
-#для SSI
-#AddHandler server-parsed .html .shtml
+#обслуживание
+#RewriteEngine On
+#RewriteCond %{REMOTE_ADDR} !^127.0.0.1
+#RewriteCond %{REMOTE_ADDR} !^178.121.159.110
+#RewriteCond %{REMOTE_ADDR} !^178.121.159.110
+#RewriteCond %{SCRIPT_FILENAME} !/php/503.php
+#RewriteRule ^.*$ /php/503.php [R=503,L]

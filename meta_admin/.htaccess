@@ -10,20 +10,3 @@ Options -Indexes
 
 #назначаем главный файл сайта
 DirectoryIndex index.php
-
-# Установите директорию хранения сессий для сайта с помощью session.save_path.
-#php_value session.save_path /home/webart/www/…
-
-# Установите максимальное время жизни сессии в секундах.
-#php_value session.gc_maxlifetime 0
-
-# Установите время жизни cookie, которая сохраняет идентификатор сессии в браузере пользователя.
-#php_value session.cookie_lifetime 480
-
-#RewriteEngine on
-#RewriteCond %{REQUEST_URI} !/index.html$
-#RewriteCond %{REMOTE_ADDR} !^37.45.137.53
-#RewriteRule $ /meta_maintenance.php [R=302,L]
-
-#для SSI
-#AddHandler server-parsed .html .shtml

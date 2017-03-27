@@ -1,4 +1,18 @@
-﻿#### Значения `k-ts`.`f` (статутусы ключевых слов).
+﻿#### Правки при размещении Меты.
+
+1. error_reporting( - 1 );
+2. meta_access/db_connect.php
+3. meta_access/.htpasswd (если меняется пароль)
+4. meta_admin/.htaccess
+5. .htaccess
+6. meta_config.php
+7. meta_config_db.php
+8. robots.txt
+
+
+
+
+#### Значения `k-ts`.`f` (статутусы ключевых слов).
 
  0 — не тронуто
  1 — переведено
