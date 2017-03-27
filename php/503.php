@@ -12,6 +12,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 <body>
 <div class="korobka">
     <h1> META.afoteris.com на&nbsp;обслуживании. </h1>
+    <hr class="otbivka_48">
+    <a href="../index.php">Проверить включение Меты.</a>
     <hr class="otbivka_96">
     <div class="podval">
         <hr class="otbivka_48">

@@ -12,6 +12,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 <body>
 <div class="korobka">
     <h1> Привет, 404! </h1>
+    <hr class="otbivka_48">
+    <a href="../index.php">Вернуться на главную.</a>
     <hr class="otbivka_96">
     <div class="podval">
         <hr class="otbivka_48">
