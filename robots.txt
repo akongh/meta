@@ -1,20 +1,20 @@
 User-agent: Googlebot
 Disallow: /
-#Allow: /index.php
-#Allow: /step_1.php
-#Allow: /translation_request.php
+Allow: /index.php
+Allow: /step_1.php
+Allow: /translation_request.php
 
 User-agent: Yandexbot
 Disallow: /
-#Allow: /index.php
-#Allow: /step_1.php
-#Allow: /translation_request.php
+Allow: /index.php
+Allow: /step_1.php
+Allow: /translation_request.php
 
 User-agent: *
 Disallow: /
-#Allow: /index.php
-#Allow: /step_1.php
-#Allow: /translation_request.php
+Allow: /index.php
+Allow: /step_1.php
+Allow: /translation_request.php
 
-#Host: meta.afoteris.com
-Host: meta2.afoteris.com
+Host: meta.afoteris.com
+#Host: meta2.afoteris.com

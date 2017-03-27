@@ -2,6 +2,7 @@
 AuthName "Мета"
 AuthType Basic
 #AuthUserFile /home/webart/www/meta_access/.htpasswd
+#AuthUserFile /home/webart/www/meta2_access/.htpasswd
 AuthUserFile E:/www/meta/meta_access/.htpasswd
 require valid-user
 
@@ -12,15 +13,17 @@ Options -Indexes
 DirectoryIndex index.php
 
 #404
-ErrorDocument 404 /php/404.php
+ErrorDocument 404 /404.html
 
 #503
-ErrorDocument 503 /php/503.php
+ErrorDocument 503 /503.html
 
 #обслуживание
 #RewriteEngine On
+
 #RewriteCond %{REMOTE_ADDR} !^127.0.0.1
 #RewriteCond %{REMOTE_ADDR} !^178.121.159.110
 #RewriteCond %{REMOTE_ADDR} !^178.121.159.110
-#RewriteCond %{SCRIPT_FILENAME} !/php/503.php
-#RewriteRule ^.*$ /php/503.php [R=503,L]
+
+#RewriteCond %{SCRIPT_FILENAME} !/503.html
+#RewriteRule ^.*$ /503.html [R=503,L]

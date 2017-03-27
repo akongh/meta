@@ -3,6 +3,7 @@
 1. error_reporting( - 1 );
 2. meta_access/db_connect.php
 3. meta_access/.htpasswd (если меняется пароль)
+    Пункты 2 и 3 - на хостинге это папка meta2_access в корне
 4. meta_admin/.htaccess
 5. .htaccess
 6. meta_config.php
