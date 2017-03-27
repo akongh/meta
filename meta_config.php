@@ -1,16 +1,10 @@
 <?php error_reporting(-1);
-/**
- * Created by PhpStorm.
- * User: Andrei
- * Date: 19.03.2017
- * Time: 18:22
- */
 
-//На удалённом сервере
+//--[meta.afoteris.com]--
 //$site_domain_name = "meta.afoteris.com";
 
-//На удалённом тестовом сервере
+//--[meta2.afoteris.com]--
 //$site_domain_name = "meta2.afoteris.com";
 
-//На внутреннем сервере
+//--[meta]--
 $site_domain_name = "meta";
