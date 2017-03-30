@@ -1,3 +1,2 @@
-<a href="../php/ex_rebuild_chek_choice_list.php"
-   title="Прокрутить список">Прокрутить
-    список</a> — пересоздать список только с отиеченными ключевыми словами и обновлённым их количеством.
+<a class="text-decor-1 bold" href="../php/ex_rebuild_chek_choice_list.php"
+   title="Прокрутить список">[Прокрутить список]</a>

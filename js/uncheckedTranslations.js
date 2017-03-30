@@ -10,7 +10,7 @@ for (var l = 0; l < inputsEngListAddEvent.length; l++) {
 missedTranslations();
 
 function missedTranslations() {
-    var blocksTranslation = document.getElementsByClassName("blok_perevoda");
+    var blocksTranslation = document.getElementsByClassName("block-1");
     for (var i = 0; i < blocksTranslation.length; i++) {
         var inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
             var f = false;

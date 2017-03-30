@@ -7,54 +7,48 @@
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
-          href="http://<?php $site_domain_name ?>/favicon.ico"
+          href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <!--PHP-->
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="korobka">
+<div class="sheet">
+    <br>
+    <br>
     <?php include('shtml/link_to_index.shtml');?>
-    <hr class="otbivka_48">
-    <h2><span class="nomer_shaga">5/6</span></h2>
-    <hr class="otbivka_12">
-    <h2>Выбираем перевод</h2>
-    <hr class="otbivka_24">
-    <a href="http://afoteris.com/rukovodstvo-mety/.html"
-       title="Как правильно подбирать (руководство Меты)"
-       target="_blank">Как
-        правильно подбирать (руководство Меты)</a>
-    <hr class="otbivka_48">
+    <br>
+    <br>
+    <h2 class="bold">5/6. Выбираем перевод</h2>
+    <br>
+    <br>
+    <br>
+    <br>
     <form method="post"
           action="../php/ex_create_results_choice.php">
-        <!--PHP-->
         <?php echo $s_perevodom;?>
-        <hr class="otbivka_24">
-        <div class="statistika">
-            Ключевых слов в наборе: на русском —
-            <span class="statistika_czyfra">
-      <!--PHP-->
-                <?php echo $_SESSION["kol_slov_itog"]?></span>; на английском —
-            <span id="countUniqEngChecked"
-                  class="statistika_czyfra"></span>.
-        </div>
-        <hr class="otbivka_12">
-        <hr class="otbivka_24">
-        <div class="vvod_slov">
-            <input name="poluchit"
-                   type="submit"
-                   class="knopka"
-                   value="5/6 &#9658; Получить результат строками">
-        </div>
+        <br>
+        <span class="bold color-2">
+            <?php echo $_SESSION["kol_slov_itog"]?>
+            /
+        <span id="countUniqEngChecked"
+              class="bold color-2"></span>
+        </span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <input name="poluchit"
+               type="submit"
+               class="button"
+               value="5/6 Получить результат строками">
     </form>
-    <hr class="otbivka_24">
-    <div class="upravlenie">
-        <!--PHP-->
+    <br>
+    <div class="controls">
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
-    <hr class="otbivka_96">
+    <br>
+    <br>
     <?php if(isset($pro_zayavku)){echo $pro_zayavku;};?>
-    <!--PHP-->
     <?php include('shtml/footer.shtml');?>
 </div>
 <script src="../js/countUniqEngChecked.js"></script>

@@ -1,3 +1,2 @@
-<a href="../php/back_to_step_1_refine_current_query.php"
-   title="Уточнить последний запрос">&#9668; Уточнить последний
-    запрос</a> — вернуться к первому шагу текущего подбора, чтобы изменить опорные слова.
+<a class="text-decor-1 bold" href="../php/back_to_step_1_refine_current_query.php"
+   title="Уточнить последний запрос">[Уточнить последний запрос]</a>

@@ -7,64 +7,54 @@
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
-          href="http://<?php $site_domain_name ?>/favicon.ico"
+          href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <!--PHP-->
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="korobka">
+<div class="sheet">
+    <br>
+    <br>
     <?php include('shtml/link_to_index.shtml');?>
-    <hr class="otbivka_48">
-    <h2><span class="nomer_shaga">2/6</span></h2>
-    <hr class="otbivka_12">
-    <h2>Выбираем из подобранных…</h2>
-    <hr class="otbivka_24">
-    <a href="http://afoteris.com/rukovodstvo-mety/.html"
-       title="Как правильно подбирать (руководство Меты)"
-       target="_blank">Как правильно подбирать (руководство Меты)</a>
-    <hr class="otbivka_48">
-    <form action="../php/ex_create_check_choice_list.php"
-          method="post">
-        <div class="vyvod_spiska_flagov">
-            <!--PHP-->
-            <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?> </div>
-        <!--PHP-->
+    <br>
+    <br>
+    <h2 class="bold">2/6. Выбираем из подобранных…</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="post"
+          action="../php/ex_create_check_choice_list.php">
+        <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?>
         <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
-        <hr class="otbivka_24">
-        <h2>…и добавляем свои</h2>
-        <hr class="otbivka_6">
-        <div class="vvod_slov">
-            <!--PHP-->
-            <textarea name="vvod_dop_slov"
-                      wrap="soft"
-                      class="vvod_slov_tekst"
-                      placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
-            <hr class="otbivka_12">
-            <!--PHP-->
-            <?php if (isset($oshibka_simvola)){echo $oshibka_simvola;};?>
-            <hr class="otbivka_12">
-            <input type="checkbox"
-                   checked
-                   name="abv">
-            алфавитный порядок
-            <hr class="otbivka_12">
-            <input name="sobrat"
-                   type="submit"
-                   class="knopka"
-                   value="2/6 &#9658; Собрать в список">
-        </div>
+        <h2 class="bold">…и добавляем свои</h2>
+        <br>
+        <textarea name="vvod_dop_slov"
+                  wrap="soft"
+                  rows="8"
+                  placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
+        <br>
+        <?php if (isset($oshibka_simvola)){echo $oshibka_simvola;};?>
+        <br>
+        <br>
+        <br>
+        <input type="checkbox"
+               checked
+               name="abv">
+        алфавитный порядок
+        <br>
+        <br>
+        <input name="sobrat"
+               type="submit"
+               class="bold button"
+               value="2/6 Собрать в список">
     </form>
-    <hr class="otbivka_24">
-    <div class="upravlenie">
-        <!--PHP-->
-        <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?>
-        <hr class="otbivka_12">
-        <!--PHP-->
+    <br>
+    <div class="controls">
+        <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?><br>
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
-    <hr class="otbivka_96">
-    <!--PHP-->
+    <br>
     <?php include('shtml/footer.shtml');?>
 </div>
 </body>

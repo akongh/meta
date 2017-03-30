@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'PT Mono';
+    src: url('ptm55f_w.eot');
+    src: url('ptm55f_w.eot?#iefix') format('embedded-opentype'),
+    url('ptm55f_w.woff') format('woff'),
+    url('ptm55f_w.ttf') format('truetype'),
+    url('ptm55f_w.svg#PTMono-Regular') format('svg');
+}
+
+@font-face {
+    font-family: 'PT Mono Bold';
+    src: url('ptm75f_w.eot');
+    src: url('ptm75f_w.eot?#iefix') format('embedded-opentype'),
+    url('ptm75f_w.woff') format('woff'),
+    url('ptm75f_w.ttf') format('truetype'),
+    url('ptm75f_w.svg#PTMono-Bold') format('svg');
+}

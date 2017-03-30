@@ -36,7 +36,10 @@ for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     }
 }
 if ( isset( $spisok ) && $spisok != null ) {
-    $vyvod_spiska_flagov             = implode( "<br>", $spisok ) . "<hr class=\"otbivka_24\">";
+    $vyvod_spiska_flagov             = implode( "<br>", $spisok ) . "
+    <br>
+    <br>
+    ";
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
 //делаем массив из дополнительных слов
@@ -71,7 +74,7 @@ if ( isset( $dopolnenie_unikalnoe ) ) {
 if ( isset( $dopolnenie_unikalnoe ) && count( $dopolnenie_unikalnoe ) > 0 ) {
     $proverka_simvola = implode( "", $dopolnenie_unikalnoe );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
+        $oshibka_simvola             = "<span class=\"color-1\">Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -96,7 +99,7 @@ if ( isset( $massiv_itog ) ) {
     if ( count( $massiv_itog ) > 0 ) {
         $proverka_simvola = implode( "", $massiv_itog );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-            $oshibka_simvola             = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
+            $oshibka_simvola             = "<span class=\"color-1\">Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
             $_SESSION["oshibka_simvola"] = $oshibka_simvola;
         }
     }

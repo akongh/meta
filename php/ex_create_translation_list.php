@@ -20,12 +20,12 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 	" );
 
     $n = 0;
-
     while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
         $p[ $n ]   = $rez['s'];
         $p2[ $n ]  = preg_replace( "/'/", "&#039;", $p[ $n ] );
         $z[ $n ]   = $rez['z'];
-        $p_z[ $n ] = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
+        $p_z[ $n ] = "
+        <span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "</span> — " . $z[ $n ];
         $n ++;
     }
 
@@ -37,7 +37,6 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 	" );
 
     $n = 0;
-
     while ( $rez = mysqli_fetch_array( $SQL_f ) ) {
         $f[ $n ] = $rez['f'];
         $n ++;
@@ -50,36 +49,45 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     };
 
     if ( isset( $p_z ) && count( $p_z ) > 1 ) {
-        $p_z               = implode( "<hr class=\"otbivka_0\">", $p_z );
-        $s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
-		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span>
-		<hr class=\"otbivka_6\">" . $p_z . "</div>";
+        $p_z               = implode( "<br>", $p_z );
+        $s_perevodom[ $i ] = "
+        <div class = \"block-1\">
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<br>
+		" . $p_z . "
+		</div>
+		";
 
     } else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
-
-        $p_z               = "<span class=\"perevod\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span>
-        <span class=\"znachenie\"> — " . $z[0] . "</span>";
-        $s_perevodom[ $i ] = "<div class = \"blok_perevoda\">
-		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span>
-		<hr class=\"otbivka_6\">" . $p_z . "</div>";
+        $p_z               = "
+        <span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span> — " . $z[0];
+        $s_perevodom[ $i ] = "
+        <div class = \"block-1\">
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<br>
+		" . $p_z . "
+		</div>
+		";
 
     } else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) ) {
-
         $neperevedennye[ $i ] = $rus[ $i ];
-        $s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
-		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span>
-		<hr class=\"otbivka_6\">
-		<span class = \"perevoda_net\">* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\"></span>
-		</div>";
+        $s_perevodom[ $i ]    = "
+        <div class = \"block-2\">
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<br>
+		* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">
+		</div>
+		";
 
     } else if ( ! isset( $p_z ) && $f == 7 ) {
-
         $neperevedennye[ $i ] = $rus[ $i ];
-        $s_perevodom[ $i ]    = "<div class = \"blok_perevoda_netu\">
-		<span class = \"russk\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</span>
-		<hr class=\"otbivka_6\">
-		<span class = \"perevod_v_zayavke\">* В заявке на перевод<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\"></span>
-		</div>";
+        $s_perevodom[ $i ]    = "
+        <div class = \"block-2\">
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<br>
+		* В заявке на перевод<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">
+		</div>
+		";
     }
 
     unset( $p_z, $p, $z, $f );
@@ -91,14 +99,13 @@ if ( isset( $neperevedennye ) ) {
     $neperevedennye_kol = count( $neperevedennye );
     $neperevedennye     = implode( ", ", $neperevedennye );
 
-    $_REZULTAT_russk_neperevedennye             =
-        "<div class = \"rezultat_fon_neperevedennye\">
-	<span class = \"na_russk_angl\">Непереведённые</span>
-	<hr class=\"otbivka_24\">
-	<div class=\"select_result_not_transl\">" . $neperevedennye . "</div>
-	<hr class=\"otbivka_24\">
-	<div class=\"statistika\">Ключевых слов в группе — <span class=\"statistika_czyfra\">" . $neperevedennye_kol . "</span>.</div>
-	</div>";
+    $_REZULTAT_russk_neperevedennye             = "
+	<span class = \"bold\">Непереведённые</span>
+	<br>
+    <br>
+    <span class=\"color-bg\" name=\"result-no-transl\">" . $neperevedennye . "</span>
+    <span class=\"color-2 bold\"> " . $neperevedennye_kol . "</span>
+	";
     $_SESSION["_REZULTAT_russk_neperevedennye"] = $_REZULTAT_russk_neperevedennye;
 }
 

@@ -6,10 +6,13 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
 }
-$massiv_itog = $_POST["massiv_itog"];
 
-if ( count( $massiv_itog ) < 8 ) {
-    $oshibka_kolichestva = "<hr class=\"otbivka_0\"><span class=\"oshibka\">&#9998; В наборе менее 8-ми уникальных ключевых слов.</span>";
+if ( isset( $_POST["massiv_itog"] ) ) {
+    $massiv_itog = $_POST["massiv_itog"];
+}
+
+if ( !isset($massiv_itog) || count( $massiv_itog ) < 8) {
+    $oshibka_kolichestva = "<span class=\"color-1\">В наборе менее 8-ми уникальных ключевых слов.</span>";
 
     $_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
     header( "Location: http://" . $site_domain_name . "/step_3.php" );

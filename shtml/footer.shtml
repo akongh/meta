@@ -1,13 +1,24 @@
-<div class="podval">
-  <hr class="otbivka_24">
-  <hr class="otbivka_12">
-  <a href="http://afoteris.com/rukovodstvo-mety/.html" title="Как правильно подбирать (руководство Меты)" target="_blank">Как правильно подбирать (руководство Меты)</a>
-  <hr class="otbivka_6">
-  <a href="http://afoteris.com" title="AFOTERIS.com. Для стоковых авторов" target="_blank">AFOTERIS.com. Для стоковых авторов</a>
-  <hr class="otbivka_6">
-  <a href="../translation_request.php" title="Очередь на перевод">Очередь на перевод</a>
-  <hr class="otbivka_48">
-  <span class="podval_tekst">© META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?> <br>
-  <a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a></span>
-  <hr class="otbivka_24">
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr class="border-1">
+<br>
+<a href="http://afoteris.com/rukovodstvo-mety/.html" title="Руководство Меты" target="_blank">Руководство Меты</a>
+<br>
+<a href="http://afoteris.com" title="AFOTERIS.com. Для стоковых авторов" target="_blank">AFOTERIS.com</a>
+<br>
+<a href="../translation_request.php" title="Очередь на перевод">Очередь на перевод</a>
+<br>
+<br>
+© META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?>
+<br>
+<a href="mailto:pochta@afoteris.com">pochta@afoteris.com</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -16,7 +16,9 @@ while ( $data = mysqli_fetch_array( $_SQL_rezultat_ochered ) ) {
 
 if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
     $_MASSIV_spisok_ochered       = implode( "<br>", $_MASSIV_ochered );
-    $_SESSION["kol_slov_ochered"] = "<div class=\"statistika\">Слов на заявке — <span class=\"statistika_czyfra\">" . count( $_MASSIV_ochered ) . "</span>. </div>";
+    $_SESSION["kol_slov_ochered"] = "
+    <span class=\"bold color-2\">" . count( $_MASSIV_ochered ) . "</span>
+    ";
 } else {
     $_MASSIV_spisok_ochered = "Заявок на перевод пока нет.";
 }

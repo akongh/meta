@@ -22,8 +22,8 @@ ErrorDocument 503 /503.html
 #RewriteEngine On
 
 #RewriteCond %{REMOTE_ADDR} !^127.0.0.1
-#RewriteCond %{REMOTE_ADDR} !^178.121.159.110
-#RewriteCond %{REMOTE_ADDR} !^178.121.159.110
+#RewriteCond %{REMOTE_ADDR} !^178.121.136.174
+#RewriteCond %{REMOTE_ADDR} !^178.125.62.88
 
 #RewriteCond %{SCRIPT_FILENAME} !/503.html
 #RewriteRule ^.*$ /503.html [R=503,L]

@@ -1,797 +1,120 @@
 @charset "utf-8";
-@import url("../webfonts/PT_Sans_Caption_Regular/stylesheet.css");
-@import url("../webfonts/PT_Sans_Caption_Bold/stylesheet.css");
-@import url("../webfonts/PT_Sans_Italic/stylesheet.css");
-@import url("../webfonts/PT_Sans_Bold_Italic/stylesheet.css");
-@import url("../webfonts/PT_Sans_Narrow_Regular/stylesheet.css");
-@import url("../webfonts/PT_Sans_Narrow_Bold/stylesheet.css");
+@import url("../webfonts/PTMonoWeb/stylesheet.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "PT Mono";
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+    text-align: left;
+}
 
 body {
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    font-size: 16px;
-    font-style: normal;
-    color: #000000;
-    text-decoration: none;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    font-family: "PT Sans Caption Regular";
-    background-image: url(../images/bg_pattern.jpg);
+
 }
 
-form {
-    padding: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    margin: 0px;
+img {
+    width: 100%;
 }
 
-textarea {
-    outline: none;
-    overflow: auto;
-}
+h1, h2 {
 
-video {
-    border: 1px solid #F2F2F2;
-    width: 598px;
-}
-
-.bolee-1000 {
-    font-size: 36px;
-    color: #FF6600;
-    font-family: "PT Sans Caption Bold";
-    border-radius: 4px;
-    padding-top: 0px;
-    padding-right: 20px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    margin: 0px;
-    border: 1px solid #FF6600;
-}
-
-.bez-video {
-    border: 1px solid #F2F2F2;
-    width: 598px;
-    background-color: #FFFFEE;
-    text-align: center;
-    font-family: "PT Sans Caption Bold";
-    color: #FF0000;
-    padding-top: 140px;
-    height: 196px;
-}
-
-h1 {
-    font-family: "PT Sans Caption Bold";
-    font-size: 40px;
-    margin: 0px;
-    padding: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    font-weight: normal;
-    display: block;
-}
-
-h2 {
-    font-size: 18px;
-    margin: 0px;
-    padding: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    font-family: "PT Sans Caption Bold";
-    font-weight: normal;
-    display: block;
-}
-
-p {
-    margin: 0px;
 }
 
 a {
-    color: #00A6AE;
-    font-family: "PT Sans Caption Regular";
+    color: #0099FF;
 }
 
 a:hover {
-    color: #86D2D7;
-    font-family: "PT Sans Caption Regular";
+    color: #FF4500;
 }
 
-.blok_perevoda {
-    background-color: #FFFFEE;
-    padding-top: 2px;
-    padding-right: 12px;
-    padding-bottom: 4px;
-    padding-left: 12px;
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 2px;
-    margin-left: -12px;
-    border: 1px solid #E9E9E9;
-    border-radius: 4px;
-}
-
-.blok_perevoda_netu {
-    background-color: #EEEEEE;
-    padding-top: 2px;
-    padding-right: 12px;
-    padding-bottom: 4px;
-    padding-left: 12px;
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 2px;
-    margin-left: -12px;
-    border: 1px solid #E9E9E9;
-    border-radius: 4px;
-}
-
-.blok_zayavki {
-    background-color: #FFFFEE;
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 0px;
-    margin-left: -12px;
-    border: 1px solid #E9E9E9;
-    border-radius: 4px;
-    padding-top: 20px;
-    padding-right: 32px;
-    padding-bottom: 20px;
-    padding-left: 32px;
-}
-
-.otbivka_0 {
-    clear: both;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    margin: 0px;
-    overflow: hidden;
-}
-
-.otbivka_6 {
-    clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 6px;
-    margin-left: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    overflow: hidden;
-}
-
-.otbivka_12 {
-    clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 12px;
-    margin-left: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    overflow: hidden;
-}
-
-.otbivka_24 {
-    clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 24px;
-    margin-left: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    overflow: hidden;
-}
-
-.otbivka_48 {
-    clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 48px;
-    margin-left: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    overflow: hidden;
-}
-
-.otbivka_96 {
-    margin-bottom: 96px;
-    clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    overflow: hidden;
-}
-
-.informaczya {
-    text-align: left;
-    margin: 0px;
-    float: left;
-    width: 280px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 20px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    font-family: "PT Sans Italic";
-    color: #666666;
-}
-
-.informaczya_vydelenie {
-    font-family: "PT Sans Bold Italic";
-}
-
-.kartinka_600 {
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    width: 598px;
-    height: auto;
-    border: 1px solid #CCCCCC;
-}
-
-.korobka {
-    width: 600px;
+.sheet {
+    max-width: 680px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    text-align: left;
-    padding-top: 48px;
-    padding-right: 60px;
-    padding-bottom: 0px;
-    padding-left: 60px;
-    box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-position: 560px 0px;
-    background-color: #FFFFFF;
+    padding: 0 8px 0 8px;
 }
 
-.korobka_glavnaya {
-    width: 600px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    text-align: center;
-    padding-top: 48px;
-    padding-right: 60px;
-    padding-bottom: 0px;
-    padding-left: 60px;
-    box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
-    background-attachment: scroll;
-    background-image: url(../images/bg_index.jpg);
-    background-repeat: no-repeat;
-    background-position: 0px 332px;
-    background-color: #FFFFFF;
-}
-
-.korobka_glavnaya h1 {
-    font-family: "PT Sans Caption Regular";
-}
-
-.korobka_glavnaya h2 {
-    font-size: 24px;
-    font-family: "PT Sans Caption Regular";
-}
-
-.knopka {
-    height: 36px;
+textarea {
     width: 100%;
-    font-size: 16px;
-    padding: 0px;
-    margin: 0px;
-    color: #333333;
-}
-
-.knopka_2 {
-    width: 380px;
-    font-size: 24px;
-    text-align: center;
-    border-radius: 4px;
-    background-color: #33CCCC;
-    padding-right: 0px;
-    padding-left: 0px;
-    font-family: "PT Sans Caption Bold";
-    color: #FFFFFF;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: solid;
-    border-left-style: none;
-    border-bottom-width: 2px;
-    border-bottom-color: #2BAAAA;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    text-decoration: none;
-    text-shadow: 0px 1px 1px #333333;
-}
-
-.knopka_2 a {
-    font-family: "PT Sans Caption Bold";
-    text-decoration: none;
-    color: #FFFFFF;
-    display: block;
-    width: 100%;
-    padding-top: 16px;
-    padding-bottom: 18px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    border-radius: 4px;
-}
-
-.knopka_2 a:hover {
-    text-decoration: none;
-    font-family: "PT Sans Caption Bold";
-    color: #FFFFFF;
-    display: block;
-    width: 100%;
-    padding-top: 16px;
-    padding-bottom: 18px;
-    background-color: #55D5D5;
-    border-radius: 4px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.krasnaya {
-    font-family: "PT Sans Caption Regular";
-    color: #FF0000;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.krasnaya a {
-    font-family: "PT Sans Caption Regular";
-    color: #FF0000;
-    margin-top: 0px;
-    margin-right: -4px;
-    margin-bottom: 0px;
-    margin-left: -4px;
-    padding-top: 0px;
-    padding-right: 4px;
-    padding-bottom: 0px;
-    padding-left: 4px;
-}
-
-.krasnaya a:hover {
-    font-family: "PT Sans Caption Regular";
-    color: #FFFFFF;
-    background-color: #FF0000;
-    margin-top: 0px;
-    margin-right: -4px;
-    margin-bottom: 0px;
-    margin-left: -4px;
-    padding-top: 0px;
-    padding-right: 4px;
-    padding-bottom: 0px;
-    padding-left: 4px;
-}
-
-.na_russk_angl {
-    font-family: "PT Sans Caption Bold";
-}
-
-.nomer_shaga {
-    font-size: 60px;
-    color: #666666;
-}
-
-.nzv_meta {
-    color: #FF6600;
-    font-size: 96px;
-    font-family: "PT Sans Caption Bold";
-    text-shadow: 0px 6px 6px rgba(122, 122, 122, 0.366);
-}
-
-.oshibka {
-    color: #FF0000;
-    font-family: "PT Sans Italic";
-    margin: 0px;
-    display: block;
-    text-align: left;
-    padding: 0px;
-    width: 100%;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.opornoe_slovo_zayavki {
-    border: 4px dashed #FFFFCC;
-    width: 588px;
-    font-family: "PT Sans Caption Bold";
-    font-size: 32px;
-    padding-top: 0px;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-left: 6px;
-    margin-top: 0px;
-    margin-right: -4px;
-    margin-bottom: 0px;
-    margin-left: -4px;
-}
-
-.perevod {
-    color: #663300;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevoda_net {
-    font-family: "PT Sans Italic";
-    color: #666666;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevoda_net a {
-    font-family: "PT Sans Italic";
-    color: #666666;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevoda_net a:hover {
-    font-family: "PT Sans Italic";
-    color: #000000;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevod_v_zayavke {
-    font-family: "PT Sans Italic";
-    color: #666666;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevod_v_zayavke a {
-    font-family: "PT Sans Italic";
-    color: #666666;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.perevod_v_zayavke a:hover {
-    font-family: "PT Sans Italic";
-    color: #000000;
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 12px;
-}
-
-.podderzhat {
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.podderzhat a {
-    background-color: #FF9900;
-    margin-top: 0px;
-    margin-right: -6px;
-    margin-bottom: 0px;
-    margin-left: -6px;
-    padding-top: 0px;
-    padding-right: 6px;
-    padding-bottom: 2px;
-    padding-left: 6px;
-    border-radius: 4px;
-}
-
-.podderzhat a:hover {
-    background-color: #FF9900;
-    margin-top: 0px;
-    margin-right: -6px;
-    margin-bottom: 0px;
-    margin-left: -6px;
-    padding-top: 0px;
-    padding-right: 6px;
-    padding-bottom: 2px;
-    padding-left: 6px;
-    border-radius: 4px;
-}
-
-.podval {
-    width: 100%;
-    text-align: left;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    background-color: #333333;
-    padding-top: 24px;
-    padding-right: 60px;
-    padding-bottom: 48px;
-    padding-left: 60px;
-    margin-top: 0px;
-    margin-right: -60px;
-    margin-bottom: 0px;
-    margin-left: -60px;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    color: #000000;
-}
-
-.podval a {
-    color: #999999;
-}
-
-.podval a:hover {
-    color: #FFFFFF;
-}
-
-.podval_tekst {
-    text-align: right;
-    font-size: 16px;
-    color: #FFFFFF;
-    display: block;
-    width: 100%;
-}
-
-.russk {
-    font-family: "PT Sans Caption Bold";
-}
-
-.rezultat_fon {
-    background-color: #FFFFEE;
-    width: 100%;
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 0px;
-    margin-left: -12px;
-    padding-top: 6px;
-    padding-right: 12px;
-    padding-bottom: 6px;
-    padding-left: 12px;
-    border-radius: 4px;
-    border: 1px solid #E9E9E9;
-}
-
-.rezultat_fon_neperevedennye {
-    background-color: #F6F6F6;
-    width: 100%;
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 0px;
-    margin-left: -12px;
-    padding-top: 6px;
-    padding-right: 12px;
-    padding-bottom: 6px;
-    padding-left: 12px;
-    border-radius: 4px;
-    border: 1px solid #E9E9E9;
-}
-
-.select_result {
-    margin: 0px;
-    border: 1px solid #ffffee;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-top: 4px;
-}
-
-.select_result:hover {
-    cursor: pointer;
-    border: 1px dashed #3399ff;
-}
-
-.select_result_not_transl {
-    margin: 0px;
-    border: 1px solid #F6F6F6;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-top: 4px;
-}
-
-.select_result_not_transl:hover {
-    cursor: pointer;
-    border: 1px dashed #3399ff;
-}
-
-.statistika {
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    clear: both;
-    color: #666666;
-    font-family: "PT Sans Italic";
-}
-
-.statistika_czyfra {
-    font-family: "PT Sans Caption Bold";
-    color: #000000;
-}
-
-.upravlenie {
-    text-align: left;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    font-family: "PT Sans Italic";
-    color: #666666;
-}
-
-.versiya {
-    font-family: "PT Sans Italic";
-    color: #666666;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    text-align: right;
-}
-
-.vnimanie {
-    color: #FFFFFF;
-    background-color: #80EA15;
-    display: block;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    width: 44px;
-    font-size: 10px;
-    text-align: center;
-    font-family: "PT Sans Caption Bold";
-    float: left;
-    margin-top: 0px;
-    margin-right: 6px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-}
-
-.vyvod_spiska_flagov {
-    text-align: left;
-    margin: 0px;
-    padding: 0px;
-    width: 600px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.vvod_slov {
-    width: 100%;
-    margin: 0px;
-    float: left;
-    padding: 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-}
-
-.vvod_slov_tekst {
-    height: 216px;
-    width: 578px;
-    margin: 0px;
+    border: 1px dashed;
     resize: none;
-    padding: 10px;
-    border: 1px solid #CCCCCC;
-    font-size: 16px;
-    font-family: "PT Sans Caption Regular";
-    text-align: left;
-    display: block;
+    outline: none;
 }
 
-.zagolovok {
-    color: #000000;
+.controls {
+    text-align: right;
 }
 
-.zhyrny {
-    font-family: "PT Sans Caption Bold";
-}
-
-.znachenie {
-    font-family: "PT Sans Italic";
-    margin: 0px;
-    padding: 0px;
-}
-
-.znak {
-    background-color: #FFFFFF;
-    height: 22px;
-    width: 22px;
-    border: 3px solid #FF0000;
-    font-family: "PT Sans Caption Bold";
-    color: #000000;
+.button {
+    padding: 8px;
+    width: 100%;
     text-align: center;
-    font-size: 18px;
-    border-radius: 15px;
-    margin: 0px;
-    padding: 0px;
+    outline: none;
+    border: none;
+    background: #FF4500;
+    color: #FFFFFF;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.border-1 {
+    border: 1px dashed;
+}
+
+.border-2 {
+    border: 4px double;
+}
+
+.text-decor-1 {
+    text-decoration: none;
+}
+
+.bold {
+    font-family: "PT Mono Bold";
+}
+
+.color-1 {
+    color: #FF0000;
+}
+
+.color-2 {
+    color: #FF4500;
 }
 
 #sortable {
     list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
 }
 
 #sortable li {
-    margin-top: 0px;
-    margin-right: -12px;
-    margin-bottom: 2px;
-    margin-left: -12px;
-    padding-top: 2px;
-    padding-right: 12px;
-    padding-bottom: 2px;
-    padding-left: 24px;
-    background-color: #FFFFEE;
-    border: 1px solid #E9E9E9;
-    border-radius: 4px;
-    background-image: url(../images/drag_up_down.png);
-    background-repeat: no-repeat;
-    background-position: 11px center;
+    cursor: move;
+}
+
+#sortable li:hover {
+    background: #FFFFEE;
+}
+
+.rus {
+    margin: 0 0 -16px -16px;
+}
+
+.block-1 {
+    margin: 0 0 16px;
+    padding: 0 0 0 16px;
+}
+
+.block-2 {
+    margin: 0 0 16px;
+    padding: 0 0 0 16px;
+    background: #EEEEEE;
+}
+
+.color-bg:hover {
+    cursor: pointer;
+    background: moccasin;
 }
