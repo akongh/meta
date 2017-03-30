@@ -105,6 +105,12 @@ if ( isset( $neperevedennye ) ) {
     <br>
     <span class=\"color-bg\" name=\"result-no-transl\">" . $neperevedennye . "</span>
     <span class=\"color-2 bold\"> " . $neperevedennye_kol . "</span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 	";
     $_SESSION["_REZULTAT_russk_neperevedennye"] = $_REZULTAT_russk_neperevedennye;
 }
