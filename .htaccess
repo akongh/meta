@@ -26,4 +26,5 @@ ErrorDocument 503 /503.html
 #RewriteCond %{REMOTE_ADDR} !^178.125.62.88
 
 #RewriteCond %{SCRIPT_FILENAME} !/503.html
+#RewriteCond %{SCRIPT_FILENAME} !/css/style.css
 #RewriteRule ^.*$ /503.html [R=503,L]

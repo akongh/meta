@@ -9,6 +9,7 @@
 6. meta_config.php
 7. meta_config_db.php
 8. robots.txt
+9. На страницах 404 и 503 подключение favicon.ico
 
 
 
