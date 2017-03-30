@@ -40,7 +40,7 @@ a:hover {
 
 textarea {
     width: 100%;
-    border: 1px dashed;
+    border: 2px dashed #CCCCCC;
     resize: none;
     outline: none;
 }
@@ -64,11 +64,7 @@ textarea {
 }
 
 .border-1 {
-    border: 1px dashed;
-}
-
-.border-2 {
-    border: 4px double;
+    border: 1px dashed #CCCCCC;
 }
 
 .text-decor-1 {
