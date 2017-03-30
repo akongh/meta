@@ -25,10 +25,10 @@
     <br>
     <form method="post"
           action="../php/ex_create_results_choice.php">
-        <?php echo $s_perevodom;?>
+        <?php if (isset($s_perevodom)){echo $s_perevodom;}; ?>
         <br>
         <span class="bold color-2">
-            <?php echo $_SESSION["kol_slov_itog"]?>
+            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?>
             /
         <span id="countUniqEngChecked"
               class="bold color-2"></span>

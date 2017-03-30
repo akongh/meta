@@ -29,11 +29,11 @@
     <form method="post"
           action="../php/ex_create_translation_list.php">
         <ul id="sortable">
-            <?php echo $ochered;?>
+            <?php if(isset($ochered)){echo $ochered;}; ?>
         </ul>
         <br>
         <span class="bold color-2">
-            <?php echo $_SESSION["kol_slov_itog"]?>
+            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?>
         </span>
         <br>
         <br>

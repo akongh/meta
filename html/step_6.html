@@ -26,8 +26,8 @@
     <span class="bold">На русском</span>
     <br>
     <br>
-    <span class="color-bg" name="select-result"><?php echo $_REZULTAT_russk;?></span>
-    <span class="bold color-2"><?php echo $kol_slov_russk;?></span>
+    <span class="color-bg" name="select-result"><?php if (isset($_REZULTAT_russk)){echo $_REZULTAT_russk;}; ?></span>
+    <span class="bold color-2"><?php if (isset($kol_slov_russk)){echo $kol_slov_russk;}; ?></span>
     <br>
     <br>
     <br>
@@ -36,12 +36,12 @@
     <br>
     <br>
     <span class="color-bg" name="select-result"><?php if (isset($_REZULTAT_angl)){echo $_REZULTAT_angl;}; ?></span>
-    <span class="bold color-2"><?php echo $kol_slov_angl;?></span>
+    <span class="bold color-2"><?php if (isset($kol_slov_angl)){echo $kol_slov_angl;}; ?></span>
     <br>
     <br>
     <br>
     <br>
-    <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;};?>
+    <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
     <br>
     <br>
     <br>

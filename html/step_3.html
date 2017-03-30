@@ -25,7 +25,7 @@
     <br>
     <form method="post"
           action="../php/ex_create_ordering_list.php">
-        <?php echo $sobranny_nabor;?>
+        <?php if (isset($sobranny_nabor)){echo $sobranny_nabor;}; ?>
         <br>
         <br>
         <span id="countRusChecked" class="bold color-2"></span>
