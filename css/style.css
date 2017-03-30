@@ -11,8 +11,15 @@
     text-align: left;
 }
 
-body {
+.sheet {
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 8px 0 8px;
+}
 
+body {
+    /*background: url("../images/bg_pattern.jpg");*/
 }
 
 img {
@@ -31,18 +38,12 @@ a:hover {
     color: #FF4500;
 }
 
-.sheet {
-    max-width: 680px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 8px 0 8px;
-}
-
 textarea {
     width: 100%;
     border: 2px dashed #CCCCCC;
     resize: none;
     outline: none;
+    /*background: inherit;*/
 }
 
 .controls {
