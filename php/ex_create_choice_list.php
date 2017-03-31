@@ -101,9 +101,9 @@ $_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
 
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( $i < $kolichestvo_opornyx_slov ) {
-        $_MASSIV_spisok_podbora[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];
+        $_MASSIV_spisok_podbora[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     } else {
-        $_MASSIV_spisok_podbora[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];
+        $_MASSIV_spisok_podbora[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     }
 }
 if ( isset( $_MASSIV_spisok_podbora ) ) {

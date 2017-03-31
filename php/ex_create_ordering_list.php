@@ -48,7 +48,7 @@ unset( $po_chastote );
 $_SESSION["kol_slov_itog"] = count( $_POST["massiv_itog"] );
 
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-	$ochered[ $i ] = "<li><input type=\"checkbox\" name=\"spisok_mesto[]\" checked value = '" . $massiv_itog[ $i ] . "' hidden=\"true\">" . $massiv_itog[ $i ] . "</li>";
+	$ochered[ $i ] = "<li><input type=\"checkbox\" name=\"spisok_mesto[]\" class=\"hidden\" checked value = '" . $massiv_itog[ $i ] . "'>" . $massiv_itog[ $i ] . "</li>";
 }
 
 $ochered = implode( "", $ochered );

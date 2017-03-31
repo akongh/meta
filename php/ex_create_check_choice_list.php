@@ -27,12 +27,12 @@ if ( isset( $slova_s_flagom ) && $slova_s_flagom != null ) {
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( isset( $slova_s_flagom_bez_probelov ) ) {
         if ( in_array( $_MASSIV_rezultata[ $i ], $slova_s_flagom_bez_probelov ) ) {
-            $spisok[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];
+            $spisok[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
         } else {
-            $spisok[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];
+            $spisok[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
         }
     } else {
-        $spisok[ $i ] = "<input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ];
+        $spisok[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     }
 }
 if ( isset( $spisok ) && $spisok != null ) {
@@ -114,7 +114,7 @@ $kol_slov_itog             = count( $massiv_itog );
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
 
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-    $sobranny_nabor[ $i ] = "<input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ];
+    $sobranny_nabor[ $i ] = "<label><input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ] . "</label>";
 }
 if ( isset( $sobranny_nabor ) ) {
     //сортировать или нет по алфавиту

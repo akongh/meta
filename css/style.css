@@ -36,9 +36,11 @@ a:hover {
 
 textarea {
     width: 100%;
-    border: 2px dashed #CCCCCC;
+    border: 1px dashed #CCCCCC;
     resize: none;
     outline: none;
+    overflow: auto;
+    box-sizing: border-box;
     /*background: inherit;*/
 }
 
@@ -92,6 +94,10 @@ textarea {
     background: #FFFFEE;
 }
 
+label:hover {
+    background: #FFFFEE;
+}
+
 .rus {
     margin: 0 0 -16px -16px;
 }
@@ -128,4 +134,8 @@ textarea {
     display: block;
     border: none;
     text-align: left;
+}
+
+.hidden {
+    display: none;
 }

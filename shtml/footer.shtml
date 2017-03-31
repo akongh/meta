@@ -10,8 +10,6 @@
 <br>
 <a href="http://afoteris.com" title="AFOTERIS.com. Для стоковых авторов" target="_blank">AFOTERIS.com</a>
 <br>
-<a href="../translation_request.php" title="Очередь на перевод">Очередь на перевод</a>
-<br>
 <br>
 © META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?>
 <br>

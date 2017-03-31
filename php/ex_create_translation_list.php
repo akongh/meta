@@ -25,7 +25,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         $p2[ $n ]  = preg_replace( "/'/", "&#039;", $p[ $n ] );
         $z[ $n ]   = $rez['z'];
         $p_z[ $n ] = "
-        <span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "</span> — " . $z[ $n ];
+        <label><span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "</span></label> — " . $z[ $n ];
         $n ++;
     }
 
@@ -52,7 +52,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         $p_z               = implode( "<br>", $p_z );
         $s_perevodom[ $i ] = "
         <div class = \"block-1\">
-		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "</div>
 		<br>
 		" . $p_z . "
 		</div>
@@ -60,10 +60,10 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     } else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
         $p_z               = "
-        <span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span> — " . $z[0];
+        <label><span class=\"color-2\"><input type=\"checkbox\" name=\"angl[]\" checked value = '" . $p2[0] . "'> " . $p[0] . "</span></label> — " . $z[0];
         $s_perevodom[ $i ] = "
         <div class = \"block-1\">
-		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "</div>
 		<br>
 		" . $p_z . "
 		</div>
@@ -73,9 +73,9 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         $neperevedennye[ $i ] = $rus[ $i ];
         $s_perevodom[ $i ]    = "
         <div class = \"block-2\">
-		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "</div>
 		<br>
-		* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">
+		* Перевода пока нет<input type=\"checkbox\" name=\"zayavka[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>
 		</div>
 		";
 
@@ -83,9 +83,9 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         $neperevedennye[ $i ] = $rus[ $i ];
         $s_perevodom[ $i ]    = "
         <div class = \"block-2\">
-		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">" . $rus[ $i ] . "</div>
+		<div class = \"rus bold\"><input type=\"checkbox\" name=\"russk[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "</div>
 		<br>
-		* В заявке на перевод<input type=\"checkbox\" name=\"zayavka[]\" checked value = '" . $rus[ $i ] . "' hidden=\"true\">
+		* В заявке на перевод<input type=\"checkbox\" name=\"zayavka[]\" class=\"hidden\" checked value = '" . $rus[ $i ] . "'>
 		</div>
 		";
     }
