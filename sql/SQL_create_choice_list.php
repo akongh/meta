@@ -13,5 +13,5 @@ $_SQL_zapros_podbor = "select `k-ts`.`s`, count(*)
 	  where `k-ts`.`f` in (0, 1, 7)
 	  group by `k-t_s`.`id_s`, `k-ts`.`s`    
 	  order by count(*) desc, `k-ts`.`s` LIMIT 0," . $granicza . "
-	  ;    
+	  ;
 	  ";
