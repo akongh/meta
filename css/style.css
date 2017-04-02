@@ -149,6 +149,8 @@ a:hover {
 #sortable {
     list-style-type: none;
     cursor: move;
+    display: inline-block;
+    width: 100%;
 }
 
 #sortable li:hover {

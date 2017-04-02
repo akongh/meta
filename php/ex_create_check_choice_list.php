@@ -99,7 +99,7 @@ if ( isset( $massiv_itog ) ) {
     if ( count( $massiv_itog ) > 0 ) {
         $proverka_simvola = implode( "", $massiv_itog );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-            $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
+            $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
             $_SESSION["oshibka_simvola"] = $oshibka_simvola;
         }
     }
