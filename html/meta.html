@@ -40,7 +40,7 @@
     <br>
     <br>
     <div class="content-right">
-        <a class="link-button" href="../step_1.php">[Перейти к подбору]</a>
+        <a class="link-button" href="../step_1.php" title="Начать подбирать ключевые слова">[Перейти к подбору]</a>
     </div>
     <br>
     <br>
@@ -59,7 +59,7 @@
     Ключевых слов переведено
     <span class="counter">
         <?php if (isset($SQL_count_translated_words)){echo $SQL_count_translated_words;}; ?></span>,
-    в <a href="../translation_request.php" title="Очередь на перевод">очереди на перевод</a>
+    в <a href="../translation_request.php" title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
     <span class="counter">
         <?php if (isset($SQL_count_translation_request)){echo $SQL_count_translation_request;}; ?></span>.
     <?php include('shtml/footer.shtml');?>
