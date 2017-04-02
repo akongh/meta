@@ -15,13 +15,13 @@
     <script src="../js/changeOrderingList.js"></script>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">4/6. Определяем очерёдность ключевых слов</h2>
+    <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
     <br>
     <br>
     <br>
@@ -32,20 +32,18 @@
             <?php if(isset($ochered)){echo $ochered;}; ?>
         </ul>
         <br>
-        <span class="bold color-2">
-            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?>
-        </span>
+        <span class="counter">
+            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?></span>
         <br>
         <br>
         <br>
         <br>
         <input name="poluchit"
                type="submit"
-               class="bold button"
                value="4/6 Выбрать перевод">
     </form>
     <br>
-    <div class="controls">
+    <div class="content-right">
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
     <?php include('shtml/footer.shtml');?>

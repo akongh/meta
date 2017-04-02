@@ -12,15 +12,16 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <h1 class="bold">
-        МЕТА
+        <span class="meta">МЕТА</span>
         <br>
         <br>
         Русско-английский подбор ключевых слов для стоков
     </h1>
+    <br>
     <h2>
         Для тех, кто любит думать сам.
     </h2>
@@ -28,7 +29,8 @@
     <br>
     <br>
     <br>
-    <img src="images/bg_index.jpg">
+    <img class="img-index" src="images/img_index.jpg">
+    <br>
     <br>
     <br>
     <br>
@@ -37,8 +39,8 @@
     <br>
     <br>
     <br>
-    <div class="controls">
-        <a class="text-decor-1 bold" href="../step_1.php">[Перейти к подбору]</a>
+    <div class="content-right">
+        <a class="link-button" href="../step_1.php">[Перейти к подбору]</a>
     </div>
     <br>
     <br>
@@ -54,14 +56,12 @@
         особенностей.
     </h2>
     <br>
-    <h2>
-        Ключевых слов переведено:
-        <span class="bold color-2">
-            <?php if (isset($SQL_count_translated_words)){echo $SQL_count_translated_words;}; ?></span>.
-    </h2>
-    В <a href="../translation_request.php" title="Очередь на перевод">очереди на перевод</a>:
-    <span class="bold color-2">
-            <?php if (isset($SQL_count_translation_request)){echo $SQL_count_translation_request;}; ?></span>.
+    Ключевых слов переведено
+    <span class="counter">
+        <?php if (isset($SQL_count_translated_words)){echo $SQL_count_translated_words;}; ?></span>,
+    в <a href="../translation_request.php" title="Очередь на перевод">очереди на перевод</a>
+    <span class="counter">
+        <?php if (isset($SQL_count_translation_request)){echo $SQL_count_translation_request;}; ?></span>.
     <?php include('shtml/footer.shtml');?>
 </div>
 </body>

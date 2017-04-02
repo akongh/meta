@@ -28,17 +28,17 @@ $_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_
 $opornye_slova             = implode( "\n", $_MASSIV_op_slov );
 $_SESSION["opornye_slova"] = $opornye_slova;
 if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $vvod_op_slov == null ) {
-    $oshibka_nichego_ne_vveli             = "<span class=\"color-1\">Необходимы опорные ключевые слова.</span><br>";
+    $oshibka_nichego_ne_vveli             = "<span class=\"error\">Необходимы опорные ключевые слова.</span><br>";
     $_SESSION["oshibka_nichego_ne_vveli"] = $oshibka_nichego_ne_vveli;
 }
 if ( count( $_MASSIV_op_slov ) > 80 ) {
-    $oshibka_mnogo_op_slov             = "<span class=\"color-1\">Не более 80-ти опорных ключевых слов.</span><br>";
+    $oshibka_mnogo_op_slov             = "<span class=\"error\">Не более 80-ти опорных ключевых слов.</span><br>";
     $_SESSION["oshibka_mnogo_op_slov"] = $oshibka_mnogo_op_slov;
 }
 if ( count( $_MASSIV_op_slov ) > 0 ) {
     $proverka_simvola = implode( "", $_MASSIV_op_slov );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola             = "<span class=\"color-1\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+        $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -47,7 +47,7 @@ if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && count( $_MASSIV_op_slov 
     $proverka_simvola          = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_sostoyanie_nabora ) ) );
     $proverka_simvola          = implode( "", $proverka_simvola );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola             = "<span class=\"color-1\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+        $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -101,9 +101,9 @@ $_SESSION["_MASSIV_rezultata"] = $_MASSIV_rezultata;
 
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( $i < $kolichestvo_opornyx_slov ) {
-        $_MASSIV_spisok_podbora[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+        $_MASSIV_spisok_podbora[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     } else {
-        $_MASSIV_spisok_podbora[ $i ] = "<label><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+        $_MASSIV_spisok_podbora[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     }
 }
 if ( isset( $_MASSIV_spisok_podbora ) ) {

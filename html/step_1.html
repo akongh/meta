@@ -12,13 +12,13 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">1/6. Задаём опорные ключевые слова для подбора</h2>
+    <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
     <br>
     <br>
     <br>
@@ -27,6 +27,7 @@
     <form action="../php/ex_create_choice_list.php"
           method="post">
         <textarea name="vvod_op_slov"
+                  class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""
@@ -38,13 +39,8 @@
         <br>
         <br>
         <br>
-        <label>
-            <input type="checkbox"
-                   name="sposob321"
-                   checked>
-            Не строго.</label>
-        Не более
-        <select size="1" name="granicza">
+        <label><input type="checkbox" name="sposob321" checked> Не строго.</label>
+        Не более <select size="1" name="granicza">
             <option selected value="80">80</option>
             <option value="160">160</option>
         </select>.
@@ -52,11 +48,10 @@
         <br>
         <input name="podobrat"
                type="submit"
-               class="bold button"
                value="1/6 Подобрать">
     </form>
     <br>
-    <div class="controls">
+    <div class="content-right">
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
     <?php include('shtml/footer.shtml');?>

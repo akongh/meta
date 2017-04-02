@@ -5,7 +5,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 $sost_nab = $_SESSION["massiv_itog"];
 /*sort($sost_nab, SORT_STRING);*/
 $_SESSION["sostoyanie_nabora"] = implode( "; ", $sost_nab ) . "
-<span class=\"bold color-2\">" . $_SESSION["kol_slov_itog"] . "</span>
+<span class=\"counter\">" . $_SESSION["kol_slov_itog"] . "</span>
 <br>
 <br>
 ";

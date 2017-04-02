@@ -1,124 +1,198 @@
 @charset "utf-8";
 @import url("../webfonts/PTMonoWeb/stylesheet.css");
 
+/* Есть цвет в скрипте js/uncheckedTranslations.js */
+
 * {
     margin: 0;
     padding: 0;
-    font-family: "PT Mono";
-    font-size: 18px;
-    font-weight: normal;
-    color: #000000;
-    text-align: left;
-}
-
-.sheet {
-    max-width: 720px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 8px 0 8px;
+    border: 0;
+    box-sizing: border-box;
 }
 
 body {
-    /*background: url("../images/bg_pattern.jpg");*/
+    font-family: PT Mono;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+    cursor: default;
 }
 
-img {
-    width: 100%;
+h1 {
+    font-family: "PT Mono";
+    font-weight: normal;
+    font-size: 18px;
 }
 
-a {
-    color: #0099FF;
+h2 {
+    font-family: "PT Mono";
+    font-weight: normal;
+    font-size: 18px;
 }
 
-a:hover {
-    color: #FF4500;
+.page {
+    max-width: 736px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
-textarea {
-    width: 100%;
-    border: 1px dashed #CCCCCC;
-    resize: none;
-    outline: none;
-    overflow: auto;
-    box-sizing: border-box;
-    /*background: inherit;*/
-}
+.meta {
 
-.controls {
-    text-align: right;
-}
-
-.button {
-    padding: 8px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-    border: none;
-    background: #FF4500;
-    color: #FFFFFF;
-}
-
-.button:hover {
-    cursor: pointer;
-}
-
-.border-1 {
-    border: 1px dashed #CCCCCC;
-}
-
-.text-decor-1 {
-    text-decoration: none;
 }
 
 .bold {
     font-family: "PT Mono Bold";
 }
 
-.color-1 {
-    color: #FF0000;
+.img-index {
+    width: 100%;
 }
 
-.color-2 {
-    color: #FF4500;
+.textarea-keywords {
+    font-family: "PT Mono";
+    font-size: 18px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px #dddddd;
+    cursor: text;
+}
+
+@keyframes error {
+    0% {
+        color: #888888;
+    }
+    100% {
+        color: #dddddd;
+    }
+}
+
+.error {
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.content-right {
+    text-align: right;
+}
+
+input[type="submit"] {
+    color: #888888;
+    border: solid 1px #888888;
+    font-family: "PT Mono Bold";
+    font-size: 18px;
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+    color: #000000;
+    border: solid 1px #000000;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+}
+
+select {
+    font-family: "PT Mono";
+    font-size: 18px;
+    outline: none;
+    border: solid 1px #dddddd;
+}
+
+option {
+
+}
+
+label:hover {
+    background: #eeeeee;
+}
+
+.label-highlight {
+    display: inline-block;
+    width: 100%;
+}
+
+a {
+    color: #888888;
+}
+
+a:hover {
+    color: #000000;
+}
+
+.link-button {
+    text-decoration: none;
+}
+
+.link-button-reset {
+    text-decoration: none;
+    color: #888888;
+}
+
+.link-button-reset:hover {
+    text-decoration: none;
+    color: #000000;
 }
 
 #sortable {
     list-style-type: none;
-}
-
-#sortable li {
     cursor: move;
 }
 
 #sortable li:hover {
-    background: #FFFFEE;
+    background: #eeeeee;
 }
 
-label:hover {
-    background: #FFFFEE;
+.counter {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-family: "PT Mono Bold";
+    color: #000000;
+    background: #dddddd;
 }
 
-.rus {
-    margin: 0 0 -16px -16px;
+.block-translated {
+    color: #888888;
 }
 
-.block-1 {
-    margin: 0 0 16px;
-    padding: 0 0 0 16px;
+.block-not-translated {
+    color: #888888;
 }
 
-.block-2 {
-    margin: 0 0 16px;
-    padding: 0 0 0 16px;
-    background: #EEEEEE;
+.keyword-ru {
+    font-family: "PT Mono Bold";
+    color: #000000;
+    display: inline-block;
+    margin-bottom: 4px;
 }
 
-.color-bg:hover {
+.keyword-en {
+    color: #000000;
+    margin-left: 19px;
+}
+
+.result:hover {
     cursor: pointer;
-    background: moccasin;
+    background: #eeeeee;
 }
 
-.content-404-503 {
+.line {
+    border-top: dashed 1px #dddddd;
+}
+
+.block-404-503 {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -130,7 +204,7 @@ label:hover {
     overflow: auto;
 }
 
-.message-404-503 {
+.content-404-503 {
     display: block;
     border: none;
     text-align: left;

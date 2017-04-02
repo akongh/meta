@@ -12,13 +12,13 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">3/6. Получаем текущий результат списком</h2>
+    <h1 class="bold">3/6. Получаем текущий результат списком</h1>
     <br>
     <br>
     <br>
@@ -28,7 +28,7 @@
         <?php if (isset($sobranny_nabor)){echo $sobranny_nabor;}; ?>
         <br>
         <br>
-        <span id="countRusChecked" class="bold color-2"></span>
+        <span id="countRusChecked" class="counter"></span>
         <br>
         <br>
         <!--<?php include('shtml/link_rebuild_chek_choice_list.shtml');?>-->
@@ -42,11 +42,10 @@
         <br>
         <input name="ochered"
                type="submit"
-               class="bold button"
                value="3/6 Определить очерёдность">
     </form>
     <br>
-    <div class="controls">
+    <div class="content-right">
         <?php include('shtml/link_remember_current_result.shtml');?><br>
         <?php include('shtml/link_back_to_step_2_edit_current_choice.shtml');?><br>
         <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?><br>

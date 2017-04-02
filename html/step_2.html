@@ -12,13 +12,13 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">2/6. Выбираем из подобранных…</h2>
+    <h1 class="bold">2/6. Выбираем из подобранных…</h1>
     <br>
     <br>
     <br>
@@ -27,9 +27,10 @@
           action="../php/ex_create_check_choice_list.php">
         <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?>
         <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
-        <h2 class="bold">…и добавляем свои</h2>
+        <h1 class="bold">…и добавляем свои</h1>
         <br>
         <textarea name="vvod_dop_slov"
+                  class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
@@ -47,11 +48,10 @@
         <br>
         <input name="sobrat"
                type="submit"
-               class="bold button"
                value="2/6 Собрать в список">
     </form>
     <br>
-    <div class="controls">
+    <div class="content-right">
         <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?><br>
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>

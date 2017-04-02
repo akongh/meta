@@ -12,31 +12,29 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">6/6. Результат строками</h2>
+    <h1 class="bold">6/6. Результат строками</h1>
     <br>
     <br>
     <br>
     <br>
-    <span class="bold">На русском</span>
+    <h2 class="bold">На русском</h2>
+    <br>
+    <span class="result" name="select-result"><?php if (isset($_REZULTAT_russk)){echo $_REZULTAT_russk;}; ?></span>
+    <span class="counter"><?php if (isset($kol_slov_russk)){echo $kol_slov_russk;}; ?></span>
     <br>
     <br>
-    <span class="color-bg" name="select-result"><?php if (isset($_REZULTAT_russk)){echo $_REZULTAT_russk;}; ?></span>
-    <span class="bold color-2"><?php if (isset($kol_slov_russk)){echo $kol_slov_russk;}; ?></span>
     <br>
     <br>
+    <h2 class="bold">На английском</h2>
     <br>
-    <br>
-    <span class="bold">На английском</span>
-    <br>
-    <br>
-    <span class="color-bg" name="select-result"><?php if (isset($_REZULTAT_angl)){echo $_REZULTAT_angl;}; ?></span>
-    <span class="bold color-2"><?php if (isset($kol_slov_angl)){echo $kol_slov_angl;}; ?></span>
+    <span class="result" name="select-result"><?php if (isset($_REZULTAT_angl)){echo $_REZULTAT_angl;}; ?></span>
+    <span class="counter"><?php if (isset($kol_slov_angl)){echo $kol_slov_angl;}; ?></span>
     <br>
     <br>
     <br>
@@ -44,17 +42,16 @@
     <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
     <br>
     <br>
-    <h2>
         Спасибо, что выбрали Мету.
-    </h2>
+    <br>
     <br>
     <?php include('shtml/socialIcons.shtml');?>
     <br>
     <br>
     <br>
     <br>
-    <div class="controls">
-        <a class="text-decor-1 bold" href="../php/reset_choice.php" title="Начать новый подбор">[Начать новый подбор]</a>
+    <div class="content-right">
+        <a class="link-button" href="../php/reset_choice.php" title="Начать новый подбор">[Начать новый подбор]</a>
     </div>
     <?php include('shtml/footer.shtml');?>
 </div>

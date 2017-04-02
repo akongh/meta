@@ -12,13 +12,13 @@
     <?php include('shtml/yandex_metric_meta.shtml');?>
 </head>
 <body>
-<div class="sheet">
+<div class="page">
     <br>
     <br>
     <?php include('shtml/link_to_index.shtml');?>
     <br>
     <br>
-    <h2 class="bold">5/6. Выбираем перевод</h2>
+    <h1 class="bold">5/6. Выбираем перевод</h1>
     <br>
     <br>
     <br>
@@ -27,23 +27,21 @@
           action="../php/ex_create_results_choice.php">
         <?php if (isset($s_perevodom)){echo $s_perevodom;}; ?>
         <br>
-        <span class="bold color-2">
+        <br>
+        <span class="counter">
             <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?>
             /
-        <span id="countUniqEngChecked"
-              class="bold color-2"></span>
-        </span>
+            <span id="countUniqEngChecked"></span></span>
         <br>
         <br>
         <br>
         <br>
         <input name="poluchit"
                type="submit"
-               class="bold button"
                value="5/6 Получить результат строками">
     </form>
     <br>
-    <div class="controls">
+    <div class="content-right">
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
     <br>

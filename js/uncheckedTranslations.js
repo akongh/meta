@@ -11,7 +11,7 @@ for (var l = 0; l < inputsEngListAddEvent.length; l++) {
 missedTranslations();
 
 function missedTranslations() {
-    var blocksTranslation = document.getElementsByClassName("block-1");
+    var blocksTranslation = document.getElementsByClassName("block-translated");
     for (var i = 0; i < blocksTranslation.length; i++) {
         var inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
             var f = false;
@@ -25,7 +25,7 @@ function missedTranslations() {
             }
             ;
             if (f == false) {
-                blocksTranslation[i].style.backgroundColor = "#FFEEEE";
+                blocksTranslation[i].style.backgroundColor = "#dddddd";
             }
             ;
     }

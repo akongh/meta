@@ -11,5 +11,5 @@
         h.appendChild(s);
     }
 })();</script>
-<div class="pluso" data-background="none;" data-options="medium,square,line,horizontal,counter,sepcounter=1,theme=14"
-     data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email"></div>
+<div class="pluso" data-background="transparent" data-options="big,square,line,horizontal,counter,theme=06"
+     data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,livejournal,yandex"></div>
