@@ -216,6 +216,10 @@ a:hover {
     display: none;
 }
 
+.pluso {
+    margin-left: -4px;
+}
+
 .pluso-more {
     display: none!important;
 }
