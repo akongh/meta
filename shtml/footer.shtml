@@ -14,7 +14,7 @@
 <br>
 © META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?>
 <br>
-<a href="mailto:pochta@afoteris.com" title="Для отзывов и предложений">pochta@afoteris.com</a>
+<a href="mailto:pochta@afoteris.com?subject=Мета. Отзывы и предложения." title="Для отзывов и предложений">pochta@afoteris.com</a>
 <br>
 <br>
 <br>
