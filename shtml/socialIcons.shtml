@@ -12,4 +12,6 @@
     }
 })();</script>
 <div class="pluso" data-background="transparent" data-options="big,square,line,horizontal,counter,theme=06"
-     data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,livejournal,yandex"></div>
+     data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,livejournal"
+     data-url="http://meta.afoteris.com" data-title="МЕТА"
+     data-description="Русско-английский подбор ключевых слов для стоков"></div>
