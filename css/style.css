@@ -182,7 +182,11 @@ a:hover {
 
 .keyword-en {
     color: #000000;
-    margin-left: 19px;
+}
+
+.separate-checkbox {
+    padding-left: 48px;
+    text-indent: -26px;
 }
 
 .result:hover {
