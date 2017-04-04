@@ -1,4 +1,4 @@
-<?php error_reporting(-1);
+<?php error_reporting( - 1 );
 
 //--[meta.afoteris.com]--
 //$db_server = "by114.atservers.net";

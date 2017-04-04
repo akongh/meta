@@ -1,4 +1,4 @@
-<?php error_reporting(-1);
+<?php error_reporting( - 1 );
 
 $_SQL_zapros_ochered = "
 SELECT *

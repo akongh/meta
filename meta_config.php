@@ -1,4 +1,4 @@
-<?php error_reporting(-1);
+<?php error_reporting( - 1 );
 
 //--[meta.afoteris.com]--
 //$site_domain_name = "meta.afoteris.com";

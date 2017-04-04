@@ -1,4 +1,4 @@
-<?php error_reporting(-1);
+<?php error_reporting( - 1 );
 
 //--[meta.afoteris.com]--
 //include ('/home/webart/www/meta_access/db_connect.php');
