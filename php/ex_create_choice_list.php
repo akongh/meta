@@ -27,7 +27,7 @@ for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
 $_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_op_slov, array( '' ) ) ) ) );
 $opornye_slova             = implode( "\n", $_MASSIV_op_slov );
 $_SESSION["opornye_slova"] = $opornye_slova;
-if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $vvod_op_slov == null ) {
+if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $opornye_slova == null ) {
     $oshibka_nichego_ne_vveli             = "<span class=\"error\">Необходимы опорные ключевые слова.</span><br>";
     $_SESSION["oshibka_nichego_ne_vveli"] = $oshibka_nichego_ne_vveli;
 }
