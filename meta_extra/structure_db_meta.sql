@@ -109,7 +109,6 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
 CREATE TABLE IF NOT EXISTS `tyrki` (
   `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `lori` int(10) unsigned zerofill NOT NULL COMMENT 'Номер страницы',
-  `fotolia` int(10) unsigned zerofill NOT NULL COMMENT 'Номер страницы',
   `f` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
