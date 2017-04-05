@@ -40,7 +40,7 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
 			group by `k-t_s`.`id_n` having count(`k-t_s`.`id_s`) = '" . $kolichestvo_opornoe_slovo_zayavki . "') `g`   
 		join `k-t_s` on `k-t_s`.`id_n` = `g`.`id_n`    
 		join `k-ts` on `k-ts`.`ids` = `k-t_s`.`id_s`
-		where `k-ts`.`f` in (0, 1, 6, 7)
+		where `k-ts`.`f` in (0, 1, 7)
 		group by `k-t_s`.`id_s`, `k-ts`.`s`    
 		order by count(*) desc, `k-ts`.`s` LIMIT 0, 160) `k`
 	where `k`.`f` = 0)
