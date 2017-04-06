@@ -31,8 +31,8 @@ if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $opornye_slova == null
     $oshibka_nichego_ne_vveli             = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
     $_SESSION["oshibka_nichego_ne_vveli"] = $oshibka_nichego_ne_vveli;
 }
-if ( count( $_MASSIV_op_slov ) > 80 ) {
-    $oshibka_mnogo_op_slov             = "<span class='error'>Не более 80-ти опорных ключевых слов.</span><br>";
+if ( count( $_MASSIV_op_slov ) > 8 ) {
+    $oshibka_mnogo_op_slov             = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
     $_SESSION["oshibka_mnogo_op_slov"] = $oshibka_mnogo_op_slov;
 }
 if ( count( $_MASSIV_op_slov ) > 0 ) {
