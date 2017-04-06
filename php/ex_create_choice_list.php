@@ -71,15 +71,31 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
         }
         if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
             $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
-            if ( count( $_MASSIV_rezultata ) > $kolichestvo_opornyx_slov ) {
-                if ( count( $_MASSIV_rezultata ) > $granicza ) {
-                    $_MASSIV_rezultata = array_slice( $_MASSIV_rezultata, 0, $granicza );
-                }
+
+            if ( $i == 1 ) {
                 break;
             }
-        } else {
+            if ( count( $_MASSIV_rezultata ) == $granicza ) {
+                break;
+            }
+            if ( count( $_MASSIV_rezultata ) > $granicza ) {
+                $_MASSIV_rezultata = array_slice( $_MASSIV_rezultata, 0, $granicza );
+                break;
+            }
+        } else if ( $i == 1 ) {
             $_MASSIV_rezultata = $_MASSIV_op_slov;
         }
+//        if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
+//            $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
+//            if ( count( $_MASSIV_rezultata ) > $kolichestvo_opornyx_slov ) {
+//                if ( count( $_MASSIV_rezultata ) > $granicza ) {
+//                    $_MASSIV_rezultata = array_slice( $_MASSIV_rezultata, 0, $granicza );
+//                }
+//                break;
+//            }
+//        } else {
+//            $_MASSIV_rezultata = $_MASSIV_op_slov;
+//        }
     }
 } else {
     include( '../sql/SQL_create_choice_list.php' );
