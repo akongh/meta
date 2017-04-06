@@ -32,7 +32,7 @@ while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
 }
 if ( isset( $slovo[0] ) ) {
     $slovo = $slovo[0];
-// написать комментарий
+
     $SQL_p_z = mysqli_query( $db_connect, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`

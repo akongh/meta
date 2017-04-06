@@ -48,7 +48,7 @@ if ( isset( $p_z ) ) {
 
 unset( $p_z, $p, $z );
 
-// написать комментарий
+
 include( 'sql/SQL_choice.php' );
 $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
 
@@ -68,7 +68,7 @@ if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
 if ( isset( $_MASSIV_spisok_podbora ) ) {
 	$vyvod_spiska_flagov = implode( "<br>", $_MASSIV_spisok_podbora );
 }
-// написать комментарий
+
 
 mysqli_close( $db_connect );
 include( 'html/check_similar_translation.html' );

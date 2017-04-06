@@ -41,7 +41,7 @@ if ( $slovo_original != $slovo_k ) {
 		WHERE `s` = '" . $slovo_original . "' 
 		" );
 	} else if ( isset( $proverka_nalichiya ) ) {
-		// написать комментарий
+
 
 		$ids_original = mysqli_query( $db_connect, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '" . $slovo_original . "'
@@ -55,7 +55,7 @@ if ( $slovo_original != $slovo_k ) {
 
 		$ids_original = $ids_orig[0];
 
-		// написать комментарий
+
 
 		$ids_ispravlennogo = mysqli_query( $db_connect, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '" . $slovo_k . "'
@@ -69,7 +69,7 @@ if ( $slovo_original != $slovo_k ) {
 
 		$ids_ispravlennogo = $ids_ispr[0];
 
-		// написать комментарий
+
 
 		mysqli_query( $db_connect, "
 			UPDATE LOW_PRIORITY IGNORE `k-t_s`

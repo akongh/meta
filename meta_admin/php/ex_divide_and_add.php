@@ -20,7 +20,7 @@ for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
     $_MASSIV_novoe_slovo_razbit[ $i ] = preg_replace( "/'/", "\'", $_MASSIV_novoe_slovo_razbit[ $i ] );//массив новых слов вместо разбиваемого для вставки в бд
 }
 $_SQL_stroka_novoe_slovo_razbit = implode( "','", $_MASSIV_novoe_slovo_razbit );//строка новых слов для запросов
-// написать комментарий
+
 $nomera_naborov_s_originalom = mysqli_query( $db_connect, "
 	SELECT `k-t_s`.`id_n`
 	from `k-t_s` LEFT JOIN  `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`

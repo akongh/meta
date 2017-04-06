@@ -27,12 +27,12 @@ if ( isset( $slova_s_flagom ) && $slova_s_flagom != null ) {
 for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
     if ( isset( $slova_s_flagom_bez_probelov ) ) {
         if ( in_array( $_MASSIV_rezultata[ $i ], $slova_s_flagom_bez_probelov ) ) {
-            $spisok[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"slova_s_flagom[]\" checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
         } else {
-            $spisok[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
         }
     } else {
-        $spisok[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"slova_s_flagom[]\" value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+        $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
     }
 }
 if ( isset( $spisok ) && $spisok != null ) {
@@ -74,7 +74,7 @@ if ( isset( $dopolnenie_unikalnoe ) ) {
 if ( isset( $dopolnenie_unikalnoe ) && count( $dopolnenie_unikalnoe ) > 0 ) {
     $proverka_simvola = implode( "", $dopolnenie_unikalnoe );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
+        $oshibka_simvola             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
         $_SESSION["oshibka_simvola"] = $oshibka_simvola;
     }
 }
@@ -99,7 +99,7 @@ if ( isset( $massiv_itog ) ) {
     if ( count( $massiv_itog ) > 0 ) {
         $proverka_simvola = implode( "", $massiv_itog );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-            $oshibka_simvola             = "<span class=\"error\">Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+            $oshibka_simvola             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
             $_SESSION["oshibka_simvola"] = $oshibka_simvola;
         }
     }
@@ -114,7 +114,7 @@ $kol_slov_itog             = count( $massiv_itog );
 $_SESSION["kol_slov_itog"] = $kol_slov_itog;
 
 for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-    $sobranny_nabor[ $i ] = "<label class='label-highlight'><input type=\"checkbox\" name=\"massiv_itog[]\" checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ] . "</label>";
+    $sobranny_nabor[ $i ] = "<label class='label-highlight'><input type='checkbox' name='massiv_itog[]' checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ] . "</label>";
 }
 if ( isset( $sobranny_nabor ) ) {
     //сортировать или нет по алфавиту
