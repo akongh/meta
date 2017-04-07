@@ -124,6 +124,10 @@ if ( isset( $sobranny_nabor ) ) {
     unset( $abv );
     $sobranny_nabor = implode( "<br>\n", $sobranny_nabor );
 }
-$_SESSION["sobranny_nabor"] = $sobranny_nabor;
-$_SESSION["massiv_itog"]    = $massiv_itog;
+if ( isset( $sobranny_nabor ) ) {
+    $_SESSION["sobranny_nabor"] = $sobranny_nabor;
+}
+if ( isset( $massiv_itog ) ) {
+    $_SESSION["massiv_itog"] = $massiv_itog;
+}
 header( "Location: http://" . $site_domain_name . "/step_3.php" );
