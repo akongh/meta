@@ -11,7 +11,7 @@ $SQL_count_translated_words_query = mysqli_query( $db_connect, "
 	where `f` = 1
 	" );
 $data                       = mysqli_fetch_array( $SQL_count_translated_words_query );
-$SQL_count_translated_words = number_format( $data[0], 0, '', ' ' );
+$SQL_count_translated_words = number_format( $data[0], 0, '', '&nbsp;' );
 
 $SQL_count_translation_request_query = mysqli_query( $db_connect, "
 	select count(`k-ts`.`s`)
@@ -19,7 +19,7 @@ $SQL_count_translation_request_query = mysqli_query( $db_connect, "
 	where `f` = 7
 	" );
 $data                       = mysqli_fetch_array( $SQL_count_translation_request_query );
-$SQL_count_translation_request = number_format( $data[0], 0, '', ' ' );
+$SQL_count_translation_request = number_format( $data[0], 0, '', '&nbsp;' );
 
 mysqli_close( $db_connect );
 include( 'html/meta.html' );
