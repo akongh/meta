@@ -24,7 +24,7 @@ for (var i = 0; i < resultNodeNotTransl.length; i++) {
 
 function selectResult() {
     var selectRange = document.createRange();
-    selectRange.selectNode(this);
+    selectRange.selectNodeContents(this);
     var select = window.getSelection();
     select.removeAllRanges();
     select.addRange(selectRange);
