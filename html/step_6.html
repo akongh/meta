@@ -43,10 +43,33 @@
     <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
     <br>
     <br>
-        Спасибо, что выбрали Мету.
+    Спасибо, что выбрали Мету.
     <br>
     <br>
     <?php include('shtml/socialIcons.shtml');?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <span id="messageBlock">
+    Нам интересен ваш отзыв.
+    <br>
+    <div class="content-right">
+        <span class="counter"><span id="countInformer"></span></span>
+    </div>
+    <textarea id="messageForm"
+              class="textarea-message"
+              wrap="soft"
+              rows="4"
+              placeholder=""
+              maxlength="240"></textarea><!-- controlMessage.jsh] продублирована в [js/checkMessageLength.js]. -->
+    <br>
+    <br>
+    </span>
+    <div id="responseMessage" class="content-right">
+        <a id="clearButton" class="link-button" href="" title="Очистить окно отзыва">[x]</a>
+        <a id="sendMessageButton" class="link-button" href="" title="Отправить отзыв">[Отправить]</a>
+    </div>
     <br>
     <br>
     <br>
@@ -57,5 +80,7 @@
     <?php include('shtml/footer.shtml');?>
 </div>
 <script src="../js/selectResult.js"></script>
+<script src="../js/controlMessage.js"></script>
+<script src="../js/sendMessage.js"></script>
 </body>
 </html>

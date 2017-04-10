@@ -61,6 +61,17 @@ h2 {
     cursor: text;
 }
 
+.textarea-message {
+    font-family: "PT Mono";
+    font-size: 18px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px #dddddd;
+    cursor: text;
+}
+
 @keyframes error {
     0% {
         color: #888888;
