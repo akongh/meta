@@ -36,6 +36,11 @@
         <br>
         <br>
         <br>
+        <div class="content-right">
+            <?php include('shtml/link_remember_current_result.shtml');?><br>
+            <?php include('shtml/link_back_to_step_2_edit_current_choice.shtml');?><br>
+            <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?><br>
+        </div>
         <label title="Иногда уменьшает число действий при изменении очерёдности на следующем шаге">
             <input type="checkbox"
                    name="po_chastote"> По частоте в Мете.</label>
@@ -47,9 +52,6 @@
     </form>
     <br>
     <div class="content-right">
-        <?php include('shtml/link_remember_current_result.shtml');?><br>
-        <?php include('shtml/link_back_to_step_2_edit_current_choice.shtml');?><br>
-        <?php include('shtml/link_back_to_step_1_refine_current_query.shtml');?><br>
         <?php include('shtml/link_reset_choice.shtml');?>
     </div>
     <?php include('shtml/footer.shtml');?>
