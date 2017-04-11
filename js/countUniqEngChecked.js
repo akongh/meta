@@ -1,6 +1,3 @@
-/**
- * Created by Andrei on 07.03.2017.
- */
 var arrAngl = document.getElementsByName("angl[]");
 for (var i = 0; i < arrAngl.length; i++) {
     arrAngl[i].onclick = countUniqEngChecked;

@@ -1,7 +1,3 @@
-/**
- * Created by Andrei on 10.03.2017.
- */
-
 var inputsEngListAddEvent = document.querySelectorAll("input[name='angl[]']");
 for (var l = 0; l < inputsEngListAddEvent.length; l++) {
     inputsEngListAddEvent[l].addEventListener("click", missedTranslations);

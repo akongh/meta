@@ -1,10 +1,4 @@
-<?php error_reporting( 0 );
-/**
- * Created by PhpStorm.
- * User: Andrei
- * Date: 09.04.2017
- * Time: 18:07
- */
+<?php error_reporting( - 1 );
 
 if ( isset( $_POST["messageText"] ) ) {
 

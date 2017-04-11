@@ -1,6 +1,3 @@
-/**
- * Created by Andrei on 08.03.2017.
- */
 var arrRus = document.getElementsByName("massiv_itog[]");
 for (var i = 0; i < arrRus.length; i++){
     arrRus[i].onclick = countRusChecked;
