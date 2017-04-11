@@ -24,6 +24,15 @@
     <br>
     <br>
     <br>
+    <span id="separate-result-view">
+    <div class="content-right">
+        <a id="single-view-button"
+           class="link-button"
+           href=""
+           title="Изменить вид результата на единый">[Изменить вид на единый]</a>
+    </div>
+    <br>
+    <br>
     <h2 class="bold">На русском</h2>
     <br>
     <span class="result" name="select-result"><?php if (isset($_REZULTAT_russk)){echo $_REZULTAT_russk;}; ?></span>
@@ -36,6 +45,24 @@
     <br>
     <span class="result" name="select-result"><?php if (isset($_REZULTAT_angl)){echo $_REZULTAT_angl;}; ?></span>
     <span class="counter"><?php if (isset($kol_slov_angl)){echo $kol_slov_angl;}; ?></span>
+    </span>
+    <span id="single-result-view" class="hidden">
+    <div class="content-right">
+        <a id="separate-view-button"
+           class="link-button"
+           href=""
+           title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
+    </div>
+    <br>
+    <br>
+    <h2 class="bold">На русском и английском</h2>
+    <br>
+    <span class="result" name="select-result"><?php if (isset($_REZULTAT_russk)){echo $_REZULTAT_russk;}; ?><br>
+<br><?php if (isset($_REZULTAT_angl)){echo $_REZULTAT_angl;}; ?></span>
+        <br>
+        <br>
+        <span class="counter"><?php if (isset($kol_slov_russk)){echo $kol_slov_russk;}; ?> / <?php if (isset($kol_slov_angl)){echo $kol_slov_angl;}; ?></span>
+    </span>
     <br>
     <br>
     <br>
@@ -75,10 +102,13 @@
     <br>
     <br>
     <div class="content-right">
-        <a class="link-button" href="../php/reset_choice.php" title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
+        <a class="link-button"
+           href="../php/reset_choice.php"
+           title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
     </div>
     <?php include('shtml/footer.shtml');?>
 </div>
+<script src="../js/changeResultView.js"></script>
 <script src="../js/selectResult.js"></script>
 <script src="../js/controlMessage.js"></script>
 <script src="../js/sendMessage.js"></script>
