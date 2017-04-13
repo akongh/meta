@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title>МЕТА. Русско-английский подбор ключевых слов для стоков</title>
@@ -25,8 +25,13 @@
     <br>
     <br>
     <div class="content-right">
-        <?php include('shtml/link_help.shtml');?><span id="help" class="help hidden">Текст справки. Текст справки. Текст справки. Текст справки. Текст справки. Текст справки.
-            Текст справки. Текст справки. Текст справки. Текст справки. Текст справки. Текст справки.</span><br>
+        <?php include('shtml/link_help.shtml');?><span id="help" class="help hidden">
+        1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
+        2. <span class="bold">«Изменить вид на единый»</span>&nbsp;— объединяет результаты на русском и&nbsp;на английском
+        в&nbsp;один текст из двух абзацев для единого выделения и&nbsp;копирования.<br>
+        3. <span class="bold">«Изменить вид на раздельный»</span>&nbsp;— разделяет результаты на русском и&nbsp;на английском
+        на два текста по одному абзацу для раздельного выделения и&nbsp;копирования.
+        </span><br>
     </div>
     <br>
     <span id="separate-result-view">
@@ -75,7 +80,7 @@
     <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
     <br>
     <br>
-    Спасибо, что выбрали Мету.
+    Рады, что вы выбрали Мету.
     <br>
     <br>
     <?php include('shtml/socialIcons.shtml');?>
@@ -99,7 +104,7 @@
     <br>
     </span>
     <div id="responseMessage" class="content-right">
-        <a id="clearButton" class="link-button" href="#" title="Очистить место отзыва">[x]</a>
+        <a id="clearButton" class="link-button" href="#" title="Очистить поле отзыва">[x]</a>
         <a id="sendMessageButton" class="link-button" href="#" title="Отправить отзыв">[Отправить]</a>
     </div>
     <br>
