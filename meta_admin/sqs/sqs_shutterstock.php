@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting( - 1 );
 /**
  * Created by PhpStorm.
  * User: Andrei
@@ -7,8 +7,10 @@
  */
 
 //задаём переменные
-if ( isset( $_POST["kw"] ) ) {
+if ( isset( $_POST["kw"] ) && ! preg_match( "/^([а-яё\s\-]+)$/iu", $_POST["kw"] ) ) {//проверка на отсутствие кирилицы
     $kw = $_POST["kw"];
+} else {
+    $kw = "";
 };
 //Заменяем пробелы на «+» для строки запроса
 $kw         = preg_replace( "/ /", "+", $kw );
@@ -31,14 +33,17 @@ curl_close( $ses );
 $format_data = json_decode( $data, true );
 $format_data = $format_data["data"];
 $format_data = $format_data["autocompletions"];
+
 //создание массива строк «ключ-значение»
 for ( $i = 0; $i < count( $format_data ); $i ++ ) {
     $format_data_arr[ $i ] = "<span class='bold'>" . $format_data[ $i ]["pattern"] . "</span>" . " - " . $format_data[ $i ]["probability"];
 }
 //создание строки «ключ-значение»
-$format_data_string = implode( "<br>", $format_data_arr );
+if ( isset( $format_data_arr ) ) {
+    $format_data_string = implode( "<br>", $format_data_arr );
+}
 
 //возвращаем пробелы после использования в запросе
-$kw         = preg_replace( "/\+/", " ", $kw );
+//$kw = preg_replace( "/\+/", " ", $kw );
 
 include( 'sqs.html' );
