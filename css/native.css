@@ -225,6 +225,15 @@ a:hover {
     border-top: dashed 1px #dddddd;
 }
 
+.kw-pattern {
+    display: inline-block;
+    width: 100%;
+}
+
+.kw-pattern:hover {
+    background: #eeeeee;
+}
+
 .block-404-503 {
     width: 100%;
     height: 100%;
