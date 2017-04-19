@@ -5,10 +5,9 @@
 var arrPatterns = document.querySelectorAll("span[name='pattern-kw']");
 
 for (var i = 0; i <= arrPatterns.length; i++) {
-    // arrPatterns[i].style.backgroundColor = "red";
-    arrPatterns[i].addEventListener("click", kwPatternToQuerry);
+    arrPatterns[i].addEventListener("click", kwPatternToQuery);
 }
 
-function kwPatternToQuerry() {
+function kwPatternToQuery() {
     document.querySelector("textarea[name='kw']").innerHTML = this.innerHTML;
 }

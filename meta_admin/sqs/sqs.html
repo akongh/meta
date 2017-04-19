@@ -8,7 +8,7 @@
 <body>
 <div class="page">
     <br>
-    <a href="../index.php">На главную</a>
+    <a class="link-button" href="../index.php">[На главную]</a>
     <br>
     <br>
     <br>
@@ -22,9 +22,12 @@
                   autofocus><?php if (isset( $kw )){echo $kw;};?></textarea>
         <br>
         <br>
+        <br>
+        <br>
         <label><input type="radio" name="mt" value="image" checked> Изображения</label>
         <label><input type="radio" name="mt" value="audio"> Аудио</label>
         <label><input type="radio" name="mt" value="video"> Видео</label>
+        <a id="clearButton" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
         <br>
         <br>
         <input name="get_sqs" type="submit" value="Глянуть">
@@ -36,6 +39,7 @@
     <br>
     <?php if (isset( $format_data_string )){echo $format_data_string;};?>
 </div>
-<script src="kw_pattern_to_querry.js"></script>
+<script src="kw_pattern_to_query.js"></script>
+<script src="clear_query.js"></script>
 </body>
 </html>
