@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поисковые запросы</title>
+    <link href="../../css/native.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="page">
+    <br>
+    <form action="sqs_shutterstock.php" method="post">
+        <textarea name="kw"
+                  class="textarea-keywords"
+                  wrap="soft"
+                  rows="1"
+                  placeholder=""
+                  autofocus><?php if (isset( $kw )){echo $kw;};?></textarea>
+        <br>
+        <br>
+        <input name="get_sqs" type="submit" value="Глянуть">
+        <br>
+    </form>
+    <br>
+    <?php if (isset( $fake_time_num )){echo $fake_time_num;};?>
+    <br>
+    <br>
+    <?php if (isset( $format_data_string )){echo $format_data_string;};?>
+</div>
+</body>
+</html>
