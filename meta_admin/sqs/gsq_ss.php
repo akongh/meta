@@ -6,7 +6,8 @@
  * Time: 22:11
  */
 
-$kw        = "icon";
+//задаём переменные
+$kw        = "lena";
 $fake_time = time() - rand( 14400, 43200 );
 $fake_num  = rand( 100, 999 );
 $id        = $fake_time . $fake_num;//TODO: Пока тупая имитация, выяснить истинное формирование этого значения. Похоже, оно нужно для статистики или для отслеживания автозапросов. Пока не перезагрузишь страницу, часть с временем не меняется, а добавка растёт на единицу при каждом запросе.
@@ -23,16 +24,18 @@ echo( $fake_time . " - [ " . date( 'd.m.Y, H:i:s', $fake_time ) . " ] - " . $fak
 echo( "<br>" );
 echo( "<br>" );
 
+//запрос-ответ
 $ses = curl_init();
 curl_setopt( $ses, CURLOPT_URL, $url );
 curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
 $data = curl_exec( $ses );
 curl_close( $ses );
 
+//форматирование json-ответа
 $format_data = json_decode( $data, true );
 $format_data = $format_data["data"];
 $format_data = $format_data["autocompletions"];
-
+//вывод строк «ключ-значение»
 for ( $i = 0; $i < count( $format_data ); $i ++ ) {
     echo( $format_data[ $i ]["pattern"] . " - " . $format_data[ $i ]["probability"] . "<br>" );
 }
