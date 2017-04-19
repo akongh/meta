@@ -88,6 +88,14 @@ h2 {
     animation-iteration-count: infinite;
 }
 
+.table-sqs {
+    width: 100%;
+}
+
+.table-sqs-patterns {
+    width: 50%;
+}
+
 .content-right {
     text-align: right;
 }
@@ -244,5 +252,5 @@ a:hover {
 }
 
 .pluso-more {
-    display: none!important;
+    display: none !important;
 }

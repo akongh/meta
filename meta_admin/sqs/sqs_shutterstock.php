@@ -36,11 +36,11 @@ $format_data = $format_data["autocompletions"];
 
 //создание массива строк «ключ-значение»
 for ( $i = 0; $i < count( $format_data ); $i ++ ) {
-    $format_data_arr[ $i ] = "<span class='bold'>" . $format_data[ $i ]["pattern"] . "</span>" . " - " . $format_data[ $i ]["probability"];
+    $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span class='bold'>" . $format_data[ $i ]["pattern"] . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>";
 }
 //создание строки «ключ-значение»
 if ( isset( $format_data_arr ) ) {
-    $format_data_string = implode( "<br>", $format_data_arr );
+    $format_data_string = "<table class='table-sqs'>" . implode( "", $format_data_arr ) . "</table>";
 }
 
 //возвращаем пробелы после использования в запросе
