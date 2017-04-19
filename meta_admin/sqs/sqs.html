@@ -11,6 +11,8 @@
     <a href="../index.php">На главную</a>
     <br>
     <br>
+    <br>
+    <br>
     <form action="sqs_shutterstock.php" method="post">
         <textarea name="kw"
                   class="textarea-keywords"
@@ -20,11 +22,16 @@
                   autofocus><?php if (isset( $kw )){echo $kw;};?></textarea>
         <br>
         <br>
-        <input name="get_sqs" type="submit" value="Глянуть">
+        <label><input type="radio" name="mt" value="image"> Изображения</label>
+        <label><input type="radio" name="mt" value="audio"> Аудио</label>
+        <label><input type="radio" name="mt" value="video"> Видео</label>
         <br>
+        <br>
+        <input name="get_sqs" type="submit" value="Глянуть">
     </form>
+    <!--<br>-->
+    <!--<?php if (isset( $fake_time_num )){echo $fake_time_num;};?>-->
     <br>
-    <?php if (isset( $fake_time_num )){echo $fake_time_num;};?>
     <br>
     <br>
     <?php if (isset( $format_data_string )){echo $format_data_string;};?>
