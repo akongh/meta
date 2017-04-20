@@ -39,7 +39,8 @@ $format_data = $format_data["autocompletions"];
 
 //Создание массива строк «ключ-значение»
 for ( $i = 0; $i < count( $format_data ); $i ++ ) {
-    $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span name='pattern-kw' class='bold kw-pattern'>" . $format_data[ $i ]["pattern"] . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
+//    $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span id='pattern-kw' class='bold kw-pattern'>" . $format_data[ $i ]["pattern"] . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
+    $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span id='pattern-kw' class='bold kw-pattern'>" . trim(str_replace($kw . " ", "", $format_data[ $i ]["pattern"])) . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
 }
 //Создание строки «ключ-значение»
 if ( isset( $format_data_arr ) ) {
