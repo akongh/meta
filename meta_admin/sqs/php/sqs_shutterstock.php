@@ -46,4 +46,4 @@ if ( isset( $format_data_arr ) ) {
     $format_data_string = "<table class='table-sqs'>\n" . implode( "", $format_data_arr ) . "</table>";
 }
 
-include( 'sqs.html' );
+include( '../sqs.html' );
