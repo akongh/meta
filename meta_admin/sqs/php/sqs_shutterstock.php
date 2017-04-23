@@ -9,13 +9,7 @@ if ( isset( $_POST["mtRadio"] ) ) {
 
 
 if ( isset( $_POST["kwString"] ) ) {
-    $kwArr = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_POST["kwString"] ) ) ), "utf-8" );
-    $kwArr = preg_replace( "/ {2,}/", " ", $kwArr );
-    $kwArr = preg_split( "[\n|,|;]", $kwArr, - 1, PREG_SPLIT_NO_EMPTY );
-    for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
-        $kwArr[ $i ] = trim( $kwArr[ $i ] );
-    }
-    $kwArr = array_values( array_unique( ( array_diff( $kwArr, array( '' ) ) ) ) );
+    $kwArr = prepare_query( $_POST["kwString"] );
     if ( count( $kwArr ) > 0 ) {
         for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
             get_hints( $kwArr[ $i ], $mt );
@@ -29,6 +23,24 @@ if ( isset( $_POST["kwString"] ) ) {
 } else {
     get_hints( "", $mt );
 };
+
+
+//ФУНКЦИИ
+
+
+function prepare_query( $_PARAM_query ) {
+    $kwArr = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_query ) ) ), "utf-8" );
+    $kwArr = preg_replace( "/ {2,}/", " ", $kwArr );
+    $kwArr = preg_split( "[\n|,|;]", $kwArr, - 1, PREG_SPLIT_NO_EMPTY );
+    for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
+        $kwArr[ $i ] = trim( $kwArr[ $i ] );
+    }
+    $kwArr = array_values( array_unique( ( array_diff( $kwArr, array( '' ) ) ) ) );
+
+    return $kwArr;
+}
+
+;
 
 
 function get_hints( $_PARAM_kw_query, $_PARAM_mt ) {
