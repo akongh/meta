@@ -42,7 +42,10 @@ $format_data = $format_data["data"]["autocompletions"];
 for ( $i = 0; $i < count( $format_data ); $i ++ ) {
     $format_data_arr[ $i ] = trim( str_replace( trim( $kw ) . " ", "", $format_data[ $i ]["pattern"] ) ) . " - " . $format_data[ $i ]["probability"];
 }
-
-$format_data_str = implode( ", ", $format_data_arr );
+if ( isset( $format_data_arr ) ) {
+    $format_data_str = implode( ", ", $format_data_arr );
+} else {
+    $format_data_str = "Нет подсказок.";
+}
 
 echo( $format_data_str );
