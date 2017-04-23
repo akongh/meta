@@ -1,55 +1,65 @@
 <?php error_reporting( - 1 );
 
-
-//Задаём переменные
-if ( isset( $_POST["kwString"] ) && ! preg_match( "/^([а-яё]+)$/iu", $_POST["kwString"] ) ) {//проверка на отсутствие кирилицы
-    $kw = preg_replace( "/ {2,}/", " ", trim( $_POST["kwString"] ) );//убираем крайние и двойные пробелы
-} else {
-    $kw = "";
-};
-$kw_query = preg_replace( "/ /", "+", $kw );//заменяем пробелы на «+» для строки запроса
 if ( isset( $_POST["mtRadio"] ) ) {
     $mt = $_POST["mtRadio"];
 } else {
     $mt = "image";
 };
-$fake_time = time() - rand( 14400, 43200 );
-$fake_num  = rand( 100, 999 );
-$id        = $fake_time . $fake_num;
-//TODO: Пока тупая имитация, выяснить истинное формирование этого значения. Похоже, оно нужно для статистики или для отслеживания автозапросов. Пока не перезагрузишь страницу, часть с временем не меняется, а добавка растёт на единицу при каждом запросе.
-//TODO: Возможно, имеет смысл попытаться подменить другие данные (о клиенте и т. д.), которые передаются или наоборот, добавить, чтоб не было видно, что запросы с сервера.
-$url = "https://www.shutterstock.com/api/autocomplete?q=" . $kw_query . "&mediaType=" . $mt . "&_=" . $id;
 
+if ( isset( $_POST["kwString"] ) ) {
+    $kwArr = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_POST["kwString"] ) ) ), "utf-8" );
+    $kwArr = preg_replace( "/ {2,}/", " ", $kwArr );
+    $kwArr = preg_split( "[\n|,|;]", $kwArr, - 1, PREG_SPLIT_NO_EMPTY );
+    for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
+        $kwArr[ $i ] = trim( $kwArr[ $i ] );
+    }
+    $kwArr = array_values( array_unique( ( array_diff( $kwArr, array( '' ) ) ) ) );
+    if ( count( $kwArr ) > 0 ) {
+        for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
+            $kw_query       = preg_replace( "/ /", "+", $kwArr[ $i ] );
+            $anticache_time = time();
+            $anticache_num  = rand( 100, 999 );
+            $anticache_id   = $anticache_time . $anticache_num;
+            //TODO: Возможно, имеет смысл подменить другие данные (о клиенте и т. д.), которые передаются или наоборот, добавить, чтоб не было видно, что запросы с сервера.
+            $url = "https://www.shutterstock.com/api/autocomplete?q=" . $kw_query . "&mediaType=" . $mt . "&_=" . $anticache_id;
+            $ses = curl_init();
+            curl_setopt( $ses, CURLOPT_URL, $url );
+            curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
+            $data = curl_exec( $ses );
+            curl_close( $ses );
 
-//Запрос-ответ
-$ses = curl_init();
-curl_setopt( $ses, CURLOPT_URL, $url );
-curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
-$data = curl_exec( $ses );
-curl_close( $ses );
+            echo( $data );
+            if ( $i > 0 ) {
+                sleep( 2 );
+            }
+        }
+    } else {
+        $kw_query       = "";
+        $anticache_time = time();
+        $anticache_num  = rand( 100, 999 );
+        $anticache_id   = $anticache_time . $anticache_num;
+        //TODO: Возможно, имеет смысл подменить другие данные (о клиенте и т. д.), которые передаются или наоборот, добавить, чтоб не было видно, что запросы с сервера.
+        $url = "https://www.shutterstock.com/api/autocomplete?q=" . $kw_query . "&mediaType=" . $mt . "&_=" . $anticache_id;
+        $ses = curl_init();
+        curl_setopt( $ses, CURLOPT_URL, $url );
+        curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
+        $data = curl_exec( $ses );
+        curl_close( $ses );
 
-
-//Форматирование json-ответа
-$format_data = json_decode( $data, true );
-$format_data = $format_data["data"]["autocompletions"];
-
-//Создание массива строк «ключ-значение»
-//for ( $i = 0; $i < count( $format_data ); $i ++ ) {
-//    $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span id='pattern-kw' class='bold kw-pattern'>" . trim( str_replace( trim($kw) . " ", "", $format_data[ $i ]["pattern"] ) ) . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
-//}
-////Создание строки «ключ-значение»
-//if ( isset( $format_data_arr ) ) {
-//    $format_data_string = "<table class='table-sqs'>\n" . implode( "", $format_data_arr ) . "</table>";
-//}
-
-for ( $i = 0; $i < count( $format_data ); $i ++ ) {
-    $format_data_arr[ $i ] = str_replace( $kw . " ", "", $format_data[ $i ]["pattern"] ) . " - " . $format_data[ $i ]["probability"];//TODO: А если вырежет в середине ответа?
-}
-if ( isset( $format_data_arr ) ) {
-    $format_data_str = implode( ", ", $format_data_arr );
+        echo( $data );
+    }
 } else {
-    $format_data_str = "Нет подсказок.";
-}
+    $kw_query       = "";
+    $anticache_time = time();
+    $anticache_num  = rand( 100, 999 );
+    $anticache_id   = $anticache_time . $anticache_num;
+    //TODO: Возможно, имеет смысл подменить другие данные (о клиенте и т. д.), которые передаются или наоборот, добавить, чтоб не было видно, что запросы с сервера.
+    $url = "https://www.shutterstock.com/api/autocomplete?q=" . $kw_query . "&mediaType=" . $mt . "&_=" . $anticache_id;
+    $ses = curl_init();
+    curl_setopt( $ses, CURLOPT_URL, $url );
+    curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
+    $data = curl_exec( $ses );
+    curl_close( $ses );
 
-
-echo( $format_data_str );
+    echo( $data );
+};
