@@ -1,4 +1,5 @@
 var getSqsButton = document.querySelector("#get_sqs");
+var stubButton = document.querySelector("#stub");
 
 getSqsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -6,6 +7,8 @@ getSqsButton.addEventListener("click", function (e) {
 }, false);
 
 function sendQuery(url) {
+    getSqsButton.hidden=true;
+    stubButton.hidden=false;
     var request = new XMLHttpRequest();
     var kwString = "kwString=" + document.querySelector("#kw").value;
     var mtRadio = "mtRadio=" + document.querySelector("input[name='mt']:checked").value;
@@ -13,6 +16,7 @@ function sendQuery(url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             document.querySelector("#kw-list").innerHTML = request.responseText;
+            setTimeout("getSqsButton.hidden=false; stubButton.hidden=true;", 2000);
         }
         ;
     };

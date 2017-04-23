@@ -118,6 +118,15 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
+.stub {
+    width: 100%;
+    background: #dddddd;
+    text-align: center;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    color: #888888;
+}
+
 input[type="checkbox"] {
     width: 14px;
     height: 14px;
