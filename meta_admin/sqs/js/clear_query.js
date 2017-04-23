@@ -1,7 +1,3 @@
-/**
- * Created by Andrei on 20.04.2017.
- */
-
 var clearButton = document.querySelector("#clearButton");
 
 clearButton.addEventListener("click", clearQuery);

@@ -8,18 +8,19 @@
 <body>
 <div class="page">
     <br>
-    <a class="link-button" href="../../index.php">[На главную]</a>
+    <a class="link-button" href="../index.php">[На главную]</a>
     <br>
     <br>
     <br>
     <br>
-    <form action="sqs_shutterstock.php" method="post">
-        <textarea name="kw"
+    <form action="" method="">
+        <textarea id="kw"
+                  name="kw"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php if (isset( $kw )){echo $kw;};?></textarea>
+                  autofocus></textarea>
         <br>
         <br>
         <br>
@@ -30,16 +31,17 @@
         <a id="clearButton" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
         <br>
         <br>
-        <input name="get_sqs" type="submit" value="Глянуть">
+        <input id="get_sqs" name="get_sqs" type="submit" value="Глянуть">
     </form>
     <!--<br>-->
     <!--<?php if (isset( $fake_time_num )){echo $fake_time_num;};?>-->
     <br>
     <br>
     <br>
-    <?php if (isset( $format_data_string )){echo $format_data_string;};?>
+    <div id="kw-list"></div>
 </div>
-<script src="../js/kw_pattern_to_query.js"></script>
-<script src="../js/clear_query.js"></script>
+<script src="js/qr_shutterstock.js"></script>
+<script src="js/kw_pattern_to_query.js"></script>
+<script src="js/clear_query.js"></script>
 </body>
 </html>
