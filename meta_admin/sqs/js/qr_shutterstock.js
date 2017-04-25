@@ -1,5 +1,4 @@
 var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button");
-var stub = document.querySelector("#stub");
 
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -7,8 +6,8 @@ getBasicKeywordsButton.addEventListener("click", function (e) {
 }, false);
 
 function sendQuery(url) {
-    getBasicKeywordsButton.hidden = true;
-    stub.hidden = false;
+    hideGetBasicKeywordsButton();
+
     var request = new XMLHttpRequest();
     var mediaType = "mediaType=" + document.querySelector("input[name='media-type']:checked").value;
     var basicKeywordsString = "basicKeywordsString=" + document.querySelector("#basic-keywords-string").value;
@@ -25,11 +24,19 @@ function sendQuery(url) {
     request.send(requestSet);
 };
 
-function visibleGetBasicKeywordsButton() {
-    getBasicKeywordsButton.hidden = false;
-    stub.hidden = true;
+function hideGetBasicKeywordsButton() {
+    getBasicKeywordsButton.disabled = true;
+    getBasicKeywordsButton.value = "Ждём…";
+    getBasicKeywordsButton.style.background = "#dddddd";
+    getBasicKeywordsButton.style.cursor = "default";
 }
 
+function visibleGetBasicKeywordsButton() {
+    getBasicKeywordsButton.disabled = false;
+    getBasicKeywordsButton.value = "Глянуть";
+    getBasicKeywordsButton.style.background = "#ffffff";
+    getBasicKeywordsButton.style.cursor = "pointer";
+}
 
 // for ( $i = 0; $i < count( $format_data ); $i ++ ) {
 //     $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span id='pattern-kw' class='bold kw-pattern'>" . trim( str_replace( trim( $kw ) . " ", "", $format_data[ $i ]["pattern"] ) ) . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
