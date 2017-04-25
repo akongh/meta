@@ -105,15 +105,19 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 
 
 //двумерность массива подсказок делаем одномерной
-$hint_keyword_array = call_user_func_array('array_merge', $hint_keyword_array);
+if ( isset( $hint_keyword_array ) ) {
+    $hint_keyword_array = call_user_func_array( 'array_merge', $hint_keyword_array );
+};
 
 
 //добавляем в результат ОКС
-$hint_keyword_array = array_merge($basic_keywords_array, $hint_keyword_array);
-
-
-//удаляем пустые значения, дубликаты и обновляем индекс
-$hint_keyword_array = array_values( array_unique( ( array_diff( $hint_keyword_array, array( "" ) ) ) ) );
+if ( isset( $hint_keyword_array ) ) {
+    $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
+    //удаляем пустые значения, дубликаты и обновляем индекс
+    $hint_keyword_array = array_values( array_unique( ( array_diff( $hint_keyword_array, array( "" ) ) ) ) );
+} else {
+    $hint_keyword_array = $basic_keywords_array;
+};
 
 
 echo("<pre>" . implode("\n", $hint_keyword_array) . "</pre>");
