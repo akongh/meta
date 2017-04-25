@@ -104,8 +104,12 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 };
 
 
-//лвумерность массива подсказок делаем одномерной
+//двумерность массива подсказок делаем одномерной
 $hint_keyword_array = call_user_func_array('array_merge', $hint_keyword_array);
+
+
+//добавляем в результат ОКС
+$hint_keyword_array = array_merge($basic_keywords_array, $hint_keyword_array);
 
 
 //удаляем пустые значения, дубликаты и обновляем индекс
