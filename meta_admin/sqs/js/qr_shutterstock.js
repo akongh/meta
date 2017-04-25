@@ -3,7 +3,7 @@ var stub = document.querySelector("#stub");
 
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQuery("php/sqs_shutterstock.php");
+    sendQuery("php/ex_sqs_shutterstock.php");
 }, false);
 
 function sendQuery(url) {

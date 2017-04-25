@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Поисковые запросы</title>
-    <link href="../../../css/native.css" rel="stylesheet" type="text/css">
+    <title>Подсказки от Шаттерстока запросов покупателей</title>
+    <meta name="Description" content=""/>
+    <meta name="Keywords" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../../css/native.css"
+          rel="stylesheet"
+          type="text/css">
+    <link rel="shortcut icon"
+          href="http://<?php echo $site_domain_name ?>/favicon.ico"
+          type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="page">
     <br>
-    <a class="link-button" href="../index.php">[На главную]</a>
+    <br>
+    <a href="../index.php" title="МЕТА. Сервис подбора ключевых слов для стоков">Управление МЕТОЙ</a>
+    <br>
+    <br>
+    <h1 class="bold">Подсказки от Шаттерстока запросов покупателей</h1>
     <br>
     <br>
     <br>
@@ -36,6 +48,7 @@
     <br>
     <br>
     <div id="hints-list"></div>
+    <?php include('../../shtml/footer.shtml');?>
 </div>
 <script src="js/qr_shutterstock.js"></script>
 <!--<script src="js/kw_pattern_to_query.js"></script>-->
