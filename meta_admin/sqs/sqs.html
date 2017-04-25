@@ -13,34 +13,32 @@
     <br>
     <br>
     <br>
-    <form action="" method="">
-        <textarea id="kw"
-                  name="kw"
-                  class="textarea-keywords"
-                  wrap="soft"
-                  rows="8"
-                  placeholder=""
-                  autofocus></textarea>
-        <br>
-        <br>
-        <br>
-        <br>
-        <label><input type="radio" name="mt" value="image" checked> Изображения</label>
-        <label><input type="radio" name="mt" value="audio"> Аудио</label>
-        <label><input type="radio" name="mt" value="video"> Видео</label>
-        <a id="clearButton" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
-        <br>
-        <br>
-        <input id="get_sqs" name="get_sqs" type="submit" value="Глянуть">
-        <div id="stub" class="bold stub" hidden>Ждём…</div>
-    </form>
+    <textarea id="basic-keywords-string"
+              name="basic-keywords-string"
+              class="textarea-keywords"
+              wrap="soft"
+              rows="8"
+              placeholder=""
+              autofocus></textarea>
     <br>
     <br>
     <br>
-    <div id="kw-list"></div>
+    <br>
+    <label><input type="radio" name="media-type" value="image" checked> Изображения</label>
+    <label><input type="radio" name="media-type" value="audio"> Аудио</label>
+    <label><input type="radio" name="media-type" value="video"> Видео</label>
+    <a id="clearButton" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
+    <br>
+    <br>
+    <input id="get-basic-keywords-button" name="get-basic-keywords-button" type="submit" value="Глянуть">
+    <div id="stub" class="bold stub" hidden>Ждём…</div>
+    <br>
+    <br>
+    <br>
+    <div id="hints-list"></div>
 </div>
 <script src="js/qr_shutterstock.js"></script>
-<script src="js/kw_pattern_to_query.js"></script>
+<!--<script src="js/kw_pattern_to_query.js"></script>-->
 <script src="js/clear_query.js"></script>
 </body>
 </html>

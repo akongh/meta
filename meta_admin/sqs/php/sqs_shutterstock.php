@@ -1,104 +1,186 @@
 <?php error_reporting( - 1 );
 
 
-if ( isset( $_POST["mtRadio"] ) ) {
-    $mt = $_POST["mtRadio"];
-} else {
-    $mt = "image";
-};
+//получаем и определяем параметр mediaType и строку ОКС
+$media_type            = $_POST["mediaType"];
+$basic_keywords_string = $_POST["basicKeywordsString"];
 
 
-if ( isset( $_POST["kwString"] ) ) {
-    $kwArr = prepare_query( $_POST["kwString"] );
-    if ( count( $kwArr ) > 0 ) {
-        for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
-            $json_data = get_hints( $kwArr[ $i ], $mt );
-            json_parser( $json_data, $kwArr[ $i ] );
-            if ( $i > 0 ) {
-                sleep( 2 );
+//готовим для запросов массив ОКС из строки ОКС
+$basic_keywords_array = prepare_basic_keywords_array( $basic_keywords_string );
+
+
+//подстроки для правила удаления ОКС из подсказки
+$rules = [
+    " about ",
+    " above ",
+    " across ",
+    " after ",
+    " against ",
+    " along ",
+    " among ",
+    " and ",
+    " around ",
+    " as ",
+    " at ",
+    " before ",
+    " behind ",
+    " below ",
+    " beside ",
+    " between ",
+    " beyond ",
+    " by ",
+    " during ",
+    " for ",
+    " from ",
+    " how ",
+    " in ",
+    " in front of ",
+    " inside ",
+    " into ",
+    " like ",
+    " of ",
+    " off ",
+    " on ",
+    " or ",
+    " out ",
+    " out of ",
+    " outside ",
+    " over ",
+    " since ",
+    " through ",
+    " till ",
+    " to ",
+    " toward ",
+    " under ",
+    " until ",
+    " up ",
+    " via ",
+    " when ",
+    " while ",
+    " with ",
+    " within ",
+    " without "
+];
+
+
+//получаем json-ответы для каждого ОКС
+for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+    $json_responce_array[ $i ] = json_responce_for_one_basic_keyword( $basic_keywords_array[ $i ], $media_type );
+
+    //очистка json-ответа от служебной информации
+    $clean_json_responce_array[ $i ] = cleaning_for_one_json_responce( $json_responce_array[ $i ] );
+
+    //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
+    for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
+
+        //на всякий случай чистим края
+        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["pattern"] );
+
+        //удаляем ОКС из подсказок, если ОКС вначале подсказки и подскажка не имеет союзов и предлогов
+        //TODO: если в ОКС есть предлог или массив, то это ОКС удаляться из подсказки не будет
+        $current_pattern = $only_pattern_array[ $i ][ $j ];
+        $current_keyword = $basic_keywords_array[ $i ];
+        $f               = true;//флаг обнаружения правила в подсказке
+        for ( $k = 0; $k < count( $rules ); $k ++ ) {
+            if ( strpos( $current_pattern, $rules[ $k ] ) === false ) {
+                continue;
+            } else {
+                $f = false;
+                break;
             }
-        }
-    } else {
-        $json_data = get_hints( "", $mt );
-        json_parser( $json_data, "" );
-    }
-} else {
-    $json_data = get_hints( "", $mt );
-    json_parser( $json_data, "" );
+        };
+        if ( $f === true ) {
+            $hint_keyword_array[ $i ][ $j ] = delete_basic_keyword_from_hint( $current_keyword, $current_pattern );
+        } else {
+            $hint_keyword_array[ $i ][ $j ] = $current_pattern;
+        };
+    };
+
+    //спим между запросами, чтоб не нарваться на запрет
+    if ( $i > 0 && $i < count( $basic_keywords_array ) - 1 ) {
+        sleep( 1 );
+    };
 };
 
 
-//ФУНКЦИИ
+//лвумерность массива подсказок делаем одномерной
+$hint_keyword_array = call_user_func_array('array_merge', $hint_keyword_array);
 
 
-function prepare_query( $_PARAM_query ) {
-    $kwArr = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_query ) ) ), "utf-8" );
-    $kwArr = preg_replace( "/ {2,}/", " ", $kwArr );
-    $kwArr = preg_split( "[\n|,|;]", $kwArr, - 1, PREG_SPLIT_NO_EMPTY );
-    for ( $i = 0; $i < count( $kwArr ); $i ++ ) {
-        $kwArr[ $i ] = trim( $kwArr[ $i ] );
-    }
-    $kwArr = array_values( array_unique( ( array_diff( $kwArr, array( '' ) ) ) ) );
+//удаляем пустые значения, дубликаты и обновляем индекс
+$hint_keyword_array = array_values( array_unique( ( array_diff( $hint_keyword_array, array( "" ) ) ) ) );
 
-    return $kwArr;
+
+echo("<pre>" . implode("\n", $hint_keyword_array) . "</pre>");
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//готовит для запросов массив ОКС из строки ОКС
+function prepare_basic_keywords_array( $_PARAM_basic_keywords_string ) {
+    $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
+    $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
+    $basic_keywords_array = preg_split( "[\n|,|;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
+    for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+        $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
+    };
+    $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
+    if ( count( $basic_keywords_array ) == 0 ) {
+        $basic_keywords_array = [ "" ];
+    };
+
+    return $basic_keywords_array;
 }
 
 ;
 
 
-function get_hints( $_PARAM_kw_query, $_PARAM_mt ) {
-    if ( $_PARAM_kw_query != "" ) {
-        $_PARAM_kw_query = preg_replace( "/ /", "+", $_PARAM_kw_query );
+//создаёт json-ответ для одного ОКС
+function json_responce_for_one_basic_keyword( $_PARAM_basic_keyword, $_PARAM_media_type ) {
+    if ( $_PARAM_basic_keyword != "" ) {
+        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
     };
     $anticache_time = time();
     $anticache_num  = rand( 100, 999 );
     $anticache_id   = $anticache_time . $anticache_num;
-    //TODO: Возможно, имеет смысл подменить другие данные (о клиенте и т. д.), которые передаются или наоборот, добавить, чтоб не было видно, что запросы с сервера.
-    $url = "https://www.shutterstock.com/api/autocomplete?q=" . $_PARAM_kw_query . "&mediaType=" . $_PARAM_mt . "&_=" . $anticache_id;
-    $ses = curl_init();
-    curl_setopt( $ses, CURLOPT_URL, $url );
-    curl_setopt( $ses, CURLOPT_RETURNTRANSFER, true );
-    $json_data = curl_exec( $ses );
-    curl_close( $ses );
+    $url            = "https://www.shutterstock.com/api/autocomplete?q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&_=" . $anticache_id;
+    $sesion         = curl_init();
+    curl_setopt( $sesion, CURLOPT_URL, $url );
+    curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
+    $json_responce = curl_exec( $sesion );
+    curl_close( $sesion );
 
-    return $json_data;
+    return $json_responce;
 }
 
 ;
 
 
-function json_parser( $_PARAM_json_data, $_PARAM_kw ) {
-    $formated_data = json_decode( $_PARAM_json_data, true );
-    $formated_data = $formated_data["data"]["autocompletions"];
-    if ( isset( $formated_data ) && count( $formated_data ) > 0 ) {
-        $rulesArr = [
-            " and ",
-            " at ",
-            " in ",
-            " on ",
-            " of "
-        ];
-        for ( $i = 0; $i < count( $formated_data ); $i ++ ) {
-            $f = true;
-            for ( $j = 0; $j < count( $rulesArr ); $j ++ ) {
-                if ( strpos( $formated_data[ $i ]["pattern"], $rulesArr[ $j ] ) === false ) {
-                    continue;
-                } else {
-                    $f = false;
-                    break;
-                }
-            }
-            if ( $f === true ) {
-                //TODO: А если вырежет в середине ответа?
-                $formated_data[ $i ]["pattern"] = str_replace( $_PARAM_kw . " ", "", $formated_data[ $i ]["pattern"] );
-            }
-            $formated_data[ $i ] = $formated_data[ $i ]["pattern"] . " - " . $formated_data[ $i ]["probability"];
-        }
-        $formated_data = implode( "\n", $formated_data );
-        echo( "<pre>" . $formated_data . "</pre>" );
+//очищает от служебной информации массив подсказок для одного json-ответа
+function cleaning_for_one_json_responce( $_PARAM_json_responce ) {
+    $clean_json_responce_array = json_decode( $_PARAM_json_responce, true );
+    $clean_json_responce_array = $clean_json_responce_array["data"]["autocompletions"];
+
+    return $clean_json_responce_array;
+}
+
+;
+
+
+//удаляет ОКС из подсказки
+function delete_basic_keyword_from_hint( $_PARAM_basic_keyword, $_PARAM_hint ) {
+    $pattern_for_delete = $_PARAM_basic_keyword . " ";
+    if ( mb_strpos( $_PARAM_hint, $pattern_for_delete ) === 0 ) {
+        $hint_keyword = mb_strcut( $_PARAM_hint, mb_strlen( $pattern_for_delete ) );
     } else {
-        echo( "Подсказок нет." );
+        $hint_keyword = $_PARAM_hint;
     };
+
+    return $hint_keyword;
 }
 
 ;
