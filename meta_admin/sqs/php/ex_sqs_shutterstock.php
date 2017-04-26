@@ -11,8 +11,8 @@ $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 
 //проверка колличества ОКС
-if (count ($basic_keywords_array) > 16){
-    echo("Не более 8-ми опорных ключевых слов.");
+if ( count( $basic_keywords_array ) > 16 ) {
+    echo( "Не более 8-ми опорных ключевых слов." );
     exit;
 };
 
@@ -141,6 +141,12 @@ if ( isset( $hint_keyword_array ) ) {
 } else {
     $hint_keyword_array = array_values( array_unique( $basic_keywords_array ) );
 };
+
+
+//дополнительно добавляем в результат все слова из словосочетаний по-отдельности
+$hint_individual_keyword_array = implode( " ", $hint_keyword_array );
+$hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
+$hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 
 echo( "<pre>" . implode( "\n", $hint_keyword_array ) . "</pre>" );
