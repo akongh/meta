@@ -78,7 +78,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["pattern"] );
 
         //удаляем ОКС из подсказок, если ОКС вначале подсказки и подскажка не имеет союзов и предлогов
-        //TODO: если в ОКС есть предлог или массив, то это ОКС удаляться из подсказки не будет
+        //TODO: если в ОКС есть предлог или союз, то это ОКС удаляться из подсказки не будет
         $current_pattern = $only_pattern_array[ $i ][ $j ];
         $current_keyword = $basic_keywords_array[ $i ];
         $f               = true;//флаг обнаружения правила в подсказке
@@ -111,6 +111,10 @@ if ( isset( $hint_keyword_array ) ) {
 
 
 //добавляем в результат ОКС
+for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+    //удаляем пробелы на конце у ОКС, дубликаты удалятся далее
+    $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
+};
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
     //удаляем пустые значения, дубликаты и обновляем индекс
@@ -120,7 +124,7 @@ if ( isset( $hint_keyword_array ) ) {
 };
 
 
-echo("<pre>" . implode("\n", $hint_keyword_array) . "</pre>");
+echo( "<pre>" . implode( "\n", $hint_keyword_array ) . "</pre>" );
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,6 +143,12 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
         $basic_keywords_array = [ "" ];
+    } else {
+        for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+            //создаём дополнительный массив ОКС с пробелами на конце, чтобы искать и по отдельному слову
+            $basic_keywords_array_endspase[ $i ] = $basic_keywords_array[ $i ] . " ";
+        };
+        $basic_keywords_array = array_merge( $basic_keywords_array, $basic_keywords_array_endspase );
     };
 
     return $basic_keywords_array;
