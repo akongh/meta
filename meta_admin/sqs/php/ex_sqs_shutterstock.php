@@ -7,7 +7,7 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 
 
 //готовим для запросов массив ОКС из строки ОКС
-$basic_keywords_array = prepare_basic_keywords_array( $basic_keywords_string );
+$basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 
 //подстроки для правила удаления ОКС из подсказки
@@ -66,10 +66,10 @@ $rules = [
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-    $json_responce_array[ $i ] = json_responce_for_one_basic_keyword( $basic_keywords_array[ $i ], $media_type );
+    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ], $media_type );
 
     //очистка json-ответа от служебной информации
-    $clean_json_responce_array[ $i ] = cleaning_for_one_json_responce( $json_responce_array[ $i ] );
+    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ] );
 
     //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
@@ -91,7 +91,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
             }
         };
         if ( $f === true ) {
-            $hint_keyword_array[ $i ][ $j ] = delete_basic_keyword_from_hint( $current_keyword, $current_pattern );
+            $hint_keyword_array[ $i ][ $j ] = DELETE_BASIC_KEYWORD_FROM_HINT( $current_keyword, $current_pattern );
         } else {
             $hint_keyword_array[ $i ][ $j ] = $current_pattern;
         };
@@ -129,7 +129,7 @@ echo("<pre>" . implode("\n", $hint_keyword_array) . "</pre>");
 
 
 //готовит для запросов массив ОКС из строки ОКС
-function prepare_basic_keywords_array( $_PARAM_basic_keywords_string ) {
+function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
     $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     $basic_keywords_array = preg_split( "[\n|,|;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
@@ -148,7 +148,7 @@ function prepare_basic_keywords_array( $_PARAM_basic_keywords_string ) {
 
 
 //создаёт json-ответ для одного ОКС
-function json_responce_for_one_basic_keyword( $_PARAM_basic_keyword, $_PARAM_media_type ) {
+function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_media_type ) {
     if ( $_PARAM_basic_keyword != "" ) {
         $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
     };
@@ -169,7 +169,7 @@ function json_responce_for_one_basic_keyword( $_PARAM_basic_keyword, $_PARAM_med
 
 
 //очищает от служебной информации массив подсказок для одного json-ответа
-function cleaning_for_one_json_responce( $_PARAM_json_responce ) {
+function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
     $clean_json_responce_array = json_decode( $_PARAM_json_responce, true );
     $clean_json_responce_array = $clean_json_responce_array["data"]["autocompletions"];
 
@@ -180,7 +180,7 @@ function cleaning_for_one_json_responce( $_PARAM_json_responce ) {
 
 
 //удаляет ОКС из подсказки
-function delete_basic_keyword_from_hint( $_PARAM_basic_keyword, $_PARAM_hint ) {
+function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
     $pattern_for_delete = $_PARAM_basic_keyword . " ";
     if ( mb_strpos( $_PARAM_hint, $pattern_for_delete ) === 0 ) {
         $hint_keyword = mb_strcut( $_PARAM_hint, mb_strlen( $pattern_for_delete ) );
