@@ -149,6 +149,10 @@ $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 
+//натуральная сортировка
+natsort( $hint_keyword_array );
+
+
 echo( "<pre>" . implode( "\n", $hint_keyword_array ) . "</pre>" );
 
 
