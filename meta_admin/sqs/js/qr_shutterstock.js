@@ -34,8 +34,8 @@ function hideGetBasicKeywordsButton() {
 function visibleGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = false;
     getBasicKeywordsButton.value = "Глянуть";
-    getBasicKeywordsButton.style.background = "#ffffff";
-    getBasicKeywordsButton.style.cursor = "pointer";
+    getBasicKeywordsButton.style.background = "";
+    getBasicKeywordsButton.style.cursor = "";
 }
 
 // for ( $i = 0; $i < count( $format_data ); $i ++ ) {
