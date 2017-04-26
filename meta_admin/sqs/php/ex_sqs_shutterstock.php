@@ -10,6 +10,13 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 
+//проверка колличества ОКС
+if (count ($basic_keywords_array) > 16){
+    echo("Не более 8-ми опорных ключевых слов.");
+    exit;
+};
+
+
 //подстроки для правила удаления ОКС из подсказки
 $rules = [
     " about ",
@@ -95,6 +102,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         } else {
             $hint_keyword_array[ $i ][ $j ] = $current_pattern;
         };
+        $hint_keyword_array_full[ $i ][ $j ] = $current_pattern;
     };
 
     //спим между запросами, чтоб не нарваться на запрет
@@ -104,9 +112,20 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 };
 
 
-//двумерность массива подсказок делаем одномерной
+//двумерность массивов подсказок делаем одномерной
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = call_user_func_array( 'array_merge', $hint_keyword_array );
+};
+if ( isset( $hint_keyword_array_full ) ) {
+    $hint_keyword_array_full = call_user_func_array( 'array_merge', $hint_keyword_array_full );
+};
+
+
+//делаем единый массив обрезанных и необрезанных подсказок, если оба исходника существуют
+if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
+    $hint_keyword_array = array_merge( $hint_keyword_array, $hint_keyword_array_full );
+} else if ( ! isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
+    $hint_keyword_array = $hint_keyword_array_full;
 };
 
 
@@ -120,7 +139,7 @@ if ( isset( $hint_keyword_array ) ) {
     //удаляем пустые значения, дубликаты и обновляем индекс
     $hint_keyword_array = array_values( array_unique( ( array_diff( $hint_keyword_array, array( "" ) ) ) ) );
 } else {
-    $hint_keyword_array = $basic_keywords_array;
+    $hint_keyword_array = array_values( array_unique( $basic_keywords_array ) );
 };
 
 
