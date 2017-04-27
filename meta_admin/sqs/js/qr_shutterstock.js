@@ -4,7 +4,7 @@ var clearButton = document.querySelector("#clearButton");
 
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQueryGetHints("php/ex_sqs_shutterstock.php");
+    sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
 }, false);
 clearButton.addEventListener("click", clearQuery);
 
@@ -14,8 +14,8 @@ clearButton.addEventListener("click", clearQuery);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function sendQueryGetHints(url) {
-    hideGetBasicKeywordsButton();
+function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
+    disableGetBasicKeywordsButton();
 
     var request = new XMLHttpRequest();
     var mediaType = "mediaType=" + document.querySelector("input[name='media-type']:checked").value;
@@ -24,42 +24,68 @@ function sendQueryGetHints(url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
+
             var resultArray = JSON.parse(request.responseText);
+
+            addStatusForHints(resultArray);
+
             if (typeof window.hintsObjectsArray !== "undefined") {
                 window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
             } else {
                 window.hintsObjectsArray = resultArray;
             }
             ;
-            var listResultArray = [];
-            for (var i = 0; i < window.hintsObjectsArray.length; i++) {
-                listResultArray[i] = "<span class='bold'>" + window.hintsObjectsArray[i].hint + "</span><br>" + window.hintsObjectsArray[i].translation.join("<br>");
-            }
-            ;
-            document.querySelector("#hints-list").innerHTML = listResultArray.join("<br>");
-            setTimeout("visibleGetBasicKeywordsButton()", 200);
+
+            createHTMLHintsList(window.hintsObjectsArray);
+
+            setTimeout("enableGetBasicKeywordsButton()", 200);
         }
         ;
     };
-    request.open("POST", url, true);
+    request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(requestSet);
 };
 
-function hideGetBasicKeywordsButton() {
+
+function addStatusForHints(PARAM_hintsObjectsArray) {
+    for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        PARAM_hintsObjectsArray[i].status = "deselect";
+    }
+    ;
+};
+
+
+function createHTMLHintsList(PARAM_hintsObjectsArray) {
+
+    var listResultArray = [];
+
+    for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArray[i] = "<span class='bold'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
+            "<br>" +
+            PARAM_hintsObjectsArray[i].translation.join("<br>");
+    }
+    ;
+    document.querySelector("#hints-list").innerHTML = listResultArray.join("<br>");
+};
+
+
+function clearQuery() {
+    document.querySelector("textarea[name='basic-keywords-string']").value = "";
+};
+
+
+function disableGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = true;
     getBasicKeywordsButton.value = "Ждём…";
     getBasicKeywordsButton.style.background = "#dddddd";
     getBasicKeywordsButton.style.cursor = "default";
 };
 
-function visibleGetBasicKeywordsButton() {
+
+function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = false;
     getBasicKeywordsButton.value = "Глянуть";
     getBasicKeywordsButton.style.background = "";
     getBasicKeywordsButton.style.cursor = "";
-};
-
-function clearQuery() {
-    document.querySelector("textarea[name='basic-keywords-string']").value = "";
 };
