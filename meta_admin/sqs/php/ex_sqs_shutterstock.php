@@ -1,5 +1,7 @@
 <?php error_reporting( - 1 );
 
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+
 
 //получаем и определяем параметр mediaType и строку ОКС
 $media_type            = $_POST["mediaType"];
@@ -105,7 +107,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $hint_keyword_array_full[ $i ][ $j ] = $current_pattern;
     };
 
-    //спим между запросами, чтоб не нарваться на запрет
+    //спим между запросами, чтоб не нарваться на блокировку
     if ( $i > 0 && $i < count( $basic_keywords_array ) - 1 ) {
         sleep( 1 );
     };
@@ -149,11 +151,22 @@ $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 
-//натуральная сортировка
-natsort( $hint_keyword_array );
+//добавление перевода
+for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
+    $result_array [ $i ] = [
+        $result = [
+            "hint"        => $hint_keyword_array[ $i ],
+            "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
+        ]
+    ];
+};
 
 
-echo( "<pre>" . implode( "\n", $hint_keyword_array ) . "</pre>" );
+//подготовка json-ответа
+$json_result = json_encode($result_array, JSON_UNESCAPED_UNICODE);
+
+
+echo( $json_result );
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -228,6 +241,35 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
     };
 
     return $hint_keyword;
+}
+
+;
+
+
+//выбирает перевод
+function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
+    $_SQL_select_translations = "SELECT
+    `tz`.`z`
+FROM
+    `tz`
+        JOIN
+    `k_l` ON `tz`.`idz` = `k_l`.`idz`
+        JOIN
+    `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
+WHERE
+    `l-ts`.`s` = '" . $_PARAM_hint_keyword . "'
+    ";
+    $_SQL_translations        = mysqli_query( $_PARAM_db_connect, $_SQL_select_translations );
+    $n                        = 0;
+    while ( $data = mysqli_fetch_array( $_SQL_translations ) ) {
+        $translations_array[ $n ] = $data['z'];
+        $n ++;
+    };
+    if ( count( $translations_array ) == 0 ) {
+        $translations_array[0] = "Перевода нет.";
+    };
+
+    return $translations_array;
 }
 
 ;
