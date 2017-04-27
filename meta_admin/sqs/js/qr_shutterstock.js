@@ -1,21 +1,43 @@
 var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button");
+var clearButton = document.querySelector("#clearButton");
+
 
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQuery("php/ex_sqs_shutterstock.php");
+    sendQueryGetHints("php/ex_sqs_shutterstock.php");
 }, false);
+clearButton.addEventListener("click", clearQuery);
 
-function sendQuery(url) {
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function sendQueryGetHints(url) {
     hideGetBasicKeywordsButton();
 
     var request = new XMLHttpRequest();
     var mediaType = "mediaType=" + document.querySelector("input[name='media-type']:checked").value;
     var basicKeywordsString = "basicKeywordsString=" + document.querySelector("#basic-keywords-string").value;
     var requestSet = basicKeywordsString + "&" + mediaType;
+
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            document.querySelector("#hints-list").innerHTML = request.responseText;
-            setTimeout("visibleGetBasicKeywordsButton()", 1000);
+            var resultArray = JSON.parse(request.responseText);
+            if (typeof window.hintsObjectsArray !== "undefined") {
+                window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+            } else {
+                window.hintsObjectsArray = resultArray;
+            }
+            ;
+            var listResultArray = [];
+            for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+                listResultArray[i] = "<span class='bold'>" + window.hintsObjectsArray[i].hint + "</span><br>" + window.hintsObjectsArray[i].translation.join("<br>");
+            }
+            ;
+            document.querySelector("#hints-list").innerHTML = listResultArray.join("<br>");
+            setTimeout("visibleGetBasicKeywordsButton()", 200);
         }
         ;
     };
@@ -29,18 +51,15 @@ function hideGetBasicKeywordsButton() {
     getBasicKeywordsButton.value = "Ждём…";
     getBasicKeywordsButton.style.background = "#dddddd";
     getBasicKeywordsButton.style.cursor = "default";
-}
+};
 
 function visibleGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = false;
     getBasicKeywordsButton.value = "Глянуть";
     getBasicKeywordsButton.style.background = "";
     getBasicKeywordsButton.style.cursor = "";
-}
+};
 
-// for ( $i = 0; $i < count( $format_data ); $i ++ ) {
-//     $format_data_arr[ $i ] = "<tr><td class='table-sqs-patterns'><span id='pattern-kw' class='bold kw-pattern'>" . trim( str_replace( trim( $kw ) . " ", "", $format_data[ $i ]["pattern"] ) ) . "</span></td><td>" . $format_data[ $i ]["probability"] . "</td></tr>\n";
-// }
-// if ( isset( $format_data_arr ) ) {
-//     $format_data_string = "<table class='table-sqs'>\n" . implode( "", $format_data_arr ) . "</table>";
-// }
+function clearQuery() {
+    document.querySelector("textarea[name='basic-keywords-string']").value = "";
+};
