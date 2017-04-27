@@ -154,10 +154,8 @@ $hint_keyword_array            = array_values( array_unique( array_merge( $hint_
 //добавление перевода
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
-        $result = [
-            "hint"        => $hint_keyword_array[ $i ],
-            "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
-        ]
+        "hint"        => $hint_keyword_array[ $i ],
+        "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
     ];
 };
 
@@ -246,7 +244,7 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
 ;
 
 
-//выбирает перевод
+//выбирает перевод для одной подсказки
 function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
     $_SQL_select_translations = "SELECT
     `tz`.`z`
