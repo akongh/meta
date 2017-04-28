@@ -1,6 +1,7 @@
 var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button");
 var clearButton = document.querySelector("#clear-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
+var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -12,6 +13,10 @@ clearButton.addEventListener("click", clearQuery);
 createResultStringButton.addEventListener("click", function (e) {
     e.preventDefault();
     createResultString();
+}, false);
+returnToListViewButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    returnToListView();
 }, false);
 
 
@@ -153,6 +158,16 @@ function selectDeselectHint() {
 };
 
 
+function returnToListView() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        createHTMLHintsList(window.hintsObjectsArray);
+    } else {
+        document.querySelector("#hints-list").innerHTML = "Список пуст.";
+    }
+    ;
+};
+
+
 function createResultString() {
     if (typeof window.hintsObjectsArray !== "undefined") {
         var resultString = [];
@@ -161,13 +176,16 @@ function createResultString() {
             if (window.hintsObjectsArray[i].status === "select") {
                 resultString[k] = window.hintsObjectsArray[i].hint;
                 k++;
-            } else {
-                document.querySelector("#hints-list").innerHTML = "Ничего не выбрано.";
             }
             ;
         }
         ;
-        document.querySelector("#hints-list").innerHTML = resultString.join(", ");
+        if (resultString.length > 0) {
+            document.querySelector("#hints-list").innerHTML = resultString.join(", ");
+        } else {
+            document.querySelector("#hints-list").innerHTML = "Ничего не выбрано.";
+        }
+        ;
     } else {
         document.querySelector("#hints-list").innerHTML = "Ничего не получено.";
     }
