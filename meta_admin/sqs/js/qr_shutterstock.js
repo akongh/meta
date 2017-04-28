@@ -30,6 +30,20 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
             addStatusForHints(resultArray);
 
             if (typeof window.hintsObjectsArray !== "undefined") {
+                //удаляем дубликаты от нового массива
+                for (var i = 0; i < resultArray.length; i++) {
+                    for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                        if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                            resultArray.splice([i], 1);
+                            //учитываем сдвиг индексов после удаления элемента
+                            i--;
+                            break;
+                        }
+                        ;
+                    }
+                    ;
+                }
+                ;
                 window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
             } else {
                 window.hintsObjectsArray = resultArray;
