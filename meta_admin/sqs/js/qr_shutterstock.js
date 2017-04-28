@@ -155,7 +155,7 @@ function clearQuery() {
 
 function disableGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = true;
-    getBasicKeywordsButton.value = "Ждём…";
+    getBasicKeywordsButton.value = "…";
     getBasicKeywordsButton.style.background = "#dddddd";
     getBasicKeywordsButton.style.cursor = "default";
 };
@@ -163,7 +163,7 @@ function disableGetBasicKeywordsButton() {
 
 function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = false;
-    getBasicKeywordsButton.value = "Глянуть";
+    getBasicKeywordsButton.value = "Получить";
     getBasicKeywordsButton.style.background = "";
     getBasicKeywordsButton.style.cursor = "";
 };

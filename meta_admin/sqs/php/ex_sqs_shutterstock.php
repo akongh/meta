@@ -264,7 +264,7 @@ WHERE
         $n ++;
     };
     if ( count( $translations_array ) == 0 ) {
-        $translations_array[0] = "Перевода нет.";
+        $translations_array[0] = "-";
     };
 
     return $translations_array;
