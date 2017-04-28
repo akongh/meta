@@ -14,7 +14,7 @@ $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 16 ) {
-    echo( "Не более 8-ми опорных ключевых слов." );
+    echo( "-1" );
     exit;
 };
 

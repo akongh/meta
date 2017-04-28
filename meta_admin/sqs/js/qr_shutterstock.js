@@ -25,37 +25,44 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else {
+                document.querySelector("#error").innerHTML = "";
 
-            var resultArray = JSON.parse(request.responseText);
+                var resultArray = JSON.parse(request.responseText);
 
-            addStatusForHints(resultArray);
+                addStatusForHints(resultArray);
 
-            if (typeof window.hintsObjectsArray !== "undefined") {
-                //удаляем дубликаты от нового массива
-                for (var i = 0; i < resultArray.length; i++) {
-                    for (var j = 0; j < window.hintsObjectsArray.length; j++) {
-                        if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                            resultArray.splice([i], 1);
-                            //учитываем сдвиг индексов после удаления элемента
-                            i--;
-                            break;
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    //удаляем дубликаты от нового массива
+                    for (var i = 0; i < resultArray.length; i++) {
+                        for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice([i], 1);
+                                //учитываем сдвиг индексов после удаления элемента
+                                i--;
+                                break;
+                            }
+                            ;
                         }
                         ;
                     }
                     ;
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
                 }
                 ;
-                window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
-            } else {
-                window.hintsObjectsArray = resultArray;
+
+                countHintsTotalAndSelected();
+
+                createHTMLHintsList(window.hintsObjectsArray);
+
+                setTimeout("enableGetBasicKeywordsButton()", 200);
             }
             ;
-
-            countHintsTotalAndSelected();
-
-            createHTMLHintsList(window.hintsObjectsArray);
-
-            setTimeout("enableGetBasicKeywordsButton()", 200);
         }
         ;
     };
