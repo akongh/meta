@@ -2,6 +2,7 @@ var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button"
 var clearButton = document.querySelector("#clearButton");
 
 
+window.onload = countHintsTotalAndSelected();
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
@@ -50,6 +51,8 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
             }
             ;
 
+            countHintsTotalAndSelected();
+
             createHTMLHintsList(window.hintsObjectsArray);
 
             setTimeout("enableGetBasicKeywordsButton()", 200);
@@ -70,18 +73,71 @@ function addStatusForHints(PARAM_hintsObjectsArray) {
 };
 
 
+function countHintsTotalAndSelected() {
+    var countTotal = 0;
+    var countSelected = 0;
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        countTotal = window.hintsObjectsArray.length;
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            if (window.hintsObjectsArray[i].status === "select") {
+                countSelected++;
+            }
+            ;
+        }
+        ;
+    }
+    ;
+    document.querySelector("#hints-total-and-selected").innerHTML = countTotal + " / " + countSelected;
+};
+
+
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
     var listResultArray = [];
 
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box'>" +
-            "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
-            "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
-            "</div>";
+        if (PARAM_hintsObjectsArray[i].status === "deselect") {
+            listResultArray[i] = "<div id='hint-box' class='hint-box-deselect'>" +
+                "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
+                "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
+                "</div>";
+        } else {
+            listResultArray[i] = "<div id='hint-box' class='hint-box-select'>" +
+                "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
+                "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
+                "</div>";
+        }
+        ;
     }
     ;
     document.querySelector("#hints-list").innerHTML = listResultArray.join("");
+
+    var hintBoxes = document.querySelectorAll("#hint-box");
+    for (var i = 0; i < hintBoxes.length; i++) {
+        hintBoxes[i].addEventListener("click", selectDeselectHint);
+    }
+    ;
+};
+
+
+function selectDeselectHint() {
+    var hint = this.firstChild.innerHTML;
+    for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+        if (window.hintsObjectsArray[i].hint === hint) {
+            if (window.hintsObjectsArray[i].status === "deselect") {
+                window.hintsObjectsArray[i].status = "select";
+            } else {
+                window.hintsObjectsArray[i].status = "deselect"
+            }
+            ;
+            break;
+        }
+        ;
+    }
+    ;
+
+    countHintsTotalAndSelected();
+    createHTMLHintsList(window.hintsObjectsArray);
 };
 
 

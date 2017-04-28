@@ -213,13 +213,24 @@ a:hover {
     background: #eeeeee;
 }
 
-.hint-box {
+.hint-box-deselect {
     width: 100%;
-    background: #dddddd;
+    background: #eeeeee;
+    border: solid 1px #eeeeee;
 }
 
-.hint-box:hover {
-    background: #eeeeee;
+.hint-box-deselect:hover {
+    border: dashed 1px #888888;
+}
+
+.hint-box-select {
+    width: 100%;
+    background: #ffffff;
+    border: solid 1px #ffffff;
+}
+
+.hint-box-select:hover {
+    border: dashed 1px #888888;
 }
 
 .hint-keyword {
