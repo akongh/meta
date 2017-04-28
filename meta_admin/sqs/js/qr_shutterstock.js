@@ -1,5 +1,6 @@
 var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button");
-var clearButton = document.querySelector("#clearButton");
+var clearButton = document.querySelector("#clear-button");
+var createResultStringButton = document.querySelector("#create-result-string-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -8,6 +9,10 @@ getBasicKeywordsButton.addEventListener("click", function (e) {
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
 }, false);
 clearButton.addEventListener("click", clearQuery);
+createResultStringButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    createResultString();
+}, false);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,6 +150,28 @@ function selectDeselectHint() {
 
     countHintsTotalAndSelected();
     createHTMLHintsList(window.hintsObjectsArray);
+};
+
+
+function createResultString() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        var resultString = [];
+        var k = 0;
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            if (window.hintsObjectsArray[i].status === "select") {
+                resultString[k] = window.hintsObjectsArray[i].hint;
+                k++;
+            } else {
+                document.querySelector("#hints-list").innerHTML = "Ничего не выбрано.";
+            }
+            ;
+        }
+        ;
+        document.querySelector("#hints-list").innerHTML = resultString.join(", ");
+    } else {
+        document.querySelector("#hints-list").innerHTML = "Ничего не получено.";
+    }
+    ;
 };
 
 
