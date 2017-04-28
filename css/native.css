@@ -110,15 +110,6 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.stub {
-    width: 100%;
-    background: #dddddd;
-    text-align: center;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    color: #888888;
-}
-
 input[type="checkbox"] {
     width: 14px;
     height: 14px;
@@ -220,6 +211,26 @@ a:hover {
 .result:hover {
     cursor: pointer;
     background: #eeeeee;
+}
+
+.hint-box {
+    width: 100%;
+    background: #dddddd;
+}
+
+.hint-box:hover {
+    background: #eeeeee;
+}
+
+.hint-keyword {
+    width: 100%;
+    font-family: "PT Mono Bold";
+}
+
+.hint-translations {
+    width: 100%;
+    color: #888888;
+    padding-left: 24px;
 }
 
 .line {

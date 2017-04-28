@@ -75,12 +75,13 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     var listResultArray = [];
 
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<span class='bold'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-            "<br>" +
-            PARAM_hintsObjectsArray[i].translation.join("<br>");
+        listResultArray[i] = "<div class='hint-box'>" +
+            "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
+            "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
+            "</div>";
     }
     ;
-    document.querySelector("#hints-list").innerHTML = listResultArray.join("<br>");
+    document.querySelector("#hints-list").innerHTML = listResultArray.join("");
 };
 
 
