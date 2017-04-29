@@ -132,7 +132,9 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         ;
     }
     ;
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
+        "<br><br>" +
+        "<div class='content-right'><a class='link-button' href='#' title='Наверх'>[Наверх]</a></div>";
 
     var hintBoxes = document.querySelectorAll("#hint-box");
     for (var i = 0; i < hintBoxes.length; i++) {
