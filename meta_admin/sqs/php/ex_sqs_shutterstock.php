@@ -1,8 +1,5 @@
 <?php error_reporting( - 1 );
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-
-
 //получаем и определяем параметр mediaType и строку ОКС
 $media_type            = $_POST["mediaType"];
 $basic_keywords_string = $_POST["basicKeywordsString"];
@@ -152,16 +149,18 @@ $hint_keyword_array            = array_values( array_unique( array_merge( $hint_
 
 
 //добавление перевода
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $hint_keyword_array[ $i ],
         "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
     ];
 };
+mysqli_close( $db_connect );
 
 
 //подготовка json-ответа
-$json_result = json_encode($result_array, JSON_UNESCAPED_UNICODE);
+$json_result = json_encode( $result_array, JSON_UNESCAPED_UNICODE );
 
 
 echo( $json_result );
@@ -255,7 +254,7 @@ FROM
         JOIN
     `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE
-    `l-ts`.`s` = '" . $_PARAM_hint_keyword . "'
+    `l-ts`.`s` = '" . $_PARAM_hint_keyword . "';
     ";
     $_SQL_translations        = mysqli_query( $_PARAM_db_connect, $_SQL_select_translations );
     $n                        = 0;
