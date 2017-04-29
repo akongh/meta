@@ -3,6 +3,7 @@ var clearButton = document.querySelector("#clear-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
 var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
+var sortAzButton = document.querySelector("#sort-a-z-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -11,13 +12,17 @@ getBasicKeywordsButton.addEventListener("click", function (e) {
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
 }, false);
 clearButton.addEventListener("click", clearQuery);
-createResultStringButton.addEventListener("click", function (e) {
+sortAzButton.addEventListener("click", function (e) {
     e.preventDefault();
-    createResultString();
+    sortAz();
 }, false);
 returnToListViewButton.addEventListener("click", function (e) {
     e.preventDefault();
     returnToListView();
+}, false);
+createResultStringButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    createResultString();
 }, false);
 deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -221,6 +226,21 @@ function deleteHintsObjectsArray() {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
         document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
+    }
+    ;
+};
+
+
+function sortAz() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        function compareObjectHints(a, b) {
+            if (a.hint > b.hint) return 1;
+            if (a.hint < b.hint) return -1;
+        };
+        window.hintsObjectsArray.sort(compareObjectHints);
+        createHTMLHintsList(window.hintsObjectsArray);
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечего сортировать.";
     }
     ;
 };
