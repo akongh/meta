@@ -65,7 +65,7 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
