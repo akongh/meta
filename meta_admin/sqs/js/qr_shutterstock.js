@@ -186,7 +186,18 @@ function createResultString() {
         }
         ;
         if (resultString.length > 0) {
-            document.querySelector("#hints-area").innerHTML = resultString.join(", ");
+            document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
+                resultString.join(", ") +
+                "</span>";
+            var resultNode = document.querySelector("#select-result");
+            resultNode.addEventListener('click', selectResult);
+            function selectResult() {
+                var selectRange = document.createRange();
+                selectRange.selectNodeContents(this);
+                var select = window.getSelection();
+                select.removeAllRanges();
+                select.addRange(selectRange);
+            };
         } else {
             document.querySelector("#hints-area").innerHTML = "Ничего не выбрано.";
         }
