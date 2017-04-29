@@ -2,6 +2,7 @@ var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button"
 var clearButton = document.querySelector("#clear-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
 var returnToListViewButton = document.querySelector("#return-to-list-view-button");
+var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -17,6 +18,10 @@ createResultStringButton.addEventListener("click", function (e) {
 returnToListViewButton.addEventListener("click", function (e) {
     e.preventDefault();
     returnToListView();
+}, false);
+deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deleteHintsObjectsArray();
 }, false);
 
 
@@ -127,7 +132,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         ;
     }
     ;
-    document.querySelector("#hints-list").innerHTML = listResultArray.join("");
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
     var hintBoxes = document.querySelectorAll("#hint-box");
     for (var i = 0; i < hintBoxes.length; i++) {
@@ -162,7 +167,7 @@ function returnToListView() {
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
-        document.querySelector("#hints-list").innerHTML = "Список пуст.";
+        document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
     }
     ;
 };
@@ -181,13 +186,13 @@ function createResultString() {
         }
         ;
         if (resultString.length > 0) {
-            document.querySelector("#hints-list").innerHTML = resultString.join(", ");
+            document.querySelector("#hints-area").innerHTML = resultString.join(", ");
         } else {
-            document.querySelector("#hints-list").innerHTML = "Ничего не выбрано.";
+            document.querySelector("#hints-area").innerHTML = "Ничего не выбрано.";
         }
         ;
     } else {
-        document.querySelector("#hints-list").innerHTML = "Ничего не получено.";
+        document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
     }
     ;
 };
@@ -195,6 +200,16 @@ function createResultString() {
 
 function clearQuery() {
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
+};
+
+
+function deleteHintsObjectsArray() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        delete window.hintsObjectsArray;
+        countHintsTotalAndSelected();
+        document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
+    }
+    ;
 };
 
 
