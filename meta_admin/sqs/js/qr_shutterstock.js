@@ -210,7 +210,7 @@ function createResultString() {
         }
         ;
     } else {
-        document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
+        document.querySelector("#hints-area").innerHTML = "Нечего собирать в результат.";
     }
     ;
 };
