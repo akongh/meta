@@ -1,36 +1,40 @@
 var getBasicKeywordsButton = document.querySelector("#get-basic-keywords-button");
 var clearButton = document.querySelector("#clear-button");
-var createResultStringButton = document.querySelector("#create-result-string-button");
-var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
+var deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
+var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 var sortAzButton = document.querySelector("#sort-a-z-button");
+var createResultStringButton = document.querySelector("#create-result-string-button");
 var hintsArea = document.querySelector("#hints-area");
 var upButtonBlock = document.querySelector("#up-button-block");
 
 
 window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
-
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
 }, false);
 clearButton.addEventListener("click", clearQuery);
-sortAzButton.addEventListener("click", function (e) {
+deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sortAz();
+    deleteHintsObjectsArray();
+}, false);
+deleteDeselectedHintsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deleteDeselectedHints();
 }, false);
 returnToListViewButton.addEventListener("click", function (e) {
     e.preventDefault();
     returnToListView();
 }, false);
+sortAzButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    sortAz();
+}, false);
 createResultStringButton.addEventListener("click", function (e) {
     e.preventDefault();
     createResultString();
-}, false);
-deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    deleteHintsObjectsArray();
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -61,12 +65,10 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
                 addStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
-                    //удаляем дубликаты от нового массива
                     for (var i = 0; i < resultArray.length; i++) {
                         for (var j = 0; j < window.hintsObjectsArray.length; j++) {
                             if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                                resultArray.splice([i], 1);
-                                //учитываем сдвиг индексов после удаления элемента
+                                resultArray.splice(i, 1);
                                 i--;
                                 break;
                             }
@@ -244,6 +246,33 @@ function deleteHintsObjectsArray() {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
         document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
+    }
+    ;
+};
+
+
+function deleteDeselectedHints() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            if (window.hintsObjectsArray[i].status === "deselect") {
+                window.hintsObjectsArray.splice(i, 1);
+                i--;
+            }
+            ;
+        }
+        ;
+        if (window.hintsObjectsArray.length > 0) {
+            countHintsTotalAndSelected();
+            createHTMLHintsList(window.hintsObjectsArray);
+        }
+        else {
+            delete window.hintsObjectsArray;
+            countHintsTotalAndSelected();
+            document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
+        }
+        ;
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
     }
