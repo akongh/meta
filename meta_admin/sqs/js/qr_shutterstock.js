@@ -4,9 +4,13 @@ var createResultStringButton = document.querySelector("#create-result-string-but
 var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 var sortAzButton = document.querySelector("#sort-a-z-button");
+var hintsArea = document.querySelector("#hints-area");
+var upButtonBlock = document.querySelector("#up-button-block");
 
 
 window.onload = countHintsTotalAndSelected();
+window.onload = viewHideUpButton();
+
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
@@ -28,6 +32,7 @@ deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteHintsObjectsArray();
 }, false);
+window.addEventListener("scroll", viewHideUpButton);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,9 +142,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         ;
     }
     ;
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
-        "<br><br>" +
-        "<div class='content-right'><a class='link-button' href='#' title='Наверх'>[Наверх]</a></div>";
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
     var hintKeywords = document.querySelectorAll("#hint-keyword");
     for (i = 0; i < hintKeywords.length; i++) {
@@ -271,6 +274,16 @@ function keywordwPatternToQuery() {
         document.querySelector("#basic-keywords-string").value = lastKws.trim() + "\n" + this.innerHTML;
     } else {
         document.querySelector("#basic-keywords-string").value = this.innerHTML;
+    }
+    ;
+};
+
+
+function viewHideUpButton() {
+    if (hintsArea.getBoundingClientRect().top < 0) {
+        upButtonBlock.style.display = "inline-block";
+    } else {
+        upButtonBlock.style.display = "none";
     }
     ;
 };

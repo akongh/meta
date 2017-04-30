@@ -261,6 +261,25 @@ a:hover {
     background: #eeeeee;
 }
 
+.up-block {
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.up-center-block {
+    max-width: 736px;
+    margin: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.up-button {
+    background: #FFFFFF;
+}
+
 .block-404-503 {
     width: 100%;
     height: 100%;
