@@ -240,6 +240,7 @@ a:hover {
 .hint-keyword:hover {
     background: #000000;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .hint-translations {
