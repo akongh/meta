@@ -106,7 +106,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 
     //спим между запросами, чтоб не нарваться на блокировку
     if ( $i > 0 && $i < count( $basic_keywords_array ) - 1 ) {
-        usleep( 800000 );
+        usleep( 400000 );
     };
 };
 

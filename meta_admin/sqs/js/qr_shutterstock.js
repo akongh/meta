@@ -236,6 +236,8 @@ function deleteHintsObjectsArray() {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
         document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
     }
     ;
 };
