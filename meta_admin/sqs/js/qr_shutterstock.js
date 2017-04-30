@@ -36,6 +36,7 @@ deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
 
 
 function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
+    document.querySelector("#error").innerHTML = "";
     disableGetBasicKeywordsButton();
 
     var request = new XMLHttpRequest();
@@ -49,7 +50,6 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
                 document.querySelector("#error").innerHTML = "Не более 8-ми опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else {
-                document.querySelector("#error").innerHTML = "";
 
                 var resultArray = JSON.parse(request.responseText);
 
@@ -119,7 +119,7 @@ function countHintsTotalAndSelected() {
 
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-
+    document.querySelector("#error").innerHTML = "";
     var listResultArray = [];
 
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -159,6 +159,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
 
 function selectDeselectHint() {
+    document.querySelector("#error").innerHTML = "";
     var hint = this.firstChild.innerHTML;
     for (var i = 0; i < window.hintsObjectsArray.length; i++) {
         if (window.hintsObjectsArray[i].hint === hint) {
@@ -180,6 +181,7 @@ function selectDeselectHint() {
 
 
 function returnToListView() {
+    document.querySelector("#error").innerHTML = "";
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
@@ -190,6 +192,7 @@ function returnToListView() {
 
 
 function createResultString() {
+    document.querySelector("#error").innerHTML = "";
     if (typeof window.hintsObjectsArray !== "undefined") {
         var resultString = [];
         var k = 0;
@@ -226,12 +229,14 @@ function createResultString() {
 
 
 function clearQuery() {
+    document.querySelector("#error").innerHTML = "";
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
     document.querySelector("textarea[name='basic-keywords-string']").focus();
 };
 
 
 function deleteHintsObjectsArray() {
+    document.querySelector("#error").innerHTML = "";
     if (typeof window.hintsObjectsArray !== "undefined") {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
@@ -244,6 +249,7 @@ function deleteHintsObjectsArray() {
 
 
 function sortAz() {
+    document.querySelector("#error").innerHTML = "";
     if (typeof window.hintsObjectsArray !== "undefined") {
         function compareObjectHints(a, b) {
             if (a.hint > b.hint) return 1;
