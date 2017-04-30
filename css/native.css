@@ -234,8 +234,12 @@ a:hover {
 }
 
 .hint-keyword {
-    width: 100%;
     font-family: "PT Mono Bold";
+}
+
+.hint-keyword:hover {
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .hint-translations {

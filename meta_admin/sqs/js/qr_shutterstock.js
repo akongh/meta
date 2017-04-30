@@ -125,12 +125,12 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         if (PARAM_hintsObjectsArray[i].status === "deselect") {
             listResultArray[i] = "<div id='hint-box' class='hint-box-deselect'>" +
-                "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
+                "<span id='hint-keyword' class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
                 "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
                 "</div>";
         } else {
             listResultArray[i] = "<div id='hint-box' class='hint-box-select'>" +
-                "<div class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</div>" +
+                "<span id='hint-keyword' class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
                 "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
                 "</div>";
         }
@@ -141,8 +141,17 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         "<br><br>" +
         "<div class='content-right'><a class='link-button' href='#' title='Наверх'>[Наверх]</a></div>";
 
+    var hintKeywords = document.querySelectorAll("#hint-keyword");
+    for (i = 0; i < hintKeywords.length; i++) {
+        hintKeywords[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+    }
+    ;
+
     var hintBoxes = document.querySelectorAll("#hint-box");
-    for (var i = 0; i < hintBoxes.length; i++) {
+    for (i = 0; i < hintBoxes.length; i++) {
         hintBoxes[i].addEventListener("click", selectDeselectHint);
     }
     ;
@@ -218,6 +227,7 @@ function createResultString() {
 
 function clearQuery() {
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
+    document.querySelector("textarea[name='basic-keywords-string']").focus();
 };
 
 
@@ -241,6 +251,18 @@ function sortAz() {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего сортировать.";
+    }
+    ;
+};
+
+
+function keywordwPatternToQuery() {
+    var lastKws = document.querySelector("#basic-keywords-string").value;
+
+    if (lastKws !== "" || lastKws.trim() !== "") {
+        document.querySelector("#basic-keywords-string").value = lastKws.trim() + "\n" + this.innerHTML;
+    } else {
+        document.querySelector("#basic-keywords-string").value = this.innerHTML;
     }
     ;
 };
