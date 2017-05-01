@@ -63,7 +63,7 @@ function addKeywordsToList(PARAM_url) {
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
                 if (request.responseText === "-1") {
-                    document.querySelector("#error-hints").innerHTML = "Не более 80-nи добавляемых ключевых слов.";
+                    document.querySelector("#error-hints").innerHTML = "Не более 80-ти добавляемых ключевых слов.";
                 } else if (request.responseText === "-2") {
                     document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
                 } else {
@@ -95,10 +95,10 @@ function addKeywordsToList(PARAM_url) {
                 ;
             }
             ;
-            request.open("POST", PARAM_url, true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send(basicKeywordsString);
         };
+        request.open("POST", PARAM_url, true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send(basicKeywordsString);
     }
     ;
 };
