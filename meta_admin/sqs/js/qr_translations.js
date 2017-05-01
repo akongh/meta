@@ -22,13 +22,21 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
                 document.querySelector("#translations-area").innerHTML = "Перевода нет.";
+            } else if (request.responseText === "-2") {
+                document.querySelector("#translations-area").innerHTML = "Нечего переводить.";
+            } else if (request.responseText === "-3") {
+                document.querySelector("#translations-area").innerHTML = "Используйте только кирилицу и цифры.";
             } else {
+                document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
 
-                var resultArray = JSON.parse(request.responseText);
-
-                document.querySelector("#translations-area").innerHTML = createHTMLTranslationsList(resultArray);
-
-
+                var hintKeywords = document.querySelectorAll("#hint-keyword");
+                for (var i = 0; i < hintKeywords.length; i++) {
+                    hintKeywords[i].addEventListener("click", function (e) {
+                        e.stopPropagation();
+                    }, false);
+                    hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+                }
+                ;
             }
             ;
         }
@@ -37,9 +45,5 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(keywordInRussian);
-};
-
-
-function createHTMLTranslationsList(PARAM_translationsAray) {
-    return PARAM_translationsAray;
-};
+}
+;
