@@ -15,7 +15,7 @@ if ( $keyword_in_russian == "" ) {
 };
 
 
-//только кирилица и цифры
+//только кирилица, цифры, пробел и дефис
 if ( ! preg_match( "/^([а-яё0-9\s\-]+)$/iu", $keyword_in_russian ) ) {
     echo( "-3" );
     exit;

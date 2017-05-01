@@ -31,7 +31,7 @@
     <br>
     <br>
     <input type="text" id="in-russian" class="textarea-keywords" maxlength="64">
-    <span id='error-symbol' class='error'></span>
+    <span id='error-translations' class='error'></span>
     <br>
     <br>
     <div class="content-right">
@@ -50,13 +50,14 @@
               rows="8"
               placeholder=""
               autofocus></textarea>
-    <span id="error-count" class='error'></span>
+    <span id="error-hints" class='error'></span>
     <br>
     <br>
     <div class="content-right">
         <label><input type="radio" name="media-type" value="image" checked> Изображения</label>
         <label><input type="radio" name="media-type" value="audio"> Аудио</label>
         <label><input type="radio" name="media-type" value="video"> Видео</label>
+        <a id="add-keywords-to-list-button" class="link-button" href="#" title="Добавить в список свои ключевые слова">[Добавить в список]</a>
         <a id="clear-button" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
     </div>
     <br>

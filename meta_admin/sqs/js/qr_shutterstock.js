@@ -7,10 +7,15 @@ var sortAzButton = document.querySelector("#sort-a-z-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
 var hintsArea = document.querySelector("#hints-area");
 var upButtonBlock = document.querySelector("#up-button-block");
+var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
 
 
 window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
+addKeywordsToListButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    addKeywordsToList("php/ex_add_keywords_to_list.php");
+}, false);
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
@@ -44,8 +49,63 @@ window.addEventListener("scroll", viewHideUpButton);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+function addKeywordsToList(PARAM_url) {
+    clearErrors();
+    var basicKeywordsString = document.querySelector("#basic-keywords-string");
+    var basicKeywordsStringTrim = basicKeywordsString.value.trim();
+
+    if (basicKeywordsStringTrim === "") {
+        document.querySelector("#hints-area").innerHTML = "Нечего добавлять.";
+    } else {
+        var request = new XMLHttpRequest();
+        basicKeywordsString = "basicKeywordsString=" + basicKeywordsString.value;
+
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                if (request.responseText === "-1") {
+                    document.querySelector("#error-hints").innerHTML = "Не более 80-nи добавляемых ключевых слов.";
+                } else if (request.responseText === "-2") {
+                    document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
+                } else {
+                    var resultArray = JSON.parse(request.responseText);
+                    addStatusForHints(resultArray);
+
+                    if (typeof window.hintsObjectsArray !== "undefined") {
+                        for (var i = 0; i < resultArray.length; i++) {
+                            for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                                if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                    resultArray.splice(i, 1);
+                                    i--;
+                                    break;
+                                }
+                                ;
+                            }
+                            ;
+                        }
+                        ;
+                        window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    } else {
+                        window.hintsObjectsArray = resultArray;
+                    }
+                    ;
+
+                    countHintsTotalAndSelected();
+                    createHTMLHintsList(window.hintsObjectsArray);
+                }
+                ;
+            }
+            ;
+            request.open("POST", PARAM_url, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(basicKeywordsString);
+        };
+    }
+    ;
+};
+
+
 function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
-    clearError();
+    clearErrors();
     disableGetBasicKeywordsButton();
 
     var request = new XMLHttpRequest();
@@ -56,7 +116,10 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-count").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
                 enableGetBasicKeywordsButton();
             } else {
 
@@ -84,9 +147,7 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
                 ;
 
                 countHintsTotalAndSelected();
-
                 createHTMLHintsList(window.hintsObjectsArray);
-
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
             ;
@@ -126,7 +187,7 @@ function countHintsTotalAndSelected() {
 
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-    clearError();
+    clearErrors();
     var listResultArray = [];
 
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -164,7 +225,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
 
 function selectDeselectHint() {
-    clearError();
+    clearErrors();
     var hint = this.firstChild.innerHTML;
     for (var i = 0; i < window.hintsObjectsArray.length; i++) {
         if (window.hintsObjectsArray[i].hint === hint) {
@@ -186,7 +247,7 @@ function selectDeselectHint() {
 
 
 function returnToListView() {
-    clearError();
+    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
@@ -197,7 +258,7 @@ function returnToListView() {
 
 
 function createResultString() {
-    clearError();
+    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
         var resultString = [];
         var k = 0;
@@ -234,14 +295,14 @@ function createResultString() {
 
 
 function clearQuery() {
-    clearError();
+    clearErrors();
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
     document.querySelector("textarea[name='basic-keywords-string']").focus();
 };
 
 
 function deleteHintsObjectsArray() {
-    clearError();
+    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
@@ -281,7 +342,7 @@ function deleteDeselectedHints() {
 
 
 function sortAz() {
-    clearError();
+    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
         function compareObjectHints(a, b) {
             if (a.hint > b.hint) return 1;
@@ -334,7 +395,7 @@ function enableGetBasicKeywordsButton() {
 };
 
 
-function clearError() {
-    document.querySelector("#error-count").innerHTML = "";
-    document.querySelector("#error-symbol").innerHTML = "";
+function clearErrors() {
+    document.querySelector("#error-hints").innerHTML = "";
+    document.querySelector("#error-translations").innerHTML = "";
 };
