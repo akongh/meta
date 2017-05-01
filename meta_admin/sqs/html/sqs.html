@@ -52,12 +52,12 @@
     <span id="error" class='error'></span>
     <br>
     <br>
-    <br>
-    <br>
-    <label><input type="radio" name="media-type" value="image" checked> Изображения</label>
-    <label><input type="radio" name="media-type" value="audio"> Аудио</label>
-    <label><input type="radio" name="media-type" value="video"> Видео</label>
-    <a id="clear-button" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
+    <div class="content-right">
+        <label><input type="radio" name="media-type" value="image" checked> Изображения</label>
+        <label><input type="radio" name="media-type" value="audio"> Аудио</label>
+        <label><input type="radio" name="media-type" value="video"> Видео</label>
+        <a id="clear-button" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
+    </div>
     <br>
     <br>
     <input id="get-basic-keywords-button" name="get-basic-keywords-button" type="submit" value="Получить">
@@ -65,18 +65,15 @@
     <br>
     <br>
     <br>
-    <span id="hints-total-and-selected" class="counter"></span>
-    <a id="delete-hints-objects-array-button" class="link-button" href="#"
-       title="Удалить текущий список подсказок">[x]</a>
+    <a id="create-result-string-button" class="link-button" href="#" title="Создать строку результата">[Результат]</a>
+    <a id="sort-a-z-button" class="link-button" href="#" title="Сортировать список по алфавиту">[По алфавиту]</a>
+    <a id="return-to-list-view-button" class="link-button" href="#" title="Вернуть список подсказок">[Список]</a>
+    <a id="delete-deselected-hints-button" class="link-button" href="#" title="Удалить невыбранные подсказки">[Удалить невыбранные]</a>
     <br>
     <br>
     <div class="content-right">
-        <a id="delete-deselected-hints-button" class="link-button" href="#" title="Удалить невыбранные подсказки">[Удалить
-            невыбранные]</a>
-        <a id="return-to-list-view-button" class="link-button" href="#" title="Вернуть список подсказок">[Список]</a>
-        <a id="sort-a-z-button" class="link-button" href="#" title="Сортировать список по алфавиту">[По алфавиту]</a>
-        <a id="create-result-string-button" class="link-button" href="#"
-           title="Создать строку результата">[Результат]</a>
+        <span id="hints-total-and-selected" class="counter"></span>
+        <a id="delete-hints-objects-array-button" class="link-button" href="#" title="Удалить текущий список подсказок">[x]</a>
     </div>
     <br>
     <br>
