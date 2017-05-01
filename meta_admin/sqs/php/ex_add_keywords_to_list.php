@@ -45,13 +45,17 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = preg_split( "[\n|,|;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
-        //только латиница, цифры, пробел, дефис и апостроф
+    };
+    $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
+    //только латиница, цифры, пробел, дефис и апостроф
+    for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         if ( ! preg_match( "/^([a-z0-9\s\-\']+)$/iu", $basic_keywords_array[ $i ] ) ) {
             echo( "-2" );
             exit;
-        };//TODO: А если элемент массива пустой, что будет?
+        };
     };
-    $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
+
+
 
     return $basic_keywords_array;
 }
