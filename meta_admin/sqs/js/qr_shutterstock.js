@@ -45,7 +45,7 @@ window.addEventListener("scroll", viewHideUpButton);
 
 
 function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     disableGetBasicKeywordsButton();
 
     var request = new XMLHttpRequest();
@@ -56,7 +56,7 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-count").innerHTML = "Не более 8-ми опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else {
 
@@ -126,7 +126,7 @@ function countHintsTotalAndSelected() {
 
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     var listResultArray = [];
 
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -164,7 +164,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
 
 function selectDeselectHint() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     var hint = this.firstChild.innerHTML;
     for (var i = 0; i < window.hintsObjectsArray.length; i++) {
         if (window.hintsObjectsArray[i].hint === hint) {
@@ -186,7 +186,7 @@ function selectDeselectHint() {
 
 
 function returnToListView() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
@@ -197,7 +197,7 @@ function returnToListView() {
 
 
 function createResultString() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     if (typeof window.hintsObjectsArray !== "undefined") {
         var resultString = [];
         var k = 0;
@@ -234,14 +234,14 @@ function createResultString() {
 
 
 function clearQuery() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
     document.querySelector("textarea[name='basic-keywords-string']").focus();
 };
 
 
 function deleteHintsObjectsArray() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     if (typeof window.hintsObjectsArray !== "undefined") {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
@@ -281,7 +281,7 @@ function deleteDeselectedHints() {
 
 
 function sortAz() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     if (typeof window.hintsObjectsArray !== "undefined") {
         function compareObjectHints(a, b) {
             if (a.hint > b.hint) return 1;
@@ -331,4 +331,10 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton.value = "Получить";
     getBasicKeywordsButton.style.background = "";
     getBasicKeywordsButton.style.cursor = "";
+};
+
+
+function clearError() {
+    document.querySelector("#error-count").innerHTML = "";
+    document.querySelector("#error-symbol").innerHTML = "";
 };

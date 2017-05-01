@@ -18,7 +18,7 @@ clearTranslationButton.addEventListener("click", function (e) {
 
 
 function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
 
     var request = new XMLHttpRequest();
     var keywordInRussian = "keywordInRussian=" + document.querySelector("#in-russian").value;
@@ -30,8 +30,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
             } else if (request.responseText === "-2") {
                 document.querySelector("#translations-area").innerHTML = "Нечего переводить.";
             } else if (request.responseText === "-3") {
-                document.querySelector("#translations-area").innerHTML = "" +
-                    "<span id='error' class='error'>Только кириллица, цифры, пробел и дефис.</span>";
+                document.querySelector("#error-symbol").innerHTML = "Только кириллица, цифры, пробел и дефис.";
             } else {
                 document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
 
@@ -56,7 +55,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
 
 
 function clearTranslationArea() {
-    document.querySelector("#error").innerHTML = "";
+    clearError();
     document.querySelector("#in-russian").value = "";
-    document.querySelector("#translations-area").innerHTML = "Список перевода очищен.";
+    document.querySelector("#translations-area").innerHTML = "Список перевода пуст.";
 };
