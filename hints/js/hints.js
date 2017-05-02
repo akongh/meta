@@ -8,6 +8,8 @@ var createResultStringButton = document.querySelector("#create-result-string-but
 var hintsArea = document.querySelector("#hints-area");
 var upButtonBlock = document.querySelector("#up-button-block");
 var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
+var getTranslationButton = document.querySelector("#get-translation-button");
+var clearTranslationButton = document.querySelector("#clear-translation-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -18,7 +20,7 @@ addKeywordsToListButton.addEventListener("click", function (e) {
 }, false);
 getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQueryGetHintsCreateHTMLHintsList("php/ex_sqs_shutterstock.php");
+    sendQueryGetHintsCreateHTMLHintsList("php/ex_hints_shutterstock.php");
 }, false);
 clearButton.addEventListener("click", clearQuery);
 deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
@@ -40,6 +42,14 @@ sortAzButton.addEventListener("click", function (e) {
 createResultStringButton.addEventListener("click", function (e) {
     e.preventDefault();
     createResultString();
+}, false);
+getTranslationButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetTranslationsCreateHTMLTranslationsList("php/ex_translations.php");
+}, false);
+clearTranslationButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    clearTranslationArea();
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -157,6 +167,50 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(requestSet);
+};
+
+
+function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
+    clearErrors();
+
+    var request = new XMLHttpRequest();
+    var keywordInRussian = "keywordInRussian=" + document.querySelector("#in-russian").value;
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#translations-area").innerHTML = "Перевода нет.";
+            } else if (request.responseText === "-2") {
+                document.querySelector("#translations-area").innerHTML = "Нечего переводить.";
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-translations").innerHTML = "Только кириллица, цифры, пробел и дефис.";
+            } else {
+                document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
+
+                var hintKeywords = document.querySelectorAll("#hint-keyword");
+                for (var i = 0; i < hintKeywords.length; i++) {
+                    hintKeywords[i].addEventListener("click", function (e) {
+                        e.stopPropagation();
+                    }, false);
+                    hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+                }
+                ;
+            }
+            ;
+        }
+        ;
+    };
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(keywordInRussian);
+}
+;
+
+
+function clearTranslationArea() {
+    clearErrors();
+    document.querySelector("#in-russian").value = "";
+    document.querySelector("#translations-area").innerHTML = "Список перевода пуст.";
 };
 
 
@@ -389,7 +443,7 @@ function disableGetBasicKeywordsButton() {
 
 function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton.disabled = false;
-    getBasicKeywordsButton.value = "Получить";
+    getBasicKeywordsButton.value = "От Шаттерстока";
     getBasicKeywordsButton.style.background = "";
     getBasicKeywordsButton.style.cursor = "";
 };
