@@ -17,57 +17,7 @@ if ( count( $basic_keywords_array ) > 16 ) {
 
 
 //подстроки для правила удаления ОКС из подсказки
-$rules = [
-    " about ",
-    " above ",
-    " across ",
-    " after ",
-    " against ",
-    " along ",
-    " among ",
-    " and ",
-    " around ",
-    " as ",
-    " at ",
-    " before ",
-    " behind ",
-    " below ",
-    " beside ",
-    " between ",
-    " beyond ",
-    " by ",
-    " during ",
-    " for ",
-    " from ",
-    " how ",
-    " in ",
-    " in front of ",
-    " inside ",
-    " into ",
-    " like ",
-    " of ",
-    " off ",
-    " on ",
-    " or ",
-    " out ",
-    " out of ",
-    " outside ",
-    " over ",
-    " since ",
-    " through ",
-    " till ",
-    " to ",
-    " toward ",
-    " under ",
-    " until ",
-    " up ",
-    " via ",
-    " when ",
-    " while ",
-    " with ",
-    " within ",
-    " without "
-];
+include( "rules.php" );
 
 
 //получаем json-ответы для каждого ОКС

@@ -16,57 +16,7 @@ if ( count( $basic_keywords_array ) > 8 ) {
 
 
 //подстроки для правила удаления ОКС из подсказки
-$rules = [
-    " about ",
-    " above ",
-    " across ",
-    " after ",
-    " against ",
-    " along ",
-    " among ",
-    " and ",
-    " around ",
-    " as ",
-    " at ",
-    " before ",
-    " behind ",
-    " below ",
-    " beside ",
-    " between ",
-    " beyond ",
-    " by ",
-    " during ",
-    " for ",
-    " from ",
-    " how ",
-    " in ",
-    " in front of ",
-    " inside ",
-    " into ",
-    " like ",
-    " of ",
-    " off ",
-    " on ",
-    " or ",
-    " out ",
-    " out of ",
-    " outside ",
-    " over ",
-    " since ",
-    " through ",
-    " till ",
-    " to ",
-    " toward ",
-    " under ",
-    " until ",
-    " up ",
-    " via ",
-    " when ",
-    " while ",
-    " with ",
-    " within ",
-    " without "
-];
+include( "rules.php" );
 
 
 //получаем json-ответы для каждого ОКС
@@ -214,7 +164,7 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
 
 //очищает от служебной информации массив подсказок для одного json-ответа
 function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
-    $kkk = "/as_cb_" . $_PARAM_basic_keyword . "\(/";
+    $kkk                       = "/as_cb_" . $_PARAM_basic_keyword . "\(/";
     $clean_json_responce       = preg_replace( $kkk, "", $_PARAM_json_responce );
     $clean_json_responce       = preg_replace( "/\)\;/", "", $clean_json_responce );
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
