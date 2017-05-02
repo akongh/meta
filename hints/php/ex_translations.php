@@ -79,7 +79,7 @@ function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
         $n ++;
     };
 
-    if ( isset( $translations_array ) || count( $translations_array ) > 0 ) {
+    if ( isset( $translations_array ) && count( $translations_array ) > 0 ) {
         return $translations_array;
     } else {
         return "-1";

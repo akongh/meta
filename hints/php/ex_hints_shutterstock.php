@@ -267,7 +267,7 @@ WHERE
         $translations_array[ $n ] = $data['z'];
         $n ++;
     };
-    if ( count( $translations_array ) == 0 ) {
+    if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {
         $translations_array[0] = "-";
     };
 
