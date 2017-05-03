@@ -98,6 +98,12 @@ $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 
+//заменяем амперсант, чтоб не ломал javscript потом
+for($i = 0; $i < count($hint_keyword_array); $i++){
+    $hint_keyword_array[$i] = str_replace('&','&amp;',$hint_keyword_array[$i]);
+};
+
+
 //добавление перевода
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
