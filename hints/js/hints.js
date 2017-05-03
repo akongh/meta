@@ -191,7 +191,7 @@ function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
                 enableGetBasicKeywordsButton();
             } else {
-console.log(request.responseText);
+// console.log(request.responseText);
                 var resultArray = JSON.parse(request.responseText);
 
                 addStatusForHints(resultArray);

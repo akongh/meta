@@ -129,7 +129,7 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
         //только латиница, цифры, пробел, дефис и апостроф
-        if ( ! preg_match( "/^([a-z0-9\s\-\']+)$/iu", $basic_keywords_array[ $i ] ) ) {
+        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\']+)$/iu", $basic_keywords_array[ $i ] ) ) {
             echo( "-2" );
             exit;
         };
