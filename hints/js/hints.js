@@ -190,8 +190,11 @@ function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
                 enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-hints").innerHTML = "Необходимо хоть одно опорное ключевое слово.";
+                enableGetBasicKeywordsButton();
             } else {
-// console.log(request.responseText);
+
                 var resultArray = JSON.parse(request.responseText);
 
                 addStatusForHints(resultArray);

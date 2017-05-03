@@ -8,6 +8,13 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 
+//проверка на непустой запрос
+if ( $basic_keywords_array == [ "" ] ) {
+    echo( "-3" );
+    exit;
+};
+
+
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 8 ) {
     echo( "-1" );
