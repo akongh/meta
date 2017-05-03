@@ -16,7 +16,7 @@ if ( $basic_keywords_array == [ "" ] ) {
 
 
 //проверка колличества ОКС
-if ( count( $basic_keywords_array ) > 8 ) {
+if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
     exit;
 };
@@ -30,14 +30,14 @@ include( "rules.php" );
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ] );
 
-    //очистка json-ответа от имени функции-обёртки
-    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ], $basic_keywords_array[ $i ] );
+    //очистка json-ответа от служебной информации
+    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ] );
 
-    //поднимаем на один уроввень мерность
+    //поднимаем на один уроввень мерность, оставляя только шаблон
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
 
         //на всякий случай чистим края
-        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["DisplayText"] );
+        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["term"] );
 
         //удаляем ОКС из подсказок, если ОКС вначале подсказки и подскажка не имеет союзов и предлогов
         //TODO: если в ОКС есть предлог или союз, то это ОКС удаляться из подсказки не будет
@@ -149,6 +149,12 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
         $basic_keywords_array = [ "" ];
+    } else {
+        for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+            //создаём дополнительный массив ОКС с пробелами на конце, чтобы искать и по отдельному слову
+            $basic_keywords_array_endspase[ $i ] = $basic_keywords_array[ $i ] . " ";
+        };
+        $basic_keywords_array = array_merge( $basic_keywords_array, $basic_keywords_array_endspase );
     };
 
     return $basic_keywords_array;
@@ -162,8 +168,11 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
     if ( $_PARAM_basic_keyword != "" ) {
         $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
     };
-    $url    = "http://as.gettyservices.com/GettyImages.Autocomplete.KeywordService.Service/KeywordService1/Suggestedkeywords/705/en-us/image/" . $_PARAM_basic_keyword . "/Creative?usePopularity=true&callback=as_cb_" . $_PARAM_basic_keyword;
-    $sesion = curl_init();
+    $anticache_time = time();
+    $anticache_num  = rand( 100, 999 );
+    $anticache_id   = $anticache_time . $anticache_num;
+    $url            = "https://autocomplete.fotolia.com/?language_id=2&query=" . $_PARAM_basic_keyword . "&callback=$.fotolia_search_autocomplete.searchCallback&_=" . $anticache_id;
+    $sesion         = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
     $json_responce = curl_exec( $sesion );
@@ -174,14 +183,13 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
 
 ;
 
-
 //очищает от служебной информации массив подсказок для одного json-ответа
-function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
-    $string_pattern            = '/as_cb_' . $_PARAM_basic_keyword . '\(/';
-    $clean_json_responce       = preg_replace( $string_pattern, '', $_PARAM_json_responce );
-    $clean_json_responce       = preg_replace( '/\)\;/', '', $clean_json_responce );
+function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
+    $string_pattern      = '/\$.fotolia_search_autocomplete.searchCallback\(/';
+    $clean_json_responce = preg_replace( $string_pattern, '', $_PARAM_json_responce );
+    $clean_json_responce       = preg_replace( '/\)/', '', $clean_json_responce );
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
-    $clean_json_responce_array = $clean_json_responce_array["CompletedKeywords"];
+    $clean_json_responce_array = $clean_json_responce_array["hits"];
 
     return $clean_json_responce_array;
 }

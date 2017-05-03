@@ -11,6 +11,7 @@ var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-butt
 var getTranslationButton = document.querySelector("#get-translation-button");
 var clearTranslationButton = document.querySelector("#clear-translation-button");
 var getBasicKeywordsButtonIstock = document.querySelector("#get-basic-keywords-button-istock");
+var getBasicKeywordsButtonFotolia = document.querySelector("#get-basic-keywords-button-fotolia");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -55,6 +56,10 @@ clearTranslationButton.addEventListener("click", function (e) {
 getBasicKeywordsButtonIstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListIstock("php/ex_hints_istockphoto.php");
+}, false);
+getBasicKeywordsButtonFotolia.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsListFotolia("php/ex_hints_fotolia.php");
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -195,6 +200,63 @@ function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
                 enableGetBasicKeywordsButton();
             } else {
 
+                var resultArray = JSON.parse(request.responseText);
+
+                addStatusForHints(resultArray);
+
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    for (var i = 0; i < resultArray.length; i++) {
+                        for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice(i, 1);
+                                i--;
+                                break;
+                            }
+                            ;
+                        }
+                        ;
+                    }
+                    ;
+                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
+                }
+                ;
+
+                countHintsTotalAndSelected();
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+            ;
+        }
+        ;
+    };
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(basicKeywordsString);
+};
+
+
+function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+
+    var request = new XMLHttpRequest();
+    var basicKeywordsString = "basicKeywordsString=" + document.querySelector("#basic-keywords-string").value;
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-hints").innerHTML = "Необходимо хоть одно опорное ключевое слово.";
+                enableGetBasicKeywordsButton();
+            } else {
+console.log(request.responseText);
                 var resultArray = JSON.parse(request.responseText);
 
                 addStatusForHints(resultArray);
@@ -505,6 +567,11 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonIstock.value = "…";
     getBasicKeywordsButtonIstock.style.background = "#dddddd";
     getBasicKeywordsButtonIstock.style.cursor = "default";
+
+    getBasicKeywordsButtonFotolia.disabled = true;
+    getBasicKeywordsButtonFotolia.value = "…";
+    getBasicKeywordsButtonFotolia.style.background = "#dddddd";
+    getBasicKeywordsButtonFotolia.style.cursor = "default";
 };
 
 
@@ -518,6 +585,11 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonIstock.value = "От Айстока";
     getBasicKeywordsButtonIstock.style.background = "";
     getBasicKeywordsButtonIstock.style.cursor = "";
+
+    getBasicKeywordsButtonFotolia.disabled = false;
+    getBasicKeywordsButtonFotolia.value = "От Фотолии";
+    getBasicKeywordsButtonFotolia.style.background = "";
+    getBasicKeywordsButtonFotolia.style.cursor = "";
 };
 
 
