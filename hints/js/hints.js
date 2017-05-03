@@ -11,6 +11,7 @@ var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-butt
 var getTranslationButton = document.querySelector("#get-translation-button");
 var clearTranslationButton = document.querySelector("#clear-translation-button");
 var getBasicKeywordsButtonIstock = document.querySelector("#get-basic-keywords-button-istock");
+var getBasicKeywordsButtonGetty = document.querySelector("#get-basic-keywords-button-getty");
 var getBasicKeywordsButtonFotolia = document.querySelector("#get-basic-keywords-button-fotolia");
 
 
@@ -56,6 +57,10 @@ clearTranslationButton.addEventListener("click", function (e) {
 getBasicKeywordsButtonIstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListIstock("php/ex_hints_istockphoto.php");
+}, false);
+getBasicKeywordsButtonGetty.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsListGetty("php/ex_hints_gettyimages.php");
 }, false);
 getBasicKeywordsButtonFotolia.addEventListener("click", function (e) {
     e.preventDefault();
@@ -181,6 +186,63 @@ function sendQueryGetHintsCreateHTMLHintsList(PARAM_url) {
 
 
 function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+
+    var request = new XMLHttpRequest();
+    var basicKeywordsString = "basicKeywordsString=" + document.querySelector("#basic-keywords-string").value;
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис и апостроф.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-hints").innerHTML = "Необходимо хоть одно опорное ключевое слово.";
+                enableGetBasicKeywordsButton();
+            } else {
+
+                var resultArray = JSON.parse(request.responseText);
+
+                addStatusForHints(resultArray);
+
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    for (var i = 0; i < resultArray.length; i++) {
+                        for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice(i, 1);
+                                i--;
+                                break;
+                            }
+                            ;
+                        }
+                        ;
+                    }
+                    ;
+                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
+                }
+                ;
+
+                countHintsTotalAndSelected();
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+            ;
+        }
+        ;
+    };
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(basicKeywordsString);
+};
+
+
+function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
 
@@ -568,6 +630,11 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonIstock.style.background = "#dddddd";
     getBasicKeywordsButtonIstock.style.cursor = "default";
 
+    getBasicKeywordsButtonGetty.disabled = true;
+    getBasicKeywordsButtonGetty.value = "…";
+    getBasicKeywordsButtonGetty.style.background = "#dddddd";
+    getBasicKeywordsButtonGetty.style.cursor = "default";
+
     getBasicKeywordsButtonFotolia.disabled = true;
     getBasicKeywordsButtonFotolia.value = "…";
     getBasicKeywordsButtonFotolia.style.background = "#dddddd";
@@ -582,9 +649,14 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton.style.cursor = "";
 
     getBasicKeywordsButtonIstock.disabled = false;
-    getBasicKeywordsButtonIstock.value = "От Айстока";
+    getBasicKeywordsButtonIstock.value = "От Айстокфото";
     getBasicKeywordsButtonIstock.style.background = "";
     getBasicKeywordsButtonIstock.style.cursor = "";
+
+    getBasicKeywordsButtonGetty.disabled = false;
+    getBasicKeywordsButtonGetty.value = "От Геттиимаджес";
+    getBasicKeywordsButtonGetty.style.background = "";
+    getBasicKeywordsButtonGetty.style.cursor = "";
 
     getBasicKeywordsButtonFotolia.disabled = false;
     getBasicKeywordsButtonFotolia.value = "От Фотолии";
