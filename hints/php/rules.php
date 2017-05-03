@@ -1,6 +1,7 @@
 <?php
 
 $rules = [
+    " - ",
     " & ",
     " about ",
     " above ",
