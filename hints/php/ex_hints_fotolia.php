@@ -175,6 +175,7 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
     $sesion         = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $sesion, CURLOPT_PROXY, '107.189.116.88:80' );
     $json_responce = curl_exec( $sesion );
     curl_close( $sesion );
 
