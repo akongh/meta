@@ -1,8 +1,7 @@
 #доступ
 AuthName "Управление Меты"
 AuthType Basic
-#AuthUserFile /home/webart/www/meta_access/.htpasswd
-#AuthUserFile /home/webart/www/meta2_access/.htpasswd
+#AuthUserFile /home/user2031505/www/meta_access/.htpasswd
 AuthUserFile E:/www/meta/meta_access/.htpasswd
 require valid-user
 

@@ -1,16 +1,10 @@
 <?php error_reporting( - 1 );
 
 //--[meta.afoteris.com]--
-//$db_server = "by114.atservers.net";
-//$db_user = "andrej";
-//$db_password = "ss4TU0BH";
-//$db_name = "webart_meta";
-
-//--[meta2.afoteris.com]--
-//$db_server = "by114.atservers.net";
-//$db_user = "andrej";
-//$db_password = "ss4TU0BH";
-//$db_name = "webart_meta2";
+//$db_server = "by122.atservers.net";
+//$db_user = "user2031505";
+//$db_password = "813p9VQSHSc6";
+//$db_name = "user2031505_meta";
 
 //--[meta]--
 $db_server = "127.0.0.1";

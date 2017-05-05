@@ -8,4 +8,3 @@ User-agent: *
 Disallow: /meta_admin
 
 Host: meta.afoteris.com
-#Host: meta2.afoteris.com
