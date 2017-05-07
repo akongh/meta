@@ -27,7 +27,11 @@ if ( isset( $znachenie ) ) {
         $znachenie[ $i ] = trim( $znachenie[ $i ] );
         $znachenie[ $i ] = preg_replace( "/ {2,}/", " ", $znachenie[ $i ] );
         $znachenie[ $i ] = preg_replace( "/'/", "\'", $znachenie[ $i ] );
-        $znachenie[ $i ] = $perevod[ $i ] . ' (' . $znachenie[ $i ] . ')';
+        if ( $znachenie[ $i ] == '' ) {
+            $znachenie[ $i ] = $perevod[ $i ];
+        } else {
+            $znachenie[ $i ] = $perevod[ $i ] . ' (' . $znachenie[ $i ] . ')';
+        }
     }
 }
 
