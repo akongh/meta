@@ -45,7 +45,7 @@ if ( $slovo_original != $slovo_hint ) {
     if ( ! isset( $proverka_nalichiya ) ) {
         mysqli_query( $db_connect, "
 		UPDATE `l-ts`
-		SET `s` = '" . $slovo_hint . "'
+		SET `s` = '" . $slovo_hint . "', `f` = 1
 		WHERE `s` = '" . $slovo_original . "' 
 		" );
     } else if ( isset( $proverka_nalichiya ) ) {
