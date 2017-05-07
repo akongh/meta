@@ -511,6 +511,15 @@ function createResultString() {
         }
         ;
         if (resultString.length > 0) {
+
+
+            var request = new XMLHttpRequest();
+            var jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + JSON.stringify(resultString);
+            request.open("POST", 'php/ex_add_hints_to_translation.php', true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(jsonHintsStringForTranlation);
+
+
             document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
                 resultString.join(", ") +
                 "</span>";
