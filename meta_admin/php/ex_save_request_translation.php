@@ -4,9 +4,15 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $slovo_original = $_SESSION["slovo_original"];
-$slovo_k        = $_POST["slovo"];
-$perevod        = $_POST["perevod"];
-$znachenie      = $_POST["znachenie"];
+if ( isset( $_POST["slovo"] ) ) {
+    $slovo_k = $_POST["slovo"];
+};
+if ( isset( $_POST["perevod"] ) ) {
+    $perevod = $_POST["perevod"];
+};
+if ( isset( $_POST["znachenie"] ) ) {
+    $znachenie = $_POST["znachenie"];
+};
 
 if ( isset( $perevod ) ) {
 	for ( $i = 0; $i < count( $perevod ); $i ++ ) {
