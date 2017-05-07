@@ -113,6 +113,11 @@ if ( isset( $perevod ) ) {
 		INSERT IGNORE INTO `k-ts` (`s`)
 		VALUES ('" . $perevod[ $i ] . "')
 		" );
+        mysqli_query( $db_connect, "
+		UPDATE `k-ts`
+		SET `f` = 1
+		WHERE `s` = '" . $perevod[ $i ] . "'
+		" );
         mysqli_query( $db_connect, " 
 		INSERT IGNORE INTO `tz` (`z`)
 		VALUES ('" . $znachenie[ $i ] . "')
