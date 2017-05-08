@@ -83,7 +83,7 @@ function addKeywordsToList(PARAM_url) {
         document.querySelector("#hints-area").innerHTML = "Нечего добавлять.";
     } else {
         var request = new XMLHttpRequest();
-        basicKeywordsString = "basicKeywordsString=" + basicKeywordsString.value;
+        basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString.value);
 
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
@@ -318,7 +318,6 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
                 document.querySelector("#error-hints").innerHTML = "Необходимо хоть одно опорное ключевое слово.";
                 enableGetBasicKeywordsButton();
             } else {
-console.log(request.responseText);
                 var resultArray = JSON.parse(request.responseText);
 
                 addStatusForHints(resultArray);
@@ -514,7 +513,7 @@ function createResultString() {
 
 
             var request = new XMLHttpRequest();
-            var jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + JSON.stringify(resultString);
+            var jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + encodeURIComponent(JSON.stringify(resultString));
             request.open("POST", 'php/ex_add_hints_to_translation.php', true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(jsonHintsStringForTranlation);
