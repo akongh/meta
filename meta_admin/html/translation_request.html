@@ -2,20 +2,22 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Перевод по заявке</title>
+    <title>Перевод по заявке (рус.—анг.)</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-    <h2>Пераквох па заяуцы;)</h2>
+    <h2>Перевод по заявке (рус.—анг.)</h2>
     <hr class="otbivka_24">
-    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+    <a href="index.php">На главную</a>
+    <hr class="otbivka_24">
+    <div class="statistika">Ключевых слов на русском переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
         <br>
-        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
+        Ключевых слов на русском на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
     <hr class="otbivka_96">
     <form method="post" action="php/ex_save_request_translation.php">
-        <div class="kol"><a href="divide_and_add.php" class="proverit_pox_perevod">РАЗБИТЬ / ДОБАВИТЬ &#9658;</a></div>
+        <div class="kol"><a href="divide_and_add.php" class="proverit_pox_perevod">Разбить-добавить &#9658;</a></div>
         <hr class="otbivka_12">
         <h1>
             <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
@@ -47,13 +49,12 @@
             </div>
         </a>
         <hr class="otbivka_96">
-        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить пераквох ;)">
+        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить перевод">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+    <div class="upravlenie"><a href="php/ex_omit_by_request.php" title="Пропустить">&#9660; Пропустить</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
-        <hr class="otbivka_96">
-        <a href="index.php">На главную</a></div>
+    </div>
     <hr class="otbivka_96">
     <?php include('shtml/footer.shtml');?>
 </div>

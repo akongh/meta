@@ -10,12 +10,14 @@
 <div class="korobka">
     <h2>Перевод по заявке (анг.—рус.)</h2>
     <hr class="otbivka_24">
+    <a href="index.php">На главную</a>
+    <hr class="otbivka_24">
     <div class="statistika">Подсказок переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
         <br>
         Подсказок на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
     <hr class="otbivka_96">
     <form method="post" action="php/ex_save_hint_translation.php">
-        <div class="kol"><a href="divide_hint_and_add.php" class="proverit_pox_perevod">РАЗБИТЬ / ДОБАВИТЬ &#9658;</a></div>
+        <div class="kol"><a href="divide_hint_and_add.php" class="proverit_pox_perevod">Разбить-добавить &#9658;</a></div>
         <hr class="otbivka_12">
         <h1>
             <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
@@ -52,8 +54,7 @@
     <hr class="otbivka_24">
     <div class="upravlenie"><a href="php/ex_omit_hint_by_request.php" title="Пропустить">&#9660; Пропустить</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
-        <hr class="otbivka_96">
-        <a href="index.php">На главную</a></div>
+        </div>
     <hr class="otbivka_96">
     <?php include('shtml/footer.shtml');?>
 </div>

@@ -2,16 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Перевод по частоте</title>
+    <title>Перевод по частоте (рус.—анг.)</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-    <h2>Пераквох ;)</h2>
+    <h2>Перевод по частоте (рус.—анг.)</h2>
+    <hr class="otbivka_24">
+    <a href="index.php">На главную</a>
     <hr class="otbivka_24">
     <div class="statistika">
-        Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+        Ключевых слов на русском переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
     </div>
     <hr class="otbivka_96">
     <form method="post" action="php/ex_save_frequency_translation.php">
@@ -45,13 +47,12 @@
             </div>
         </a>
         <hr class="otbivka_96">
-        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить пераквох ;)">
+        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить перевод">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_by_frequency.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+    <div class="upravlenie"><a href="php/ex_omit_by_frequency.php" title="Пропустить">&#9660; Пропустить</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
-        <hr class="otbivka_96">
-        <a href="index.php">На главную</a></div>
+    </div>
     <hr class="otbivka_96">
     <?php include('shtml/footer.shtml');?>
 </div>
