@@ -6,7 +6,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 $slovo_k = $_SESSION["slovo_original"];
 
 mysqli_query( $db_connect, "
-UPDATE `k-ts`
+UPDATE `l-ts`
 SET `f` = 5
 WHERE `s` = '" . $slovo_k . "' 
 " );
