@@ -25,7 +25,10 @@ getBasicKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList("php/ex_hints_shutterstock.php");
 }, false);
-clearButton.addEventListener("click", clearQuery);
+clearButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    clearQuery();
+}, false);
 deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteHintsObjectsArray();
@@ -545,7 +548,6 @@ function createResultString() {
 function clearQuery() {
     clearErrors();
     document.querySelector("textarea[name='basic-keywords-string']").value = "";
-    document.querySelector("textarea[name='basic-keywords-string']").focus();
 };
 
 
