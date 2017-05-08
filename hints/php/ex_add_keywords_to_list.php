@@ -56,7 +56,6 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     };
 
 
-
     return $basic_keywords_array;
 }
 
@@ -82,7 +81,7 @@ WHERE
         $translations_array[ $n ] = $data['z'];
         $n ++;
     };
-    if ( count( $translations_array ) == 0 ) {
+    if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {
         $translations_array[0] = "-";
     };
 
