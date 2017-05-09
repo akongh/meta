@@ -66,6 +66,7 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 
 //выбирает перевод для одного слова
 function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
+    $_PARAM_hint_keyword = preg_replace('/&amp;/', '&', $_PARAM_hint_keyword);
     $_SQL_select_translations = "SELECT
     `tz`.`z`
 FROM

@@ -217,6 +217,7 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
 
 //выбирает перевод для одной подсказки
 function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
+    $_PARAM_hint_keyword = preg_replace('/&amp;/', '&', $_PARAM_hint_keyword);
     $_SQL_select_translations = "SELECT
     `tz`.`z`
 FROM

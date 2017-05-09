@@ -39,7 +39,7 @@ from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
 join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
 join `tz` on `tz`.`idz`=`k_l`.`idz`
-where `l-ts`.`s`='" . $slovo . "'
+where `l-ts`.`s`='" . preg_replace("/'/", "\'", $slovo) . "'
 " );
 };
 if ( isset( $SQL_p_z ) ) {

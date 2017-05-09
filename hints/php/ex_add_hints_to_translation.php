@@ -11,13 +11,13 @@ for ( $i = 0; $i < count($json_hints_array_for_translation); $i ++ ) {
 
     mysqli_query( $db_connect, "
 	INSERT IGNORE INTO `l-ts` (`s`)
-	VALUES ('" . $json_hints_array_for_translation[ $i ] . "')
+	VALUES ('" . preg_replace("/'/", "\'", $json_hints_array_for_translation[ $i ]) . "')
     " );
 
     mysqli_query( $db_connect, "
 	UPDATE `l-ts`
 	SET `f` = 7
-	WHERE `s` = '" . $json_hints_array_for_translation[ $i ] . "' and `f` = 0
+	WHERE `s` = '" . preg_replace("/'/", "\'", $json_hints_array_for_translation[ $i ]) . "' and `f` = 0
     " );
 
 };

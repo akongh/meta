@@ -10,7 +10,7 @@ from `l-ts`
 join `k_l` on `l-ts`.`ids`=`k_l`.`idl`
 join `k-ts` on `k-ts`.`ids`=`k_l`.`idk`
 join `tz` on `tz`.`idz`=`k_l`.`idz`
-where `l-ts`.`s`='" . $slovo_k . "'
+where `l-ts`.`s`='" . preg_replace("/'/", "\'", $slovo_k) . "'
 " );
 
 $n = 0;
