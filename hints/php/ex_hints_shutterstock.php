@@ -218,7 +218,7 @@ FROM
         JOIN
     `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE
-    `l-ts`.`s` = '" . $_PARAM_hint_keyword . "';
+    `l-ts`.`s` = '" . preg_replace("/'/", "\'", $_PARAM_hint_keyword) . "';
     ";
     $_SQL_translations        = mysqli_query( $_PARAM_db_connect, $_SQL_select_translations );
     $n                        = 0;
