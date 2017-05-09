@@ -86,8 +86,8 @@ if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
 
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-    //удаляем пробелы на конце у ОКС, дубликаты удалятся далее
-    $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
+    //удаляем пробелы на конце у ОКС, уравниваем код амперсанда, дубликаты удалятся далее
+    $basic_keywords_array[ $i ] = preg_replace('/%26/', '&', trim( $basic_keywords_array[ $i ] ));
 };
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
@@ -104,9 +104,9 @@ $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 
-//заменяем амперсант, чтоб не ломал javscript потом
+//заменяем амперсанд, чтоб не ломал javscript потом
 for($i = 0; $i < count($hint_keyword_array); $i++){
-    $hint_keyword_array[$i] = str_replace('&','&amp;',$hint_keyword_array[$i]);
+    $hint_keyword_array[$i] = preg_replace('/&/','&amp;',$hint_keyword_array[$i]);
 };
 
 
@@ -137,11 +137,14 @@ echo( $json_result );
 function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
     $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
+    //заменяем код амперсанда для запроса подсказок
+    $basic_keywords_array = preg_replace( "/&amp;/", "%26", $basic_keywords_array );
     $basic_keywords_array = preg_split( "[\n|,|;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
+
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
-        //только латиница, цифры, пробел, дефис и апостроф
-        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\']+)$/iu", $basic_keywords_array[ $i ] ) ) {
+        //только латиница, цифры, пробел, дефис, апостроф и амперсанд
+        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
             echo( "-2" );
             exit;
         };
