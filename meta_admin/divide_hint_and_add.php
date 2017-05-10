@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '7'" );
 $na_zayavke_otvet  = mysqli_fetch_row( $na_zayavke_zapros );

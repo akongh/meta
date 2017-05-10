@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 unset( $_SESSION["slovo_original"] );
 
@@ -67,6 +68,25 @@ unset( $p_z, $p, $z );
 //};
 
 if ( isset( $slovo ) ) {
+
+    $queue_hints_translation_querry = mysqli_query( $db_connect, "
+	SELECT `s` hints, `ids`
+	from `l-ts`
+	where `f` = 7
+	ORDER BY `l-ts`.`ids`
+	" );
+
+    $n = 0;
+    while ( $data = mysqli_fetch_array( $queue_hints_translation_querry ) ) {
+        if ( $n > 0 ) {
+            $queue_hints_translation[ $n ] = $data['hints'];
+        };
+        $n ++;
+    }
+    if ( isset( $queue_hints_translation ) && count( $queue_hints_translation ) > 0 ) {
+        $queue_hints_translation = implode( '<br>', $queue_hints_translation );
+    };
+
     $_SESSION["slovo_original"] = $slovo;
     include( 'html/translation_hint.html' );
 } else {
