@@ -8,6 +8,7 @@ var deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hin
 var returnToListViewButton = document.querySelector("#return-to-list-view-button");
 var sortAzButton = document.querySelector("#sort-a-z-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
+var rankHintsListButton = document.querySelector("#rank-hints-list-button");
 var hintsArea = document.querySelector("#hints-area");
 var upButtonBlock = document.querySelector("#up-button-block");
 var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
@@ -61,6 +62,10 @@ createResultStringButton.addEventListener("click", function (e) {
     e.preventDefault();
     createResultString();
 }, false);
+rankHintsListButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    rankHintsList();
+}, false);
 getTranslationButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetTranslationsCreateHTMLTranslationsList("php/ex_translations.php");
@@ -79,6 +84,7 @@ window.addEventListener("scroll", viewHideUpButton);
 
 function addKeywordsToList(PARAM_url) {
     clearErrors();
+    reSortingHintsObjectsArray();
     var basicKeywordsString = document.querySelector("#basic-keywords-string");
     var basicKeywordsStringTrim = basicKeywordsString.value.trim();
 
@@ -353,7 +359,7 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
         ;
     };
     request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");console.log(basicKeywordsString);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(basicKeywordsString);
 };
 
@@ -490,6 +496,7 @@ function selectDeselectHint() {
 
 function returnToListView() {
     clearErrors();
+    reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
@@ -501,6 +508,7 @@ function returnToListView() {
 
 function createResultString() {
     clearErrors();
+    reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
         var resultString = [];
         var k = 0;
@@ -540,6 +548,59 @@ function createResultString() {
         ;
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего собирать в результат.";
+    }
+    ;
+};
+
+
+function rankHintsList() {
+    clearErrors();
+    // reSortingHintsObjectsArray();
+    deleteDeselectedHints();
+
+    if (typeof window.hintsObjectsArray !== "undefined") {
+
+        var listResultArray = [];
+
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            listResultArray[i] = "<div class='rank-hint-box'>" +
+                "<span class='bold'>" + window.hintsObjectsArray[i].hint + "</span>" +
+                "</div>";
+        }
+        ;
+        document.querySelector("#hints-area").innerHTML = "<div id='rank-hints-list'>" + listResultArray.join("") + "</div>";
+
+        $(function () {
+            $("#rank-hints-list").sortable();
+            $("#rank-hints-list").disableSelection();
+        });
+
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечему задавать очерёдность.";
+    }
+    ;
+};
+
+
+function reSortingHintsObjectsArray() {
+    var rankHintsBoxes = document.querySelectorAll('.rank-hint-box');
+    if (rankHintsBoxes.length > 0) {
+        window.hintsObjectsArrayReRank = [];
+        for (var i = 0; i < rankHintsBoxes.length; i++) {
+            rankHintsBoxes[i].innerText = rankHintsBoxes[i].innerText.replace('&amp;', '&');
+            rankHintsBoxes[i].innerText = rankHintsBoxes[i].innerText.replace('&', '&amp;');
+            for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                if (rankHintsBoxes[i].innerText === window.hintsObjectsArray[j].hint) {
+                    window.hintsObjectsArrayReRank[i] = window.hintsObjectsArray[j];
+                    break;
+                }
+                ;
+            }
+            ;
+        }
+        ;
+        window.hintsObjectsArray = window.hintsObjectsArrayReRank;
+        delete window.hintsObjectsArrayReRank;
     }
     ;
 };
