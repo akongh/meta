@@ -14,6 +14,8 @@ var upButtonBlock = document.querySelector("#up-button-block");
 var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
 var getTranslationButton = document.querySelector("#get-translation-button");
 var clearTranslationButton = document.querySelector("#clear-translation-button");
+var selectAllHintsButton = document.querySelector("#select-all-hints-button");
+var deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
 
 
 window.onload = countHintsTotalAndSelected();
@@ -69,6 +71,14 @@ rankHintsListButton.addEventListener("click", function (e) {
 getTranslationButton.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetTranslationsCreateHTMLTranslationsList("php/ex_translations.php");
+}, false);
+selectAllHintsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    selectAllHints();
+}, false);
+deselectAllHintsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deselectAllHints();
 }, false);
 clearTranslationButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -685,6 +695,34 @@ function viewHideUpButton() {
         upButtonBlock.style.display = "inline-block";
     } else {
         upButtonBlock.style.display = "none";
+    }
+    ;
+};
+
+
+function selectAllHints() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            window.hintsObjectsArray[i].status = 'select';
+        }
+        ;
+        createHTMLHintsList(window.hintsObjectsArray);
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечего выбирать.";
+    }
+    ;
+};
+
+
+function deselectAllHints() {
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        for (var i = 0; i < window.hintsObjectsArray.length; i++) {
+            window.hintsObjectsArray[i].status = 'deselect';
+        }
+        ;
+        createHTMLHintsList(window.hintsObjectsArray);
+    } else {
+        document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
     }
     ;
 };
