@@ -396,7 +396,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
     };
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(keywordInRussian);
+    request.send(keywordInRussian.replace('&', '%26'));
 }
 ;
 
