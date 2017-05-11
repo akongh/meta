@@ -555,7 +555,7 @@ function createResultString() {
 
 function rankHintsList() {
     clearErrors();
-    // reSortingHintsObjectsArray();
+    reSortingHintsObjectsArray();
     deleteDeselectedHints();
 
     if (typeof window.hintsObjectsArray !== "undefined") {
