@@ -707,6 +707,7 @@ function selectAllHints() {
             window.hintsObjectsArray[i].status = 'select';
         }
         ;
+        countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего выбирать.";
@@ -721,6 +722,7 @@ function deselectAllHints() {
             window.hintsObjectsArray[i].status = 'deselect';
         }
         ;
+        countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
