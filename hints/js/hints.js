@@ -657,7 +657,7 @@ function deleteDeselectedHints() {
         }
         ;
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
+        document.querySelector("#hints-area").innerHTML = "Нечего очищать.";
     }
     ;
 };
