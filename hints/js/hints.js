@@ -702,6 +702,9 @@ function viewHideUpButton() {
 
 
 function selectAllHints() {
+    clearErrors();
+    reSortingHintsObjectsArray();
+
     if (typeof window.hintsObjectsArray !== "undefined") {
         for (var i = 0; i < window.hintsObjectsArray.length; i++) {
             window.hintsObjectsArray[i].status = 'select';
@@ -717,6 +720,9 @@ function selectAllHints() {
 
 
 function deselectAllHints() {
+    clearErrors();
+    reSortingHintsObjectsArray();
+
     if (typeof window.hintsObjectsArray !== "undefined") {
         for (var i = 0; i < window.hintsObjectsArray.length; i++) {
             window.hintsObjectsArray[i].status = 'deselect';
