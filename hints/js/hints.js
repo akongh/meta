@@ -135,6 +135,7 @@ function addKeywordsToList(PARAM_url) {
 
                     countHintsTotalAndSelected();
                     createHTMLHintsList(window.hintsObjectsArray);
+                    document.querySelector("#basic-keywords-string").value = '';
                 }
                 ;
             }
