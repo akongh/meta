@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои продавшие ключевые слова</title>
+    <meta name="Description" content=""/>
+    <meta name="Keywords"
+          content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/native.css"
+          rel="stylesheet"
+          type="text/css">
+    <link rel="shortcut icon"
+          href="http://<?php echo $site_domain_name ?>/favicon.ico"
+          type="image/ven.microsoft.ico">
+    <?php include('../shtml/yandex_metric_meta.shtml');?>
+</head>
+<body>
+<div class="page">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="bold">Мои продавшие ключевые слова</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <textarea id="json-selling-keywords"
+              name="json-selling-keywords"
+              class="textarea-keywords"
+              wrap="soft"
+              rows="16"
+              placeholder=""
+              autofocus></textarea>
+    <br>
+    <br>
+    <input id="parce-json-selling-keywords-button" name="parce-json-selling-keywords-button" type="submit"
+           value="Извлечь продающие ключевые слова">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="selling-keywords-list"></div>
+    <?php include('../shtml/footer.shtml');?>
+</div>
+<script src="selling-keywords.js"></script>
+</body>
+</html>
