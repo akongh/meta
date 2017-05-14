@@ -9,7 +9,7 @@ $basic_keywords_array = PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $basic_keywords_stri
 
 
 //проверка колличества добавляемых ключевых слов
-if ( count( $basic_keywords_array ) > 80 ) {
+if ( count( $basic_keywords_array ) > 10000 ) {
     echo( "-1" );
     exit;
 };

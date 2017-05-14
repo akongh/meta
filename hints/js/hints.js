@@ -107,9 +107,9 @@ function addKeywordsToList(PARAM_url) {
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
                 if (request.responseText === "-1") {
-                    document.querySelector("#error-hints").innerHTML = "Не более 80-ти добавляемых ключевых слов.";
+                    document.querySelector("#error-hints").innerHTML = "Не более 10&nbsp;000 добавляемых ключевых слов.";
                 } else if (request.responseText === "-2") {
-                    document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                    document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
                 } else {
                     var resultArray = JSON.parse(request.responseText);
                     addStatusForHints(resultArray);

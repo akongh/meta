@@ -11,8 +11,6 @@
 <br>
 <a href="http://afoteris.com" title="Сайт AFOTERIS.com для стоковых авторов" target="_blank">AFOTERIS.com</a>
 <br>
-<a href="../hints/hints.php" title="Подсказки ключевых запросов">Подсказки</a>
-<br>
 <br>
 © META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?>
 <br>
