@@ -3,6 +3,8 @@ var getBasicKeywordsButtonIstock = document.querySelector("#get-basic-keywords-b
 var getBasicKeywordsButtonGetty = document.querySelector("#get-basic-keywords-button-getty");
 var getBasicKeywordsButtonFotolia = document.querySelector("#get-basic-keywords-button-fotolia");
 var getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-keywords-button-bigstockphoto");
+// var getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
+var getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 var clearButton = document.querySelector("#clear-button");
 var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 var deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
@@ -40,6 +42,14 @@ getBasicKeywordsButtonFotolia.addEventListener("click", function (e) {
 getBasicKeywordsButtonBigstockphoto.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListBigstockphoto("php/ex_hints_bigstockphoto.php");
+}, false);
+// getBasicKeywordsButtonDepositphotos.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     sendQueryGetHintsCreateHTMLHintsListDepositphotos("php/ex_hints_depositphotos.php");
+// }, false);
+getBasicKeywordsButton123rf.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsList123rf("php/ex_hints_123rf.php");
 }, false);
 addKeywordsToListButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -439,6 +449,117 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
 };
 
 
+// function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
+//     clearErrors();
+//     disableGetBasicKeywordsButton();
+//
+//     var request = new XMLHttpRequest();
+//     var basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+//
+//     request.onreadystatechange = function () {
+//         if (request.readyState === 4 && request.status === 200) {
+//             if (request.responseText === "-1") {
+//                 document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+//                 enableGetBasicKeywordsButton();
+//             } else if (request.responseText === "-2") {
+//                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+//                 enableGetBasicKeywordsButton();
+//             } else {
+//
+//                 var resultArray = JSON.parse(request.responseText);
+//
+//                 addStatusForHints(resultArray);
+//
+//                 if (typeof window.hintsObjectsArray !== "undefined") {
+//                     for (var i = 0; i < resultArray.length; i++) {
+//                         for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+//                             if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+//                                 resultArray.splice(i, 1);
+//                                 i--;
+//                                 break;
+//                             }
+//                             ;
+//                         }
+//                         ;
+//                     }
+//                     ;
+//                     window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+//                 } else {
+//                     window.hintsObjectsArray = resultArray;
+//                 }
+//                 ;
+//
+//                 countHintsTotalAndSelected();
+//                 createHTMLHintsList(window.hintsObjectsArray);
+//                 setTimeout("enableGetBasicKeywordsButton()", 200);
+//             }
+//             ;
+//         }
+//         ;
+//     };
+//     request.open("POST", PARAM_url, true);
+//     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     request.send(basicKeywordsString);
+// };
+
+
+function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+
+    var request = new XMLHttpRequest();
+    var basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-hints").innerHTML = "Необходимо хоть одно опорное ключевое слово.";
+                enableGetBasicKeywordsButton();
+            } else {
+
+                var resultArray = JSON.parse(request.responseText);
+
+                addStatusForHints(resultArray);
+
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    for (var i = 0; i < resultArray.length; i++) {
+                        for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice(i, 1);
+                                i--;
+                                break;
+                            }
+                            ;
+                        }
+                        ;
+                    }
+                    ;
+                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
+                }
+                ;
+
+                countHintsTotalAndSelected();
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+            ;
+        }
+        ;
+    };
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(basicKeywordsString);
+};
+
+
 function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
     clearErrors();
 
@@ -826,6 +947,16 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonBigstockphoto.value = "…";
     getBasicKeywordsButtonBigstockphoto.style.background = "#dddddd";
     getBasicKeywordsButtonBigstockphoto.style.cursor = "default";
+
+    // getBasicKeywordsButtonDepositphotos.disabled = true;
+    // getBasicKeywordsButtonDepositphotos.value = "…";
+    // getBasicKeywordsButtonDepositphotos.style.background = "#dddddd";
+    // getBasicKeywordsButtonDepositphotos.style.cursor = "default";
+
+    getBasicKeywordsButton123rf.disabled = true;
+    getBasicKeywordsButton123rf.value = "…";
+    getBasicKeywordsButton123rf.style.background = "#dddddd";
+    getBasicKeywordsButton123rf.style.cursor = "default";
 };
 
 
@@ -854,6 +985,16 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonBigstockphoto.value = "От Бигстокфото";
     getBasicKeywordsButtonBigstockphoto.style.background = "";
     getBasicKeywordsButtonBigstockphoto.style.cursor = "";
+
+    // getBasicKeywordsButtonDepositphotos.disabled = false;
+    // getBasicKeywordsButtonDepositphotos.value = "От Депозитфотос";
+    // getBasicKeywordsButtonDepositphotos.style.background = "";
+    // getBasicKeywordsButtonDepositphotos.style.cursor = "";
+
+    getBasicKeywordsButton123rf.disabled = false;
+    getBasicKeywordsButton123rf.value = "От 123РФ";
+    getBasicKeywordsButton123rf.style.background = "";
+    getBasicKeywordsButton123rf.style.cursor = "";
 };
 
 

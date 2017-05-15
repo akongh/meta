@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 
 //получаем и определяем параметр type и строку ОКС
-$type                  = $_POST["type"];
 $basic_keywords_string = $_POST["basicKeywordsString"];
 
 
@@ -29,10 +28,10 @@ include( "rules.php" );
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ], $type );
+    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ] );
 
     //очистка json-ответа от служебной информации
-    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ], $basic_keywords_array[ $i ] );
+    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ] );
 
     //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
@@ -162,11 +161,11 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 
 
 //создаёт json-ответ для одного ОКС
-function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_type ) {
-    if ( $_PARAM_basic_keyword != "" ) {
-        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
-    };
-    $url    = "https://www.bigstockphoto.com/autosuggest?q=" . $_PARAM_basic_keyword . "&language=en&type=" . $_PARAM_type;
+function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
+//    if ( $_PARAM_basic_keyword != "" ) {
+//        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
+//    };
+    $url    = "https://d3fqh47ho4rujh.cloudfront.net/keycomplete/" . $_PARAM_basic_keyword;
     $sesion = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
@@ -180,13 +179,12 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_typ
 
 
 //очищает от служебной информации массив подсказок для одного json-ответа
-function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
-    $clean_json_responce_array = json_decode( $_PARAM_json_responce, true );
-    if ( isset ( $clean_json_responce_array["data"] ) ) {
-        $clean_json_responce_array = $clean_json_responce_array["data"];
-    } else {
-        $clean_json_responce_array["data"][0] = $_PARAM_basic_keyword . '_-_недопустимое_значение.';
-        $clean_json_responce_array            = $clean_json_responce_array["data"];
+function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
+    $clean_json_responce       = preg_replace( "/var jsonptext = '/", '', $_PARAM_json_responce );
+    $clean_json_responce       = preg_replace( "/\'\;autoobject\.evalText\(jsonptext\)\;/", '', $clean_json_responce );
+    $clean_json_responce_array = json_decode( $clean_json_responce, true );
+    if ( isset( $clean_json_responce_array['suggestions'] ) ) {
+        $clean_json_responce_array = $clean_json_responce_array['suggestions'];
     };
 
     return $clean_json_responce_array;
