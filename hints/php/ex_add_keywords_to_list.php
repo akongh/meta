@@ -50,12 +50,12 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     };
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     //только латиница, цифры, пробел, дефис, апостроф и амперсанд//TODO: и амперсант
-    for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-        if ( ! preg_match( "/^([a-z0-9\s\-\'(&amp;)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
-            echo( "-2" );
-            exit;
-        };
-    };
+//    for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
+//        if ( ! preg_match( "/^([a-z0-9\s\-\'(&amp;)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
+//            echo( "-2" );
+//            exit;
+//        };
+//    };
 
 
     return $basic_keywords_array;

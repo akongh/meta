@@ -138,10 +138,10 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
         //только латиница, цифры, пробел, дефис, апостроф и амперсанд
-        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
-            echo( "-2" );
-            exit;
-        };
+//        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
+//            echo( "-2" );
+//            exit;
+//        };
     };
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {

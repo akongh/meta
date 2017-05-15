@@ -32,7 +32,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ], $type );
 
     //очистка json-ответа от служебной информации
-    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ] );
+    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ], $basic_keywords_array[ $i ] );
 
     //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
@@ -145,10 +145,10 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );
         //только латиница, цифры, пробел, дефис, апостроф и амперсанд
-        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
-            echo( "-2" );
-            exit;
-        };
+//        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
+//            echo( "-2" );
+//            exit;
+//        };
     };
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
@@ -180,9 +180,14 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_typ
 
 
 //очищает от служебной информации массив подсказок для одного json-ответа
-function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
+function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
     $clean_json_responce_array = json_decode( $_PARAM_json_responce, true );
-    $clean_json_responce_array = $clean_json_responce_array["data"];
+    if ( isset ( $clean_json_responce_array["data"] ) ) {
+        $clean_json_responce_array = $clean_json_responce_array["data"];
+    } else {
+        $clean_json_responce_array["data"][0] = $_PARAM_basic_keyword . '_-_недопустимое_значение.';
+        $clean_json_responce_array            = $clean_json_responce_array["data"];
+    };
 
     return $clean_json_responce_array;
 }
