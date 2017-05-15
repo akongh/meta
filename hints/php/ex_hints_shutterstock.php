@@ -172,6 +172,7 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_med
     $sesion         = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49' );
     $json_responce = curl_exec( $sesion );
     curl_close( $sesion );
 
