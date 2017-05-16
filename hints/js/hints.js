@@ -3,7 +3,7 @@ var getBasicKeywordsButtonIstock = document.querySelector("#get-basic-keywords-b
 var getBasicKeywordsButtonGetty = document.querySelector("#get-basic-keywords-button-getty");
 var getBasicKeywordsButtonFotolia = document.querySelector("#get-basic-keywords-button-fotolia");
 var getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-keywords-button-bigstockphoto");
-// var getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
+var getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
 var getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 var clearButton = document.querySelector("#clear-button");
 var deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
@@ -43,10 +43,10 @@ getBasicKeywordsButtonBigstockphoto.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListBigstockphoto("php/ex_hints_bigstockphoto.php");
 }, false);
-// getBasicKeywordsButtonDepositphotos.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     sendQueryGetHintsCreateHTMLHintsListDepositphotos("php/ex_hints_depositphotos.php");
-// }, false);
+getBasicKeywordsButtonDepositphotos.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsListDepositphotos("php/ex_hints_depositphotos.php");
+}, false);
 getBasicKeywordsButton123rf.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList123rf("php/ex_hints_123rf.php");
@@ -449,58 +449,58 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
 };
 
 
-// function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
-//     clearErrors();
-//     disableGetBasicKeywordsButton();
-//
-//     var request = new XMLHttpRequest();
-//     var basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
-//
-//     request.onreadystatechange = function () {
-//         if (request.readyState === 4 && request.status === 200) {
-//             if (request.responseText === "-1") {
-//                 document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
-//                 enableGetBasicKeywordsButton();
-//             } else if (request.responseText === "-2") {
-//                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-//                 enableGetBasicKeywordsButton();
-//             } else {
-//
-//                 var resultArray = JSON.parse(request.responseText);
-//
-//                 addStatusForHints(resultArray);
-//
-//                 if (typeof window.hintsObjectsArray !== "undefined") {
-//                     for (var i = 0; i < resultArray.length; i++) {
-//                         for (var j = 0; j < window.hintsObjectsArray.length; j++) {
-//                             if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-//                                 resultArray.splice(i, 1);
-//                                 i--;
-//                                 break;
-//                             }
-//                             ;
-//                         }
-//                         ;
-//                     }
-//                     ;
-//                     window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-//                 } else {
-//                     window.hintsObjectsArray = resultArray;
-//                 }
-//                 ;
-//
-//                 countHintsTotalAndSelected();
-//                 createHTMLHintsList(window.hintsObjectsArray);
-//                 setTimeout("enableGetBasicKeywordsButton()", 200);
-//             }
-//             ;
-//         }
-//         ;
-//     };
-//     request.open("POST", PARAM_url, true);
-//     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     request.send(basicKeywordsString);
-// };
+function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+
+    var request = new XMLHttpRequest();
+    var basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                enableGetBasicKeywordsButton();
+            } else {
+
+                var resultArray = JSON.parse(request.responseText);
+
+                addStatusForHints(resultArray);
+
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    for (var i = 0; i < resultArray.length; i++) {
+                        for (var j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice(i, 1);
+                                i--;
+                                break;
+                            }
+                            ;
+                        }
+                        ;
+                    }
+                    ;
+                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
+                }
+                ;
+
+                countHintsTotalAndSelected();
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+            ;
+        }
+        ;
+    };
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(basicKeywordsString);
+};
 
 
 function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
@@ -948,10 +948,10 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonBigstockphoto.style.background = "#dddddd";
     getBasicKeywordsButtonBigstockphoto.style.cursor = "default";
 
-    // getBasicKeywordsButtonDepositphotos.disabled = true;
-    // getBasicKeywordsButtonDepositphotos.value = "…";
-    // getBasicKeywordsButtonDepositphotos.style.background = "#dddddd";
-    // getBasicKeywordsButtonDepositphotos.style.cursor = "default";
+    getBasicKeywordsButtonDepositphotos.disabled = true;
+    getBasicKeywordsButtonDepositphotos.value = "…";
+    getBasicKeywordsButtonDepositphotos.style.background = "#dddddd";
+    getBasicKeywordsButtonDepositphotos.style.cursor = "default";
 
     getBasicKeywordsButton123rf.disabled = true;
     getBasicKeywordsButton123rf.value = "…";
@@ -986,10 +986,10 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonBigstockphoto.style.background = "";
     getBasicKeywordsButtonBigstockphoto.style.cursor = "";
 
-    // getBasicKeywordsButtonDepositphotos.disabled = false;
-    // getBasicKeywordsButtonDepositphotos.value = "От Депозитфотос";
-    // getBasicKeywordsButtonDepositphotos.style.background = "";
-    // getBasicKeywordsButtonDepositphotos.style.cursor = "";
+    getBasicKeywordsButtonDepositphotos.disabled = false;
+    getBasicKeywordsButtonDepositphotos.value = "От Депозитфотос";
+    getBasicKeywordsButtonDepositphotos.style.background = "";
+    getBasicKeywordsButtonDepositphotos.style.cursor = "";
 
     getBasicKeywordsButton123rf.disabled = false;
     getBasicKeywordsButton123rf.value = "От 123РФ";
