@@ -1,4 +1,3 @@
-var jsonSellingKeywords = document.querySelector('#json-selling-keywords');
 var parceJsonSellingKeywordsButton = document.querySelector('#parce-json-selling-keywords-button');
 
 parceJsonSellingKeywordsButton.addEventListener("click", function (e) {
@@ -7,11 +6,15 @@ parceJsonSellingKeywordsButton.addEventListener("click", function (e) {
 }, false);
 
 function parceJsonSellingKeywords(PARAM_url) {
+
+    var jsonSellingKeywords = document.querySelector('#json-selling-keywords');
+
     var request = new XMLHttpRequest();
     var jsonSellingKeywordsRequest = "jsonSellingKeywords=" + encodeURIComponent(jsonSellingKeywords.value);
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             document.querySelector("#selling-keywords-list").innerHTML = request.responseText;
+            document.querySelector('#json-selling-keywords').value = '';
         }
         ;
     }
