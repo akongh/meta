@@ -25,25 +25,23 @@
     <br>
     <br>
     <br>
-    <br>https://submit.shutterstock.com/api/earnings/keywords?ids[]=000000000<br>
-    <br>https://submit.shutterstock.com/earnings/top-performers?page=1&date_range=0&sort_direction=desc&per_page=400&language=en<br>
     <br>
-    <textarea id="json-selling-keywords"
-              name="json-selling-keywords"
-              class="textarea-keywords"
-              wrap="soft"
-              rows="16"
-              placeholder=""
-              autofocus></textarea>
+    <input type="text" id="keyword" class="textarea-keywords" maxlength="64">
     <br>
     <br>
-    <input id="parce-json-selling-keywords-button" name="parce-json-selling-keywords-button" type="submit"
-           value="Извлечь продавшие ключевые слова">
+    <label><input type="radio" name="image_type" value="all"> Все</label>
+    <label><input type="radio" name="image_type" value="photo" checked> Фото</label>
+    <label><input type="radio" name="image_type" value="vector"> Вектор</label>
+    <label><input type="radio" name="image_type" value="illustration"> Иллюстрации</label>
+    <br>
+    <br>
+    <input id="get-selling-keywords-button" name="get-selling-keywords-button" type="submit"
+           value="Получить продавшие ключевые слова">
     <br>
     <br>
     <br>
     <br>
-    <div id="selling-keywords-list"></div>
+    <div id="selling-keywords-data"></div>
     <?php include('../shtml/footer.shtml');?>
 </div>
 <script src="selling-keywords.js"></script>

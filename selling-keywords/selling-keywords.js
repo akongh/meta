@@ -1,25 +1,47 @@
-var parceJsonSellingKeywordsButton = document.querySelector('#parce-json-selling-keywords-button');
+var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
 
-parceJsonSellingKeywordsButton.addEventListener("click", function (e) {
+getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    parceJsonSellingKeywords("parce_json_selling_keywords.php");
+    getSellingKeywordsData("selling_keywords.php");
 }, false);
 
-function parceJsonSellingKeywords(PARAM_url) {
 
-    var jsonSellingKeywords = document.querySelector('#json-selling-keywords');
+function getSellingKeywordsData(PARAM_url) {
+
+    var keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
+    var imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
+    var SellingKeywordsRequest = keyword + '&' + imageType;
 
     var request = new XMLHttpRequest();
-    var jsonSellingKeywordsRequest = "jsonSellingKeywords=" + encodeURIComponent(jsonSellingKeywords.value);
     request.onreadystatechange = function () {
+
         if (request.readyState === 4 && request.status === 200) {
-            document.querySelector("#selling-keywords-list").innerHTML = request.responseText;
-            document.querySelector('#json-selling-keywords').value = '';
+            document.querySelector("#selling-keywords-data").innerHTML = request.responseText;
+
+            enableGetBasicKeywordsButton();
         }
         ;
     }
     ;
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(jsonSellingKeywordsRequest);
+    request.send(SellingKeywordsRequest);
+
+    disableGetBasicKeywordsButton();
+};
+
+
+function disableGetBasicKeywordsButton() {
+    getSellingKeywordsButton.disabled = true;
+    getSellingKeywordsButton.value = "…";
+    getSellingKeywordsButton.style.background = "#dddddd";
+    getSellingKeywordsButton.style.cursor = "default";
+};
+
+
+function enableGetBasicKeywordsButton() {
+    getSellingKeywordsButton.disabled = false;
+    getSellingKeywordsButton.value = "Получить продавшие ключевые слова";
+    getSellingKeywordsButton.style.background = "";
+    getSellingKeywordsButton.style.cursor = "";
 };
