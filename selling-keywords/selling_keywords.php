@@ -6,11 +6,6 @@ $image_type = $_POST['imageType'];
 
 
 $array_works_data = ARRAY_WORKS_DATA( $keyword, $image_type );
-//echo( $array_works_data );
-echo( '<pre>' );
-print_r( $array_works_data );
-echo( '</pre>' );
-exit;
 
 $array_useragents = [
     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49'
@@ -22,13 +17,13 @@ $array_cookies = [
 ];
 
 
-$url                   = CREATE_URL( $array_works_ids );
+$url                   = CREATE_URL( $array_works_data );
 $useragent             = RANDOM_SELECT_USERAGENT( $array_useragents );
 $cookies               = RANDOM_SELECT_COOKIES( $array_cookies );
 $json_selling_keywords = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
 
 
-//echo( $json_selling_keywords );
+echo( $json_selling_keywords );
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,7 +66,7 @@ function ARRAY_WORKS_DATA( $_PARAM_keyword, $_PARAM_image_type ) {
 function CREATE_URL( $_PARAM_array_works_ids ) {
 
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
-        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ];
+        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
     };
     $string_params = implode( '&', $array_params );
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
@@ -104,7 +99,7 @@ function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
 ;
 
 
-function GET_JSON_SELLING_KEYWORDS( $_PARAM_useragent, $_PARAM_url, $_PARAM_cookies ) {
+function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     $SESSION = curl_init();
     curl_setopt( $SESSION, CURLOPT_RETURNTRANSFER, true );
