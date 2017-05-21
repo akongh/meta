@@ -1,9 +1,11 @@
 var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
+var resultNode = document.querySelector("#selling-keywords-list");
 
 getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     getSellingKeywordsData("selling_keywords.php");
 }, false);
+resultNode.addEventListener('click', selectResult);
 
 
 function getSellingKeywordsData(PARAM_url) {
@@ -16,9 +18,15 @@ function getSellingKeywordsData(PARAM_url) {
     request.onreadystatechange = function () {
 
         if (request.readyState === 4 && request.status === 200) {
-
-            window.worksDataObjects = JSON.parse(request.responseText);
-            document.querySelector("#selling-keywords-data").innerHTML = createWorksLict();
+            //console.log(request.responseText);
+            if (request.responseText === '-1') {
+                document.querySelector("#selling-keywords-list").innerHTML = 'Шаттерсток ничего не выдал.';
+            } else {
+                window.worksDataObjects = JSON.parse(request.responseText);
+                document.querySelector("#selling-keywords-list").innerHTML = createSellingKeywordsLict();
+                document.querySelector("#works-list").innerHTML = createWorksLict();
+            }
+            ;
 
             enableGetBasicKeywordsButton();
         }
@@ -33,9 +41,26 @@ function getSellingKeywordsData(PARAM_url) {
 };
 
 
+function createSellingKeywordsLict() {
+    var arrayAllSellingKeywords = [];
+    var tenpCount = 0;
+    for (var i = 0; i < window.worksDataObjects.length; i++) {
+        for (var j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
+            arrayAllSellingKeywords[tenpCount] = window.worksDataObjects[i].keywords[j].keyword;
+            tenpCount++;
+        }
+        ;
+    }
+    ;
+
+    return '<span class="result">' + arrayAllSellingKeywords.join(', ') + '</span>';
+    ;
+};
+
+
 function createWorksLict() {
     var worksData = window.worksDataObjects;
-    var worksDataList = [];
+    var worksList = [];
     for (var i = 0; i < worksData.length; i++) {
         var kws = [];
         for (var j = 0; j < worksData[i].keywords.length; j++) {
@@ -46,7 +71,7 @@ function createWorksLict() {
                 '%</td></tr>';
         }
         ;
-        worksDataList[i] = '<span class="bold">' +
+        worksList[i] = '<span class="bold">' +
             worksData[i].title +
             '</span><br><br>' +
             worksData[i].img +
@@ -57,7 +82,16 @@ function createWorksLict() {
     ;
 
 
-    return worksDataList.join("<hr><br><br>");
+    return worksList.join("<hr><br><br>");
+};
+
+
+function selectResult() {
+    var selectRange = document.createRange();
+    selectRange.selectNodeContents(this);
+    var select = window.getSelection();
+    select.removeAllRanges();
+    select.addRange(selectRange);
 };
 
 

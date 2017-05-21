@@ -1,7 +1,13 @@
 <?php
 
 
-$keyword    = $_POST['keyword'];
+if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
+    $keyword = $_POST['keyword'];
+    $keyword = preg_replace( '/ /', '+', $keyword );
+} else {
+    echo( '-1' );
+    exit;
+};
 $image_type = $_POST['imageType'];
 
 
@@ -24,31 +30,6 @@ $cookies                = RANDOM_SELECT_COOKIES( $array_cookies );
 $json_selling_keywords  = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
 
-//for ( $i = 0; $i < 8; $i ++ ) {
-//    $json_selling_keywords    = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
-//    $array_selling_keywords_2 = json_decode( $json_selling_keywords, true );
-//    if ( isset( $array_selling_keywords ) ) {
-//        for ( $j = 0; $j < count( $array_selling_keywords ); $j ++ ) {
-//            if ( count( $array_selling_keywords[ $j ]['keywords'] ) > 9 ) {
-//                for ( $k = 0; $k < count( $array_selling_keywords_2 ); $k ++ ) {
-//                    if ( (int) $array_selling_keywords[ $j ]['id'] == (int) $array_selling_keywords_2[ $k ]['media_id'] ) {
-//
-//                        $array_selling_keywords[ $j ]['keywords'] =
-//
-//
-//                        break;
-//
-//
-//                    };
-//                };
-//            } else {
-//                break;
-//            };
-//        };
-//    } else {
-//        $json_selling_keywords = $array_selling_keywords_2;
-//    };
-//};
 
 for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
     for ( $j = 0; $i < count( $array_selling_keywords ); $j ++ ) {
@@ -73,6 +54,11 @@ function ARRAY_WORKS_DATA( $_PARAM_keyword, $_PARAM_image_type ) {
     $data       = file_get_contents( $search_url );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
+    if ( count( $array_works_block[0] ) == 0 ) {
+        echo( '-1' );
+        exit;
+    };
+
     $array_works_block = $array_works_block[0];
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
