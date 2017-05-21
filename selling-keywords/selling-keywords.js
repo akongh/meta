@@ -39,18 +39,25 @@ function createWorksLict() {
     for (var i = 0; i < worksData.length; i++) {
         var kws = [];
         for (var j = 0; j < worksData[i].keywords.length; j++) {
-            kws[j] = worksData[i].keywords[j].keyword +
-                ' - ' +
-                Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100 +
-                '%';
+            kws[j] = '<tr><td><span>' +
+                worksData[i].keywords[j].keyword +
+                '</span></td><td class="right">' +
+                (Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100).toFixed(2) +
+                '%</td></tr>';
         }
         ;
-        worksDataList[i] = worksData[i].title + '<br>' + worksData[i].img + '<br>' + kws.join("<br>");
+        worksDataList[i] = '<span class="bold">' +
+            worksData[i].title +
+            '</span><br><br>' +
+            worksData[i].img +
+            '<table class="table-kws">' +
+            kws.join("") +
+            '</table><br><br><br><br>';
     }
     ;
 
 
-    return worksDataList.join("<br>");
+    return worksDataList.join("<hr><br><br>");
 };
 
 

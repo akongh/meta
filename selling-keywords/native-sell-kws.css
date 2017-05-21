@@ -1,0 +1,20 @@
+.table-kws {
+    width: 246px;
+}
+
+.right {
+    text-align: right;
+}
+
+img {
+    float: left;
+    margin-right: 24px;
+}
+
+tr:hover {
+    font-family: "PT Mono Bold";
+}
+
+hr {
+    clear: both;
+}
