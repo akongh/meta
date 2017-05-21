@@ -10,13 +10,15 @@ function getSellingKeywordsData(PARAM_url) {
 
     var keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
     var imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
-    var SellingKeywordsRequest = keyword + '&' + imageType;
+    var sellingKeywordsRequest = keyword + '&' + imageType;
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
 
         if (request.readyState === 4 && request.status === 200) {
-            document.querySelector("#selling-keywords-data").innerHTML = request.responseText;
+
+            window.worksDataObjects = JSON.parse(request.responseText);
+            document.querySelector("#selling-keywords-data").innerHTML = createWorksLict();
 
             enableGetBasicKeywordsButton();
         }
@@ -25,9 +27,30 @@ function getSellingKeywordsData(PARAM_url) {
     ;
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(SellingKeywordsRequest);
+    request.send(sellingKeywordsRequest);
 
     disableGetBasicKeywordsButton();
+};
+
+
+function createWorksLict() {
+    var worksData = window.worksDataObjects;
+    var worksDataList = [];
+    for (var i = 0; i < worksData.length; i++) {
+        var kws = [];
+        for (var j = 0; j < worksData[i].keywords.length; j++) {
+            kws[j] = worksData[i].keywords[j].keyword +
+                ' - ' +
+                Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100 +
+                '%';
+        }
+        ;
+        worksDataList[i] = worksData[i].title + '<br>' + worksData[i].img + '<br>' + kws.join("<br>");
+    }
+    ;
+
+
+    return worksDataList.join("<br>");
 };
 
 

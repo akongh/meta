@@ -6,6 +6,7 @@ $image_type = $_POST['imageType'];
 
 
 $array_works_data = ARRAY_WORKS_DATA( $keyword, $image_type );
+//echo( $array_works_data );
 
 $array_useragents = [
     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49'
@@ -17,13 +18,49 @@ $array_cookies = [
 ];
 
 
-$url                   = CREATE_URL( $array_works_data );
-$useragent             = RANDOM_SELECT_USERAGENT( $array_useragents );
-$cookies               = RANDOM_SELECT_COOKIES( $array_cookies );
-$json_selling_keywords = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
+$url                    = CREATE_URL( $array_works_data );
+$useragent              = RANDOM_SELECT_USERAGENT( $array_useragents );
+$cookies                = RANDOM_SELECT_COOKIES( $array_cookies );
+$json_selling_keywords  = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
+$array_selling_keywords = json_decode( $json_selling_keywords, true );
+
+//for ( $i = 0; $i < 8; $i ++ ) {
+//    $json_selling_keywords    = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
+//    $array_selling_keywords_2 = json_decode( $json_selling_keywords, true );
+//    if ( isset( $array_selling_keywords ) ) {
+//        for ( $j = 0; $j < count( $array_selling_keywords ); $j ++ ) {
+//            if ( count( $array_selling_keywords[ $j ]['keywords'] ) > 9 ) {
+//                for ( $k = 0; $k < count( $array_selling_keywords_2 ); $k ++ ) {
+//                    if ( (int) $array_selling_keywords[ $j ]['id'] == (int) $array_selling_keywords_2[ $k ]['media_id'] ) {
+//
+//                        $array_selling_keywords[ $j ]['keywords'] =
+//
+//
+//                        break;
+//
+//
+//                    };
+//                };
+//            } else {
+//                break;
+//            };
+//        };
+//    } else {
+//        $json_selling_keywords = $array_selling_keywords_2;
+//    };
+//};
+
+for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
+    for ( $j = 0; $i < count( $array_selling_keywords ); $j ++ ) {
+        if ( (int) $array_works_data[ $i ]['id'] == (int) $array_selling_keywords[ $j ]['media_id'] ) {
+            $array_works_data[ $i ]['keywords'] = $array_selling_keywords[ $j ]['keywords'];
+            break;
+        };
+    };
+};
 
 
-echo( $json_selling_keywords );
+echo( json_encode( $array_works_data ) );
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
