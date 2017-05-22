@@ -1,5 +1,5 @@
 var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
-var resultNode = document.querySelector("#selling-keywords-list");
+var resultNode = document.querySelector("#selling-keywords-string");
 
 getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -20,11 +20,11 @@ function getSellingKeywordsData(PARAM_url) {
         if (request.readyState === 4 && request.status === 200) {
             //console.log(request.responseText);
             if (request.responseText === '-1') {
-                document.querySelector("#selling-keywords-list").innerHTML = 'Шаттерсток ничего не выдал.';
+                document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
             } else {
                 window.worksDataObjects = JSON.parse(request.responseText);
-                document.querySelector("#selling-keywords-list").innerHTML = createSellingKeywordsLict();
-                document.querySelector("#works-list").innerHTML = createWorksLict();
+                document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
+                document.querySelector("#works-list").innerHTML = createWorksList();
             }
             ;
 
@@ -41,24 +41,61 @@ function getSellingKeywordsData(PARAM_url) {
 };
 
 
-function createSellingKeywordsLict() {
+function createSellingKeywordsString() {
+
     var arrayAllSellingKeywords = [];
-    var tenpCount = 0;
+    var tempCount = 0;
+
     for (var i = 0; i < window.worksDataObjects.length; i++) {
         for (var j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
-            arrayAllSellingKeywords[tenpCount] = window.worksDataObjects[i].keywords[j].keyword;
-            tenpCount++;
+            arrayAllSellingKeywords[tempCount] = [];
+            arrayAllSellingKeywords[tempCount]['keyword'] = window.worksDataObjects[i].keywords[j].keyword;
+            arrayAllSellingKeywords[tempCount]['order'] = j;
+            tempCount++;
         }
         ;
     }
     ;
 
-    return '<span class="result">' + arrayAllSellingKeywords.join(', ') + '</span>';
+    var arrayUnicSellingKeywords = [];
+
+    for (i = 0; i < arrayAllSellingKeywords.length; i++) {
+        arrayUnicSellingKeywords[i] = arrayAllSellingKeywords[i]['keyword'];
+    }
+    ;
+
+    arrayUnicSellingKeywords = _.uniq(arrayUnicSellingKeywords);
+    var arraySortUnicSellingKeywords = [];
+
+    for (i = 0; i < arrayUnicSellingKeywords.length; i++) {
+        arraySortUnicSellingKeywords[i] = [];
+        arraySortUnicSellingKeywords[i]['sumOrders'] = 0;
+        arraySortUnicSellingKeywords[i]['count'] = 0;
+        for (j = 0; j < arrayAllSellingKeywords.length; j++) {
+            if (arrayUnicSellingKeywords[i] === arrayAllSellingKeywords[j]['keyword']) {
+                arraySortUnicSellingKeywords[i]['keyword'] = arrayUnicSellingKeywords[i];
+                arraySortUnicSellingKeywords[i]['sumOrders'] = arraySortUnicSellingKeywords[i]['sumOrders'] + arrayAllSellingKeywords[j]['order'];
+                arraySortUnicSellingKeywords[i]['count'] = arraySortUnicSellingKeywords[i]['count'] + 1;
+                arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
+            }
+            ;
+        }
+        ;
+    }
+    ;
+
+    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'weght']);
+    arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
+    arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
+    document.querySelector("#count-keywords").innerHTML = arraySortUnicSellingKeywords.length.toString();
+
+
+    return '<span class="result">' + arraySortUnicSellingKeywords.join(', ') + '</span>';
     ;
 };
 
 
-function createWorksLict() {
+function createWorksList() {
     var worksData = window.worksDataObjects;
     var worksList = [];
     for (var i = 0; i < worksData.length; i++) {
