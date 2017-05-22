@@ -69,22 +69,22 @@ function createSellingKeywordsString() {
 
     for (i = 0; i < arrayUnicSellingKeywords.length; i++) {
         arraySortUnicSellingKeywords[i] = [];
-        arraySortUnicSellingKeywords[i]['sumOrders'] = 0;
+        arraySortUnicSellingKeywords[i]['keyword'] = arrayUnicSellingKeywords[i];
+        // arraySortUnicSellingKeywords[i]['sumOrders'] = 0;
         arraySortUnicSellingKeywords[i]['count'] = 0;
         for (j = 0; j < arrayAllSellingKeywords.length; j++) {
             if (arrayUnicSellingKeywords[i] === arrayAllSellingKeywords[j]['keyword']) {
-                arraySortUnicSellingKeywords[i]['keyword'] = arrayUnicSellingKeywords[i];
-                arraySortUnicSellingKeywords[i]['sumOrders'] = arraySortUnicSellingKeywords[i]['sumOrders'] + arrayAllSellingKeywords[j]['order'];
+                // arraySortUnicSellingKeywords[i]['sumOrders'] = arraySortUnicSellingKeywords[i]['sumOrders'] + arrayAllSellingKeywords[j]['order'];
                 arraySortUnicSellingKeywords[i]['count'] = arraySortUnicSellingKeywords[i]['count'] + 1;
-                arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
             }
             ;
         }
         ;
+        // arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
     }
     ;
 
-    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'weght']);
+    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count','keyword']);//console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     document.querySelector("#count-keywords").innerHTML = arraySortUnicSellingKeywords.length.toString();
@@ -114,12 +114,12 @@ function createWorksList() {
             worksData[i].img +
             '<table class="table-kws">' +
             kws.join("") +
-            '</table><br><br><br><br>';
+            '</table>';
     }
     ;
 
 
-    return worksList.join("<hr><br><br>");
+    return worksList.join("<hr><br><br><br>") + '<hr>';
 };
 
 
