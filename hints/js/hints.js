@@ -626,6 +626,7 @@ function countHintsTotalAndSelected() {
         ;
     }
     ;
+    document.querySelector("#hints-total-and-selected-top").innerHTML = countTotal + " / " + countSelected;
     document.querySelector("#hints-total-and-selected").innerHTML = countTotal + " / " + countSelected;
 };
 
