@@ -1,9 +1,17 @@
 <?php
 
 
+if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
+    $autor = $_POST['autor'];
+    $autor = preg_replace( '/ /', '+', $autor );
+} else {
+    $autor = '';
+};
 if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
     $keyword = $_POST['keyword'];
     $keyword = preg_replace( '/ /', '+', $keyword );
+} else if ( ( ! isset( $_POST['keyword'] ) || $_POST['keyword'] == '' ) && ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) ) {
+    $keyword = '';
 } else {
     echo( '-1' );
     exit;
@@ -11,7 +19,7 @@ if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
 $image_type = $_POST['imageType'];
 
 
-$array_works_data = ARRAY_WORKS_DATA( $keyword, $image_type );
+$array_works_data = ARRAY_WORKS_DATA( $autor, $keyword, $image_type );
 //echo( $array_works_data );
 
 $array_useragents = [
@@ -49,10 +57,15 @@ echo( json_encode( $array_works_data ) );
 // ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function ARRAY_WORKS_DATA( $_PARAM_keyword, $_PARAM_image_type ) {
+function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) {
 
-    $search_url = 'https://www.shutterstock.com/search?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_landing_page&language=en&page=1';
-    $data       = file_get_contents( $search_url );
+    if ( $_PARAM_autor == '' ) {
+        $search_url = 'https://www.shutterstock.com/search?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_landing_page&language=en&page=1';
+    } else {
+        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?searchterm=' . $_PARAM_keyword . '&search_source=base_gallery&language=en&sort=popular&safe=true';
+//        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?search_source=base_gallery&language=en&sort=popular&safe=true';
+    };
+    $data = file_get_contents( $search_url );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
     if ( count( $array_works_block[0] ) == 0 ) {

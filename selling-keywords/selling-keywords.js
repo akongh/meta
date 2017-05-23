@@ -10,9 +10,10 @@ resultNode.addEventListener('click', selectResult);
 
 function getSellingKeywordsData(PARAM_url) {
 
+    var autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
     var keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
     var imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
-    var sellingKeywordsRequest = keyword + '&' + imageType;
+    var sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {

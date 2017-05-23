@@ -1,3 +1,14 @@
+.textarea-autor {
+    font-family: "PT Mono";
+    font-size: 18px;
+    width: 40%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px #dddddd;
+    cursor: text;
+}
+
 .table-kws {
     width: 246px;
 }
