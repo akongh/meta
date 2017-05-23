@@ -52,7 +52,11 @@
         <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить перевод">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_hint_by_request.php" title="Пропустить">&#9660; Пропустить</a> —
+    <div class="upravlenie">
+        <a href="#" id="add-translation-message-button">Не переводится</a>
+        <br>
+        <br>
+        <a href="php/ex_omit_hint_by_request.php" title="Пропустить">&#9660; Пропустить</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         </div>
     <hr class="otbivka_96">
@@ -63,5 +67,6 @@
     <?php include('shtml/footer.shtml');?>
 </div>
 <script src="js/addAndDeleteFieldForHints.js"></script>
+<script src="js/addTranslationMessage.js"></script>
 </body>
 </html>
