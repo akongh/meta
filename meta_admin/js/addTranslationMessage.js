@@ -2,5 +2,5 @@ var addTranslationMessage = document.querySelector('#add-translation-message-but
 
 addTranslationMessage.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelectorAll('.vvod_perevod')[0].value = 'ffff';
+    document.querySelectorAll('.vvod_znachenie')[0].value = 'перевод не предусмотрен';
 }, false);
