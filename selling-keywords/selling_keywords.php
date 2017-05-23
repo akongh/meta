@@ -62,7 +62,7 @@ function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) 
     if ( $_PARAM_autor == '' ) {
         $search_url = 'https://www.shutterstock.com/search?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_landing_page&language=en&page=1';
     } else {
-        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?searchterm=' . $_PARAM_keyword . '&search_source=base_gallery&language=en&sort=popular&safe=true';
+        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
 //        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?search_source=base_gallery&language=en&sort=popular&safe=true';
     };
     $data = file_get_contents( $search_url );
