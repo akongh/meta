@@ -22,7 +22,13 @@ function getSellingKeywordsData(PARAM_url) {
             if (request.responseText === '-1') {
                 document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
             } else {
-                window.worksDataObjects = JSON.parse(request.responseText);
+                window.worksDataObjectsNew = JSON.parse(request.responseText);
+                if (typeof window.worksDataObjects !== "undefined") {
+                    window.worksDataObjects = window.worksDataObjects.concat(window.worksDataObjectsNew);
+                } else {
+                    window.worksDataObjects = window.worksDataObjectsNew;
+                }
+                ;
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 document.querySelector("#works-list").innerHTML = createWorksList();
             }
@@ -84,7 +90,7 @@ function createSellingKeywordsString() {
     }
     ;
 
-    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count','keyword']);//console.log(arraySortUnicSellingKeywords);
+    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);//console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     document.querySelector("#count-keywords").innerHTML = arraySortUnicSellingKeywords.length.toString();
@@ -96,7 +102,7 @@ function createSellingKeywordsString() {
 
 
 function createWorksList() {
-    var worksData = window.worksDataObjects;
+    var worksData = window.worksDataObjectsNew;
     var worksList = [];
     for (var i = 0; i < worksData.length; i++) {
         var kws = [];
