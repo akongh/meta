@@ -103,7 +103,8 @@ function createSellingKeywordsString() {
     arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);//console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
-    document.querySelector("#count-keywords").innerHTML = arraySortUnicSellingKeywords.length.toString();
+    window.arraySortUnicSellingKeywords = arraySortUnicSellingKeywords;
+    countKeywords();
 
 
     return '<span class="result">' + arraySortUnicSellingKeywords.join(', ') + '</span>';
@@ -141,11 +142,11 @@ function createWorksList() {
 
 function countKeywords() {
     var countKeywords = 0;
-    if (typeof window.worksDataObjects !== "undefined") {
-        countKeywords = window.worksDataObjects.length;
+    if (typeof window.arraySortUnicSellingKeywords !== "undefined") {
+        countKeywords = window.arraySortUnicSellingKeywords.length;
     }
     ;
-    document.querySelector("#count-keywords").innerHTML = countKeywords;
+    document.querySelector("#count-keywords").innerHTML = countKeywords.toString();
 };
 
 
@@ -161,6 +162,8 @@ function selectResult() {
 function deleteKeywordsObjectsArray() {
     if (typeof window.worksDataObjects !== "undefined") {
         delete window.worksDataObjects;
+        delete window.worksDataObjectsNew;
+        delete window.arraySortUnicSellingKeywords;
         countKeywords();
         document.querySelector("#selling-keywords-string").innerHTML = "Строка результата пуста.";
     } else {
