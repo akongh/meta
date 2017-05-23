@@ -1,11 +1,20 @@
 var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
 var resultNode = document.querySelector("#selling-keywords-string");
+var upButtonBlock = document.querySelector("#up-button-block");
+var deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
 
+
+window.onload = viewHideUpButton();
 getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
     getSellingKeywordsData("selling_keywords.php");
 }, false);
 resultNode.addEventListener('click', selectResult);
+deleteKeywordsObjectsArrayButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deleteKeywordsObjectsArray();
+}, false);
+window.addEventListener("scroll", viewHideUpButton);
 
 
 function getSellingKeywordsData(PARAM_url) {
@@ -130,12 +139,44 @@ function createWorksList() {
 };
 
 
+function countKeywords() {
+    var countKeywords = 0;
+    if (typeof window.worksDataObjects !== "undefined") {
+        countKeywords = window.worksDataObjects.length;
+    }
+    ;
+    document.querySelector("#count-keywords").innerHTML = countKeywords;
+};
+
+
 function selectResult() {
     var selectRange = document.createRange();
     selectRange.selectNodeContents(this);
     var select = window.getSelection();
     select.removeAllRanges();
     select.addRange(selectRange);
+};
+
+
+function deleteKeywordsObjectsArray() {
+    if (typeof window.worksDataObjects !== "undefined") {
+        delete window.worksDataObjects;
+        countKeywords();
+        document.querySelector("#selling-keywords-string").innerHTML = "Строка результата пуста.";
+    } else {
+        document.querySelector("#selling-keywords-string").innerHTML = "Нечего удалять.";
+    }
+    ;
+};
+
+
+function viewHideUpButton() {
+    if (resultNode.getBoundingClientRect().top < 0) {
+        upButtonBlock.style.display = "inline-block";
+    } else {
+        upButtonBlock.style.display = "none";
+    }
+    ;
 };
 
 
