@@ -30,7 +30,10 @@ function getSellingKeywordsData(PARAM_url) {
         if (request.readyState === 4 && request.status === 200) {
             //console.log(request.responseText);
             if (request.responseText === '-1') {
-                document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
+                if (typeof window.worksDataObjects === "undefined") {
+                    document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
+                }
+                ;
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
                 if (typeof window.worksDataObjects !== "undefined") {
