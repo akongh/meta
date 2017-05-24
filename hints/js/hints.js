@@ -142,7 +142,8 @@ function addKeywordsToList(PARAM_url) {
                             ;
                         }
                         ;
-                        window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                        // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                        window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                     } else {
                         window.hintsObjectsArray = resultArray;
                     }
@@ -200,8 +201,8 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-                } else {
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);                } else {
                     window.hintsObjectsArray = resultArray;
                 }
                 ;
@@ -257,7 +258,8 @@ function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
@@ -314,7 +316,8 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
@@ -370,7 +373,8 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
@@ -429,7 +433,8 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
@@ -483,7 +488,8 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
@@ -540,7 +546,8 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
                         ;
                     }
                     ;
-                    window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
                 } else {
                     window.hintsObjectsArray = resultArray;
                 }
