@@ -186,7 +186,7 @@ function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_ke
     if ( isset ( $clean_json_responce_array["data"] ) ) {
         $clean_json_responce_array = $clean_json_responce_array["data"];
     } else {
-        $clean_json_responce_array["data"][0] = $_PARAM_basic_keyword . '_-_недопустимое_значение.';
+        $clean_json_responce_array["data"][0] = $_PARAM_basic_keyword;
         $clean_json_responce_array            = $clean_json_responce_array["data"];
     };
 
