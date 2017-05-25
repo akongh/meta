@@ -245,11 +245,11 @@ a:hover {
     background: #eeeeee;
 }
 
-.hint-keyword {
+.hover-invert {
     font-family: "PT Mono Bold";
 }
 
-.hint-keyword:hover {
+.hover-invert:hover {
     background: #000000;
     color: #FFFFFF;
     cursor: pointer;

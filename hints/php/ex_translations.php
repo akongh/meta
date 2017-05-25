@@ -75,7 +75,8 @@ function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
         $translation[ $n ]        = $result['s'];
         $sense[ $n ]              = $result['z'];
         $translations_array[ $n ] = "
-        <span id='hint-keyword' class='hint-keyword'>" . $translation[ $n ] . "</span> - " . $sense[ $n ] . "<br>";
+        <span class='hover-invert'>" . $translation[ $n ] . "</span> - " . $sense[ $n ] . "<br>
+        ";
         $n ++;
     };
 

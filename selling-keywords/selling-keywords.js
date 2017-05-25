@@ -2,6 +2,8 @@ var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-but
 var resultNode = document.querySelector("#selling-keywords-string");
 var upButtonBlock = document.querySelector("#up-button-block");
 var deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
+var autors = document.querySelectorAll(".hover-invert");
+var deleteAutorButton = document.querySelector("#delete-autor-button");
 
 
 window.onload = viewHideUpButton();
@@ -13,6 +15,17 @@ resultNode.addEventListener('click', selectResult);
 deleteKeywordsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteKeywordsObjectsArray();
+}, false);
+for (var i = 0; i < autors.length; i++) {
+    autors[i].addEventListener("click", function (e) {
+        e.stopPropagation();
+    }, false);
+    autors[i].addEventListener("click", autorsToQuery);
+}
+;
+deleteAutorButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deleteAutor();
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -140,6 +153,16 @@ function createWorksList() {
 
 
     return worksList.join("<hr><br><br><br>") + '<hr>';
+};
+
+
+function autorsToQuery() {
+    document.querySelector("#autor").value = this.innerHTML;
+};
+
+
+function deleteAutor() {
+    document.querySelector("#autor").value = '';
 };
 
 

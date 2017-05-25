@@ -584,7 +584,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
             } else {
                 document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
 
-                var hintKeywords = document.querySelectorAll("#hint-keyword");
+                var hintKeywords = document.querySelectorAll(".hover-invert");
                 for (var i = 0; i < hintKeywords.length; i++) {
                     hintKeywords[i].addEventListener("click", function (e) {
                         e.stopPropagation();
@@ -645,12 +645,12 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     for (var i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         if (PARAM_hintsObjectsArray[i].status === "deselect") {
             listResultArray[i] = "<div id='hint-box' class='hint-box-deselect'>" +
-                "<span id='hint-keyword' class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
+                "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
                 "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
                 "</div>";
         } else {
             listResultArray[i] = "<div id='hint-box' class='hint-box-select'>" +
-                "<span id='hint-keyword' class='hint-keyword'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
+                "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
                 "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
                 "</div>";
         }
@@ -659,7 +659,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     ;
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
-    var hintKeywords = document.querySelectorAll("#hint-keyword");
+    var hintKeywords = document.querySelectorAll(".hover-invert");
     for (i = 0; i < hintKeywords.length; i++) {
         hintKeywords[i].addEventListener("click", function (e) {
             e.stopPropagation();
