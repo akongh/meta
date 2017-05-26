@@ -177,7 +177,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -231,7 +231,7 @@ function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -289,7 +289,7 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -347,7 +347,7 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -406,7 +406,7 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -464,7 +464,7 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
@@ -519,7 +519,7 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 8-ми опорных ключевых слов.";
+                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";

@@ -16,7 +16,7 @@ if ( $basic_keywords_array == [ "" ] ) {
 
 
 //проверка колличества ОКС
-if ( count( $basic_keywords_array ) > 8 ) {
+if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
     exit;
 };
