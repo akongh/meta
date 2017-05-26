@@ -8,21 +8,25 @@ $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $ful
 $queries_array = preg_replace( "/ {2,}/", " ", trim( $queries_array ) );
 $queries_array = preg_split( "[\n|,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
 
+for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
+    $queries_array[ $i ] = trim( $queries_array[ $i ] );
+};
+
+$queries_array = array_values( array_unique( ( array_diff( $queries_array, array( "" ) ) ) ) );
+
 if ( count( $queries_array ) == 0 ) {
     echo( '-1' );
     exit;
 };
-
-$queries_array = array_values( array_unique( ( array_diff( $queries_array, array( "" ) ) ) ) );
 
 $n = 0;
 for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
     $queries_array_2 = $queries_array;
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );
-        $first_elem = implode( ', ', $queries_array_2 );
+        $first_elem = implode( ' ', $queries_array_2 );
         for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
-            $variants_queries_array[ $n ] = $first_elem . ', ' . $queries_array[ $j ];
+            $variants_queries_array[ $n ] = $first_elem . ' ' . $queries_array[ $j ];
             $n ++;
         };
     } else {
