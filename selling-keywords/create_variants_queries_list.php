@@ -6,7 +6,7 @@ $full_string_query = $_POST['fullStringQuery'];
 
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
 $queries_array = preg_replace( "/ {2,}/", " ", trim( $queries_array ) );
-$queries_array = preg_split( "[,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
+$queries_array = preg_split( "[\n|,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
 
 if ( count( $queries_array ) == 0 ) {
     echo( '-1' );
