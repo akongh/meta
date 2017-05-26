@@ -4,6 +4,8 @@ var upButtonBlock = document.querySelector("#up-button-block");
 var deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
 var autors = document.querySelectorAll(".hover-invert");
 var deleteAutorButton = document.querySelector("#delete-autor-button");
+var createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
+var deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
 
 
 window.onload = viewHideUpButton();
@@ -26,6 +28,14 @@ for (var i = 0; i < autors.length; i++) {
 deleteAutorButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteAutor();
+}, false);
+createVariantsQueriesButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    createVariantsQueries('create_variants_queries_list.php');
+}, false);
+deleteVariantsQueriesButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    deleteVariantsQueries();
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -163,6 +173,51 @@ function autorsToQuery() {
 
 function deleteAutor() {
     document.querySelector("#autor").value = '';
+};
+
+
+function createVariantsQueries(PARAM_url) {
+    var request = new XMLHttpRequest();
+    var fullStringQuery = 'fullStringQuery=' + document.querySelector('#keyword').value.trim();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            //console.log(request.responseText);
+            if (request.responseText === '-1') {
+                document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
+            } else {
+                document.querySelector("#variants-queries-list").innerHTML = request.responseText;
+                var variantsQueries = document.querySelectorAll("span[name='variant-query']");
+                for (i = 0; i < variantsQueries.length; i++) {
+                    variantsQueries[i].addEventListener("click", variantQueryToQuery);
+                }
+                ;
+            }
+            ;
+        }
+        ;
+    }
+    ;
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(fullStringQuery);
+};
+
+
+function variantQueryToQuery() {
+    document.querySelector("#keyword").value = this.innerText;
+};
+
+
+function deleteVariantsQueries() {
+    if (document.querySelector("#variants-queries-list").innerHTML === 'Без вариантов.' ||
+        document.querySelector("#variants-queries-list").innerHTML === 'Варианты удалены.' ||
+        document.querySelector("#variants-queries-list").innerHTML === 'Не из чего создавать варианты.' ||
+        document.querySelector("#variants-queries-list").innerHTML === 'Нечего удалять.') {
+        document.querySelector("#variants-queries-list").innerHTML = 'Нечего удалять.';
+    } else {
+        document.querySelector("#variants-queries-list").innerHTML = 'Варианты удалены.';
+    }
+    ;
 };
 
 

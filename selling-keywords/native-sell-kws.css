@@ -13,6 +13,14 @@
     width: 246px;
 }
 
+.variant-query {
+
+}
+
+.variant-query:hover {
+    background: #eeeeee;
+}
+
 .right {
     text-align: right;
 }
