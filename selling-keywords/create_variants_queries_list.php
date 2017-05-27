@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 
 
+$level = $_POST['level'];
 $full_string_query = $_POST['fullStringQuery'];
 
 
@@ -20,7 +21,7 @@ if ( count( $queries_array ) == 0 ) {
 };
 
 $n = 0;
-for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
+for ( $i = 0; $i < $level; $i ++ ) {
     $queries_array_2 = $queries_array;
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );

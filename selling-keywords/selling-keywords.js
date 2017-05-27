@@ -178,7 +178,7 @@ function deleteAutor() {
 
 function createVariantsQueries(PARAM_url) {
     var request = new XMLHttpRequest();
-    var fullStringQuery = 'fullStringQuery=' + document.querySelector('#keyword').value.trim();
+    var fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             //console.log(request.responseText);
