@@ -38,7 +38,7 @@ for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
 };
 
 for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
-    $variants_queries_array[ $i ] = str_pad( $i + 1, 2, 0, STR_PAD_LEFT ) . ' <span class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</span>';
+    $variants_queries_array[ $i ] = '<span class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</span>';
 };
 
 
