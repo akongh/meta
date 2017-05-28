@@ -18,11 +18,13 @@
 }
 
 .variant-query {
-
+    width: 100%;
 }
 
 .variant-query:hover {
+    font-family: "PT Mono Bold";
     background: #eeeeee;
+    cursor: pointer;
 }
 
 .right {

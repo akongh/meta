@@ -1,7 +1,7 @@
 <?php error_reporting( - 1 );
 
 
-$level = $_POST['level'];
+$level             = $_POST['level'];
 $full_string_query = $_POST['fullStringQuery'];
 
 
@@ -18,6 +18,10 @@ $queries_array = array_values( array_unique( ( array_diff( $queries_array, array
 if ( count( $queries_array ) == 0 ) {
     echo( '-1' );
     exit;
+};
+
+if ( $level > count( $queries_array ) ) {
+    $level = count( $queries_array );
 };
 
 $n = 0;
@@ -39,11 +43,11 @@ for ( $i = 0; $i < $level; $i ++ ) {
 };
 
 for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
-    $variants_queries_array[ $i ] = '<span class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</span>';
+    $variants_queries_array[ $i ] = '<div class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</div>';
 };
 
 
-$result_variats_queries = implode( '<br>', $variants_queries_array );
+$result_variats_queries = implode( '', $variants_queries_array );
 
 
 echo( $result_variats_queries );

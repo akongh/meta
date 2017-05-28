@@ -188,7 +188,7 @@ function createVariantsQueries(PARAM_url) {
                 document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
             } else {
                 document.querySelector("#variants-queries-list").innerHTML = request.responseText;
-                var variantsQueries = document.querySelectorAll("span[name='variant-query']");
+                var variantsQueries = document.querySelectorAll("div[name='variant-query']");
                 for (i = 0; i < variantsQueries.length; i++) {
                     variantsQueries[i].addEventListener("click", variantQueryToQuery);
                 }
