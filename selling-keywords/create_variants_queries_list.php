@@ -42,6 +42,10 @@ for ( $i = 0; $i < $level; $i ++ ) {
     };
 };
 
+if ( count( $queries_array ) > $i ) {
+    $variants_queries_array[ count( $variants_queries_array ) ] = implode( ' ', $queries_array );
+};
+
 for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
     $variants_queries_array[ $i ] = '<div class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</div>';
 };
