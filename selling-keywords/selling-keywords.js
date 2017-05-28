@@ -155,9 +155,11 @@ function createWorksList() {
             worksData[i].title +
             '</span><br><br>' +
             worksData[i].img +
-            '<table class="table-kws">' +
+            '<div>' +
+            worksData[i].id +
+            '<br><br><table class="table-kws">' +
             kws.join("") +
-            '</table>';
+            '</table></div>';
     }
     ;
 

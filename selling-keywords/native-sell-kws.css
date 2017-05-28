@@ -13,6 +13,10 @@
     width: 246px;
 }
 
+.table-kws tr:hover {
+    background: #eeeeee;
+}
+
 .variant-query {
 
 }
@@ -28,10 +32,6 @@
 img {
     float: left;
     margin-right: 24px;
-}
-
-tr:hover {
-    font-family: "PT Mono Bold";
 }
 
 hr {
