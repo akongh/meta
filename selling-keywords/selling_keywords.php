@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting( - 1 );
 
 
 if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
