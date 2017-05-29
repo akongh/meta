@@ -182,7 +182,8 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_typ
 
 //очищает от служебной информации массив подсказок для одного json-ответа
 function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
-    $clean_json_responce_array = json_decode( $_PARAM_json_responce, true );
+    $clean_json_responce       = preg_replace( "/ {2,}/", ' ', $_PARAM_json_responce );
+    $clean_json_responce_array = json_decode( $clean_json_responce, true );
     if ( isset ( $clean_json_responce_array["data"] ) ) {
         $clean_json_responce_array = $clean_json_responce_array["data"];
     } else {
