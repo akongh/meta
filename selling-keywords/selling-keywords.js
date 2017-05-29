@@ -4,6 +4,7 @@ var upButtonBlock = document.querySelector("#up-button-block");
 var deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
 var autors = document.querySelectorAll(".hover-invert");
 var deleteAutorButton = document.querySelector("#delete-autor-button");
+var clearKeywordButton = document.querySelector("#clear-keyword-button");
 var createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
 var deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
 
@@ -28,6 +29,10 @@ for (var i = 0; i < autors.length; i++) {
 deleteAutorButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteAutor();
+}, false);
+clearKeywordButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    clearKeyword();
 }, false);
 createVariantsQueriesButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -175,6 +180,10 @@ function autorsToQuery() {
 
 function deleteAutor() {
     document.querySelector("#autor").value = '';
+};
+
+function clearKeyword() {
+    document.querySelector("#keyword").value = '';
 };
 
 
