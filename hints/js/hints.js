@@ -12,7 +12,7 @@ var returnToListViewButton = document.querySelector("#return-to-list-view-button
 var sortAzButton = document.querySelector("#sort-a-z-button");
 var createResultStringButton = document.querySelector("#create-result-string-button");
 var rankHintsListButton = document.querySelector("#rank-hints-list-button");
-var hintsArea = document.querySelector("#hints-area");
+var hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 var upButtonBlock = document.querySelector("#up-button-block");
 var addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
 var getTranslationButton = document.querySelector("#get-translation-button");
@@ -885,7 +885,7 @@ function keywordwPatternToQuery() {
 
 
 function viewHideUpButton() {
-    if (hintsArea.getBoundingClientRect().top < 0) {
+    if (hintsTotalAndSelected.getBoundingClientRect().bottom < 0) {
         upButtonBlock.style.display = "inline-block";
     } else {
         upButtonBlock.style.display = "none";
