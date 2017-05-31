@@ -29,9 +29,9 @@ for ( $i = 0; $i < $level; $i ++ ) {
     $queries_array_2 = $queries_array;
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );
-        $first_elem = implode( ' ', $queries_array_2 );
+        $first_elem = implode( ', ', $queries_array_2 );
         for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
-            $variants_queries_array[ $n ] = $first_elem . ' ' . $queries_array[ $j ];
+            $variants_queries_array[ $n ] = $first_elem . ', ' . $queries_array[ $j ];
             $n ++;
         };
     } else {
@@ -43,7 +43,7 @@ for ( $i = 0; $i < $level; $i ++ ) {
 };
 
 if ( count( $queries_array ) > $i ) {
-    $variants_queries_array[ count( $variants_queries_array ) ] = implode( ' ', $queries_array );
+    $variants_queries_array[ count( $variants_queries_array ) ] = implode( ', ', $queries_array );
 };
 
 for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
