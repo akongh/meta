@@ -12,7 +12,7 @@
 
 body {
     font-family: PT Mono;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     color: #000000;
     cursor: default;
@@ -21,13 +21,13 @@ body {
 h1 {
     font-family: "PT Mono";
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 h2 {
     font-family: "PT Mono";
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .page {
@@ -52,7 +52,7 @@ h2 {
 
 .textarea-keywords {
     font-family: "PT Mono";
-    font-size: 18px;
+    font-size: 16px;
     width: 100%;
     resize: none;
     outline: none;
@@ -63,7 +63,7 @@ h2 {
 
 .textarea-message {
     font-family: "PT Mono";
-    font-size: 18px;
+    font-size: 16px;
     width: 100%;
     resize: none;
     outline: none;
@@ -96,7 +96,7 @@ input[type="submit"] {
     color: #888888;
     border: solid 1px #888888;
     font-family: "PT Mono Bold";
-    font-size: 18px;
+    font-size: 16px;
     padding: 8px;
     width: 100%;
     text-align: center;
@@ -117,7 +117,7 @@ input[type="checkbox"] {
 
 select {
     font-family: "PT Mono";
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
     border: solid 1px #dddddd;
 }
