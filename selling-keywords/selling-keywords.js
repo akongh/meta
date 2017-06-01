@@ -311,7 +311,9 @@ function deleteKeywordsObjectsArray() {
         delete window.worksDataObjectsNew;
         delete window.arraySortUnicSellingKeywords;
         countKeywords();
+        document.querySelector('#status').innerHTML = '';
         document.querySelector("#selling-keywords-string").innerHTML = "Строка результата пуста.";
+        document.querySelector('#works-list').innerHTML = 'Список произведений пуст.';
     } else {
         document.querySelector("#selling-keywords-string").innerHTML = "Нечего удалять.";
     }
