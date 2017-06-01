@@ -17,6 +17,14 @@
     background: #eeeeee;
 }
 
+.variant-query-table {
+    width: 100%;
+}
+
+.variant-query-td {
+    width: 100%;
+}
+
 .variant-query {
     width: 100%;
 }
@@ -25,6 +33,18 @@
     font-family: "PT Mono Bold";
     background: #eeeeee;
     cursor: pointer;
+}
+
+.variant-checkbox {
+    margin-right: 40px;
+}
+
+.variant-checkbox-label {
+    cursor: pointer;
+}
+
+.variant-checkbox-label:hover {
+    background: #eeeeee;
 }
 
 .right {
