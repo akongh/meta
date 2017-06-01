@@ -67,6 +67,9 @@
         <a id="clear-keyword-button" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
     </div>
     <br>
+    <label><input type="checkbox" name="use-variant-queries" value = ""> На основе вариантов</label>
+    <br>
+    <br>
     <label><input type="radio" name="image_type" value="all"> Все</label>
     <label><input type="radio" name="image_type" value="photo" checked> Фото</label>
     <label><input type="radio" name="image_type" value="vector"> Вектор</label>
@@ -80,6 +83,7 @@
     <br>
     <br>
     <div class="content-right">
+        <span id="status"></span>
         <span id="count-keywords" class="counter">0</span>
         <a id="delete-keywords-objects-array-button" class="link-button" href="#" title="Удалить текущую строку результата">[x]</a>
     </div>

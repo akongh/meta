@@ -12,7 +12,7 @@ var deleteVariantsQueriesButton = document.querySelector("#delete-variants-queri
 window.onload = viewHideUpButton();
 getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
-    getSellingKeywordsData("selling_keywords.php");
+    getSellingKeywordsData();
 }, false);
 resultNode.addEventListener('click', selectResult);
 deleteKeywordsObjectsArrayButton.addEventListener("click", function (e) {
@@ -45,13 +45,45 @@ deleteVariantsQueriesButton.addEventListener("click", function (e) {
 window.addEventListener("scroll", viewHideUpButton);
 
 
-function getSellingKeywordsData(PARAM_url) {
+function createArrayKeywordsFromVariants() {
+    var arrayKeywordsFromVariants = [];
+    var arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
+    for (i = 0; i < arrayCheckedFromVariants.length; i++) {
+        arrayKeywordsFromVariants[i] = arrayCheckedFromVariants[i].value;
+    }
+    ;
+    return arrayKeywordsFromVariants;
+};
 
-    var autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
-    var keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
+
+function getSellingKeywordsData() {
+    var keyword;
     var imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
-    var sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
+    var autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
+    var sellingKeywordsRequest;
 
+    if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
+        var arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
+        // console.log(arrayKeywordsFromVariants);
+        for (i = 0; i < arrayKeywordsFromVariants.length; i++) {
+            keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
+            sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
+            // console.log(sellingKeywordsRequest);
+            sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
+        }
+        ;
+
+    } else {
+        keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
+        sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
+        sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
+    }
+    ;
+};
+
+
+function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
+    // console.log(PARAM_sellingKeywordsRequest);
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
 
@@ -64,6 +96,7 @@ function getSellingKeywordsData(PARAM_url) {
                 ;
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
+                document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 if (typeof window.worksDataObjects !== "undefined") {
                     window.worksDataObjects = window.worksDataObjects.concat(window.worksDataObjectsNew);
                 } else {
@@ -71,18 +104,22 @@ function getSellingKeywordsData(PARAM_url) {
                 }
                 ;
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
-                document.querySelector("#works-list").innerHTML = createWorksList();
+                if (PARAM_useVariants === 0) {
+                    document.querySelector("#works-list").innerHTML = createWorksList();
+                }
+                ;
             }
             ;
 
             enableGetBasicKeywordsButton();
+            // console.dir(request.responseText);
         }
         ;
     }
     ;
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(sellingKeywordsRequest);
+    request.send(PARAM_sellingKeywordsRequest);
 
     disableGetBasicKeywordsButton();
 };
@@ -214,7 +251,7 @@ function displayVariantsQueries() {
     var variantsQueriesArrayHTML = [];
 
     for (i = 0; i < window.variantsQueriesArray.length; i++) {
-        variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" type="checkbox" checked value="' +
+        variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
             window.variantsQueriesArray[i] +
             '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
             window.variantsQueriesArray[i] +
