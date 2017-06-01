@@ -46,12 +46,15 @@ if ( count( $queries_array ) > $i ) {
     $variants_queries_array[ count( $variants_queries_array ) ] = implode( ', ', $queries_array );
 };
 
-for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
-    $variants_queries_array[ $i ] = '<div class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</div>';
-};
+$json_variants_queries_array = json_encode( $variants_queries_array );
 
-
-$result_variats_queries = implode( '', $variants_queries_array );
-
-
-echo( $result_variats_queries );
+//for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
+//    $variants_queries_array[ $i ] = '<div class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</div>';
+//};
+//
+//
+//$result_variats_queries = implode( '', $variants_queries_array );
+//
+//
+//echo( $result_variats_queries );
+echo( $json_variants_queries_array );

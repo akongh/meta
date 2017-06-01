@@ -192,16 +192,12 @@ function createVariantsQueries(PARAM_url) {
     var fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            //console.log(request.responseText);
+            // console.log(request.responseText);
             if (request.responseText === '-1') {
                 document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
             } else {
-                document.querySelector("#variants-queries-list").innerHTML = request.responseText;
-                var variantsQueries = document.querySelectorAll("div[name='variant-query']");
-                for (i = 0; i < variantsQueries.length; i++) {
-                    variantsQueries[i].addEventListener("click", variantQueryToQuery);
-                }
-                ;
+                window.variantsQueriesArray = JSON.parse(request.responseText);//console.log(window.variantsQueries);
+                displayVariantsQueries();
             }
             ;
         }
@@ -211,6 +207,25 @@ function createVariantsQueries(PARAM_url) {
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(fullStringQuery);
+};
+
+
+function displayVariantsQueries() {
+    var variantsQueriesArrayHTML = [];
+
+    for (i = 0; i < window.variantsQueriesArray.length; i++) {
+        variantsQueriesArrayHTML[i] = '<div class="variant-query" name="variant-query">' +
+            window.variantsQueriesArray[i] +
+            '</div>';
+    }
+    ;
+    // console.log(variantsQueriesArrayHTML);
+    document.querySelector("#variants-queries-list").innerHTML = _.join(variantsQueriesArrayHTML, '\n');
+    var variantsQueries = document.querySelectorAll("div[name='variant-query']");
+    for (i = 0; i < variantsQueries.length; i++) {
+        variantsQueries[i].addEventListener("click", variantQueryToQuery);
+    }
+    ;
 };
 
 
