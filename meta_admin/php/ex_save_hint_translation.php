@@ -144,7 +144,7 @@ if ( isset( $perevod ) ) {
 		WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "'
 		" );
 }
-$_SESSION['slovo_k'] = $slovo_hint;
+$_SESSION['slovo_hint'] = $slovo_hint;
 
 mysqli_close( $db_connect );
 header( "Location: http://" . $site_domain_name . "/meta_admin/review_translation_hint.php" );
