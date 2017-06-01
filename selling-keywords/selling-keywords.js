@@ -65,14 +65,16 @@ function getSellingKeywordsData() {
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         var arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         // console.log(arrayKeywordsFromVariants);
-        for (i = 0; i < arrayKeywordsFromVariants.length; i++) {
+        var i = 0;
+
+        function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
-            // console.log(sellingKeywordsRequest);
             sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
-        }
-        ;
-
+            i++;
+            if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
+        };
+        getWitsTimeout();
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
         sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
