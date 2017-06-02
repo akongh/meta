@@ -107,9 +107,10 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 if (PARAM_useVariants === 0) {
                     document.querySelector("#works-list").innerHTML = createWorksList();
+                } else {
+                    document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
                 ;
-                document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
             }
             ;
 
