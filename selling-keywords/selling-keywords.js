@@ -96,6 +96,7 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
                 }
                 ;
+                document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
                 if (typeof window.worksDataObjects !== "undefined") {
