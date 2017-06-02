@@ -98,7 +98,6 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 ;
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
-                document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 if (typeof window.worksDataObjects !== "undefined") {
                     window.worksDataObjects = window.worksDataObjects.concat(window.worksDataObjectsNew);
                 } else {
@@ -110,6 +109,7 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                     document.querySelector("#works-list").innerHTML = createWorksList();
                 }
                 ;
+                document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
             }
             ;
 
