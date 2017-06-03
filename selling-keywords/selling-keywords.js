@@ -256,13 +256,23 @@ function createVariantsQueries(PARAM_url) {
 
 function displayVariantsQueries() {
     var variantsQueriesArrayHTML = [];
-
+    var a = window.variantsQueriesArray.length - 1;
     for (i = 0; i < window.variantsQueriesArray.length; i++) {
-        variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
-            window.variantsQueriesArray[i] +
-            '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
-            window.variantsQueriesArray[i] +
-            '</div></td></tr>';
+        if (i !== a) {
+            variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
+                window.variantsQueriesArray[i] +
+                '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
+                window.variantsQueriesArray[i] +
+                '</div></td></tr>';
+        } else {
+            variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" value="' +
+                window.variantsQueriesArray[i] +
+                '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
+                window.variantsQueriesArray[i] +
+                '</div></td></tr>';
+        }
+        ;
+
     }
     ;
     // console.log(variantsQueriesArrayHTML);
