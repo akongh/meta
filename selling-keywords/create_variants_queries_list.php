@@ -25,7 +25,7 @@ if ( $level > count( $queries_array ) ) {
 };
 
 $n = 0;
-for ( $i = 0; $i < $level; $i ++ ) {
+for ( $i = 0; $i <= $level; $i ++ ) {
     $queries_array_2 = $queries_array;
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );
