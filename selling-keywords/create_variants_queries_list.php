@@ -37,6 +37,9 @@ for ( $i = 0; $i <= $level; $i ++ ) {
     } else {
         for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
             $variants_queries_array[ $n ] = $queries_array[ $j ];
+            if ( $n == $level ) {
+                break;
+            };
             $n ++;
         };
     };
