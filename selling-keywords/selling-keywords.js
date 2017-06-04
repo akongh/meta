@@ -234,9 +234,15 @@ function clearKeyword() {
 function createVariantsQueries(PARAM_url) {
     var request = new XMLHttpRequest();
     var fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
+    if (document.querySelector('input[name="only-all"]').checked === true) {
+        fullStringQuery = fullStringQuery + '&onlyAll=1';
+    } else {
+        fullStringQuery = fullStringQuery + '&onlyAll=0';
+    }
+    ;
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            // console.log(request.responseText);
+            console.log(request.responseText);
             if (request.responseText === '-1') {
                 document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
             } else {

@@ -3,6 +3,7 @@
 
 $level             = $_POST['level'];
 $full_string_query = $_POST['fullStringQuery'];
+$only_all          = $_POST['onlyAll'];
 
 
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
@@ -25,7 +26,12 @@ if ( $level > count( $queries_array ) ) {
 };
 
 $n = 0;
-for ( $i = 0; $i <= $level; $i ++ ) {
+if ( $only_all == 1 ) {
+    $i = $level;
+} else {
+    $i = 0;
+};
+for ( $i; $i <= $level; $i ++ ) {
     $queries_array_2 = $queries_array;
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );
@@ -51,13 +57,5 @@ if ( count( $queries_array ) > $i ) {
 
 $json_variants_queries_array = json_encode( $variants_queries_array );
 
-//for ( $i = 0; $i < count( $variants_queries_array ); $i ++ ) {
-//    $variants_queries_array[ $i ] = '<div class="variant-query" name="variant-query">' . $variants_queries_array[ $i ] . '</div>';
-//};
-//
-//
-//$result_variats_queries = implode( '', $variants_queries_array );
-//
-//
-//echo( $result_variats_queries );
+
 echo( $json_variants_queries_array );
