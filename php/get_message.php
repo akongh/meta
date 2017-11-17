@@ -2,15 +2,15 @@
 
 if ( isset( $_POST["messageText"] ) ) {
 
-    $e_mail       = "pochta@afoteris.com";
-    $subject      = "Отзыв с Меты";
+    $e_mail       = "support@afoteris.com";
+    $subject      = "Сообщение с Меты";
     $message_text = trim( htmlspecialchars( strip_tags( stripslashes( $_POST["messageText"] ) ) ) );
 
     if ( mail( $e_mail, $subject, $message_text ) ) {
-        echo( "Спасибо, мы получили ваш отзыв." );
+        echo( "Спасибо, мы получили ваше сообщение." );
     } else {
-        echo( "Что-то не так. Нам не отправлен ваш отзыв." );
+        echo( "Что-то не так. Нам не отправлено ваше сообщение." );
     };
 } else {
-    echo( "Что-то не так. Мы не получили ваш отзыв." );
+    echo( "Что-то не так. Мы не получили ваше сообщение." );
 };
