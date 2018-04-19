@@ -1,12 +1,12 @@
-var getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
-var resultNode = document.querySelector("#selling-keywords-string");
-var upButtonBlock = document.querySelector("#up-button-block");
-var deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
-var autors = document.querySelectorAll(".hover-invert");
-var deleteAutorButton = document.querySelector("#delete-autor-button");
-var clearKeywordButton = document.querySelector("#clear-keyword-button");
-var createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
-var deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
+let getSellingKeywordsButton = document.querySelector('#get-selling-keywords-button');
+let resultNode = document.querySelector("#selling-keywords-string");
+let upButtonBlock = document.querySelector("#up-button-block");
+let deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
+let autors = document.querySelectorAll(".hover-invert");
+let deleteAutorButton = document.querySelector("#delete-autor-button");
+let clearKeywordButton = document.querySelector("#clear-keyword-button");
+let createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
+let deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
 
 
 window.onload = viewHideUpButton();
@@ -19,13 +19,12 @@ deleteKeywordsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteKeywordsObjectsArray();
 }, false);
-for (var i = 0; i < autors.length; i++) {
+for (let i = 0; i < autors.length; i++) {
     autors[i].addEventListener("click", function (e) {
         e.stopPropagation();
     }, false);
     autors[i].addEventListener("click", autorsToQuery);
 }
-;
 deleteAutorButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteAutor();
@@ -46,26 +45,26 @@ window.addEventListener("scroll", viewHideUpButton);
 
 
 function createArrayKeywordsFromVariants() {
-    var arrayKeywordsFromVariants = [];
-    var arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
+    let arrayKeywordsFromVariants = [];
+    let arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
     for (i = 0; i < arrayCheckedFromVariants.length; i++) {
         arrayKeywordsFromVariants[i] = arrayCheckedFromVariants[i].value;
     }
-    ;
+
     return arrayKeywordsFromVariants;
-};
+}
 
 
 function getSellingKeywordsData() {
-    var keyword;
-    var imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
-    var autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
-    var sellingKeywordsRequest;
+    let keyword;
+    let imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
+    let autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
+    let sellingKeywordsRequest;
 
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
-        var arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
+        let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         // console.log(arrayKeywordsFromVariants);
-        var i = 0;
+        let i = 0;
 
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
@@ -73,20 +72,20 @@ function getSellingKeywordsData() {
             sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
             i++;
             if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
-        };
+        }
         getWitsTimeout();
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
         sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
         sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
     }
-    ;
-};
+
+}
 
 
 function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
     // console.log(PARAM_sellingKeywordsRequest);
-    var request = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
 
         if (request.readyState === 4 && request.status === 200) {
@@ -95,11 +94,11 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
                 }
-                ;
+
                 if (PARAM_useVariants === 1) {
                     document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
-                ;
+
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
                 if (typeof window.worksDataObjects !== "undefined") {
@@ -107,56 +106,49 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 } else {
                     window.worksDataObjects = window.worksDataObjectsNew;
                 }
-                ;
+
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 if (PARAM_useVariants === 0) {
                     document.querySelector("#works-list").innerHTML = createWorksList();
                 } else {
                     document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
-                ;
             }
-            ;
 
             enableGetBasicKeywordsButton();
             // console.dir(request.responseText);
         }
-        ;
-    }
-    ;
+    };
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(PARAM_sellingKeywordsRequest);
 
     disableGetBasicKeywordsButton();
-};
+}
 
 
 function createSellingKeywordsString() {
 
-    var arrayAllSellingKeywords = [];
-    var tempCount = 0;
+    let arrayAllSellingKeywords = [];
+    let tempCount = 0;
 
-    for (var i = 0; i < window.worksDataObjects.length; i++) {
-        for (var j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
+    for (let i = 0; i < window.worksDataObjects.length; i++) {
+        for (let j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
             arrayAllSellingKeywords[tempCount] = [];
             arrayAllSellingKeywords[tempCount]['keyword'] = window.worksDataObjects[i].keywords[j].keyword;
             arrayAllSellingKeywords[tempCount]['order'] = j;
             tempCount++;
         }
-        ;
     }
-    ;
 
-    var arrayUnicSellingKeywords = [];
+    let arrayUnicSellingKeywords = [];
 
     for (i = 0; i < arrayAllSellingKeywords.length; i++) {
         arrayUnicSellingKeywords[i] = arrayAllSellingKeywords[i]['keyword'];
     }
-    ;
 
     arrayUnicSellingKeywords = _.uniq(arrayUnicSellingKeywords);
-    var arraySortUnicSellingKeywords = [];
+    let arraySortUnicSellingKeywords = [];
 
     for (i = 0; i < arrayUnicSellingKeywords.length; i++) {
         arraySortUnicSellingKeywords[i] = [];
@@ -168,12 +160,9 @@ function createSellingKeywordsString() {
                 // arraySortUnicSellingKeywords[i]['sumOrders'] = arraySortUnicSellingKeywords[i]['sumOrders'] + arrayAllSellingKeywords[j]['order'];
                 arraySortUnicSellingKeywords[i]['count'] = arraySortUnicSellingKeywords[i]['count'] + 1;
             }
-            ;
         }
-        ;
         // arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
     }
-    ;
 
     arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);//console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
@@ -183,23 +172,22 @@ function createSellingKeywordsString() {
 
 
     return '<span class="result">' + arraySortUnicSellingKeywords.join(', ') + '</span>';
-    ;
-};
+}
 
 
 function createWorksList() {
-    var worksData = window.worksDataObjectsNew;
-    var worksList = [];
-    for (var i = 0; i < worksData.length; i++) {
-        var kws = [];
-        for (var j = 0; j < worksData[i].keywords.length; j++) {
+    let worksData = window.worksDataObjectsNew;
+    let worksList = [];
+    for (let i = 0; i < worksData.length; i++) {
+        let kws = [];
+        for (let j = 0; j < worksData[i].keywords.length; j++) {
             kws[j] = '<tr><td><span>' +
                 worksData[i].keywords[j].keyword +
                 '</span></td><td class="right">' +
                 (Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100).toFixed(2) +
                 '%</td></tr>';
         }
-        ;
+
         worksList[i] = '<span class="bold">' +
             worksData[i].title +
             '</span><br><br>' +
@@ -210,36 +198,34 @@ function createWorksList() {
             kws.join("") +
             '</table></div>';
     }
-    ;
-
 
     return worksList.join("<hr><br><br><br>") + '<hr>';
-};
+}
 
 
 function autorsToQuery() {
     document.querySelector("#autor").value = this.innerHTML;
-};
+}
 
 
 function deleteAutor() {
     document.querySelector("#autor").value = '';
-};
+}
 
 function clearKeyword() {
     document.querySelector("#keyword").value = '';
-};
+}
 
 
 function createVariantsQueries(PARAM_url) {
-    var request = new XMLHttpRequest();
-    var fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
+    let request = new XMLHttpRequest();
+    let fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
     if (document.querySelector('input[name="only-all"]').checked === true) {
         fullStringQuery = fullStringQuery + '&onlyAll=1';
     } else {
         fullStringQuery = fullStringQuery + '&onlyAll=0';
     }
-    ;
+
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             console.log(request.responseText);
@@ -249,20 +235,17 @@ function createVariantsQueries(PARAM_url) {
                 window.variantsQueriesArray = JSON.parse(request.responseText);//console.log(window.variantsQueries);
                 displayVariantsQueries();
             }
-            ;
         }
-        ;
-    }
-    ;
+    };
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(fullStringQuery);
-};
+}
 
 
 function displayVariantsQueries() {
-    var variantsQueriesArrayHTML = [];
-    var a = window.variantsQueriesArray.length - 1;
+    let variantsQueriesArrayHTML = [];
+    let a = window.variantsQueriesArray.length - 1;
     for (i = 0; i < window.variantsQueriesArray.length; i++) {
         if (i !== a) {
             variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
@@ -277,23 +260,20 @@ function displayVariantsQueries() {
                 window.variantsQueriesArray[i] +
                 '</div></td></tr>';
         }
-        ;
-
     }
-    ;
+
     // console.log(variantsQueriesArrayHTML);
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
-    var variantsQueries = document.querySelectorAll("div[name='variant-query']");
+    let variantsQueries = document.querySelectorAll("div[name='variant-query']");
     for (i = 0; i < variantsQueries.length; i++) {
         variantsQueries[i].addEventListener("click", variantQueryToQuery);
     }
-    ;
-};
+}
 
 
 function variantQueryToQuery() {
     document.querySelector("#keyword").value = this.innerText;
-};
+}
 
 
 function deleteVariantsQueries() {
@@ -305,27 +285,25 @@ function deleteVariantsQueries() {
     } else {
         document.querySelector("#variants-queries-list").innerHTML = 'Варианты удалены.';
     }
-    ;
-};
+}
 
 
 function countKeywords() {
-    var countKeywords = 0;
+    let countKeywords = 0;
     if (typeof window.arraySortUnicSellingKeywords !== "undefined") {
         countKeywords = window.arraySortUnicSellingKeywords.length;
     }
-    ;
     document.querySelector("#count-keywords").innerHTML = countKeywords.toString();
-};
+}
 
 
 function selectResult() {
-    var selectRange = document.createRange();
+    let selectRange = document.createRange();
     selectRange.selectNodeContents(this);
-    var select = window.getSelection();
+    let select = window.getSelection();
     select.removeAllRanges();
     select.addRange(selectRange);
-};
+}
 
 
 function deleteKeywordsObjectsArray() {
@@ -340,8 +318,7 @@ function deleteKeywordsObjectsArray() {
     } else {
         document.querySelector("#selling-keywords-string").innerHTML = "Нечего удалять.";
     }
-    ;
-};
+}
 
 
 function viewHideUpButton() {
@@ -350,8 +327,7 @@ function viewHideUpButton() {
     } else {
         upButtonBlock.style.display = "none";
     }
-    ;
-};
+}
 
 
 function disableGetBasicKeywordsButton() {
@@ -359,7 +335,7 @@ function disableGetBasicKeywordsButton() {
     getSellingKeywordsButton.value = "…";
     getSellingKeywordsButton.style.background = "#dddddd";
     getSellingKeywordsButton.style.cursor = "default";
-};
+}
 
 
 function enableGetBasicKeywordsButton() {
@@ -367,4 +343,4 @@ function enableGetBasicKeywordsButton() {
     getSellingKeywordsButton.value = "Получить продавшие ключевые слова";
     getSellingKeywordsButton.style.background = "";
     getSellingKeywordsButton.style.cursor = "";
-};
+}
