@@ -1,5 +1,5 @@
 .textarea-autor {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-size: 16px;
     width: 40%;
     resize: none;
@@ -30,7 +30,7 @@
 }
 
 .variant-query:hover {
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
     background: #eeeeee;
     cursor: pointer;
 }
