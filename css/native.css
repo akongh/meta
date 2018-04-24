@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: PT Mono;
+    font-family: "PT Mono", monospace;
     font-size: 16px;
     font-weight: normal;
     color: #000000;
@@ -19,13 +19,13 @@ body {
 }
 
 h1 {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-weight: normal;
     font-size: 16px;
 }
 
 h2 {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-weight: normal;
     font-size: 16px;
 }
@@ -43,7 +43,7 @@ h2 {
 }
 
 .bold {
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
 }
 
 .img-index {
@@ -51,7 +51,7 @@ h2 {
 }
 
 .textarea-keywords {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-size: 16px;
     width: 100%;
     resize: none;
@@ -62,7 +62,7 @@ h2 {
 }
 
 .textarea-message {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-size: 16px;
     width: 100%;
     resize: none;
@@ -95,7 +95,7 @@ h2 {
 input[type="submit"] {
     color: #888888;
     border: solid 1px #888888;
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
     font-size: 16px;
     padding: 8px;
     width: 100%;
@@ -116,7 +116,7 @@ input[type="checkbox"] {
 }
 
 select {
-    font-family: "PT Mono";
+    font-family: "PT Mono", monospace;
     font-size: 16px;
     outline: none;
     border: solid 1px #dddddd;
@@ -179,7 +179,7 @@ a:hover {
 .counter {
     padding-left: 4px;
     padding-right: 4px;
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
     color: #000000;
     background: #dddddd;
 }
@@ -193,7 +193,7 @@ a:hover {
 }
 
 .keyword-ru {
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
     color: #000000;
     display: inline-block;
     margin-bottom: 4px;
@@ -246,7 +246,7 @@ a:hover {
 }
 
 .hover-invert {
-    font-family: "PT Mono Bold";
+    font-family: "PT Mono Bold", monospace;
 }
 
 .hover-invert:hover {
