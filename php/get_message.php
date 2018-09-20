@@ -2,7 +2,7 @@
 
 if ( isset( $_POST["messageText"] ) ) {
 
-    $e_mail       = "support@afoteris.com";
+    $e_mail       = "contact@afoteris.com";
     $subject      = "Сообщение с Меты";
     $message_text = trim( htmlspecialchars( strip_tags( stripslashes( $_POST["messageText"] ) ) ) );
 
