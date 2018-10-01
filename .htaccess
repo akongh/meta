@@ -1,8 +1,8 @@
 #доступ
 #AuthName "Мета"
 #AuthType Basic
-##AuthUserFile /home/user2031505/www/meta_access/.htpasswd
-#AuthUserFile E:/www/meta/meta_access/.htpasswd
+##AuthUserFile /home/user2031505/www/access_meta/.htpasswd
+#AuthUserFile E:/www/meta/access_meta/.htpasswd
 #require valid-user
 
 #запрет выдачи листинга пустого каталога
