@@ -47,7 +47,7 @@ window.addEventListener("scroll", viewHideUpButton);
 function createArrayKeywordsFromVariants() {
     let arrayKeywordsFromVariants = [];
     let arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
-    for (i = 0; i < arrayCheckedFromVariants.length; i++) {
+    for (let i = 0; i < arrayCheckedFromVariants.length; i++) {
         arrayKeywordsFromVariants[i] = arrayCheckedFromVariants[i].value;
     }
 
@@ -143,19 +143,19 @@ function createSellingKeywordsString() {
 
     let arrayUnicSellingKeywords = [];
 
-    for (i = 0; i < arrayAllSellingKeywords.length; i++) {
+    for (let i = 0; i < arrayAllSellingKeywords.length; i++) {
         arrayUnicSellingKeywords[i] = arrayAllSellingKeywords[i]['keyword'];
     }
 
     arrayUnicSellingKeywords = _.uniq(arrayUnicSellingKeywords);
     let arraySortUnicSellingKeywords = [];
 
-    for (i = 0; i < arrayUnicSellingKeywords.length; i++) {
+    for (let i = 0; i < arrayUnicSellingKeywords.length; i++) {
         arraySortUnicSellingKeywords[i] = [];
         arraySortUnicSellingKeywords[i]['keyword'] = arrayUnicSellingKeywords[i];
         // arraySortUnicSellingKeywords[i]['sumOrders'] = 0;
         arraySortUnicSellingKeywords[i]['count'] = 0;
-        for (j = 0; j < arrayAllSellingKeywords.length; j++) {
+        for (let j = 0; j < arrayAllSellingKeywords.length; j++) {
             if (arrayUnicSellingKeywords[i] === arrayAllSellingKeywords[j]['keyword']) {
                 // arraySortUnicSellingKeywords[i]['sumOrders'] = arraySortUnicSellingKeywords[i]['sumOrders'] + arrayAllSellingKeywords[j]['order'];
                 arraySortUnicSellingKeywords[i]['count'] = arraySortUnicSellingKeywords[i]['count'] + 1;
@@ -246,7 +246,7 @@ function createVariantsQueries(PARAM_url) {
 function displayVariantsQueries() {
     let variantsQueriesArrayHTML = [];
     let a = window.variantsQueriesArray.length - 1;
-    for (i = 0; i < window.variantsQueriesArray.length; i++) {
+    for (let i = 0; i < window.variantsQueriesArray.length; i++) {
         if (i !== a) {
             variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
                 window.variantsQueriesArray[i] +
@@ -265,7 +265,7 @@ function displayVariantsQueries() {
     // console.log(variantsQueriesArrayHTML);
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
     let variantsQueries = document.querySelectorAll("div[name='variant-query']");
-    for (i = 0; i < variantsQueries.length; i++) {
+    for (let i = 0; i < variantsQueries.length; i++) {
         variantsQueries[i].addEventListener("click", variantQueryToQuery);
     }
 }
