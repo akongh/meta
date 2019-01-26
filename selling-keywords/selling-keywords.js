@@ -133,11 +133,13 @@ function createSellingKeywordsString() {
     let tempCount = 0;
 
     for (let i = 0; i < window.worksDataObjects.length; i++) {
-        for (let j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
-            arrayAllSellingKeywords[tempCount] = [];
-            arrayAllSellingKeywords[tempCount]['keyword'] = window.worksDataObjects[i].keywords[j].keyword;
-            arrayAllSellingKeywords[tempCount]['order'] = j;
-            tempCount++;
+        if (undefined !== window.worksDataObjects[i].keywords) {
+            for (let j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
+                arrayAllSellingKeywords[tempCount] = [];
+                arrayAllSellingKeywords[tempCount]['keyword'] = window.worksDataObjects[i].keywords[j].keyword;
+                arrayAllSellingKeywords[tempCount]['order'] = j;
+                tempCount++;
+            }
         }
     }
 
@@ -180,12 +182,14 @@ function createWorksList() {
     let worksList = [];
     for (let i = 0; i < worksData.length; i++) {
         let kws = [];
-        for (let j = 0; j < worksData[i].keywords.length; j++) {
-            kws[j] = '<tr><td><span>' +
-                worksData[i].keywords[j].keyword +
-                '</span></td><td class="right">' +
-                (Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100).toFixed(2) +
-                '%</td></tr>';
+        if (undefined !== worksData[i].keywords) {
+            for (let j = 0; j < worksData[i].keywords.length; j++) {
+                kws[j] = '<tr><td><span>' +
+                    worksData[i].keywords[j].keyword +
+                    '</span></td><td class="right">' +
+                    (Math.round((parseFloat(worksData[i].keywords[j].percentage) * 100) * 100) / 100).toFixed(2) +
+                    '%</td></tr>';
+            }
         }
 
         worksList[i] = '<span class="bold">' +
