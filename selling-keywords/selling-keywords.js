@@ -8,7 +8,6 @@ let clearKeywordButton = document.querySelector("#clear-keyword-button");
 let createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
 let deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
 
-
 window.onload = viewHideUpButton();
 getSellingKeywordsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -43,29 +42,24 @@ deleteVariantsQueriesButton.addEventListener("click", function (e) {
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
-
 function createArrayKeywordsFromVariants() {
     let arrayKeywordsFromVariants = [];
     let arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
     for (let i = 0; i < arrayCheckedFromVariants.length; i++) {
         arrayKeywordsFromVariants[i] = arrayCheckedFromVariants[i].value;
     }
-
     return arrayKeywordsFromVariants;
 }
-
 
 function getSellingKeywordsData() {
     let keyword;
     let imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
     let autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
     let sellingKeywordsRequest;
-
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         // console.log(arrayKeywordsFromVariants);
         let i = 0;
-
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
@@ -79,26 +73,21 @@ function getSellingKeywordsData() {
         sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
         sendPapamsGetSellingKeywords("selling_keywords.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
     }
-
 }
-
 
 function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
     // console.log(PARAM_sellingKeywordsRequest);
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-
         if (request.readyState === 4 && request.status === 200) {
             //console.log(request.responseText);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
                 }
-
                 if (PARAM_useVariants === 1) {
                     document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
-
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
                 if (typeof window.worksDataObjects !== "undefined") {
@@ -106,7 +95,6 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 } else {
                     window.worksDataObjects = window.worksDataObjectsNew;
                 }
-
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 if (PARAM_useVariants === 0) {
                     document.querySelector("#works-list").innerHTML = createWorksList();
@@ -114,7 +102,6 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                     document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
             }
-
             enableGetBasicKeywordsButton();
             // console.dir(request.responseText);
         }
@@ -122,16 +109,12 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(PARAM_sellingKeywordsRequest);
-
     disableGetBasicKeywordsButton();
 }
 
-
 function createSellingKeywordsString() {
-
     let arrayAllSellingKeywords = [];
     let tempCount = 0;
-
     for (let i = 0; i < window.worksDataObjects.length; i++) {
         if (undefined !== window.worksDataObjects[i].keywords) {
             for (let j = 0; j < window.worksDataObjects[i].keywords.length; j++) {
@@ -142,16 +125,12 @@ function createSellingKeywordsString() {
             }
         }
     }
-
     let arrayUnicSellingKeywords = [];
-
     for (let i = 0; i < arrayAllSellingKeywords.length; i++) {
         arrayUnicSellingKeywords[i] = arrayAllSellingKeywords[i]['keyword'];
     }
-
     arrayUnicSellingKeywords = _.uniq(arrayUnicSellingKeywords);
     let arraySortUnicSellingKeywords = [];
-
     for (let i = 0; i < arrayUnicSellingKeywords.length; i++) {
         arraySortUnicSellingKeywords[i] = [];
         arraySortUnicSellingKeywords[i]['keyword'] = arrayUnicSellingKeywords[i];
@@ -165,17 +144,13 @@ function createSellingKeywordsString() {
         }
         // arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
     }
-
     arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);//console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     window.arraySortUnicSellingKeywords = arraySortUnicSellingKeywords;
     countKeywords();
-
-
     return '<span class="result">' + arraySortUnicSellingKeywords.join(', ') + '</span>';
 }
-
 
 function createWorksList() {
     let worksData = window.worksDataObjectsNew;
@@ -191,7 +166,6 @@ function createWorksList() {
                     '%</td></tr>';
             }
         }
-
         worksList[i] = '<span class="bold">' +
             worksData[i].title +
             '</span><br><br>' +
@@ -202,15 +176,12 @@ function createWorksList() {
             kws.join("") +
             '</table></div>';
     }
-
     return worksList.join("<hr><br><br><br>") + '<hr>';
 }
-
 
 function autorsToQuery() {
     document.querySelector("#autor").value = this.innerHTML;
 }
-
 
 function deleteAutor() {
     document.querySelector("#autor").value = '';
@@ -220,7 +191,6 @@ function clearKeyword() {
     document.querySelector("#keyword").value = '';
 }
 
-
 function createVariantsQueries(PARAM_url) {
     let request = new XMLHttpRequest();
     let fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
@@ -229,7 +199,6 @@ function createVariantsQueries(PARAM_url) {
     } else {
         fullStringQuery = fullStringQuery + '&onlyAll=0';
     }
-
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             console.log(request.responseText);
@@ -245,7 +214,6 @@ function createVariantsQueries(PARAM_url) {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(fullStringQuery);
 }
-
 
 function displayVariantsQueries() {
     let variantsQueriesArrayHTML = [];
@@ -265,7 +233,6 @@ function displayVariantsQueries() {
                 '</div></td></tr>';
         }
     }
-
     // console.log(variantsQueriesArrayHTML);
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
     let variantsQueries = document.querySelectorAll("div[name='variant-query']");
@@ -274,11 +241,9 @@ function displayVariantsQueries() {
     }
 }
 
-
 function variantQueryToQuery() {
     document.querySelector("#keyword").value = this.innerText;
 }
-
 
 function deleteVariantsQueries() {
     if (document.querySelector("#variants-queries-list").innerHTML === 'Без вариантов.' ||
@@ -291,7 +256,6 @@ function deleteVariantsQueries() {
     }
 }
 
-
 function countKeywords() {
     let countKeywords = 0;
     if (typeof window.arraySortUnicSellingKeywords !== "undefined") {
@@ -300,7 +264,6 @@ function countKeywords() {
     document.querySelector("#count-keywords").innerHTML = countKeywords.toString();
 }
 
-
 function selectResult() {
     let selectRange = document.createRange();
     selectRange.selectNodeContents(this);
@@ -308,7 +271,6 @@ function selectResult() {
     select.removeAllRanges();
     select.addRange(selectRange);
 }
-
 
 function deleteKeywordsObjectsArray() {
     if (typeof window.worksDataObjects !== "undefined") {
@@ -324,7 +286,6 @@ function deleteKeywordsObjectsArray() {
     }
 }
 
-
 function viewHideUpButton() {
     if (resultNode.getBoundingClientRect().top < 0) {
         upButtonBlock.style.display = "inline-block";
@@ -333,14 +294,12 @@ function viewHideUpButton() {
     }
 }
 
-
 function disableGetBasicKeywordsButton() {
     getSellingKeywordsButton.disabled = true;
     getSellingKeywordsButton.value = "…";
     getSellingKeywordsButton.style.background = "#dddddd";
     getSellingKeywordsButton.style.cursor = "default";
 }
-
 
 function enableGetBasicKeywordsButton() {
     getSellingKeywordsButton.disabled = false;
