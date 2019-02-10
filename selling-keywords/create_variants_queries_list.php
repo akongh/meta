@@ -1,13 +1,11 @@
 <?php error_reporting( - 1 );
 
-
 $level             = $_POST['level'];
 $full_string_query = $_POST['fullStringQuery'];
 $only_all          = $_POST['onlyAll'];
 
-
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
-$queries_array = preg_replace( "/ {2,}/", " ", trim( $queries_array ) );
+$queries_array = preg_replace( "/ {2,}/", " ", $queries_array );
 $queries_array = preg_split( "[\n|,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
@@ -26,30 +24,38 @@ if ( $level > count( $queries_array ) ) {
 };
 
 $n = 0;
+
 if ( $only_all == 1 ) {
     $i = $level;
 } else {
     $i = 0;
 };
+
 for ( $i; $i <= $level; $i ++ ) {
     $queries_array_2 = $queries_array;
+
     if ( $i > 0 ) {
         array_splice( $queries_array_2, $i );
+
         $first_elem = implode( ', ', $queries_array_2 );
+
         for ( $j = $i; $j <= count( $queries_array ); $j ++ ) {
             if ( $j < count( $queries_array ) ) {
                 $variants_queries_array[ $n ] = $first_elem . ', ' . $queries_array[ $j ];
             } else {
                 $variants_queries_array[ $n ] = $first_elem;
             };
+
             $n ++;
         };
     } else {
         for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
             $variants_queries_array[ $n ] = $queries_array[ $j ];
+
             if ( $n == $level ) {
                 break;
             };
+
             $n ++;
         };
     };
@@ -60,6 +66,5 @@ if ( count( $queries_array ) > $i ) {
 };
 
 $json_variants_queries_array = json_encode( $variants_queries_array );
-
 
 echo( $json_variants_queries_array );
