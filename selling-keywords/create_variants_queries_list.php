@@ -61,6 +61,8 @@ for ( $i; $i <= $level; $i ++ ) {
     };
 };
 
+$variants_queries_array = array_values( array_unique( $variants_queries_array ) );
+
 if ( count( $queries_array ) > $i ) {
     $variants_queries_array[ count( $variants_queries_array ) ] = implode( ', ', $queries_array );
 };
