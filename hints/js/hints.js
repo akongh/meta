@@ -586,7 +586,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
     let hintKeywords = document.querySelectorAll(".hover-invert");
-    for (i = 0; i < hintKeywords.length; i++) {
+    for (let i = 0; i < hintKeywords.length; i++) {
         hintKeywords[i].addEventListener("click", function (e) {
             e.stopPropagation();
         }, false);
@@ -594,7 +594,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     }
 
     let hintBoxes = document.querySelectorAll("#hint-box");
-    for (i = 0; i < hintBoxes.length; i++) {
+    for (let i = 0; i < hintBoxes.length; i++) {
         hintBoxes[i].addEventListener("click", selectDeselectHint);
     }
 }
@@ -687,8 +687,7 @@ function rankHintsList() {
         document.querySelector("#hints-area").innerHTML = "<div id='rank-hints-list'>" + listResultArray.join("") + "</div>";
 
         $(function () {
-            $("#rank-hints-list").sortable();
-            $("#rank-hints-list").disableSelection();
+            $("#rank-hints-list").sortable().disableSelection();
         });
 
     } else {
