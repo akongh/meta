@@ -53,9 +53,7 @@ for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
 echo( json_encode( $array_works_data ) );
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Functions
 
 function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) {
 
@@ -95,9 +93,7 @@ function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) 
     };
 
     return $array_works_data;
-}
-
-;
+};
 
 
 function CREATE_URL( $_PARAM_array_works_ids ) {
@@ -109,9 +105,7 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
     return ( $url );
-}
-
-;
+};
 
 
 function RANDOM_SELECT_USERAGENT( $_PARAM_array_useragents ) {
@@ -120,9 +114,7 @@ function RANDOM_SELECT_USERAGENT( $_PARAM_array_useragents ) {
     $useragent = $_PARAM_array_useragents[ rand( 0, $max ) ];
 
     return ( $useragent );
-}
-
-;
+};
 
 
 function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
@@ -131,9 +123,7 @@ function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
     $cookies = $_PARAM_array_cookies[ rand( 0, $max ) ];
 
     return ( $cookies );
-}
-
-;
+};
 
 
 function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
@@ -147,6 +137,4 @@ function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cook
     curl_close( $SESSION );
 
     return ( $json_selling_keywords );
-}
-
-;
+};
