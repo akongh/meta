@@ -2,7 +2,7 @@
 AuthName "Управление Меты"
 AuthType Basic
 #AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-AuthUserFile e:/Afoteris/Meta/www_vc_meta/access_meta/.htpasswd
+AuthUserFile D:/Afoteris/Meta/www_vc_meta/access_meta/.htpasswd
 require valid-user
 
 #запрет выдачи листинга пустого каталога
