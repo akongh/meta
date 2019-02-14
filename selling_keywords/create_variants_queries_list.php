@@ -26,12 +26,12 @@ if ( $level > count( $queries_array ) ) {
 $n = 0;
 
 if ( $only_all == 1 ) {
-    $i = $level;
+    $a = $level;
 } else {
-    $i = 0;
+    $a = 0;
 };
 
-for ( $i; $i <= $level; $i ++ ) {
+for ( $i = $a; $i <= $level; $i ++ ) {
     $queries_array_2 = $queries_array;
 
     if ( $i > 0 ) {
