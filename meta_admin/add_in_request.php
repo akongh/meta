@@ -12,4 +12,4 @@ $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
 mysqli_close( $db_connect );
-include( 'html/add_in_request.html' );
+include( 'includes/add_in_request.php' );

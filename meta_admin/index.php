@@ -37,4 +37,4 @@ if ( isset( $_SESSION["obnovlenie_chastoty"] ) ) {
 }
 
 mysqli_close( $db_connect );
-include( 'html/meta_admin.html' );
+include( 'includes/meta_admin.php' );

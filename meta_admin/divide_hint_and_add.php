@@ -14,4 +14,4 @@ $perevedeno        = $perevedeno_otvet[0];
 $slovo_razbit = $_SESSION["slovo_original"];
 
 mysqli_close( $db_connect );
-include( 'html/divide_hint_and_add.html' );
+include( 'includes/divide_hint_and_add.php' );

@@ -62,9 +62,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["slovo_original"] = $slovo;
-    include( 'html/translation_frequency.html' );
+    include( 'includes/translation_frequency.php' );
 } else {
-    include( 'html/no_keyword_for_translation.html' );
+    include( 'includes/no_keyword_for_translation.php' );
 }
 
 mysqli_close( $db_connect );

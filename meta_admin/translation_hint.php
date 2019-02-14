@@ -88,9 +88,9 @@ if ( isset( $slovo ) ) {
     };
 
     $_SESSION["slovo_original"] = $slovo;
-    include( 'html/translation_hint.html' );
+    include( 'includes/translation_hint.php' );
 } else {
-    include( 'html/no_hints_for_translation.html' );
+    include( 'includes/no_hints_for_translation.php' );
 }
 
 mysqli_close( $db_connect );

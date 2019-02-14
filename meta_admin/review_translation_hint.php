@@ -32,4 +32,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $db_connect );
-include( 'html/review_translation_hint.html' );
+include( 'includes/review_translation_hint.php' );

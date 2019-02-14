@@ -72,4 +72,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 
 
 mysqli_close( $db_connect );
-include( 'html/check_similar_hints_translation.html' );
+include( 'includes/check_similar_hints_translation.php' );

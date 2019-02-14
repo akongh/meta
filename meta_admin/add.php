@@ -31,4 +31,4 @@ $kol                        = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
 mysqli_close( $db_connect );
-include( 'html/add.html' );
+include( 'includes/add.php' );
