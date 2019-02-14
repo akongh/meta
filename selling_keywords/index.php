@@ -27,7 +27,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
 
-    <?php include( '../shtml/yandex_metric_meta.shtml' ); ?>
+    <?php include( '../includes/yandex_metric_meta.php' ); ?>
 
 </head>
 <body>
@@ -152,7 +152,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <div id="works-list">Список произведений пуст.</div>
 
-    <?php include( '../shtml/footer.shtml' ); ?>
+    <?php include( '../includes/footer.php' ); ?>
 
 </div>
 <script src="../libs/lodash.js"></script>

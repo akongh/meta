@@ -41,7 +41,7 @@ mysqli_close( $db_connect );
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include('shtml/yandex_metric_meta.shtml');?>
+    <?php include( 'includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
@@ -87,10 +87,10 @@ mysqli_close( $db_connect );
     </div>
     <br>
     <br>
-    <?php include('shtml/socialIcons.shtml');?>
+    <?php include( 'includes/socialIcons.php' );?>
     <br>
     <br>
-    <?php include('shtml/footer.shtml');?>
+    <?php include( 'includes/footer.php' );?>
 </div>
 </body>
 </html>

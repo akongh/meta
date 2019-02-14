@@ -19,7 +19,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include('../shtml/yandex_metric_meta.shtml');?>
+    <?php include( '../includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
@@ -118,7 +118,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <div id="hints-area">Список подсказок пуст.</div>
-    <?php include('../shtml/footer.shtml');?>
+    <?php include( '../includes/footer.php' );?>
 </div>
 <script src="js/hints.js"></script>
 <script src="../../js/jquery-1.10.2.js"></script>
