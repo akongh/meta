@@ -20,7 +20,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="../../css/native.css"
           rel="stylesheet"
           type="text/css">
-    <link href="native-sell-kws.css"
+    <link href="native_sell_kws.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -156,6 +156,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 </div>
 <script src="../libs/lodash.js"></script>
-<script src="selling-keywords.js"></script>
+<script src="selling_keywords.js"></script>
 </body>
 </html>
