@@ -37,13 +37,13 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
@@ -68,7 +68,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
         <br>
         <br>
         <div class="content-right">
-            <?php include( 'includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -97,9 +97,9 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( 'includes/link_reset_choice.php' );?>
+        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
 <script src="../js/showHelp.js"></script>
 </body>

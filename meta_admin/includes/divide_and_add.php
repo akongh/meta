@@ -25,7 +25,7 @@
         <input name="razbit" type="submit" class="knopka" value="Разбить-добавить">
     </form>
     <hr class="otbivka_96">
-    <?php include('parts/footer.php');?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
 </div>
 </body>
 </html>

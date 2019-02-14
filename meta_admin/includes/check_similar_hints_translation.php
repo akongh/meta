@@ -25,7 +25,7 @@
     <hr class="otbivka_48">
     <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
     <hr class="otbivka_96">
-    <?php include('parts/footer.php');?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
 </div>
 </body>
 </html>

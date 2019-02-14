@@ -12,4 +12,4 @@ $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
 mysqli_close( $db_connect );
-include( 'includes/add_related_in_request.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/add_related_in_request.php' );

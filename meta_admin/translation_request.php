@@ -69,9 +69,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["slovo_original"] = $slovo;
-    include( 'includes/translation_request.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/translation_request.php' );
 } else {
-    include( 'includes/no_request_for_translation.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/no_request_for_translation.php' );
 }
 
 mysqli_close( $db_connect );

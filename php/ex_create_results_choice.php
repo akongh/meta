@@ -31,7 +31,7 @@ if ( isset( $russk ) ) {
         $russk2[ $i ] = preg_replace( "/ {2,}/", " ", $russk2[ $i ] );
         $russk2[ $i ] = preg_replace( "/'/", "\'", $russk2[ $i ] );
     }
-    include( '../sql/SQL_create_results_choice.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] . '/sql/SQL_create_results_choice.php' );
     $_REZULTAT_russk = implode( ", ", $russk );
 }
 if ( isset( $angl ) ) {

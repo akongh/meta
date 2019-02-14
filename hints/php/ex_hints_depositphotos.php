@@ -16,7 +16,7 @@ if ( count( $basic_keywords_array ) > 32 ) {
 
 
 //подстроки для правила удаления ОКС из подсказки
-include( "rules.php" );
+include( $_SERVER['DOCUMENT_ROOT'] . '/hints/php/rules.php' );
 
 
 //эта переменная вынесена отдельно, т. к. используется в нескольких функциях

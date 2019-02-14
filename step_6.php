@@ -35,13 +35,13 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">6/6. Результат строками</h1>
@@ -50,7 +50,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <br>
     <br>
     <div class="content-right">
-        <?php include( 'includes/link_help.php' );?><span id="help" class="help hidden">
+        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' );?><span id="help" class="help hidden">
         1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
         2. <span class="bold">«Изменить вид на единый»</span>&nbsp;— объединяет результаты на русском и&nbsp;на английском
         в&nbsp;один текст из двух абзацев для единого выделения и&nbsp;копирования.<br>
@@ -108,7 +108,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <!--Рады, что вы выбрали Мету.-->
     <br>
     <br>
-    <?php include( 'includes/socialIcons.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/socialIcons.php' );?>
     <br>
     <br>
     <br>
@@ -141,7 +141,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
            href="../php/reset_choice.php"
            title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
     </div>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
 <script src="../js/changeResultView.js"></script>
 <script src="../js/selectResult.js"></script>

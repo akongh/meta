@@ -5,7 +5,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 unset( $_POST );
 
-include( 'sql/SQL_translation_queue.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql/SQL_translation_queue.php' );
 $_SQL_rezultat_ochered = mysqli_query( $db_connect, $_SQL_zapros_ochered );
 
 $n = 0;
@@ -38,13 +38,13 @@ mysqli_close( $db_connect );
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
     <br>
     <a href="../step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
     <br>
@@ -76,7 +76,7 @@ mysqli_close( $db_connect );
         Данные ключевые слова к&nbsp;таковым и&nbsp;относятся и&nbsp;мы&nbsp;их&nbsp;переведём в&nbsp;течение двух или&nbsp;более
         дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
     </h2>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
 </body>
 </html>

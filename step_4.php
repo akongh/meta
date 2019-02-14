@@ -25,7 +25,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
     <script src="../js/jquery-1.10.2.js"></script>
     <script src="../js/jquery-ui.js"></script>
     <script src="../js/changeOrderingList.js"></script>
@@ -34,7 +34,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
@@ -56,7 +56,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
         <br>
         <br>
         <div class="content-right">
-            <?php include( 'includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">Перетаскивать</span> ключевое слово удобнее, хватаясь за строку с&nbsp;ним, а&nbsp;не целясь
             в&nbsp;само слово.<br>
             2. <span class="bold">Некоторые стоки</span> учитывают очерёдность ключевых слов.
@@ -69,9 +69,9 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( 'includes/link_reset_choice.php' );?>
+        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
 <script src="../js/showHelp.js"></script>
 </body>
