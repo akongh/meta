@@ -25,7 +25,7 @@
     <hr class="otbivka_48">
     <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
     <hr class="otbivka_96">
-    <?php include('shtml/footer.php');?>
+    <?php include('parts/footer.php');?>
 </div>
 </body>
 </html>

@@ -54,7 +54,7 @@
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
     </div>
     <hr class="otbivka_96">
-    <?php include('shtml/footer.php');?>
+    <?php include('parts/footer.php');?>
 </div>
 <script src="js/addAndDeleteField.js"></script>
 </body>

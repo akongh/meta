@@ -25,7 +25,7 @@
   <a href="php/ex_request_reset.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
      </div>
   <hr class="otbivka_96">
-  <?php include('shtml/footer.php');?>
+  <?php include('parts/footer.php');?>
 </div>
 </body>
 </html>

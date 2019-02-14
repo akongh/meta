@@ -64,7 +64,7 @@
     <hr class="otbivka_24">
     <?php echo $queue_hints_translation;?>
     <hr class="otbivka_96">
-    <?php include('shtml/footer.php');?>
+    <?php include('parts/footer.php');?>
 </div>
 <script src="js/addAndDeleteFieldForHints.js"></script>
 <script src="js/addTranslationMessage.js"></script>
