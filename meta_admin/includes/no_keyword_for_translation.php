@@ -18,7 +18,7 @@
     <hr class="otbivka_96">
     <div class="upravlenie"><a href="index.php">На главную</a></div>
     <hr class="otbivka_96">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/shtml/footer.shtml');?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/shtml/footer.php' );?>
 </div>
 </body>
 </html>

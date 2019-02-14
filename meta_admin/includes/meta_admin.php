@@ -20,11 +20,11 @@
 </head>
 <body>
 <div class="korobka">
-    <?php include('shtml/meta_admin_title.shtml');?>
+    <?php include('shtml/meta_admin_title.php');?>
     <hr class="otbivka_48">
-    <?php include('shtml/statistic.shtml');?>
+    <?php include('shtml/statistic.php');?>
     <hr class="otbivka_24">
-    <?php include('shtml/yandex_metric_admin.shtml');?>
+    <?php include('shtml/yandex_metric_admin.php');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -69,7 +69,7 @@ if ( isset( $obnovlenie_chastoty ) ) {
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_96">
-    <?php include('shtml/footer.shtml');?>
+    <?php include('shtml/footer.php');?>
     <hr class="otbivka_24">
 </div>
 </body>

@@ -25,7 +25,7 @@
         <input name="razbit" type="submit" class="knopka" value="Разбить-добавить">
     </form>
     <hr class="otbivka_96">
-    <?php include('shtml/footer.shtml');?>
+    <?php include('shtml/footer.php');?>
 </div>
 </body>
 </html>

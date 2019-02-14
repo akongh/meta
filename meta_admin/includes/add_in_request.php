@@ -23,7 +23,7 @@
         <input name="zayavka" type="submit" class="knopka" value="Сбросить в заявку">
     </form>
     <hr class="otbivka_96">
-    <?php include('shtml/footer.shtml');?>
+    <?php include('shtml/footer.php');?>
 </div>
 </body>
 </html>

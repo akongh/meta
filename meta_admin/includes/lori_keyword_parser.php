@@ -33,7 +33,7 @@
     <hr class="otbivka_96">
     <a href="index.php">На главную</a> </div>
   <hr class="otbivka_96">
-  <?php include('shtml/footer.shtml');?>
+  <?php include('shtml/footer.php');?>
 </div>
 </body>
 </html>
