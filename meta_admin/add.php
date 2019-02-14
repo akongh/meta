@@ -31,4 +31,4 @@ $kol                        = $kol[0];
 $_SESSION["slovo_original"] = $slovo;
 
 mysqli_close( $db_connect );
-include( 'includes/add.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );

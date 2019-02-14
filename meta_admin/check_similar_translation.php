@@ -50,7 +50,7 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 
-include( 'sql/SQL_choice.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php' );
 $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
 
 $n = 0;
@@ -72,4 +72,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 
 
 mysqli_close( $db_connect );
-include( 'includes/check_similar_translation.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_translation.php' );

@@ -25,13 +25,13 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">3/6. Получаем текущий результат списком</h1>
@@ -46,13 +46,13 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
-        <!--<?php include( 'includes/link_rebuild_chek_choice_list.php' );?>-->
+        <!--<?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
         <?php if (isset($oshibka_kolichestva)){echo $oshibka_kolichestva;};?>
         <br>
         <br>
         <br>
         <div class="content-right">
-            <?php include( 'includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
             именно в&nbsp;квадратик.<br>
             2. <span class="bold">«Запомнить и&nbsp;ещё запрос»</span>&nbsp;— запомнит текущий список подобранных
@@ -66,9 +66,9 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
             экономит время на определении очерёдности.
             </span><br>
             <br>
-            <?php include( 'includes/link_remember_current_result.php' );?><br>
-            <?php include( 'includes/link_back_to_step_2_edit_current_choice.php' );?><br>
-            <?php include( 'includes/link_back_to_step_1_refine_current_query.php' );?><br>
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php' );?><br>
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_2_edit_current_choice.php' );?><br>
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
         </div>
         <br>
         <label title="По частоте использования в Мете другими авторами">
@@ -82,9 +82,9 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( 'includes/link_reset_choice.php' );?>
+        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="../js/countRusChecked.js"></script>
 <script src="../js/showHelp.js"></script>

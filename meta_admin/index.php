@@ -3,7 +3,7 @@ session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
-include( 'sql/SQL_statistic.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_statistic.php' );
 $kir_kol_slov_otvet          = mysqli_fetch_row( $kir_kol_slov_zapros );
 $kir_kol_naborov_otvet       = mysqli_fetch_row( $kir_kol_naborov_zapros );
 $lat_kol_slov_otvet          = mysqli_fetch_row( $lat_kol_slov_zapros );
@@ -37,4 +37,4 @@ if ( isset( $_SESSION["obnovlenie_chastoty"] ) ) {
 }
 
 mysqli_close( $db_connect );
-include( 'includes/meta_admin.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/meta_admin.php' );

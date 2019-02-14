@@ -4,4 +4,4 @@
 //include ('/home/user2031505/www/access_meta/db_connect.php');
 
 //--[meta]--
-include ($_SERVER['DOCUMENT_ROOT'].'/access_meta/db_connect.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/access_meta/db_connect.php');

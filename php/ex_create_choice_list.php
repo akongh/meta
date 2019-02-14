@@ -61,7 +61,7 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        include( '../sql/SQL_create_choice_list.php' );
+        include( $_SERVER["DOCUMENT_ROOT"] . '/sql/SQL_create_choice_list.php' );
         $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
 
         $n = 0;
@@ -98,7 +98,7 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        }
     }
 } else {
-    include( '../sql/SQL_create_choice_list.php' );
+    include( $_SERVER["DOCUMENT_ROOT"] . '/sql/SQL_create_choice_list.php' );
     $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
 
     $n = 0;

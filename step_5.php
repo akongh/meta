@@ -27,13 +27,13 @@ unset( $_SESSION["pro_zayavku"] );
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
-    <?php include( 'includes/yandex_metric_meta.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/yandex_metric_meta.php' );?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( 'includes/link_to_index.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">5/6. Выбираем перевод</h1>
@@ -55,7 +55,7 @@ unset( $_SESSION["pro_zayavku"] );
         <br>
         <br>
         <div class="content-right">
-            <?php include( 'includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">Дубликаты</span> переводов удалятся автоматически.<br>
             2. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
             именно в&nbsp;квадратик.
@@ -68,10 +68,10 @@ unset( $_SESSION["pro_zayavku"] );
     </form>
     <br>
     <div class="content-right">
-        <?php include( 'includes/link_reset_choice.php' );?>
+        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
     <?php if(isset($pro_zayavku)){echo $pro_zayavku;};?>
-    <?php include( 'includes/footer.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="../js/countUniqEngChecked.js"></script>
 <script src="../js/uncheckedTranslations.js"></script>
