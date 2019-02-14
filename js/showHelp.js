@@ -1,5 +1,5 @@
-var helpButton = document.querySelector("#help-button");
-var help = document.querySelector("#help");
+let helpButton = document.querySelector("#help-button");
+let help = document.querySelector("#help");
 
 helpButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -8,4 +8,4 @@ helpButton.addEventListener("click", function (e) {
 
 function showHideHelp() {
     help.classList.toggle("hidden");
-};
+}

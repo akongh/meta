@@ -1,5 +1,5 @@
-var sendMessageButton = document.querySelector("#sendMessageButton");
-var messageForm = document.querySelector("#messageForm");
+let sendMessageButton = document.querySelector("#sendMessageButton");
+let messageForm = document.querySelector("#messageForm");
 
 sendMessageButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -7,19 +7,18 @@ sendMessageButton.addEventListener("click", function (e) {
 }, false);
 
 function sendMessage(url) {
-    var messageText = messageForm.value;
-    var messageText = 'messageText=' + messageText;
-    var request = new XMLHttpRequest();
+    let messageText = messageForm.value;
+    messageText = 'messageText=' + messageText;
+    let request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             document.querySelector("#messageBlock").style.display = "none";
             document.querySelector("#responseMessage").innerHTML = request.responseText;
         }
-        ;
     };
 
     request.open("POST", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(messageText);
-};
+}

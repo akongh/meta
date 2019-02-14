@@ -1,16 +1,17 @@
-var arrRus = document.getElementsByName("massiv_itog[]");
-for (var i = 0; i < arrRus.length; i++){
+let arrRus = document.getElementsByName("massiv_itog[]");
+
+for (let i = 0; i < arrRus.length; i++){
     arrRus[i].onclick = countRusChecked;
-};
+}
 
 countRusChecked();
 
 function countRusChecked(){
-    var count = 0;
-    for (var i = 0; i < arrRus.length; i++){
-        if (arrRus[i].checked == true){
+    let count = 0;
+    for (let i = 0; i < arrRus.length; i++){
+        if (true === arrRus[i].checked){
             count++;
-        };
-    };
+        }
+    }
     document.getElementById("countRusChecked").innerHTML = count;
-};
+}

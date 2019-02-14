@@ -1,29 +1,27 @@
-var inputsEngListAddEvent = document.querySelectorAll("input[name='angl[]']");
-for (var l = 0; l < inputsEngListAddEvent.length; l++) {
+let inputsEngListAddEvent = document.querySelectorAll("input[name='angl[]']");
+
+for (let l = 0; l < inputsEngListAddEvent.length; l++) {
     inputsEngListAddEvent[l].addEventListener("click", missedTranslations);
 }
-;
 
 missedTranslations();
 
 function missedTranslations() {
-    var blocksTranslation = document.getElementsByClassName("block-translated");
-    for (var i = 0; i < blocksTranslation.length; i++) {
-        var inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
-            var f = false;
-            for (var j = 0; j < inputsEngList.length; j++) {
-                if (inputsEngList[j].checked == true) {
+    let blocksTranslation = document.getElementsByClassName("block-translated");
+    for (let i = 0; i < blocksTranslation.length; i++) {
+        let inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
+            let f = false;
+            for (let j = 0; j < inputsEngList.length; j++) {
+                if (true === inputsEngList[j].checked) {
                     blocksTranslation[i].style.backgroundColor = "";
                     f = true;
                     break;
                 }
-                ;
+
             }
-            ;
-            if (f == false) {
+
+            if (false === f) {
                 blocksTranslation[i].style.backgroundColor = "#dddddd";
             }
-            ;
     }
-    ;
-};
+}
