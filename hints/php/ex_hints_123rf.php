@@ -165,7 +165,7 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
 //    if ( $_PARAM_basic_keyword != "" ) {
 //        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
 //    };
-    $url    = "https://d3fqh47ho4rujh.cloudfront.net/keycomplete/" . $_PARAM_basic_keyword;
+    $url    = "https://static-cdn.123rf.com/keycomplete/" . $_PARAM_basic_keyword;
     $sesion = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
