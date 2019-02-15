@@ -101,8 +101,9 @@ clearTranslationButton.addEventListener("click", function (e) {
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
-
-// Functions
+/**
+ * Functions.
+ */
 
 function addKeywordsToList(PARAM_url) {
     clearErrors();
