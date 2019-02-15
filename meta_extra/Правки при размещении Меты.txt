@@ -1,0 +1,12 @@
+﻿#### Правки при размещении Меты.
+
+1. error_reporting( - 1 );
+2. meta_access/db_connect.php
+3. meta_access/.htpasswd (если меняется пароль)
+    Пункты 2 и 3 - на хостинге это папка meta_access (meta2_access) рядом с сайтом
+4. meta_admin/.htaccess
+5. .htaccess
+6. meta_config.php
+7. meta_config_db.php
+8. robots.txt
+9. На страницах 404 и 503 подключение favicon.ico
