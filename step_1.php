@@ -31,7 +31,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     атрибутирование фотографий, ключевые слова перевод на английский, сервис для создания ключевых слов,
     ключевые слова фотобанков, ключевые слова для фотографа, ключевики для стоков"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -52,7 +52,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <br>
     <br>
     <?php if (isset( $sostoyanie_nabora )) { echo $sostoyanie_nabora; };?>
-    <form action="../php/ex_create_choice_list.php"
+    <form action="/php/ex_create_choice_list.php"
           method="post">
         <textarea name="vvod_op_slov"
                   class="textarea-keywords"
@@ -101,6 +101,6 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     </div>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
-<script src="../js/showHelp.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <meta charset="utf-8">
     <title>6/6. Результат строками</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -138,15 +138,15 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <br>
     <div class="content-right">
         <a class="link-button"
-           href="../php/reset_choice.php"
+           href="/php/reset_choice.php"
            title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
     </div>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
-<script src="../js/changeResultView.js"></script>
-<script src="../js/selectResult.js"></script>
-<script src="../js/controlMessage.js"></script>
-<script src="../js/sendMessage.js"></script>
-<script src="../js/showHelp.js"></script>
+<script src="/js/changeResultView.js"></script>
+<script src="/js/selectResult.js"></script>
+<script src="/js/controlMessage.js"></script>
+<script src="/js/sendMessage.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>

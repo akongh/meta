@@ -19,16 +19,16 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <meta charset="utf-8">
     <title>4/6. Определяем очерёдность ключевых слов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
-    <script src="../js/jquery-1.10.2.js"></script>
-    <script src="../js/jquery-ui.js"></script>
-    <script src="../js/changeOrderingList.js"></script>
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/changeOrderingList.js"></script>
 </head>
 <body>
 <div class="page">
@@ -43,7 +43,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <br>
     <br>
     <form method="post"
-          action="../php/ex_create_translation_list.php">
+          action="/php/ex_create_translation_list.php">
         <ul id="sortable">
             <?php if(isset($ochered)){echo $ochered;}; ?>
         </ul>
@@ -73,6 +73,6 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     </div>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
-<script src="../js/showHelp.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>

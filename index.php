@@ -35,7 +35,7 @@ mysqli_close( $db_connect );
     подбор слов для стоков, подбор ключевых слов для стоков, ключевые слова для фотостока, ключевалка,
     микростоки подбор ключевых"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -75,7 +75,7 @@ mysqli_close( $db_connect );
     Ключевых слов переведено
     <span class="counter">
         <?php if (isset($SQL_count_translated_words)){echo $SQL_count_translated_words;}; ?></span>,
-    в <a href="../translation_request.php" title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
+    в <a href="/translation_request.php" title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
     <span class="counter">
         <?php if (isset($SQL_count_translation_request)){echo $SQL_count_translation_request;}; ?></span>.
     <br>
@@ -83,7 +83,7 @@ mysqli_close( $db_connect );
     <br>
     <br>
     <div class="content-right">
-        <a class="link-button" href="../step_1.php" title="Начать подбирать ключевые слова">[Русско-английский подбор]</a>
+        <a class="link-button" href="/step_1.php" title="Начать подбирать ключевые слова">[Русско-английский подбор]</a>
     </div>
     <br>
     <br>

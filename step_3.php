@@ -19,7 +19,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <meta charset="utf-8">
     <title>3/6. Получаем текущий результат списком</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -40,7 +40,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <br>
     <br>
     <form method="post"
-          action="../php/ex_create_ordering_list.php">
+          action="/php/ex_create_ordering_list.php">
         <?php if (isset($sobranny_nabor)){echo $sobranny_nabor;}; ?>
         <br>
         <br>
@@ -86,7 +86,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     </div>
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
-<script src="../js/countRusChecked.js"></script>
-<script src="../js/showHelp.js"></script>
+<script src="/js/countRusChecked.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>

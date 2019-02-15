@@ -32,7 +32,7 @@ mysqli_close( $db_connect );
     <meta charset="utf-8">
     <title>МЕТА. Очередь заявок на перевод</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -46,7 +46,7 @@ mysqli_close( $db_connect );
     <br>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
     <br>
-    <a href="../step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
+    <a href="/step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
     <br>
     <br>
     <h1 class="bold">Очередь заявок на перевод</h1>

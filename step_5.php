@@ -21,7 +21,7 @@ unset( $_SESSION["pro_zayavku"] );
     <meta charset="utf-8">
     <title>5/6. Выбираем перевод</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -42,7 +42,7 @@ unset( $_SESSION["pro_zayavku"] );
     <br>
     <br>
     <form method="post"
-          action="../php/ex_create_results_choice.php">
+          action="/php/ex_create_results_choice.php">
         <?php if (isset($s_perevodom)){echo $s_perevodom;}; ?>
         <br>
         <br>
@@ -73,8 +73,8 @@ unset( $_SESSION["pro_zayavku"] );
     <?php if(isset($pro_zayavku)){echo $pro_zayavku;};?>
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
-<script src="../js/countUniqEngChecked.js"></script>
-<script src="../js/uncheckedTranslations.js"></script>
-<script src="../js/showHelp.js"></script>
+<script src="/js/countUniqEngChecked.js"></script>
+<script src="/js/uncheckedTranslations.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>

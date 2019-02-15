@@ -25,7 +25,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <meta charset="utf-8">
     <title>2/6. Выбираем из подобранных и добавляем свои</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -46,7 +46,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <br>
     <br>
     <form method="post"
-          action="../php/ex_create_check_choice_list.php">
+          action="/php/ex_create_check_choice_list.php">
         <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?>
         <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
         <h1 class="bold">…и добавляем свои</h1>
@@ -95,7 +95,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     </div>
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
-<script src="../js/selectAll.js"></script>
-<script src="../js/showHelp.js"></script>
+<script src="/js/selectAll.js"></script>
+<script src="/js/showHelp.js"></script>
 </body>
 </html>
