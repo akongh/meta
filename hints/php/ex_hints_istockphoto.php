@@ -10,13 +10,13 @@ $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 if ( $basic_keywords_array == [ "" ] ) {
     echo( "-3" );
     exit;
-};
+}
 
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
     exit;
-};
+}
 
 //подстроки для правила удаления ОКС из подсказки
 include( $_SERVER['DOCUMENT_ROOT'] . '/hints/php/rules.php' );
@@ -46,48 +46,48 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
                 $f = false;
                 break;
             }
-        };
+        }
         if ( $f === true ) {
             $hint_keyword_array[ $i ][ $j ] = DELETE_BASIC_KEYWORD_FROM_HINT( $current_keyword, $current_pattern );
         } else {
             $hint_keyword_array[ $i ][ $j ] = $current_pattern;
-        };
+        }
         $hint_keyword_array_full[ $i ][ $j ] = $current_pattern;
-    };
+    }
 
     //спим между запросами, чтоб не нарваться на блокировку
     if ( $i > 0 && $i < count( $basic_keywords_array ) - 1 ) {
         usleep( 400000 );
-    };
-};
+    }
+}
 
 //двумерность массивов подсказок делаем одномерной
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = call_user_func_array( 'array_merge', $hint_keyword_array );
-};
+}
 if ( isset( $hint_keyword_array_full ) ) {
     $hint_keyword_array_full = call_user_func_array( 'array_merge', $hint_keyword_array_full );
-};
+}
 
 //делаем единый массив обрезанных и необрезанных подсказок, если оба исходника существуют
 if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = array_merge( $hint_keyword_array, $hint_keyword_array_full );
 } else if ( ! isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = $hint_keyword_array_full;
-};
+}
 
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     //удаляем пробелы на конце у ОКС, уравниваем код амперсанда, дубликаты удалятся далее
     $basic_keywords_array[ $i ] = preg_replace('/%26/', '&', trim( $basic_keywords_array[ $i ] ));
-};
+}
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
     //удаляем пустые значения, дубликаты и обновляем индекс
     $hint_keyword_array = array_values( array_unique( ( array_diff( $hint_keyword_array, array( "" ) ) ) ) );
 } else {
     $hint_keyword_array = array_values( array_unique( $basic_keywords_array ) );
-};
+}
 
 //дополнительно добавляем в результат все слова из словосочетаний по-отдельности
 $hint_individual_keyword_array = implode( " ", $hint_keyword_array );
@@ -97,7 +97,7 @@ $hint_keyword_array            = array_values( array_unique( array_merge( $hint_
 //заменяем амперсанд, чтоб не ломал javscript потом
 for($i = 0; $i < count($hint_keyword_array); $i++){
     $hint_keyword_array[$i] = preg_replace('/&/','&amp;',$hint_keyword_array[$i]);
-};
+}
 
 //добавление перевода
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
@@ -106,7 +106,7 @@ for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
         "hint"        => $hint_keyword_array[ $i ],
         "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
     ];
-};
+}
 mysqli_close( $db_connect );
 
 //подготовка json-ответа
@@ -132,12 +132,12 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 //        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
 //            echo( "-2" );
 //            exit;
-//        };
-    };
+//        }
+    }
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
         $basic_keywords_array = [ "" ];
-    };
+    }
 
     return $basic_keywords_array;
 }
@@ -146,7 +146,7 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
     if ( $_PARAM_basic_keyword != "" ) {
         $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
-    };
+    }
     $url    = "http://as.gettyservices.com/GettyImages.Autocomplete.KeywordService.Service/KeywordService1/Suggestedkeywords/705/en-us/image/" . $_PARAM_basic_keyword . "/Creative?usePopularity=true&callback=as_cb_" . preg_replace('/%/', '_', $_PARAM_basic_keyword);
     $sesion = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
@@ -183,7 +183,7 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
         $hint_keyword = mb_strcut( $_PARAM_hint, mb_strlen( $pattern_for_delete ) );
     } else {
         $hint_keyword = $_PARAM_hint;
-    };
+    }
 
     return $hint_keyword;
 }
@@ -210,10 +210,10 @@ WHERE
     while ( $data = mysqli_fetch_array( $_SQL_translations ) ) {
         $translations_array[ $n ] = $data['z'];
         $n ++;
-    };
+    }
     if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {
         $translations_array[0] = "-";
-    };
+    }
 
     return $translations_array;
 }

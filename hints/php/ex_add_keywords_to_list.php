@@ -10,7 +10,7 @@ $basic_keywords_array = PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $basic_keywords_stri
 if ( count( $basic_keywords_array ) > 10000 ) {
     echo( "-1" );
     exit;
-};
+}
 
 //добавление перевода
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
@@ -19,7 +19,7 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         "hint"        => $basic_keywords_array[ $i ],
         "translation" => SELECT_TRANSLATION( $basic_keywords_array[ $i ], $db_connect )
     ];
-};
+}
 mysqli_close( $db_connect );
 
 //подготовка json-ответа
@@ -40,15 +40,15 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = preg_replace("/&/", "&amp;", trim( $basic_keywords_array[ $i ] ));
-    };
+    }
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     //только латиница, цифры, пробел, дефис, апостроф и амперсанд//TODO: и амперсант
 //    for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 //        if ( ! preg_match( "/^([a-z0-9\s\-\'(&amp;)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
 //            echo( "-2" );
 //            exit;
-//        };
-//    };
+//        }
+//    }
 
     return $basic_keywords_array;
 }
@@ -72,10 +72,10 @@ WHERE
     while ( $data = mysqli_fetch_array( $_SQL_translations ) ) {
         $translations_array[ $n ] = $data['z'];
         $n ++;
-    };
+    }
     if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {
         $translations_array[0] = "-";
-    };
+    }
 
     return $translations_array;
 }

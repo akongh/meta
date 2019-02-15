@@ -127,7 +127,7 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 //        if ( $basic_keywords_array[ $i ] != "" && ! preg_match( "/^([a-z0-9\s\-\'(%26)]+)$/iu", $basic_keywords_array[ $i ] ) ) {
 //            echo( "-2" );
 //            exit;
-//        };
+//        }
     }
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
@@ -147,7 +147,7 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_media_type ) {
     if ( $_PARAM_basic_keyword != "" ) {
         $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
-    };
+    }
     $anticache_time = time();
     $anticache_num  = rand( 100, 999 );
     $anticache_id   = $anticache_time . $anticache_num;
@@ -178,7 +178,7 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
         $hint_keyword = mb_strcut( $_PARAM_hint, mb_strlen( $pattern_for_delete ) );
     } else {
         $hint_keyword = $_PARAM_hint;
-    };
+    }
 
     return $hint_keyword;
 }
@@ -202,10 +202,10 @@ WHERE
     while ( $data = mysqli_fetch_array( $_SQL_translations ) ) {
         $translations_array[ $n ] = $data['z'];
         $n ++;
-    };
+    }
     if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {
         $translations_array[0] = "-";
-    };
+    }
 
     return $translations_array;
 }

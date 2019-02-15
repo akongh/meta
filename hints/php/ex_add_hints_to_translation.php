@@ -19,6 +19,6 @@ for ( $i = 0; $i < count($json_hints_array_for_translation); $i ++ ) {
 	WHERE `s` = '" . preg_replace("/'/", "\'", $json_hints_array_for_translation[ $i ]) . "' and `f` = 0
     " );
 
-};
+}
 
 mysqli_close( $db_connect );

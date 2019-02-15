@@ -66,7 +66,7 @@ function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
         <span class='hover-invert'>" . $translation[ $n ] . "</span> - " . $sense[ $n ] . "<br>
         ";
         $n ++;
-    };
+    }
 
     if ( isset( $translations_array ) && count( $translations_array ) > 0 ) {
         return $translations_array;
