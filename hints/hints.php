@@ -75,7 +75,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <input id="get-basic-keywords-button-shutterstock" type="submit" value="От Шаттерстока">
     <br>
     <br>
-    <input id="get-basic-keywords-button-istock" type="submit" value="От Айстокфото">
+    <input id="get-basic-keywords-button-istockphoto" type="submit" value="От Айстокфото">
     <br>
     <br>
     <input id="get-basic-keywords-button-getty" type="submit" value="От Геттиимаджес">

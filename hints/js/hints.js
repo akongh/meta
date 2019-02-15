@@ -1,5 +1,5 @@
 let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
-let getBasicKeywordsButtonIstock = document.querySelector("#get-basic-keywords-button-istock");
+let getBasicKeywordsButtonIstockphoto = document.querySelector("#get-basic-keywords-button-istockphoto");
 let getBasicKeywordsButtonGetty = document.querySelector("#get-basic-keywords-button-getty");
 let getBasicKeywordsButtonFotolia = document.querySelector("#get-basic-keywords-button-fotolia");
 let getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-keywords-button-bigstockphoto");
@@ -27,9 +27,9 @@ getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListShutterstock("php/ex_hints_shutterstock.php");
 }, false);
-getBasicKeywordsButtonIstock.addEventListener("click", function (e) {
+getBasicKeywordsButtonIstockphoto.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQueryGetHintsCreateHTMLHintsListIstock("php/ex_hints_istockphoto.php");
+    sendQueryGetHintsCreateHTMLHintsListIstockphoto("php/ex_hints_istockphoto.php");
 }, false);
 getBasicKeywordsButtonGetty.addEventListener("click", function (e) {
     e.preventDefault();
@@ -203,7 +203,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     request.send(requestSet);
 }
 
-function sendQueryGetHintsCreateHTMLHintsListIstock(PARAM_url) {
+function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
 
@@ -820,10 +820,10 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.style.background = "#dddddd";
     getBasicKeywordsButtonShutterstock.style.cursor = "default";
 
-    getBasicKeywordsButtonIstock.disabled = true;
-    getBasicKeywordsButtonIstock.value = "…";
-    getBasicKeywordsButtonIstock.style.background = "#dddddd";
-    getBasicKeywordsButtonIstock.style.cursor = "default";
+    getBasicKeywordsButtonIstockphoto.disabled = true;
+    getBasicKeywordsButtonIstockphoto.value = "…";
+    getBasicKeywordsButtonIstockphoto.style.background = "#dddddd";
+    getBasicKeywordsButtonIstockphoto.style.cursor = "default";
 
     getBasicKeywordsButtonGetty.disabled = true;
     getBasicKeywordsButtonGetty.value = "…";
@@ -857,10 +857,10 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.style.background = "";
     getBasicKeywordsButtonShutterstock.style.cursor = "";
 
-    getBasicKeywordsButtonIstock.disabled = false;
-    getBasicKeywordsButtonIstock.value = "От Айстокфото";
-    getBasicKeywordsButtonIstock.style.background = "";
-    getBasicKeywordsButtonIstock.style.cursor = "";
+    getBasicKeywordsButtonIstockphoto.disabled = false;
+    getBasicKeywordsButtonIstockphoto.value = "От Айстокфото";
+    getBasicKeywordsButtonIstockphoto.style.background = "";
+    getBasicKeywordsButtonIstockphoto.style.cursor = "";
 
     getBasicKeywordsButtonGetty.disabled = false;
     getBasicKeywordsButtonGetty.value = "От Геттиимаджес";
