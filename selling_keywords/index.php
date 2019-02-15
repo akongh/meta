@@ -15,10 +15,10 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
           content=""/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="../../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
-    <link href="native_sell_kws.css"
+    <link href="/selling_keywords/native_sell_kws.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -153,7 +153,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' ); ?>
 
 </div>
-<script src="../libs/lodash.js"></script>
-<script src="selling_keywords.js"></script>
+<script src="/libs/lodash.js"></script>
+<script src="/selling_keywords/selling_keywords.js"></script>
 </body>
 </html>
