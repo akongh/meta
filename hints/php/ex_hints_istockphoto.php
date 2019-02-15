@@ -184,7 +184,7 @@ function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_ke
     $clean_json_responce       = preg_replace( "/ {2,}/", ' ', $_PARAM_json_responce );
     $string_pattern            = '/as_cb_' . preg_replace('/%/', '_', $_PARAM_basic_keyword) . '\(/';
     $clean_json_responce       = preg_replace( $string_pattern, '', $clean_json_responce );
-    $clean_json_responce       = preg_replace( '/\)\;/', '', $clean_json_responce );
+    $clean_json_responce       = preg_replace( '/\)/', '', $clean_json_responce );
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
     $clean_json_responce_array = $clean_json_responce_array["CompletedKeywords"];
 
