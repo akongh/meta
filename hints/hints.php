@@ -12,7 +12,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <meta name="Description" content="Подбор ключевых слов, используя подсказки ключевых запросов."/>
     <meta name="Keywords" content="ключевые слова, подсказки, ключевые запросы, перевод на английский, перевод на русском, шаттерсток"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/native.css"
+    <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
@@ -30,7 +30,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     </div>
     <br>
     <br>
-    <!--<a href="../../index.php" title="МЕТА. Сервис подбора ключевых слов для стоков">МЕТА</a>-->
+    <!--<a href="/index.php" title="МЕТА. Сервис подбора ключевых слов для стоков">МЕТА</a>-->
     <br>
     <br>
     <h1 class="bold">Подсказки ключевых запросов</h1>
@@ -119,8 +119,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <div id="hints-area">Список подсказок пуст.</div>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
 </div>
-<script src="js/hints.js"></script>
-<script src="../../js/jquery-1.10.2.js"></script>
-<script src="../../js/jquery-ui.js"></script>
+<script src="/hints/js/hints.js"></script>
+<script src="/js/jquery-1.10.2.js"></script>
+<script src="/js/jquery-ui.js"></script>
 </body>
 </html>
