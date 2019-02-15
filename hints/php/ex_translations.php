@@ -3,49 +3,40 @@
 //получаем и определяем ОКС на русском языке для перевода
 $keyword_in_russian = $_POST["keywordInRussian"];
 
-
 //готовим ОКС на русском для зопроса переводов
 $keyword_in_russian = PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION( $keyword_in_russian );
-
 
 //нечего переводить
 if ( $keyword_in_russian == "" ) {
     echo( "-2" );
     exit;
-};
-
+}
 
 //только кирилица, цифры, пробел и дефис
 if ( ! preg_match( "/^([а-яё0-9\s\-]+)$/iu", $keyword_in_russian ) ) {
     echo( "-3" );
     exit;
-};
-
+}
 
 //попытка найти для полученного ОКС переводы
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 $translations_array = SEARCH_TRANLATIONS( $db_connect, $keyword_in_russian );
 mysqli_close( $db_connect );
 
-
 //перевод не найден
 if ( $translations_array == "-1" ) {
     echo( "-1" );
     exit;
-};
-
+}
 
 //подготовка json-ответа
 $json_result = json_encode( $translations_array, JSON_UNESCAPED_UNICODE );
 
-
 echo $json_result;
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/**
+ * Functions.
+ */
 
 //проверяет, чистит и правит полученное ОКС
 function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION( $PARAM_keyword_in_russian ) {
@@ -54,9 +45,6 @@ function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION( $PARAM_keyword_in_russian ) 
 
     return $keyword_in_russian;
 }
-
-;
-
 
 //ищет в базе переводы
 function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
@@ -84,7 +72,5 @@ function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
         return $translations_array;
     } else {
         return "-1";
-    };
+    }
 }
-
-;

@@ -3,17 +3,14 @@
 //получаем и определяем добавляемые ключевые слова
 $basic_keywords_string = $_POST["basicKeywordsString"];
 
-
 //готовим для поиска переводов массив добавляемых ключевых слов
 $basic_keywords_array = PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $basic_keywords_string );
-
 
 //проверка колличества добавляемых ключевых слов
 if ( count( $basic_keywords_array ) > 10000 ) {
     echo( "-1" );
     exit;
 };
-
 
 //добавление перевода
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
@@ -25,18 +22,14 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
 };
 mysqli_close( $db_connect );
 
-
 //подготовка json-ответа
 $json_result = json_encode( $result_array, JSON_UNESCAPED_UNICODE );
 
-
 echo( $json_result );
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/**
+ * Functions.
+ */
 
 //готовит для поиска переводов массив добавляемых ключевых слов
 function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
@@ -57,12 +50,8 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 //        };
 //    };
 
-
     return $basic_keywords_array;
 }
-
-;
-
 
 //выбирает перевод для одного слова
 function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
@@ -90,5 +79,3 @@ WHERE
 
     return $translations_array;
 }
-
-;

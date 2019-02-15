@@ -4,10 +4,8 @@
 $type                  = $_POST["type"];
 $basic_keywords_string = $_POST["basicKeywordsString"];
 
-
 //готовим для запросов массив ОКС из строки ОКС
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
-
 
 //проверка на непустой запрос
 if ( $basic_keywords_array == [ "" ] ) {
@@ -15,17 +13,14 @@ if ( $basic_keywords_array == [ "" ] ) {
     exit;
 };
 
-
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
     exit;
 };
 
-
 //подстроки для правила удаления ОКС из подсказки
 include( $_SERVER['DOCUMENT_ROOT'] . '/hints/php/rules.php' );
-
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -67,7 +62,6 @@ for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     };
 };
 
-
 //двумерность массивов подсказок делаем одномерной
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = call_user_func_array( 'array_merge', $hint_keyword_array );
@@ -76,14 +70,12 @@ if ( isset( $hint_keyword_array_full ) ) {
     $hint_keyword_array_full = call_user_func_array( 'array_merge', $hint_keyword_array_full );
 };
 
-
 //делаем единый массив обрезанных и необрезанных подсказок, если оба исходника существуют
 if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = array_merge( $hint_keyword_array, $hint_keyword_array_full );
 } else if ( ! isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = $hint_keyword_array_full;
 };
-
 
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -98,18 +90,15 @@ if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_values( array_unique( $basic_keywords_array ) );
 };
 
-
 //дополнительно добавляем в результат все слова из словосочетаний по-отдельности
 $hint_individual_keyword_array = implode( " ", $hint_keyword_array );
 $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
-
 //заменяем амперсанд, чтоб не ломал javscript потом
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $hint_keyword_array[ $i ] = preg_replace( '/&/', '&amp;', $hint_keyword_array[ $i ] );
 };
-
 
 //добавление перевода
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
@@ -121,18 +110,14 @@ for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
 };
 mysqli_close( $db_connect );
 
-
 //подготовка json-ответа
 $json_result = json_encode( $result_array, JSON_UNESCAPED_UNICODE );
 
-
 echo( $json_result );
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ФУНКЦИИ /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/**
+ * Functions.
+ */
 
 //готовит для запросов массив ОКС из строки ОКС
 function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
@@ -158,9 +143,6 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     return $basic_keywords_array;
 }
 
-;
-
-
 //создаёт json-ответ для одного ОКС
 function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_type ) {
     if ( $_PARAM_basic_keyword != "" ) {
@@ -177,8 +159,6 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_typ
     return $json_responce;
 }
 
-;
-
 
 //очищает от служебной информации массив подсказок для одного json-ответа
 function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
@@ -194,8 +174,6 @@ function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_ke
     return $clean_json_responce_array;
 }
 
-;
-
 
 //удаляет ОКС из подсказки
 function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
@@ -208,8 +186,6 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
 
     return $hint_keyword;
 }
-
-;
 
 
 //выбирает перевод для одной подсказки
@@ -238,5 +214,3 @@ WHERE
 
     return $translations_array;
 }
-
-;
