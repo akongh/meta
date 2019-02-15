@@ -1,12 +1,11 @@
 <?php error_reporting( - 1 );
 
-
 if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
     $autor = $_POST['autor'];
     $autor = preg_replace( '/ /', '+', $autor );
 } else {
     $autor = '';
-};
+}
 if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
     $keyword = $_POST['keyword'];
     $keyword = preg_replace( '/ /', '+', $keyword );
@@ -15,9 +14,8 @@ if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
 } else {
     echo( '-1' );
     exit;
-};
+}
 $image_type = $_POST['imageType'];
-
 
 $array_works_data = ARRAY_WORKS_DATA( $autor, $keyword, $image_type );
 //echo( $array_works_data );
@@ -32,28 +30,26 @@ $array_cookies = [
     'session=s%3A8FXrLwD1i8gqH2LbObNPFVF85-1bF_Fi.kdJfhAHaHSRLnTf8YEXyuI2GksFCJmmwy%2FAOayhOQ%2B8' // Andrei
 ];
 
-
 $url                    = CREATE_URL( $array_works_data );
 $useragent              = RANDOM_SELECT_USERAGENT( $array_useragents );
 $cookies                = RANDOM_SELECT_COOKIES( $array_cookies );
 $json_selling_keywords  = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
 
-
 for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
     for ( $j = 0; $i < count( $array_selling_keywords ); $j ++ ) {
         if ( (int) $array_works_data[ $i ]['id'] == (int) $array_selling_keywords[ $j ]['media_id'] ) {
             $array_works_data[ $i ]['keywords'] = $array_selling_keywords[ $j ]['keywords'];
             break;
-        };
-    };
-};
-
+        }
+    }
+}
 
 echo( json_encode( $array_works_data ) );
 
-
-// Functions
+/**
+ * Functions.
+ */
 
 function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) {
 
@@ -62,14 +58,14 @@ function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) 
     } else {
         $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
 //        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?search_source=base_gallery&language=en&sort=popular&safe=true';
-    };
+    }
     $data = file_get_contents( $search_url );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
     if ( count( $array_works_block[0] ) == 0 ) {
         echo( '-1' );
         exit;
-    };
+    }
 
     $array_works_block = $array_works_block[0];
 
@@ -90,23 +86,21 @@ function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) 
             'img'   => $img[0],
             'id'    => $id[0]
         ];
-    };
+    }
 
     return $array_works_data;
-};
-
+}
 
 function CREATE_URL( $_PARAM_array_works_ids ) {
 
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
         $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
-    };
+    }
     $string_params = implode( '&', $array_params );
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
     return ( $url );
-};
-
+}
 
 function RANDOM_SELECT_USERAGENT( $_PARAM_array_useragents ) {
 
@@ -114,8 +108,7 @@ function RANDOM_SELECT_USERAGENT( $_PARAM_array_useragents ) {
     $useragent = $_PARAM_array_useragents[ rand( 0, $max ) ];
 
     return ( $useragent );
-};
-
+}
 
 function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
 
@@ -123,8 +116,7 @@ function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
     $cookies = $_PARAM_array_cookies[ rand( 0, $max ) ];
 
     return ( $cookies );
-};
-
+}
 
 function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
@@ -137,4 +129,4 @@ function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cook
     curl_close( $SESSION );
 
     return ( $json_selling_keywords );
-};
+}

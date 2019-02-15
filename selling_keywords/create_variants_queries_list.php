@@ -10,18 +10,18 @@ $queries_array = preg_split( "[\n|,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPT
 
 for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
     $queries_array[ $i ] = trim( $queries_array[ $i ] );
-};
+}
 
 $queries_array = array_values( array_unique( ( array_diff( $queries_array, array( "" ) ) ) ) );
 
 if ( count( $queries_array ) == 0 ) {
     echo( '-1' );
     exit;
-};
+}
 
 if ( $level > count( $queries_array ) ) {
     $level = count( $queries_array );
-};
+}
 
 $n = 0;
 
@@ -29,7 +29,7 @@ if ( $only_all == 1 ) {
     $a = $level;
 } else {
     $a = 0;
-};
+}
 
 for ( $i = $a; $i <= $level; $i ++ ) {
     $queries_array_2 = $queries_array;
@@ -44,28 +44,28 @@ for ( $i = $a; $i <= $level; $i ++ ) {
                 $variants_queries_array[ $n ] = $first_elem . ', ' . $queries_array[ $j ];
             } else {
                 $variants_queries_array[ $n ] = $first_elem;
-            };
+            }
 
             $n ++;
-        };
+        }
     } else {
         for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
             $variants_queries_array[ $n ] = $queries_array[ $j ];
 
             if ( $n == $level ) {
                 break;
-            };
+            }
 
             $n ++;
-        };
-    };
-};
+        }
+    }
+}
 
 $variants_queries_array = array_values( array_unique( $variants_queries_array ) );
 
 if ( count( $queries_array ) > $i ) {
     $variants_queries_array[ count( $variants_queries_array ) ] = implode( ', ', $queries_array );
-};
+}
 
 $json_variants_queries_array = json_encode( $variants_queries_array );
 
