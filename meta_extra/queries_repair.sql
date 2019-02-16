@@ -12,17 +12,22 @@ UPDATE `k-ts` SET `k-ts`.`f` = 7 WHERE `k-ts`.`s` in ('бант','бантик',
 
 UPDATE `k-ts` SET `k-ts`.`f` = 7 WHERE `k-ts`.`f` = 3;
 /************************************************************/
-SELECT * FROM `tz` WHERE `z` regexp '́';
-SELECT * FROM `tz` WHERE `z` regexp 'волосатая';
+SELECT * FROM `k-tn` WHERE `idn` = '576635';
+/*========================*/
+SELECT * FROM `tz` WHERE `z` regexp 'лурд';
+SELECT * FROM `tz` WHERE `z` regexp 'си-';
+SELECT * FROM `tz` WHERE `z` = ' (перевод не предусмотрен)';
 SELECT * FROM `tz` WHERE `z` regexp '\\?';
 SELECT * FROM `tz` WHERE `idz` = 12879;
 /*========================*/
 SELECT * FROM `k-ts` WHERE `s` regexp ' ';
+SELECT * FROM `k-ts` WHERE `s` = 'вич';
+SELECT * FROM `k-ts` WHERE `ids` = '4819458';
 SELECT * FROM `k-ts` WHERE `s` regexp '^нит';
 SELECT * FROM `k-ts` WHERE `s` regexp '[a-z]';
 SELECT * FROM `k-ts` WHERE `s` regexp '[0-9]' and `f` = 0;
 SELECT * FROM `k-ts` WHERE `s` in ('лето','природа','пейзаж','море');
-SELECT * FROM `k-ts` WHERE `s` = 'гоа';
+SELECT * FROM `k-ts` WHERE `s` = 'льётся';
 SELECT * FROM `k-ts` WHERE `ids` in (1185,60703,228866,1354571);
 SELECT * FROM `k-ts` WHERE `f` = 0;
 SELECT * FROM `k-ts` WHERE `f` = 1;
@@ -35,12 +40,12 @@ SELECT * FROM `k-ts` WHERE `f` = 7 order by `kol` desc;
 SELECT * FROM `k-ts` WHERE `kol` = 10000;
 /*========================*/
 SELECT * FROM `l-ts` WHERE `s` regexp ' ';
-SELECT * FROM `l-ts` WHERE `s` = 'five thousand';
+SELECT * FROM `l-ts` WHERE `s` = '';
 SELECT * FROM `l-ts` WHERE `s` in ('toe-nail','toe-nails');
 SELECT * FROM `l-ts` WHERE `s` regexp 'caf';
 SELECT * FROM `l-ts` WHERE `s` regexp '\'';
 SELECT * FROM `l-ts` WHERE `s` REGEXP '[а-яё]';
-SELECT * FROM `l-ts` WHERE `ids` = 77216;
+SELECT * FROM `l-ts` WHERE `ids` = 212891;
 SELECT * FROM `l-ts` WHERE `s` regexp '\\?';
 /*========================*/
 SELECT * FROM `l-t_s` WHERE `id_s` = 92490;
@@ -48,31 +53,41 @@ SELECT * FROM `l-t_s` WHERE `id_s` in (SELECT `ids` FROM `l-ts` WHERE `s` = 'fiv
 SELECT * FROM `k-t_s` WHERE `id_s` = 240816;
 /*========================*/
 SELECT * FROM `k_l` WHERE `idk_l` = 13086;
-SELECT * FROM `k_l` WHERE `idk` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'кабан');
-SELECT * FROM `k_l` WHERE `idl` in (SELECT `ids` FROM `l-ts` WHERE `s` = 'five thousand');
+SELECT * FROM `k_l` WHERE `idk` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'льётся');
+SELECT * FROM `k_l` WHERE `idl` in (SELECT `ids` FROM `l-ts` WHERE `s` = '');
+SELECT * FROM `k_l` WHERE `idz` in (SELECT `idz` FROM `tz` WHERE `z` = ' (перевод не предусмотрен)');
+
+SELECT *
+FROM `k_l`
+WHERE `idk` IN (SELECT `ids`
+                FROM `k-ts`
+                WHERE `s` = 'банты') AND `idl` IN (SELECT `ids`
+                                                   FROM `l-ts`
+                                                   WHERE `s` = 'bow');
+
 SELECT * FROM `k_l` WHERE
 `idl` in (SELECT `ids` FROM `l-ts` WHERE `s` = 'wages')
 and
 `idk` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'зарплата');
 SELECT * FROM `k_l` WHERE `idk` = 9230147;
 SELECT * FROM `k_l` WHERE `idl` = 97260;
-SELECT * FROM `k_l` WHERE `idz` in (0000012879);
+SELECT * FROM `k_l` WHERE `idz` in (30817);
 /*========================*/
 /*удаление неправильных переводов*/
 
-DELETE 
-    `k_l`
+DELETE
+  `k_l`
 FROM
-    `k_l`
-        INNER JOIN
-    `tz` ON `k_l`.`idz` = `tz`.`idz`
-        INNER JOIN
-    `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
+  `k_l`
+  INNER JOIN
+  `tz` ON `k_l`.`idz` = `tz`.`idz`
+  INNER JOIN
+  `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE
-    `tz`.`z` REGEXP '^красится'
-        AND `l-ts`.`s` = 'colour';
-    
-    
+  `tz`.`z` REGEXP '^красится'
+  AND `l-ts`.`s` = 'colour';
+
+
 DELETE `k_l` FROM `k_l` inner JOIN `tz` ON `k_l`.`idz` = `tz`.`idz` WHERE `tz`.`idz` IS NULL;
 /*========================*/
 UPDATE `tz` SET `z` = REPLACE(`z`, '?', '́') /*WHERE id>100*/;
@@ -80,16 +95,15 @@ UPDATE `l-ts` SET `s` = REPLACE(`s`, '?', '́') /*WHERE id>100*/;
 /*========================*/
 /*номера несуществующих значений в таблице перевода*/
 
-SELECT 
-    *
+SELECT *
 FROM
-    `tz`
-        LEFT JOIN
-    `k_l` ON `tz`.`idz` = `k_l`.`idz`
-        LEFT JOIN
-    `k-ts` ON `k-ts`.`ids` = `k_l`.`idk`
+  `tz`
+  LEFT JOIN
+  `k_l` ON `tz`.`idz` = `k_l`.`idz`
+  LEFT JOIN
+  `k-ts` ON `k-ts`.`ids` = `k_l`.`idk`
 WHERE
-    `k-ts`.`ids` IS NULL;
+  `k-ts`.`ids` IS NULL;
 /************************************************************/
 insert into `k-ts` (`s`) value ('жаккард'), ('пледы'), ('постельное бельё'), ('ранфорс');
 /************************************************************/
@@ -120,9 +134,12 @@ FROM
 /************************************************************/
 /*выбор слов последнего набора*/
 
-select `s` from `k-ts` join `k-t_s` on `k-ts`.`ids` = `k-t_s`.`id_s` and `k-t_s`.`id_n` = (select `k-tn`.`idn` from `k-tn` order by `k-tn`.`idn` desc limit 1);
-
-select `s` from `l-ts` join `l-t_s` on `l-ts`.`ids` = `l-t_s`.`id_s` and `l-t_s`.`id_n` = (select `l-tn`.`idn` from `l-tn` order by `l-tn`.`idn` desc limit 1);
+SELECT `s`
+FROM `k-ts`
+  JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s` AND `k-t_s`.`id_n` = (SELECT `k-tn`.`idn`
+                                                                      FROM `k-tn`
+                                                                      ORDER BY `k-tn`.`idn` DESC
+                                                                      LIMIT 1);
 /************************************************************/
 /*выбор пследних номеров наборов*/
 
@@ -143,11 +160,11 @@ WHERE `k-ts`.`ids` IS NULL;
 	WHERE `k-ts`.`ids` IS NULL;
 /*========================*/
 SELECT `k-t_s`.*
-FROM `k-t_s` LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn` 
+FROM `k-t_s` LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
 WHERE `k-tn`.`idn` IS NULL;
 /*========================*/
 	delete `k-t_s`
-	FROM `k-t_s` LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn` 
+	FROM `k-t_s` LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
 	WHERE `k-tn`.`idn` IS NULL;
 /*========================*/
 SELECT `k-tn`.*
@@ -162,7 +179,7 @@ SELECT `k-ts`.*
 FROM `k-ts` LEFT JOIN `k-t_s` ON `k-ts`.`ids`=`k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL;
 /*========================*/
-/*ОСТОРОЖНО*/
+/*ОСТОРОЖНО, удалит все свободные слова, даже переведённые*/
 
 	DELETE `k-ts`
 	FROM `k-ts` LEFT JOIN `k-t_s` ON `k-ts`.`ids`=`k-t_s`.`id_s`
@@ -181,7 +198,7 @@ SELECT `tz`.*
 FROM `tz` LEFT JOIN `k_l` ON `tz`.`idz`=`k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
 /*========================*/
-    delete `tz`
+  delete `tz`
 	FROM `tz` LEFT JOIN `k_l` ON `tz`.`idz`=`k_l`.`idz`
 	WHERE `k_l`.`idz` IS NULL;
 /*========================*/
@@ -220,7 +237,18 @@ WHERE `l-t_s`.`id_n` IS NULL;
 /*========================*/
 /*выбор английских слов, которых нет в связях перевода*/
 SELECT `l-ts`.*
-FROM `l-ts` LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+FROM `l-ts`
+  LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+WHERE `k_l`.`idl` IS NULL;
+/*========================*/
+  DELETE `l-ts`
+  FROM `l-ts`
+    LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+  WHERE `k_l`.`idl` IS NULL;
+/*========================*/
+SELECT count(*)
+FROM `l-ts`
+  LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
 WHERE `k_l`.`idl` IS NULL;
 /************************************************************/
 /*выбор последних переведённых слов
@@ -233,36 +261,38 @@ ORDER BY `k_l`.`idk_l` DESC LIMIT 10;
 /************************************************************/
 /*выбор дубликатов переводов*/
 
-SELECT 
-    t1.*
+SELECT t1.*
 FROM
-    `k_l` t1,
-    `k_l` t2
+  `k_l` t1,
+  `k_l` t2
 WHERE
-    t1.`idk` = t2.`idk`
-        AND t1.`idl` = t2.`idl`
-        AND t1.`idz` = t2.`idz`
-        AND t1.`idk_l` > t2.`idk_l`
+  t1.`idk` = t2.`idk`
+  AND t1.`idl` = t2.`idl`
+  AND t1.`idz` = t2.`idz`
+  AND t1.`idk_l` > t2.`idk_l`
 ORDER BY `t2`.`idz` ASC;
 /*========================*/
 /*удаление дубликатов переводов*/
 
 DELETE t1 FROM `k_l` t1,
-    `k_l` t2 
+  `k_l` t2
 WHERE
-    t1.`idk` = t2.`idk`
-    AND t1.`idl` = t2.`idl`
-    AND t1.`idz` = t2.`idz`
-    AND t1.`idk_l` > t2.`idk_l`;
+  t1.`idk` = t2.`idk`
+  AND t1.`idl` = t2.`idl`
+  AND t1.`idz` = t2.`idz`
+  AND t1.`idk_l` > t2.`idk_l`;
 /************************************************************/
 /*выборка битых переводов (нету таких слов на английском)*/
 
-SELECT 
-    `k-ts`.`ids`, `k-ts`.`s`, `k-ts`.`f`, `k_l`.`idl`
+SELECT
+  `k-ts`.`ids`,
+  `k-ts`.`s`,
+  `k-ts`.`f`,
+  `k_l`.`idl`
 FROM
-    `k-ts`
-        JOIN
-    `k_l` ON `k-ts`.`ids` = `k_l`.`idk`
+  `k-ts`
+  JOIN
+  `k_l` ON `k-ts`.`ids` = `k_l`.`idk`
 WHERE
     `k_l`.`idl` IN (SELECT 
             `k_l`.`idl`
@@ -279,8 +309,7 @@ GROUP BY `k-ts`.`ids`;
 SELECT * FROM `k-t_s`
 group by `id_n` having count(*) <8;
 /*========================*/
-SELECT 
-    `k-tn`.*
+SELECT `k-tn`.*
 FROM
     `k-tn`
         JOIN
@@ -313,56 +342,51 @@ DELETE `l-tn` FROM `l-tn`
 /************************************************************/
 /*число уникальных наборов*/
 
-SELECT 
-    COUNT(*)
+SELECT COUNT(*)
 FROM
-    (SELECT 
-        `str`.`id_n`
-    FROM
-        (SELECT 
+  (SELECT `str`.`id_n`
+   FROM
+     (SELECT
         `k-t_s`.`id_n`,
-            GROUP_CONCAT(`k-t_s`.`id_s`
-                ORDER BY `k-t_s`.`id_s`
-                SEPARATOR '') `sostav`
-    FROM
+        GROUP_CONCAT(`k-t_s`.`id_s`
+                     ORDER BY `k-t_s`.`id_s`
+                     SEPARATOR '') `sostav`
+      FROM
         `k-t_s`
     GROUP BY `k-t_s`.`id_n`) `str`
     GROUP BY `str`.`sostav`) `t`;
 /*========================*/
 /*выбор уникальных наборов*/
 
-SELECT 
-    `str`.`id_n`
+SELECT `str`.`id_n`
 FROM
-    (SELECT 
-        `k-t_s`.`id_n`,
-            GROUP_CONCAT(`k-t_s`.`id_s`
-                ORDER BY `k-t_s`.`id_s`
-                SEPARATOR '') `sostav`
-    FROM
-        `k-t_s`
-    GROUP BY `k-t_s`.`id_n`) `str`
+  (SELECT
+     `k-t_s`.`id_n`,
+     GROUP_CONCAT(`k-t_s`.`id_s`
+                  ORDER BY `k-t_s`.`id_s`
+                  SEPARATOR '') `sostav`
+   FROM
+     `k-t_s`
+   GROUP BY `k-t_s`.`id_n`) `str`
 GROUP BY `str`.`sostav`;
 
-    
+
 /************************************************************/
 /*выбор номеров наборов с заданным словом*/
 
-SELECT 
-    `k-tn`.`idn`
+SELECT `k-tn`.`idn`
 FROM
-    `k-tn`
-        JOIN
-    `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-        JOIN
-    `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+  `k-tn`
+  JOIN
+  `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
+  JOIN
+  `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE
-    `k-ts`.`ids` = (SELECT 
-            `ids`
-        FROM
-            `k-ts`
-        WHERE
-            `s` = 'гоа');
+  `k-ts`.`ids` = (SELECT `ids`
+                  FROM
+                    `k-ts`
+                  WHERE
+                    `s` = 'мета 3');
 /************************************************************/
 /*Восстановление принадлежности слов к наборам по запасным данным.
 Всё делается через дамп промежуточной таблицы с нехватающими связями.
@@ -378,34 +402,35 @@ CREATE TABLE IF NOT EXISTS `y` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Связи для кириллицы' AUTO_INCREMENT=1 ;
 
 
-insert ignore into `y` (`id_n`, `id_s`)
-SELECT 
-    `k-tn`.`idn`, `k-ts`.`ids`
-FROM
+INSERT IGNORE INTO `y` (`id_n`, `id_s`)
+  SELECT
+    `k-tn`.`idn`,
+    `k-ts`.`ids`
+  FROM
     `k-tn`
-        JOIN
+    JOIN
     `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-        JOIN
+    JOIN
     `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
-WHERE
-    `k-ts`.`ids` in (SELECT 
-            `ids`
-        FROM
-            `k-ts`
-        WHERE
-            `s` in ('гоа','лагуна','лопасти','скотина'));
+  WHERE
+    `k-ts`.`ids` IN (SELECT `ids`
+                     FROM
+                       `k-ts`
+                     WHERE
+                       `s` IN ('гоа', 'лагуна', 'лопасти', 'скотина'));
 
 
-insert ignore into `k-t_s` (`id_n`, `id_s`)
-SELECT 
-    `y`.`id_n`, `y`.`id_s`
-FROM
+INSERT IGNORE INTO `k-t_s` (`id_n`, `id_s`)
+  SELECT
+    `y`.`id_n`,
+    `y`.`id_s`
+  FROM
     `y`;
-    
-    
-UPDATE `k-t_s` 
-SET 
-    `id_s` = 9232947
+
+
+UPDATE `k-t_s`
+SET
+  `id_s` = 9232947
 WHERE
-    `id_s` = 60703;
+  `id_s` = 60703;
 /************************************************************/
