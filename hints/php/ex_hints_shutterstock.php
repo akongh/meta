@@ -8,7 +8,7 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
 //проверка колличества ОКС
-if ( count( $basic_keywords_array ) > 32 ) {
+if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
     exit;
 }
