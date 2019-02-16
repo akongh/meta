@@ -8,7 +8,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Подсказки ключевых запросов</title>
+    <title>Действующий на&nbsp;базе Меты инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов некоторых из&nbsp;них</title>
     <meta name="Description" content="Подбор ключевых слов, используя подсказки ключевых запросов."/>
     <meta name="Keywords" content="ключевые слова, подсказки, ключевые запросы, перевод на английский, перевод на русском, шаттерсток"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +30,12 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     </div>
     <br>
     <br>
-    <!--<a href="/index.php" title="МЕТА. Сервис подбора ключевых слов для стоков">МЕТА</a>-->
-    <br>
-    <br>
-    <h1 class="bold">Подсказки ключевых запросов</h1>
+    <h1 class="bold">
+        <span class="meta">МЕТА-подсказки</span>
+        <br>
+        <br>
+        Действующий на&nbsp;базе Меты инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов некоторых из&nbsp;них
+    </h1>
     <br>
     <br>
     <br>
