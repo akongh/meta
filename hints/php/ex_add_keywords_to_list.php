@@ -7,7 +7,7 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 $basic_keywords_array = PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $basic_keywords_string );
 
 //проверка колличества добавляемых ключевых слов
-if ( count( $basic_keywords_array ) > 10000 ) {
+if ( count( $basic_keywords_array ) > 2000 ) {
     echo( "-1" );
     exit;
 }
