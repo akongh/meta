@@ -103,15 +103,15 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <br>
     <br>
     <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
-<!--    <br>-->
-<!--    <br>-->
-<!--    <div class="notice">-->
-<!--        <p class="notice-title"><a href="http://meta.afoteris.com/hints/hints.php"-->
-<!--                                   title="Перейти в Мета-подсказки"-->
-<!--                                   target="_blank">Мета-подсказки</a>-->
-<!--        </p>-->
-<!--        <p class="notice-description">Ещё один, действующий на базе Меты, инструмент подбора ключевых слов для стоков по подсказкам ключевых запросов от некоторых из них.</p>-->
-<!--    </div>-->
+    <br>
+    <br>
+    <div class="notice">
+        <p class="notice-title"><a href="http://meta.afoteris.com/hints/hints.php"
+                                   title="Перейти в Мета-подсказки"
+                                   target="_blank">Мета-подсказки</a>
+        </p>
+        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них.</p>
+    </div>
     <br>
     <br>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/socialIcons.php' );?>

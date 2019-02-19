@@ -323,17 +323,17 @@ a:hover {
     display: none !important;
 }
 
-/*.notice {*/
-    /*background-color: #63eec1;*/
-    /*color: #FFFFFF;*/
-    /*padding: 8px 16px;*/
-/*}*/
+.notice {
+    background-color: #63eec1;
+    color: #000000;
+    padding: 8px 16px;
+}
 
-/*.notice-title {*/
-    /*margin-bottom: 16px;*/
-/*}*/
+.notice-title {
+    margin-bottom: 16px;
+    font-weight: 700;
+}
 
-/*.notice-title a {*/
-    /*color: #ffffff;*/
-    /*font-weight: 700;*/
-/*}*/
+.notice a {
+    color: #000000;
+}
