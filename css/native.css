@@ -124,17 +124,11 @@ a:hover {
     text-align: left;
 }
 
-.link-button {
-    text-decoration: none;
-}
-
 .link-button-reset {
-    text-decoration: none;
     color: #888888;
 }
 
 .link-button-reset:hover {
-    text-decoration: none;
     color: #000000;
 }
 
@@ -366,4 +360,16 @@ select {
 
 .notice-title {
     font-weight: 700;
+}
+
+.link-button {
+    text-decoration: none;
+}
+
+.link-button-reset {
+    text-decoration: none;
+}
+
+.link-button-reset:hover {
+    text-decoration: none;
 }
