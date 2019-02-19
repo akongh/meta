@@ -11,23 +11,9 @@
 }
 
 body {
-    font-family: "PT Mono", monospace;
-    font-size: 16px;
     font-weight: normal;
     color: #000000;
     cursor: default;
-}
-
-h1 {
-    font-family: "PT Mono", monospace;
-    font-weight: normal;
-    font-size: 16px;
-}
-
-h2 {
-    font-family: "PT Mono", monospace;
-    font-weight: normal;
-    font-size: 16px;
 }
 
 .page {
@@ -42,17 +28,11 @@ h2 {
 
 }
 
-.bold {
-    font-family: "PT Mono Bold", monospace;
-}
-
 .img-index {
     width: 100%;
 }
 
 .textarea-keywords {
-    font-family: "PT Mono", monospace;
-    font-size: 16px;
     width: 100%;
     resize: none;
     outline: none;
@@ -62,8 +42,6 @@ h2 {
 }
 
 .textarea-message {
-    font-family: "PT Mono", monospace;
-    font-size: 16px;
     width: 100%;
     resize: none;
     outline: none;
@@ -95,8 +73,6 @@ h2 {
 input[type="submit"] {
     color: #888888;
     border: solid 1px #888888;
-    font-family: "PT Mono Bold", monospace;
-    font-size: 16px;
     padding: 8px;
     width: 100%;
     text-align: center;
@@ -116,8 +92,6 @@ input[type="checkbox"] {
 }
 
 select {
-    font-family: "PT Mono", monospace;
-    font-size: 16px;
     outline: none;
     border: solid 1px #dddddd;
 }
@@ -179,7 +153,6 @@ a:hover {
 .counter {
     padding-left: 4px;
     padding-right: 4px;
-    font-family: "PT Mono Bold", monospace;
     color: #000000;
     background: #dddddd;
 }
@@ -193,7 +166,6 @@ a:hover {
 }
 
 .keyword-ru {
-    font-family: "PT Mono Bold", monospace;
     color: #000000;
     display: inline-block;
     margin-bottom: 4px;
@@ -243,10 +215,6 @@ a:hover {
 
 .rank-hint-box:hover {
     background: #eeeeee;
-}
-
-.hover-invert {
-    font-family: "PT Mono Bold", monospace;
 }
 
 .hover-invert:hover {
@@ -336,4 +304,63 @@ a:hover {
 
 .notice a {
     color: #000000;
+}
+
+/*
+ * ----------------------------------------------------------------
+ * Typography
+ * ----------------------------------------------------------------
+ */
+
+body {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+h1 {
+    font-family: "PT Mono", monospace;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+h2 {
+    font-family: "PT Mono", monospace;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.bold {
+    font-family: "PT Mono Bold", monospace;
+}
+
+.textarea-keywords {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+.textarea-message {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    font-family: "PT Mono Bold", monospace;
+    font-size: 16px;
+}
+
+select {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+.counter {
+    font-family: "PT Mono Bold", monospace;
+}
+
+.keyword-ru {
+    font-family: "PT Mono Bold", monospace;
+}
+
+.hover-invert {
+    font-family: "PT Mono Bold", monospace;
 }
