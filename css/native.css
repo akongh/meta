@@ -11,7 +11,6 @@
 }
 
 body {
-    color: #000000;
     cursor: default;
 }
 
@@ -36,7 +35,7 @@ body {
     resize: none;
     outline: none;
     overflow: auto;
-    border: dashed 1px #dddddd;
+    border: dashed 1px;
     cursor: text;
 }
 
@@ -45,17 +44,8 @@ body {
     resize: none;
     outline: none;
     overflow: auto;
-    border: dashed 1px #dddddd;
+    border: dashed 1px;
     cursor: text;
-}
-
-@keyframes error {
-    0% {
-        color: #888888;
-    }
-    100% {
-        color: #dddddd;
-    }
 }
 
 .error {
@@ -70,18 +60,15 @@ body {
 }
 
 input[type="submit"] {
-    color: #888888;
-    border: solid 1px #888888;
+    border: solid 1px;
     padding: 8px;
     width: 100%;
     text-align: center;
-    background: #ffffff;
     outline: none;
 }
 
 input[type="submit"]:hover {
-    color: #000000;
-    border: solid 1px #000000;
+    border: solid 1px;
     cursor: pointer;
 }
 
@@ -92,15 +79,11 @@ input[type="checkbox"] {
 
 select {
     outline: none;
-    border: solid 1px #dddddd;
+    border: solid 1px;
 }
 
 option {
 
-}
-
-label:hover {
-    background: #eeeeee;
 }
 
 .label-highlight {
@@ -108,28 +91,10 @@ label:hover {
     width: 100%;
 }
 
-a {
-    color: #888888;
-}
-
-a:hover {
-    color: #000000;
-}
-
 .help {
     display: inline-block;
     width: 100%;
-    background: #eeeeee;
-    color: #888888;
     text-align: left;
-}
-
-.link-button-reset {
-    color: #888888;
-}
-
-.link-button-reset:hover {
-    color: #000000;
 }
 
 #sortable {
@@ -139,33 +104,14 @@ a:hover {
     width: 100%;
 }
 
-#sortable li:hover {
-    background: #eeeeee;
-}
-
 .counter {
     padding-left: 4px;
     padding-right: 4px;
-    color: #000000;
-    background: #dddddd;
-}
-
-.block-translated {
-    color: #888888;
-}
-
-.block-not-translated {
-    color: #888888;
 }
 
 .keyword-ru {
-    color: #000000;
     display: inline-block;
     margin-bottom: 4px;
-}
-
-.keyword-en {
-    color: #000000;
 }
 
 .separate-checkbox {
@@ -175,64 +121,49 @@ a:hover {
 
 .result:hover {
     cursor: pointer;
-    background: #eeeeee;
 }
 
 .hint-box-deselect {
     width: 100%;
-    background: #eeeeee;
-    border: solid 1px #eeeeee;
+    border: solid 1px;
 }
 
 .hint-box-deselect:hover {
-    border: dashed 1px #888888;
+    border: dashed 1px;
 }
 
 .hint-box-select {
     width: 100%;
-    background: #ffffff;
-    border: solid 1px #ffffff;
+    border: solid 1px;
 }
 
 .hint-box-select:hover {
-    border: dashed 1px #888888;
+    border: dashed 1px;
 }
 
 .rank-hint-box {
     width: 100%;
-    background: #ffffff;
     cursor: move;
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
-.rank-hint-box:hover {
-    background: #eeeeee;
-}
-
 .hover-invert:hover {
-    background: #000000;
-    color: #FFFFFF;
     cursor: pointer;
 }
 
 .hint-translations {
     width: 100%;
-    color: #888888;
     padding-left: 24px;
 }
 
 .line {
-    border-top: dashed 1px #dddddd;
+    border-top: dashed 1px;
 }
 
 .kw-pattern {
     display: inline-block;
     width: 100%;
-}
-
-.kw-pattern:hover {
-    background: #eeeeee;
 }
 
 .up-block {
@@ -248,10 +179,6 @@ a:hover {
     margin: auto;
     padding-left: 8px;
     padding-right: 8px;
-}
-
-.up-button {
-    background: #FFFFFF;
 }
 
 .block-404-503 {
@@ -285,17 +212,11 @@ a:hover {
 }
 
 .notice {
-    background-color: #63eec1;
-    color: #000000;
     padding: 8px 16px;
 }
 
 .notice-title {
     margin-bottom: 16px;
-}
-
-.notice a {
-    color: #000000;
 }
 
 /*
@@ -372,4 +293,156 @@ select {
 
 .link-button-reset:hover {
     text-decoration: none;
+}
+
+/*
+ * ----------------------------------------------------------------
+ * Color
+ * ----------------------------------------------------------------
+ */
+
+body {
+    color: #000000;
+}
+
+.textarea-keywords {
+    border-color: #dddddd;
+}
+
+.textarea-message {
+    border-color: #dddddd;
+}
+
+@keyframes error {
+    0% {
+        color: #888888;
+    }
+    100% {
+        color: #dddddd;
+    }
+}
+
+input[type="submit"] {
+    color: #888888;
+    border-color: #888888;
+    background: #ffffff;
+}
+
+input[type="submit"]:hover {
+    color: #000000;
+    border-color: #000000;
+}
+
+select {
+    border-color: #dddddd;
+}
+
+label:hover {
+    background: #eeeeee;
+}
+
+a {
+    color: #888888;
+}
+
+a:hover {
+    color: #000000;
+}
+
+.help {
+    background: #eeeeee;
+    color: #888888;
+}
+
+.link-button-reset {
+    color: #888888;
+}
+
+.link-button-reset:hover {
+    color: #000000;
+}
+
+#sortable li:hover {
+    background: #eeeeee;
+}
+
+.counter {
+    color: #000000;
+    background: #dddddd;
+}
+
+.block-translated {
+    color: #888888;
+}
+
+.block-not-translated {
+    color: #888888;
+}
+
+.keyword-ru {
+    color: #000000;
+}
+
+.keyword-en {
+    color: #000000;
+}
+
+.result:hover {
+    background: #eeeeee;
+}
+
+.hint-box-deselect {
+    background: #eeeeee;
+    border-color: #eeeeee;
+}
+
+.hint-box-deselect:hover {
+    border-color: #888888;
+}
+
+.hint-box-select {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.hint-box-select:hover {
+    border-color: #888888;
+}
+
+.rank-hint-box {
+    background: #ffffff;
+}
+
+.rank-hint-box:hover {
+    background: #eeeeee;
+}
+
+.hover-invert:hover {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.hint-translations {
+    color: #888888;
+}
+
+.line {
+    border-color: #dddddd;
+}
+
+.kw-pattern:hover {
+    background: #eeeeee;
+}
+
+.up-button {
+    background: #FFFFFF;
+}
+
+.notice {
+    background-color: #63eec1;
+    color: #000000;
+}
+
+.notice a {
+    color: #000000;
 }
