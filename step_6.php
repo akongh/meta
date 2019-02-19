@@ -103,9 +103,15 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <br>
     <br>
     <?php if (isset($_REZULTAT_russk_neperevedennye)){echo $_REZULTAT_russk_neperevedennye;}; ?>
-    <!--<br>-->
-    <!--<br>-->
-    <!--Рады, что вы выбрали Мету.-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <div class="notice">-->
+<!--        <p class="notice-title"><a href="http://meta.afoteris.com/hints/hints.php"-->
+<!--                                   title="Перейти в Мета-подсказки"-->
+<!--                                   target="_blank">Мета-подсказки</a>-->
+<!--        </p>-->
+<!--        <p class="notice-description">Ещё один, действующий на базе Меты, инструмент подбора ключевых слов для стоков по подсказкам ключевых запросов от некоторых из них.</p>-->
+<!--    </div>-->
     <br>
     <br>
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/socialIcons.php' );?>
