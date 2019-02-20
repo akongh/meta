@@ -84,17 +84,17 @@ hr {
  */
 
 .textarea-autor {
-    border-color: #dddddd;
+    border-color: #ddd;
 }
 
 .table-kws tr:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .variant-query:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .variant-checkbox-label:hover {
-    background: #eeeeee;
+    background: #eee;
 }
