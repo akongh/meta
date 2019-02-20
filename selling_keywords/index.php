@@ -18,7 +18,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="/css/native.css"
           rel="stylesheet"
           type="text/css">
-    <link href="/selling_keywords/native_sell_kws.css"
+    <link href="/css/native_sell_kws.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"

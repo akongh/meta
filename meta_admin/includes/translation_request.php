@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Перевод по заявке (рус.—анг.)</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
