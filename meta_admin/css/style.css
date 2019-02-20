@@ -342,56 +342,56 @@ p {
 body {
     font-size: 14px;
     font-style: normal;
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
     text-decoration: none;
 }
 
 h1 {
     font-size: 32px;
     font-weight: normal;
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
 }
 
 h2 {
     font-size: 18px;
     font-weight: normal;
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
 }
 
 a {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
 }
 
 a:hover {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
 }
 
 .perevoda_net {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .russk {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
 }
 
 .znachenie {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .oshibka {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .informaczya {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .informaczya_vydelenie {
-    font-family: "PT Sans Bold Italic";
+    font-family: "PT Sans Bold Italic", sans-serif;
 }
 
 .opornoe_slovo_zayavki {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
     font-size: 32px;
 }
 
@@ -404,19 +404,19 @@ a:hover {
 }
 
 .krasnaya {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
 }
 
 .krasnaya a {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
 }
 
 .krasnaya a:hover {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
 }
 
 .upravlenie {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .nomer_shaga {
@@ -424,40 +424,40 @@ a:hover {
 }
 
 .statistika {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .statistika_czyfra {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
 }
 
 .versiya {
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .vvod_slov_tekst {
-    font-family: "PT Sans Caption Regular";
+    font-family: "PT Sans Caption Regular", sans-serif;
     font-size: 14px;
 }
 
 .vvod_slovo {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
     font-size: 32px;
 }
 
 .vvod_perevod {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
     font-size: 14px;
 }
 
 .vvod_prisutstvie {
-    font-family: "PT Sans Caption Bold";
+    font-family: "PT Sans Caption Bold", sans-serif;
     font-size: 14px;
 }
 
 .vvod_znachenie {
     font-size: 14px;
-    font-family: "PT Sans Italic";
+    font-family: "PT Sans Italic", sans-serif;
 }
 
 .pm_knopka {
