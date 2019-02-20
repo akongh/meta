@@ -1,6 +1,18 @@
+/*
+Table of content
+
+    General
+    Typography
+    Color
+ */
+
+/*
+ * ----------------------------------------------------------------
+ * General
+ * ----------------------------------------------------------------
+ */
+
 .textarea-autor {
-    font-family: "PT Mono", monospace;
-    font-size: 16px;
     width: 40%;
     resize: none;
     outline: none;
@@ -30,7 +42,6 @@
 }
 
 .variant-query:hover {
-    font-family: "PT Mono Bold", monospace;
     background: #eeeeee;
     cursor: pointer;
 }
@@ -59,3 +70,24 @@ img {
 hr {
     clear: both;
 }
+
+/*
+ * ----------------------------------------------------------------
+ * Typography
+ * ----------------------------------------------------------------
+ */
+
+.textarea-autor {
+    font-family: "PT Mono", monospace;
+    font-size: 16px;
+}
+
+.variant-query:hover {
+    font-family: "PT Mono Bold", monospace;
+}
+
+/*
+ * ----------------------------------------------------------------
+ * Color
+ * ----------------------------------------------------------------
+ */
