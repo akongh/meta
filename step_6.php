@@ -29,7 +29,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <meta charset="utf-8">
     <title>6/6. Результат строками</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/native.css"
+    <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"

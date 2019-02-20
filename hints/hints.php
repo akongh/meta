@@ -12,7 +12,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <meta name="Description" content="Подбор ключевых слов, используя подсказки ключевых запросов."/>
     <meta name="Keywords" content="ключевые слова, подсказки, ключевые запросы, перевод на английский, перевод на русском, шаттерсток"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/native.css"
+    <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"

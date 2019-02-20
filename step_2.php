@@ -25,7 +25,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <meta charset="utf-8">
     <title>2/6. Выбираем из подобранных и добавляем свои</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/native.css"
+    <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"

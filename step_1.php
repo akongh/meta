@@ -31,7 +31,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     атрибутирование фотографий, ключевые слова перевод на английский, сервис для создания ключевых слов,
     ключевые слова фотобанков, ключевые слова для фотографа, ключевики для стоков"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/native.css"
+    <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"

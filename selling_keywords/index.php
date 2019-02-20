@@ -15,10 +15,10 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
           content=""/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/native.css"
+    <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <link href="/css/native_sell_kws.css"
+    <link href="/css/meta_sell_kws.css"
           rel="stylesheet"
           type="text/css">
     <link rel="shortcut icon"
