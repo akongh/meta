@@ -17,16 +17,12 @@ Table of content
     resize: none;
     outline: none;
     overflow: auto;
-    border: dashed 1px #dddddd;
+    border: dashed 1px;
     cursor: text;
 }
 
 .table-kws {
     width: 246px;
-}
-
-.table-kws tr:hover {
-    background: #eeeeee;
 }
 
 .variant-query-table {
@@ -42,7 +38,6 @@ Table of content
 }
 
 .variant-query:hover {
-    background: #eeeeee;
     cursor: pointer;
 }
 
@@ -52,10 +47,6 @@ Table of content
 
 .variant-checkbox-label {
     cursor: pointer;
-}
-
-.variant-checkbox-label:hover {
-    background: #eeeeee;
 }
 
 .right {
@@ -91,3 +82,19 @@ hr {
  * Color
  * ----------------------------------------------------------------
  */
+
+.textarea-autor {
+    border-color: #dddddd;
+}
+
+.table-kws tr:hover {
+    background: #eeeeee;
+}
+
+.variant-query:hover {
+    background: #eeeeee;
+}
+
+.variant-checkbox-label:hover {
+    background: #eeeeee;
+}
