@@ -24,39 +24,27 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     background-attachment: fixed;
 }
 
 form {
     padding: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     margin: 0;
 }
 
 h1 {
     margin: 0;
     padding: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     display: block;
 }
 
 h2 {
     margin: 0;
     padding: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     display: block;
 }
 
@@ -104,18 +92,12 @@ p {
     text-align: left;
     padding: 0;
     width: 100%;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .otbivka_0 {
     clear: both;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     margin: 0;
 }
 
@@ -125,10 +107,7 @@ p {
     margin-right: 0;
     margin-bottom: 6px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .otbivka_12 {
@@ -137,10 +116,7 @@ p {
     margin-right: 0;
     margin-bottom: 12px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .otbivka_24 {
@@ -149,10 +125,7 @@ p {
     margin-right: 0;
     margin-bottom: 24px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .otbivka_48 {
@@ -161,10 +134,7 @@ p {
     margin-right: 0;
     margin-bottom: 48px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .otbivka_96 {
@@ -173,10 +143,7 @@ p {
     margin-right: 0;
     margin-bottom: 96px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .informaczya {
@@ -188,10 +155,7 @@ p {
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 20px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .opornoe_slovo_zayavki {
@@ -211,10 +175,7 @@ p {
     margin: 0;
     width: 100%;
     text-align: left;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     padding: 0;
 }
 
@@ -258,10 +219,7 @@ p {
 }
 
 .krasnaya {
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .krasnaya a {
@@ -291,17 +249,11 @@ p {
     margin: 0;
     padding: 0;
     width: 100%;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .statistika {
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -326,10 +278,7 @@ p {
     margin: 0;
     padding: 0;
     width: 600px;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .vvod_slov {
@@ -337,10 +286,7 @@ p {
     margin: 0;
     float: left;
     padding: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 .vvod_slov_tekst {
@@ -475,10 +421,7 @@ p {
     margin-right: 0;
     margin-bottom: -24px;
     margin-left: 0;
-    border-top-style: none;
-    border-right-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
+    border: 0;
 }
 
 /*
