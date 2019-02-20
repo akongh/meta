@@ -22,8 +22,8 @@ Table of content
 body {
     background-image: url(/images/bg_pattern.jpg);
     text-align: center;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -32,17 +32,17 @@ body {
 }
 
 form {
-    padding: 0px;
+    padding: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    margin: 0px;
+    margin: 0;
 }
 
 h1 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -51,8 +51,8 @@ h1 {
 }
 
 h2 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -61,7 +61,7 @@ h2 {
 }
 
 p {
-    margin: 0px;
+    margin: 0;
 }
 
 .blok_perevoda {
@@ -69,7 +69,7 @@ p {
     padding-right: 12px;
     padding-bottom: 2px;
     padding-left: 12px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: -12px;
     margin-bottom: 2px;
     margin-left: -12px;
@@ -78,31 +78,31 @@ p {
 }
 
 .perevod {
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
+    padding: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
     margin-left: 12px;
 }
 
 .perevoda_net {
-    padding: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
+    padding: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
     margin-left: 12px;
 }
 
 .znachenie {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .oshibka {
-    margin: 0px;
+    margin: 0;
     display: block;
     text-align: left;
-    padding: 0px;
+    padding: 0;
     width: 100%;
     border-top-style: none;
     border-right-style: none;
@@ -116,15 +116,15 @@ p {
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    margin: 0px;
+    margin: 0;
 }
 
 .otbivka_6 {
     clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: 6px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -133,10 +133,10 @@ p {
 
 .otbivka_12 {
     clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: 12px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -145,10 +145,10 @@ p {
 
 .otbivka_24 {
     clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: 24px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -157,10 +157,10 @@ p {
 
 .otbivka_48 {
     clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: 48px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -169,10 +169,10 @@ p {
 
 .otbivka_96 {
     clear: both;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: 96px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -181,12 +181,12 @@ p {
 
 .informaczya {
     text-align: left;
-    margin: 0px;
+    margin: 0;
     float: left;
     width: 280px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     padding-left: 20px;
     border-top-style: none;
     border-right-style: none;
@@ -197,25 +197,25 @@ p {
 .opornoe_slovo_zayavki {
     border: 4px dashed;
     width: 588px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 6px;
     padding-bottom: 4px;
     padding-left: 6px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: -4px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-left: -4px;
 }
 
 .podval {
-    margin: 0px;
+    margin: 0;
     width: 100%;
     text-align: left;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    padding: 0px;
+    padding: 0;
 }
 
 .poyasnenie {
@@ -224,11 +224,11 @@ p {
 .proverit_pox_perevod {
     display: block;
     float: right;
-    padding: 0px;
-    margin-top: 0px;
+    padding: 0;
+    margin-top: 0;
     margin-right: 36px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin-bottom: 0;
+    margin-left: 0;
 }
 
 .korobka {
@@ -245,16 +245,16 @@ p {
 }
 
 .cherta {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border: 1px dashed;
 }
 
 .knopka {
     height: 36px;
     width: 300px;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .krasnaya {
@@ -265,31 +265,31 @@ p {
 }
 
 .krasnaya a {
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: -4px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-left: -4px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 4px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left: 4px;
 }
 
 .krasnaya a:hover {
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: -4px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-left: -4px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 4px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left: 4px;
 }
 
 .upravlenie {
     text-align: left;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
     border-top-style: none;
     border-right-style: none;
@@ -303,28 +303,28 @@ p {
     border-bottom-style: none;
     border-left-style: none;
     width: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     clear: both;
 }
 
 .stop {
     text-align: center;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .versiya {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
     text-align: right;
 }
 
 .vyvod_spiska_flagov {
     text-align: left;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 600px;
     border-top-style: none;
     border-right-style: none;
@@ -334,9 +334,9 @@ p {
 
 .vvod_slov {
     width: 300px;
-    margin: 0px;
+    margin: 0;
     float: left;
-    padding: 0px;
+    padding: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -346,7 +346,7 @@ p {
 .vvod_slov_tekst {
     height: 178px;
     width: 278px;
-    margin: 0px;
+    margin: 0;
     resize: none;
     padding: 10px;
     border: 1px solid;
@@ -357,124 +357,124 @@ p {
 .vvod_slovo {
     border: 4px dashed;
     width: 553px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 6px;
     padding-bottom: 4px;
     padding-left: 6px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-right: -4px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-left: -4px;
 }
 
 .kol {
-    margin: 0px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    margin: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     padding-left: 6px;
 }
 
 .vvod_perevod {
     width: 160px;
     height: 24px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 6px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left: 6px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
     border: 1px solid;
 }
 
 .vvod_prisutstvie {
     width: 286px;
     height: 24px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 6px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left: 6px;
     border: 1px solid;
-    margin: 0px;
+    margin: 0;
 }
 
 .vvod_znachenie {
     width: 356px;
-    padding-top: 0px;
+    padding-top: 0;
     padding-right: 6px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left: 6px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
     border: 1px solid;
     height: 24px;
 }
 
 .minus_plus {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     text-align: left;
     float: right;
 }
 
 .minus_plus_prisutstvie {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     text-align: left;
     width: 290px;
     float: right;
 }
 
 .minus_plus_dobavit {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     text-align: left;
 }
 
 .pm_knopka {
     width: 26px;
     height: 26px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     border: 1px solid;
 }
 
 .pm_knopka_dobavit {
     width: 565px;
     height: 38px;
-    margin: 0px;
+    margin: 0;
     border: 1px solid;
     text-align: left;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     padding-left: 40px;
 }
 
 .pm_knopka_dobavit_prisutstvie {
     width: 300px;
     height: 38px;
-    margin: 0px;
+    margin: 0;
     border: 1px solid;
     text-align: left;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
     padding-left: 40px;
 }
 
 .yandex_metric_admin {
-    padding: 0px;
+    padding: 0;
     width: 100%;
     text-align: left;
-    margin-top: 0px;
-    margin-right: 0px;
+    margin-top: 0;
+    margin-right: 0;
     margin-bottom: -24px;
-    margin-left: 0px;
+    margin-left: 0;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
