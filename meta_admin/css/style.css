@@ -24,7 +24,6 @@ body {
     text-align: center;
     margin: 0px;
     padding: 0px;
-    color: #333333;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -65,16 +64,7 @@ p {
     margin: 0px;
 }
 
-a {
-    color: #0099FF;
-}
-
-a:hover {
-    color: #339933;
-}
-
 .blok_perevoda {
-    background-color: #FFFFEA;
     padding-top: 2px;
     padding-right: 12px;
     padding-bottom: 2px;
@@ -83,12 +73,11 @@ a:hover {
     margin-right: -12px;
     margin-bottom: 2px;
     margin-left: -12px;
-    border: 1px solid #E9E9E9;
+    border: 1px solid;
     border-radius: 4px;
 }
 
 .perevod {
-    color: #663300;
     padding: 0px;
     margin-top: 0px;
     margin-right: 0px;
@@ -97,7 +86,6 @@ a:hover {
 }
 
 .perevoda_net {
-    color: #FF0000;
     padding: 0px;
     margin-top: 0px;
     margin-right: 0px;
@@ -111,7 +99,6 @@ a:hover {
 }
 
 .oshibka {
-    color: #FF0000;
     margin: 0px;
     display: block;
     text-align: left;
@@ -205,11 +192,10 @@ a:hover {
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    color: #666666;
 }
 
 .opornoe_slovo_zayavki {
-    border: 4px dashed #FFFFCC;
+    border: 4px dashed;
     width: 588px;
     padding-top: 0px;
     padding-right: 6px;
@@ -229,7 +215,6 @@ a:hover {
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    color: #999999;
     padding: 0px;
 }
 
@@ -253,18 +238,16 @@ a:hover {
     margin-top: 24px;
     margin-bottom: 24px;
     text-align: left;
-    background-color: #FFFFFF;
     padding-top: 48px;
     padding-right: 60px;
     padding-bottom: 48px;
     padding-left: 60px;
-    box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
 }
 
 .cherta {
     margin: 0px;
     padding: 0px;
-    border: 1px dashed #CCCCCC;
+    border: 1px dashed;
 }
 
 .knopka {
@@ -272,11 +255,9 @@ a:hover {
     width: 300px;
     padding: 0px;
     margin: 0px;
-    color: #333333;
 }
 
 .krasnaya {
-    color: #FF0000;
     border-top-style: none;
     border-right-style: none;
     border-bottom-style: none;
@@ -284,7 +265,6 @@ a:hover {
 }
 
 .krasnaya a {
-    color: #FF0000;
     margin-top: 0px;
     margin-right: -4px;
     margin-bottom: 0px;
@@ -296,8 +276,6 @@ a:hover {
 }
 
 .krasnaya a:hover {
-    color: #FFFFFF;
-    background-color: #FF0000;
     margin-top: 0px;
     margin-right: -4px;
     margin-bottom: 0px;
@@ -317,11 +295,6 @@ a:hover {
     border-right-style: none;
     border-bottom-style: none;
     border-left-style: none;
-    color: #666666;
-}
-
-.nomer_shaga {
-    color: #666666;
 }
 
 .statistika {
@@ -333,11 +306,6 @@ a:hover {
     margin: 0px;
     padding: 0px;
     clear: both;
-    color: #666666;
-}
-
-.statistika_czyfra {
-    color: #000000;
 }
 
 .stop {
@@ -347,7 +315,6 @@ a:hover {
 }
 
 .versiya {
-    color: #666666;
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -382,13 +349,13 @@ a:hover {
     margin: 0px;
     resize: none;
     padding: 10px;
-    border: 1px solid #FFCC66;
+    border: 1px solid;
     text-align: left;
     display: block;
 }
 
 .vvod_slovo {
-    border: 4px dashed #FFFFCC;
+    border: 4px dashed;
     width: 553px;
     padding-top: 0px;
     padding-right: 6px;
@@ -419,7 +386,7 @@ a:hover {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
 }
 
 .vvod_prisutstvie {
@@ -429,7 +396,7 @@ a:hover {
     padding-right: 6px;
     padding-bottom: 0px;
     padding-left: 6px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
     margin: 0px;
 }
 
@@ -443,7 +410,7 @@ a:hover {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
     height: 24px;
 }
 
@@ -473,18 +440,14 @@ a:hover {
     height: 26px;
     margin: 0px;
     padding: 0px;
-    color: #FF0000;
-    background-color: #FFFFCC;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
 }
 
 .pm_knopka_dobavit {
     width: 565px;
     height: 38px;
     margin: 0px;
-    color: #FF0000;
-    background-color: #FFFFCC;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
     text-align: left;
     padding-top: 0px;
     padding-right: 0px;
@@ -496,9 +459,7 @@ a:hover {
     width: 300px;
     height: 38px;
     margin: 0px;
-    color: #FF0000;
-    background-color: #FFFFCC;
-    border: 1px solid #CCCCCC;
+    border: 1px solid;
     text-align: left;
     padding-top: 0px;
     padding-right: 0px;
@@ -658,3 +619,175 @@ a:hover {
 .pm_knopka_dobavit_prisutstvie {
     font-size: 40px;
 }
+
+/*
+ * ----------------------------------------------------------------
+ * Color
+ * ----------------------------------------------------------------
+ */
+
+body {
+    color: #333333;
+}
+
+a {
+    color: #0099FF;
+}
+
+a:hover {
+    color: #339933;
+}
+
+.blok_perevoda {
+    background-color: #FFFFEA;
+    border-color: #E9E9E9;
+}
+
+.perevod {
+    color: #663300;
+}
+
+.perevoda_net {
+    color: #FF0000;
+}
+
+.oshibka {
+    color: #FF0000;
+}
+
+.informaczya {
+    color: #666666;
+}
+
+.opornoe_slovo_zayavki {
+    border-color: #FFFFCC;
+}
+
+.podval {
+    color: #999999;
+}
+
+.korobka {
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 6px 6px rgba(122, 122, 122, 0.180);
+}
+
+.cherta {
+    border-color: #CCCCCC;
+}
+
+.knopka {
+    color: #333333;
+}
+
+.krasnaya {
+    color: #FF0000;
+}
+
+.krasnaya a {
+    color: #FF0000;
+}
+
+.krasnaya a:hover {
+    color: #FFFFFF;
+    background-color: #FF0000;
+}
+
+.upravlenie {
+    color: #666666;
+}
+
+.nomer_shaga {
+    color: #666666;
+}
+
+.statistika {
+    color: #666666;
+}
+
+.statistika_czyfra {
+    color: #000000;
+}
+
+.versiya {
+    color: #666666;
+}
+
+.vvod_slov_tekst {
+    border-color: #FFCC66;
+}
+
+.vvod_slovo {
+    border-color:  #FFFFCC;
+}
+
+.vvod_perevod {
+    border-color: #CCCCCC;
+}
+
+.vvod_prisutstvie {
+    border-color: #CCCCCC;
+}
+
+.vvod_znachenie {
+    border-color: #CCCCCC;
+}
+
+.pm_knopka {
+    color: #FF0000;
+    background-color: #FFFFCC;
+    border-color: #CCCCCC;
+}
+
+.pm_knopka_dobavit {
+    color: #FF0000;
+    background-color: #FFFFCC;
+    border-color: #CCCCCC;
+}
+
+.pm_knopka_dobavit_prisutstvie {
+    color: #FF0000;
+    background-color: #FFFFCC;
+    border-color: #CCCCCC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
