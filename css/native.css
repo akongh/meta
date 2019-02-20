@@ -3,7 +3,6 @@
 
 /* Есть цвет в скрипте js/uncheckedTranslations.js */
 
-
 /*
 Table of content
 
@@ -317,147 +316,147 @@ select {
  */
 
 body {
-    color: #000000;
+    color: #000;
 }
 
 input[type="submit"] {
-    color: #888888;
-    border-color: #888888;
-    background: #ffffff;
+    color: #888;
+    border-color: #888;
+    background: #fff;
 }
 
 input[type="submit"]:hover {
-    color: #000000;
-    border-color: #000000;
+    color: #000;
+    border-color: #000;
 }
 
 select {
-    border-color: #dddddd;
+    border-color: #ddd;
 }
 
 label:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 a {
-    color: #888888;
+    color: #888;
 }
 
 a:hover {
-    color: #000000;
+    color: #000;
 }
 
 @keyframes error {
     0% {
-        color: #888888;
+        color: #888;
     }
     100% {
-        color: #dddddd;
+        color: #ddd;
     }
 }
 
 .textarea-keywords {
-    border-color: #dddddd;
+    border-color: #ddd;
 }
 
 .textarea-message {
-    border-color: #dddddd;
+    border-color: #ddd;
 }
 
 .help {
-    background: #eeeeee;
-    color: #888888;
+    background: #eee;
+    color: #888;
 }
 
 .link-button-reset {
-    color: #888888;
+    color: #888;
 }
 
 .link-button-reset:hover {
-    color: #000000;
+    color: #000;
 }
 
 #sortable li:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .counter {
-    color: #000000;
-    background: #dddddd;
+    color: #000;
+    background: #ddd;
 }
 
 .block-translated {
-    color: #888888;
+    color: #888;
 }
 
 .block-not-translated {
-    color: #888888;
+    color: #888;
 }
 
 .keyword-ru {
-    color: #000000;
+    color: #000;
 }
 
 .keyword-en {
-    color: #000000;
+    color: #000;
 }
 
 .result:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .hint-box-deselect {
-    background: #eeeeee;
-    border-color: #eeeeee;
+    background: #eee;
+    border-color: #eee;
 }
 
 .hint-box-deselect:hover {
-    border-color: #888888;
+    border-color: #888;
 }
 
 .hint-box-select {
-    background: #ffffff;
-    border-color: #ffffff;
+    background: #fff;
+    border-color: #fff;
 }
 
 .hint-box-select:hover {
-    border-color: #888888;
+    border-color: #888;
 }
 
 .rank-hint-box {
-    background: #ffffff;
+    background: #fff;
 }
 
 .rank-hint-box:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .hover-invert:hover {
-    background: #000000;
-    color: #FFFFFF;
+    background: #000;
+    color: #fff;
 }
 
 .hint-translations {
-    color: #888888;
+    color: #888;
 }
 
 .line {
-    border-color: #dddddd;
+    border-color: #ddd;
 }
 
 .kw-pattern:hover {
-    background: #eeeeee;
+    background: #eee;
 }
 
 .up-button {
-    background: #FFFFFF;
+    background: #fff;
 }
 
 .notice {
     background-color: #63eec1;
-    color: #000000;
+    color: #000;
 }
 
 .notice a {
-    color: #000000;
+    color: #000;
 }
