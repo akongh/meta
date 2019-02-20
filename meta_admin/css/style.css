@@ -20,12 +20,11 @@ Table of content
  */
 
 body {
-    background-image: url(/images/bg_pattern.jpg);
+    background: url(/images/bg_pattern.jpg) fixed;
     text-align: center;
     margin: 0;
     padding: 0;
     border: 0;
-    background-attachment: fixed;
 }
 
 form {
