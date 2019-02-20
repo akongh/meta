@@ -53,10 +53,7 @@ p {
 }
 
 .blok_perevoda {
-    padding-top: 2px;
-    padding-right: 12px;
-    padding-bottom: 2px;
-    padding-left: 12px;
+    padding: 2px 12px;
     margin-top: 0;
     margin-right: -12px;
     margin-bottom: 2px;
@@ -151,20 +148,14 @@ p {
     margin: 0;
     float: left;
     width: 280px;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 20px;
+    padding: 0 0 0 20px;
     border: 0;
 }
 
 .opornoe_slovo_zayavki {
     border: 4px dashed;
     width: 588px;
-    padding-top: 0;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-left: 6px;
+    padding: 0 6px 4px 6px;
     margin-top: 0;
     margin-right: -4px;
     margin-bottom: 0;
@@ -199,10 +190,7 @@ p {
     margin-top: 24px;
     margin-bottom: 24px;
     text-align: left;
-    padding-top: 48px;
-    padding-right: 60px;
-    padding-bottom: 48px;
-    padding-left: 60px;
+    padding: 48px 60px;
 }
 
 .cherta {
@@ -227,10 +215,7 @@ p {
     margin-right: -4px;
     margin-bottom: 0;
     margin-left: -4px;
-    padding-top: 0;
-    padding-right: 4px;
-    padding-bottom: 0;
-    padding-left: 4px;
+    padding: 0 4px;
 }
 
 .krasnaya a:hover {
@@ -238,10 +223,7 @@ p {
     margin-right: -4px;
     margin-bottom: 0;
     margin-left: -4px;
-    padding-top: 0;
-    padding-right: 4px;
-    padding-bottom: 0;
-    padding-left: 4px;
+    padding: 0 4px;
 }
 
 .upravlenie {
@@ -303,10 +285,7 @@ p {
 .vvod_slovo {
     border: 4px dashed;
     width: 553px;
-    padding-top: 0;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-left: 6px;
+    padding: 0 6px 4px 6px;
     margin-top: 0;
     margin-right: -4px;
     margin-bottom: 0;
@@ -315,19 +294,13 @@ p {
 
 .kol {
     margin: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 6px;
+    padding: 0 0 0 6px;
 }
 
 .vvod_perevod {
     width: 160px;
     height: 24px;
-    padding-top: 0;
-    padding-right: 6px;
-    padding-bottom: 0;
-    padding-left: 6px;
+    padding: 0 6px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -338,20 +311,14 @@ p {
 .vvod_prisutstvie {
     width: 286px;
     height: 24px;
-    padding-top: 0;
-    padding-right: 6px;
-    padding-bottom: 0;
-    padding-left: 6px;
+    padding: 0 6px;
     border: 1px solid;
     margin: 0;
 }
 
 .vvod_znachenie {
     width: 356px;
-    padding-top: 0;
-    padding-right: 6px;
-    padding-bottom: 0;
-    padding-left: 6px;
+    padding: 0 6px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -395,10 +362,7 @@ p {
     margin: 0;
     border: 1px solid;
     text-align: left;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 40px;
+    padding: 0 0 0 40px;
 }
 
 .pm_knopka_dobavit_prisutstvie {
@@ -407,10 +371,7 @@ p {
     margin: 0;
     border: 1px solid;
     text-align: left;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 40px;
+    padding: 0 0 0 40px;
 }
 
 .yandex_metric_admin {
