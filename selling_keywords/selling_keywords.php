@@ -61,6 +61,7 @@ function ARRAY_WORKS_DATA( $_PARAM_autor, $_PARAM_keyword, $_PARAM_image_type ) 
         $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?searchterm=' . $_PARAM_keyword . '&image_type=' . $_PARAM_image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
 //        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?search_source=base_gallery&language=en&sort=popular&safe=true';
     }
+
     $data = file_get_contents( $search_url );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
@@ -98,6 +99,7 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
         $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
     }
+
     $string_params = implode( '&', $array_params );
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
