@@ -22,7 +22,8 @@ Table of content
 }
 
 .table-kws {
-    width: 246px;
+    max-width: 100%;
+    min-width: 296px;
 }
 
 .variant-query-table {
@@ -56,6 +57,7 @@ Table of content
 img {
     float: left;
     margin-right: 24px;
+    max-width: 400px;
 }
 
 hr {
