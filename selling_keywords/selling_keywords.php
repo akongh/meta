@@ -6,6 +6,7 @@ if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
 } else {
     $autor = '';
 }
+
 if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
     $keyword = $_POST['keyword'];
     $keyword = preg_replace( '/ /', '+', $keyword );
@@ -15,6 +16,7 @@ if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
     echo( '-1' );
     exit;
 }
+
 $image_type = $_POST['imageType'];
 
 $array_works_data = ARRAY_WORKS_DATA( $autor, $keyword, $image_type );
