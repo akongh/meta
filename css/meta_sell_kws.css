@@ -22,8 +22,7 @@ Table of content
 }
 
 .table-kws {
-    max-width: 100%;
-    min-width: 296px;
+    width: 296px;
 }
 
 .variant-query-table {
