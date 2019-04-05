@@ -36,7 +36,6 @@ if ( $autor == '' ) {
     $search_url = 'https://www.shutterstock.com/search?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_landing_page&language=en&page=1';
 } else {
     $search_url = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
-//        $search_url = 'https://www.shutterstock.com/g/' . $_PARAM_autor . '?search_source=base_gallery&language=en&sort=popular&safe=true';
 }
 
 $array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
