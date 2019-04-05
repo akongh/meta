@@ -70,6 +70,7 @@ function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
     curl_close( $SESSION );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
+
     if ( count( $array_works_block[0] ) == 0 ) {
         echo( '-1' );
         exit;
