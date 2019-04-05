@@ -81,7 +81,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
            id="autor"
            class="textarea-autor"
            maxlength="26">
-    <span class="hover-invert">andrej_k</span>
+    <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
     <a id="delete-autor-button"
        class="link-button"
