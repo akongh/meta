@@ -37,7 +37,7 @@ if ( $autor == '' ) {
 
 $array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
 $url                    = CREATE_URL( $array_works_data );
-$json_selling_keywords  = GET_JSON_SELLING_KEYWORDS( $url, $useragent, $cookies );
+$json_selling_keywords  = USE_CURL( $url, $useragent, $cookies );
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
 
 for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
@@ -65,14 +65,7 @@ function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
 
 function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
-    $SESSION = curl_init();
-    curl_setopt( $SESSION, CURLOPT_RETURNTRANSFER, true );
-    curl_setopt( $SESSION, CURLOPT_URL, $_PARAM_url );
-    curl_setopt( $SESSION, CURLOPT_USERAGENT, $_PARAM_useragent );
-    curl_setopt( $SESSION, CURLOPT_COOKIE, $_PARAM_cookies );
-    curl_setopt( $SESSION, CURLOPT_FOLLOWLOCATION, true );
-    $data = curl_exec( $SESSION );
-    curl_close( $SESSION );
+    $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
 
     preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
 
@@ -117,15 +110,16 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
     return ( $url );
 }
 
-function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
+function USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     $SESSION = curl_init();
     curl_setopt( $SESSION, CURLOPT_RETURNTRANSFER, true );
     curl_setopt( $SESSION, CURLOPT_URL, $_PARAM_url );
     curl_setopt( $SESSION, CURLOPT_USERAGENT, $_PARAM_useragent );
     curl_setopt( $SESSION, CURLOPT_COOKIE, $_PARAM_cookies );
-    $json_selling_keywords = curl_exec( $SESSION );
+    curl_setopt( $SESSION, CURLOPT_FOLLOWLOCATION, true );
+    $result = curl_exec( $SESSION );
     curl_close( $SESSION );
 
-    return ( $json_selling_keywords );
+    return ( $result );
 }
