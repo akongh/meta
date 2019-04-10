@@ -55,6 +55,14 @@ echo( json_encode( $array_works_data ) );
  * Functions.
  */
 
+function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
+
+    $max    = count( $_PARAM_array_strings ) - 1;
+    $string = $_PARAM_array_strings[ rand( 0, $max ) ];
+
+    return ( $string );
+}
+
 function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     $SESSION = curl_init();
@@ -107,14 +115,6 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
     return ( $url );
-}
-
-function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
-
-    $max    = count( $_PARAM_array_strings ) - 1;
-    $string = $_PARAM_array_strings[ rand( 0, $max ) ];
-
-    return ( $string );
 }
 
 function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
