@@ -80,7 +80,7 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            //console.log(request.responseText);
+            // console.log(request.responseText);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
@@ -144,7 +144,8 @@ function createSellingKeywordsString() {
         }
         // arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
     }
-    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);//console.log(arraySortUnicSellingKeywords);
+    arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);
+    // console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     window.arraySortUnicSellingKeywords = arraySortUnicSellingKeywords;
@@ -201,11 +202,12 @@ function createVariantsQueries(PARAM_url) {
     }
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            console.log(request.responseText);
+            // console.log(request.responseText);
             if (request.responseText === '-1') {
                 document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
             } else {
-                window.variantsQueriesArray = JSON.parse(request.responseText);//console.log(window.variantsQueries);
+                window.variantsQueriesArray = JSON.parse(request.responseText);
+                // console.log(window.variantsQueries);
                 displayVariantsQueries();
             }
         }
