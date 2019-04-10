@@ -128,8 +128,6 @@ function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
-        // <img class="z_c_h" src="https://image.shutterstock.com/image-photo/glitter-vintage-lights-background-silver-260nw-488683237.jpg" alt="glitter vintage lights background. silver and gold. de-focused" data-automation="mosaic-grid-cell-image">
-
         preg_match( "/(alt=\").*?(\")/su", $array_works_block[ $i ], $title );
         $title = preg_replace( '/alt="/', '', $title );
         $title = preg_replace( '/"/', '', $title );
