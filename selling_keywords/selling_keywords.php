@@ -24,10 +24,7 @@ $array_useragents = [
     'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 OPR/45.0.2552.812'
 ];
 
-$array_cookies = [
-    'session=s%3Al8AxYb1GkJ5iVTXonunPZqrl8heCVkRQ.9yLYydFCvvOz5nJ1y4rqOJDTIl5zMdWp73rkPza9eg8', // Elena
-    'session=s%3A8FXrLwD1i8gqH2LbObNPFVF85-1bF_Fi.kdJfhAHaHSRLnTf8YEXyuI2GksFCJmmwy%2FAOayhOQ%2B8' // Andrei
-];
+require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/array_cookies.php" );
 
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
