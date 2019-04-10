@@ -1,16 +1,16 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
-    $autor = $_POST['autor'];
-    $autor = preg_replace( '/ /', '+', $autor );
+if ( isset( $_POST['author'] ) && $_POST['author'] != '' ) {
+    $author = $_POST['author'];
+    $author = preg_replace( '/ /', '+', $author );
 } else {
-    $autor = '';
+    $author = '';
 }
 
 if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
     $keyword = $_POST['keyword'];
     $keyword = preg_replace( '/ /', '+', $keyword );
-} else if ( ( ! isset( $_POST['keyword'] ) || $_POST['keyword'] == '' ) && ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) ) {
+} else if ( ( ! isset( $_POST['keyword'] ) || $_POST['keyword'] == '' ) && ( isset( $_POST['author'] ) && $_POST['author'] != '' ) ) {
     $keyword = '';
 } else {
     echo( '-1' );
@@ -29,10 +29,10 @@ require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/array_cookies.php" 
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
-if ( $autor == '' ) {
+if ( $author == '' ) {
     $search_url = 'https://www.shutterstock.com/search?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_landing_page&language=en&page=1';
 } else {
-    $search_url = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
+    $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_gallery&language=en&sort=popular&safe=true';
 }
 
 $array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
