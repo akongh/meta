@@ -29,8 +29,8 @@ $array_cookies = [
     'session=s%3A8FXrLwD1i8gqH2LbObNPFVF85-1bF_Fi.kdJfhAHaHSRLnTf8YEXyuI2GksFCJmmwy%2FAOayhOQ%2B8' // Andrei
 ];
 
-$useragent = RANDOM_SELECT_USERAGENT( $array_useragents );
-$cookies   = RANDOM_SELECT_COOKIES( $array_cookies );
+$useragent = RANDOM_SELECT_STRING( $array_useragents );
+$cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
 if ( $autor == '' ) {
     $search_url = 'https://www.shutterstock.com/search?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_landing_page&language=en&page=1';
@@ -112,20 +112,12 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
     return ( $url );
 }
 
-function RANDOM_SELECT_USERAGENT( $_PARAM_array_useragents ) {
+function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
 
-    $max       = count( $_PARAM_array_useragents ) - 1;
-    $useragent = $_PARAM_array_useragents[ rand( 0, $max ) ];
+    $max    = count( $_PARAM_array_strings ) - 1;
+    $string = $_PARAM_array_strings[ rand( 0, $max ) ];
 
-    return ( $useragent );
-}
-
-function RANDOM_SELECT_COOKIES( $_PARAM_array_cookies ) {
-
-    $max     = count( $_PARAM_array_cookies ) - 1;
-    $cookies = $_PARAM_array_cookies[ rand( 0, $max ) ];
-
-    return ( $cookies );
+    return ( $string );
 }
 
 function GET_JSON_SELLING_KEYWORDS( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
