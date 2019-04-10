@@ -32,14 +32,15 @@ $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
 if ( $autor == '' ) {
-    $search_url = 'https://www.shutterstock.com/search?searchterm=' . $keyword . '&image_type=' . $image_type . '&search_source=base_landing_page&language=en&page=1';
+    $search_url = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
+    $array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
 } else {
     $search_url = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
+    $array_works_data       = ARRAY_WORKS_DATA_AUTHOR( $search_url, $useragent, $cookies );
 }
 
 //echo $search_url;
 
-$array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
 $url                    = CREATE_URL( $array_works_data );
 $json_selling_keywords  = USE_CURL( $url, $useragent, $cookies );
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
@@ -67,7 +68,7 @@ function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
     return ( $string );
 }
 
-function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
+function ARRAY_WORKS_DATA_AUTHOR( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
 
@@ -100,6 +101,47 @@ function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
         $array_works_data[ $i ] = [
             'title' => $title[0],
             'img'   => $img[0],
+            'id'    => $id[0]
+        ];
+    }
+
+    return $array_works_data;
+}
+
+function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
+
+    $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
+
+//    echo $data;
+
+    preg_match_all( '/(<img class="z_c_h").*?(>)/su', $data, $array_works_block );
+
+//    var_dump( $array_works_block );
+//    echo count( $array_works_block[0]);
+
+    if ( count( $array_works_block[0] ) == 0 ) {
+        echo( '-1' );
+        exit;
+    }
+
+    $array_works_block = $array_works_block[0];
+
+    for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
+
+        // <img class="z_c_h" src="https://image.shutterstock.com/image-photo/glitter-vintage-lights-background-silver-260nw-488683237.jpg" alt="glitter vintage lights background. silver and gold. de-focused" data-automation="mosaic-grid-cell-image">
+
+        preg_match( "/(alt=\").*?(\")/su", $array_works_block[ $i ], $title );
+        $title = preg_replace( '/alt="/', '', $title );
+        $title = preg_replace( '/"/', '', $title );
+
+        $img = $array_works_block[ $i ];
+
+        preg_match( "/[0-9]*.jpg/su", $array_works_block[ $i ], $id );
+        $id = preg_replace( '/.jpg/', '', $id );
+
+        $array_works_data[ $i ] = [
+            'title' => $title[0],
+            'img'   => $img,
             'id'    => $id[0]
         ];
     }
