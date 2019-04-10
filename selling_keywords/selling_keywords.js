@@ -42,6 +42,10 @@ deleteVariantsQueriesButton.addEventListener("click", function (e) {
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
+/**
+ * Functions.
+ */
+
 function createArrayKeywordsFromVariants() {
     let arrayKeywordsFromVariants = [];
     let arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
