@@ -19,7 +19,9 @@ if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
 
 $image_type = $_POST['imageType'];
 
-//echo $autor . " / " .$keyword . " / " .$image_type;
+//var_dump($autor);
+//var_dump($keyword);
+//var_dump($image_type);
 
 $array_useragents = [
     'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49',
