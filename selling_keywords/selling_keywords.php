@@ -1,16 +1,16 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) {
-    $autor = $_POST['autor'];
+if ( isset( $_POST['autor'] ) && trim( $_POST['autor'] ) != '' ) {
+    $autor = trim( $_POST['autor'] );
     $autor = preg_replace( '/ /', '+', $autor );
 } else {
     $autor = '';
 }
 
-if ( isset( $_POST['keyword'] ) && $_POST['keyword'] != '' ) {
-    $keyword = $_POST['keyword'];
+if ( isset( $_POST['keyword'] ) && trim( $_POST['keyword'] ) != '' ) {
+    $keyword = trim( $_POST['keyword'] );
     $keyword = preg_replace( '/ /', '+', $keyword );
-} else if ( ( ! isset( $_POST['keyword'] ) || $_POST['keyword'] == '' ) && ( isset( $_POST['autor'] ) && $_POST['autor'] != '' ) ) {
+} else if ( ( ! isset( $_POST['keyword'] ) || trim( $_POST['keyword'] ) != '' ) && ( isset( $_POST['autor'] ) && trim( $_POST['autor'] ) != '' ) ) {
     $keyword = '';
 } else {
     echo( '-1' );
