@@ -10,7 +10,7 @@ if ( isset( $_POST['autor'] ) ) {
 if ( isset( $_POST['keyword'] ) ) {
     $keyword = trim( $_POST['keyword'] );
     if ( $keyword != '' ) {
-        $keyword = preg_replace( '/ /', '+', $autor );
+        $keyword = preg_replace( '/ /', '+', $keyword );
         $keyword = preg_replace( '/\\n/', '+', $keyword );
     }
 }
