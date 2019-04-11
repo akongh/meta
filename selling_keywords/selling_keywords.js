@@ -64,6 +64,7 @@ function getSellingKeywordsData() {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         // console.log(arrayKeywordsFromVariants);
         let i = 0;
+
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
@@ -71,6 +72,7 @@ function getSellingKeywordsData() {
             i++;
             if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
         }
+
         getWitsTimeout();
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);

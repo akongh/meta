@@ -32,11 +32,11 @@ $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
 if ( $autor == '' ) {
-    $search_url = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
-    $array_works_data       = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
+    $search_url       = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
+    $array_works_data = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
 } else {
-    $search_url = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
-    $array_works_data       = ARRAY_WORKS_DATA_AUTHOR( $search_url, $useragent, $cookies );
+    $search_url       = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
+    $array_works_data = ARRAY_WORKS_DATA_AUTHOR( $search_url, $useragent, $cookies );
 }
 
 //echo $search_url;
