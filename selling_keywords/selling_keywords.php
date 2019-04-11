@@ -1,21 +1,18 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST['autor'] ) && trim( $_POST['autor'] ) != '' ) {
+if ( isset( $_POST['autor'] ) ) {
     $autor = trim( $_POST['autor'] );
-    $autor = preg_replace( '/ /', '+', $autor );
-} else {
-    $autor = '';
+    if ( $autor != '' ) {
+        $autor = preg_replace( '/ /', '+', $autor );
+    }
 }
 
-if ( isset( $_POST['keyword'] ) && trim( $_POST['keyword'] ) != '' ) {
+if ( isset( $_POST['keyword'] ) ) {
     $keyword = trim( $_POST['keyword'] );
-    $keyword = preg_replace( '/ /', '+', $keyword );
-    $keyword = preg_replace( '/\\n/', '+', $keyword );
-} else if ( ( ! isset( $_POST['keyword'] ) || trim( $_POST['keyword'] ) != '' ) && ( isset( $_POST['autor'] ) && trim( $_POST['autor'] ) != '' ) ) {
-    $keyword = '';
-} else {
-    echo( '-1' );
-    exit;
+    if ( $keyword != '' ) {
+        $keyword = preg_replace( '/ /', '+', $autor );
+        $keyword = preg_replace( '/\\n/', '+', $keyword );
+    }
 }
 
 $image_type = $_POST['imageType'];
