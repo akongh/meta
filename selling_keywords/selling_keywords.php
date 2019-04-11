@@ -20,7 +20,7 @@ $image_type = $_POST['imageType'];
 //var_dump( $_POST['autor'] );
 //var_dump( $_POST['keyword'] );
 //var_dump( $_POST['imageType'] );
-//
+
 //var_dump( $autor );
 //var_dump( $keyword );
 //var_dump( $image_type );
