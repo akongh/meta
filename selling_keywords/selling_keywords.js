@@ -87,6 +87,7 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             console.log(request.responseText);
+            console.log(window.worksDataObjects);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
