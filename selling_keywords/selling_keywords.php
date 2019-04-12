@@ -176,6 +176,7 @@ function USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
     curl_setopt( $SESSION, CURLOPT_URL, $_PARAM_url );
     curl_setopt( $SESSION, CURLOPT_USERAGENT, $_PARAM_useragent );
     curl_setopt( $SESSION, CURLOPT_COOKIE, $_PARAM_cookies );
+    curl_setopt( $SESSION, CURLOPT_HTTPAUTH, CURLAUTH_BASIC );
     curl_setopt( $SESSION, CURLOPT_FOLLOWLOCATION, true );
     curl_setopt( $SESSION, CURLOPT_SSL_VERIFYHOST, false );
     curl_setopt( $SESSION, CURLOPT_SSL_VERIFYPEER, false );
