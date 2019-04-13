@@ -109,11 +109,11 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <label><input type="radio"
                   name="image_type"
-                  value="all"> Все</label>
+                  value="all"
+                  checked> Все</label>
     <label><input type="radio"
                   name="image_type"
-                  value="photo"
-                  checked> Фото</label>
+                  value="photo"> Фото</label>
     <label><input type="radio"
                   name="image_type"
                   value="vector"> Вектор</label>
@@ -152,6 +152,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 </div>
 <script src="/libs/lodash.js"></script>
-<script src="/selling_keywords/selling_keywords.js"></script>
+<script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>

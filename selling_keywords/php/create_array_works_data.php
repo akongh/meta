@@ -30,7 +30,7 @@ $array_useragents = [
     'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 OPR/45.0.2552.812'
 ];
 
-require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/array_cookies.php" );
+require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/array_cookies.php" );
 
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
