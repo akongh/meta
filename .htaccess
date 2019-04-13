@@ -9,7 +9,7 @@
 Options -Indexes
 
 #назначаем главный файл сайта
-DirectoryIndex index.php
+DirectoryIndex meta.php
 
 #404
 ErrorDocument 404 /404.html

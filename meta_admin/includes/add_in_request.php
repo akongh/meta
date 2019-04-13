@@ -10,7 +10,7 @@
 <div class="korobka">
     <h2>Сброс в заявку (рус.)</h2>
     <hr class="otbivka_24">
-    <a href="index.php">На главную</a>
+    <a href="meta_admin.php">На главную</a>
     <hr class="otbivka_24">
     <div class="statistika">Ключевых слов на русском переведено: <span class="statistika_czyfra">
       <?php if (isset($perevedeno)){echo $perevedeno;};?></span> <br>

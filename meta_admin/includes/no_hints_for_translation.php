@@ -17,7 +17,7 @@
     <hr class="otbivka_96">
     Подсказок на перевод пока нет.
     <hr class="otbivka_96">
-    <div class="upravlenie"><a href="/index.php">На главную</a></div>
+    <div class="upravlenie"><a href="/meta_admin.php">На главную</a></div>
     <hr class="otbivka_96">
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php' );?>
 </div>
