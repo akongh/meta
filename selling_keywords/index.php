@@ -54,11 +54,9 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <div class="content-left">
         <span title="Число уровней повторяемости вариантов запросов">Уровней <select size="1" id="level">
             <option value="1">1</option>
-            <option value="2">2</option>
+            <option selected value="2">2</option>
             <option value="3">3</option>
-            <option selected value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
+            <option value="4">4</option>
         </select></span>
         <label>(<input type="checkbox"
                        name="only-all"
