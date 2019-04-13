@@ -182,8 +182,9 @@ function USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
     curl_setopt( $SESSION, CURLOPT_SSL_VERIFYPEER, false );
     $result = curl_exec( $SESSION );
 
-//    var_dump(curl_getinfo($SESSION, CURLINFO_EFFECTIVE_URL));
-//    var_dump(curl_getinfo($SESSION, CURLINFO_REDIRECT_COUNT));
+//    var_dump( curl_getinfo( $SESSION ) );
+//    var_dump( curl_getinfo( $SESSION, CURLINFO_EFFECTIVE_URL ) );
+//    var_dump( curl_getinfo( $SESSION, CURLINFO_REDIRECT_COUNT ) );
 
     curl_close( $SESSION );
 
