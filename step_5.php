@@ -3,7 +3,7 @@ session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 if ( ! isset( $_SESSION["metka"] ) ) {
-    header( "Location: http://" . $site_domain_name . "/index.php" );
+    header( "Location: http://" . $site_domain_name . "/meta.php" );
 }
 if ( isset( $_SESSION["s_perevodom"] ) ) {
     $s_perevodom = $_SESSION["s_perevodom"];

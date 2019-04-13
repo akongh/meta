@@ -10,7 +10,7 @@
 <div class="korobka">
     <h2>Разбить-добавить (анг.)</h2>
     <hr class="otbivka_24">
-    <a href="index.php">На главную</a>
+    <a href="meta_admin.php">На главную</a>
     <hr class="otbivka_24">
     <a href="translation_hint.php">&#9668; По заявке</a>
     <hr class="otbivka_24">

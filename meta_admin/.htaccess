@@ -9,4 +9,4 @@ require valid-user
 Options -Indexes
 
 #назначаем главный файл сайта
-DirectoryIndex index.php
+DirectoryIndex meta_admin.php
