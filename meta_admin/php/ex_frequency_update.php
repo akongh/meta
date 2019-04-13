@@ -13,4 +13,4 @@ mysqli_query( $db_connect, "
 $_SESSION["obnovlenie_chastoty"] = mysqli_affected_rows( $db_connect );
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/meta_admin/index.php" );
+header( "Location: http://" . $site_domain_name . "/meta_admin/meta_admin.php" );

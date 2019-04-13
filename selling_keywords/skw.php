@@ -58,10 +58,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
             <option value="3">3</option>
             <option value="4">4</option>
         </select></span>
-        <label>(<input type="checkbox"
-                       name="only-all"
-                       value=""
-                       checked> только со всеми)</label>
     </div>
     <div class="content-right">
         <a id="create-variants-queries-button"
@@ -109,11 +105,11 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <label><input type="radio"
                   name="image_type"
-                  value="all"> Все</label>
+                  value="all"
+                  checked> Все</label>
     <label><input type="radio"
                   name="image_type"
-                  value="photo"
-                  checked> Фото</label>
+                  value="photo"> Фото</label>
     <label><input type="radio"
                   name="image_type"
                   value="vector"> Вектор</label>
@@ -152,6 +148,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 </div>
 <script src="/libs/lodash.js"></script>
-<script src="/selling_keywords/selling_keywords.js"></script>
+<script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>
