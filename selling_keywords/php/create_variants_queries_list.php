@@ -2,7 +2,6 @@
 
 $level             = $_POST['level'];
 $full_string_query = $_POST['fullStringQuery'];
-$only_all          = $_POST['onlyAll'];
 
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
 $queries_array = preg_replace( "/ {2,}/", " ", $queries_array );
@@ -23,50 +22,30 @@ if ( $level > count( $queries_array ) ) {
     $level = count( $queries_array );
 }
 
-$n = 0;
+$array_main_kw  = array_slice( $queries_array, 0, $level );
+$string_main_kw = implode( ', ', $array_main_kw );
+$array_other_kw = array_values( array_diff( $queries_array, $array_main_kw ) );
 
-if ( $only_all == 1 ) {
-    $a = $level;
-} else {
-    $a = 0;
-}
+//var_dump( $array_main_kw );
+//var_dump( $string_main_kw );
+//var_dump( $array_other_kw );
+//var_dump( count( $array_other_kw ) );
 
-for ( $i = $a; $i <= $level; $i ++ ) {
-    $queries_array_2 = $queries_array;
+$count = count( $array_other_kw );
+//var_dump( $count );
 
-    if ( $i > 0 ) {
-        array_splice( $queries_array_2, $i );
+$array_result_kw = [];
 
-        $first_elem = implode( ', ', $queries_array_2 );
-
-        for ( $j = $i; $j <= count( $queries_array ); $j ++ ) {
-            if ( $j < count( $queries_array ) ) {
-                $variants_queries_array[ $n ] = $first_elem . ', ' . $queries_array[ $j ];
-            } else {
-                $variants_queries_array[ $n ] = $first_elem;
-            }
-
-            $n ++;
-        }
-    } else {
-        for ( $j = $i; $j < count( $queries_array ); $j ++ ) {
-            $variants_queries_array[ $n ] = $queries_array[ $j ];
-
-            if ( $n == $level ) {
-                break;
-            }
-
-            $n ++;
-        }
+if ( 0 !== $count ) {
+    for ( $i = 0; $i < $count; $i ++ ) {
+        $array_result_kw[ $i ] = $string_main_kw . ', ' . $array_other_kw[ $i ];
     }
+//    var_dump( $array_result_kw );
+} else {
+    $array_result_kw[0] = $string_main_kw;
+//    var_dump( $array_result_kw );
 }
 
-$variants_queries_array = array_values( array_unique( $variants_queries_array ) );
-
-if ( count( $queries_array ) > $i ) {
-    $variants_queries_array[ count( $variants_queries_array ) ] = implode( ', ', $queries_array );
-}
-
-$json_variants_queries_array = json_encode( $variants_queries_array );
+$json_variants_queries_array = json_encode( $array_result_kw );
 
 echo( $json_variants_queries_array );

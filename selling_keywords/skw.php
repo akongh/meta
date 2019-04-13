@@ -58,10 +58,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
             <option value="3">3</option>
             <option value="4">4</option>
         </select></span>
-        <label>(<input type="checkbox"
-                       name="only-all"
-                       value=""
-                       checked> только со всеми)</label>
     </div>
     <div class="content-right">
         <a id="create-variants-queries-button"
