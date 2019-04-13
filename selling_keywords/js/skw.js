@@ -223,19 +223,11 @@ function displayVariantsQueries() {
     let variantsQueriesArrayHTML = [];
     let a = window.variantsQueriesArray.length - 1;
     for (let i = 0; i < window.variantsQueriesArray.length; i++) {
-        if (i !== a) {
-            variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
-                window.variantsQueriesArray[i] +
-                '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
-                window.variantsQueriesArray[i] +
-                '</div></td></tr>';
-        } else {
-            variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" value="' +
-                window.variantsQueriesArray[i] +
-                '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
-                window.variantsQueriesArray[i] +
-                '</div></td></tr>';
-        }
+        variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
+            window.variantsQueriesArray[i] +
+            '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
+            window.variantsQueriesArray[i] +
+            '</div></td></tr>';
     }
     // console.log(variantsQueriesArrayHTML);
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
