@@ -152,6 +152,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 </div>
 <script src="/libs/lodash.js"></script>
-<script src="/selling_keywords/selling_keywords.js"></script>
+<script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>
