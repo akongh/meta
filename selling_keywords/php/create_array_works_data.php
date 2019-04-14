@@ -1,9 +1,9 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST['autor'] ) ) {
-    $autor = trim( $_POST['autor'] );
-    if ( $autor != '' ) {
-        $autor = preg_replace( '/ /', '+', $autor );
+if ( isset( $_POST['author'] ) ) {
+    $author = trim( $_POST['author'] );
+    if ( $author != '' ) {
+        $author = preg_replace( '/ /', '+', $author );
     }
 }
 
@@ -17,11 +17,11 @@ if ( isset( $_POST['keyword'] ) ) {
 
 $image_type = $_POST['imageType'];
 
-//var_dump( $_POST['autor'] );
+//var_dump( $_POST['author'] );
 //var_dump( $_POST['keyword'] );
 //var_dump( $_POST['imageType'] );
 
-//var_dump( $autor );
+//var_dump( $author );
 //var_dump( $keyword );
 //var_dump( $image_type );
 
@@ -35,14 +35,14 @@ require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/array_cookies.p
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
-if ( $autor == '' ) {
+if ( $author == '' ) {
     $search_url = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
 
 //    echo $search_url;
 
     $array_works_data = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
 } else {
-    $search_url = 'https://www.shutterstock.com/g/' . $autor . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
+    $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
 
 //    echo $search_url;
 
@@ -182,8 +182,9 @@ function USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
     curl_setopt( $SESSION, CURLOPT_SSL_VERIFYPEER, false );
     $result = curl_exec( $SESSION );
 
-//    var_dump(curl_getinfo($SESSION, CURLINFO_EFFECTIVE_URL));
-//    var_dump(curl_getinfo($SESSION, CURLINFO_REDIRECT_COUNT));
+//    var_dump( curl_getinfo( $SESSION ) );
+//    var_dump( curl_getinfo( $SESSION, CURLINFO_EFFECTIVE_URL ) );
+//    var_dump( curl_getinfo( $SESSION, CURLINFO_REDIRECT_COUNT ) );
 
     curl_close( $SESSION );
 
