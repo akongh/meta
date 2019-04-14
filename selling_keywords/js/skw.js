@@ -2,8 +2,8 @@ let getSellingKeywordsButton = document.querySelector('#get-selling-keywords-but
 let resultNode = document.querySelector("#selling-keywords-string");
 let upButtonBlock = document.querySelector("#up-button-block");
 let deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-objects-array-button");
-let autors = document.querySelectorAll(".hover-invert");
-let deleteAutorButton = document.querySelector("#delete-autor-button");
+let authors = document.querySelectorAll(".hover-invert");
+let deleteAuthorButton = document.querySelector("#delete-author-button");
 let clearKeywordButton = document.querySelector("#clear-keyword-button");
 let createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
 let deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
@@ -18,15 +18,15 @@ deleteKeywordsObjectsArrayButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteKeywordsObjectsArray();
 }, false);
-for (let i = 0; i < autors.length; i++) {
-    autors[i].addEventListener("click", function (e) {
+for (let i = 0; i < authors.length; i++) {
+    authors[i].addEventListener("click", function (e) {
         e.stopPropagation();
     }, false);
-    autors[i].addEventListener("click", autorsToQuery);
+    authors[i].addEventListener("click", authorsToQuery);
 }
-deleteAutorButton.addEventListener("click", function (e) {
+deleteAuthorButton.addEventListener("click", function (e) {
     e.preventDefault();
-    deleteAutor();
+    deleteAuthor();
 }, false);
 clearKeywordButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -58,7 +58,7 @@ function createArrayKeywordsFromVariants() {
 function getSellingKeywordsData() {
     let keyword;
     let imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
-    let autor = "autor=" + encodeURIComponent(document.querySelector('#autor').value);
+    let author = "author=" + encodeURIComponent(document.querySelector('#author').value);
     let sellingKeywordsRequest;
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
@@ -67,7 +67,7 @@ function getSellingKeywordsData() {
 
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
-            sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
+            sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
             sendPapamsGetSellingKeywords("php/create_array_works_data.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
             i++;
             if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
@@ -76,7 +76,7 @@ function getSellingKeywordsData() {
         getWitsTimeout();
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
-        sellingKeywordsRequest = keyword + '&' + imageType + '&' + autor;
+        sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
         sendPapamsGetSellingKeywords("php/create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
     }
 }
@@ -187,12 +187,12 @@ function createWorksList() {
     return worksList.join("<hr><br><br><br>") + '<hr>';
 }
 
-function autorsToQuery() {
-    document.querySelector("#autor").value = this.innerHTML;
+function authorsToQuery() {
+    document.querySelector("#author").value = this.innerHTML;
 }
 
-function deleteAutor() {
-    document.querySelector("#autor").value = '';
+function deleteAuthor() {
+    document.querySelector("#author").value = '';
 }
 
 function clearKeyword() {
