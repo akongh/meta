@@ -72,12 +72,12 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <input type="text"
-           id="autor"
-           class="textarea-autor"
+           id="author"
+           class="textarea-author"
            maxlength="26">
     <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
-    <a id="delete-autor-button"
+    <a id="delete-author-button"
        class="link-button"
        href="#"
        title="Удалить автора">[x]</a>
