@@ -45,7 +45,7 @@
     <div class="upravlenie"><a href="php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         <hr class="otbivka_96">
-        <a href="index.php">На главную</a></div>
+        <a href="meta_admin.php">На главную</a></div>
     <hr class="otbivka_96">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
 </div>

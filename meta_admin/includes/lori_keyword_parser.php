@@ -31,7 +31,7 @@
       <input name="podobrat" type="submit" class="knopka" value="ТЫРНУТЬ у Лори">
     </form>
     <hr class="otbivka_96">
-    <a href="index.php">На главную</a> </div>
+    <a href="meta_admin.php">На главную</a> </div>
   <hr class="otbivka_96">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
 </div>

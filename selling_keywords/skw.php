@@ -52,16 +52,12 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <div class="content-left">
-        <span title="Число уровней повторяемости вариантов запросов">Уровней <select size="1" id="level">
-            <option value="1">1</option>
-            <option selected value="2">2</option>
+        <span title="Число уровней повторяемости вариантов запросов">Основных <select size="1" id="level">
+            <option selected value="1">1</option>
+            <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select></span>
-        <label>(<input type="checkbox"
-                       name="only-all"
-                       value=""
-                       checked> только со всеми)</label>
     </div>
     <div class="content-right">
         <a id="create-variants-queries-button"
@@ -76,12 +72,12 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <input type="text"
-           id="autor"
-           class="textarea-autor"
+           id="author"
+           class="textarea-author"
            maxlength="26">
     <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
-    <a id="delete-autor-button"
+    <a id="delete-author-button"
        class="link-button"
        href="#"
        title="Удалить автора">[x]</a>
@@ -109,11 +105,11 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <label><input type="radio"
                   name="image_type"
-                  value="all"> Все</label>
+                  value="all"
+                  checked> Все</label>
     <label><input type="radio"
                   name="image_type"
-                  value="photo"
-                  checked> Фото</label>
+                  value="photo"> Фото</label>
     <label><input type="radio"
                   name="image_type"
                   value="vector"> Вектор</label>
@@ -152,6 +148,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 </div>
 <script src="/libs/lodash.js"></script>
-<script src="/selling_keywords/selling_keywords.js"></script>
+<script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>
