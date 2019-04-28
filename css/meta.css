@@ -97,6 +97,7 @@ option {
 }
 
 .content-right {
+    display: block;
     text-align: right;
 }
 

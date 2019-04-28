@@ -62,13 +62,13 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         </span>
     </div>
     <br>
-    <span id="separate-result-view">
-        <div class="content-right">
+    <div id="separate-result-view">
+        <span class="content-right">
             <a id="single-view-button"
                class="link-button"
                href="#"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
-        </div>
+        </span>
         <br>
         <br>
         <h2 class="bold">На русском</h2>
@@ -93,15 +93,15 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <span class="counter"><?php if ( isset( $kol_slov_angl ) ) {
                 echo $kol_slov_angl;
             }; ?></span>
-    </span>
-    <span id="single-result-view"
+    </div>
+    <div id="single-result-view"
           class="hidden">
-        <div class="content-right">
+        <span class="content-right">
             <a id="separate-view-button"
                class="link-button"
                href="#"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
-        </div>
+        </span>
         <br>
         <br>
         <h2 class="bold">На русском и английском</h2>
@@ -122,7 +122,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
             }; ?> / <?php if ( isset( $kol_slov_angl ) ) {
                 echo $kol_slov_angl;
             }; ?></span>
-    </span>
+    </div>
     <br>
     <br>
     <br>
@@ -152,12 +152,12 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <span id="messageBlock">
         Обратная связь.
         <br>
-        <div class="content-right">
+        <span class="content-right">
             <span class="counter">
                 <span id="countInformer">
                 </span>
             </span>
-        </div>
+        </span>
         <textarea id="messageForm"
                   class="textarea-message"
                   wrap="soft"
