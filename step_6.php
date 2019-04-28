@@ -166,7 +166,8 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <br>
     </span>
-    <div id="responseMessage" class="content-right">
+    <div id="responseMessage"
+         class="content-right">
         <a id="clearButton"
            class="link-button"
            href="#"
