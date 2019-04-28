@@ -138,7 +138,8 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
                title="Перейти в Мета-подсказки"
                target="_blank">Мета-подсказки</a>
         </p>
-        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них.
+        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков
+            по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них.
         </p>
     </div>
     <br>
@@ -162,7 +163,8 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
                   wrap="soft"
                   rows="4"
                   placeholder=""
-                  maxlength="240"></textarea><!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
+                  maxlength="240"></textarea>
+        <!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
         <br>
         <br>
     </span>
