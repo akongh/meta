@@ -1,4 +1,4 @@
-let resultNode = document.querySelectorAll("span[name='select-result']");
+let resultNode = document.querySelectorAll("span[class='result']");
 
 for (let i = 0; i < resultNode.length; i++) {
     resultNode[i].addEventListener('click', selectResult);

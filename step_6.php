@@ -73,8 +73,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На русском</h2>
         <br>
-        <span class="result"
-              name="select-result"><?php if ( isset( $_REZULTAT_russk ) ) {
+        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
                 echo $_REZULTAT_russk;
             }; ?></span>
         <span class="counter"><?php if ( isset( $kol_slov_russk ) ) {
@@ -86,8 +85,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На английском</h2>
         <br>
-        <span class="result"
-              name="select-result"><?php if ( isset( $_REZULTAT_angl ) ) {
+        <span class="result"><?php if ( isset( $_REZULTAT_angl ) ) {
                 echo $_REZULTAT_angl;
             }; ?></span>
         <span class="counter"><?php if ( isset( $kol_slov_angl ) ) {
@@ -106,8 +104,7 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На русском и английском</h2>
         <br>
-        <span class="result"
-              name="select-result"><?php if ( isset( $_REZULTAT_russk ) ) {
+        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
                 echo $_REZULTAT_russk;
             }; ?>
             <br>
