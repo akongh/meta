@@ -179,8 +179,11 @@ function createWorksList() {
             '</span><br><br>' +
             worksData[i].img +
             '<div>' +
+            '<a href="https://www.shutterstock.com/pic-' +
             worksData[i].id +
-            '<br><br><table class="table-kws">' +
+            '" target="_blank">'
+            + worksData[i].id +
+            '</a><br><br><table class="table-kws">' +
             kws.join("") +
             '</table></div>';
     }
