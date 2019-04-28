@@ -1,5 +1,5 @@
 let maxLength = 240;//Установка [maxLength] продублирована в [step_6.html (textarea id="messageForm")].
-let messageForm = document.querySelector("#messageForm");
+let messageForm = document.querySelector("#messageForm"); // Используется далее в скрипте sendMessage.js.
 let countInformer = document.querySelector("#countInformer");
 let clearButton = document.querySelector("#clearButton");
 
