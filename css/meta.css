@@ -230,6 +230,11 @@ option {
     padding: 8px 16px;
 }
 
+.notice img {
+    width: 100%;
+    padding-top: 16px;
+}
+
 .notice-title {
     margin-bottom: 16px;
 }
