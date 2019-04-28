@@ -5,17 +5,6 @@
     <title>Управление Метой</title>
     <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-    <style>
-        .ot-do {
-            text-align: right;
-            margin: 0px;
-            padding: 12px;
-            border: 1px solid #3399FF;
-            width: 112px;
-            font-family: "PT Sans Caption Bold";
-            font-size: 24px;
-        }
-    </style>
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
