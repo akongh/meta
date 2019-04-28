@@ -324,6 +324,14 @@ p {
     padding: 0 0 0 40px;
 }
 
+.ot-do {
+    text-align: right;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid;
+    width: 112px;
+}
+
 .yandex_metric_admin {
     padding: 0;
     width: 100%;
@@ -471,6 +479,11 @@ a:hover {
     font-size: 40px;
 }
 
+.ot-do {
+    font-family: "PT Sans Caption Bold", sans-serif;
+    font-size: 24px;
+}
+
 /*
  * ----------------------------------------------------------------
  * Color
@@ -600,4 +613,8 @@ a:hover {
     color: #f00;
     background-color: #ffc;
     border-color: #ccc;
+}
+
+.ot-do {
+    border-color: #3399FF;
 }
