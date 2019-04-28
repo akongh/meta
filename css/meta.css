@@ -97,6 +97,7 @@ option {
 }
 
 .content-right {
+    display: block;
     text-align: right;
 }
 
@@ -227,6 +228,11 @@ option {
 
 .notice {
     padding: 8px 16px;
+}
+
+.notice img {
+    width: 100%;
+    padding-top: 16px;
 }
 
 .notice-title {

@@ -1,5 +1,5 @@
 let sendMessageButton = document.querySelector("#sendMessageButton");
-let messageForm = document.querySelector("#messageForm");
+// let messageForm = document.querySelector("#messageForm"); — уже объявлена в первее загруженном скрипте controlMessage.js.
 
 sendMessageButton.addEventListener("click", function (e) {
     e.preventDefault();
