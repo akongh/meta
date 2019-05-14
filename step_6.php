@@ -50,23 +50,23 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <br>
     <br>
     <br>
-    <div class="notice">
-        <p class="notice-title">
-            Удобно извлекайте со&nbsp;стоков подсказки для поисковых запросов с&nbsp;инструментом
-            <a href="http://meta.afoteris.com/hints/hints.php"
-               title="Перейти в Мета-подсказки"
-               target="_blank">«Мета-подсказки»</a>
-        </p>
-        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков
-            по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;этих стоков.
-        </p>
-        <a href="http://meta.afoteris.com/hints/hints.php"
-           title="Перейти в Мета-подсказки"
-           target="_blank">
-            <img src="images/meta_hints_interface.png" alt="Мета-подсказки"></a>
-    </div>
-    <br>
-    <br>
+<!--    <div class="notice">-->
+<!--        <p class="notice-title">-->
+<!--            Удобно извлекайте со&nbsp;стоков подсказки для поисковых запросов с&nbsp;инструментом-->
+<!--            <a href="http://meta.afoteris.com/hints/hints.php"-->
+<!--               title="Перейти в Мета-подсказки"-->
+<!--               target="_blank">«Мета-подсказки»</a>-->
+<!--        </p>-->
+<!--        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков-->
+<!--            по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;этих стоков.-->
+<!--        </p>-->
+<!--        <a href="http://meta.afoteris.com/hints/hints.php"-->
+<!--           title="Перейти в Мета-подсказки"-->
+<!--           target="_blank">-->
+<!--            <img src="images/meta_hints_interface.png" alt="Мета-подсказки"></a>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--    <br>-->
     <div class="content-right">
         <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' ); ?>
         <span id="help"
