@@ -3,7 +3,7 @@
 //--[meta.afoteris.com]--
 //$db_server   = "mysql5.activeby.net";
 //$db_user     = "user2031505";
-//$db_password = "BAGjPYahfJUHDMHV";
+//$db_password = "iGL00f1kZ0WujE9Q";
 //$db_name     = "user2031505_meta";
 
 //--[meta]--
