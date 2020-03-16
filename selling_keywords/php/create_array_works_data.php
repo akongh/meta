@@ -54,6 +54,7 @@ if ( $author == '' ) {
 // var_dump( $array_works_data );
 
 $url                    = CREATE_URL( $array_works_data );
+//echo $url;
 $json_selling_keywords  = USE_CURL( $url, $useragent, $cookies );
 //echo $json_selling_keywords;
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
