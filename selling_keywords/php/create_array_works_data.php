@@ -51,6 +51,8 @@ if ( $author == '' ) {
 
 //echo $search_url;
 
+//echo $array_works_data;
+
 $url                    = CREATE_URL( $array_works_data );
 $json_selling_keywords  = USE_CURL( $url, $useragent, $cookies );
 //echo $json_selling_keywords;
