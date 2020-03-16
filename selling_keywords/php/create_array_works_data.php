@@ -25,12 +25,7 @@ $image_type = $_POST['imageType'];
 //var_dump( $keyword );
 //var_dump( $image_type );
 
-$array_useragents = [
-    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49',
-    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 OPR/45.0.2552.812'
-];
-
-require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/array_cookies.php" );
+require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/arrays_cookies_agents.php" );
 
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
