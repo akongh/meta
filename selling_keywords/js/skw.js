@@ -86,7 +86,11 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
+
+            /////////////////////////////////////
             // console.log(request.responseText);
+            /////////////////////////////////////
+
             // console.log(window.worksDataObjects);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
