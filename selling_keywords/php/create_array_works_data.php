@@ -84,7 +84,7 @@ function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
 //    echo $data;
 
-    preg_match_all( '/(<img\ class="z_h_j z_h_a z_h_b").*?(>)/su', $data, $array_works_block );
+    preg_match_all( '/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
 
 //    var_dump( $array_works_block );
 //    echo count( $array_works_block[0]);

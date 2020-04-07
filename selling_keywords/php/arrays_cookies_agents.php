@@ -6,6 +6,6 @@ $array_useragents = [
 ];
 
 $array_cookies = [
-    'session=s%3AKs0rztI19z0EjYiKf-VGs1t-c98LPJTF.Vunn0ychkPfKLCyr%2FaI%2BLoAoLuvmyUt4X5CEBO4faU8', // Elena
-    'session=s%3AAfexAoKaLgP57j5zC-FAxkZdVtjuFoz3.sTp%2BnH5hMc3OygmiILjPh03pXyclwPx0QIHkMPqXwsM' // Andrei
+//    'session=s%3AKs0rztI19z0EjYiKf-VGs1t-c98LPJTF.Vunn0ychkPfKLCyr%2FaI%2BLoAoLuvmyUt4X5CEBO4faU8', // Elena
+    'session=s%3AGefqvHkMRE5klSQjVwJDA1pNQ4v6aYYS.AEMcIFuqx2yvd4EC7BKUyBu6fqE73FPT%2FiF4aLUzWfI' // Andrei
 ];
