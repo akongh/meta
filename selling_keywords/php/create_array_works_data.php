@@ -117,46 +117,6 @@ function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
     return $array_works_data;
 }
 
-//function ARRAY_WORKS_DATA_AUTHOR( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
-//
-//    $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
-//
-////    echo $data;
-//
-//    preg_match_all( '/(<li\ class="li js_item").*?(<\/li>)/su', $data, $array_works_block );
-//
-////    var_dump( $array_works_block );
-////    echo count( $array_works_block[0]);
-//
-//    if ( count( $array_works_block[0] ) == 0 ) {
-//        echo( '-1' );
-//        exit;
-//    }
-//
-//    $array_works_block = $array_works_block[0];
-//
-//    for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
-//
-//        preg_match( '/(alt=").*?(">)/su', $array_works_block[ $i ], $title );
-//        $title = preg_replace( '/alt="/', '', $title );
-//        $title = preg_replace( '/">/', '', $title );
-//
-//        preg_match( '/(<img\ src=").*?(">)/su', $array_works_block[ $i ], $img );
-//
-//        preg_match( '/(data-id=").*?(")/su', $array_works_block[ $i ], $id );
-//        $id = preg_replace( '/data-id="/', '', $id );
-//        $id = preg_replace( '/"/', '', $id );
-//
-//        $array_works_data[ $i ] = [
-//            'title' => $title[0],
-//            'img'   => $img[0],
-//            'id'    => $id[0]
-//        ];
-//    }
-//
-//    return $array_works_data;
-//}
-
 function CREATE_URL( $_PARAM_array_works_ids ) {
 
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
