@@ -47,9 +47,9 @@ if ( $author == '' ) {
 //echo $search_url;
 //var_dump( $array_works_data );
 
-$url                    = CREATE_URL( $array_works_data );
+$url = CREATE_URL( $array_works_data );
 //echo $url;
-$json_selling_keywords  = USE_CURL( $url, $useragent, $cookies );
+$json_selling_keywords = USE_CURL( $url, $useragent, $cookies );
 //echo $json_selling_keywords;
 $array_selling_keywords = json_decode( $json_selling_keywords, true );
 //var_dump( $array_selling_keywords );
@@ -130,13 +130,13 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
     $array_works_block[0][0] = preg_replace( '/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[/', '', $array_works_block[0][0] );
     $array_works_block[0][0] = preg_replace( '/\]<\/script>/', '', $array_works_block[0][0] );
     $array_works_block[0][0] = preg_replace( '/\},\{/', '},,,,{', $array_works_block[0][0] );
-    $array_works_block = explode(",,,,", $array_works_block[0][0]);
+    $array_works_block       = explode( ",,,,", $array_works_block[0][0] );
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
-        $array_works_json_decode = json_decode($array_works_block[$i], true);
+        $array_works_json_decode = json_decode( $array_works_block[ $i ], true );
         preg_match( "/[0-9]*$/su", $array_works_json_decode['name'], $id );
-        $id = $id[0];
+        $id                     = $id[0];
         $array_works_data[ $i ] = [
             'title' => $array_works_json_decode['name'],
             'img'   => '<img src="' . $array_works_json_decode['thumbnail'] . '">',
