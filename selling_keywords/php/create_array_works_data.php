@@ -35,18 +35,17 @@ if ( $author == '' ) {
 
 //    echo $search_url;
 
-    $array_works_data = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
+    $array_works_data = ARRAY_WORKS_DATA_JSON( $search_url, $useragent, $cookies );
 } else {
     $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
 
-//    echo $search_url;
+//    echo $search_url;exit;
 
-    $array_works_data = ARRAY_WORKS_DATA( $search_url, $useragent, $cookies );
+    $array_works_data = ARRAY_WORKS_DATA_HTML( $search_url, $useragent, $cookies );
 }
 
 //echo $search_url;
-
-// var_dump( $array_works_data );
+//var_dump( $array_works_data );
 
 $url                    = CREATE_URL( $array_works_data );
 //echo $url;
@@ -78,46 +77,46 @@ function RANDOM_SELECT_STRING( $_PARAM_array_strings ) {
     return ( $string );
 }
 
-//function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
-//
-//    $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
-//
-////    echo $data;
-//
-//    preg_match_all( '/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
-//
-////    var_dump( $array_works_block );
-////    echo count( $array_works_block[0]);
-//
-//    if ( count( $array_works_block[0] ) == 0 ) {
-//        echo( '-1' );
-//        exit;
-//    }
-//
-//    $array_works_block = $array_works_block[0];
-//
-//    for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
-//
-//        preg_match( '/(alt=").*?(")/su', $array_works_block[ $i ], $title );
-//        $title = preg_replace( '/alt="/', '', $title );
-//        $title = preg_replace( '/"/', '', $title );
-//
-//        $img = $array_works_block[ $i ];
-//
-//        preg_match( "/[0-9]*.jpg/su", $array_works_block[ $i ], $id );
-//        $id = preg_replace( '/.jpg/', '', $id );
-//
-//        $array_works_data[ $i ] = [
-//            'title' => $title[0],
-//            'img'   => $img,
-//            'id'    => $id[0]
-//        ];
-//    }
-//
-//    return $array_works_data;
-//}
+function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
-function ARRAY_WORKS_DATA( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
+    $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
+
+//    echo $data;
+
+    preg_match_all( '/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
+
+//    var_dump( $array_works_block );
+//    echo count( $array_works_block[0]);
+
+    if ( count( $array_works_block[0] ) == 0 ) {
+        echo( '-1' );
+        exit;
+    }
+
+    $array_works_block = $array_works_block[0];
+
+    for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
+
+        preg_match( '/(alt=").*?(")/su', $array_works_block[ $i ], $title );
+        $title = preg_replace( '/alt="/', '', $title );
+        $title = preg_replace( '/"/', '', $title );
+
+        $img = $array_works_block[ $i ];
+
+        preg_match( "/[0-9]*.jpg/su", $array_works_block[ $i ], $id );
+        $id = preg_replace( '/.jpg/', '', $id );
+
+        $array_works_data[ $i ] = [
+            'title' => $title[0],
+            'img'   => $img,
+            'id'    => $id[0]
+        ];
+    }
+
+    return $array_works_data;
+}
+
+function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies ) {
 
     $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
 
