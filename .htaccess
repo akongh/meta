@@ -1,14 +1,14 @@
-#доступ
+# ACCESS
 #AuthName "Мета"
 #AuthType Basic
 ##AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-#AuthUserFile D:/Afoteris/Meta/www_vc_meta/access_meta/.htpasswd
+#AuthUserFile D:/afoteris/meta/access_meta/.htpasswd
 #require valid-user
 
-#запрет выдачи листинга пустого каталога
+# DISABLE DIRECTORY INDEX LISTINGS
 Options -Indexes
 
-#назначаем главный файл сайта
+# MAIN FILE OF SITE
 DirectoryIndex meta.php
 
 #404
@@ -17,7 +17,7 @@ ErrorDocument 404 /404.html
 #503
 ErrorDocument 503 /503.html
 
-#обслуживание
+# MAINTENANCE
 #RewriteEngine On
 ##RewriteCond %{REMOTE_ADDR} !^127.0.0.1
 ##RewriteCond %{REMOTE_ADDR} !^37.45.151.255
