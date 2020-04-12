@@ -5,8 +5,5 @@ AuthType Basic
 AuthUserFile D:/afoteris/meta/access_meta/.htpasswd
 require valid-user
 
-# DISABLE DIRECTORY INDEX LISTINGS
-Options -Indexes
-
-# MAIN FILE OF SITE
+# MAIN FILE OF ADMINISTRATIVE PART OF META
 DirectoryIndex meta_admin.php

@@ -8,7 +8,7 @@
 # DISABLE DIRECTORY INDEX LISTINGS
 Options -Indexes
 
-# MAIN FILE OF SITE
+# MAIN FILE OF META
 DirectoryIndex meta.php
 
 #404
@@ -20,8 +20,6 @@ ErrorDocument 503 /503.html
 # MAINTENANCE
 #RewriteEngine On
 ##RewriteCond %{REMOTE_ADDR} !^127.0.0.1
-##RewriteCond %{REMOTE_ADDR} !^37.45.151.255
-##RewriteCond %{REMOTE_ADDR} !^178.125.170.22
 #RewriteCond %{SCRIPT_FILENAME} !/503.html
 #RewriteCond %{SCRIPT_FILENAME} !/css/meta.css
 #RewriteCond %{SCRIPT_FILENAME} !/webfonts
