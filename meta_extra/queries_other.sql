@@ -1,17 +1,17 @@
-/************************************************************/
--- база в UTF-8, проверяем
+
+# БАЗА В UTF-8, ПРОВЕРЯЕМ
 
 SELECT *
 FROM `ls`
 WHERE `s` REGEXP '^[ЁА-пр-яё[:blank:]-]+$';
 
--- 20:14:05 
+-- 20:14:05
 SELECT *
 FROM `ls`
 WHERE `s` REGEXP '^[ЁА-пр-яё[:blank:]-]+$'
 LIMIT 0 , 1000; /*15 row(s) returned 0.001 sec / 0.000 sec*/
 
-/************************************************************/
+#################################################
 
 SELECT *
 FROM `ls`
@@ -46,7 +46,7 @@ LIMIT 0 , 1000; /*3 row(s) returned 0.010 sec / 0.001 sec*/
 -- (in terms of supported characters) a “subset” of Unicode. Because it is a well-known principle that “what applies to a superset 
 -- can apply to a subset,” we believe that a collation for Unicode can apply for comparisons with non-Unicode strings.
 
-/************************************************************/
+#################################################
 
 select count(*)
 from `ts`
@@ -72,7 +72,7 @@ where `s` regexp '^[А-ЯЁа-яё[:blank:]-]+$';
 -- 
 -- ЖОПА!
 
-/************************************************************/
+#################################################
 
 SELECT `s`
 FROM `ts`
