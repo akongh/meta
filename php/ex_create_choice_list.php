@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
 
 unset(
@@ -52,7 +51,7 @@ if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && count( $_MASSIV_op_slov 
     }
 }
 if ( isset( $oshibka_simvola ) or isset( $oshibka_mnogo_op_slov ) or isset( $oshibka_nichego_ne_vveli ) ) {
-    header( "Location: http://" . $site_domain_name . "/step_1.php" );
+    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php" );
     exit;
 }
 
@@ -139,4 +138,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 }
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/step_2.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );

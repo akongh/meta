@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $sost_nab = $_SESSION["massiv_itog"];
 /*sort($sost_nab, SORT_STRING);*/
@@ -18,4 +17,4 @@ unset(
     $_SESSION["opornye_slova"],
     $_SESSION["oshibka_kolichestva"]
 );
-header( "Location: http://" . $site_domain_name . "/step_1.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php" );

@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $na_sbros         = $_POST["opornoe_slovo_sbrosa"];
 $na_sbros         = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $na_sbros ) ) ), "utf-8" ) );
@@ -29,4 +28,4 @@ unset(
 );
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/meta_admin/translation_request.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_request.php" );

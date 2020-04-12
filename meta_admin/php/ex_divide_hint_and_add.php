@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $slovo_original = $_SESSION["slovo_original"];//разбиваемое слово
 
@@ -73,4 +72,4 @@ mysqli_query( $db_connect, "
 //};
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/meta_admin/translation_hint.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_hint.php" );

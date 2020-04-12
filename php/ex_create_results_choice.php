@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $russk = $_POST["russk"];
 if ( isset( $_POST["angl"] ) ) {
@@ -51,4 +50,4 @@ if ( isset( $_REZULTAT_angl ) ) {
 };
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/step_6.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php" );

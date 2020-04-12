@@ -3,7 +3,6 @@ session_start();
 session_unset();
 unset( $_POST );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $SQL_count_translated_words_query = mysqli_query( $db_connect, "
 	select count(`k-ts`.`s`)

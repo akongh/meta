@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 unset(
 	$_SESSION["oshibka_simvola"],
@@ -9,4 +8,4 @@ unset(
 	$_SESSION["massiv_itog"]
 );
 
-header( "Location: http://" . $site_domain_name . "/step_2.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );

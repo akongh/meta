@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
 
 unset(
@@ -106,7 +105,7 @@ if ( isset( $massiv_itog ) ) {
 }
 //остаёмся исправлять ошибки
 if ( isset( $oshibka_simvola ) ) {
-    header( "Location: http://" . $site_domain_name . "/step_2.php" );
+    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );
     exit;
 }
 //переходим к третьему шагу, если нет ошибок
@@ -130,4 +129,4 @@ if ( isset( $sobranny_nabor ) ) {
 if ( isset( $massiv_itog ) ) {
     $_SESSION["massiv_itog"] = $massiv_itog;
 }
-header( "Location: http://" . $site_domain_name . "/step_3.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_3.php" );

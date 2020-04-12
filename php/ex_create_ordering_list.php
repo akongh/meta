@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
@@ -15,7 +14,7 @@ if ( !isset($massiv_itog) || count( $massiv_itog ) < 8) {
     $oshibka_kolichestva = "<span class='error'>В наборе менее 8-ми уникальных ключевых слов.</span><br>";
 
     $_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
-    header( "Location: http://" . $site_domain_name . "/step_3.php" );
+    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_3.php" );
     exit;
 }
 //сортировать или нет по частоте
@@ -56,4 +55,4 @@ $ochered = implode( "", $ochered );
 $_SESSION["ochered"] = $ochered;
 
 mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/step_4.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_4.php" );

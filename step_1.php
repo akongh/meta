@@ -1,6 +1,5 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
 $_SESSION["metka"] = true;
 if ( isset( $_SESSION["opornye_slova"] ) ) {
