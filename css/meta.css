@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Есть цвет в скрипте js/uncheckedTranslations.js */
 
@@ -246,7 +246,7 @@ option {
  */
 
 body {
-    font-family: 'PT Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 16px;
     font-weight: normal;
 }
@@ -262,11 +262,16 @@ h2 {
 }
 
 input[type="submit"] {
+    font-weight: 700;
     font-size: 16px;
 }
 
 select {
     font-size: 16px;
+}
+
+.bold {
+    font-weight: 700;
 }
 
 .textarea-keywords {
@@ -275,6 +280,18 @@ select {
 
 .textarea-message {
     font-size: 16px;
+}
+
+.counter {
+    font-weight: 700;
+}
+
+.keyword-ru {
+    font-weight: 700;
+}
+
+.hover-invert {
+    font-weight: 700;
 }
 
 .notice-title {

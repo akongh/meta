@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*
 Table of content
@@ -346,21 +346,47 @@ p {
 body {
     font-size: 14px;
     font-style: normal;
-    font-family: 'PT Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     text-decoration: none;
 }
 
 h1 {
     font-size: 32px;
-    font-weight: normal;
+    font-weight: 700;
 }
 
 h2 {
     font-size: 18px;
-    font-weight: normal;
+    font-weight: 700;
+}
+
+.perevoda_net {
+    font-style: italic;
+}
+
+.russk {
+    font-weight: 700;
+}
+
+.znachenie {
+    font-style: italic;
+}
+
+.oshibka {
+    font-style: italic;
+}
+
+.informaczya {
+    font-style: italic;
+}
+
+.informaczya_vydelenie {
+    font-style: italic;
+    font-weight: 700;
 }
 
 .opornoe_slovo_zayavki {
+    font-weight: 700;
     font-size: 32px;
 }
 
@@ -372,8 +398,24 @@ h2 {
     font-size: 14px;
 }
 
+.upravlenie {
+    font-style: italic;
+}
+
 .nomer_shaga {
     font-size: 60px;
+}
+
+.statistika {
+    font-style: italic;
+}
+
+.statistika_czyfra {
+    font-weight: 700;
+}
+
+.versiya {
+    font-style: italic;
 }
 
 .vvod_slov_tekst {
@@ -381,19 +423,23 @@ h2 {
 }
 
 .vvod_slovo {
+    font-weight: 700;
     font-size: 32px;
 }
 
 .vvod_perevod {
+    font-weight: 700;
     font-size: 14px;
 }
 
 .vvod_prisutstvie {
+    font-weight: 700;
     font-size: 14px;
 }
 
 .vvod_znachenie {
     font-size: 14px;
+    font-style: italic;
 }
 
 .pm_knopka {
@@ -409,6 +455,7 @@ h2 {
 }
 
 .ot-do {
+    font-weight: 700;
     font-size: 24px;
 }
 
