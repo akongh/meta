@@ -22,7 +22,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/analytics_code.php');?>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/changeOrderingList.js"></script>

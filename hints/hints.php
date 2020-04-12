@@ -15,7 +15,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
