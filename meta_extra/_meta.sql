@@ -2,12 +2,14 @@
 -- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
--- Хост: mysql5.activeby.net
--- Время создания: Апр 13 2019 г., 15:18
--- Версия сервера: 5.5.52
--- Версия PHP: 5.4.45
+-- Host: mysql5.activeby.net
+-- Generation Time: Apr 12, 2020 at 07:56 PM
+-- Server version: 5.5.52
+-- PHP Version: 5.4.45
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT=0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `user2031505_meta`
+-- Database: `user2031505_meta`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `k-tn`
+-- Table structure for table `k-tn`
+--
+-- Creation: Oct 20, 2018 at 07:17 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k-tn` (
@@ -33,12 +37,14 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
   PRIMARY KEY (`idn`),
   KEY `vr` (`vr`),
   KEY `ses` (`ses`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Наборы на кириллице' AUTO_INCREMENT=579297 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Наборы на кириллице' AUTO_INCREMENT=580377 ;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `k-ts`
+-- Table structure for table `k-ts`
+--
+-- Creation: Oct 20, 2018 at 07:24 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k-ts` (
@@ -50,12 +56,14 @@ CREATE TABLE IF NOT EXISTS `k-ts` (
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`),
   KEY `kol` (`kol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на кириллице' AUTO_INCREMENT=9440798 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на кириллице' AUTO_INCREMENT=9473680 ;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `k-t_s`
+-- Table structure for table `k-t_s`
+--
+-- Creation: Oct 20, 2018 at 07:19 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k-t_s` (
@@ -66,12 +74,14 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
   UNIQUE KEY `sost` (`id_n`,`id_s`),
   KEY `id_s` (`id_s`),
   KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Связи для кириллицы' AUTO_INCREMENT=9243366 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Связи для кириллицы' AUTO_INCREMENT=9276219 ;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `k_l`
+-- Table structure for table `k_l`
+--
+-- Creation: Oct 20, 2018 at 07:23 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k_l` (
@@ -88,7 +98,9 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `l-ts`
+-- Table structure for table `l-ts`
+--
+-- Creation: Oct 20, 2018 at 07:25 AM
 --
 
 CREATE TABLE IF NOT EXISTS `l-ts` (
@@ -98,12 +110,14 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на латинице' AUTO_INCREMENT=278941 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на латинице' AUTO_INCREMENT=458463 ;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tyrki`
+-- Table structure for table `tyrki`
+--
+-- Creation: Oct 20, 2018 at 07:23 AM
 --
 
 CREATE TABLE IF NOT EXISTS `tyrki` (
@@ -116,7 +130,9 @@ CREATE TABLE IF NOT EXISTS `tyrki` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tz`
+-- Table structure for table `tz`
+--
+-- Creation: Oct 20, 2018 at 07:47 AM
 --
 
 CREATE TABLE IF NOT EXISTS `tz` (
@@ -125,6 +141,7 @@ CREATE TABLE IF NOT EXISTS `tz` (
   PRIMARY KEY (`idz`),
   UNIQUE KEY `z` (`z`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin AUTO_INCREMENT=33809 ;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
