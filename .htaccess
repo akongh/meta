@@ -11,15 +11,15 @@ Options -Indexes
 DirectoryIndex meta.php
 
 #404
-ErrorDocument 404 /404.html
+ErrorDocument 404 /404.php
 
 #503
-ErrorDocument 503 /503.html
+ErrorDocument 503 /503.php
 
 # MAINTENANCE
 #RewriteEngine On
 #RewriteCond %{REMOTE_ADDR} !^IP for access during maintenance
-#RewriteCond %{SCRIPT_FILENAME} !/503.html
+#RewriteCond %{SCRIPT_FILENAME} !/503.php
 #RewriteCond %{SCRIPT_FILENAME} !/css/meta.css
 #RewriteCond %{SCRIPT_FILENAME} !/favicon.ico
-#RewriteRule ^.*$ /503.html [R=503,L]
+#RewriteRule ^.*$ /503.php [R=503,L]
