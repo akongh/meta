@@ -22,6 +22,5 @@ ErrorDocument 503 /503.html
 ##RewriteCond %{REMOTE_ADDR} !^127.0.0.1
 #RewriteCond %{SCRIPT_FILENAME} !/503.html
 #RewriteCond %{SCRIPT_FILENAME} !/css/meta.css
-#RewriteCond %{SCRIPT_FILENAME} !/webfonts
 #RewriteCond %{SCRIPT_FILENAME} !/favicon.ico
 #RewriteRule ^.*$ /503.html [R=503,L]
