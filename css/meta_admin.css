@@ -352,15 +352,20 @@ body {
 
 h1 {
     font-size: 32px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 h2 {
     font-size: 18px;
-    font-weight: normal;
+    font-weight: bold;
+}
+
+.informaczya_vydelenie {
+    font-weight: bold;
 }
 
 .opornoe_slovo_zayavki {
+    font-weight: bold;
     font-size: 32px;
 }
 
@@ -376,19 +381,26 @@ h2 {
     font-size: 60px;
 }
 
+.statistika_czyfra {
+    font-weight: bold;
+}
+
 .vvod_slov_tekst {
     font-size: 14px;
 }
 
 .vvod_slovo {
+    font-weight: bold;
     font-size: 32px;
 }
 
 .vvod_perevod {
+    font-weight: bold;
     font-size: 14px;
 }
 
 .vvod_prisutstvie {
+    font-weight: bold;
     font-size: 14px;
 }
 
@@ -409,6 +421,7 @@ h2 {
 }
 
 .ot-do {
+    font-weight: bold;
     font-size: 24px;
 }
 
