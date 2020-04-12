@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /*
 Table of content
 
@@ -71,10 +73,6 @@ hr {
 
 .textarea-author {
     font-size: 16px;
-}
-
-.variant-query:hover {
-    font-weight: bold;
 }
 
 /*
