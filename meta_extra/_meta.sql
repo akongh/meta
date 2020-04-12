@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
   PRIMARY KEY (`idn`),
   KEY `vr` (`vr`),
   KEY `ses` (`ses`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Наборы на кириллице' AUTO_INCREMENT=580377 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580377 ;
 
 -- --------------------------------------------------------
 
@@ -50,13 +50,13 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
 CREATE TABLE IF NOT EXISTS `k-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
-  `kol` mediumint(8) unsigned NOT NULL COMMENT 'Количество',
-  `f` tinyint(3) unsigned NOT NULL COMMENT 'Состояние',
+  `kol` mediumint(8) unsigned NOT NULL COMMENT 'Amount',
+  `f` tinyint(3) unsigned NOT NULL COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`),
   KEY `kol` (`kol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на кириллице' AUTO_INCREMENT=9473680 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Cyrillic' AUTO_INCREMENT=9473680 ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
   UNIQUE KEY `sost` (`id_n`,`id_s`),
   KEY `id_s` (`id_s`),
   KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Связи для кириллицы' AUTO_INCREMENT=9276219 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for the Cyrillic' AUTO_INCREMENT=9276219 ;
 
 -- --------------------------------------------------------
 
@@ -86,9 +86,9 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
 
 CREATE TABLE IF NOT EXISTS `k_l` (
   `idk_l` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `idk` int(10) unsigned zerofill NOT NULL COMMENT 'На русском',
-  `idl` int(10) unsigned zerofill NOT NULL COMMENT 'На английском',
-  `idz` int(10) unsigned zerofill NOT NULL COMMENT 'Номера значений',
+  `idk` int(10) unsigned zerofill NOT NULL COMMENT 'In Russian',
+  `idl` int(10) unsigned zerofill NOT NULL COMMENT 'In English',
+  `idz` int(10) unsigned zerofill NOT NULL COMMENT 'Numbers of meanings',
   PRIMARY KEY (`idk_l`),
   KEY `idk` (`idk`),
   KEY `idl` (`idl`),
@@ -106,11 +106,11 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 CREATE TABLE IF NOT EXISTS `l-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
-  `f` tinyint(3) unsigned NOT NULL COMMENT 'Состояние',
+  `f` tinyint(3) unsigned NOT NULL COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Слова на латинице' AUTO_INCREMENT=458463 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Latin' AUTO_INCREMENT=458463 ;
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
 
 CREATE TABLE IF NOT EXISTS `tz` (
   `idz` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Значение слова',
+  `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word meaning',
   PRIMARY KEY (`idz`),
   UNIQUE KEY `z` (`z`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin AUTO_INCREMENT=33809 ;
