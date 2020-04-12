@@ -18,9 +18,6 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <link href="/css/meta_sell_kws.css"
-          rel="stylesheet"
-          type="text/css">
     <link rel="shortcut icon"
           href="http://<?php echo $site_domain_name ?>/favicon.ico"
           type="image/ven.microsoft.ico">
