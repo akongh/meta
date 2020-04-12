@@ -1,9 +1,8 @@
 # ACCESS
-AuthType Basic
-AuthName "Управление Меты"
-#AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-AuthUserFile D:/afoteris/meta/access_meta/.htpasswd
-require valid-user
+#AuthType Basic
+#AuthName "Управление Меты"
+#AuthUserFile /absolute/path/to/.htpasswd
+#require valid-user
 
 # MAIN FILE OF ADMINISTRATIVE PART OF META
 DirectoryIndex meta_admin.php

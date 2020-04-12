@@ -1,8 +1,7 @@
 # ACCESS
 #AuthType Basic
 #AuthName "Мета"
-##AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-#AuthUserFile D:/afoteris/meta/access_meta/.htpasswd
+#AuthUserFile /absolute/path/to/.htpasswd
 #require valid-user
 
 # DISABLE DIRECTORY INDEX LISTINGS
@@ -19,7 +18,7 @@ ErrorDocument 503 /503.html
 
 # MAINTENANCE
 #RewriteEngine On
-##RewriteCond %{REMOTE_ADDR} !^127.0.0.1
+#RewriteCond %{REMOTE_ADDR} !^IP for access during maintenance
 #RewriteCond %{SCRIPT_FILENAME} !/503.html
 #RewriteCond %{SCRIPT_FILENAME} !/css/meta.css
 #RewriteCond %{SCRIPT_FILENAME} !/favicon.ico
