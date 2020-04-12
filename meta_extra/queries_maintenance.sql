@@ -1,3 +1,4 @@
+#################################################
 
 SHOW VARIABLES;
 SHOW PROCESSLIST;
