@@ -49,12 +49,6 @@ if ( isset( $obnovlenie_chastoty ) ) {
   </span></div>
     <hr class="otbivka_48">
     <hr class="cherta">
-    <hr class="otbivka_24">
-    <h2>Сбор наборов</h2>
-    <hr class="otbivka_48">
-    <a href="lori_keyword_parser.php">Лори (рус.)</a>
-    <hr class="otbivka_48">
-    <hr class="cherta">
     <hr class="otbivka_96">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
     <hr class="otbivka_24">
