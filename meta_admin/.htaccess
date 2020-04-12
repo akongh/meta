@@ -1,6 +1,6 @@
 # ACCESS
-AuthName "Управление Меты"
 AuthType Basic
+AuthName "Управление Меты"
 #AuthUserFile /home/user2031505/www/access_meta/.htpasswd
 AuthUserFile D:/afoteris/meta/access_meta/.htpasswd
 require valid-user
