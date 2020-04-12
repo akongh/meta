@@ -5,7 +5,6 @@
     <title>Управление Метой</title>
     <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
