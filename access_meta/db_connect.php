@@ -8,7 +8,7 @@ $db_name     = "_meta";
 $db_connect = new mysqli($db_server, $db_user, $db_password, $db_name);
 
 if ($db_connect->connect_errno) {
-    echo "<br/><b>MySQL-server is not available…</b><br/>" . PHP_EOL .
+    echo "<b>MySQL-server is not available…</b><br/>" . PHP_EOL .
         $db_connect->connect_errno . "<br/>" . PHP_EOL .
         $db_connect->connect_error;
     exit;
