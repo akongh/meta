@@ -5,11 +5,14 @@ $db_user     = "root";
 $db_password = "root";
 $db_name     = "_meta";
 
-$db_connect = mysqli_connect( $db_server, $db_user, $db_password, $db_name );
-mysqli_query( $db_connect, "SET character_set_database=utf8" );
-mysqli_query( $db_connect, "SET NAMES utf8" );
+$db_connect = new mysqli($db_server, $db_user, $db_password, $db_name);
 
-if ( ! $db_connect ) {
-	echo "MySQL-server is not available." . PHP_EOL;
-	exit;
+if ($db_connect->connect_errno) {
+    echo "<br/><b>MySQL-server is not available…</b><br/>" . PHP_EOL .
+        $db_connect->connect_errno . "<br/>" . PHP_EOL .
+        $db_connect->connect_error;
+    exit;
 }
+
+$db_connect->query("SET character_set_database=utf8");
+$db_connect->query("SET NAMES utf8");
