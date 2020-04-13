@@ -5,15 +5,15 @@ unset( $_POST );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
 
-$SQL_count_translated_words_query = mysqli_query( $db_connect, SQL_COUNT_TRANSLATED_WORDS_QUERY );
-$data                             = mysqli_fetch_array( $SQL_count_translated_words_query );
+$SQL_count_translated_words_query = $db_connect->query( SQL_COUNT_TRANSLATED_WORDS_QUERY );
+$data                             = $SQL_count_translated_words_query->fetch_array();
 $SQL_count_translated_words       = number_format( $data[0], 0, '', '&nbsp;' );
 
-$SQL_count_translation_request_query = mysqli_query( $db_connect, SQL_COUNT_TRANSLATION_REQUEST_QUERY );
-$data                                = mysqli_fetch_array( $SQL_count_translation_request_query );
+$SQL_count_translation_request_query = $db_connect->query( SQL_COUNT_TRANSLATION_REQUEST_QUERY );
+$data                                = $SQL_count_translation_request_query->fetch_array();
 $SQL_count_translation_request       = number_format( $data[0], 0, '', '&nbsp;' );
 
-mysqli_close( $db_connect );
+$db_connect->close();
 ?>
 
 <!doctype html>
