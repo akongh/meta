@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
 include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
 
 unset(
@@ -60,14 +61,23 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        include( $_SERVER["DOCUMENT_ROOT"] . '/sql/SQL_create_choice_list.php' );
-        $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
+        if (!($stmt = $db_connect->prepare(SQL_ZAPROS_PODBOR($_SQL_stroka_dlya_podbora)))) {
+            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        }
+        if (!$stmt->bind_param("ii", $i, $granicza)) {
+            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        if (!$stmt->execute()) {
+            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        $stmt->bind_result($data, $count);
 
         $n = 0;
-        while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
-            $_MASSIV_rezultata[ $n ] = $data['s'];
-            $n ++;
+        while ($stmt->fetch()) {
+            $_MASSIV_rezultata[$n] = $data;
+            $n++;
         }
+        $stmt->close();
         if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
             $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
 
@@ -97,14 +107,23 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        }
     }
 } else {
-    include( $_SERVER["DOCUMENT_ROOT"] . '/sql/SQL_create_choice_list.php' );
-    $_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor );
+    if (!($stmt = $db_connect->prepare(SQL_ZAPROS_PODBOR($_SQL_stroka_dlya_podbora)))) {
+        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    }
+    if (!$stmt->bind_param("ii", $i, $granicza)) {
+        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    if (!$stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    $stmt->bind_result($data, $count);
 
     $n = 0;
-    while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
-        $_MASSIV_rezultata[ $n ] = $data['s'];
-        $n ++;
+    while ($stmt->fetch()) {
+        $_MASSIV_rezultata[$n] = $data;
+        $n++;
     }
+    $stmt->close();
     if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
         $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
     } else {
@@ -137,5 +156,5 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
 
-mysqli_close( $db_connect );
+$db_connect->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );
