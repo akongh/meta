@@ -11,6 +11,13 @@
  */
 
 
+define("SQL_ZAPROS_OCHERED", "
+    SELECT *
+    FROM `k-ts`
+    WHERE `f` = 7
+    order by `kol` desc
+");
+
 function SQL_ZAYAVKA ($data_string) {
 
     $data_string = "'" . $data_string . "'";

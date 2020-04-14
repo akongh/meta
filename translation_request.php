@@ -2,15 +2,16 @@
 session_start();
 session_unset();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
 
 unset( $_POST );
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/sql/SQL_translation_queue.php' );
-$_SQL_rezultat_ochered = mysqli_query( $db_connect, $_SQL_zapros_ochered );
+$_SQL_rezultat_ochered = $db_connect->query( SQL_ZAPROS_OCHERED );
+$data                  = $_SQL_rezultat_ochered->fetch_all(MYSQLI_ASSOC);
 
 $n = 0;
-while ( $data = mysqli_fetch_array( $_SQL_rezultat_ochered ) ) {
-    $_MASSIV_ochered[ $n ] = $data['s'];
+foreach ( $data as $key => $val ) {
+    $_MASSIV_ochered[ $key ] = $val['s'];
     $n ++;
 }
 
@@ -23,7 +24,7 @@ if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
     $_MASSIV_spisok_ochered = "Заявок на перевод пока нет.";
 }
 
-mysqli_close( $db_connect );
+$db_connect->close();
 ?>
 
 <!doctype html>
