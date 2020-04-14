@@ -11,6 +11,33 @@
  */
 
 
+function SQL_ZAYAVKA ($data_string) {
+
+    $data_string = "'" . $data_string . "'";
+
+    $SQL_ZAYAVKA = "update `k-ts`
+	set `f` = 7
+	where `s` in (" . $data_string . ")";
+
+    return $SQL_ZAYAVKA;
+}
+
+define("SQL_CREATE_RESULTS_CHOICE", "
+    INSERT INTO `k-tn` (`vr`, `ses`)  
+    VALUES ( ?, ? )
+");
+
+define("SQL_CREATE_RESULTS_CHOICE_2", "
+    INSERT IGNORE INTO `k-ts` (`s`)
+    VALUES ( ? )
+");
+
+define("SQL_CREATE_RESULTS_CHOICE_3", "
+    INSERT INTO `k-t_s` (`id_n`, `id_s`)  
+    VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),  
+            (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))  
+");
+
 function SQL_ZAPROS_PODBOR ($data_string) {
 
     $data_string = "'" . $data_string . "'";

@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
 
 $russk = $_POST["russk"];
 if ( isset( $_POST["angl"] ) ) {
@@ -30,7 +31,40 @@ if ( isset( $russk ) ) {
         $russk2[ $i ] = preg_replace( "/ {2,}/", " ", $russk2[ $i ] );
         $russk2[ $i ] = preg_replace( "/'/", "\'", $russk2[ $i ] );
     }
-    include( $_SERVER['DOCUMENT_ROOT'] . '/sql/SQL_create_results_choice.php' );
+
+    if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE))) {
+        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    }
+    if (!$stmt->bind_param("ss", $vr_nabora, $ses)) {
+        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    if (!$stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    for ( $i = 0; $i < count( $russk2 ); $i ++ ) {
+
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE_2))) {
+            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        }
+        if (!$stmt->bind_param("s", $russk2[$i] )) {
+            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        if (!$stmt->execute()) {
+            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+        }
+
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE_3))) {
+            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        }
+        if (!$stmt->bind_param("sss", $vr_nabora, $ses, $russk2[$i])) {
+            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+        }
+        if (!$stmt->execute()) {
+            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+        }
+    }
+
     $_REZULTAT_russk = implode( ", ", $russk );
 }
 if ( isset( $angl ) ) {
@@ -38,16 +72,15 @@ if ( isset( $angl ) ) {
 }
 if ( isset( $zayavka ) ) {
     $zayavka     = implode( "', '", $zayavka );
-    $SQL_zayavka = mysqli_query( $db_connect, "
-	update `k-ts`
-	set `f` = 7
-	where `s` in ('" . $zayavka . "')
-	" );
+    $db_connect->query( SQL_ZAYAVKA($zayavka) );
 }
+
+$stmt->close();
+
 $_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
 if ( isset( $_REZULTAT_angl ) ) {
     $_SESSION["_REZULTAT_angl"] = $_REZULTAT_angl;
 };
 
-mysqli_close( $db_connect );
+$db_connect->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php" );
