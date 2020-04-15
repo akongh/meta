@@ -5,13 +5,13 @@ unset( $_POST );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
-$SQL_count_translated_words_query = $db_connect->query( SQL_COUNT_TRANSLATED_WORDS_QUERY );
-$data                             = $SQL_count_translated_words_query->fetch_array();
-$SQL_count_translated_words       = number_format( $data[0], 0, '', '&nbsp;' );
+$mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATED_WORDS);
+$arr_result = $mysqli_result->fetch_array();
+$count_translated = number_format($arr_result[0], 0, '', '&nbsp;');
 
-$SQL_count_translation_request_query = $db_connect->query( SQL_COUNT_TRANSLATION_REQUEST_QUERY );
-$data                                = $SQL_count_translation_request_query->fetch_array();
-$SQL_count_translation_request       = number_format( $data[0], 0, '', '&nbsp;' );
+$mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATION_REQUEST);
+$arr_result = $mysqli_result->fetch_array();
+$count_request = number_format($arr_result[0], 0, '', '&nbsp;');
 
 $db_connect->close();
 ?>
@@ -63,10 +63,10 @@ $db_connect->close();
     <br>
     Ключевых слов переведено
     <span class="counter">
-        <?php if (isset($SQL_count_translated_words)){echo $SQL_count_translated_words;}; ?></span>,
+        <?php if (isset($count_translated)){echo $count_translated;}; ?></span>,
     в <a href="/translation_request.php" title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
     <span class="counter">
-        <?php if (isset($SQL_count_translation_request)){echo $SQL_count_translation_request;}; ?></span>.
+        <?php if (isset($count_request)){echo $count_request;}; ?></span>.
     <br>
     <br>
     <br>

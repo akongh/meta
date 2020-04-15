@@ -108,13 +108,13 @@ define("SQL_CREATE_RESULTS_CHOICE_3", "
             (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))  
 ");
 
-define("SQL_COUNT_TRANSLATED_WORDS_QUERY", "
+define("SQL_COUNT_TRANSLATED_WORDS", "
     select count(`k-ts`.`s`)
 	from `k-ts`
 	where `f` = 1
 ");
 
-define("SQL_COUNT_TRANSLATION_REQUEST_QUERY", "
+define("SQL_COUNT_TRANSLATION_REQUEST", "
     select count(`k-ts`.`s`)
 	from `k-ts`
 	where `f` = 7
