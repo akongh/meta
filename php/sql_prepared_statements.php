@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+error_reporting(-1);
 /**
  * Defining of constants of prepared SQL-statements.
  *
@@ -17,7 +19,6 @@
  */
 function sql_est_v_base($data_string)
 {
-
     $data_string = "'" . $data_string . "'";
 
     $SQL_est_v_base = "select `s`, `kol`
@@ -34,7 +35,6 @@ function sql_est_v_base($data_string)
  */
 function sql_zayavka($data_string)
 {
-
     $data_string = "'" . $data_string . "'";
 
     $SQL_ZAYAVKA = "update `k-ts`
@@ -50,7 +50,6 @@ function sql_zayavka($data_string)
  */
 function sql_zapros_podbor($data_string)
 {
-
     $data_string = "'" . $data_string . "'";
 
     $SQL_ZAPROS_PODBOR = "select `k-ts`.`s`, count(*)
