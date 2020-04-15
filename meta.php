@@ -3,7 +3,7 @@ session_start();
 session_unset();
 unset( $_POST );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
+include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 $SQL_count_translated_words_query = $db_connect->query( SQL_COUNT_TRANSLATED_WORDS_QUERY );
 $data                             = $SQL_count_translated_words_query->fetch_array();

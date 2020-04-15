@@ -1,7 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
+include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];

@@ -2,7 +2,7 @@
 session_start();
 session_unset();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
+include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 unset( $_POST );
 
