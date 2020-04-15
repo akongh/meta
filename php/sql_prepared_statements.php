@@ -12,9 +12,9 @@
 
 
 /**
- * Functions
+ * @param $data_string
+ * @return string
  */
-
 function sql_est_v_base ($data_string) {
 
     $data_string = "'" . $data_string . "'";
@@ -27,6 +27,10 @@ function sql_est_v_base ($data_string) {
     return $SQL_est_v_base;
 }
 
+/**
+ * @param $data_string
+ * @return string
+ */
 function sql_zayavka ($data_string) {
 
     $data_string = "'" . $data_string . "'";
@@ -38,6 +42,10 @@ function sql_zayavka ($data_string) {
     return $SQL_ZAYAVKA;
 }
 
+/**
+ * @param $data_string
+ * @return string
+ */
 function sql_zapros_podbor ($data_string) {
 
     $data_string = "'" . $data_string . "'";
@@ -58,11 +66,6 @@ function sql_zapros_podbor ($data_string) {
 
     return $SQL_ZAPROS_PODBOR;
 }
-
-
-/**
- * Constants
- */
 
 define("SQL_F", "
     select `k-ts`.`f`
