@@ -11,6 +11,18 @@
  */
 
 
+function SQL_EST_V_BASE ($data_string) {
+
+    $data_string = "'" . $data_string . "'";
+
+    $SQL_est_v_base = "select `s`, `kol`
+		from `k-ts`
+		where `s` in ('" . $data_string . "')
+		order by `k-ts`.`kol` desc";
+
+    return $SQL_est_v_base;
+}
+
 define("SQL_ZAPROS_OCHERED", "
     SELECT *
     FROM `k-ts`

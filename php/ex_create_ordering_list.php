@@ -1,6 +1,7 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
 
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
@@ -21,16 +22,11 @@ if ( !isset($massiv_itog) || count( $massiv_itog ) < 8) {
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $massiv_itog_2 = implode( "','", $massiv_itog );
 
-    $SQL_est_v_base = mysqli_query( $db_connect, "
-		select `s`, `kol`
-		from `k-ts`
-		where `s` in ('" . $massiv_itog_2 . "')
-		order by `k-ts`.`kol` desc
-		" );
-    $n = 0;
-    while ( $rez = mysqli_fetch_array( $SQL_est_v_base ) ) {
-        $massiv_itog_est_v_base_slovo[ $n ] = $rez['s'];
-        $n ++;
+    $SQL_est_v_base = $db_connect->query( SQL_EST_V_BASE($massiv_itog_2) );
+    $data           = $SQL_est_v_base->fetch_all(MYSQLI_ASSOC);
+
+    foreach ( $data as $key => $val ) {
+        $massiv_itog_est_v_base_slovo[ $key ] = $val['s'];
     }
     if ( count( $massiv_itog_est_v_base_slovo ) != count( $massiv_itog ) ) {
         $massiv_itog_net_v_base_slova = array_diff( $massiv_itog, $massiv_itog_est_v_base_slovo );
@@ -54,5 +50,5 @@ $ochered = implode( "", $ochered );
 
 $_SESSION["ochered"] = $ochered;
 
-mysqli_close( $db_connect );
+$db_connect->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_4.php" );
