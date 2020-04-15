@@ -143,7 +143,6 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <?php if ( isset( $_REZULTAT_russk_neperevedennye ) ) {
         echo $_REZULTAT_russk_neperevedennye;
     }; ?>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/socialIcons.php' ); ?>
     <br>
     <br>
     <br>
