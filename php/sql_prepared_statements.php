@@ -14,59 +14,60 @@ error_reporting(-1);
 
 
 /**
- * @param $data_string
- * @return string
+ * @param string $data_string
+ * @return string $query_string
  */
 function sql_est_v_base($data_string)
 {
-    $data_string = "'" . $data_string . "'";
-
-    $SQL_est_v_base = "select `s`, `kol`
-		from `k-ts`
-		where `s` in ('" . $data_string . "')
-		order by `k-ts`.`kol` desc";
-
-    return $SQL_est_v_base;
+    $data_string = "'$data_string'";
+    $query_string = <<<SQL
+        select `s`, `kol`
+        from `k-ts`
+        where `s` in ($data_string)
+        order by `k-ts`.`kol` desc
+SQL;
+    return $query_string;
 }
 
 /**
- * @param $data_string
- * @return string
+ * @param string $data_string
+ * @return string $query_string
  */
 function sql_zayavka($data_string)
 {
-    $data_string = "'" . $data_string . "'";
-
-    $SQL_ZAYAVKA = "update `k-ts`
-	set `f` = 7
-	where `s` in (" . $data_string . ")";
-
-    return $SQL_ZAYAVKA;
+    $data_string = "'$data_string'";
+    $query_string = <<<SQL
+        update `k-ts`
+        set `f` = 7
+        where `s` in ($data_string)
+SQL;
+    return $query_string;
 }
 
 /**
- * @param $data_string
- * @return string
+ * @param string $data_string
+ * @return string $query_string
  */
-function sql_zapros_podbor($data_string)
+function sql_zapr_podb($data_string)
 {
-    $data_string = "'" . $data_string . "'";
-
-    $SQL_ZAPROS_PODBOR = "select `k-ts`.`s`, count(*)
-	  from (
-		select `k-t_s`.`id_n`
-		from  `k-ts`
-		join `k-t_s` on `k-t_s`.`id_s` = `k-ts`.`ids`
-		where `k-ts`.`s` in (" . $data_string . ")
-		group by `k-t_s`.`id_n` having count(/*distinct*/ `k-t_s`.`id_s`) >= ?
-		) `g`
-	  join `k-t_s` on `k-t_s`.`id_n` = `g`.`id_n`
-	  join `k-ts` on `k-ts`.`ids` = `k-t_s`.`id_s`
-	  where `k-ts`.`f` in (0, 1, 7)
-	  group by `k-t_s`.`id_s`, `k-ts`.`s`
-	  order by count(*) desc, `k-ts`.`s` LIMIT 0, ?";
-
-    return $SQL_ZAPROS_PODBOR;
+    $data_string = "'$data_string'";
+    $query_string = <<<SQL
+        select `k-ts`.`s`, count(*)
+        from (
+          select `k-t_s`.`id_n`
+          from  `k-ts`
+          join `k-t_s` on `k-t_s`.`id_s` = `k-ts`.`ids`
+          where `k-ts`.`s` in ($data_string)
+          group by `k-t_s`.`id_n`
+          having count(/*distinct */`k-t_s`.`id_s`) >= ?
+          ) `g`
+        join `k-t_s` on `k-t_s`.`id_n` = `g`.`id_n`
+        join `k-ts` on `k-ts`.`ids` = `k-t_s`.`id_s`
+        where `k-ts`.`f` in (0, 1, 7)
+        group by `k-t_s`.`id_s`, `k-ts`.`s`
+        order by count(*) desc, `k-ts`.`s` limit 0, ?
+SQL;
+    return $query_string;
 }
 
 define("SQL_F", "

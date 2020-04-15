@@ -61,7 +61,7 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        if (!($stmt = $db_connect->prepare(sql_zapros_podbor($_SQL_stroka_dlya_podbora)))) {
+        if (!($stmt = $db_connect->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
             echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
         }
         if (!$stmt->bind_param("ii", $i, $granicza)) {
@@ -107,7 +107,7 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        }
     }
 } else {
-    if (!($stmt = $db_connect->prepare(sql_zapros_podbor($_SQL_stroka_dlya_podbora)))) {
+    if (!($stmt = $db_connect->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
         echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
     }
     if (!$stmt->bind_param("ii", $i, $granicza)) {
