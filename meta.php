@@ -10,11 +10,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 $mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATED_WORDS);
 $arr_result = $mysqli_result->fetch_array();
-$count_translated = number_format($arr_result[0], 0, '', '&nbsp;');
+$count_translated = number_format((float)$arr_result[0], 0, '', '&nbsp;');
 
 $mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATION_REQUEST);
 $arr_result = $mysqli_result->fetch_array();
-$count_request = number_format($arr_result[0], 0, '', '&nbsp;');
+$count_request = number_format((float)$arr_result[0], 0, '', '&nbsp;');
 
 $db_connect->close();
 ?>
