@@ -15,7 +15,8 @@
  * @param $data_string
  * @return string
  */
-function sql_est_v_base ($data_string) {
+function sql_est_v_base($data_string)
+{
 
     $data_string = "'" . $data_string . "'";
 
@@ -31,7 +32,8 @@ function sql_est_v_base ($data_string) {
  * @param $data_string
  * @return string
  */
-function sql_zayavka ($data_string) {
+function sql_zayavka($data_string)
+{
 
     $data_string = "'" . $data_string . "'";
 
@@ -46,7 +48,8 @@ function sql_zayavka ($data_string) {
  * @param $data_string
  * @return string
  */
-function sql_zapros_podbor ($data_string) {
+function sql_zapros_podbor($data_string)
+{
 
     $data_string = "'" . $data_string . "'";
 
