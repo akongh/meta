@@ -39,16 +39,22 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-    $SQL_f = mysqli_query( $db_connect, "
-	select `k-ts`.`f`
-	from `k-ts`
-	where `k-ts`.`s`='" . $rus[ $i ] . "'
-	" );
+    if (!($stmt = $db_connect->prepare(SQL_F))) {
+        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    }
+    if (!$stmt->bind_param("s", $rus[ $i ])) {
+        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    if (!$stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    $result = $stmt->get_result();
+    $stmt->close();
 
-    $n = 0;
-    while ( $rez = mysqli_fetch_array( $SQL_f ) ) {
-        $f[ $n ] = $rez['f'];
-        $n ++;
+    $SQL_f = $result->fetch_all(MYSQLI_ASSOC);
+
+    foreach ( $SQL_f as $key => $val ) {
+        $f[ $key ] = $val['f'];
     }
 
     if ( isset( $f[0] ) ) {

@@ -11,6 +11,12 @@
  */
 
 
+define("SQL_F", "
+    select `k-ts`.`f`
+	from `k-ts`
+	where `k-ts`.`s`= ?
+");
+
 define("SQL_P_Z", "
     select `l-ts`.`s`, `tz`.`z`
 	from `k-ts`
