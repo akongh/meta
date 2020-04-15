@@ -11,6 +11,15 @@
  */
 
 
+define("SQL_P_Z", "
+    select `l-ts`.`s`, `tz`.`z`
+	from `k-ts`
+	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
+	join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
+	join `tz` on `tz`.`idz`=`k_l`.`idz`
+	where `k-ts`.`s`= ?
+");
+
 function SQL_EST_V_BASE ($data_string) {
 
     $data_string = "'" . $data_string . "'";

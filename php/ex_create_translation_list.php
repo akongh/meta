@@ -1,6 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER['DOCUMENT_ROOT'] . '/sql_prepared_statements.php' );
+
 
 unset(
     $_SESSION["oshibka_kolichestva"],
@@ -9,27 +11,31 @@ unset(
 
 $rus = $_POST['spisok_mesto'];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
-    $SQL_p_z = mysqli_query( $db_connect, "
-	select `l-ts`.`s`, `tz`.`z`
-	from `k-ts`
-	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
-	join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
-	join `tz` on `tz`.`idz`=`k_l`.`idz`
-	where `k-ts`.`s`='" . $rus[ $i ] . "'
-	" );
 
-    $n = 0;
-    while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-        $p[ $n ]   = $rez['s'];
-        $p2[ $n ]  = preg_replace( "/'/", "&#039;", $p[ $n ] );
-        $z[ $n ]   = $rez['z'];
-        $p_z[ $n ] = "
+    if (!($stmt = $db_connect->prepare(SQL_P_Z))) {
+        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    }
+    if (!$stmt->bind_param("s", $rus[ $i ])) {
+        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    if (!$stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    }
+    $result = $stmt->get_result();
+    $stmt->close();
+
+    $SQL_p_z = $result->fetch_all(MYSQLI_ASSOC);
+
+    foreach ( $SQL_p_z as $key => $val ) {
+        $p[ $key ]   = $val['s'];
+        $p2[ $key ]  = preg_replace( "/'/", "&#039;", $p[ $key ] );
+        $z[ $key ]   = $val['z'];
+        $p_z[ $key ] = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
-                <input type='checkbox' name='angl[]' value = '" . $p2[ $n ] . "'> " . $p[ $n ] . "
-            </span> — " . $z[ $n ]. "
+                <input type='checkbox' name='angl[]' value = '" . $p2[ $key ] . "'> " . $p[ $key ] . "
+            </span> — " . $z[ $key ]. "
         </label>";
-        $n ++;
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
@@ -135,5 +141,5 @@ if ( isset( $pro_zayavku ) ) {
     $_SESSION["pro_zayavku"] = $pro_zayavku;
 }
 
-mysqli_close( $db_connect );
+$db_connect->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php" );
