@@ -15,7 +15,7 @@
  * Functions
  */
 
-function SQL_EST_V_BASE ($data_string) {
+function sql_est_v_base ($data_string) {
 
     $data_string = "'" . $data_string . "'";
 
@@ -27,7 +27,7 @@ function SQL_EST_V_BASE ($data_string) {
     return $SQL_est_v_base;
 }
 
-function SQL_ZAYAVKA ($data_string) {
+function sql_zayavka ($data_string) {
 
     $data_string = "'" . $data_string . "'";
 
@@ -38,7 +38,7 @@ function SQL_ZAYAVKA ($data_string) {
     return $SQL_ZAYAVKA;
 }
 
-function SQL_ZAPROS_PODBOR ($data_string) {
+function sql_zapros_podbor ($data_string) {
 
     $data_string = "'" . $data_string . "'";
 

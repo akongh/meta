@@ -22,7 +22,7 @@ if ( !isset($massiv_itog) || count( $massiv_itog ) < 8) {
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $massiv_itog_2 = implode( "','", $massiv_itog );
 
-    $SQL_est_v_base = $db_connect->query( SQL_EST_V_BASE($massiv_itog_2) );
+    $SQL_est_v_base = $db_connect->query( sql_est_v_base($massiv_itog_2) );
     $data           = $SQL_est_v_base->fetch_all(MYSQLI_ASSOC);
 
     foreach ( $data as $key => $val ) {
