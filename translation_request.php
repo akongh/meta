@@ -1,4 +1,7 @@
-<?php error_reporting( - 1 );
+<?php
+declare(strict_types=1);
+error_reporting(-1);
+
 session_start();
 session_unset();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );

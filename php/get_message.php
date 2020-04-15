@@ -1,4 +1,6 @@
-<?php error_reporting( - 1 );
+<?php
+declare(strict_types=1);
+error_reporting(-1);
 
 if ( isset( $_POST["messageText"] ) ) {
 

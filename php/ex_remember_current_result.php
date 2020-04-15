@@ -1,4 +1,7 @@
-<?php error_reporting( - 1 );
+<?php
+declare(strict_types=1);
+error_reporting(-1);
+
 session_start();
 
 $sost_nab = $_SESSION["massiv_itog"];
