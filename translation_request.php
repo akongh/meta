@@ -9,10 +9,8 @@ unset( $_POST );
 $_SQL_rezultat_ochered = $db_connect->query( SQL_ZAPROS_OCHERED );
 $data                  = $_SQL_rezultat_ochered->fetch_all(MYSQLI_ASSOC);
 
-$n = 0;
 foreach ( $data as $key => $val ) {
     $_MASSIV_ochered[ $key ] = $val['s'];
-    $n ++;
 }
 
 if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
