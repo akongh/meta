@@ -2,20 +2,10 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 <hr class="line">
 <br>
 <br>
-<!--<a href="http://afoteris.com/rukovodstvo-mety/.html" title="Описание возможностей и правил Меты" target="_blank">Руководство Меты</a>-->
-<!--<br>-->
-<a href="http://afoteris.com" title="Сайт AFOTERIS.com для стоковых авторов" target="_blank">AFOTERIS.com</a>
-<br>
-<br>
-© META.afoteris.com, 2014&mdash;<?php echo date("Y"); ?>
-<!--<br>-->
-<!--<a href="mailto:pochta@afoteris.com?subject=Мета. Отзывы и предложения." title="Для отзывов и предложений">pochta@afoteris.com</a>-->
-<br>
+© Андрей К., Елена А., 2014&mdash;<?php echo date("Y"); ?>
 <br>
 <br>
 <br>

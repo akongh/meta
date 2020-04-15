@@ -64,6 +64,9 @@ $db_connect->close();
         особенностей.
     </h2>
     <br>
+    <br>
+    <br>
+    <br>
     Ключевых слов переведено
     <span class="counter">
         <?php if (isset($count_translated)){echo $count_translated;}; ?></span>,
@@ -77,11 +80,6 @@ $db_connect->close();
     <div class="content-right">
         <a class="link-button" href="/step_1.php" title="Начать подбирать ключевые слова">[Русско-английский подбор]</a>
     </div>
-    <br>
-    <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/socialIcons.php' );?>
-    <br>
-    <br>
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 </body>
