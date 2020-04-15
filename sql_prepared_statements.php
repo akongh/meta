@@ -11,20 +11,9 @@
  */
 
 
-define("SQL_F", "
-    select `k-ts`.`f`
-	from `k-ts`
-	where `k-ts`.`s`= ?
-");
-
-define("SQL_P_Z", "
-    select `l-ts`.`s`, `tz`.`z`
-	from `k-ts`
-	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
-	join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
-	join `tz` on `tz`.`idz`=`k_l`.`idz`
-	where `k-ts`.`s`= ?
-");
+/**
+ * Functions
+ */
 
 function SQL_EST_V_BASE ($data_string) {
 
@@ -38,13 +27,6 @@ function SQL_EST_V_BASE ($data_string) {
     return $SQL_est_v_base;
 }
 
-define("SQL_ZAPROS_OCHERED", "
-    SELECT *
-    FROM `k-ts`
-    WHERE `f` = 7
-    order by `kol` desc
-");
-
 function SQL_ZAYAVKA ($data_string) {
 
     $data_string = "'" . $data_string . "'";
@@ -55,22 +37,6 @@ function SQL_ZAYAVKA ($data_string) {
 
     return $SQL_ZAYAVKA;
 }
-
-define("SQL_CREATE_RESULTS_CHOICE", "
-    INSERT INTO `k-tn` (`vr`, `ses`)  
-    VALUES ( ?, ? )
-");
-
-define("SQL_CREATE_RESULTS_CHOICE_2", "
-    INSERT IGNORE INTO `k-ts` (`s`)
-    VALUES ( ? )
-");
-
-define("SQL_CREATE_RESULTS_CHOICE_3", "
-    INSERT INTO `k-t_s` (`id_n`, `id_s`)  
-    VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),  
-            (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))  
-");
 
 function SQL_ZAPROS_PODBOR ($data_string) {
 
@@ -92,6 +58,49 @@ function SQL_ZAPROS_PODBOR ($data_string) {
 
     return $SQL_ZAPROS_PODBOR;
 }
+
+
+/**
+ * Constants
+ */
+
+define("SQL_F", "
+    select `k-ts`.`f`
+	from `k-ts`
+	where `k-ts`.`s`= ?
+");
+
+define("SQL_P_Z", "
+    select `l-ts`.`s`, `tz`.`z`
+	from `k-ts`
+	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
+	join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
+	join `tz` on `tz`.`idz`=`k_l`.`idz`
+	where `k-ts`.`s`= ?
+");
+
+define("SQL_ZAPROS_OCHERED", "
+    SELECT *
+    FROM `k-ts`
+    WHERE `f` = 7
+    order by `kol` desc
+");
+
+define("SQL_CREATE_RESULTS_CHOICE", "
+    INSERT INTO `k-tn` (`vr`, `ses`)  
+    VALUES ( ?, ? )
+");
+
+define("SQL_CREATE_RESULTS_CHOICE_2", "
+    INSERT IGNORE INTO `k-ts` (`s`)
+    VALUES ( ? )
+");
+
+define("SQL_CREATE_RESULTS_CHOICE_3", "
+    INSERT INTO `k-t_s` (`id_n`, `id_s`)  
+    VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),  
+            (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))  
+");
 
 define("SQL_COUNT_TRANSLATED_WORDS_QUERY", "
     select count(`k-ts`.`s`)
