@@ -20,13 +20,12 @@ error_reporting(-1);
 function sql_est_v_base($data_string)
 {
     $data_string = "'$data_string'";
-    $query_string = <<<SQL
+    return <<<SQL
         select `s`, `kol`
         from `k-ts`
         where `s` in ($data_string)
         order by `k-ts`.`kol` desc
 SQL;
-    return $query_string;
 }
 
 /**
@@ -36,12 +35,11 @@ SQL;
 function sql_zayavka($data_string)
 {
     $data_string = "'$data_string'";
-    $query_string = <<<SQL
+    return <<<SQL
         update `k-ts`
         set `f` = 7
         where `s` in ($data_string)
 SQL;
-    return $query_string;
 }
 
 /**
@@ -51,7 +49,7 @@ SQL;
 function sql_zapr_podb($data_string)
 {
     $data_string = "'$data_string'";
-    $query_string = <<<SQL
+    return <<<SQL
         select `k-ts`.`s`, count(*)
         from (
           select `k-t_s`.`id_n`
@@ -67,7 +65,6 @@ function sql_zapr_podb($data_string)
         group by `k-t_s`.`id_s`, `k-ts`.`s`
         order by count(*) desc, `k-ts`.`s` limit 0, ?
 SQL;
-    return $query_string;
 }
 
 define("SQL_F", "
