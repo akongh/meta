@@ -93,7 +93,7 @@ define("SQL_ZAPROS_OCHERED", "
 ");
 
 define("SQL_CREATE_RESULTS_CHOICE", "
-    INSERT INTO `k-tn` (`vr`, `ses`)  
+    INSERT INTO `k-tn` (`vr`, `ses`)
     VALUES ( ?, ? )
 ");
 
@@ -103,9 +103,9 @@ define("SQL_CREATE_RESULTS_CHOICE_2", "
 ");
 
 define("SQL_CREATE_RESULTS_CHOICE_3", "
-    INSERT INTO `k-t_s` (`id_n`, `id_s`)  
-    VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),  
-            (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))  
+    INSERT INTO `k-t_s` (`id_n`, `id_s`)
+    VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),
+            (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))
 ");
 
 define("SQL_COUNT_TRANSLATED_WORDS", "
