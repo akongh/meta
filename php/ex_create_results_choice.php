@@ -3,23 +3,20 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include($_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 $russk = $_POST["russk"];
-if ( isset( $_POST["angl"] ) ) {
-    $angl = $_POST["angl"];
+if (isset($_POST["angl"])) {
+    $angl = array_values(array_unique($_POST["angl"]));
 };
-
-if ( isset( $_POST["zayavka"] ) ) {
+if (isset($_POST["zayavka"])) {
     $zayavka = $_POST["zayavka"];
 }
-if ( isset( $angl ) ) {
-    $angl = array_values( array_unique( $angl ) );
-}
-$_SESSION["kol_slov_russk"] = count( $russk );
-if ( isset( $angl ) ) {
-    $_SESSION["kol_slov_angl"] = count( $angl );
+
+$_SESSION["kol_slov_russk"] = count($russk);
+if (isset($angl)) {
+    $_SESSION["kol_slov_angl"] = count($angl);
 } else {
     $_SESSION["kol_slov_angl"] = 0;
 }
