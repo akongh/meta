@@ -83,7 +83,7 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 
 //    echo $data;
 
-    preg_match_all( '/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
+    preg_match_all( '/(<img class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
 
 //    var_dump( $array_works_block );
 //    echo count( $array_works_block[0]);
@@ -103,8 +103,8 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 
         $img = $array_works_block[ $i ];
 
-        preg_match( "/[0-9]*.jpg/su", $array_works_block[ $i ], $id );
-        $id = preg_replace( '/.jpg/', '', $id );
+        preg_match( "/[0-9]*\.jpg/su", $array_works_block[ $i ], $id );
+        $id = preg_replace( '/\.jpg/', '', $id );
 
         $array_works_data[ $i ] = [
             'title' => $title[0],
@@ -127,9 +127,9 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace( '/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[/', '', $array_works_block[0][0] );
-    $array_works_block[0][0] = preg_replace( '/\]<\/script>/', '', $array_works_block[0][0] );
-    $array_works_block[0][0] = preg_replace( '/\},\{/', '},,,,{', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace( '/<script data-react-helmet="true" type="application\/ld\+json">\[/', '', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace( '/]<\/script>/', '', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace( '/},{/', '},,,,{', $array_works_block[0][0] );
     $array_works_block       = explode( ",,,,", $array_works_block[0][0] );
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
