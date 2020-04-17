@@ -120,7 +120,7 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 
     $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
 
-    preg_match_all( '/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[.*\]<\/script>/su', $data, $array_works_block );
+    preg_match_all( '/<script data-react-helmet="true" type="application\/ld\+json">\[.*]<\/script>/su', $data, $array_works_block );
 
     if ( count( $array_works_block[0] ) == 0 ) {
         echo( '-1' );
