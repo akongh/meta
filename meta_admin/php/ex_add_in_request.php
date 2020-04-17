@@ -4,7 +4,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $na_sbros         = $_POST["opornoe_slovo_sbrosa"];
 $na_sbros         = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $na_sbros ) ) ), "utf-8" ) );
-$_MASSIV_na_sbros = preg_split( "[\n,;]", $na_sbros, - 1, PREG_SPLIT_NO_EMPTY );
+$_MASSIV_na_sbros = preg_split( "/[\n,;]/", $na_sbros, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_na_sbros ); $i ++ ) {
     $_MASSIV_na_sbros[ $i ] = trim( $_MASSIV_na_sbros[ $i ] );

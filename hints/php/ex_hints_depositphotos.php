@@ -121,7 +121,7 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     //заменяем код амперсанда для запроса подсказок
     $basic_keywords_array = preg_replace( "/&amp;/", "%26", $basic_keywords_array );
-    $basic_keywords_array = preg_split( "[\n,;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
+    $basic_keywords_array = preg_split( "/[\n,;]/", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = trim( $basic_keywords_array[ $i ] );

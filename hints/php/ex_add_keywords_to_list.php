@@ -36,7 +36,7 @@ function PREPARE_ADD_TO_LIST_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
     $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     $basic_keywords_array = preg_replace( "/&amp;/", "&", $basic_keywords_array );
-    $basic_keywords_array = preg_split( "[\n,;]", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
+    $basic_keywords_array = preg_split( "/[\n,;]/", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
         $basic_keywords_array[ $i ] = preg_replace("/&/", "&amp;", trim( $basic_keywords_array[ $i ] ));

@@ -9,7 +9,7 @@ $novoe_slovo_razbit = trim( mb_strtolower( htmlspecialchars( strip_tags( stripsl
 $novoe_slovo_razbit = preg_replace( "/ {2,}/", " ", $novoe_slovo_razbit );
 $novoe_slovo_razbit = preg_replace( "/-{2,}/", "-", $novoe_slovo_razbit );
 
-$_MASSIV_novoe_slovo_razbit = preg_split( "[\n,;]", $novoe_slovo_razbit, - 1, PREG_SPLIT_NO_EMPTY );
+$_MASSIV_novoe_slovo_razbit = preg_split( "/[\n,;]/", $novoe_slovo_razbit, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
     $_MASSIV_novoe_slovo_razbit[ $i ] = trim( $_MASSIV_novoe_slovo_razbit[ $i ] );
