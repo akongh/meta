@@ -7,50 +7,50 @@ include($_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 if (isset($_POST["russk"])) {
-    $russk = array_values(array_unique($_POST["russk"]));
+    $kws_ru = array_values(array_unique($_POST["russk"]));
 };
 if (isset($_POST["angl"])) {
-    $angl = array_values(array_unique($_POST["angl"]));
+    $kws_en = array_values(array_unique($_POST["angl"]));
 };
 if (isset($_POST["zayavka"])) {
-    $zayavka = $_POST["zayavka"];
+    $kws_mark_transl = $_POST["zayavka"];
 }
 
-if (isset($russk)) {
-    $_SESSION["kol_slov_russk"] = count($russk);
+if (isset($kws_ru)) {
+    $_SESSION["kol_slov_russk"] = count($kws_ru);
 }
-if (isset($angl)) {
-    $_SESSION["kol_slov_angl"] = count($angl);
+if (isset($kws_en)) {
+    $_SESSION["kol_slov_angl"] = count($kws_en);
 } else {
     $_SESSION["kol_slov_angl"] = 0;
 }
 
-$vr_nabora = time();
-$ses = session_id();
+$kwsset_time = time();
+$ses_id = session_id();
 
-if (isset($russk)) {
-    $russk2 = $russk;
-    for ($i = 0; $i < count($russk2); $i++) {
-        $russk2[$i] = trim($russk2[$i]);
-        $russk2[$i] = preg_replace("/ {2,}/", " ", $russk2[$i]);
-        $russk2[$i] = preg_replace("/'/", "\'", $russk2[$i]);
+if (isset($kws_ru)) {
+    $kws_ru2 = $kws_ru;
+    for ($i = 0; $i < count($kws_ru2); $i++) {
+        $kws_ru2[$i] = trim($kws_ru2[$i]);
+        $kws_ru2[$i] = preg_replace("/ {2,}/", " ", $kws_ru2[$i]);
+        $kws_ru2[$i] = preg_replace("/'/", "\'", $kws_ru2[$i]);
     }
 
     if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_ID))) {
         echo $db_connect->errno . " -> " . $db_connect->error;
     }
-    if (!$stmt->bind_param("ss", $vr_nabora, $ses)) {
+    if (!$stmt->bind_param("ss", $kwsset_time, $ses_id)) {
         echo $stmt->errno . " -> " . $stmt->error;
     }
     if (!$stmt->execute()) {
         echo $stmt->errno . " -> " . $stmt->error;
     }
 
-    for ($i = 0; $i < count($russk2); $i++) {
+    for ($i = 0; $i < count($kws_ru2); $i++) {
         if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_KWS))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
-        if (!$stmt->bind_param("s", $russk2[$i])) {
+        if (!$stmt->bind_param("s", $kws_ru2[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
@@ -60,7 +60,7 @@ if (isset($russk)) {
         if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_REL))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
-        if (!$stmt->bind_param("sss", $vr_nabora, $ses, $russk2[$i])) {
+        if (!$stmt->bind_param("sss", $kwsset_time, $ses_id, $kws_ru2[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
@@ -68,21 +68,21 @@ if (isset($russk)) {
         }
     }
 
-    $_REZULTAT_russk = implode(", ", $russk);
+    $result_ru = implode(", ", $kws_ru);
 }
-if ( isset( $angl ) ) {
-    $_REZULTAT_angl = implode(", ", $angl);
+if ( isset( $kws_en ) ) {
+    $result_en = implode(", ", $kws_en);
 }
-if (isset($zayavka)) {
-    $zayavka = implode("', '", $zayavka);
-    $db_connect->query(sql_kws_mark_transl($zayavka));
+if (isset($kws_mark_transl)) {
+    $kws_mark_transl = implode("', '", $kws_mark_transl);
+    $db_connect->query(sql_kws_mark_transl($kws_mark_transl));
 }
 
 $stmt->close();
 
-$_SESSION["_REZULTAT_russk"] = $_REZULTAT_russk;
-if (isset($_REZULTAT_angl)) {
-    $_SESSION["_REZULTAT_angl"] = $_REZULTAT_angl;
+$_SESSION["_REZULTAT_russk"] = $result_ru;
+if (isset($result_en)) {
+    $_SESSION["_REZULTAT_angl"] = $result_en;
 };
 
 $db_connect->close();
