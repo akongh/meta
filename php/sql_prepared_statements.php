@@ -89,17 +89,17 @@ define("SQL_ZAPROS_OCHERED", "
     order by `kol` desc
 ");
 
-define("SQL_CREATE_RESULTS_CHOICE", "
+define("SQL_CREATE_KWSET_ID", "
     INSERT INTO `k-tn` (`vr`, `ses`)
     VALUES ( ?, ? )
 ");
 
-define("SQL_CREATE_RESULTS_CHOICE_2", "
+define("SQL_CREATE_KWSET_KWS", "
     INSERT IGNORE INTO `k-ts` (`s`)
     VALUES ( ? )
 ");
 
-define("SQL_CREATE_RESULTS_CHOICE_3", "
+define("SQL_CREATE_KWSET_REL", "
     INSERT INTO `k-t_s` (`id_n`, `id_s`)
     VALUES ((SELECT `idn` FROM `k-tn` WHERE `vr` =  ? AND `ses` = ? ),
             (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))

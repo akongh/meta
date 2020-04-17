@@ -32,36 +32,36 @@ if ( isset( $russk ) ) {
         $russk2[ $i ] = preg_replace( "/'/", "\'", $russk2[ $i ] );
     }
 
-    if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE))) {
-        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_ID))) {
+        echo $db_connect->errno . " -> " . $db_connect->error;
     }
     if (!$stmt->bind_param("ss", $vr_nabora, $ses)) {
-        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+        echo $stmt->errno . " -> " . $stmt->error;
     }
     if (!$stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+        echo $stmt->errno . " -> " . $stmt->error;
     }
 
     for ( $i = 0; $i < count( $russk2 ); $i ++ ) {
 
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE_2))) {
-            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_KWS))) {
+            echo $db_connect->errno . " -> " . $db_connect->error;
         }
         if (!$stmt->bind_param("s", $russk2[$i] )) {
-            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+            echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
-            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+            echo $stmt->errno . " -> " . $stmt->error;
         }
 
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_RESULTS_CHOICE_3))) {
-            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_REL))) {
+            echo $db_connect->errno . " -> " . $db_connect->error;
         }
         if (!$stmt->bind_param("sss", $vr_nabora, $ses, $russk2[$i])) {
-            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+            echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
-            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+            echo $stmt->errno . " -> " . $stmt->error;
         }
     }
 
