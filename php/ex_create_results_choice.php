@@ -70,7 +70,7 @@ if (isset($kws_ru)) {
 
     $result_ru = implode(", ", $kws_ru);
 }
-if ( isset( $kws_en ) ) {
+if (isset($kws_en)) {
     $result_en = implode(", ", $kws_en);
 }
 if (isset($kws_mark_transl)) {
