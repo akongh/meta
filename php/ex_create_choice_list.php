@@ -22,7 +22,7 @@ $vvod_op_slov    = $_POST["vvod_op_slov"];
 $vvod_op_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $vvod_op_slov ) ) ), "utf-8" ) );
 $vvod_op_slov    = preg_replace( "/ {2,}/", " ", $vvod_op_slov );
 $vvod_op_slov    = preg_replace( "/-{2,}/", "-", $vvod_op_slov );
-$_MASSIV_op_slov = preg_split( "[\n|,|;]", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMPTY );
+$_MASSIV_op_slov = preg_split( "[\n,;]", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
     $_MASSIV_op_slov[ $i ] = trim( $_MASSIV_op_slov[ $i ] );
