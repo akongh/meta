@@ -6,15 +6,14 @@ $slovo_original = $_SESSION["slovo_original"];//разбиваемое слов�
 
 $novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];
 $novoe_slovo_razbit = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $novoe_slovo_razbit ) ) ), "utf-8" ) );
-$novoe_slovo_razbit = preg_replace( "/ {2,}/", " ", $novoe_slovo_razbit );
-$novoe_slovo_razbit = preg_replace( "/-{2,}/", "-", $novoe_slovo_razbit );
+$novoe_slovo_razbit = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $novoe_slovo_razbit);
 
 $_MASSIV_novoe_slovo_razbit = preg_split( "/[\n,;]/", $novoe_slovo_razbit, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
     $_MASSIV_novoe_slovo_razbit[ $i ] = trim( $_MASSIV_novoe_slovo_razbit[ $i ] );
 }
-$_MASSIV_novoe_slovo_razbit = array_values( array_unique( ( array_diff( $_MASSIV_novoe_slovo_razbit, array( '' ) ) ) ) );
+$_MASSIV_novoe_slovo_razbit = array_values( array_unique( ( array_diff( $_MASSIV_novoe_slovo_razbit, array( "" ) ) ) ) );
 for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
     $_MASSIV_novoe_slovo_razbit[ $i ] = preg_replace( "/'/", "\'", $_MASSIV_novoe_slovo_razbit[ $i ] );//массив новых слов вместо разбиваемого для вставки в бд
 }

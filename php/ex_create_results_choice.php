@@ -8,10 +8,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 if (isset($_POST["russk"])) {
     $kws_ru = array_values(array_unique($_POST["russk"]));
-};
+}
 if (isset($_POST["angl"])) {
     $kws_en = array_values(array_unique($_POST["angl"]));
-};
+}
 if (isset($_POST["zayavka"])) {
     $kws_mark_transl = $_POST["zayavka"];
 }
@@ -31,9 +31,7 @@ $ses_id = session_id();
 if (isset($kws_ru)) {
     $kws_ru2 = $kws_ru;
     for ($i = 0; $i < count($kws_ru2); $i++) {
-        $kws_ru2[$i] = trim($kws_ru2[$i]);
-        $kws_ru2[$i] = preg_replace("/ {2,}/", " ", $kws_ru2[$i]);
-        $kws_ru2[$i] = preg_replace("/'/", "\'", $kws_ru2[$i]);
+        $kws_ru2[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru2[$i]));
     }
 
     if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_ID))) {
@@ -83,7 +81,7 @@ $stmt->close();
 $_SESSION["_REZULTAT_russk"] = $result_ru;
 if (isset($result_en)) {
     $_SESSION["_REZULTAT_angl"] = $result_en;
-};
+}
 
 $db_connect->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");

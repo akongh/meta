@@ -20,14 +20,13 @@ if ( isset( $_POST["sposob321"] ) ) {
 $granicza        = $_POST["granicza"];
 $vvod_op_slov    = $_POST["vvod_op_slov"];
 $vvod_op_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $vvod_op_slov ) ) ), "utf-8" ) );
-$vvod_op_slov    = preg_replace( "/ {2,}/", " ", $vvod_op_slov );
-$vvod_op_slov    = preg_replace( "/-{2,}/", "-", $vvod_op_slov );
+$vvod_op_slov = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $vvod_op_slov);
 $_MASSIV_op_slov = preg_split( "/[\n,;]/", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
     $_MASSIV_op_slov[ $i ] = trim( $_MASSIV_op_slov[ $i ] );
 }
-$_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_op_slov, array( '' ) ) ) ) );
+$_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_op_slov, array( "" ) ) ) ) );
 $opornye_slova             = implode( "\n", $_MASSIV_op_slov );
 $_SESSION["opornye_slova"] = $opornye_slova;
 if ( ! isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $opornye_slova == null ) {

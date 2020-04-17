@@ -47,15 +47,14 @@ if ( isset( $spisok ) && $spisok != null ) {
 //делаем массив из дополнительных слов
 $vvod_dop_slov    = $_POST["vvod_dop_slov"];
 $vvod_dop_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $vvod_dop_slov ) ) ), "utf-8" ) );
-$vvod_dop_slov    = preg_replace( "/ {2,}/", " ", $vvod_dop_slov );
-$vvod_dop_slov    = preg_replace( "/-{2,}/", "-", $vvod_dop_slov );
+$vvod_dop_slov = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $vvod_dop_slov);
 $_MASSIV_dop_slov = preg_split( "/[\n,;]/", $vvod_dop_slov, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_dop_slov ); $i ++ ) {
     $_MASSIV_dop_slov[ $i ] = trim( $_MASSIV_dop_slov[ $i ] );
 }
 
-$_MASSIV_dop_slov = array_values( array_unique( ( array_diff( $_MASSIV_dop_slov, array( '' ) ) ) ) );
+$_MASSIV_dop_slov = array_values( array_unique( ( array_diff( $_MASSIV_dop_slov, array( "" ) ) ) ) );
 //удаляем из дополнительных слов те, которые отмечены флажком в подборе
 if ( isset( $slova_s_flagom_bez_probelov ) && isset( $_MASSIV_dop_slov ) ) {
     for ( $i = 0; $i < count( $_MASSIV_dop_slov ); $i ++ ) {
@@ -97,7 +96,7 @@ if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $massiv_itog != null ) {
 }
 //ещё одна проверка на смесь кирилицы и латиницы
 if ( isset( $massiv_itog ) ) {
-    $massiv_itog = array_values( array_unique( ( array_diff( $massiv_itog, array( '' ) ) ) ) );
+    $massiv_itog = array_values( array_unique( ( array_diff( $massiv_itog, array( "" ) ) ) ) );
     if ( count( $massiv_itog ) > 0 ) {
         $proverka_simvola = implode( "", $massiv_itog );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {

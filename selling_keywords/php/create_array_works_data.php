@@ -2,16 +2,15 @@
 
 if ( isset( $_POST['author'] ) ) {
     $author = trim( $_POST['author'] );
-    if ( $author != '' ) {
-        $author = preg_replace( '/ /', '+', $author );
+    if ( $author != "" ) {
+        $author = preg_replace( "/ /", "+", $author );
     }
 }
 
 if ( isset( $_POST['keyword'] ) ) {
     $keyword = trim( $_POST['keyword'] );
-    if ( $keyword != '' ) {
-        $keyword = preg_replace( '/ /', '+', $keyword );
-        $keyword = preg_replace( '/\\n/', '+', $keyword );
+    if ( $keyword != "" ) {
+        $keyword = preg_replace(["/ /", "/\\n/"], "+", $keyword);
     }
 }
 
@@ -30,7 +29,7 @@ require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/arrays_cookies_
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
-if ( $author == '' ) {
+if ( $author == "" ) {
     $search_url = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
 
 //    echo $search_url;
@@ -98,13 +97,12 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
         preg_match( '/(alt=").*?(")/su', $array_works_block[ $i ], $title );
-        $title = preg_replace( '/alt="/', '', $title );
-        $title = preg_replace( '/"/', '', $title );
+        $title = preg_replace(['/alt="/', '/"/'], "", $title);
 
         $img = $array_works_block[ $i ];
 
         preg_match( "/[0-9]*\.jpg/su", $array_works_block[ $i ], $id );
-        $id = preg_replace( '/\.jpg/', '', $id );
+        $id = preg_replace( "/\.jpg/", "", $id );
 
         $array_works_data[ $i ] = [
             'title' => $title[0],
@@ -127,9 +125,8 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace( '/<script data-react-helmet="true" type="application\/ld\+json">\[/', '', $array_works_block[0][0] );
-    $array_works_block[0][0] = preg_replace( '/]<\/script>/', '', $array_works_block[0][0] );
-    $array_works_block[0][0] = preg_replace( '/},{/', '},,,,{', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace(['/<script data-react-helmet="true" type="application\/ld\+json">\[/', "/]<\/script>/"], "", $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace("/},{/", "},,,,{", $array_works_block[0][0]);
     $array_works_block       = explode( ",,,,", $array_works_block[0][0] );
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
@@ -153,7 +150,7 @@ function CREATE_URL( $_PARAM_array_works_ids ) {
         $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
     }
 
-    $string_params = implode( '&', $array_params );
+    $string_params = implode( "&", $array_params );
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
     return ( $url );

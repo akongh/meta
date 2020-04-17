@@ -10,7 +10,7 @@ for ( $i = 0; $i < count( $_MASSIV_na_sbros ); $i ++ ) {
     $_MASSIV_na_sbros[ $i ] = trim( $_MASSIV_na_sbros[ $i ] );
 }
 
-$_MASSIV_na_sbros     = array_values( array_unique( ( array_diff( $_MASSIV_na_sbros, array( '' ) ) ) ) );
+$_MASSIV_na_sbros     = array_values( array_unique( ( array_diff( $_MASSIV_na_sbros, array( "" ) ) ) ) );
 $_SQL_stroka_na_sbros = implode( "','", $_MASSIV_na_sbros );
 
 mysqli_query( $db_connect, "

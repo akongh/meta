@@ -6,16 +6,14 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
     $opornoe_slovo_zayavki = $_POST["opornoe_slovo_zayavki"];
     unset( $_POST["opornoe_slovo_zayavki"] );
     $opornoe_slovo_zayavki = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $opornoe_slovo_zayavki ) ) ), "utf-8" ) );
-    $opornoe_slovo_zayavki = preg_replace( "/ {2,}/", " ", $opornoe_slovo_zayavki );
-    $opornoe_slovo_zayavki = preg_replace( "/-{2,}/", "-", $opornoe_slovo_zayavki );
-
+    $opornoe_slovo_zayavki = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $opornoe_slovo_zayavki);
     $_MASSIV_opornoe_slovo_zayavki = preg_split( "/[\n,;]/", $opornoe_slovo_zayavki, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $_MASSIV_opornoe_slovo_zayavki ); $i ++ ) {
         $_MASSIV_opornoe_slovo_zayavki[ $i ] = trim( $_MASSIV_opornoe_slovo_zayavki[ $i ] );
     }
 
-    $_MASSIV_opornoe_slovo_zayavki = array_values( array_unique( ( array_diff( $_MASSIV_opornoe_slovo_zayavki, array( '' ) ) ) ) );
+    $_MASSIV_opornoe_slovo_zayavki = array_values( array_unique( ( array_diff( $_MASSIV_opornoe_slovo_zayavki, array( "" ) ) ) ) );
 
     $_SQL_opornoe_slovo_zayavki = implode( "','", $_MASSIV_opornoe_slovo_zayavki );
 

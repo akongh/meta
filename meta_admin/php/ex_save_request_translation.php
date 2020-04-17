@@ -16,16 +16,14 @@ if ( isset( $_POST["znachenie"] ) ) {
 if ( isset( $perevod ) ) {
 	for ( $i = 0; $i < count( $perevod ); $i ++ ) {
 		$perevod[ $i ] = trim( $perevod[ $i ] );
-		$perevod[ $i ] = preg_replace( "/ {2,}/", " ", $perevod[ $i ] );
-		$perevod[ $i ] = preg_replace( "/'/", "\'", $perevod[ $i ] );
+        $perevod[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], $perevod[$i]);
 	}
 }
 
 if ( isset( $znachenie ) ) {
 	for ( $i = 0; $i < count( $znachenie ); $i ++ ) {
 		$znachenie[ $i ] = trim( $znachenie[ $i ] );
-		$znachenie[ $i ] = preg_replace( "/ {2,}/", " ", $znachenie[ $i ] );
-		$znachenie[ $i ] = preg_replace( "/'/", "\'", $znachenie[ $i ] );
+        $znachenie[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], $znachenie[$i]);
 	}
 }
 if ( $slovo_original != $slovo_k ) {

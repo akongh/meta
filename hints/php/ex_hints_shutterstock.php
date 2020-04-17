@@ -74,7 +74,7 @@ if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     //удаляем пробелы на конце у ОКС, уравниваем код амперсанда, дубликаты удалятся далее
-    $basic_keywords_array[ $i ] = preg_replace('/%26/', '&', trim( $basic_keywords_array[ $i ] ));
+    $basic_keywords_array[ $i ] = preg_replace("/%26/", "&", trim( $basic_keywords_array[ $i ] ));
 }
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
@@ -91,7 +91,7 @@ $hint_keyword_array            = array_values( array_unique( array_merge( $hint_
 
 //заменяем амперсанд, чтоб не ломал javscript потом
 for($i = 0; $i < count($hint_keyword_array); $i++){
-    $hint_keyword_array[$i] = preg_replace('/&/','&amp;',$hint_keyword_array[$i]);
+    $hint_keyword_array[$i] = preg_replace("/&/","&amp;",$hint_keyword_array[$i]);
 }
 
 //добавление перевода
@@ -116,9 +116,8 @@ echo( $json_result );
 //готовит для запросов массив ОКС из строки ОКС
 function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
-    $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     //заменяем код амперсанда для запроса подсказок
-    $basic_keywords_array = preg_replace( "/&amp;/", "%26", $basic_keywords_array );
+    $basic_keywords_array = preg_replace(["/ {2,}/", "/&amp;/"], [" ", "%26"], $basic_keywords_array);
     $basic_keywords_array = preg_split( "/[\n,;]/", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -164,7 +163,7 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_med
 
 //очищает от служебной информации массив подсказок для одного json-ответа
 function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
-    $clean_json_responce       = preg_replace( "/ {2,}/", ' ', $_PARAM_json_responce );
+    $clean_json_responce       = preg_replace( "/ {2,}/", " ", $_PARAM_json_responce );
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
     $clean_json_responce_array = $clean_json_responce_array["data"]["autocompletions"];
 
@@ -185,7 +184,7 @@ function DELETE_BASIC_KEYWORD_FROM_HINT( $_PARAM_basic_keyword, $_PARAM_hint ) {
 
 //выбирает перевод для одной подсказки
 function SELECT_TRANSLATION( $_PARAM_hint_keyword, $_PARAM_db_connect ) {
-    $_PARAM_hint_keyword = preg_replace('/&amp;/', '&', $_PARAM_hint_keyword);
+    $_PARAM_hint_keyword = preg_replace("/&amp;/", "&", $_PARAM_hint_keyword);
     $_SQL_select_translations = "SELECT
     `tz`.`z`
 FROM
