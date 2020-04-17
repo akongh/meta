@@ -32,7 +32,7 @@ SQL;
  * @param string $data_string
  * @return string $query_string
  */
-function sql_zayavka($data_string)
+function sql_kws_mark_transl($data_string)
 {
     $data_string = "'$data_string'";
     return <<<SQL
