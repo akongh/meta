@@ -18,14 +18,6 @@ if (isset($_POST["zayavka"])) {
 
 if (isset($kws_ru)) {
     $_SESSION["kol_slov_russk"] = count($kws_ru);
-}
-if (isset($kws_en)) {
-    $_SESSION["kol_slov_angl"] = count($kws_en);
-} else {
-    $_SESSION["kol_slov_angl"] = 0;
-}
-
-if (isset($kws_ru)) {
     $kwsset_time = time();
     $kwsset_ses = session_id();
     $kws_ru_to_db = $kws_ru;
@@ -66,10 +58,13 @@ if (isset($kws_ru)) {
         }
     }
 
-    $result_ru = implode(", ", $kws_ru);
+    $_SESSION["_REZULTAT_russk"] = implode(", ", $kws_ru);
 }
 if (isset($kws_en)) {
-    $result_en = implode(", ", $kws_en);
+    $_SESSION["kol_slov_angl"] = count($kws_en);
+    $_SESSION["_REZULTAT_angl"] = implode(", ", $kws_en);
+} else {
+    $_SESSION["kol_slov_angl"] = 0;
 }
 if (isset($kws_mark_transl)) {
     $kws_mark_transl = implode("', '", $kws_mark_transl);
@@ -77,11 +72,6 @@ if (isset($kws_mark_transl)) {
 }
 
 $stmt->close();
-
-$_SESSION["_REZULTAT_russk"] = $result_ru;
-if (isset($result_en)) {
-    $_SESSION["_REZULTAT_angl"] = $result_en;
-}
 
 $db_connect->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");
