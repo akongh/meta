@@ -40,23 +40,27 @@ if (isset($kws_ru)) {
 
     $kwsset_id = $mysqli->insert_id;
 
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
+        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+    }
+    if (!$mysqli_stmt->bind_param("s", $kw_ru_to_db)) {
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+    }
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
-            echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
-        }
-        if (!$mysqli_stmt->bind_param("s", $kws_ru_to_db[$i])) {
-            echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
-        }
+        $kw_ru_to_db = $kws_ru_to_db[$i];
         if (!$mysqli_stmt->execute()) {
             echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
+    }
 
-        if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
-            echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
-        }
-        if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kws_ru_to_db[$i])) {
-            echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
-        }
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
+        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+    }
+    if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kw_ru_to_db)) {
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+    }
+    for ($i = 0; $i < count($kws_ru_to_db); $i++) {
+        $kw_ru_to_db = $kws_ru_to_db[$i];
         if (!$mysqli_stmt->execute()) {
             echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
