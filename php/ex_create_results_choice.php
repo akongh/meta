@@ -18,18 +18,20 @@ if (isset($_POST["zayavka"])) {
 
 if (isset($kws_ru)) {
     $_SESSION["kol_slov_russk"] = count($kws_ru);
+    $_SESSION["_REZULTAT_russk"] = implode(", ", $kws_ru);
+
     $kwsset_time = time();
     $kwsset_ses = session_id();
     $kws_ru_to_db = $kws_ru;
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));
+        $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" -> " " ?
     }
 
     if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_ID))) {
         echo $db_connect->errno . " -> " . $db_connect->error;
     }
-    if (!$stmt->bind_param("ss", $kwsset_time, $kwsset_ses)) {
+    if (!$stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
         echo $stmt->errno . " -> " . $stmt->error;
     }
     if (!$stmt->execute()) {
@@ -50,15 +52,13 @@ if (isset($kws_ru)) {
         if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_REL))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
-        if (!$stmt->bind_param("sss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
+        if (!$stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
     }
-
-    $_SESSION["_REZULTAT_russk"] = implode(", ", $kws_ru);
 }
 if (isset($kws_en)) {
     $_SESSION["kol_slov_angl"] = count($kws_en);
