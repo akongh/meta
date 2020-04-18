@@ -25,30 +25,30 @@ if (isset($kws_en)) {
     $_SESSION["kol_slov_angl"] = 0;
 }
 
-$kwsset_time = time();
-$ses_id = session_id();
-
 if (isset($kws_ru)) {
-    $kws_ru2 = $kws_ru;
-    for ($i = 0; $i < count($kws_ru2); $i++) {
-        $kws_ru2[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru2[$i]));
+    $kwsset_time = time();
+    $kwsset_ses = session_id();
+    $kws_ru_to_db = $kws_ru;
+
+    for ($i = 0; $i < count($kws_ru_to_db); $i++) {
+        $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));
     }
 
     if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_ID))) {
         echo $db_connect->errno . " -> " . $db_connect->error;
     }
-    if (!$stmt->bind_param("ss", $kwsset_time, $ses_id)) {
+    if (!$stmt->bind_param("ss", $kwsset_time, $kwsset_ses)) {
         echo $stmt->errno . " -> " . $stmt->error;
     }
     if (!$stmt->execute()) {
         echo $stmt->errno . " -> " . $stmt->error;
     }
 
-    for ($i = 0; $i < count($kws_ru2); $i++) {
+    for ($i = 0; $i < count($kws_ru_to_db); $i++) {
         if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_KWS))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
-        if (!$stmt->bind_param("s", $kws_ru2[$i])) {
+        if (!$stmt->bind_param("s", $kws_ru_to_db[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
@@ -58,7 +58,7 @@ if (isset($kws_ru)) {
         if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_REL))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
-        if (!$stmt->bind_param("sss", $kwsset_time, $ses_id, $kws_ru2[$i])) {
+        if (!$stmt->bind_param("sss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
         if (!$stmt->execute()) {
