@@ -16,13 +16,13 @@ $rus = $_POST['spisok_mesto'];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_P_Z))) {
-        echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
+        echo $mysqli->errno . " -> " . $mysqli->error;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
-        echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
     if (!$mysqli_stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
     $result = $mysqli_stmt->get_result();
     $mysqli_stmt->close();
@@ -43,13 +43,13 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
     if (!($mysqli_stmt = $mysqli->prepare(SQL_F))) {
-        echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
+        echo $mysqli->errno . " -> " . $mysqli->error;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
-        echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
     if (!$mysqli_stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
     $result = $mysqli_stmt->get_result();
     $mysqli_stmt->close();
