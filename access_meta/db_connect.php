@@ -14,5 +14,5 @@ if ($mysqli->connect_errno) {
     exit;
 }
 
-$mysqli->query("SET character_set_database=utf8");
+$mysqli->query("SET character_set_database=utf8");//todo: https://www.php.net/manual/ru/mysqlinfo.concepts.charset.php
 $mysqli->query("SET NAMES utf8");
