@@ -63,23 +63,23 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        if (!($stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+        if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
             echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
         }
-        if (!$stmt->bind_param("ii", $i, $granicza)) {
-            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+        if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
+            echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
         }
-        if (!$stmt->execute()) {
-            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+        if (!$mysqli_stmt->execute()) {
+            echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
         }
-        $stmt->bind_result($data, $count);
+        $mysqli_stmt->bind_result($data, $count);
 
         $n = 0;
-        while ($stmt->fetch()) {
+        while ($mysqli_stmt->fetch()) {
             $_MASSIV_rezultata[$n] = $data;
             $n++;
         }
-        $stmt->close();
+        $mysqli_stmt->close();
         if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
             $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
 
@@ -109,23 +109,23 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        }
     }
 } else {
-    if (!($stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+    if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
         echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
-    if (!$stmt->bind_param("ii", $i, $granicza)) {
-        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
+        echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    if (!$stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    $stmt->bind_result($data, $count);
+    $mysqli_stmt->bind_result($data, $count);
 
     $n = 0;
-    while ($stmt->fetch()) {
+    while ($mysqli_stmt->fetch()) {
         $_MASSIV_rezultata[$n] = $data;
         $n++;
     }
-    $stmt->close();
+    $mysqli_stmt->close();
     if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
         $_MASSIV_rezultata = array_values( array_unique( array_merge( $_MASSIV_op_slov, $_MASSIV_rezultata ) ) );
     } else {

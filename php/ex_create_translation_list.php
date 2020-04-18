@@ -15,17 +15,17 @@ unset(
 $rus = $_POST['spisok_mesto'];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
-    if (!($stmt = $mysqli->prepare(SQL_P_Z))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_P_Z))) {
         echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
-    if (!$stmt->bind_param("s", $rus[ $i ])) {
-        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
+        echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    if (!$stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    $result = $stmt->get_result();
-    $stmt->close();
+    $result = $mysqli_stmt->get_result();
+    $mysqli_stmt->close();
 
     $SQL_p_z = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -42,17 +42,17 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-    if (!($stmt = $mysqli->prepare(SQL_F))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_F))) {
         echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
-    if (!$stmt->bind_param("s", $rus[ $i ])) {
-        echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
+        echo "Не удалось привязать параметры: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    if (!$stmt->execute()) {
-        echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+    if (!$mysqli_stmt->execute()) {
+        echo "Не удалось выполнить запрос: (" . $mysqli_stmt->errno . ") " . $mysqli_stmt->error;
     }
-    $result = $stmt->get_result();
-    $stmt->close();
+    $result = $mysqli_stmt->get_result();
+    $mysqli_stmt->close();
 
     $SQL_f = $result->fetch_all(MYSQLI_ASSOC);
 

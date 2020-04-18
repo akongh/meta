@@ -28,35 +28,35 @@ if (isset($kws_ru)) {
         $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" -> " " ?
     }
 
-    if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
         echo $mysqli->errno . " -> " . $mysqli->error;
     }
-    if (!$stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
-        echo $stmt->errno . " -> " . $stmt->error;
+    if (!$mysqli_stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
-    if (!$stmt->execute()) {
-        echo $stmt->errno . " -> " . $stmt->error;
+    if (!$mysqli_stmt->execute()) {
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
     }
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
+        if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
             echo $mysqli->errno . " -> " . $mysqli->error;
         }
-        if (!$stmt->bind_param("s", $kws_ru_to_db[$i])) {
-            echo $stmt->errno . " -> " . $stmt->error;
+        if (!$mysqli_stmt->bind_param("s", $kws_ru_to_db[$i])) {
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
         }
-        if (!$stmt->execute()) {
-            echo $stmt->errno . " -> " . $stmt->error;
+        if (!$mysqli_stmt->execute()) {
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
         }
 
-        if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
+        if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
             echo $mysqli->errno . " -> " . $mysqli->error;
         }
-        if (!$stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
-            echo $stmt->errno . " -> " . $stmt->error;
+        if (!$mysqli_stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
         }
-        if (!$stmt->execute()) {
-            echo $stmt->errno . " -> " . $stmt->error;
+        if (!$mysqli_stmt->execute()) {
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
         }
     }
 }
@@ -71,7 +71,7 @@ if (isset($kws_mark_transl)) {
     $mysqli->query(sql_kws_mark_transl($kws_mark_transl));
 }
 
-$stmt->close();
+$mysqli_stmt->close();
 
 $mysqli->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");
