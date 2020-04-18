@@ -15,7 +15,7 @@ error_reporting(-1);
 
 /**
  * @param string $data_string
- * @return string $query_string
+ * @return string
  */
 function sql_est_v_base($data_string)
 {
@@ -30,7 +30,7 @@ SQL;
 
 /**
  * @param string $data_string
- * @return string $query_string
+ * @return string
  */
 function sql_kws_mark_transl($data_string)
 {
@@ -44,7 +44,7 @@ SQL;
 
 /**
  * @param string $data_string
- * @return string $query_string
+ * @return string
  */
 function sql_zapr_podb($data_string)
 {
