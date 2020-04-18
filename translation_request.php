@@ -9,7 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 unset( $_POST );
 
-$_SQL_rezultat_ochered = $db_connect->query( SQL_ZAPROS_OCHERED );
+$_SQL_rezultat_ochered = $mysqli->query( SQL_ZAPROS_OCHERED );
 $data                  = $_SQL_rezultat_ochered->fetch_all(MYSQLI_ASSOC);
 
 foreach ( $data as $key => $val ) {
@@ -25,7 +25,7 @@ if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
     $_MASSIV_spisok_ochered = "Заявок на перевод пока нет.";
 }
 
-$db_connect->close();
+$mysqli->close();
 ?>
 
 <!doctype html>

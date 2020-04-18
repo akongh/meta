@@ -8,12 +8,12 @@ for ( $i = 0; $i < count($json_hints_array_for_translation); $i ++ ) {
 
     $json_hints_array_for_translation[ $i ] = preg_replace( "/&amp;/", "&", $json_hints_array_for_translation[ $i ]);
 
-    mysqli_query( $db_connect, "
+    mysqli_query( $mysqli, "
 	INSERT IGNORE INTO `l-ts` (`s`)
 	VALUES ('" . preg_replace("/'/", "\'", $json_hints_array_for_translation[ $i ]) . "')
     " );
 
-    mysqli_query( $db_connect, "
+    mysqli_query( $mysqli, "
 	UPDATE `l-ts`
 	SET `f` = 7
 	WHERE `s` = '" . preg_replace("/'/", "\'", $json_hints_array_for_translation[ $i ]) . "' and `f` = 0
@@ -21,4 +21,4 @@ for ( $i = 0; $i < count($json_hints_array_for_translation); $i ++ ) {
 
 }
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );

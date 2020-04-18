@@ -21,7 +21,7 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
 	update `k-ts`
 	set `f` = 7
 	where `s` in ('" . $_SQL_opornoe_slovo_zayavki . "') and `f` != 1";
-    mysqli_query( $db_connect, $zayavka_na_perevod_opornyx_slov );
+    mysqli_query( $mysqli, $zayavka_na_perevod_opornyx_slov );
 
     $kolichestvo_opornoe_slovo_zayavki = count( $_MASSIV_opornoe_slovo_zayavki );
 
@@ -42,7 +42,7 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
 		order by count(*) desc, `k-ts`.`s` LIMIT 0, 160) `k`
 	where `k`.`f` = 0)
 	";
-    mysqli_query( $db_connect, $zayavka_na_perevod );
+    mysqli_query( $mysqli, $zayavka_na_perevod );
 }
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/add_related_in_request.php" );

@@ -35,5 +35,5 @@ if ( isset( $_SESSION["obnovlenie_chastoty"] ) ) {
     $obnovlenie_chastoty = $_SESSION["obnovlenie_chastoty"];
 }
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/meta_admin.php' );

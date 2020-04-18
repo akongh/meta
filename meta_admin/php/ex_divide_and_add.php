@@ -19,7 +19,7 @@ for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
 }
 $_SQL_stroka_novoe_slovo_razbit = implode( "','", $_MASSIV_novoe_slovo_razbit );//строка новых слов для запросов
 
-$nomera_naborov_s_originalom = mysqli_query( $db_connect, "
+$nomera_naborov_s_originalom = mysqli_query( $mysqli, "
 	SELECT `k-t_s`.`id_n`
 	from `k-t_s` LEFT JOIN  `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
 	where `k-ts`.`s`  = '" . $slovo_original . "'
@@ -29,26 +29,26 @@ while ( $data = mysqli_fetch_array( $nomera_naborov_s_originalom ) ) {
     $MASSIV_nomera_naborov_s_originalom[ $n ] = $data['id_n'];//массив номеров наборов с оригиналом
     $n ++;
 }
-mysqli_query( $db_connect, "
+mysqli_query( $mysqli, "
 	delete `k-t_s`
 	FROM `k-t_s` LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids` 
 	WHERE `k-ts`.`s` = '" . $slovo_original . "'
 	" );//удаляем оригинальное слово из наборов
-mysqli_query( $db_connect, "
+mysqli_query( $mysqli, "
 	delete FROM `k-ts` WHERE `k-ts`.`s` = '" . $slovo_original . "'
 	" );//удаляем оригинальное слово из слов
 for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
-    mysqli_query( $db_connect, "  
+    mysqli_query( $mysqli, "  
 	INSERT IGNORE INTO `k-ts` (`s`)
 	VALUES ('" . $_MASSIV_novoe_slovo_razbit[ $i ] . "')
 	" );//вставляем в бд новые слова
 }
-mysqli_query( $db_connect, "
+mysqli_query( $mysqli, "
 	update `k-ts`
 	set `f` = 7
 	where `s` in ('" . $_SQL_stroka_novoe_slovo_razbit . "')
 	" );//помечаем новые слова в заявку на перевод
-$nomera_novyx_slov = mysqli_query( $db_connect, "
+$nomera_novyx_slov = mysqli_query( $mysqli, "
 	SELECT `ids`
 	from `k-ts`
 	where `s` in ('" . $_SQL_stroka_novoe_slovo_razbit . "')
@@ -62,7 +62,7 @@ if ( isset( $MASSIV_nomera_naborov_s_originalom ) ) {
     for ( $i = 0; $i < count( $MASSIV_nomera_naborov_s_originalom ); $i ++ )//добавляем в наборы с оригинальным словом новые слова
     {
         for ( $j = 0; $j < count( $MASSIV_nomera_novyx_slov ); $j ++ ) {
-            mysqli_query( $db_connect, "  
+            mysqli_query( $mysqli, "  
 		INSERT INTO `k-t_s` (`id_n`, `id_s`)
 		VALUES ('" . $MASSIV_nomera_naborov_s_originalom[ $i ] . "','" . $MASSIV_nomera_novyx_slov[ $j ] . "')  
 		" );
@@ -70,5 +70,5 @@ if ( isset( $MASSIV_nomera_naborov_s_originalom ) ) {
     }
 };
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_request.php" );

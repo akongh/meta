@@ -15,8 +15,8 @@ unset(
 $rus = $_POST['spisok_mesto'];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
-    if (!($stmt = $db_connect->prepare(SQL_P_Z))) {
-        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    if (!($stmt = $mysqli->prepare(SQL_P_Z))) {
+        echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("s", $rus[ $i ])) {
         echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
@@ -42,8 +42,8 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-    if (!($stmt = $db_connect->prepare(SQL_F))) {
-        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    if (!($stmt = $mysqli->prepare(SQL_F))) {
+        echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("s", $rus[ $i ])) {
         echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
@@ -150,5 +150,5 @@ if ( isset( $pro_zayavku ) ) {
     $_SESSION["pro_zayavku"] = $pro_zayavku;
 }
 
-$db_connect->close();
+$mysqli->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php" );

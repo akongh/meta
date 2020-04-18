@@ -8,15 +8,15 @@ unset( $_POST );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
-$mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATED_WORDS);
+$mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATED_WORDS);
 $arr_result = $mysqli_result->fetch_array();
 $count_translated = number_format((float)$arr_result[0], 0, "", '&nbsp;');
 
-$mysqli_result = $db_connect->query(SQL_COUNT_TRANSLATION_REQUEST);
+$mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATION_REQUEST);
 $arr_result = $mysqli_result->fetch_array();
 $count_request = number_format((float)$arr_result[0], 0, "", '&nbsp;');
 
-$db_connect->close();
+$mysqli->close();
 ?>
 
 <!doctype html>

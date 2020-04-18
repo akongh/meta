@@ -63,8 +63,8 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
-        if (!($stmt = $db_connect->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
-            echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+        if (!($stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+            echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
         }
         if (!$stmt->bind_param("ii", $i, $granicza)) {
             echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
@@ -109,8 +109,8 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        }
     }
 } else {
-    if (!($stmt = $db_connect->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
-        echo "Не удалось подготовить запрос: (" . $db_connect->errno . ") " . $db_connect->error;
+    if (!($stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+        echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("ii", $i, $granicza)) {
         echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
@@ -158,5 +158,5 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
     $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
 }
 
-$db_connect->close();
+$mysqli->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );

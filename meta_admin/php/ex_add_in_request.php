@@ -13,7 +13,7 @@ for ( $i = 0; $i < count( $_MASSIV_na_sbros ); $i ++ ) {
 $_MASSIV_na_sbros     = array_values( array_unique( ( array_diff( $_MASSIV_na_sbros, array( "" ) ) ) ) );
 $_SQL_stroka_na_sbros = implode( "','", $_MASSIV_na_sbros );
 
-mysqli_query( $db_connect, "
+mysqli_query( $mysqli, "
 UPDATE `k-ts`
 SET `k-ts`.`f` = 7
 WHERE `k-ts`.`s` in ('" . $_SQL_stroka_na_sbros . "')
@@ -27,5 +27,5 @@ unset(
     $_SQL_stroka_na_sbros
 );
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_request.php" );

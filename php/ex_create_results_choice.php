@@ -28,8 +28,8 @@ if (isset($kws_ru)) {
         $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" -> " " ?
     }
 
-    if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_ID))) {
-        echo $db_connect->errno . " -> " . $db_connect->error;
+    if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
+        echo $mysqli->errno . " -> " . $mysqli->error;
     }
     if (!$stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
         echo $stmt->errno . " -> " . $stmt->error;
@@ -39,8 +39,8 @@ if (isset($kws_ru)) {
     }
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_KWS))) {
-            echo $db_connect->errno . " -> " . $db_connect->error;
+        if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
+            echo $mysqli->errno . " -> " . $mysqli->error;
         }
         if (!$stmt->bind_param("s", $kws_ru_to_db[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
@@ -49,8 +49,8 @@ if (isset($kws_ru)) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
 
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_REL))) {
-            echo $db_connect->errno . " -> " . $db_connect->error;
+        if (!($stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
+            echo $mysqli->errno . " -> " . $mysqli->error;
         }
         if (!$stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
             echo $stmt->errno . " -> " . $stmt->error;
@@ -68,10 +68,10 @@ if (isset($kws_en)) {
 }
 if (isset($kws_mark_transl)) {
     $kws_mark_transl = implode("', '", $kws_mark_transl);
-    $db_connect->query(sql_kws_mark_transl($kws_mark_transl));
+    $mysqli->query(sql_kws_mark_transl($kws_mark_transl));
 }
 
 $stmt->close();
 
-$db_connect->close();
+$mysqli->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");

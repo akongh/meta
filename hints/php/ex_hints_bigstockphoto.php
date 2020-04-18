@@ -105,10 +105,10 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $hint_keyword_array[ $i ],
-        "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $db_connect )
+        "translation" => SELECT_TRANSLATION( $hint_keyword_array[ $i ], $mysqli )
     ];
 }
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 
 //подготовка json-ответа
 $json_result = json_encode( $result_array, JSON_UNESCAPED_UNICODE );

@@ -27,7 +27,7 @@ if ( isset( $znachenie ) ) {
 	}
 }
 if ( $slovo_original != $slovo_k ) {
-	$proverka_nalichiya_slova = mysqli_query( $db_connect, "  
+	$proverka_nalichiya_slova = mysqli_query( $mysqli, "  
 	SELECT `s` FROM `k-ts` WHERE `s` = '" . $slovo_k . "'
 	" );
 
@@ -38,7 +38,7 @@ if ( $slovo_original != $slovo_k ) {
 	}
 
 	if ( ! isset( $proverka_nalichiya ) ) {
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 		UPDATE `k-ts`
 		SET `s` = '" . $slovo_k . "'
 		WHERE `s` = '" . $slovo_original . "' 
@@ -46,7 +46,7 @@ if ( $slovo_original != $slovo_k ) {
 	} else if ( isset( $proverka_nalichiya ) ) {
 
 
-		$ids_original = mysqli_query( $db_connect, "
+		$ids_original = mysqli_query( $mysqli, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '" . $slovo_original . "'
 			" );
 
@@ -60,7 +60,7 @@ if ( $slovo_original != $slovo_k ) {
 
 
 
-		$ids_ispravlennogo = mysqli_query( $db_connect, "
+		$ids_ispravlennogo = mysqli_query( $mysqli, "
 			SELECT `ids` FROM `k-ts` WHERE `s` = '" . $slovo_k . "'
 			" );
 
@@ -74,27 +74,27 @@ if ( $slovo_original != $slovo_k ) {
 
 
 
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 			UPDATE LOW_PRIORITY IGNORE `k-t_s`
 			SET `id_s` = '" . $ids_ispravlennogo . "'
 			WHERE `id_s` = '" . $ids_original . "' 
 			" );
 
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 			UPDATE LOW_PRIORITY IGNORE `k_l`
 			SET `idk` = '" . $ids_ispravlennogo . "'
 			WHERE `idk` = '" . $ids_original . "' 
 			" );
 
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 			DELETE FROM `k-ts` WHERE `s` = '" . $slovo_original . "'
 			" );
 
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 			DELETE FROM `k-t_s` WHERE `id_s` = '" . $ids_original . "'
 			" );
 
-		mysqli_query( $db_connect, "
+		mysqli_query( $mysqli, "
 			DELETE FROM `k_l` WHERE `idk` = '" . $ids_original . "'
 			" );
 	}
@@ -102,15 +102,15 @@ if ( $slovo_original != $slovo_k ) {
 
 if ( isset( $perevod ) ) {
 	for ( $i = 0; $i < count( $perevod ); $i ++ ) {
-		mysqli_query( $db_connect, "  
+		mysqli_query( $mysqli, "  
 		INSERT IGNORE INTO `l-ts` (`s`)
 		VALUES ('" . $perevod[ $i ] . "')
 		" );
-		mysqli_query( $db_connect, " 
+		mysqli_query( $mysqli, " 
 		INSERT IGNORE INTO `tz` (`z`)
 		VALUES ('" . $znachenie[ $i ] . "')
 		" );
-		mysqli_query( $db_connect, "  
+		mysqli_query( $mysqli, "  
 		INSERT INTO `k_l` (`idk`, `idl`, `idz`)
 		VALUES ((SELECT `ids` FROM `k-ts` WHERE `s` = '" . $slovo_k . "'),  
 				(SELECT `ids` FROM `l-ts` WHERE `s` = '" . $perevod[ $i ] . "'),
@@ -118,14 +118,14 @@ if ( isset( $perevod ) ) {
 		" );
 	}
 
-	mysqli_query( $db_connect, "
+	mysqli_query( $mysqli, "
 	UPDATE `k-ts`
 	SET `f` = 1
 	WHERE `s` = '" . $slovo_k . "' 
 	" );
 } else if ( ! isset( $perevod ) && ( $slovo_original == $slovo_k ) ) //просто помечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
 {
-	mysqli_query( $db_connect, "
+	mysqli_query( $mysqli, "
 		UPDATE `k-ts`
 		SET `f` = 1
 		WHERE `s` = '" . $slovo_k . "'
@@ -133,5 +133,5 @@ if ( isset( $perevod ) ) {
 }
 $_SESSION['slovo_k'] = $slovo_k;
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/review_translation_request.php" );

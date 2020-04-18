@@ -8,7 +8,7 @@ if ( ! isset( $_POST["slovo_proverka"] ) ) {
 	$slovo = $_POST["slovo_proverka"];
 }
 
-$slovo_kolichestvo = mysqli_query( $db_connect, "
+$slovo_kolichestvo = mysqli_query( $mysqli, "
 	SELECT `kol`
 	from `k-ts`
 	where `s` = '" . $slovo . "'
@@ -22,7 +22,7 @@ if ( isset( $kol[0] ) ) {
 	$kol = $kol[0];
 }
 
-$SQL_p_z = mysqli_query( $db_connect, "
+$SQL_p_z = mysqli_query( $mysqli, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -50,7 +50,7 @@ unset( $p_z, $p, $z );
 
 
 include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php' );
-$_SQL_rezultat_podbora = mysqli_query( $db_connect, $_SQL_zapros_podbor);
+$_SQL_rezultat_podbora = mysqli_query( $mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
@@ -70,5 +70,5 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 }
 
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_hints_translation.php' );

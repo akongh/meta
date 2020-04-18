@@ -4,19 +4,19 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 unset( $_SESSION["slovo_original"] );
 
-$na_zayavke_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'" );
+$na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'" );
 $na_zayavke_otvet  = mysqli_fetch_row( $na_zayavke_zapros );
 $na_zayavke        = $na_zayavke_otvet[0];
 
-$propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
+$propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
 $propustit        = $propustit_otvet[0];
 
-$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
+$perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
-$slovo_kolichestvo = mysqli_query( $db_connect, "
+$slovo_kolichestvo = mysqli_query( $mysqli, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 7
@@ -33,7 +33,7 @@ while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
 if ( isset( $slovo[0] ) ) {
     $slovo = $slovo[0];
 
-    $SQL_p_z = mysqli_query( $db_connect, "
+    $SQL_p_z = mysqli_query( $mysqli, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -73,5 +73,5 @@ if ( isset( $slovo ) ) {
     include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/no_request_for_translation.php' );
 }
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 unset( $slovo );

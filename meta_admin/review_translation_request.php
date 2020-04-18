@@ -4,7 +4,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 $slovo_k = $_SESSION['slovo_k'];
 
-$SQL_p_z = mysqli_query( $db_connect, "
+$SQL_p_z = mysqli_query( $mysqli, "
 select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -30,5 +30,5 @@ if ( isset( $p_z ) ) {
 
 unset( $p_z, $p, $z );
 
-mysqli_close( $db_connect );
+mysqli_close( $mysqli );
 include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/review_translation_request.php' );
