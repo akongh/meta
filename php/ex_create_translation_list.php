@@ -16,13 +16,13 @@ $rus = $_POST['spisok_mesto'];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_P_Z))) {
-        echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     $result = $mysqli_stmt->get_result();
     $mysqli_stmt->close();
@@ -43,13 +43,13 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
     if (!($mysqli_stmt = $mysqli->prepare(SQL_F))) {
-        echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     $result = $mysqli_stmt->get_result();
     $mysqli_stmt->close();
