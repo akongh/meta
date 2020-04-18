@@ -90,8 +90,8 @@ define("SQL_ZAPROS_OCHERED", "
 ");
 
 define("SQL_CREATE_KWSSET_ID", "
-    INSERT INTO `k-tn` (`vr`, `ses`)
-    VALUES ( ?, ? )
+    INSERT INTO `k-tn` (`vr`)
+    VALUES ( ? )
 ");
 
 define("SQL_CREATE_KWSSET_KWS", "

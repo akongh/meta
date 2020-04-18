@@ -33,7 +33,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `k-tn` (
   `idn` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `vr` int(11) NOT NULL,
-  `ses` varchar(32) COLLATE utf8mb4_bin NOT NULL,
+  `ses` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   PRIMARY KEY (`idn`),
   KEY `vr` (`vr`),
   KEY `ses` (`ses`)

@@ -21,7 +21,6 @@ if (isset($kws_ru)) {
     $_SESSION["_REZULTAT_russk"] = implode(", ", $kws_ru);
 
     $kwsset_time = time();
-    $kwsset_ses = session_id();
     $kws_ru_to_db = $kws_ru;
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
@@ -33,7 +32,7 @@ if (isset($kws_ru)) {
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
         echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
+    if (!$mysqli_stmt->bind_param("i", $kwsset_time)) {
         echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
