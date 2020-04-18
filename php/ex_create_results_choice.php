@@ -34,7 +34,7 @@ if (isset($kws_ru)) {
         $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));
     }
 
-    if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_ID))) {
+    if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_ID))) {
         echo $db_connect->errno . " -> " . $db_connect->error;
     }
     if (!$stmt->bind_param("ss", $kwsset_time, $kwsset_ses)) {
@@ -45,7 +45,7 @@ if (isset($kws_ru)) {
     }
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_KWS))) {
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_KWS))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
         if (!$stmt->bind_param("s", $kws_ru_to_db[$i])) {
@@ -55,7 +55,7 @@ if (isset($kws_ru)) {
             echo $stmt->errno . " -> " . $stmt->error;
         }
 
-        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSET_REL))) {
+        if (!($stmt = $db_connect->prepare(SQL_CREATE_KWSSET_REL))) {
             echo $db_connect->errno . " -> " . $db_connect->error;
         }
         if (!$stmt->bind_param("sss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
