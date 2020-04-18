@@ -29,34 +29,34 @@ if (isset($kws_ru)) {
     }
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
-        echo $mysqli->errno . " -> " . $mysqli->error;
+        echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("is", $kwsset_time, $kwsset_ses)) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
         if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
-            echo $mysqli->errno . " -> " . $mysqli->error;
+            echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
         }
         if (!$mysqli_stmt->bind_param("s", $kws_ru_to_db[$i])) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
 
         if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
-            echo $mysqli->errno . " -> " . $mysqli->error;
+            echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
         }
         if (!$mysqli_stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
     }
 }

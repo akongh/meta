@@ -64,13 +64,13 @@ $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
         if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
-            echo $mysqli->errno . " -> " . $mysqli->error;
+            echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
         }
         if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
-            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+            echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
         $mysqli_stmt->bind_result($data, $count);
 
@@ -110,13 +110,13 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     }
 } else {
     if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
-        echo $mysqli->errno . " -> " . $mysqli->error;
+        echo $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error;
+        echo $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
     $mysqli_stmt->bind_result($data, $count);
 
