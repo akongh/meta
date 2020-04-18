@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: mysql5.activeby.net
--- Generation Time: Apr 12, 2020 at 07:56 PM
+-- Generation Time: Apr 18, 2020 at 11:50 AM
 -- Server version: 5.5.52
 -- PHP Version: 5.4.45
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `k-tn`
 --
--- Creation: Oct 20, 2018 at 07:17 AM
+-- Creation: Apr 18, 2020 at 08:45 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k-tn` (
@@ -37,26 +37,26 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
   PRIMARY KEY (`idn`),
   KEY `vr` (`vr`),
   KEY `ses` (`ses`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580377 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580386 ;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `k-ts`
 --
--- Creation: Oct 20, 2018 at 07:24 AM
+-- Creation: Apr 18, 2020 at 08:43 AM
 --
 
 CREATE TABLE IF NOT EXISTS `k-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
-  `kol` mediumint(8) unsigned NOT NULL COMMENT 'Amount',
-  `f` tinyint(3) unsigned NOT NULL COMMENT 'Status',
+  `kol` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT 'Amount',
+  `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`),
   KEY `kol` (`kol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Cyrillic' AUTO_INCREMENT=9473680 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Cyrillic' AUTO_INCREMENT=9473954 ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
   UNIQUE KEY `sost` (`id_n`,`id_s`),
   KEY `id_s` (`id_s`),
   KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for the Cyrillic' AUTO_INCREMENT=9276219 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for the Cyrillic' AUTO_INCREMENT=9276493 ;
 
 -- --------------------------------------------------------
 
@@ -100,17 +100,17 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 --
 -- Table structure for table `l-ts`
 --
--- Creation: Oct 20, 2018 at 07:25 AM
+-- Creation: Apr 18, 2020 at 08:47 AM
 --
 
 CREATE TABLE IF NOT EXISTS `l-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
-  `f` tinyint(3) unsigned NOT NULL COMMENT 'Status',
+  `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Latin' AUTO_INCREMENT=458463 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Latin' AUTO_INCREMENT=461464 ;
 
 -- --------------------------------------------------------
 
