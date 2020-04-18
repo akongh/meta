@@ -38,6 +38,8 @@ if (isset($kws_ru)) {
         echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
     }
 
+    $kwsset_id = $mysqli->insert_id;
+
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
         if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
             echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
@@ -52,7 +54,7 @@ if (isset($kws_ru)) {
         if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
             echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
         }
-        if (!$mysqli_stmt->bind_param("iss", $kwsset_time, $kwsset_ses, $kws_ru_to_db[$i])) {
+        if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kws_ru_to_db[$i])) {
             echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
