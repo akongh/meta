@@ -27,7 +27,7 @@ if (isset($kws_ru)) {
         $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" -> " " ?
     }
 
-    // Создание номера нового набора todo: transl
+    // Создание номера нового набора todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
         echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
@@ -41,7 +41,7 @@ if (isset($kws_ru)) {
 
     $kwsset_id = $mysqli->insert_id;
 
-    // Добавление новых ключевых слов в БД todo: transl
+    // Добавление новых ключевых слов в БД todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
         echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
@@ -56,7 +56,7 @@ if (isset($kws_ru)) {
         }
     }
 
-    // Создание связей ключевых слов с набором todo: transl
+    // Создание связей ключевых слов с набором todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
         echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
