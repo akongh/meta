@@ -77,7 +77,7 @@ $mysqli->close();
         <?php if (isset($count_translated)) {
             echo $count_translated;
         }; ?></span>,
-    в <a href="/translation_request.php"
+    в <a href="/queue_for_translation.php"
          title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
     <span class="counter">
         <?php if (isset($count_request)) {
