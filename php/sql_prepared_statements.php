@@ -82,8 +82,8 @@ define("SQL_P_Z", "
 	where `k-ts`.`s`= ?
 ");
 
-define("SQL_ZAPROS_OCHERED", "
-    SELECT *
+define("SQL_SELECT_KWS_FOR_TRANSLATION", "
+    SELECT `k-ts`.`s`
     FROM `k-ts`
     WHERE `f` = 7
     order by `kol` desc

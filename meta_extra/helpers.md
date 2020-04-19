@@ -1,5 +1,8 @@
 # Helpers
 
 ```
-echo"<pre>";var_dump($variable);echo"</pre>";exit;
+echo "<pre>";
+var_dump($arr_kws_for_translation);
+echo "</pre>";
+exit;
 ```

@@ -10,23 +10,21 @@ require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
 unset($_POST);
 
-$_SQL_rezultat_priority_kws = $mysqli->query(SQL_ZAPROS_OCHERED);
-$data = $_SQL_rezultat_priority_kws->fetch_all(MYSQLI_ASSOC);
-
-foreach ($data as $key => $val) {
-    $_MASSIV_priority_kws[$key] = $val["s"];
-}
-
-if (isset($_MASSIV_priority_kws) && $_MASSIV_priority_kws != null) {
-    $_MASSIV_spisok_priority_kws = implode("<br>", $_MASSIV_priority_kws);
-    $_SESSION["queue_kws_for_translation"] = '
-    <span class="counter">' . count($_MASSIV_priority_kws) . "</span>
-    ";
-} else {
-    $_MASSIV_spisok_priority_kws = "Заявок на перевод пока нет.";
-}
-
+$mysqli_result = $mysqli->query(SQL_SELECT_KWS_FOR_TRANSLATION);
+$raw_kws_for_translation = $mysqli_result->fetch_all(MYSQLI_ASSOC);
+$amount_kws_for_translation = $mysqli_result->num_rows;
+$mysqli_result->free();
 $mysqli->close();
+
+foreach ($raw_kws_for_translation as $key => $val) {
+    $arr_kws_for_translation[$key] = $val["s"];
+}
+
+if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
+    $html_kws_for_translation = implode("<br>", $arr_kws_for_translation);
+} else {
+    $html_kws_for_translation = "Заявок на перевод пока нет.";
+}
 ?>
 
 <!doctype html>
@@ -53,12 +51,10 @@ $mysqli->close();
     <br>
     <br>
     <br>
-    <?php echo $_MASSIV_spisok_priority_kws; ?>
+    <?php echo $html_kws_for_translation; ?>
     <br>
     <br>
-    <?php if (isset($_SESSION["queue_kws_for_translation"])) {
-        echo $_SESSION["queue_kws_for_translation"];
-    }; ?>
+    <span class="counter"><?php echo $amount_kws_for_translation; ?></span>
     <br>
     <br>
     <br>
