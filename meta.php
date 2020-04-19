@@ -4,9 +4,11 @@ error_reporting(-1);
 
 session_start();
 session_unset();
+
 unset($_POST);
-include($_SERVER["DOCUMENT_ROOT"] . "/meta_config_db.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
+
+require($_SERVER["DOCUMENT_ROOT"] . "/meta_config_db.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATED_WORDS);
 $arr_result = $mysqli_result->fetch_array();
@@ -36,7 +38,7 @@ $mysqli->close();
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
 <div class="page">
@@ -90,7 +92,7 @@ $mysqli->close();
            href="/step_1.php"
            title="Начать подбирать ключевые слова">[Русско-английский подбор]</a>
     </div>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>
 </html>

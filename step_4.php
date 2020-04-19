@@ -24,7 +24,7 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/changeOrderingList.js"></script>
@@ -33,7 +33,7 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
 <div class="page">
     <br>
     <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
@@ -55,7 +55,7 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
         <br>
         <br>
         <div class="content-right">
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">Перетаскивать</span> ключевое слово удобнее, хватаясь за строку с&nbsp;ним, а&nbsp;не целясь
             в&nbsp;само слово.<br>
             2. <span class="bold">Некоторые стоки</span> учитывают очерёдность ключевых слов.
@@ -68,9 +68,9 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/js/showHelp.js"></script>
 </body>

@@ -13,7 +13,7 @@ if ( count( $basic_keywords_array ) > 16 ) {
 }
 
 //подстроки для правила удаления ОКС из подсказки
-include( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
 
 //эта переменная вынесена отдельно, т. к. используется в нескольких функциях
 $anticache_id  = 'h' . rand( 100000000, 999999999 );
@@ -97,7 +97,7 @@ for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
 }
 
 //добавление перевода
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $hint_keyword_array[ $i ],

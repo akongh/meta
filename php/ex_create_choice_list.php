@@ -3,9 +3,9 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
-include($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
-include( $_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
+require( $_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php' );
 
 unset(
     $_SESSION["err_msg_of_empty_input"],

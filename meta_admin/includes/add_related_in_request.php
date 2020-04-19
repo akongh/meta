@@ -24,7 +24,7 @@
   <a href="php/ex_request_reset.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
      </div>
   <hr class="otbivka_96">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
 </div>
 </body>
 </html>

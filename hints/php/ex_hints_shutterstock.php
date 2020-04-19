@@ -14,7 +14,7 @@ if ( count( $basic_keywords_array ) > 16 ) {
 }
 
 //подстроки для правила удаления ОКС из подсказки
-include( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -95,7 +95,7 @@ for($i = 0; $i < count($hint_keyword_array); $i++){
 }
 
 //добавление перевода
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $hint_keyword_array[ $i ],

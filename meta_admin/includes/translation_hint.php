@@ -63,7 +63,7 @@
     <hr class="otbivka_24">
     <?php echo $queue_hints_translation;?>
     <hr class="otbivka_96">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
 </div>
 <script src="js/addAndDeleteFieldForHints.js"></script>
 <script src="js/addTranslationMessage.js"></script>

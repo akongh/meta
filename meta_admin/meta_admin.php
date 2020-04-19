@@ -1,8 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_statistic.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_statistic.php' );
 $amount_ru_kws_otvet          = mysqli_fetch_row( $amount_ru_kws_zapros );
 $amount_ru_kws_set_otvet       = mysqli_fetch_row( $amount_ru_kws_set_zapros );
 $amount_en_kws_otvet          = mysqli_fetch_row( $amount_en_kws_zapros );
@@ -36,4 +36,4 @@ if ( isset( $_SESSION["amount_updated_frequencies"] ) ) {
 }
 
 mysqli_close( $mysqli );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/meta_admin.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/meta_admin.php' );

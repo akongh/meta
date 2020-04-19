@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
@@ -115,7 +115,7 @@ include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
     <br>
     <br>
     <div id="hints-area">Список подсказок пуст.</div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/hints/js/hints.js"></script>
 <script src="/js/jquery-1.10.2.js"></script>

@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 unset( $_SESSION["original_kw"] );
 
@@ -61,9 +61,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["original_kw"] = $slovo;
-    include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_frequency.php' );
+    require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_frequency.php' );
 } else {
-    include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_keyword_for_translation.php' );
+    require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_keyword_for_translation.php' );
 }
 
 mysqli_close( $mysqli );

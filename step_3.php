@@ -24,13 +24,13 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">3/6. Получаем текущий результат списком</h1>
@@ -45,13 +45,13 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
-        <!--<?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
+        <!--<?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
         <?php if (isset($err_msg_of_kws_amount)){echo $err_msg_of_kws_amount;};?>
         <br>
         <br>
         <br>
         <div class="content-right">
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
             именно в&nbsp;квадратик.<br>
             2. <span class="bold">«Запомнить и&nbsp;ещё запрос»</span>&nbsp;— запомнит текущий список подобранных
@@ -65,9 +65,9 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
             экономит время на определении очерёдности.
             </span><br>
             <br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php' );?><br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_2_edit_current_choice.php' );?><br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
+            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php' );?><br>
+            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_2_edit_current_choice.php' );?><br>
+            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
         </div>
         <br>
         <label title="По частоте использования в Мете другими авторами">
@@ -81,9 +81,9 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/js/countRusChecked.js"></script>
 <script src="/js/showHelp.js"></script>

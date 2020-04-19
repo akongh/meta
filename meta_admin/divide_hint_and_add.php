@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '7'" );
 $na_zayavke_otvet  = mysqli_fetch_row( $na_zayavke_zapros );
@@ -13,4 +13,4 @@ $perevedeno        = $perevedeno_otvet[0];
 $slovo_razbit = $_SESSION["original_kw"];
 
 mysqli_close( $mysqli );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/divide_hint_and_add.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/divide_hint_and_add.php' );

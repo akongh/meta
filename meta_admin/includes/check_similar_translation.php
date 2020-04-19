@@ -24,7 +24,7 @@
     <hr class="otbivka_48">
     <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>
     <hr class="otbivka_96">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
 </div>
 </body>
 </html>

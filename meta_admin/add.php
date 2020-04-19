@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
@@ -30,4 +30,4 @@ $kol                        = $kol[0];
 $_SESSION["original_kw"] = $slovo;
 
 mysqli_close( $mysqli );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );

@@ -35,13 +35,13 @@ if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' ); ?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' ); ?>
     <br>
     <br>
     <h1 class="bold">6/6. Результат строками</h1>
@@ -67,7 +67,7 @@ if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
 <!--    <br>-->
 <!--    <br>-->
     <div class="content-right">
-        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' ); ?>
+        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' ); ?>
         <span id="help"
               class="help hidden">
             1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
@@ -186,7 +186,7 @@ if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
            href="/php/reset_choice.php"
            title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
     </div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
 </div>
 <script src="/js/changeResultView.js"></script>
 <script src="/js/selectResult.js"></script>

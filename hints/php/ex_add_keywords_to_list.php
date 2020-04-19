@@ -13,7 +13,7 @@ if ( count( $basic_keywords_array ) > 2000 ) {
 }
 
 //добавление перевода
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $basic_keywords_array[ $i ],

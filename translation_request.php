@@ -4,8 +4,8 @@ error_reporting(-1);
 
 session_start();
 session_unset();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
-include($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 
 unset( $_POST );
 
@@ -37,13 +37,13 @@ $mysqli->close();
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <a href="/step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
     <br>
@@ -75,7 +75,7 @@ $mysqli->close();
         Данные ключевые слова к&nbsp;таковым и&nbsp;относятся и&nbsp;мы&nbsp;их&nbsp;переведём в&nbsp;течение двух или&nbsp;более
         дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
     </h2>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 </body>
 </html>

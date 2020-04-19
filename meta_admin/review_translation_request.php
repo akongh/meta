@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $kw_ru = $_SESSION["kw_ru"];
 
@@ -31,4 +31,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $mysqli );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/review_translation_request.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/review_translation_request.php' );

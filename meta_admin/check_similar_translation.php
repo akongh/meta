@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 if ( ! isset( $_POST["slovo_proverka"] ) ) {
 	$slovo = $_SESSION["original_kw"];
@@ -49,7 +49,7 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php' );
 $_SQL_rezultat_podbora = mysqli_query( $mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
@@ -71,4 +71,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 
 
 mysqli_close( $mysqli );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_translation.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_translation.php' );
