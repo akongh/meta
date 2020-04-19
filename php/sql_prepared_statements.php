@@ -82,7 +82,7 @@ define("SQL_P_Z", "
 	where `k-ts`.`s`= ?
 ");
 
-define("SQL_ZAPROS_priority_kws", "
+define("SQL_ZAPROS_OCHERED", "
     SELECT *
     FROM `k-ts`
     WHERE `f` = 7

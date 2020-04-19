@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
 unset($_POST);
 
-$_SQL_rezultat_priority_kws = $mysqli->query(SQL_ZAPROS_priority_kws);
+$_SQL_rezultat_priority_kws = $mysqli->query(SQL_ZAPROS_OCHERED);
 $data = $_SQL_rezultat_priority_kws->fetch_all(MYSQLI_ASSOC);
 
 foreach ($data as $key => $val) {
