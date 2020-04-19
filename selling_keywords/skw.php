@@ -140,7 +140,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' ); ?>
 
 </div>
-<script src="/libs/lodash.js"></script>
+<script src="/js/lodash.js"></script>
 <script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>
