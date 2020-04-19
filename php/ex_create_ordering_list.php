@@ -3,8 +3,8 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+include($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 
 if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
@@ -29,7 +29,7 @@ if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $data           = $SQL_est_v_base->fetch_all(MYSQLI_ASSOC);
 
     foreach ( $data as $key => $val ) {
-        $resulting_arr_est_v_base_slovo[ $key ] = $val['s'];
+        $resulting_arr_est_v_base_slovo[ $key ] = $val["s"];
     }
     if ( count( $resulting_arr_est_v_base_slovo ) != count( $resulting_arr ) ) {
         $resulting_arr_net_v_base_slova = array_diff( $resulting_arr, $resulting_arr_est_v_base_slovo );

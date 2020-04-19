@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 unset( $_SESSION["original_kw"] );
 
@@ -26,8 +26,8 @@ $kw_ruolichestvo = mysqli_query( $mysqli, "
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-//    $kol[ $n ]   = $data['ids'];
+    $slovo[ $n ] = $data["slovo"];
+//    $kol[ $n ]   = $data["ids"];
     $n ++;
 }
 if ( isset( $slovo[0] ) ) {
@@ -45,8 +45,8 @@ where `l-ts`.`s`='" . preg_replace("/'/", "\'", $slovo) . "'
 if ( isset( $SQL_p_z ) ) {
     $n = 0;
     while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-        $p[ $n ]   = $rez['s'];
-        $z[ $n ]   = $rez['z'];
+        $p[ $n ]   = $rez["s"];
+        $z[ $n ]   = $rez["z"];
         $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
 
         $n ++;
@@ -78,7 +78,7 @@ if ( isset( $slovo ) ) {
     $n = 0;
     while ( $data = mysqli_fetch_array( $queue_hints_translation_querry ) ) {
         if ( $n > 0 ) {
-            $queue_hints_translation[ $n ] = $data['hints'];
+            $queue_hints_translation[ $n ] = $data["hints"];
         };
         $n ++;
     }

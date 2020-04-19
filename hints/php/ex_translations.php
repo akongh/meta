@@ -19,7 +19,7 @@ if ( ! preg_match( "/^[а-яё0-9 \-]+$/iu", $keyword_in_russian ) ) {
 }
 
 //попытка найти для полученного ОКС переводы
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 $translations_array = SEARCH_TRANLATIONS( $mysqli, $keyword_in_russian );
 mysqli_close( $mysqli );
 
@@ -60,8 +60,8 @@ function SEARCH_TRANLATIONS( $PARAM_db_connect, $PARAM_keyword_in_russian ) {
 
     $n = 0;
     while ( $result = mysqli_fetch_array( $SQL_select_translations_and_sense ) ) {
-        $translation[ $n ]        = $result['s'];
-        $sense[ $n ]              = $result['z'];
+        $translation[ $n ]        = $result["s"];
+        $sense[ $n ]              = $result["z"];
         $translations_array[ $n ] = "
         <span class='hover-invert'>" . $translation[ $n ] . "</span> - " . $sense[ $n ] . "<br>
         ";

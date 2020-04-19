@@ -3,7 +3,7 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php' );
 
 unset(
     $_SESSION["err_msg_of_kws_symbol"],

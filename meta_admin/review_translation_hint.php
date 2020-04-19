@@ -1,8 +1,8 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
-$kw_en = $_SESSION['kw_en'];
+$kw_en = $_SESSION["kw_en"];
 
 $SQL_p_z = mysqli_query( $mysqli, "
 select `k-ts`.`s`, `tz`.`z`
@@ -15,8 +15,8 @@ where `l-ts`.`s`='" . preg_replace("/'/", "\'", $kw_en) . "'
 
 $n = 0;
 while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-    $p[ $n ]   = $rez['s'];
-    $z[ $n ]   = $rez['z'];
+    $p[ $n ]   = $rez["s"];
+    $z[ $n ]   = $rez["z"];
     $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
 
     $n ++;
@@ -31,4 +31,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $mysqli );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/review_translation_hint.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/review_translation_hint.php' );

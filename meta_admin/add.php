@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
@@ -20,8 +20,8 @@ $kw_ruolichestvo = mysqli_query( $mysqli, "
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-    $kol[ $n ]   = $data['kol'];
+    $slovo[ $n ] = $data["slovo"];
+    $kol[ $n ]   = $data["kol"];
     $n ++;
 }
 

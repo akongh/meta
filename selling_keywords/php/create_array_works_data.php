@@ -1,24 +1,24 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST['author'] ) ) {
-    $author = trim( $_POST['author'] );
+if ( isset( $_POST["author"] ) ) {
+    $author = trim( $_POST["author"] );
     if ( $author != "" ) {
         $author = preg_replace( "/ /", "+", $author );
     }
 }
 
-if ( isset( $_POST['keyword'] ) ) {
-    $keyword = trim( $_POST['keyword'] );
+if ( isset( $_POST["keyword"] ) ) {
+    $keyword = trim( $_POST["keyword"] );
     if ( $keyword != "" ) {
         $keyword = preg_replace(["/ /", "/\\n/"], "+", $keyword);
     }
 }
 
-$image_type = $_POST['imageType'];
+$image_type = $_POST["imageType"];
 
-//var_dump( $_POST['author'] );
-//var_dump( $_POST['keyword'] );
-//var_dump( $_POST['imageType'] );
+//var_dump( $_POST["author"] );
+//var_dump( $_POST["keyword"] );
+//var_dump( $_POST["imageType"] );
 
 //var_dump( $author );
 //var_dump( $keyword );
@@ -55,8 +55,8 @@ $array_selling_keywords = json_decode( $json_selling_keywords, true );
 
 for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
     for ( $j = 0; $i < count( $array_selling_keywords ); $j ++ ) {
-        if ( (int) $array_works_data[ $i ]['id'] == (int) $array_selling_keywords[ $j ]['media_id'] ) {
-            $array_works_data[ $i ]['keywords'] = $array_selling_keywords[ $j ]['keywords'];
+        if ( (int) $array_works_data[ $i ]["id"] == (int) $array_selling_keywords[ $j ]["media_id"] ) {
+            $array_works_data[ $i ]["keywords"] = $array_selling_keywords[ $j ]["keywords"];
             break;
         }
     }
@@ -97,7 +97,7 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
         preg_match( '/(alt=").*?(")/su', $array_works_block[ $i ], $title );
-        $title = preg_replace(['/alt="/', '/"/'], "", $title);
+        $title = preg_replace(["/alt="/', '/"/"], "", $title);
 
         $img = $array_works_block[ $i ];
 
@@ -125,18 +125,18 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace(['/<script data-react-helmet="true" type="application\/ld\+json">\[/', "/]<\/script>/"], "", $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace(["/<script data-react-helmet="true" type="application\/ld\+json">\[/', "/]<\/script>/"], "", $array_works_block[0][0]);
     $array_works_block[0][0] = preg_replace("/},{/", "},,,,{", $array_works_block[0][0]);
     $array_works_block       = explode( ",,,,", $array_works_block[0][0] );
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
         $array_works_json_decode = json_decode( $array_works_block[ $i ], true );
-        preg_match( "/[0-9]*$/su", $array_works_json_decode['name'], $id );
+        preg_match( "/[0-9]*$/su", $array_works_json_decode["name"], $id );
         $id                     = $id[0];
         $array_works_data[ $i ] = [
-            'title' => $array_works_json_decode['name'],
-            'img'   => '<img src="' . $array_works_json_decode['thumbnail'] . '">',
+            'title' => $array_works_json_decode["name"],
+            'img'   => '<img src="' . $array_works_json_decode["thumbnail"] . '">',
             'id'    => $id,
         ];
     }
@@ -147,7 +147,7 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 function CREATE_URL( $_PARAM_array_works_ids ) {
 
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
-        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
+        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]["id"];
     }
 
     $string_params = implode( "&", $array_params );

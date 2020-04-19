@@ -1,7 +1,7 @@
 <?php error_reporting( - 1 );
 
-$level             = $_POST['level'];
-$full_string_query = $_POST['fullStringQuery'];
+$level             = $_POST["level"];
+$full_string_query = $_POST["fullStringQuery"];
 
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
 $queries_array = preg_replace( "/ {2,}/", " ", $queries_array );

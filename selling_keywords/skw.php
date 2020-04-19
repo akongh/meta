@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
           rel="stylesheet"
           type="text/css">
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/analytics_code.php'); ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 
 </head>
 <body>
@@ -137,7 +137,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
     <br>
     <div id="works-list">Список произведений пуст.</div>
 
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' ); ?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
 
 </div>
 <script src="/js/lodash.js"></script>

@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $original_kw = $_SESSION["original_kw"];
 if ( isset( $_POST["slovo"] ) ) {
@@ -39,7 +39,7 @@ if ( $original_kw != $kw_en ) {
 
     $n = 0;
     while ( $data = mysqli_fetch_array( $proverka_nalichiya_slova ) ) {
-        $proverka_nalichiya[ $n ] = $data['s'];
+        $proverka_nalichiya[ $n ] = $data["s"];
         $n ++;
     }
 
@@ -58,7 +58,7 @@ if ( $original_kw != $kw_en ) {
 
         $n = 0;
         while ( $data = mysqli_fetch_array( $ids_original ) ) {
-            $ids_orig[ $n ] = $data['ids'];
+            $ids_orig[ $n ] = $data["ids"];
             $n ++;
         }
 
@@ -71,7 +71,7 @@ if ( $original_kw != $kw_en ) {
 
         $n = 0;
         while ( $data = mysqli_fetch_array( $ids_ispravlennogo ) ) {
-            $ids_ispr[ $n ] = $data['ids'];
+            $ids_ispr[ $n ] = $data["ids"];
             $n ++;
         }
 
@@ -141,7 +141,7 @@ if ( isset( $perevod ) ) {
 		WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "'
 		" );
 }
-$_SESSION['kw_en'] = $kw_en;
+$_SESSION["kw_en"] = $kw_en;
 
 mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/review_translation_hint.php" );

@@ -22,7 +22,7 @@
         <input name="zayavka" type="submit" class="knopka" value="Сбросить в заявку">
     </form>
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
 </div>
 </body>
 </html>

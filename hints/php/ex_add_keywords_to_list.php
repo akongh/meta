@@ -13,7 +13,7 @@ if ( count( $basic_keywords_array ) > 2000 ) {
 }
 
 //добавление перевода
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $basic_keywords_array[ $i ],
@@ -69,7 +69,7 @@ WHERE
     $_SQL_translations        = mysqli_query( $_PARAM_db_connect, $_SQL_select_translations );
     $n                        = 0;
     while ( $data = mysqli_fetch_array( $_SQL_translations ) ) {
-        $translations_array[ $n ] = $data['z'];
+        $translations_array[ $n ] = $data["z"];
         $n ++;
     }
     if ( ! isset( $translations_array ) || count( $translations_array ) == 0 ) {

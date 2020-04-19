@@ -7,11 +7,11 @@
 </head>
 <body>
 <div class="korobka">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/meta_admin_title.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/meta_admin_title.php');?>
     <hr class="otbivka_48">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/statistic.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/statistic.php');?>
     <hr class="otbivka_24">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/yandex_metric_admin.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/yandex_metric_admin.php');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -50,7 +50,7 @@ if ( isset( $amount_updated_frequencies ) ) {
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
     <hr class="otbivka_24">
 </div>
 </body>

@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 if ( ! isset( $_POST["slovo_proverka"] ) ) {
 	$slovo = $_SESSION["original_kw"];
@@ -15,7 +15,7 @@ $kw_ruolichestvo = mysqli_query( $mysqli, "
 	" );
 $n                 = 0;
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
-	$kol[ $n ] = $data['kol'];
+	$kol[ $n ] = $data["kol"];
 	$n ++;
 }
 if ( isset( $kol[0] ) ) {
@@ -33,8 +33,8 @@ where `k-ts`.`s`='" . $slovo . "'
 
 $n = 0;
 while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-	$p[ $n ]   = $rez['s'];
-	$z[ $n ]   = $rez['z'];
+	$p[ $n ]   = $rez["s"];
+	$z[ $n ]   = $rez["z"];
 	$p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
 
 	$n ++;
@@ -54,7 +54,7 @@ $_SQL_rezultat_podbora = mysqli_query( $mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
-	$arr_of_result[ $n ] = $data['s'];
+	$arr_of_result[ $n ] = $data["s"];
 	$n ++;
 }
 

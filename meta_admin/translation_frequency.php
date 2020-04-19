@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 unset( $_SESSION["original_kw"] );
 
@@ -21,8 +21,8 @@ $kw_ruolichestvo = mysqli_query( $mysqli, "
 	" );
 
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
-    $slovo[0] = $data['slovo'];
-    $kol[0]   = $data['kol'];
+    $slovo[0] = $data["slovo"];
+    $kol[0]   = $data["kol"];
 }
 
 if ( isset( $slovo[0] ) ) {
@@ -40,8 +40,8 @@ if ( isset( $slovo ) ) {
     " );
     $n       = 0;
     while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-        $p[ $n ]   = $rez['s'];
-        $z[ $n ]   = $rez['z'];
+        $p[ $n ]   = $rez["s"];
+        $z[ $n ]   = $rez["z"];
         $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
         $n ++;
     }

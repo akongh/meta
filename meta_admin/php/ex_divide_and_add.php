@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 $original_kw = $_SESSION["original_kw"];//разбиваемое слово
 
@@ -26,7 +26,7 @@ $nomera_naborov_s_originalom = mysqli_query( $mysqli, "
 	" );
 $n                           = 0;
 while ( $data = mysqli_fetch_array( $nomera_naborov_s_originalom ) ) {
-    $MASSIV_nomera_naborov_s_originalom[ $n ] = $data['id_n'];//массив номеров наборов с оригиналом
+    $MASSIV_nomera_naborov_s_originalom[ $n ] = $data["id_n"];//массив номеров наборов с оригиналом
     $n ++;
 }
 mysqli_query( $mysqli, "
@@ -55,7 +55,7 @@ $nomera_novyx_slov = mysqli_query( $mysqli, "
 	" );
 $n                 = 0;
 while ( $data = mysqli_fetch_array( $nomera_novyx_slov ) ) {
-    $MASSIV_nomera_novyx_slov[ $n ] = $data['ids'];//массив номеров новых слов
+    $MASSIV_nomera_novyx_slov[ $n ] = $data["ids"];//массив номеров новых слов
     $n ++;
 }
 if ( isset( $MASSIV_nomera_naborov_s_originalom ) ) {

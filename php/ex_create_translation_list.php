@@ -3,8 +3,8 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+include($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 
 
 unset(
@@ -12,7 +12,7 @@ unset(
     $_SESSION["total_untranslated_ru_kws"]
 );
 
-$rus = $_POST['spisok_mesto'];
+$rus = $_POST["spisok_mesto"];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_P_Z))) {
@@ -30,9 +30,9 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     $SQL_p_z = $result->fetch_all(MYSQLI_ASSOC);
 
     foreach ( $SQL_p_z as $key => $val ) {
-        $p[ $key ]   = $val['s'];
+        $p[ $key ]   = $val["s"];
         $p2[ $key ]  = preg_replace( "/'/", "&#039;", $p[ $key ] );
-        $z[ $key ]   = $val['z'];
+        $z[ $key ]   = $val["z"];
         $p_z[ $key ] = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
@@ -57,7 +57,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     $SQL_f = $result->fetch_all(MYSQLI_ASSOC);
 
     foreach ( $SQL_f as $key => $val ) {
-        $f[ $key ] = $val['f'];
+        $f[ $key ] = $val["f"];
     }
 
     if ( isset( $f[0] ) ) {

@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
+include( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
 
 unset( $_SESSION["original_kw"] );
 
@@ -26,8 +26,8 @@ $kw_ruolichestvo = mysqli_query( $mysqli, "
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-    $kol[ $n ]   = $data['kol'];
+    $slovo[ $n ] = $data["slovo"];
+    $kol[ $n ]   = $data["kol"];
     $n ++;
 }
 if ( isset( $slovo[0] ) ) {
@@ -45,8 +45,8 @@ where `k-ts`.`s`='" . $slovo . "'
 if ( isset( $SQL_p_z ) ) {
     $n = 0;
     while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
-        $p[ $n ]   = $rez['s'];
-        $z[ $n ]   = $rez['z'];
+        $p[ $n ]   = $rez["s"];
+        $z[ $n ]   = $rez["z"];
         $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";
 
         $n ++;
@@ -68,9 +68,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["original_kw"] = $slovo;
-    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/translation_request.php' );
+    include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_request.php' );
 } else {
-    include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/no_request_for_translation.php' );
+    include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_request_for_translation.php' );
 }
 
 mysqli_close( $mysqli );

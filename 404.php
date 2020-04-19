@@ -10,7 +10,7 @@ error_reporting(-1); ?>
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/analytics_code.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="block-404-503">

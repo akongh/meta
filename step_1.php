@@ -36,13 +36,13 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/includes/analytics_code.php');?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
     <br>
     <br>
     <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
@@ -67,7 +67,7 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
         <br>
         <br>
         <div class="content-right">
-            <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -96,9 +96,9 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_reset_choice.php' );?>
+        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
+    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/js/showHelp.js"></script>
 </body>
