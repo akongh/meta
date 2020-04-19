@@ -5,21 +5,21 @@ error_reporting(-1);
 session_start();
 
 $_SESSION["presence_mark"] = true;
-if ( isset( $_SESSION["basis_kws"] ) ) {
+if (isset($_SESSION["basis_kws"])) {
     $basis_kws = $_SESSION["basis_kws"];
-};
-if ( isset( $_SESSION["err_msg_of_empty_input"] ) ) {
+}
+if (isset($_SESSION["err_msg_of_empty_input"])) {
     $err_msg_of_empty_input = $_SESSION["err_msg_of_empty_input"];
-};
-if ( isset( $_SESSION["err_msg_of_kws_symbol"] ) ) {
+}
+if (isset($_SESSION["err_msg_of_kws_symbol"])) {
     $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
-};
-if ( isset( $_SESSION["err_msg_of_basis_kws_amount"] ) ) {
+}
+if (isset($_SESSION["err_msg_of_basis_kws_amount"])) {
     $err_msg_of_basis_kws_amount = $_SESSION["err_msg_of_basis_kws_amount"];
-};
-if ( isset( $_SESSION["state_of_kws_set"] ) ) {
+}
+if (isset($_SESSION["state_of_kws_set"])) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
-};
+}
 ?>
 
 <!doctype html>
@@ -27,22 +27,25 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
 <head>
     <meta charset="utf-8">
     <title>1/6. Задаём опорные ключевые слова для подбора</title>
-    <meta name="Description" content="Подбирайте ключевые слова на русском, результат получайте на английском.
+    <meta name="Description"
+          content="Подбирайте ключевые слова на русском, результат получайте на английском.
     Составной подбор, удаление дубликатов, задание очерёдности, ручной перевод."/>
-    <meta name="Keywords" content="ключевые слова фотографий, фотостоки подбор слов, подбор ключевых слов для фотостоков,
+    <meta name="Keywords"
+          content="ключевые слова фотографий, фотостоки подбор слов, подбор ключевых слов для фотостоков,
     атрибутирование фотографий, ключевые слова перевод на английский, сервис для создания ключевых слов,
     ключевые слова фотобанков, ключевые слова для фотографа, ключевики для стоков"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     <br>
     <br>
     <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
@@ -50,7 +53,11 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     <br>
     <br>
     <br>
-    <?php if (isset( $state_of_kws_set )) { echo $state_of_kws_set; };?>
+    <?php
+    if (isset($state_of_kws_set)) {
+        echo $state_of_kws_set;
+    }
+    ?>
     <form action="/php/ex_create_choice_list.php"
           method="post">
         <textarea name="vvod_op_slov"
@@ -58,16 +65,31 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php if (isset( $basis_kws )){echo $basis_kws;};?></textarea>
+                  autofocus>
+            <?php
+            if (isset($basis_kws)) {
+                echo $basis_kws;
+            }
+            ?>
+        </textarea>
         <br>
-        <?php if (isset( $err_msg_of_empty_input )) { echo $err_msg_of_empty_input; };?>
-        <?php if (isset( $err_msg_of_kws_symbol )) { echo $err_msg_of_kws_symbol; };?>
-        <?php if (isset( $err_msg_of_basis_kws_amount )) { echo $err_msg_of_basis_kws_amount; };?>
+        <?php
+        if (isset($err_msg_of_empty_input)) {
+            echo $err_msg_of_empty_input;
+        }
+        if (isset($err_msg_of_kws_symbol)) {
+            echo $err_msg_of_kws_symbol;
+        }
+        if (isset($err_msg_of_basis_kws_amount)) {
+            echo $err_msg_of_basis_kws_amount;
+        }
+        ?>
         <br>
         <br>
         <br>
         <div class="content-right">
-            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_help.php"); ?>
+            <span id="help" class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -83,11 +105,17 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
             </span><br>
             <br>
         </div>
-        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не более <select size="1" name="granicza">
+        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не более
+            <select size="1"
+                    name="granicza">
             <option selected value="80">80</option>
             <option value="160">160</option>
         </select>.</span>
-        <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать"><input type="checkbox" name="sposob321" checked> Нестрого.</label>
+        <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
+            <input type="checkbox"
+                   name="sposob321"
+                   checked> Нестрого.
+        </label>
         <br>
         <br>
         <input name="podobrat"
@@ -96,9 +124,9 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     </form>
     <br>
     <div class="content-right">
-        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_choice.php"); ?>
     </div>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 <script src="/js/showHelp.js"></script>
 </body>
