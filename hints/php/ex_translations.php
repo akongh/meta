@@ -19,7 +19,7 @@ if ( ! preg_match( "/^[а-яё0-9 \-]+$/iu", $keyword_in_russian ) ) {
 }
 
 //попытка найти для полученного ОКС переводы
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 $translations_array = SEARCH_TRANLATIONS( $mysqli, $keyword_in_russian );
 mysqli_close( $mysqli );
 

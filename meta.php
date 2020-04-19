@@ -7,7 +7,7 @@ session_unset();
 
 unset($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . "/meta_config_db.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATED_WORDS);

@@ -100,7 +100,7 @@ for($i = 0; $i < count($hint_keyword_array); $i++){
 }
 
 //добавление перевода
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
     $result_array [ $i ] = [
         "hint"        => $hint_keyword_array[ $i ],

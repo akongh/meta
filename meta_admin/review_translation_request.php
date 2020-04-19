@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $kw_ru = $_SESSION["kw_ru"];
 

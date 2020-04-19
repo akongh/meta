@@ -1,6 +1,6 @@
 <?php error_reporting( - 1 );
 session_start();
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_config_db.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'" );
 $na_zayavke_otvet  = mysqli_fetch_row( $na_zayavke_zapros );
