@@ -5,10 +5,10 @@ error_reporting(-1);
 session_start();
 
 unset(
-	$_SESSION["oshibka_simvola"],
-	$_SESSION["oshibka_kolichestva"],
-	$_SESSION["sobranny_nabor"],
-	$_SESSION["massiv_itog"]
+    $_SESSION["oshibka_simvola"],
+    $_SESSION["oshibka_kolichestva"],
+    $_SESSION["sobranny_nabor"],
+    $_SESSION["massiv_itog"],
 );
 
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );
+header("Location: //{$_SERVER["HTTP_HOST"]}/step_2.php");

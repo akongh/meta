@@ -3,6 +3,7 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
+
 unset(
     $_SESSION["oshibka_simvola"],
     $_SESSION["oshibka_mnogo_op_slov"],
@@ -11,6 +12,7 @@ unset(
     $_SESSION["vyvod_spiska_flagov"],
     $_SESSION["dopolnitelnye_slova"],
     $_SESSION["sobranny_nabor"],
-    $_SESSION["massiv_itog"]
+    $_SESSION["massiv_itog"],
 );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php" );
+
+header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");
