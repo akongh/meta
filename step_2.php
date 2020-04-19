@@ -4,20 +4,20 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["metka"] ) ) {
+if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["vyvod_spiska_flagov"] ) ) {
-    $vyvod_spiska_flagov = $_SESSION["vyvod_spiska_flagov"];
+if ( isset( $_SESSION["output_marked_kws_list"] ) ) {
+    $output_marked_kws_list = $_SESSION["output_marked_kws_list"];
 };
-if ( isset( $_SESSION["dopolnitelnye_slova"] ) ) {
-    $dopolnitelnye_slova = $_SESSION["dopolnitelnye_slova"];
+if ( isset( $_SESSION["additional_kws"] ) ) {
+    $additional_kws = $_SESSION["additional_kws"];
 };
-if ( isset( $_SESSION["oshibka_simvola"] ) ) {
-    $oshibka_simvola = $_SESSION["oshibka_simvola"];
+if ( isset( $_SESSION["err_msg_of_kws_symbol"] ) ) {
+    $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
 };
-if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
-    $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
+if ( isset( $_SESSION["state_of_kws_set"] ) ) {
+    $state_of_kws_set = $_SESSION["state_of_kws_set"];
 };
 ?>
 
@@ -46,17 +46,17 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <br>
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
-        <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?>
-        <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
+        <?php if (isset($output_marked_kws_list)){echo $output_marked_kws_list;};?>
+        <?php if (isset($state_of_kws_set)){echo $state_of_kws_set;};?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
         <textarea name="vvod_dop_slov"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
-                  placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
+                  placeholder=""><?php if (isset($additional_kws)){echo $additional_kws;};?></textarea>
         <br>
-        <?php if (isset($oshibka_simvola)){echo $oshibka_simvola;};?>
+        <?php if (isset($err_msg_of_kws_symbol)){echo $err_msg_of_kws_symbol;};?>
         <br>
         <br>
         <br>

@@ -1,4 +1,4 @@
-let arrRus = document.getElementsByName("massiv_itog[]");
+let arrRus = document.getElementsByName("resulting_arr[]");
 
 for (let i = 0; i < arrRus.length; i++){
     arrRus[i].onclick = countRusChecked;

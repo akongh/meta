@@ -4,21 +4,21 @@ error_reporting(-1);
 
 session_start();
 
-$sost_nab = $_SESSION["massiv_itog"];
+$sost_nab = $_SESSION["resulting_arr"];
 /*sort($sost_nab, SORT_STRING);*/
-$_SESSION["sostoyanie_nabora"] = implode("; ", $sost_nab) . "
-<span class='counter'>{$_SESSION["kol_slov_itog"]}</span>
+$_SESSION["state_of_kws_set"] = implode("; ", $sost_nab) . "
+<span class='counter'>{$_SESSION["total_kws_amount"]}</span>
 <br>
 <br>
 ";
 
-$_SESSION["_MASSIV_sostoyanie_nabora"] = $_SESSION["massiv_itog"];
+$_SESSION["arr_state_of_kws_set"] = $_SESSION["resulting_arr"];
 
 unset(
-    $_SESSION["dopolnitelnye_slova"],
-    $_SESSION["vyvod_spiska_flagov"],
-    $_SESSION["opornye_slova"],
-    $_SESSION["oshibka_kolichestva"],
+    $_SESSION["additional_kws"],
+    $_SESSION["output_marked_kws_list"],
+    $_SESSION["basis_kws"],
+    $_SESSION["err_msg_of_kws_amount"],
 );
 
 header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");

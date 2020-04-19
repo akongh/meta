@@ -2,7 +2,7 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
-$slovo_original = $_SESSION["slovo_original"];//разбиваемое слово
+$original_kw = $_SESSION["original_kw"];//разбиваемое слово
 
 $novoe_slovo_razbit = $_POST["novoe_slovo_razbit"];
 $novoe_slovo_razbit = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $novoe_slovo_razbit ) ) ), "utf-8" ) );
@@ -22,7 +22,7 @@ $_SQL_stroka_novoe_slovo_razbit = implode( "','", $_MASSIV_novoe_slovo_razbit );
 $nomera_naborov_s_originalom = mysqli_query( $mysqli, "
 	SELECT `k-t_s`.`id_n`
 	from `k-t_s` LEFT JOIN  `k-ts` on `k-t_s`.`id_s` = `k-ts`.`ids`
-	where `k-ts`.`s`  = '" . $slovo_original . "'
+	where `k-ts`.`s`  = '" . $original_kw . "'
 	" );
 $n                           = 0;
 while ( $data = mysqli_fetch_array( $nomera_naborov_s_originalom ) ) {
@@ -32,10 +32,10 @@ while ( $data = mysqli_fetch_array( $nomera_naborov_s_originalom ) ) {
 mysqli_query( $mysqli, "
 	delete `k-t_s`
 	FROM `k-t_s` LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids` 
-	WHERE `k-ts`.`s` = '" . $slovo_original . "'
+	WHERE `k-ts`.`s` = '" . $original_kw . "'
 	" );//удаляем оригинальное слово из наборов
 mysqli_query( $mysqli, "
-	delete FROM `k-ts` WHERE `k-ts`.`s` = '" . $slovo_original . "'
+	delete FROM `k-ts` WHERE `k-ts`.`s` = '" . $original_kw . "'
 	" );//удаляем оригинальное слово из слов
 for ( $i = 0; $i < count( $_MASSIV_novoe_slovo_razbit ); $i ++ ) {
     mysqli_query( $mysqli, "  

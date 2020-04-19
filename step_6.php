@@ -4,24 +4,24 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["metka"] ) ) {
+if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
 
-if ( isset( $_SESSION["kol_slov_russk"] ) ) {
-    $kol_slov_russk = $_SESSION["kol_slov_russk"];
+if ( isset( $_SESSION["amount_chosen_ru_kws"] ) ) {
+    $amount_chosen_ru_kws = $_SESSION["amount_chosen_ru_kws"];
 }
-if ( isset( $_SESSION["kol_slov_angl"] ) ) {
-    $kol_slov_angl = $_SESSION["kol_slov_angl"];
+if ( isset( $_SESSION["amount_chosen_en_kws"] ) ) {
+    $amount_chosen_en_kws = $_SESSION["amount_chosen_en_kws"];
 }
-if ( isset( $_SESSION["_REZULTAT_russk"] ) ) {
-    $_REZULTAT_russk = $_SESSION["_REZULTAT_russk"];
+if ( isset( $_SESSION["resulting_ru_kws_set"] ) ) {
+    $resulting_ru_kws_set = $_SESSION["resulting_ru_kws_set"];
 }
-if ( isset( $_SESSION["_REZULTAT_angl"] ) ) {
-    $_REZULTAT_angl = $_SESSION["_REZULTAT_angl"];
+if ( isset( $_SESSION["resulting_en_kws_set"] ) ) {
+    $resulting_en_kws_set = $_SESSION["resulting_en_kws_set"];
 };
-if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
-    $_REZULTAT_russk_neperevedennye = $_SESSION["_REZULTAT_russk_neperevedennye"];
+if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
+    $total_untranslated_ru_kws = $_SESSION["total_untranslated_ru_kws"];
 }
 ?>
 
@@ -89,11 +89,11 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На русском</h2>
         <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
-                echo $_REZULTAT_russk;
+        <span class="result"><?php if ( isset( $resulting_ru_kws_set ) ) {
+                echo $resulting_ru_kws_set;
             }; ?></span>
-        <span class="counter"><?php if ( isset( $kol_slov_russk ) ) {
-                echo $kol_slov_russk;
+        <span class="counter"><?php if ( isset( $amount_chosen_ru_kws ) ) {
+                echo $amount_chosen_ru_kws;
             }; ?></span>
         <br>
         <br>
@@ -101,11 +101,11 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На английском</h2>
         <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_angl ) ) {
-                echo $_REZULTAT_angl;
+        <span class="result"><?php if ( isset( $resulting_en_kws_set ) ) {
+                echo $resulting_en_kws_set;
             }; ?></span>
-        <span class="counter"><?php if ( isset( $kol_slov_angl ) ) {
-                echo $kol_slov_angl;
+        <span class="counter"><?php if ( isset( $amount_chosen_en_kws ) ) {
+                echo $amount_chosen_en_kws;
             }; ?></span>
     </div>
     <div id="single-result-view"
@@ -120,28 +120,28 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
         <br>
         <h2 class="bold">На русском и английском</h2>
         <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
-                echo $_REZULTAT_russk;
+        <span class="result"><?php if ( isset( $resulting_ru_kws_set ) ) {
+                echo $resulting_ru_kws_set;
             }; ?>
             <br>
             <br>
-            <?php if ( isset( $_REZULTAT_angl ) ) {
-                echo $_REZULTAT_angl;
+            <?php if ( isset( $resulting_en_kws_set ) ) {
+                echo $resulting_en_kws_set;
             }; ?></span>
         <br>
         <br>
-        <span class="counter"><?php if ( isset( $kol_slov_russk ) ) {
-                echo $kol_slov_russk;
-            }; ?> / <?php if ( isset( $kol_slov_angl ) ) {
-                echo $kol_slov_angl;
+        <span class="counter"><?php if ( isset( $amount_chosen_ru_kws ) ) {
+                echo $amount_chosen_ru_kws;
+            }; ?> / <?php if ( isset( $amount_chosen_en_kws ) ) {
+                echo $amount_chosen_en_kws;
             }; ?></span>
     </div>
     <br>
     <br>
     <br>
     <br>
-    <?php if ( isset( $_REZULTAT_russk_neperevedennye ) ) {
-        echo $_REZULTAT_russk_neperevedennye;
+    <?php if ( isset( $total_untranslated_ru_kws ) ) {
+        echo $total_untranslated_ru_kws;
     }; ?>
     <br>
     <br>

@@ -3,18 +3,18 @@ session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
 if ( ! isset( $_POST["slovo_proverka"] ) ) {
-	$slovo = $_SESSION["slovo_original"];
+	$slovo = $_SESSION["original_kw"];
 } else {
 	$slovo = $_POST["slovo_proverka"];
 }
 
-$slovo_kolichestvo = mysqli_query( $mysqli, "
+$kw_ruolichestvo = mysqli_query( $mysqli, "
 	SELECT `kol`
 	from `k-ts`
 	where `s` = '" . $slovo . "'
 	" );
 $n                 = 0;
-while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
+while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
 	$kol[ $n ] = $data['kol'];
 	$n ++;
 }
@@ -41,9 +41,9 @@ while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
 }
 if ( isset( $p_z ) ) {
 	$p_z         = implode( "<hr class=\"otbivka_0\">", $p_z );
-	$s_perevodom = "<hr class=\"otbivka_6\">" . $p_z . "<hr class=\"otbivka_6\">";
+	$with_translation = "<hr class=\"otbivka_6\">" . $p_z . "<hr class=\"otbivka_6\">";
 } else {
-	$s_perevodom = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
+	$with_translation = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
 }
 
 unset( $p_z, $p, $z );
@@ -54,19 +54,19 @@ $_SQL_rezultat_podbora = mysqli_query( $mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $_SQL_rezultat_podbora ) ) {
-	$_MASSIV_rezultata[ $n ] = $data['s'];
+	$arr_of_result[ $n ] = $data['s'];
 	$n ++;
 }
 
-if ( isset( $_MASSIV_rezultata ) && $_MASSIV_rezultata != null ) {
-	$_MASSIV_rezultata = array_values( array_unique( $_MASSIV_rezultata ) );
-	for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
-		$_MASSIV_spisok_podbora[ $i ] = $_MASSIV_rezultata[ $i ];
+if ( isset( $arr_of_result ) && $arr_of_result != null ) {
+	$arr_of_result = array_values( array_unique( $arr_of_result ) );
+	for ( $i = 0; $i < count( $arr_of_result ); $i ++ ) {
+		$_MASSIV_spisok_podbora[ $i ] = $arr_of_result[ $i ];
 	}
 }
 
 if ( isset( $_MASSIV_spisok_podbora ) ) {
-	$vyvod_spiska_flagov = implode( "<br>", $_MASSIV_spisok_podbora );
+	$output_marked_kws_list = implode( "<br>", $_MASSIV_spisok_podbora );
 }
 
 

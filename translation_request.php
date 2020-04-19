@@ -9,20 +9,20 @@ include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 unset( $_POST );
 
-$_SQL_rezultat_ochered = $mysqli->query( SQL_ZAPROS_OCHERED );
-$data                  = $_SQL_rezultat_ochered->fetch_all(MYSQLI_ASSOC);
+$_SQL_rezultat_priority_kws = $mysqli->query( SQL_ZAPROS_priority_kws );
+$data                  = $_SQL_rezultat_priority_kws->fetch_all(MYSQLI_ASSOC);
 
 foreach ( $data as $key => $val ) {
-    $_MASSIV_ochered[ $key ] = $val['s'];
+    $_MASSIV_priority_kws[ $key ] = $val['s'];
 }
 
-if ( isset($_MASSIV_ochered) && $_MASSIV_ochered != null ) {
-    $_MASSIV_spisok_ochered       = implode( "<br>", $_MASSIV_ochered );
-    $_SESSION["kol_slov_ochered"] = "
-    <span class='counter'>" . count( $_MASSIV_ochered ) . "</span>
+if ( isset($_MASSIV_priority_kws) && $_MASSIV_priority_kws != null ) {
+    $_MASSIV_spisok_priority_kws       = implode( "<br>", $_MASSIV_priority_kws );
+    $_SESSION["queue_kws_for_translation"] = "
+    <span class='counter'>" . count( $_MASSIV_priority_kws ) . "</span>
     ";
 } else {
-    $_MASSIV_spisok_ochered = "Заявок на перевод пока нет.";
+    $_MASSIV_spisok_priority_kws = "Заявок на перевод пока нет.";
 }
 
 $mysqli->close();
@@ -52,10 +52,10 @@ $mysqli->close();
     <br>
     <br>
     <br>
-    <?php echo $_MASSIV_spisok_ochered;?>
+    <?php echo $_MASSIV_spisok_priority_kws;?>
     <br>
     <br>
-    <?php if (isset($_SESSION["kol_slov_ochered"])) {echo $_SESSION["kol_slov_ochered"];};?>
+    <?php if (isset($_SESSION["queue_kws_for_translation"])) {echo $_SESSION["queue_kws_for_translation"];};?>
     <br>
     <br>
     <br>

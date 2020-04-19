@@ -42,8 +42,8 @@
     <div class="statistika">
         Последний раз обновлено строк: <span class="statistika_czyfra">
 <?php
-if ( isset( $obnovlenie_chastoty ) ) {
-	echo $obnovlenie_chastoty;
+if ( isset( $amount_updated_frequencies ) ) {
+	echo $amount_updated_frequencies;
 };
 ?>
   </span></div>

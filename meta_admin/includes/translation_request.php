@@ -26,7 +26,7 @@
                                               class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
         <hr class="otbivka_24">
         <div class="blok_perevoda">
-            <?php echo $s_perevodom;?> </div>
+            <?php echo $with_translation;?> </div>
         <hr class="otbivka_48">
         <div id="parentId">
             <div>

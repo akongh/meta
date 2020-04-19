@@ -4,13 +4,13 @@
     на кириллице —
     <span class="statistika_czyfra">
 
-<?php echo $kir_kol_slov;?> / <?php echo $kir_kol_naborov;?>
+<?php echo $amount_ru_kws;?> / <?php echo $amount_ru_kws_set;?>
 </span><br>
 
     на латинице —
     <span class="statistika_czyfra">
 
-<?php echo $lat_kol_slov;?> / не нужны
+<?php echo $amount_en_kws;?> / не нужны
 </span><br>
 
     <hr class="otbivka_12">

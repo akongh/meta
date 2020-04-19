@@ -4,14 +4,14 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["metka"] ) ) {
+if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["sobranny_nabor"] ) ) {
-    $sobranny_nabor = $_SESSION["sobranny_nabor"];
+if ( isset( $_SESSION["assembled_kws_set"] ) ) {
+    $assembled_kws_set = $_SESSION["assembled_kws_set"];
 };
-if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
-    $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
+if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
+    $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
 };
 ?>
 
@@ -40,13 +40,13 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <br>
     <form method="post"
           action="/php/ex_create_ordering_list.php">
-        <?php if (isset($sobranny_nabor)){echo $sobranny_nabor;}; ?>
+        <?php if (isset($assembled_kws_set)){echo $assembled_kws_set;}; ?>
         <br>
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
         <!--<?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
-        <?php if (isset($oshibka_kolichestva)){echo $oshibka_kolichestva;};?>
+        <?php if (isset($err_msg_of_kws_amount)){echo $err_msg_of_kws_amount;};?>
         <br>
         <br>
         <br>
@@ -75,7 +75,7 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
                    name="po_chastote"> По частоте в Мете.</label>
         <br>
         <br>
-        <input name="ochered"
+        <input name="priority_kws"
                type="submit"
                value="3/6 Определить очерёдность">
     </form>

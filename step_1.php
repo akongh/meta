@@ -4,21 +4,21 @@ error_reporting(-1);
 
 session_start();
 
-$_SESSION["metka"] = true;
-if ( isset( $_SESSION["opornye_slova"] ) ) {
-    $opornye_slova = $_SESSION["opornye_slova"];
+$_SESSION["presence_mark"] = true;
+if ( isset( $_SESSION["basis_kws"] ) ) {
+    $basis_kws = $_SESSION["basis_kws"];
 };
-if ( isset( $_SESSION["oshibka_nichego_ne_vveli"] ) ) {
-    $oshibka_nichego_ne_vveli = $_SESSION["oshibka_nichego_ne_vveli"];
+if ( isset( $_SESSION["err_msg_of_empty_input"] ) ) {
+    $err_msg_of_empty_input = $_SESSION["err_msg_of_empty_input"];
 };
-if ( isset( $_SESSION["oshibka_simvola"] ) ) {
-    $oshibka_simvola = $_SESSION["oshibka_simvola"];
+if ( isset( $_SESSION["err_msg_of_kws_symbol"] ) ) {
+    $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
 };
-if ( isset( $_SESSION["oshibka_mnogo_op_slov"] ) ) {
-    $oshibka_mnogo_op_slov = $_SESSION["oshibka_mnogo_op_slov"];
+if ( isset( $_SESSION["err_msg_of_basis_kws_amount"] ) ) {
+    $err_msg_of_basis_kws_amount = $_SESSION["err_msg_of_basis_kws_amount"];
 };
-if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
-    $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
+if ( isset( $_SESSION["state_of_kws_set"] ) ) {
+    $state_of_kws_set = $_SESSION["state_of_kws_set"];
 };
 ?>
 
@@ -50,7 +50,7 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
     <br>
     <br>
     <br>
-    <?php if (isset( $sostoyanie_nabora )) { echo $sostoyanie_nabora; };?>
+    <?php if (isset( $state_of_kws_set )) { echo $state_of_kws_set; };?>
     <form action="/php/ex_create_choice_list.php"
           method="post">
         <textarea name="vvod_op_slov"
@@ -58,11 +58,11 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php if (isset( $opornye_slova )){echo $opornye_slova;};?></textarea>
+                  autofocus><?php if (isset( $basis_kws )){echo $basis_kws;};?></textarea>
         <br>
-        <?php if (isset( $oshibka_nichego_ne_vveli )) { echo $oshibka_nichego_ne_vveli; };?>
-        <?php if (isset( $oshibka_simvola )) { echo $oshibka_simvola; };?>
-        <?php if (isset( $oshibka_mnogo_op_slov )) { echo $oshibka_mnogo_op_slov; };?>
+        <?php if (isset( $err_msg_of_empty_input )) { echo $err_msg_of_empty_input; };?>
+        <?php if (isset( $err_msg_of_kws_symbol )) { echo $err_msg_of_kws_symbol; };?>
+        <?php if (isset( $err_msg_of_basis_kws_amount )) { echo $err_msg_of_basis_kws_amount; };?>
         <br>
         <br>
         <br>

@@ -2,7 +2,7 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
-$slovo_k = $_SESSION['slovo_k'];
+$kw_ru = $_SESSION['kw_ru'];
 
 $SQL_p_z = mysqli_query( $mysqli, "
 select `l-ts`.`s`, `tz`.`z`
@@ -10,7 +10,7 @@ from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
 join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
 join `tz` on `tz`.`idz`=`k_l`.`idz`
-where `k-ts`.`s`='" . $slovo_k . "'
+where `k-ts`.`s`='" . $kw_ru . "'
 " );
 
 $n = 0;
@@ -23,9 +23,9 @@ while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
 }
 if ( isset( $p_z ) ) {
     $p_z         = implode( "<hr class=\"otbivka_0\">", $p_z );
-    $s_perevodom = "<span class = \"russk\">" . $slovo_k . "</span><hr class=\"otbivka_6\">" . $p_z;
+    $with_translation = "<span class = \"russk\">" . $kw_ru . "</span><hr class=\"otbivka_6\">" . $p_z;
 } else {
-    $s_perevodom = "<span class = \"russk\">" . $slovo_k . "</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">…</span>";
+    $with_translation = "<span class = \"russk\">" . $kw_ru . "</span><hr class=\"otbivka_6\"><span class = \"perevoda_net\">…</span>";
 }
 
 unset( $p_z, $p, $z );

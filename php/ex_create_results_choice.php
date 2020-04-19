@@ -17,8 +17,8 @@ if (isset($_POST["zayavka"])) {
 }
 
 if (isset($kws_ru)) {
-    $_SESSION["kol_slov_russk"] = count($kws_ru);
-    $_SESSION["_REZULTAT_russk"] = implode(", ", $kws_ru);
+    $_SESSION["amount_chosen_ru_kws"] = count($kws_ru);
+    $_SESSION["resulting_ru_kws_set"] = implode(", ", $kws_ru);
 
     $kwsset_time = time();
     $kws_ru_to_db = $kws_ru;
@@ -72,10 +72,10 @@ if (isset($kws_ru)) {
     }
 }
 if (isset($kws_en)) {
-    $_SESSION["kol_slov_angl"] = count($kws_en);
-    $_SESSION["_REZULTAT_angl"] = implode(", ", $kws_en);
+    $_SESSION["amount_chosen_en_kws"] = count($kws_en);
+    $_SESSION["resulting_en_kws_set"] = implode(", ", $kws_en);
 } else {
-    $_SESSION["kol_slov_angl"] = 0;
+    $_SESSION["amount_chosen_en_kws"] = 0;
 }
 if (isset($kws_mark_transl)) {
     $kws_mark_transl = implode("', '", $kws_mark_transl);

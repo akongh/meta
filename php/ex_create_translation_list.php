@@ -8,8 +8,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/php/sql_prepared_statements.php');
 
 
 unset(
-    $_SESSION["oshibka_kolichestva"],
-    $_SESSION["_REZULTAT_russk_neperevedennye"]
+    $_SESSION["err_msg_of_kws_amount"],
+    $_SESSION["total_untranslated_ru_kws"]
 );
 
 $rus = $_POST['spisok_mesto'];
@@ -68,7 +68,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     if ( isset( $p_z ) && count( $p_z ) > 1 ) {
         $p_z               = implode( "<br>", $p_z );
-        $s_perevodom[ $i ] = "
+        $with_translation[ $i ] = "
         <div class = 'block-translated'>
 		    <span class = 'keyword-ru'>
 		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
@@ -85,7 +85,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
                 <input type='checkbox' name='angl[]' checked value = '" . $p2[0] . "'> " . $p[0] . "
             </span> — " . $z[0] . "
         </label>";
-        $s_perevodom[ $i ] = "
+        $with_translation[ $i ] = "
         <div class = 'block-translated'>
 		    <span class = 'keyword-ru'>
 		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
@@ -97,7 +97,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     } else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) ) {
         $neperevedennye[ $i ] = $rus[ $i ];
-        $s_perevodom[ $i ]    = "
+        $with_translation[ $i ]    = "
         <div class = 'block-not-translated'>
 		    <span class = 'keyword-ru'>
 		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
@@ -109,7 +109,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
     } else if ( ! isset( $p_z ) && $f == 7 ) {
         $neperevedennye[ $i ] = $rus[ $i ];
-        $s_perevodom[ $i ]    = "
+        $with_translation[ $i ]    = "
         <div class = 'block-not-translated'>
 		    <span class = 'keyword-ru'>
 		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
@@ -123,13 +123,13 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     unset( $p_z, $p, $z, $f );
 }
 
-$s_perevodom = implode( "<br>", $s_perevodom );
+$with_translation = implode( "<br>", $with_translation );
 
 if ( isset( $neperevedennye ) ) {
     $neperevedennye_kol = count( $neperevedennye );
     $neperevedennye     = implode( ", ", $neperevedennye );
 
-    $_REZULTAT_russk_neperevedennye             = "
+    $total_untranslated_ru_kws             = "
 	<h2 class = 'bold'>Непереведённые</h2>
     <br>
     <span class='result' name='result-no-transl'>" . $neperevedennye . "</span>
@@ -141,13 +141,13 @@ if ( isset( $neperevedennye ) ) {
     <br>
     <br>
 	";
-    $_SESSION["_REZULTAT_russk_neperevedennye"] = $_REZULTAT_russk_neperevedennye;
+    $_SESSION["total_untranslated_ru_kws"] = $total_untranslated_ru_kws;
 }
 
-$_SESSION["s_perevodom"] = $s_perevodom;
+$_SESSION["with_translation"] = $with_translation;
 
-if ( isset( $pro_zayavku ) ) {
-    $_SESSION["pro_zayavku"] = $pro_zayavku;
+if ( isset( $about_request ) ) {
+    $_SESSION["about_request"] = $about_request;
 }
 
 $mysqli->close();

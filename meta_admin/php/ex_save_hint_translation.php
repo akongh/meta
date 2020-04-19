@@ -2,9 +2,9 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
-$slovo_original = $_SESSION["slovo_original"];
+$original_kw = $_SESSION["original_kw"];
 if ( isset( $_POST["slovo"] ) ) {
-    $slovo_hint = $_POST["slovo"];
+    $kw_en = $_POST["slovo"];
 };
 if ( isset( $_POST["perevod"] ) ) {
     $perevod = $_POST["perevod"];
@@ -32,9 +32,9 @@ if ( isset( $znachenie ) ) {
     }
 }
 
-if ( $slovo_original != $slovo_hint ) {
+if ( $original_kw != $kw_en ) {
     $proverka_nalichiya_slova = mysqli_query( $mysqli, "  
-	SELECT `s` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "'
+	SELECT `s` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "'
 	" );
 
     $n = 0;
@@ -46,14 +46,14 @@ if ( $slovo_original != $slovo_hint ) {
     if ( ! isset( $proverka_nalichiya ) ) {
         mysqli_query( $mysqli, "
 		UPDATE `l-ts`
-		SET `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "', `f` = 1
-		WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_original) . "' 
+		SET `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "', `f` = 1
+		WHERE `s` = '" . preg_replace( "/'/", "\'", $original_kw) . "' 
 		" );
     } else if ( isset( $proverka_nalichiya ) ) {
 
 
         $ids_original = mysqli_query( $mysqli, "
-			SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_original) . "'
+			SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $original_kw) . "'
 			" );
 
         $n = 0;
@@ -66,7 +66,7 @@ if ( $slovo_original != $slovo_hint ) {
 
 
         $ids_ispravlennogo = mysqli_query( $mysqli, "
-			SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "'
+			SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "'
 			" );
 
         $n = 0;
@@ -91,7 +91,7 @@ if ( $slovo_original != $slovo_hint ) {
 			" );
 
         mysqli_query( $mysqli, "
-			DELETE FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_original) . "'
+			DELETE FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $original_kw) . "'
 			" );
 
 //        mysqli_query( $mysqli, "
@@ -122,7 +122,7 @@ if ( isset( $perevod ) ) {
         mysqli_query( $mysqli, "  
 		INSERT INTO `k_l` (`idk`, `idl`, `idz`)
 		VALUES ((SELECT `ids` FROM `k-ts` WHERE `s` = '" . $perevod[ $i ] . "'),
-		        (SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "'),  
+		        (SELECT `ids` FROM `l-ts` WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "'),  
 				(SELECT `idz` FROM `tz` WHERE `z` = '" . $znachenie[ $i ] . "'))  
 		" );
     }
@@ -130,18 +130,18 @@ if ( isset( $perevod ) ) {
     mysqli_query( $mysqli, "
 	UPDATE `l-ts`
 	SET `f` = 1
-	WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "' 
+	WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "' 
 	" );
 
-} else if ( ! isset( $perevod ) && ( $slovo_original == $slovo_hint ) ) //просто помечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
+} else if ( ! isset( $perevod ) && ( $original_kw == $kw_en ) ) //просто помечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
 {
     mysqli_query( $mysqli, "
 		UPDATE `l-ts`
 		SET `f` = 1
-		WHERE `s` = '" . preg_replace( "/'/", "\'", $slovo_hint) . "'
+		WHERE `s` = '" . preg_replace( "/'/", "\'", $kw_en) . "'
 		" );
 }
-$_SESSION['slovo_hint'] = $slovo_hint;
+$_SESSION['kw_en'] = $kw_en;
 
 mysqli_close( $mysqli );
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/review_translation_hint.php" );

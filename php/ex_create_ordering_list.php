@@ -10,48 +10,48 @@ if ( isset( $_POST["po_chastote"] ) ) {
     $po_chastote = $_POST["po_chastote"];
 }
 
-if ( isset( $_POST["massiv_itog"] ) ) {
-    $massiv_itog = $_POST["massiv_itog"];
+if ( isset( $_POST["resulting_arr"] ) ) {
+    $resulting_arr = $_POST["resulting_arr"];
 }
 
-if ( !isset($massiv_itog) || count( $massiv_itog ) < 8) {
-    $oshibka_kolichestva = "<span class='error'>В наборе менее 8-ми уникальных ключевых слов.</span><br>";
+if ( !isset($resulting_arr) || count( $resulting_arr ) < 8) {
+    $err_msg_of_kws_amount = "<span class='error'>В наборе менее 8-ми уникальных ключевых слов.</span><br>";
 
-    $_SESSION["oshibka_kolichestva"] = $oshibka_kolichestva;
+    $_SESSION["err_msg_of_kws_amount"] = $err_msg_of_kws_amount;
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_3.php" );
     exit;
 }
 //сортировать или нет по частоте
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
-    $massiv_itog_2 = implode( "','", $massiv_itog );
+    $resulting_arr_2 = implode( "','", $resulting_arr );
 
-    $SQL_est_v_base = $mysqli->query( sql_est_v_base($massiv_itog_2) );
+    $SQL_est_v_base = $mysqli->query( sql_est_v_base($resulting_arr_2) );
     $data           = $SQL_est_v_base->fetch_all(MYSQLI_ASSOC);
 
     foreach ( $data as $key => $val ) {
-        $massiv_itog_est_v_base_slovo[ $key ] = $val['s'];
+        $resulting_arr_est_v_base_slovo[ $key ] = $val['s'];
     }
-    if ( count( $massiv_itog_est_v_base_slovo ) != count( $massiv_itog ) ) {
-        $massiv_itog_net_v_base_slova = array_diff( $massiv_itog, $massiv_itog_est_v_base_slovo );
-        sort( $massiv_itog_net_v_base_slova, SORT_STRING );
-        $massiv_itog = array_merge( $massiv_itog_est_v_base_slovo, $massiv_itog_net_v_base_slova );
+    if ( count( $resulting_arr_est_v_base_slovo ) != count( $resulting_arr ) ) {
+        $resulting_arr_net_v_base_slova = array_diff( $resulting_arr, $resulting_arr_est_v_base_slovo );
+        sort( $resulting_arr_net_v_base_slova, SORT_STRING );
+        $resulting_arr = array_merge( $resulting_arr_est_v_base_slovo, $resulting_arr_net_v_base_slova );
     } else {
-        ( $massiv_itog = $massiv_itog_est_v_base_slovo );
+        ( $resulting_arr = $resulting_arr_est_v_base_slovo );
     }
 }
 
-unset( $massiv_itog_2 );
+unset( $resulting_arr_2 );
 unset( $po_chastote );
 
-$_SESSION["kol_slov_itog"] = count( $_POST["massiv_itog"] );
+$_SESSION["total_kws_amount"] = count( $_POST["resulting_arr"] );
 
-for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-	$ochered[ $i ] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $massiv_itog[ $i ] . "'>" . $massiv_itog[ $i ] . "</li>";
+for ( $i = 0; $i < count( $resulting_arr ); $i ++ ) {
+	$priority_kws[ $i ] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $resulting_arr[ $i ] . "'>" . $resulting_arr[ $i ] . "</li>";
 }
 
-$ochered = implode( "", $ochered );
+$priority_kws = implode( "", $priority_kws );
 
-$_SESSION["ochered"] = $ochered;
+$_SESSION["priority_kws"] = $priority_kws;
 
 $mysqli->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_4.php" );

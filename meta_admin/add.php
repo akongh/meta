@@ -10,7 +10,7 @@ $propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
 $propustit        = $propustit_otvet[0];
 
-$slovo_kolichestvo = mysqli_query( $mysqli, "
+$kw_ruolichestvo = mysqli_query( $mysqli, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 5
@@ -19,7 +19,7 @@ $slovo_kolichestvo = mysqli_query( $mysqli, "
 	" );
 
 $n = 0;
-while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
+while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
     $slovo[ $n ] = $data['slovo'];
     $kol[ $n ]   = $data['kol'];
     $n ++;
@@ -27,7 +27,7 @@ while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
 
 $slovo                      = $slovo[0];
 $kol                        = $kol[0];
-$_SESSION["slovo_original"] = $slovo;
+$_SESSION["original_kw"] = $slovo;
 
 mysqli_close( $mysqli );
 include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );

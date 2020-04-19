@@ -2,12 +2,12 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
-$slovo_k = $_SESSION["slovo_original"];
+$kw_ru = $_SESSION["original_kw"];
 
 mysqli_query( $mysqli, "
 UPDATE `k-ts`
 SET `f` = 5
-WHERE `s` = '" . $slovo_k . "' 
+WHERE `s` = '" . $kw_ru . "' 
 " );
 
 mysqli_close( $mysqli );

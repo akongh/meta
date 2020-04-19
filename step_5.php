@@ -4,17 +4,17 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["metka"] ) ) {
+if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["s_perevodom"] ) ) {
-    $s_perevodom = $_SESSION["s_perevodom"];
+if ( isset( $_SESSION["with_translation"] ) ) {
+    $with_translation = $_SESSION["with_translation"];
 };
-if ( isset( $_SESSION["pro_zayavku"] ) ) {
-    $pro_zayavku = $_SESSION["pro_zayavku"];
+if ( isset( $_SESSION["about_request"] ) ) {
+    $about_request = $_SESSION["about_request"];
 };
 
-unset( $_SESSION["pro_zayavku"] );
+unset( $_SESSION["about_request"] );
 ?>
 
 <!doctype html>
@@ -42,11 +42,11 @@ unset( $_SESSION["pro_zayavku"] );
     <br>
     <form method="post"
           action="/php/ex_create_results_choice.php">
-        <?php if (isset($s_perevodom)){echo $s_perevodom;}; ?>
+        <?php if (isset($with_translation)){echo $with_translation;}; ?>
         <br>
         <br>
         <span class="counter">
-            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?>
+            <?php if (isset($_SESSION["total_kws_amount"])){echo $_SESSION["total_kws_amount"];}; ?>
             /
             <span id="countUniqEngChecked"></span></span>
         <br>
@@ -69,7 +69,7 @@ unset( $_SESSION["pro_zayavku"] );
     <div class="content-right">
         <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
     </div>
-    <?php if(isset($pro_zayavku)){echo $pro_zayavku;};?>
+    <?php if(isset($about_request)){echo $about_request;};?>
     <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/js/countUniqEngChecked.js"></script>

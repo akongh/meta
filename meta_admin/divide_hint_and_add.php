@@ -10,7 +10,7 @@ $perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
-$slovo_razbit = $_SESSION["slovo_original"];
+$slovo_razbit = $_SESSION["original_kw"];
 
 mysqli_close( $mysqli );
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_admin/includes/divide_hint_and_add.php' );

@@ -2,7 +2,7 @@
 session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
 
-unset( $_SESSION["slovo_original"] );
+unset( $_SESSION["original_kw"] );
 
 $propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
@@ -12,7 +12,7 @@ $perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
-$slovo_kolichestvo = mysqli_query( $mysqli, "
+$kw_ruolichestvo = mysqli_query( $mysqli, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 0
@@ -20,7 +20,7 @@ $slovo_kolichestvo = mysqli_query( $mysqli, "
 	LIMIT 1
 	" );
 
-while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
+while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
     $slovo[0] = $data['slovo'];
     $kol[0]   = $data['kol'];
 }
@@ -48,9 +48,9 @@ if ( isset( $slovo ) ) {
 };
 if ( isset( $p_z ) ) {
     $p_z         = implode( "<hr class=\"otbivka_0\">", $p_z );
-    $s_perevodom = "<hr class=\"otbivka_6\">" . $p_z . "<hr class=\"otbivka_6\">";
+    $with_translation = "<hr class=\"otbivka_6\">" . $p_z . "<hr class=\"otbivka_6\">";
 } else {
-    $s_perevodom = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
+    $with_translation = "<hr class=\"otbivka_6\"><span class=\"perevoda_net\">…</span><hr class=\"otbivka_6\">";
 }
 
 unset( $p_z, $p, $z );
@@ -60,7 +60,7 @@ if ( isset( $kol[0] ) ) {
 };
 
 if ( isset( $slovo ) ) {
-    $_SESSION["slovo_original"] = $slovo;
+    $_SESSION["original_kw"] = $slovo;
     include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_frequency.php' );
 } else {
     include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_keyword_for_translation.php' );

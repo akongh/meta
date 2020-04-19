@@ -6,10 +6,10 @@ session_start();
 include( $_SERVER['DOCUMENT_ROOT'] . '/php/regexp.php' );
 
 unset(
-    $_SESSION["oshibka_simvola"],
-    $_SESSION["oshibka_kolichestva"],
-    $_SESSION["dopolnitelnye_slova"],
-    $_SESSION["_REZULTAT_russk_neperevedennye"]
+    $_SESSION["err_msg_of_kws_symbol"],
+    $_SESSION["err_msg_of_kws_amount"],
+    $_SESSION["additional_kws"],
+    $_SESSION["total_untranslated_ru_kws"]
 );
 
 if ( isset( $_POST["abv"] ) ) {
@@ -18,7 +18,7 @@ if ( isset( $_POST["abv"] ) ) {
 if ( isset( $_POST["slova_s_flagom"] ) ) {
     $slova_s_flagom = $_POST["slova_s_flagom"];
 }
-$_MASSIV_rezultata = $_SESSION["_MASSIV_rezultata"];
+$arr_of_result = $_SESSION["arr_of_result"];
 //обеспробеливаем массив отмеченных слов
 if ( isset( $slova_s_flagom ) && $slova_s_flagom != null ) {
     for ( $i = 0; $i < count( $slova_s_flagom ); $i ++ ) {
@@ -26,23 +26,23 @@ if ( isset( $slova_s_flagom ) && $slova_s_flagom != null ) {
     }
 }
 //рисуем массив результата с отмеченными словами
-for ( $i = 0; $i < count( $_MASSIV_rezultata ); $i ++ ) {
+for ( $i = 0; $i < count( $arr_of_result ); $i ++ ) {
     if ( isset( $slova_s_flagom_bez_probelov ) ) {
-        if ( in_array( $_MASSIV_rezultata[ $i ], $slova_s_flagom_bez_probelov ) ) {
-            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' checked value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+        if ( in_array( $arr_of_result[ $i ], $slova_s_flagom_bez_probelov ) ) {
+            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[ $i ] . "'> " . $arr_of_result[ $i ] . "</label>";
         } else {
-            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+            $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[ $i ] . "'> " . $arr_of_result[ $i ] . "</label>";
         }
     } else {
-        $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $_MASSIV_rezultata[ $i ] . "'> " . $_MASSIV_rezultata[ $i ] . "</label>";
+        $spisok[ $i ] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[ $i ] . "'> " . $arr_of_result[ $i ] . "</label>";
     }
 }
 if ( isset( $spisok ) && $spisok != null ) {
-    $vyvod_spiska_flagov             = implode( "<br>", $spisok ) . "
+    $output_marked_kws_list             = implode( "<br>", $spisok ) . "
     <br>
     <br>
     ";
-    $_SESSION["vyvod_spiska_flagov"] = $vyvod_spiska_flagov;
+    $_SESSION["output_marked_kws_list"] = $output_marked_kws_list;
 }
 //делаем массив из дополнительных слов
 $vvod_dop_slov    = $_POST["vvod_dop_slov"];
@@ -67,68 +67,68 @@ if ( isset( $slova_s_flagom_bez_probelov ) && isset( $_MASSIV_dop_slov ) ) {
 }
 //делаем строку с переносами из массива уникального дополненния
 if ( isset( $dopolnenie_unikalnoe ) ) {
-    $dopolnitelnye_slova             = implode( "\n", $dopolnenie_unikalnoe );
-    $_SESSION["dopolnitelnye_slova"] = $dopolnitelnye_slova;
+    $additional_kws             = implode( "\n", $dopolnenie_unikalnoe );
+    $_SESSION["additional_kws"] = $additional_kws;
 }
 
 //делаем вывод ошибки символа, если она есть
 if ( isset( $dopolnenie_unikalnoe ) && count( $dopolnenie_unikalnoe ) > 0 ) {
     $proverka_simvola = implode( "", $dopolnenie_unikalnoe );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $oshibka_simvola             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
-        $_SESSION["oshibka_simvola"] = $oshibka_simvola;
+        $err_msg_of_kws_symbol             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span>";
+        $_SESSION["err_msg_of_kws_symbol"] = $err_msg_of_kws_symbol;
     }
 }
 //итоговый массив из подбора, дополнения и состояния
 if ( isset( $slova_s_flagom_bez_probelov ) && isset( $dopolnenie_unikalnoe ) ) {
-    $massiv_itog = array_values( array_unique( array_merge( $slova_s_flagom_bez_probelov, $dopolnenie_unikalnoe ) ) );
+    $resulting_arr = array_values( array_unique( array_merge( $slova_s_flagom_bez_probelov, $dopolnenie_unikalnoe ) ) );
 } else if ( isset( $slova_s_flagom_bez_probelov ) && ! isset( $dopolnenie_unikalnoe ) ) {
-    $massiv_itog = $slova_s_flagom_bez_probelov;
+    $resulting_arr = $slova_s_flagom_bez_probelov;
 } else if ( ! isset( $slova_s_flagom_bez_probelov ) && isset( $dopolnenie_unikalnoe ) ) {
-    $massiv_itog = $dopolnenie_unikalnoe;
+    $resulting_arr = $dopolnenie_unikalnoe;
 }
 
-if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $massiv_itog != null ) {
-    $_MASSIV_sostoyanie_nabora = $_SESSION["_MASSIV_sostoyanie_nabora"];
-    $massiv_itog               = array_values( array_unique( array_merge( $_MASSIV_sostoyanie_nabora, $massiv_itog ) ) );
-} else if ( isset( $_SESSION["_MASSIV_sostoyanie_nabora"] ) && $massiv_itog == null ) {
-    $massiv_itog = $_SESSION["_MASSIV_sostoyanie_nabora"];
+if ( isset( $_SESSION["arr_state_of_kws_set"] ) && $resulting_arr != null ) {
+    $arr_state_of_kws_set = $_SESSION["arr_state_of_kws_set"];
+    $resulting_arr               = array_values( array_unique( array_merge( $arr_state_of_kws_set, $resulting_arr ) ) );
+} else if ( isset( $_SESSION["arr_state_of_kws_set"] ) && $resulting_arr == null ) {
+    $resulting_arr = $_SESSION["arr_state_of_kws_set"];
 }
 //ещё одна проверка на смесь кирилицы и латиницы
-if ( isset( $massiv_itog ) ) {
-    $massiv_itog = array_values( array_unique( ( array_diff( $massiv_itog, array( "" ) ) ) ) );
-    if ( count( $massiv_itog ) > 0 ) {
-        $proverka_simvola = implode( "", $massiv_itog );
+if ( isset( $resulting_arr ) ) {
+    $resulting_arr = array_values( array_unique( ( array_diff( $resulting_arr, array( "" ) ) ) ) );
+    if ( count( $resulting_arr ) > 0 ) {
+        $proverka_simvola = implode( "", $resulting_arr );
         if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-            $oshibka_simvola             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
-            $_SESSION["oshibka_simvola"] = $oshibka_simvola;
+            $err_msg_of_kws_symbol             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+            $_SESSION["err_msg_of_kws_symbol"] = $err_msg_of_kws_symbol;
         }
     }
 }
 //остаёмся исправлять ошибки
-if ( isset( $oshibka_simvola ) ) {
+if ( isset( $err_msg_of_kws_symbol ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php" );
     exit;
 }
 //переходим к третьему шагу, если нет ошибок
-$kol_slov_itog             = count( $massiv_itog );
-$_SESSION["kol_slov_itog"] = $kol_slov_itog;
+$total_kws_amount             = count( $resulting_arr );
+$_SESSION["total_kws_amount"] = $total_kws_amount;
 
-for ( $i = 0; $i < count( $massiv_itog ); $i ++ ) {
-    $sobranny_nabor[ $i ] = "<label class='label-highlight'><input type='checkbox' name='massiv_itog[]' checked value = '" . $massiv_itog[ $i ] . "'> " . $massiv_itog[ $i ] . "</label>";
+for ( $i = 0; $i < count( $resulting_arr ); $i ++ ) {
+    $assembled_kws_set[ $i ] = "<label class='label-highlight'><input type='checkbox' name='resulting_arr[]' checked value = '" . $resulting_arr[ $i ] . "'> " . $resulting_arr[ $i ] . "</label>";
 }
-if ( isset( $sobranny_nabor ) ) {
+if ( isset( $assembled_kws_set ) ) {
     //сортировать или нет по алфавиту
     if ( isset( $abv ) && $abv == "on" ) {
-        sort( $sobranny_nabor, SORT_STRING );
+        sort( $assembled_kws_set, SORT_STRING );
     }
     unset( $abv );
-    $sobranny_nabor = implode( "<br>\n", $sobranny_nabor );
+    $assembled_kws_set = implode( "<br>\n", $assembled_kws_set );
 }
-if ( isset( $sobranny_nabor ) ) {
-    $_SESSION["sobranny_nabor"] = $sobranny_nabor;
+if ( isset( $assembled_kws_set ) ) {
+    $_SESSION["assembled_kws_set"] = $assembled_kws_set;
 }
-if ( isset( $massiv_itog ) ) {
-    $_SESSION["massiv_itog"] = $massiv_itog;
+if ( isset( $resulting_arr ) ) {
+    $_SESSION["resulting_arr"] = $resulting_arr;
 }
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_3.php" );

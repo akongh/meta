@@ -4,14 +4,14 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["metka"] ) ) {
+if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["ochered"] ) ) {
-    $ochered = $_SESSION["ochered"];
+if ( isset( $_SESSION["priority_kws"] ) ) {
+    $priority_kws = $_SESSION["priority_kws"];
 };
-if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
-    $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
+if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
+    $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
 };
 ?>
 
@@ -44,12 +44,12 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
     <form method="post"
           action="/php/ex_create_translation_list.php">
         <ul id="sortable">
-            <?php if(isset($ochered)){echo $ochered;}; ?>
+            <?php if(isset($priority_kws)){echo $priority_kws;}; ?>
         </ul>
         <br>
         <br>
         <span class="counter">
-            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?></span>
+            <?php if (isset($_SESSION["total_kws_amount"])){echo $_SESSION["total_kws_amount"];}; ?></span>
         <br>
         <br>
         <br>

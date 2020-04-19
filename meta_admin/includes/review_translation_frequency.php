@@ -9,7 +9,7 @@
 <div class="korobka">
     <hr class="otbivka_48">
     <div class="blok_perevoda">
-        <?php if (isset($s_perevodom)){echo $s_perevodom;};?>
+        <?php if (isset($with_translation)){echo $with_translation;};?>
     </div>
     <hr class="otbivka_24">
     <div class="upravlenie">

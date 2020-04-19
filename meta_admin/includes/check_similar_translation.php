@@ -17,12 +17,12 @@
         <div class="kol"><?php if ( isset ( $kol ) ) { echo $kol; }; ?></div>
         <hr class="otbivka_24">
         <div class="blok_perevoda">
-            <?php echo $s_perevodom;?> </div>
+            <?php echo $with_translation;?> </div>
         <hr class="otbivka_48">
         <input name="proverit_pox_perevod" type="submit" class="knopka" value="&#9658; Проверить похожий перевод">
     </form>
     <hr class="otbivka_48">
-    <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
+    <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>
     <hr class="otbivka_96">
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
 </div>
