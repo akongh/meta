@@ -24,19 +24,19 @@ if (isset($kws_ru)) {
     $kws_ru_to_db = $kws_ru;
 
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
-        $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" -> " " ?
+        $kws_ru_to_db[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kws_ru_to_db[$i]));//todo: is it necessary "/ {2,}/" --> " " ?
     }
 
     // Создание номера нового набора todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
-        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("i", $kwsset_time)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
 
     $kwsset_id = $mysqli->insert_id;
@@ -44,30 +44,30 @@ if (isset($kws_ru)) {
     // Добавление новых ключевых слов в БД todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
-        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $kw_ru_to_db)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
         $kw_ru_to_db = $kws_ru_to_db[$i];
         if (!$mysqli_stmt->execute()) {
-            echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
     }
 
     // Создание связей ключевых слов с набором todo:transl
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
-        echo PHP_EOL . $mysqli->errno . " -> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kw_ru_to_db)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     for ($i = 0; $i < count($kws_ru_to_db); $i++) {
         $kw_ru_to_db = $kws_ru_to_db[$i];
         if (!$mysqli_stmt->execute()) {
-            echo PHP_EOL . $mysqli_stmt->errno . " -> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
     }
 }
