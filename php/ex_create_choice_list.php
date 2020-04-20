@@ -80,7 +80,10 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
             $arr_of_result[$n] = $data;
             $n++;
         }
+
+        $mysqli_stmt->free_result();
         $mysqli_stmt->close();
+
         if (isset($arr_of_result) && $arr_of_result != null) {
             $arr_of_result = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_of_result)));
 
@@ -128,7 +131,10 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
         $arr_of_result[$n] = $data;
         $n++;
     }
+
+    $mysqli_stmt->free_result();
     $mysqli_stmt->close();
+
     if (isset($arr_of_result) && $arr_of_result != null) {
         $arr_of_result = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_of_result)));
     } else {

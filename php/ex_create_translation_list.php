@@ -25,9 +25,11 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     $result = $mysqli_stmt->get_result();
-    $mysqli_stmt->close();
 
     $SQL_p_z = $result->fetch_all(MYSQLI_ASSOC);
+
+    $mysqli_stmt->free_result();
+    $mysqli_stmt->close();
 
     foreach ( $SQL_p_z as $key => $val ) {
         $p[ $key ]   = $val["s"];
@@ -52,9 +54,11 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     $result = $mysqli_stmt->get_result();
-    $mysqli_stmt->close();
 
     $SQL_f = $result->fetch_all(MYSQLI_ASSOC);
+
+    $mysqli_stmt->free_result();
+    $mysqli_stmt->close();
 
     foreach ( $SQL_f as $key => $val ) {
         $f[ $key ] = $val["f"];
