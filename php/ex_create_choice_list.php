@@ -15,14 +15,14 @@ unset(
     $_SESSION["total_untranslated_ru_kws"]
 );
 
-if ( isset( $_POST["sposob321"] ) ) {
-    $sposob321 = $_POST["sposob321"];
+if ( isset( $_POST["non_strict_choice"] ) ) {
+    $non_strict_choice = $_POST["non_strict_choice"];
 }
-$granicza        = $_POST["granicza"];
-$vvod_op_slov    = $_POST["vvod_op_slov"];
-$vvod_op_slov    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $vvod_op_slov ) ) ), "utf-8" ) );
-$vvod_op_slov = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $vvod_op_slov);
-$_MASSIV_op_slov = preg_split( "/[\n,;]/", $vvod_op_slov, - 1, PREG_SPLIT_NO_EMPTY );
+$max_choice_amount        = $_POST["max_choice_amount"];
+$input_basis_kws    = $_POST["input_basis_kws"];
+$input_basis_kws    = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $input_basis_kws ) ) ), "utf-8" ) );
+$input_basis_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_basis_kws);
+$_MASSIV_op_slov = preg_split( "/[\n,;]/", $input_basis_kws, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $_MASSIV_op_slov ); $i ++ ) {
     $_MASSIV_op_slov[ $i ] = trim( $_MASSIV_op_slov[ $i ] );
@@ -62,12 +62,12 @@ if ( isset( $err_msg_illegal_char ) or isset( $err_msg_illegal_basis_kws_amount 
 $_SQL_stroka_dlya_podbora = implode( "','", $_MASSIV_op_slov );
 $kolichestvo_opornyx_slov = count( $_MASSIV_op_slov );
 
-if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
+if ( isset( $non_strict_choice ) && $kolichestvo_opornyx_slov > 1 ) {
     for ( $i = $kolichestvo_opornyx_slov; $i > 0; $i -- ) {
         if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
             echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
         }
-        if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
+        if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
             echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
@@ -87,11 +87,11 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
             if ( $i == 1 ) {
                 break;
             }
-            if ( count( $arr_of_result ) == $granicza ) {
+            if ( count( $arr_of_result ) == $max_choice_amount ) {
                 break;
             }
-            if ( count( $arr_of_result ) > $granicza ) {
-                $arr_of_result = array_slice( $arr_of_result, 0, $granicza );
+            if ( count( $arr_of_result ) > $max_choice_amount ) {
+                $arr_of_result = array_slice( $arr_of_result, 0, $max_choice_amount );
                 break;
             }
         } else if ( $i == 1 ) {
@@ -100,8 +100,8 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
 //        if ( isset( $arr_of_result ) && $arr_of_result != null ) {
 //            $arr_of_result = array_values( array_unique( array_merge( $_MASSIV_op_slov, $arr_of_result ) ) );
 //            if ( count( $arr_of_result ) > $kolichestvo_opornyx_slov ) {
-//                if ( count( $arr_of_result ) > $granicza ) {
-//                    $arr_of_result = array_slice( $arr_of_result, 0, $granicza );
+//                if ( count( $arr_of_result ) > $max_choice_amount ) {
+//                    $arr_of_result = array_slice( $arr_of_result, 0, $max_choice_amount );
 //                }
 //                break;
 //            }
@@ -113,7 +113,7 @@ if ( isset( $sposob321 ) && $kolichestvo_opornyx_slov > 1 ) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("ii", $i, $granicza)) {
+    if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {

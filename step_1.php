@@ -60,7 +60,7 @@ if (isset($_SESSION["state_of_kws_set"])) {
     ?>
     <form action="/php/ex_create_choice_list.php"
           method="post">
-        <textarea name="vvod_op_slov"
+        <textarea name="input_basis_kws"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
@@ -107,18 +107,18 @@ if (isset($_SESSION["state_of_kws_set"])) {
         </div>
         <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не более
             <select size="1"
-                    name="granicza">
+                    name="max_choice_amount">
             <option selected value="80">80</option>
             <option value="160">160</option>
         </select>.</span>
         <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
             <input type="checkbox"
-                   name="sposob321"
+                   name="non_strict_choice"
                    checked> Нестрого.
         </label>
         <br>
         <br>
-        <input name="podobrat"
+        <input name="make_choice"
                type="submit"
                value="1/6 Подобрать">
     </form>
