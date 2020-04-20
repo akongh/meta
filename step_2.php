@@ -13,8 +13,8 @@ if ( isset( $_SESSION["output_marked_kws_list"] ) ) {
 if ( isset( $_SESSION["additional_kws"] ) ) {
     $additional_kws = $_SESSION["additional_kws"];
 };
-if ( isset( $_SESSION["err_msg_of_kws_symbol"] ) ) {
-    $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
+if ( isset( $_SESSION["err_msg_illegal_char"] ) ) {
+    $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
 };
 if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
@@ -56,7 +56,7 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
                   rows="8"
                   placeholder=""><?php if (isset($additional_kws)){echo $additional_kws;};?></textarea>
         <br>
-        <?php if (isset($err_msg_of_kws_symbol)){echo $err_msg_of_kws_symbol;};?>
+        <?php if (isset($err_msg_illegal_char)){echo $err_msg_illegal_char;};?>
         <br>
         <br>
         <br>

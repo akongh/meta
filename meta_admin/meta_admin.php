@@ -25,8 +25,8 @@ $amount_en_kws    = $_SESSION["amount_en_kws"];
 if ( isset( $_SESSION["basis_kws"] ) ) {
     $basis_kws = $_SESSION["basis_kws"];
 }
-if ( isset( $_SESSION["err_msg_of_kws_symbol"] ) ) {
-    $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
+if ( isset( $_SESSION["err_msg_illegal_char"] ) ) {
+    $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
 }
 if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];

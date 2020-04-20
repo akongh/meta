@@ -8,14 +8,14 @@ $_SESSION["presence_mark"] = true;
 if (isset($_SESSION["basis_kws"])) {
     $basis_kws = $_SESSION["basis_kws"];
 }
-if (isset($_SESSION["err_msg_of_empty_input"])) {
-    $err_msg_of_empty_input = $_SESSION["err_msg_of_empty_input"];
+if (isset($_SESSION["err_msg_empty_input"])) {
+    $err_msg_empty_input = $_SESSION["err_msg_empty_input"];
 }
-if (isset($_SESSION["err_msg_of_kws_symbol"])) {
-    $err_msg_of_kws_symbol = $_SESSION["err_msg_of_kws_symbol"];
+if (isset($_SESSION["err_msg_illegal_char"])) {
+    $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
 }
-if (isset($_SESSION["err_msg_of_basis_kws_amount"])) {
-    $err_msg_of_basis_kws_amount = $_SESSION["err_msg_of_basis_kws_amount"];
+if (isset($_SESSION["err_msg_illegal_basis_kws_amount"])) {
+    $err_msg_illegal_basis_kws_amount = $_SESSION["err_msg_illegal_basis_kws_amount"];
 }
 if (isset($_SESSION["state_of_kws_set"])) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
@@ -74,14 +74,14 @@ if (isset($_SESSION["state_of_kws_set"])) {
         </textarea>
         <br>
         <?php
-        if (isset($err_msg_of_empty_input)) {
-            echo $err_msg_of_empty_input;
+        if (isset($err_msg_empty_input)) {
+            echo $err_msg_empty_input;
         }
-        if (isset($err_msg_of_kws_symbol)) {
-            echo $err_msg_of_kws_symbol;
+        if (isset($err_msg_illegal_char)) {
+            echo $err_msg_illegal_char;
         }
-        if (isset($err_msg_of_basis_kws_amount)) {
-            echo $err_msg_of_basis_kws_amount;
+        if (isset($err_msg_illegal_basis_kws_amount)) {
+            echo $err_msg_illegal_basis_kws_amount;
         }
         ?>
         <br>

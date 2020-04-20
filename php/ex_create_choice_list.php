@@ -3,14 +3,15 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 require( $_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php' );
 
 unset(
-    $_SESSION["err_msg_of_empty_input"],
-    $_SESSION["err_msg_of_kws_symbol"],
-    $_SESSION["err_msg_of_basis_kws_amount"],
+    $_SESSION["err_msg_empty_input"],
+    $_SESSION["err_msg_illegal_char"],
+    $_SESSION["err_msg_illegal_basis_kws_amount"],
     $_SESSION["total_untranslated_ru_kws"]
 );
 
@@ -30,18 +31,18 @@ $_MASSIV_op_slov           = array_values( array_unique( ( array_diff( $_MASSIV_
 $basis_kws             = implode( "\n", $_MASSIV_op_slov );
 $_SESSION["basis_kws"] = $basis_kws;
 if ( ! isset( $_SESSION["arr_state_of_kws_set"] ) && $basis_kws == null ) {
-    $err_msg_of_empty_input             = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
-    $_SESSION["err_msg_of_empty_input"] = $err_msg_of_empty_input;
+    $err_msg_empty_input             = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
+    $_SESSION["err_msg_empty_input"] = $err_msg_empty_input;
 }
 if ( count( $_MASSIV_op_slov ) > 8 ) {
-    $err_msg_of_basis_kws_amount             = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
-    $_SESSION["err_msg_of_basis_kws_amount"] = $err_msg_of_basis_kws_amount;
+    $err_msg_illegal_basis_kws_amount             = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
+    $_SESSION["err_msg_illegal_basis_kws_amount"] = $err_msg_illegal_basis_kws_amount;
 }
 if ( count( $_MASSIV_op_slov ) > 0 ) {
     $proverka_simvola = implode( "", $_MASSIV_op_slov );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $err_msg_of_kws_symbol             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
-        $_SESSION["err_msg_of_kws_symbol"] = $err_msg_of_kws_symbol;
+        $err_msg_illegal_char             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+        $_SESSION["err_msg_illegal_char"] = $err_msg_illegal_char;
     }
 }
 if ( isset( $_SESSION["arr_state_of_kws_set"] ) && count( $_MASSIV_op_slov ) > 0 ) {
@@ -49,11 +50,11 @@ if ( isset( $_SESSION["arr_state_of_kws_set"] ) && count( $_MASSIV_op_slov ) > 0
     $proverka_simvola          = array_values( array_unique( array_merge( $_MASSIV_op_slov, $arr_state_of_kws_set ) ) );
     $proverka_simvola          = implode( "", $proverka_simvola );
     if ( ! preg_match( $regulyar_slova, $proverka_simvola ) ) {
-        $err_msg_of_kws_symbol             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
-        $_SESSION["err_msg_of_kws_symbol"] = $err_msg_of_kws_symbol;
+        $err_msg_illegal_char             = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+        $_SESSION["err_msg_illegal_char"] = $err_msg_illegal_char;
     }
 }
-if ( isset( $err_msg_of_kws_symbol ) or isset( $err_msg_of_basis_kws_amount ) or isset( $err_msg_of_empty_input ) ) {
+if ( isset( $err_msg_illegal_char ) or isset( $err_msg_illegal_basis_kws_amount ) or isset( $err_msg_empty_input ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php" );
     exit;
 }

@@ -5,8 +5,8 @@ error_reporting(-1);
 session_start();
 
 unset(
-    $_SESSION["err_msg_of_kws_symbol"],
-    $_SESSION["err_msg_of_basis_kws_amount"],
+    $_SESSION["err_msg_illegal_char"],
+    $_SESSION["err_msg_illegal_basis_kws_amount"],
     $_SESSION["err_msg_of_kws_amount"],
     $_SESSION["arr_of_result"],
     $_SESSION["output_marked_kws_list"],
