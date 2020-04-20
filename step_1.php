@@ -65,13 +65,11 @@ if (isset($_SESSION["state_of_kws_set"])) {
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus>
-            <?php
+                  autofocus><?php
             if (isset($basis_kws)) {
                 echo $basis_kws;
             }
-            ?>
-        </textarea>
+            ?></textarea>
         <br>
         <?php
         if (isset($err_msg_empty_input)) {
