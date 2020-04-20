@@ -12,10 +12,12 @@ require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATED_WORDS);
 $arr_result = $mysqli_result->fetch_array();
+$mysqli_result->free();
 $count_translated = number_format((float)$arr_result[0], 0, "", "&nbsp;");
 
 $mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATION_REQUEST);
 $arr_result = $mysqli_result->fetch_array();
+$mysqli_result->free();
 $count_request = number_format((float)$arr_result[0], 0, "", "&nbsp;");
 
 $mysqli->close();

@@ -84,4 +84,5 @@ if (isset($kws_mark_transl)) {
 
 $mysqli_stmt->close();
 $mysqli->close();
+
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");

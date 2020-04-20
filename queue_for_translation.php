@@ -14,6 +14,7 @@ $mysqli_result = $mysqli->query(SQL_SELECT_KWS_FOR_TRANSLATION);
 $raw_kws_for_translation = $mysqli_result->fetch_all(MYSQLI_ASSOC);
 $amount_kws_for_translation = $mysqli_result->num_rows;
 $mysqli_result->free();
+
 $mysqli->close();
 
 foreach ($raw_kws_for_translation as $key => $val) {

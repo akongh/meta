@@ -25,8 +25,11 @@ if ( !isset($resulting_arr) || count( $resulting_arr ) < 8) {
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $resulting_arr_2 = implode( "','", $resulting_arr );
 
-    $SQL_est_v_base = $mysqli->query( sql_est_v_base($resulting_arr_2) );
-    $data           = $SQL_est_v_base->fetch_all(MYSQLI_ASSOC);
+    $mysqli_result = $mysqli->query( sql_est_v_base($resulting_arr_2) );
+    $data           = $mysqli_result->fetch_all(MYSQLI_ASSOC);
+    $mysqli_result->free();
+
+    $mysqli->close();
 
     foreach ( $data as $key => $val ) {
         $resulting_arr_est_v_base_slovo[ $key ] = $val["s"];
@@ -53,5 +56,4 @@ $priority_kws = implode( "", $priority_kws );
 
 $_SESSION["priority_kws"] = $priority_kws;
 
-$mysqli->close();
 header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_4.php" );
