@@ -12,7 +12,7 @@ unset(
     $_SESSION["output_marked_kws_list"],
     $_SESSION["additional_kws"],
     $_SESSION["assembled_kws_set"],
-    $_SESSION["resulting_arr"],
+    $_SESSION["resulting_arr"]
 );
 
 header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");

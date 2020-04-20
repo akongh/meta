@@ -18,7 +18,7 @@ unset(
     $_SESSION["additional_kws"],
     $_SESSION["output_marked_kws_list"],
     $_SESSION["basis_kws"],
-    $_SESSION["err_msg_of_kws_amount"],
+    $_SESSION["err_msg_of_kws_amount"]
 );
 
 header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");
