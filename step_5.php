@@ -15,6 +15,10 @@ if ( isset( $_SESSION["about_request"] ) ) {
 };
 
 unset( $_SESSION["about_request"] );
+
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
 ?>
 
 <!doctype html>

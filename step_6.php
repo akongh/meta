@@ -23,6 +23,10 @@ if ( isset( $_SESSION["resulting_en_kws_set"] ) ) {
 if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
     $total_untranslated_ru_kws = $_SESSION["total_untranslated_ru_kws"];
 }
+
+echo "<pre>";
+var_dump($_SESSION);
+echo "</pre>";
 ?>
 
 <!doctype html>
