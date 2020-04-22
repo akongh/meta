@@ -40,7 +40,7 @@ if (count($_MASSIV_op_slov) > 8) {
 }
 if (count($_MASSIV_op_slov) > 0) {
     $proverka_simvola = implode("", $_MASSIV_op_slov);
-    if (!preg_match($regulyar_slova, $proverka_simvola)) {
+    if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
         $err_msg_illegal_char = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
         $_SESSION["err_msg_illegal_char"] = $err_msg_illegal_char;
     }
@@ -49,7 +49,7 @@ if (isset($_SESSION["arr_state_of_kws_set"]) && count($_MASSIV_op_slov) > 0) {
     $arr_state_of_kws_set = $_SESSION["arr_state_of_kws_set"];
     $proverka_simvola = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_state_of_kws_set)));
     $proverka_simvola = implode("", $proverka_simvola);
-    if (!preg_match($regulyar_slova, $proverka_simvola)) {
+    if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
         $err_msg_illegal_char = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
         $_SESSION["err_msg_illegal_char"] = $err_msg_illegal_char;
     }
