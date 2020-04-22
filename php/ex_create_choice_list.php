@@ -19,35 +19,35 @@ if (isset($_POST["non_strict_choice"])) {
     $non_strict_choice = $_POST["non_strict_choice"];
 }
 $max_choice_amount = $_POST["max_choice_amount"];
-$input_basis_kws = $_POST["input_basis_kws"];
-$input_basis_kws = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($input_basis_kws))), "utf-8"));
-$input_basis_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_basis_kws);
-$_MASSIV_op_slov = preg_split("/[\n,;]/", $input_basis_kws, -1, PREG_SPLIT_NO_EMPTY);
+$input_str_basis_kws = $_POST["input_basis_kws"];
+$input_str_basis_kws = mb_strtolower(htmlspecialchars(strip_tags(stripslashes($input_str_basis_kws))), "utf-8");
+$input_str_basis_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_str_basis_kws);
+$arr_basis_kws = preg_split("/[\n,;]/", $input_str_basis_kws, -1, PREG_SPLIT_NO_EMPTY);
 
-for ($i = 0; $i < count($_MASSIV_op_slov); $i++) {
-    $_MASSIV_op_slov[$i] = trim($_MASSIV_op_slov[$i]);
+for ($i = 0; $i < count($arr_basis_kws); $i++) {
+    $arr_basis_kws[$i] = trim($arr_basis_kws[$i]);
 }
-$_MASSIV_op_slov = array_values(array_unique((array_diff($_MASSIV_op_slov, array("")))));
-$basis_kws = implode("\n", $_MASSIV_op_slov);
+$arr_basis_kws = array_values(array_unique((array_diff($arr_basis_kws, array("")))));
+$basis_kws = implode("\n", $arr_basis_kws);
 $_SESSION["basis_kws"] = $basis_kws;
 if (!isset($_SESSION["arr_state_of_kws_set"]) && $basis_kws == null) {
     $err_msg_empty_input = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
     $_SESSION["err_msg_empty_input"] = $err_msg_empty_input;
 }
-if (count($_MASSIV_op_slov) > 8) {
+if (count($arr_basis_kws) > 8) {
     $err_msg_illegal_basis_kws_amount = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
     $_SESSION["err_msg_illegal_basis_kws_amount"] = $err_msg_illegal_basis_kws_amount;
 }
-if (count($_MASSIV_op_slov) > 0) {
-    $proverka_simvola = implode("", $_MASSIV_op_slov);
+if (count($arr_basis_kws) > 0) {
+    $proverka_simvola = implode("", $arr_basis_kws);
     if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
         $err_msg_illegal_char = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
         $_SESSION["err_msg_illegal_char"] = $err_msg_illegal_char;
     }
 }
-if (isset($_SESSION["arr_state_of_kws_set"]) && count($_MASSIV_op_slov) > 0) {
+if (isset($_SESSION["arr_state_of_kws_set"]) && count($arr_basis_kws) > 0) {
     $arr_state_of_kws_set = $_SESSION["arr_state_of_kws_set"];
-    $proverka_simvola = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_state_of_kws_set)));
+    $proverka_simvola = array_values(array_unique(array_merge($arr_basis_kws, $arr_state_of_kws_set)));
     $proverka_simvola = implode("", $proverka_simvola);
     if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
         $err_msg_illegal_char = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
@@ -59,8 +59,8 @@ if (isset($err_msg_illegal_char) or isset($err_msg_illegal_basis_kws_amount) or 
     exit;
 }
 
-$_SQL_stroka_dlya_podbora = implode("','", $_MASSIV_op_slov);
-$kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
+$_SQL_stroka_dlya_podbora = implode("','", $arr_basis_kws);
+$kolichestvo_opornyx_slov = count($arr_basis_kws);
 
 if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
     for ($i = $kolichestvo_opornyx_slov; $i > 0; $i--) {
@@ -85,7 +85,7 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
         $mysqli_stmt->close();
 
         if (isset($arr_of_result) && $arr_of_result != null) {
-            $arr_of_result = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_of_result)));
+            $arr_of_result = array_values(array_unique(array_merge($arr_basis_kws, $arr_of_result)));
 
             if ($i == 1) {
                 break;
@@ -99,11 +99,11 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
             }
         } else {
             if ($i == 1) {
-                $arr_of_result = $_MASSIV_op_slov;
+                $arr_of_result = $arr_basis_kws;
             }
         }
 //        if ( isset( $arr_of_result ) && $arr_of_result != null ) {
-//            $arr_of_result = array_values( array_unique( array_merge( $_MASSIV_op_slov, $arr_of_result ) ) );
+//            $arr_of_result = array_values( array_unique( array_merge( $arr_basis_kws, $arr_of_result ) ) );
 //            if ( count( $arr_of_result ) > $kolichestvo_opornyx_slov ) {
 //                if ( count( $arr_of_result ) > $max_choice_amount ) {
 //                    $arr_of_result = array_slice( $arr_of_result, 0, $max_choice_amount );
@@ -111,7 +111,7 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
 //                break;
 //            }
 //        } else {
-//            $arr_of_result = $_MASSIV_op_slov;
+//            $arr_of_result = $arr_basis_kws;
 //        }
     }
 } else {
@@ -136,9 +136,9 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
     $mysqli_stmt->close();
 
     if (isset($arr_of_result) && $arr_of_result != null) {
-        $arr_of_result = array_values(array_unique(array_merge($_MASSIV_op_slov, $arr_of_result)));
+        $arr_of_result = array_values(array_unique(array_merge($arr_basis_kws, $arr_of_result)));
     } else {
-        $arr_of_result = $_MASSIV_op_slov;
+        $arr_of_result = $arr_basis_kws;
     }
 }
 
