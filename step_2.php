@@ -92,7 +92,7 @@ var_dump($_SESSION);
     </form>
     <br>
     <div class="content-right">
-        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+        <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>

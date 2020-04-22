@@ -184,9 +184,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <div class="content-right">
-        <a class="link-button"
-           href="/php/reset_choice.php"
-           title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
+        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
     <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
 </div>
