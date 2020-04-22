@@ -22,9 +22,7 @@ $count_request = number_format((float)$arr_result[0], 0, "", "&nbsp;");
 
 $mysqli->close();
 
-echo "<pre>";
 var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <!doctype html>

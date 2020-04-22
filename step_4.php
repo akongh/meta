@@ -14,9 +14,7 @@ if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
 };
 
-echo "<pre>";
 var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <!doctype html>

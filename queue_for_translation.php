@@ -27,9 +27,7 @@ if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
     $html_kws_for_translation = "Заявок на перевод пока нет.";
 }
 
-echo "<pre>";
 var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <!doctype html>

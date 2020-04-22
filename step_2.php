@@ -20,9 +20,7 @@ if ( isset( $_SESSION["state_of_kws_set"] ) ) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
 };
 
-echo "<pre>";
 var_dump($_SESSION);
-echo "</pre>";
 ?>
 
 <!doctype html>
