@@ -17,7 +17,7 @@ error_reporting(-1);
  * @param string $data_string
  * @return string
  */
-function sql_est_v_base($data_string)
+function sql_select_kws_frequency($data_string)
 {
     $data_string = "'$data_string'";
     return <<<SQL
@@ -32,7 +32,7 @@ SQL;
  * @param string $data_string
  * @return string
  */
-function sql_kws_mark_transl($data_string)
+function sql_update_mark_kws_for_translation($data_string)
 {
     $data_string = "'$data_string'";
     return <<<SQL
@@ -46,7 +46,7 @@ SQL;
  * @param string $data_string
  * @return string
  */
-function sql_zapr_podb($data_string)
+function sql_select_kws_choice($data_string)
 {
     $data_string = "'$data_string'";
     return <<<SQL
@@ -67,13 +67,13 @@ function sql_zapr_podb($data_string)
 SQL;
 }
 
-define("SQL_F", "
+define("SQL_SELECT_KW_STATUSES", "
     select `k-ts`.`f`
 	from `k-ts`
 	where `k-ts`.`s`= ?
 ");
 
-define("SQL_P_Z", "
+define("SQL_SELECT_EN_TRANSLATION_AND_MEANING", "
     select `l-ts`.`s`, `tz`.`z`
 	from `k-ts`
 	join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -89,28 +89,28 @@ define("SQL_SELECT_KWS_FOR_TRANSLATION", "
     order by `kol` desc
 ");
 
-define("SQL_CREATE_KWSSET_ID", "
+define("SQL_INSERT_CREATE_KWS_SET_ID", "
     INSERT INTO `k-tn` (`vr`)
     VALUES ( ? )
 ");
 
-define("SQL_CREATE_KWSSET_KWS", "
+define("SQL_INSERT_CREATE_KWS_SET_KWS", "
     INSERT IGNORE INTO `k-ts` (`s`)
     VALUES ( ? )
 ");
 
-define("SQL_CREATE_KWSSET_REL", "
+define("SQL_INSERT_CREATE_KWS_SET_RELATIONS", "
     INSERT INTO `k-t_s` (`id_n`, `id_s`)
     VALUES ( ?, (SELECT `ids` FROM `k-ts` WHERE `s` = ? ))
 ");
 
-define("SQL_COUNT_TRANSLATED_WORDS", "
+define("SQL_SELECT_COUNT_TRANSLATED_KWS", "
     select count(`k-ts`.`s`)
 	from `k-ts`
 	where `f` = 1
 ");
 
-define("SQL_COUNT_TRANSLATION_REQUEST", "
+define("SQL_SELECT_COUNT_KWS_FOR_TRANSLATION", "
     select count(`k-ts`.`s`)
 	from `k-ts`
 	where `f` = 7

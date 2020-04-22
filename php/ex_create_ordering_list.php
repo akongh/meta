@@ -25,7 +25,7 @@ if ( !isset($resulting_arr) || count( $resulting_arr ) < 8) {
 if ( isset( $po_chastote ) && $po_chastote == "on" ) {
     $resulting_arr_2 = implode( "','", $resulting_arr );
 
-    $mysqli_result = $mysqli->query( sql_est_v_base($resulting_arr_2) );
+    $mysqli_result = $mysqli->query( sql_select_kws_frequency($resulting_arr_2) );
     $data           = $mysqli_result->fetch_all(MYSQLI_ASSOC);
     $mysqli_result->free();
 

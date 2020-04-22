@@ -29,7 +29,7 @@ if (isset($kws_ru)) {
 
     // Создание номера нового набора todo:transl
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_ID))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("i", $kwsset_time)) {
@@ -43,7 +43,7 @@ if (isset($kws_ru)) {
 
     // Добавление новых ключевых слов в БД todo:transl
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_KWS))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $kw_ru_to_db)) {
@@ -58,7 +58,7 @@ if (isset($kws_ru)) {
 
     // Создание связей ключевых слов с набором todo:transl
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_CREATE_KWSSET_REL))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_RELATIONS))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kw_ru_to_db)) {
@@ -79,7 +79,7 @@ if (isset($kws_en)) {
 }
 if (isset($kws_mark_transl)) {
     $kws_mark_transl = implode("', '", $kws_mark_transl);
-    $mysqli->query(sql_kws_mark_transl($kws_mark_transl));
+    $mysqli->query(sql_update_mark_kws_for_translation($kws_mark_transl));
 }
 
 $mysqli_stmt->close();

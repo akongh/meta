@@ -10,12 +10,12 @@ unset($_POST);
 require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
 
-$mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATED_WORDS);
+$mysqli_result = $mysqli->query(SQL_SELECT_COUNT_TRANSLATED_KWS);
 $arr_result = $mysqli_result->fetch_array();
 $mysqli_result->free();
 $count_translated = number_format((float)$arr_result[0], 0, "", "&nbsp;");
 
-$mysqli_result = $mysqli->query(SQL_COUNT_TRANSLATION_REQUEST);
+$mysqli_result = $mysqli->query(SQL_SELECT_COUNT_KWS_FOR_TRANSLATION);
 $arr_result = $mysqli_result->fetch_array();
 $mysqli_result->free();
 $count_request = number_format((float)$arr_result[0], 0, "", "&nbsp;");

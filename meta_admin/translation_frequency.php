@@ -30,7 +30,7 @@ if ( isset( $slovo[0] ) ) {
 };
 
 if ( isset( $slovo ) ) {
-    $SQL_p_z = mysqli_query( $mysqli, "
+    $sql_select_en_translation_and_meaning = mysqli_query( $mysqli, "
     select `l-ts`.`s`, `tz`.`z`
     from `k-ts`
     join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
@@ -39,7 +39,7 @@ if ( isset( $slovo ) ) {
     where `k-ts`.`s`='" . $slovo . "'
     " );
     $n       = 0;
-    while ( $rez = mysqli_fetch_array( $SQL_p_z ) ) {
+    while ( $rez = mysqli_fetch_array( $sql_select_en_translation_and_meaning ) ) {
         $p[ $n ]   = $rez["s"];
         $z[ $n ]   = $rez["z"];
         $p_z[ $n ] = "<span class=\"perevod\">" . $p[ $n ] . "</span><span class=\"znachenie\"> — " . $z[ $n ] . "</span>";

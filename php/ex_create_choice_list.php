@@ -64,7 +64,7 @@ $kolichestvo_opornyx_slov = count($_MASSIV_op_slov);
 
 if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
     for ($i = $kolichestvo_opornyx_slov; $i > 0; $i--) {
-        if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+        if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($_SQL_stroka_dlya_podbora)))) {
             echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
         }
         if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
@@ -115,7 +115,7 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
 //        }
     }
 } else {
-    if (!($mysqli_stmt = $mysqli->prepare(sql_zapr_podb($_SQL_stroka_dlya_podbora)))) {
+    if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($_SQL_stroka_dlya_podbora)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {

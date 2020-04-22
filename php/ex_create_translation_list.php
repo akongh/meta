@@ -15,7 +15,7 @@ unset(
 $rus = $_POST["spisok_mesto"];
 for ( $i = 0; $i < count( $rus ); $i ++ ) {
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_P_Z))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
@@ -26,12 +26,12 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
     $result = $mysqli_stmt->get_result();
 
-    $SQL_p_z = $result->fetch_all(MYSQLI_ASSOC);
+    $sql_select_en_translation_and_meaning = $result->fetch_all(MYSQLI_ASSOC);
 
     $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
-    foreach ( $SQL_p_z as $key => $val ) {
+    foreach ( $sql_select_en_translation_and_meaning as $key => $val ) {
         $p[ $key ]   = $val["s"];
         $p2[ $key ]  = preg_replace( "/'/", "&#039;", $p[ $key ] );
         $z[ $key ]   = $val["z"];
@@ -44,7 +44,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_F))) {
+    if (!($mysqli_stmt = $mysqli->prepare(SQL_SELECT_KW_STATUSES))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
@@ -55,12 +55,12 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     }
     $result = $mysqli_stmt->get_result();
 
-    $SQL_f = $result->fetch_all(MYSQLI_ASSOC);
+    $sql_select_kw_statuses = $result->fetch_all(MYSQLI_ASSOC);
 
     $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
-    foreach ( $SQL_f as $key => $val ) {
+    foreach ( $sql_select_kw_statuses as $key => $val ) {
         $f[ $key ] = $val["f"];
     }
 
