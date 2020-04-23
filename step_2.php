@@ -52,15 +52,20 @@ var_dump($_SESSION);
             if (in_array($arr_of_result[$i], $_SESSION["arr_basis_kws"])) {
                 echo "
                     <label class='label-highlight'>
-                    <input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[$i] . "'>
-                    " . $arr_of_result[$i] . "
-                    </label><br>";
+                    <input type='checkbox'
+                            name='slova_s_flagom[]'
+                            checked
+                            value = '" . $arr_of_result[$i] . "'>
+                            " . $arr_of_result[$i] . "
+                            </label><br>";
             } else {
                 echo "
                     <label class='label-highlight'>
-                    <input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[$i] . "'>
-                    " . $arr_of_result[$i] . "
-                    </label><br>";
+                    <input type='checkbox'
+                            name='slova_s_flagom[]'
+                            value = '" . $arr_of_result[$i] . "'>
+                            " . $arr_of_result[$i] . "
+                            </label><br>";
             }
         }
         echo "
