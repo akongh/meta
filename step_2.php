@@ -4,21 +4,21 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["presence_mark"] ) ) {
-    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
+if (!isset($_SESSION["presence_mark"])) {
+    header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if ( isset( $_SESSION["output_marked_kws_list"] ) ) {
+if (isset($_SESSION["output_marked_kws_list"])) {
     $output_marked_kws_list = $_SESSION["output_marked_kws_list"];
-};
-if ( isset( $_SESSION["additional_kws"] ) ) {
+}
+if (isset($_SESSION["additional_kws"])) {
     $additional_kws = $_SESSION["additional_kws"];
-};
-if ( isset( $_SESSION["err_msg_illegal_char"] ) ) {
+}
+if (isset($_SESSION["err_msg_illegal_char"])) {
     $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
-};
-if ( isset( $_SESSION["state_of_kws_set"] ) ) {
+}
+if (isset($_SESSION["state_of_kws_set"])) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
-};
+}
 
 var_dump($_SESSION);
 ?>
@@ -32,13 +32,13 @@ var_dump($_SESSION);
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="page">
     <br>
     <br>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <br>
     <br>
     <h1 class="bold">2/6. Выбираем из подобранных…</h1>
@@ -48,22 +48,36 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
-        <?php if (isset($output_marked_kws_list)){echo $output_marked_kws_list;};?>
-        <?php if (isset($state_of_kws_set)){echo $state_of_kws_set;};?>
+        <?php
+        if (isset($output_marked_kws_list)) {
+            echo $output_marked_kws_list;
+        }
+        if (isset($state_of_kws_set)) {
+            echo $state_of_kws_set;
+        }
+        ?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
         <textarea name="vvod_dop_slov"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
-                  placeholder=""><?php if (isset($additional_kws)){echo $additional_kws;};?></textarea>
+                  placeholder=""><?php
+            if (isset($additional_kws)) {
+                echo $additional_kws;
+            }
+            ?></textarea>
         <br>
-        <?php if (isset($err_msg_illegal_char)){echo $err_msg_illegal_char;};?>
+        <?php
+        if (isset($err_msg_illegal_char)) {
+            echo $err_msg_illegal_char;
+        }
+        ?>
         <br>
         <br>
         <br>
         <div class="content-right">
-            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?><span id="help" class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -76,7 +90,7 @@ var_dump($_SESSION);
             определении очерёдности.
             </span><br>
             <br>
-            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
+            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php'); ?><br>
         </div>
         <br>
         <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
@@ -94,7 +108,7 @@ var_dump($_SESSION);
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/selectAll.js"></script>
 <script src="/js/showHelp.js"></script>
