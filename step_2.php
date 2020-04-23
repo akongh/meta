@@ -14,9 +14,6 @@ if (isset($_SESSION["arr_of_result"])) {
 if (isset($_SESSION["additional_kws"])) {
     $additional_kws = $_SESSION["additional_kws"];
 }
-if (isset($_SESSION["err_msg_illegal_char"])) {
-    $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
-}
 if (isset($_SESSION["state_of_kws_set"])) {
     $state_of_kws_set = $_SESSION["state_of_kws_set"];
 }
@@ -88,8 +85,8 @@ var_dump($_SESSION);
             ?></textarea>
         <br>
         <?php
-        if (isset($err_msg_illegal_char)) {
-            echo $err_msg_illegal_char;
+        if (isset($_SESSION["err_msg_illegal_char"])) {
+            echo "<span class='error'>{$_SESSION["err_msg_illegal_char"]}</span><br>";
         }
         ?>
         <br>
