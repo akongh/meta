@@ -53,7 +53,7 @@ var_dump($_SESSION);
                 echo "
                     <label class='label-highlight'>
                     <input type='checkbox'
-                            name='slova_s_flagom[]'
+                            name='marked_kws[]'
                             checked
                             value = '" . $arr_of_result[$i] . "'>
                             " . $arr_of_result[$i] . "
@@ -62,7 +62,7 @@ var_dump($_SESSION);
                 echo "
                     <label class='label-highlight'>
                     <input type='checkbox'
-                            name='slova_s_flagom[]'
+                            name='marked_kws[]'
                             value = '" . $arr_of_result[$i] . "'>
                             " . $arr_of_result[$i] . "
                             </label><br>";

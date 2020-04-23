@@ -15,26 +15,26 @@ unset(
 if (isset($_POST["alphabetical_order"])) {
     $alphabetical_order = $_POST["alphabetical_order"];
 }
-if (isset($_POST["slova_s_flagom"])) {
-    $slova_s_flagom = $_POST["slova_s_flagom"];
+if (isset($_POST["marked_kws"])) {
+    $marked_kws = $_POST["marked_kws"];
 }
 $arr_of_result = $_SESSION["arr_of_result"];
 //обеспробеливаем массив отмеченных слов
-if (isset($slova_s_flagom) && $slova_s_flagom != null) {
-    for ($i = 0; $i < count($slova_s_flagom); $i++) {
-        $slova_s_flagom_bez_probelov[$i] = trim($slova_s_flagom[$i]);
+if (isset($marked_kws) && $marked_kws != null) {
+    for ($i = 0; $i < count($marked_kws); $i++) {
+        $marked_kws_bez_probelov[$i] = trim($marked_kws[$i]);
     }
 }
 //рисуем массив результата с отмеченными словами
 for ($i = 0; $i < count($arr_of_result); $i++) {
-    if (isset($slova_s_flagom_bez_probelov)) {
-        if (in_array($arr_of_result[$i], $slova_s_flagom_bez_probelov)) {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+    if (isset($marked_kws_bez_probelov)) {
+        if (in_array($arr_of_result[$i], $marked_kws_bez_probelov)) {
+            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
         } else {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
         }
     } else {
-        $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+        $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
     }
 }
 if (isset($spisok) && $spisok != null) {
@@ -56,13 +56,13 @@ for ($i = 0; $i < count($arr_additional_kws); $i++) {
 
 $arr_additional_kws = array_values(array_unique((array_diff($arr_additional_kws, array("")))));
 //удаляем из дополнительных слов те, которые отмечены флажком в подборе
-if (isset($slova_s_flagom_bez_probelov) && isset($arr_additional_kws)) {
+if (isset($marked_kws_bez_probelov) && isset($arr_additional_kws)) {
     for ($i = 0; $i < count($arr_additional_kws); $i++) {
-        if (!in_array($arr_additional_kws[$i], $slova_s_flagom_bez_probelov)) {
+        if (!in_array($arr_additional_kws[$i], $marked_kws_bez_probelov)) {
             $dopolnenie_unikalnoe[$i] = $arr_additional_kws[$i];
         }
     }
-} elseif (!isset($slova_s_flagom_bez_probelov) && isset($arr_additional_kws)) {
+} elseif (!isset($marked_kws_bez_probelov) && isset($arr_additional_kws)) {
     $dopolnenie_unikalnoe = $arr_additional_kws;
 }
 //делаем строку с переносами из массива уникального дополненния
@@ -79,11 +79,11 @@ if (isset($dopolnenie_unikalnoe) && count($dopolnenie_unikalnoe) > 0) {
     }
 }
 //итоговый массив из подбора, дополнения и состояния
-if (isset($slova_s_flagom_bez_probelov) && isset($dopolnenie_unikalnoe)) {
-    $resulting_arr = array_values(array_unique(array_merge($slova_s_flagom_bez_probelov, $dopolnenie_unikalnoe)));
-} elseif (isset($slova_s_flagom_bez_probelov) && !isset($dopolnenie_unikalnoe)) {
-    $resulting_arr = $slova_s_flagom_bez_probelov;
-} elseif (!isset($slova_s_flagom_bez_probelov) && isset($dopolnenie_unikalnoe)) {
+if (isset($marked_kws_bez_probelov) && isset($dopolnenie_unikalnoe)) {
+    $resulting_arr = array_values(array_unique(array_merge($marked_kws_bez_probelov, $dopolnenie_unikalnoe)));
+} elseif (isset($marked_kws_bez_probelov) && !isset($dopolnenie_unikalnoe)) {
+    $resulting_arr = $marked_kws_bez_probelov;
+} elseif (!isset($marked_kws_bez_probelov) && isset($dopolnenie_unikalnoe)) {
     $resulting_arr = $dopolnenie_unikalnoe;
 }
 
