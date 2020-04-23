@@ -5,21 +5,6 @@ error_reporting(-1);
 session_start();
 
 $_SESSION["presence_mark"] = true;
-if (isset($_SESSION["arr_basis_kws"])) {
-    $arr_basis_kws = $_SESSION["arr_basis_kws"];
-}
-if (isset($_SESSION["err_msg_empty_input"])) {
-    $err_msg_empty_input = $_SESSION["err_msg_empty_input"];
-}
-if (isset($_SESSION["err_msg_illegal_char"])) {
-    $err_msg_illegal_char = $_SESSION["err_msg_illegal_char"];
-}
-if (isset($_SESSION["err_msg_illegal_basis_kws_amount"])) {
-    $err_msg_illegal_basis_kws_amount = $_SESSION["err_msg_illegal_basis_kws_amount"];
-}
-if (isset($_SESSION["state_of_kws_set"])) {
-    $state_of_kws_set = $_SESSION["state_of_kws_set"];
-}
 
 var_dump($_SESSION);
 ?>
@@ -56,8 +41,8 @@ var_dump($_SESSION);
     <br>
     <br>
     <?php
-    if (isset($state_of_kws_set)) {
-        echo $state_of_kws_set;
+    if (isset($_SESSION["state_of_kws_set"])) {
+        echo $_SESSION["state_of_kws_set"];
     }
     ?>
     <form action="/php/ex_create_choice_list.php"
@@ -68,20 +53,20 @@ var_dump($_SESSION);
                   rows="8"
                   placeholder=""
                   autofocus><?php
-            if (isset($arr_basis_kws)) {
-                echo implode("\n", $arr_basis_kws);;
+            if (isset($_SESSION["arr_basis_kws"])) {
+                echo implode("\n", $_SESSION["arr_basis_kws"]);
             }
             ?></textarea>
         <br>
         <?php
-        if (isset($err_msg_empty_input)) {
-            echo $err_msg_empty_input;
+        if (isset($_SESSION["err_msg_empty_input"])) {
+            echo $_SESSION["err_msg_empty_input"];
         }
-        if (isset($err_msg_illegal_char)) {
-            echo $err_msg_illegal_char;
+        if (isset($_SESSION["err_msg_illegal_char"])) {
+            echo $_SESSION["err_msg_illegal_char"];
         }
-        if (isset($err_msg_illegal_basis_kws_amount)) {
-            echo $err_msg_illegal_basis_kws_amount;
+        if (isset($_SESSION["err_msg_illegal_basis_kws_amount"])) {
+            echo $_SESSION["err_msg_illegal_basis_kws_amount"];
         }
         ?>
         <br>
