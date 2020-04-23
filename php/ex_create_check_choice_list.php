@@ -21,12 +21,12 @@ $arr_of_result = $_SESSION["arr_of_result"];
 for ($i = 0; $i < count($arr_of_result); $i++) {
     if (isset($arr_marked_kws)) {
         if (in_array($arr_of_result[$i], $arr_marked_kws)) {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
         } else {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
         }
     } else {
-        $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
+        $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
     }
 }
 if (isset($spisok) && $spisok != null) {
@@ -107,7 +107,7 @@ $total_kws_amount = count($resulting_arr);
 $_SESSION["total_kws_amount"] = $total_kws_amount;
 
 for ($i = 0; $i < count($resulting_arr); $i++) {
-    $assembled_kws_set[$i] = "<label class='label-highlight'><input type='checkbox' name='resulting_arr[]' checked value = '" . $resulting_arr[$i] . "'> " . $resulting_arr[$i] . "</label>";
+    $assembled_kws_set[$i] = "<label class='label-highlight'><input type='checkbox' name='resulting_arr[]' checked value = '{$resulting_arr[$i]}'>{$resulting_arr[$i]}</label>";
 }
 if (isset($assembled_kws_set)) {
     //сортировать или нет по алфавиту
