@@ -55,10 +55,10 @@ if (false === $err_mark) {
 $str_basis_kws = implode("','", $arr_basis_kws);
 
 if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
+    if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
+        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+    }
     for ($i = $count_arr_basis_kws; $i > 0; $i--) {
-        if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
-            echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
-        }
         if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
             echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
@@ -74,7 +74,6 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
         }
 
         $mysqli_stmt->free_result();
-        $mysqli_stmt->close();
 
         if (isset($arr_of_result) && $arr_of_result != null) {
             $arr_of_result = array_values(array_unique(array_merge($arr_basis_kws, $arr_of_result)));
@@ -106,6 +105,8 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
 //            $arr_of_result = $arr_basis_kws;
 //        }
     }
+
+    $mysqli_stmt->close();
 } else {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
