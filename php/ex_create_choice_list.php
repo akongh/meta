@@ -113,7 +113,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
+    if (!$mysqli_stmt->bind_param("ii", $count_arr_basis_kws, $max_choice_amount)) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
