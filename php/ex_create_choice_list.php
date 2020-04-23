@@ -91,17 +91,6 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
                 $arr_of_result = $arr_basis_kws;
             }
         }
-//        if ( isset( $arr_of_result ) && $arr_of_result != null ) {
-//            $arr_of_result = array_values( array_unique( array_merge( $arr_basis_kws, $arr_of_result ) ) );
-//            if ( count( $arr_of_result ) > $count_arr_basis_kws ) {
-//                if ( count( $arr_of_result ) > $max_choice_amount ) {
-//                    $arr_of_result = array_slice( $arr_of_result, 0, $max_choice_amount );
-//                }
-//                break;
-//            }
-//        } else {
-//            $arr_of_result = $arr_basis_kws;
-//        }
     }
 
     $mysqli_stmt->close();
