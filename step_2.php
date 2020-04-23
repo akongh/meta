@@ -55,13 +55,13 @@ var_dump($_SESSION);
                     <input type='checkbox'
                             name='marked_kws[]'
                             checked
-                            value = '{$kw}'> {$kw}</label><br>";
+                            value = '{$kw}'>{$kw}</label><br>";
             } else {
                 echo "
                     <label class='label-highlight'>
                     <input type='checkbox'
                             name='marked_kws[]'
-                            value = '{$kw}'> {$kw}</label><br>";
+                            value = '{$kw}'>{$kw}</label><br>";
             }
         }
         ?>

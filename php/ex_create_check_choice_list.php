@@ -13,19 +13,14 @@ unset(
 );
 
 if (isset($_POST["marked_kws"])) {
-    $marked_kws = $_POST["marked_kws"];
+    $arr_marked_kws = $_POST["marked_kws"];
 }
 $arr_of_result = $_SESSION["arr_of_result"];
-//обеспробеливаем массив отмеченных слов
-if (isset($marked_kws) && $marked_kws != null) {
-    for ($i = 0; $i < count($marked_kws); $i++) {
-        $marked_kws_bez_probelov[$i] = trim($marked_kws[$i]);
-    }
-}
+
 //рисуем массив результата с отмеченными словами
 for ($i = 0; $i < count($arr_of_result); $i++) {
-    if (isset($marked_kws_bez_probelov)) {
-        if (in_array($arr_of_result[$i], $marked_kws_bez_probelov)) {
+    if (isset($arr_marked_kws)) {
+        if (in_array($arr_of_result[$i], $arr_marked_kws)) {
             $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
         } else {
             $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '" . $arr_of_result[$i] . "'> " . $arr_of_result[$i] . "</label>";
@@ -53,13 +48,13 @@ for ($i = 0; $i < count($arr_additional_kws); $i++) {
 
 $arr_additional_kws = array_values(array_unique((array_diff($arr_additional_kws, array("")))));
 //удаляем из дополнительных слов те, которые отмечены флажком в подборе
-if (isset($marked_kws_bez_probelov) && isset($arr_additional_kws)) {
+if (isset($arr_marked_kws) && isset($arr_additional_kws)) {
     for ($i = 0; $i < count($arr_additional_kws); $i++) {
-        if (!in_array($arr_additional_kws[$i], $marked_kws_bez_probelov)) {
+        if (!in_array($arr_additional_kws[$i], $arr_marked_kws)) {
             $dopolnenie_unikalnoe[$i] = $arr_additional_kws[$i];
         }
     }
-} elseif (!isset($marked_kws_bez_probelov) && isset($arr_additional_kws)) {
+} elseif (!isset($arr_marked_kws) && isset($arr_additional_kws)) {
     $dopolnenie_unikalnoe = $arr_additional_kws;
 }
 //делаем строку с переносами из массива уникального дополненния
@@ -76,11 +71,11 @@ if (isset($dopolnenie_unikalnoe) && count($dopolnenie_unikalnoe) > 0) {
     }
 }
 //итоговый массив из подбора, дополнения и состояния
-if (isset($marked_kws_bez_probelov) && isset($dopolnenie_unikalnoe)) {
-    $resulting_arr = array_values(array_unique(array_merge($marked_kws_bez_probelov, $dopolnenie_unikalnoe)));
-} elseif (isset($marked_kws_bez_probelov) && !isset($dopolnenie_unikalnoe)) {
-    $resulting_arr = $marked_kws_bez_probelov;
-} elseif (!isset($marked_kws_bez_probelov) && isset($dopolnenie_unikalnoe)) {
+if (isset($arr_marked_kws) && isset($dopolnenie_unikalnoe)) {
+    $resulting_arr = array_values(array_unique(array_merge($arr_marked_kws, $dopolnenie_unikalnoe)));
+} elseif (isset($arr_marked_kws) && !isset($dopolnenie_unikalnoe)) {
+    $resulting_arr = $arr_marked_kws;
+} elseif (!isset($arr_marked_kws) && isset($dopolnenie_unikalnoe)) {
     $resulting_arr = $dopolnenie_unikalnoe;
 }
 
