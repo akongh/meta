@@ -45,10 +45,10 @@ if (isset($spisok) && $spisok != null) {
     $_SESSION["output_marked_kws_list"] = $output_marked_kws_list;
 }
 //делаем массив из дополнительных слов
-$vvod_dop_slov = $_POST["vvod_dop_slov"];
-$vvod_dop_slov = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($vvod_dop_slov))), "utf-8"));
-$vvod_dop_slov = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $vvod_dop_slov);
-$_MASSIV_dop_slov = preg_split("/[\n,;]/", $vvod_dop_slov, -1, PREG_SPLIT_NO_EMPTY);
+$additional_kws = $_POST["additional_kws"];
+$additional_kws = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($additional_kws))), "utf-8"));
+$additional_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $additional_kws);
+$_MASSIV_dop_slov = preg_split("/[\n,;]/", $additional_kws, -1, PREG_SPLIT_NO_EMPTY);
 
 for ($i = 0; $i < count($_MASSIV_dop_slov); $i++) {
     $_MASSIV_dop_slov[$i] = trim($_MASSIV_dop_slov[$i]);

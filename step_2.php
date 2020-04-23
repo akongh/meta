@@ -79,7 +79,7 @@ var_dump($_SESSION);
         ?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
-        <textarea name="vvod_dop_slov"
+        <textarea name="additional_kws"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
