@@ -60,13 +60,13 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["err_msg_empty_input"])) {
-            echo $_SESSION["err_msg_empty_input"];
+            echo "<span class='error'>{$_SESSION["err_msg_empty_input"]}</span><br>";
         }
         if (isset($_SESSION["err_msg_illegal_char"])) {
-            echo $_SESSION["err_msg_illegal_char"];
+            echo "<span class='error'>{$_SESSION["err_msg_illegal_char"]}</span><br>";
         }
         if (isset($_SESSION["err_msg_illegal_basis_kws_amount"])) {
-            echo $_SESSION["err_msg_illegal_basis_kws_amount"];
+            echo "<span class='error'>{$_SESSION["err_msg_illegal_basis_kws_amount"]}</span><br>";
         }
         ?>
         <br>

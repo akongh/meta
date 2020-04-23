@@ -36,17 +36,17 @@ $count_arr_basis_kws = count($arr_basis_kws);
 
 $err_mark = true;
 if (!isset($_SESSION["arr_state_of_kws_set"]) && $arr_basis_kws == null) {
-    $_SESSION["err_msg_empty_input"] = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
+    $_SESSION["err_msg_empty_input"] = "Необходимы опорные ключевые слова.";
     $err_mark = false;
 }
 if ($count_arr_basis_kws > 8) {
-    $_SESSION["err_msg_illegal_basis_kws_amount"] = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
+    $_SESSION["err_msg_illegal_basis_kws_amount"] = "Не более 8-ми опорных ключевых слов.";
     $err_mark = false;
 }
 if ($count_arr_basis_kws > 0) {
     $check_str_ru_basis_kws = implode("", $arr_basis_kws);
     if (!preg_match($regex_check_ru_basis_kws, $check_str_ru_basis_kws)) {
-        $_SESSION["err_msg_illegal_char"] = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
+        $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
         $err_mark = false;
     }
 }
