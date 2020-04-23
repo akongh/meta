@@ -50,7 +50,7 @@ function sql_select_kws_choice($data_string)
 {
     $data_string = "'$data_string'";
     return <<<SQL
-        select `k-ts`.`s`, count(*)
+        select `k-ts`.`s`
         from (
           select `k-t_s`.`id_n`
           from  `k-ts`

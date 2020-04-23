@@ -65,7 +65,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
         if (!$mysqli_stmt->execute()) {
             echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
-        $mysqli_stmt->bind_result($data, $count);
+        $mysqli_stmt->bind_result($data);
 
         $n = 0;
         while ($mysqli_stmt->fetch()) {
@@ -117,7 +117,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     if (!$mysqli_stmt->execute()) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
-    $mysqli_stmt->bind_result($data, $count);
+    $mysqli_stmt->bind_result($data);
 
     $n = 0;
     while ($mysqli_stmt->fetch()) {
