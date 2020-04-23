@@ -32,16 +32,18 @@ unset($value);
 $arr_basis_kws = array_values(array_unique((array_diff($arr_basis_kws, array("")))));
 $_SESSION["arr_basis_kws"] = $arr_basis_kws;
 
+$count_arr_basis_kws = count($arr_basis_kws);
+
 $err_mark = true;
 if (!isset($_SESSION["arr_state_of_kws_set"]) && $arr_basis_kws == null) {
     $_SESSION["err_msg_empty_input"] = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
     $err_mark = false;
 }
-if (count($arr_basis_kws) > 8) {
+if ($count_arr_basis_kws > 8) {
     $_SESSION["err_msg_illegal_basis_kws_amount"] = "<span class='error'>Не более 8-ми опорных ключевых слов.</span><br>";
     $err_mark = false;
 }
-if (count($arr_basis_kws) > 0) {
+if ($count_arr_basis_kws > 0) {
     $check_str_ru_basis_kws = implode("", $arr_basis_kws);
     if (!preg_match($regex_check_ru_basis_kws, $check_str_ru_basis_kws)) {
         $_SESSION["err_msg_illegal_char"] = "<span class='error'>Только кириллица, цифры, пробел и&nbsp;дефис.</span><br>";
@@ -54,10 +56,9 @@ if (false === $err_mark) {
 }
 
 $_SQL_stroka_dlya_podbora = implode("','", $arr_basis_kws);
-$kolichestvo_opornyx_slov = count($arr_basis_kws);
 
-if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
-    for ($i = $kolichestvo_opornyx_slov; $i > 0; $i--) {
+if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
+    for ($i = $count_arr_basis_kws; $i > 0; $i--) {
         if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($_SQL_stroka_dlya_podbora)))) {
             echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
         }
@@ -98,7 +99,7 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
         }
 //        if ( isset( $arr_of_result ) && $arr_of_result != null ) {
 //            $arr_of_result = array_values( array_unique( array_merge( $arr_basis_kws, $arr_of_result ) ) );
-//            if ( count( $arr_of_result ) > $kolichestvo_opornyx_slov ) {
+//            if ( count( $arr_of_result ) > $count_arr_basis_kws ) {
 //                if ( count( $arr_of_result ) > $max_choice_amount ) {
 //                    $arr_of_result = array_slice( $arr_of_result, 0, $max_choice_amount );
 //                }
@@ -139,7 +140,7 @@ if (isset($non_strict_choice) && $kolichestvo_opornyx_slov > 1) {
 $_SESSION["arr_of_result"] = $arr_of_result;
 
 for ($i = 0; $i < count($arr_of_result); $i++) {
-    if ($i < $kolichestvo_opornyx_slov) {
+    if ($i < $count_arr_basis_kws) {
         $_MASSIV_spisok_podbora[$i] = "
         <label class='label-highlight'>
         <input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[$i] . "'>
