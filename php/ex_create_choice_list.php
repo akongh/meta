@@ -139,28 +139,5 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
 
 $_SESSION["arr_of_result"] = $arr_of_result;
 
-for ($i = 0; $i < count($arr_of_result); $i++) {
-    if ($i < $count_arr_basis_kws) {
-        $_MASSIV_spisok_podbora[$i] = "
-        <label class='label-highlight'>
-        <input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[$i] . "'>
-        " . $arr_of_result[$i] . "
-        </label>";
-    } else {
-        $_MASSIV_spisok_podbora[$i] = "
-        <label class='label-highlight'>
-        <input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[$i] . "'>
-        " . $arr_of_result[$i] . "
-        </label>";
-    }
-}
-if (isset($_MASSIV_spisok_podbora)) {
-    $output_marked_kws_list = implode("<br>", $_MASSIV_spisok_podbora) . "
-        <br>
-        <br>
-        ";
-    $_SESSION["output_marked_kws_list"] = $output_marked_kws_list;
-}
-
 $mysqli->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");

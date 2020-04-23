@@ -7,8 +7,9 @@ session_start();
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if (isset($_SESSION["output_marked_kws_list"])) {
-    $output_marked_kws_list = $_SESSION["output_marked_kws_list"];
+if (isset($_SESSION["arr_of_result"])) {
+    $arr_of_result = $_SESSION["arr_of_result"];
+    $count_arr_of_result = count($arr_of_result);
 }
 if (isset($_SESSION["additional_kws"])) {
     $additional_kws = $_SESSION["additional_kws"];
@@ -50,9 +51,26 @@ var_dump($_SESSION);
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
         <?php
-        if (isset($output_marked_kws_list)) {
-            echo $output_marked_kws_list;
+        for ($i = 0; $i < $count_arr_of_result; $i++) {
+            if (in_array($arr_of_result[$i], $_SESSION["arr_basis_kws"])) {
+                echo "
+                    <label class='label-highlight'>
+                    <input type='checkbox' name='slova_s_flagom[]' checked value = '" . $arr_of_result[$i] . "'>
+                    " . $arr_of_result[$i] . "
+                    </label><br>";
+            } else {
+                echo "
+                    <label class='label-highlight'>
+                    <input type='checkbox' name='slova_s_flagom[]' value = '" . $arr_of_result[$i] . "'>
+                    " . $arr_of_result[$i] . "
+                    </label><br>";
+            }
         }
+        echo "
+                <br>
+                <br>
+            ";
+
         if (isset($state_of_kws_set)) {
             echo $state_of_kws_set;
         }
