@@ -117,7 +117,7 @@ var_dump($_SESSION);
         <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
             <input type="checkbox"
                    checked
-                   name="abv">
+                   name="alphabetical_order">
             Алфавитный порядок.</label>
         <br>
         <br>

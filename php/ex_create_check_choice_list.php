@@ -12,8 +12,8 @@ unset(
     $_SESSION["total_untranslated_ru_kws"]
 );
 
-if (isset($_POST["abv"])) {
-    $abv = $_POST["abv"];
+if (isset($_POST["alphabetical_order"])) {
+    $alphabetical_order = $_POST["alphabetical_order"];
 }
 if (isset($_POST["slova_s_flagom"])) {
     $slova_s_flagom = $_POST["slova_s_flagom"];
@@ -119,10 +119,10 @@ for ($i = 0; $i < count($resulting_arr); $i++) {
 }
 if (isset($assembled_kws_set)) {
     //сортировать или нет по алфавиту
-    if (isset($abv) && $abv == "on") {
+    if (isset($alphabetical_order) && $alphabetical_order == "on") {
         sort($assembled_kws_set, SORT_STRING);
     }
-    unset($abv);
+    unset($alphabetical_order);
     $assembled_kws_set = implode("<br>\n", $assembled_kws_set);
 }
 if (isset($assembled_kws_set)) {
