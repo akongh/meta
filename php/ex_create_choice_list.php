@@ -43,12 +43,9 @@ if ($count_arr_basis_kws > 8) {
     $_SESSION["err_msg_illegal_basis_kws_amount"] = "Не более 8-ми опорных ключевых слов.";
     $err_mark = false;
 }
-if ($count_arr_basis_kws > 0) {
-    $check_str_ru_basis_kws = implode("", $arr_basis_kws);
-    if (!preg_match($regex_check_ru_basis_kws, $check_str_ru_basis_kws)) {
-        $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
-        $err_mark = false;
-    }
+if ($count_arr_basis_kws > 0 && !preg_match($regex_check_ru_basis_kws, implode("", $arr_basis_kws))) {
+    $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
+    $err_mark = false;
 }
 if (false === $err_mark) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
