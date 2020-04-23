@@ -57,7 +57,7 @@ function sql_select_kws_choice($data_string)
           join `k-t_s` on `k-t_s`.`id_s` = `k-ts`.`ids`
           where `k-ts`.`s` in ($data_string)
           group by `k-t_s`.`id_n`
-          having count(/*distinct */`k-t_s`.`id_s`) >= ?
+          having count(`k-t_s`.`id_s`) >= ?
           ) `g`
         join `k-t_s` on `k-t_s`.`id_n` = `g`.`id_n`
         join `k-ts` on `k-ts`.`ids` = `k-t_s`.`id_s`
