@@ -74,7 +74,8 @@ var_dump($_SESSION);
         <br>
         <div class="content-right">
             <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_help.php"); ?>
-            <span id="help" class="help hidden">
+            <span id="help"
+                  class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -93,7 +94,8 @@ var_dump($_SESSION);
         <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не более
             <select size="1"
                     name="max_choice_amount">
-            <option selected value="80">80</option>
+            <option selected
+                    value="80">80</option>
             <option value="160">160</option>
         </select>.</span>
         <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">

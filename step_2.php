@@ -28,7 +28,8 @@ var_dump($_SESSION);
 <head>
     <meta charset="utf-8">
     <title>2/6. Выбираем из подобранных и добавляем свои</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
