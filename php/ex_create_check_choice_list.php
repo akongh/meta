@@ -18,15 +18,15 @@ if (isset($_POST["marked_kws"])) {
 $arr_of_result = $_SESSION["arr_of_result"];
 
 //рисуем массив результата с отмеченными словами
-for ($i = 0; $i < count($arr_of_result); $i++) {
+foreach ($arr_of_result as $kw) {
     if (isset($arr_marked_kws)) {
-        if (in_array($arr_of_result[$i], $arr_marked_kws)) {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
+        if (in_array($kw, $arr_marked_kws)) {
+            $spisok[] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '{$kw}'>{$kw}</label>";
         } else {
-            $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
+            $spisok[] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$kw}'>{$kw}</label>";
         }
     } else {
-        $spisok[$i] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$arr_of_result[$i]}'>{$arr_of_result[$i]}</label>";
+        $spisok[] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' value = '{$kw}'>{$kw}</label>";
     }
 }
 if (isset($spisok) && $spisok != null) {
