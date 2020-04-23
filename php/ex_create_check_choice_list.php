@@ -98,7 +98,7 @@ if (isset($resulting_arr)) {
     }
 }
 //остаёмся исправлять ошибки
-if (isset($err_msg_illegal_char)) {
+if (isset($_SESSION["err_msg_illegal_char"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
     exit;
 }
