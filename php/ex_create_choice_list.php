@@ -55,11 +55,11 @@ if (false === $err_mark) {
     exit;
 }
 
-$_SQL_stroka_dlya_podbora = implode("','", $arr_basis_kws);
+$str_basis_kws = implode("','", $arr_basis_kws);
 
 if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     for ($i = $count_arr_basis_kws; $i > 0; $i--) {
-        if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($_SQL_stroka_dlya_podbora)))) {
+        if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
             echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
         }
         if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
@@ -110,7 +110,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
 //        }
     }
 } else {
-    if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($_SQL_stroka_dlya_podbora)))) {
+    if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
