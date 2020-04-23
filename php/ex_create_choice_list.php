@@ -67,10 +67,8 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
         }
         $mysqli_stmt->bind_result($data);
 
-        $n = 0;
         while ($mysqli_stmt->fetch()) {
-            $arr_of_result[$n] = $data;
-            $n++;
+            $arr_of_result[] = $data;
         }
 
         $mysqli_stmt->free_result();
@@ -119,10 +117,8 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     }
     $mysqli_stmt->bind_result($data);
 
-    $n = 0;
     while ($mysqli_stmt->fetch()) {
-        $arr_of_result[$n] = $data;
-        $n++;
+        $arr_of_result[] = $data;
     }
 
     $mysqli_stmt->free_result();
