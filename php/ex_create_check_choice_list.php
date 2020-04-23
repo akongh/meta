@@ -48,22 +48,22 @@ if (isset($spisok) && $spisok != null) {
 $additional_kws = $_POST["additional_kws"];
 $additional_kws = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($additional_kws))), "utf-8"));
 $additional_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $additional_kws);
-$_MASSIV_dop_slov = preg_split("/[\n,;]/", $additional_kws, -1, PREG_SPLIT_NO_EMPTY);
+$arr_additional_kws = preg_split("/[\n,;]/", $additional_kws, -1, PREG_SPLIT_NO_EMPTY);
 
-for ($i = 0; $i < count($_MASSIV_dop_slov); $i++) {
-    $_MASSIV_dop_slov[$i] = trim($_MASSIV_dop_slov[$i]);
+for ($i = 0; $i < count($arr_additional_kws); $i++) {
+    $arr_additional_kws[$i] = trim($arr_additional_kws[$i]);
 }
 
-$_MASSIV_dop_slov = array_values(array_unique((array_diff($_MASSIV_dop_slov, array("")))));
+$arr_additional_kws = array_values(array_unique((array_diff($arr_additional_kws, array("")))));
 //удаляем из дополнительных слов те, которые отмечены флажком в подборе
-if (isset($slova_s_flagom_bez_probelov) && isset($_MASSIV_dop_slov)) {
-    for ($i = 0; $i < count($_MASSIV_dop_slov); $i++) {
-        if (!in_array($_MASSIV_dop_slov[$i], $slova_s_flagom_bez_probelov)) {
-            $dopolnenie_unikalnoe[$i] = $_MASSIV_dop_slov[$i];
+if (isset($slova_s_flagom_bez_probelov) && isset($arr_additional_kws)) {
+    for ($i = 0; $i < count($arr_additional_kws); $i++) {
+        if (!in_array($arr_additional_kws[$i], $slova_s_flagom_bez_probelov)) {
+            $dopolnenie_unikalnoe[$i] = $arr_additional_kws[$i];
         }
     }
-} elseif (!isset($slova_s_flagom_bez_probelov) && isset($_MASSIV_dop_slov)) {
-    $dopolnenie_unikalnoe = $_MASSIV_dop_slov;
+} elseif (!isset($slova_s_flagom_bez_probelov) && isset($arr_additional_kws)) {
+    $dopolnenie_unikalnoe = $arr_additional_kws;
 }
 //делаем строку с переносами из массива уникального дополненния
 if (isset($dopolnenie_unikalnoe)) {
