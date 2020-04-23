@@ -5,8 +5,8 @@ error_reporting(-1);
 session_start();
 
 $_SESSION["presence_mark"] = true;
-if (isset($_SESSION["basis_kws"])) {
-    $basis_kws = $_SESSION["basis_kws"];
+if (isset($_SESSION["arr_basis_kws"])) {
+    $arr_basis_kws = $_SESSION["arr_basis_kws"];
 }
 if (isset($_SESSION["err_msg_empty_input"])) {
     $err_msg_empty_input = $_SESSION["err_msg_empty_input"];
@@ -62,14 +62,14 @@ var_dump($_SESSION);
     ?>
     <form action="/php/ex_create_choice_list.php"
           method="post">
-        <textarea name="input_basis_kws"
+        <textarea name="input_str_basis_kws"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""
                   autofocus><?php
-            if (isset($basis_kws)) {
-                echo $basis_kws;
+            if (isset($arr_basis_kws)) {
+                echo implode("\n", $arr_basis_kws);;
             }
             ?></textarea>
         <br>

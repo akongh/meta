@@ -19,18 +19,20 @@ if (isset($_POST["non_strict_choice"])) {
     $non_strict_choice = $_POST["non_strict_choice"];
 }
 $max_choice_amount = $_POST["max_choice_amount"];
-$input_str_basis_kws = $_POST["input_basis_kws"];
+$input_str_basis_kws = $_POST["input_str_basis_kws"];
 $input_str_basis_kws = mb_strtolower(htmlspecialchars(strip_tags(stripslashes($input_str_basis_kws))), "utf-8");
 $input_str_basis_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_str_basis_kws);
 $arr_basis_kws = preg_split("/[\n,;]/", $input_str_basis_kws, -1, PREG_SPLIT_NO_EMPTY);
 
-for ($i = 0; $i < count($arr_basis_kws); $i++) {
-    $arr_basis_kws[$i] = trim($arr_basis_kws[$i]);
+foreach ($arr_basis_kws as &$value) {
+    $value = trim($value);
 }
+unset($value);
+
 $arr_basis_kws = array_values(array_unique((array_diff($arr_basis_kws, array("")))));
-$basis_kws = implode("\n", $arr_basis_kws);
-$_SESSION["basis_kws"] = $basis_kws;
-if (!isset($_SESSION["arr_state_of_kws_set"]) && $basis_kws == null) {
+$_SESSION["arr_basis_kws"] = $arr_basis_kws;
+
+if (!isset($_SESSION["arr_state_of_kws_set"]) && $arr_basis_kws == null) {
     $err_msg_empty_input = "<span class='error'>Необходимы опорные ключевые слова.</span><br>";
     $_SESSION["err_msg_empty_input"] = $err_msg_empty_input;
 }
