@@ -10,7 +10,7 @@ error_reporting(-1); ?>
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="block-404-503">
@@ -25,7 +25,8 @@ error_reporting(-1); ?>
         Обычно это занимает не более часа.
         <br>
         <br>
-        <a href="/meta.php" title="Попробовать перейти на главную страницу Меты">Проверить включение Меты</a>
+        <a href="/meta.php"
+           title="Попробовать перейти на главную страницу Меты">Проверить включение Меты</a>
     </div>
 </div>
 

@@ -10,12 +10,13 @@ error_reporting(-1); ?>
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="block-404-503">
     <div class="content-404-503">
-        <a href="/meta.php" title="Вернуться из ниоткуда">404</a>
+        <a href="/meta.php"
+           title="Вернуться из ниоткуда">404</a>
     </div>
 </div>
 </body>
