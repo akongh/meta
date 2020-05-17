@@ -7,5 +7,5 @@ $array_useragents = [
 
 $array_cookies = [
 //    'session=s%3AKs0rztI19z0EjYiKf-VGs1t-c98LPJTF.Vunn0ychkPfKLCyr%2FaI%2BLoAoLuvmyUt4X5CEBO4faU8', // Elena
-    'session=s%3AGefqvHkMRE5klSQjVwJDA1pNQ4v6aYYS.AEMcIFuqx2yvd4EC7BKUyBu6fqE73FPT%2FiF4aLUzWfI' // Andrei
+    'session=s%3AwN9yOlsrfGB5KA4h_v8m0dqjbBriR7mN.Rf8DU%2FC8w%2BFB%2B1qemdZjAGWQYw2TMsrNfc%2FzMRs3rrA' // Andrei
 ];
