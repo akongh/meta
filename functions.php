@@ -58,5 +58,9 @@ function arr_kws_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amoun
 
     $mysqli_stmt->free_result();
 
-    return $arr_kws_selection;
+    if (isset ($arr_kws_selection) && null != $arr_kws_selection) {
+        return $arr_kws_selection;
+    } else {
+        return null;
+    }
 }
