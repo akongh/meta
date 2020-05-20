@@ -5,7 +5,6 @@ error_reporting(-1);
 session_start();
 
 $sost_nab = $_SESSION["resulting_arr"];
-/*sort($sost_nab, SORT_STRING);*/
 $_SESSION["state_of_kws_set"] = implode("; ", $sost_nab) . "
 <span class='counter'>{$_SESSION["total_kws_amount"]}</span>
 <br>
