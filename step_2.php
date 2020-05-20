@@ -52,12 +52,12 @@ var_dump($_SESSION);
                 $checked = "";
             }
             echo "
-                    <label class='label-highlight'>
-                    <input type='checkbox'
-                           name='marked_kws[]'
-                           {$checked}
-                           value = '{$kw}'>{$kw}</label><br>
-                           ";
+                <label class='label-highlight'>
+                <input type='checkbox'
+                       name='marked_kws[]'
+                       {$checked}
+                       value = '{$kw}'>{$kw}</label><br>
+                       ";
         }
         ?>
         <br>
