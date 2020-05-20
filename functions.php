@@ -20,7 +20,7 @@ error_reporting(-1);
 function kws_state_markup($data_array)
 {
     return implode("; ", $data_array) . "
-        <span class='counter'>{count($data_array)}</span>
+        <span class='counter'>" . count($data_array) . "</span>
         <br>
         <br>
         ";
