@@ -6,7 +6,7 @@ session_start();
 
 unset(
     $_SESSION["err_msg_illegal_char"],
-    $_SESSION["err_msg_illegal_basis_kws_amount"],
+    $_SESSION["err_msg_illegal_kws_query_amount"],
     $_SESSION["err_msg_of_kws_amount"],
     $_SESSION["arr_of_result"],
     $_SESSION["output_marked_kws_list"],

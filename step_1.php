@@ -47,7 +47,7 @@ var_dump($_SESSION);
     ?>
     <form action="/php/ex_create_choice_list.php"
           method="post">
-        <textarea name="input_str_basis_kws"
+        <textarea name="input_str_kws_query"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
@@ -65,8 +65,8 @@ var_dump($_SESSION);
         if (isset($_SESSION["err_msg_illegal_char"])) {
             echo "<span class='error'>{$_SESSION["err_msg_illegal_char"]}</span><br>";
         }
-        if (isset($_SESSION["err_msg_illegal_basis_kws_amount"])) {
-            echo "<span class='error'>{$_SESSION["err_msg_illegal_basis_kws_amount"]}</span><br>";
+        if (isset($_SESSION["err_msg_illegal_kws_query_amount"])) {
+            echo "<span class='error'>{$_SESSION["err_msg_illegal_kws_query_amount"]}</span><br>";
         }
         ?>
         <br>

@@ -66,7 +66,7 @@ if (isset($dopolnenie_unikalnoe)) {
 //делаем вывод ошибки символа, если она есть
 if (isset($dopolnenie_unikalnoe) && count($dopolnenie_unikalnoe) > 0) {
     $proverka_simvola = implode("", $dopolnenie_unikalnoe);
-    if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
+    if (!preg_match($regex_check_ru_kws_query, $proverka_simvola)) {
         $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
     }
 }
@@ -92,7 +92,7 @@ if (isset($resulting_arr)) {
     $resulting_arr = array_values(array_unique((array_diff($resulting_arr, array("")))));
     if (count($resulting_arr) > 0) {
         $proverka_simvola = implode("", $resulting_arr);
-        if (!preg_match($regex_check_ru_basis_kws, $proverka_simvola)) {
+        if (!preg_match($regex_check_ru_kws_query, $proverka_simvola)) {
             $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
         }
     }
