@@ -47,19 +47,17 @@ var_dump($_SESSION);
         <?php
         foreach ($arr_kws_selection as $kw) {
             if (in_array($kw, $_SESSION["arr_kws_query"])) {
-                echo "
-                    <label class='label-highlight'>
-                    <input type='checkbox'
-                            name='marked_kws[]'
-                            checked
-                            value = '{$kw}'>{$kw}</label><br>";
+                $checked = "checked";
             } else {
-                echo "
+                $checked = "";
+            }
+            echo "
                     <label class='label-highlight'>
                     <input type='checkbox'
-                            name='marked_kws[]'
-                            value = '{$kw}'>{$kw}</label><br>";
-            }
+                           name='marked_kws[]'
+                           {$checked}
+                           value = '{$kw}'>{$kw}</label><br>
+                           ";
         }
         ?>
         <br>
