@@ -4,13 +4,6 @@ error_reporting(-1);
 
 session_start();
 
-$sost_nab = $_SESSION["resulting_arr"];
-$_SESSION["state_of_kws_set"] = implode("; ", $sost_nab) . "
-<span class='counter'>{$_SESSION["total_kws_amount"]}</span>
-<br>
-<br>
-";
-
 $_SESSION["kws_state"] = $_SESSION["resulting_arr"];
 
 unset(

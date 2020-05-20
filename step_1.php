@@ -4,6 +4,8 @@ error_reporting(-1);
 
 session_start();
 
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+
 $_SESSION["presence_mark"] = true;
 
 var_dump($_SESSION);
@@ -41,8 +43,8 @@ var_dump($_SESSION);
     <br>
     <br>
     <?php
-    if (isset($_SESSION["state_of_kws_set"])) {
-        echo $_SESSION["state_of_kws_set"];
+    if (isset($_SESSION["kws_state"])) {
+        echo kws_state_markup($_SESSION["kws_state"]);
     }
     ?>
     <form action="/php/ex_create_choice_list.php"
