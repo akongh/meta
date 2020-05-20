@@ -8,7 +8,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php');
 unset(
     $_SESSION["err_msg_illegal_char"],
     $_SESSION["err_msg_of_kws_amount"],
-    $_SESSION["additional_kws"],
+    $_SESSION["arr_kws_adding"],
     $_SESSION["total_untranslated_ru_kws"]
 );
 
@@ -37,7 +37,7 @@ if (isset($spisok) && $spisok != null) {
     $_SESSION["output_marked_kws_list"] = $output_marked_kws_list;
 }
 //делаем массив из дополнительных слов
-$additional_kws = $_POST["additional_kws"];
+$additional_kws = $_POST["input_str_kws_adding"];
 $additional_kws = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($additional_kws))), "utf-8"));
 $additional_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $additional_kws);
 $arr_additional_kws = preg_split("/[\n,;]/", $additional_kws, -1, PREG_SPLIT_NO_EMPTY);
@@ -60,7 +60,7 @@ if (isset($arr_marked_kws) && isset($arr_additional_kws)) {
 //делаем строку с переносами из массива уникального дополненния
 if (isset($dopolnenie_unikalnoe)) {
     $additional_kws = implode("\n", $dopolnenie_unikalnoe);
-    $_SESSION["additional_kws"] = $additional_kws;
+    $_SESSION["arr_kws_adding"] = $additional_kws;
 }
 
 //делаем вывод ошибки символа, если она есть

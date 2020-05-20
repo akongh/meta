@@ -11,9 +11,6 @@ if (isset($_SESSION["arr_kws_selection"])) {
     $arr_kws_selection = $_SESSION["arr_kws_selection"];
     $count_arr_kws_selection = count($arr_kws_selection);
 }
-if (isset($_SESSION["additional_kws"])) {
-    $additional_kws = $_SESSION["additional_kws"];
-}
 if (isset($_SESSION["assembled_kws_set"])) {
     $assembled_kws_set = $_SESSION["assembled_kws_set"];
 }
@@ -74,13 +71,13 @@ var_dump($_SESSION);
         ?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
-        <textarea name="additional_kws"
+        <textarea name="input_str_kws_adding"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""><?php
-            if (isset($additional_kws)) {
-                echo $additional_kws;
+            if (isset($_SESSION["arr_kws_adding"])) {
+                echo implode("\n", $_SESSION["arr_kws_adding"]);
             }
             ?></textarea>
         <br>
