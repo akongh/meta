@@ -93,12 +93,12 @@ var_dump($_SESSION);
             </span><br>
             <br>
         </div>
-        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не более
+        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не менее
             <select size="1"
                     name="max_choice_amount">
             <option selected
-                    value="80">80</option>
-            <option value="160">160</option>
+                    value="64">64</option>
+            <option value="128">128</option>
         </select>.</span>
         <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
             <input type="checkbox"

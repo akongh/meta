@@ -7,6 +7,7 @@ session_start();
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 unset(
     $_SESSION["err_msg_empty_input"],
@@ -59,19 +60,7 @@ if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     for ($i = $count_arr_kws_query; $i > 0; $i--) {
-        if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
-        }
-        if (!$mysqli_stmt->execute()) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
-        }
-        $mysqli_stmt->bind_result($data);
-
-        while ($mysqli_stmt->fetch()) {
-            $arr_kws_selection[] = $data;
-        }
-
-        $mysqli_stmt->free_result();
+        arr_kws_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount);
 
         if (isset($arr_kws_selection) && $arr_kws_selection != null) {
             $arr_kws_selection = array_values(array_unique(array_merge($arr_kws_query, $arr_kws_selection)));
@@ -79,7 +68,7 @@ if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
             if ($i == 1) {
                 break;
             }
-            if (count($arr_kws_selection) == $max_choice_amount) {
+            if (count($arr_kws_selection) >= $max_choice_amount) {
                 break;
             }
         } else {
@@ -94,19 +83,8 @@ if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_kws_query)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("ii", $count_arr_kws_query, $max_choice_amount)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
-    }
-    if (!$mysqli_stmt->execute()) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
-    }
-    $mysqli_stmt->bind_result($data);
+    arr_kws_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount);
 
-    while ($mysqli_stmt->fetch()) {
-        $arr_kws_selection[] = $data;
-    }
-
-    $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
     if (isset($arr_kws_selection) && $arr_kws_selection != null) {
