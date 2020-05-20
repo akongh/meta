@@ -68,23 +68,23 @@ if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
         $mysqli_stmt->bind_result($data);
 
         while ($mysqli_stmt->fetch()) {
-            $arr_of_result[] = $data;
+            $arr_kws_selection[] = $data;
         }
 
         $mysqli_stmt->free_result();
 
-        if (isset($arr_of_result) && $arr_of_result != null) {
-            $arr_of_result = array_values(array_unique(array_merge($arr_kws_query, $arr_of_result)));
+        if (isset($arr_kws_selection) && $arr_kws_selection != null) {
+            $arr_kws_selection = array_values(array_unique(array_merge($arr_kws_query, $arr_kws_selection)));
 
             if ($i == 1) {
                 break;
             }
-            if (count($arr_of_result) == $max_choice_amount) {
+            if (count($arr_kws_selection) == $max_choice_amount) {
                 break;
             }
         } else {
             if ($i == 1) {
-                $arr_of_result = $arr_kws_query;
+                $arr_kws_selection = $arr_kws_query;
             }
         }
     }
@@ -103,20 +103,20 @@ if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
     $mysqli_stmt->bind_result($data);
 
     while ($mysqli_stmt->fetch()) {
-        $arr_of_result[] = $data;
+        $arr_kws_selection[] = $data;
     }
 
     $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
-    if (isset($arr_of_result) && $arr_of_result != null) {
-        $arr_of_result = array_values(array_unique(array_merge($arr_kws_query, $arr_of_result)));
+    if (isset($arr_kws_selection) && $arr_kws_selection != null) {
+        $arr_kws_selection = array_values(array_unique(array_merge($arr_kws_query, $arr_kws_selection)));
     } else {
-        $arr_of_result = $arr_kws_query;
+        $arr_kws_selection = $arr_kws_query;
     }
 }
 
-$_SESSION["arr_of_result"] = $arr_of_result;
+$_SESSION["arr_kws_selection"] = $arr_kws_selection;
 
 $mysqli->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");

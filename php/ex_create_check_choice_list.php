@@ -15,10 +15,10 @@ unset(
 if (isset($_POST["marked_kws"])) {
     $arr_marked_kws = $_POST["marked_kws"];
 }
-$arr_of_result = $_SESSION["arr_of_result"];
+$arr_kws_selection = $_SESSION["arr_kws_selection"];
 
 //рисуем массив результата с отмеченными словами
-foreach ($arr_of_result as $kw) {
+foreach ($arr_kws_selection as $kw) {
     if (isset($arr_marked_kws)) {
         if (in_array($kw, $arr_marked_kws)) {
             $spisok[] = "<label class='label-highlight'><input type='checkbox' name='marked_kws[]' checked value = '{$kw}'>{$kw}</label>";

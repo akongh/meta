@@ -7,9 +7,9 @@ session_start();
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if (isset($_SESSION["arr_of_result"])) {
-    $arr_of_result = $_SESSION["arr_of_result"];
-    $count_arr_of_result = count($arr_of_result);
+if (isset($_SESSION["arr_kws_selection"])) {
+    $arr_kws_selection = $_SESSION["arr_kws_selection"];
+    $count_arr_kws_selection = count($arr_kws_selection);
 }
 if (isset($_SESSION["additional_kws"])) {
     $additional_kws = $_SESSION["additional_kws"];
@@ -48,7 +48,7 @@ var_dump($_SESSION);
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
         <?php
-        foreach ($arr_of_result as $kw) {
+        foreach ($arr_kws_selection as $kw) {
             if (in_array($kw, $_SESSION["kws_query"])) {
                 echo "
                     <label class='label-highlight'>
