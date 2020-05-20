@@ -53,8 +53,8 @@ var_dump($_SESSION);
                   rows="8"
                   placeholder=""
                   autofocus><?php
-            if (isset($_SESSION["arr_basis_kws"])) {
-                echo implode("\n", $_SESSION["arr_basis_kws"]);
+            if (isset($_SESSION["kws_query"])) {
+                echo implode("\n", $_SESSION["kws_query"]);
             }
             ?></textarea>
         <br>

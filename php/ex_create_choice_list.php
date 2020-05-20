@@ -22,28 +22,28 @@ $max_choice_amount = $_POST["max_choice_amount"];
 $input_str_basis_kws = $_POST["input_str_basis_kws"];
 $input_str_basis_kws = mb_strtolower(htmlspecialchars(strip_tags(stripslashes($input_str_basis_kws))), "utf-8");
 $input_str_basis_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_str_basis_kws);
-$arr_basis_kws = preg_split("/[\n,;]/", $input_str_basis_kws, -1, PREG_SPLIT_NO_EMPTY);
+$kws_query = preg_split("/[\n,;]/", $input_str_basis_kws, -1, PREG_SPLIT_NO_EMPTY);
 
-foreach ($arr_basis_kws as &$value) {
+foreach ($kws_query as &$value) {
     $value = trim($value);
 }
 unset($value);
 
-$arr_basis_kws = array_values(array_unique((array_diff($arr_basis_kws, array("")))));
-$_SESSION["arr_basis_kws"] = $arr_basis_kws;
+$kws_query = array_values(array_unique((array_diff($kws_query, array("")))));
+$_SESSION["kws_query"] = $kws_query;
 
-$count_arr_basis_kws = count($arr_basis_kws);
+$count_kws_query = count($kws_query);
 
 $err_mark = true;
-if (!isset($_SESSION["arr_state_of_kws_set"]) && $arr_basis_kws == null) {
+if (!isset($_SESSION["arr_state_of_kws_set"]) && $kws_query == null) {
     $_SESSION["err_msg_empty_input"] = "Необходимы опорные ключевые слова.";
     $err_mark = false;
 }
-if ($count_arr_basis_kws > 8) {
+if ($count_kws_query > 8) {
     $_SESSION["err_msg_illegal_basis_kws_amount"] = "Не более 8-ми опорных ключевых слов.";
     $err_mark = false;
 }
-if ($count_arr_basis_kws > 0 && !preg_match($regex_check_ru_basis_kws, implode("", $arr_basis_kws))) {
+if ($count_kws_query > 0 && !preg_match($regex_check_ru_basis_kws, implode("", $kws_query))) {
     $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
     $err_mark = false;
 }
@@ -52,13 +52,13 @@ if (false === $err_mark) {
     exit;
 }
 
-$str_basis_kws = implode("','", $arr_basis_kws);
+$str_basis_kws = implode("','", $kws_query);
 
-if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
+if (isset($non_strict_choice) && $count_kws_query > 1) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    for ($i = $count_arr_basis_kws; $i > 0; $i--) {
+    for ($i = $count_kws_query; $i > 0; $i--) {
         if (!$mysqli_stmt->bind_param("ii", $i, $max_choice_amount)) {
             echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
@@ -74,7 +74,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
         $mysqli_stmt->free_result();
 
         if (isset($arr_of_result) && $arr_of_result != null) {
-            $arr_of_result = array_values(array_unique(array_merge($arr_basis_kws, $arr_of_result)));
+            $arr_of_result = array_values(array_unique(array_merge($kws_query, $arr_of_result)));
 
             if ($i == 1) {
                 break;
@@ -88,7 +88,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
             }
         } else {
             if ($i == 1) {
-                $arr_of_result = $arr_basis_kws;
+                $arr_of_result = $kws_query;
             }
         }
     }
@@ -98,7 +98,7 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_basis_kws)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("ii", $count_arr_basis_kws, $max_choice_amount)) {
+    if (!$mysqli_stmt->bind_param("ii", $count_kws_query, $max_choice_amount)) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
@@ -114,9 +114,9 @@ if (isset($non_strict_choice) && $count_arr_basis_kws > 1) {
     $mysqli_stmt->close();
 
     if (isset($arr_of_result) && $arr_of_result != null) {
-        $arr_of_result = array_values(array_unique(array_merge($arr_basis_kws, $arr_of_result)));
+        $arr_of_result = array_values(array_unique(array_merge($kws_query, $arr_of_result)));
     } else {
-        $arr_of_result = $arr_basis_kws;
+        $arr_of_result = $kws_query;
     }
 }
 
