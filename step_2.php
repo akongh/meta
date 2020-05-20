@@ -81,7 +81,7 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["err_msg_illegal_char"])) {
-            echo "<span class='error'>{$_SESSION["err_msg_illegal_char"]}</span><br>";
+            echo err_msg_markup($_SESSION["err_msg_illegal_char"]);
         }
         ?>
         <br>
