@@ -49,7 +49,7 @@ var_dump($_SESSION);
           action="/php/ex_create_check_choice_list.php">
         <?php
         foreach ($arr_kws_selection as $kw) {
-            if (in_array($kw, $_SESSION["kws_query"])) {
+            if (in_array($kw, $_SESSION["arr_kws_query"])) {
                 echo "
                     <label class='label-highlight'>
                     <input type='checkbox'
