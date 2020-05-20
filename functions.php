@@ -39,7 +39,7 @@ function err_msg_markup($data_string)
  * @param object $mysqli_stmt
  * @param integer $count_arr_kws_query
  * @param integer $max_choice_amount
- * @return string
+ * @return array
  */
 function arr_kws_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount)
 {
