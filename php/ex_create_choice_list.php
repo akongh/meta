@@ -35,7 +35,7 @@ $_SESSION["kws_query"] = $kws_query;
 $count_kws_query = count($kws_query);
 
 $err_mark = true;
-if (!isset($_SESSION["arr_state_of_kws_set"]) && $kws_query == null) {
+if (!isset($_SESSION["kws_state"]) && $kws_query == null) {
     $_SESSION["err_msg_empty_input"] = "Необходимы опорные ключевые слова.";
     $err_mark = false;
 }

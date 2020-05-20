@@ -12,7 +12,7 @@ $_SESSION["state_of_kws_set"] = implode("; ", $sost_nab) . "
 <br>
 ";
 
-$_SESSION["arr_state_of_kws_set"] = $_SESSION["resulting_arr"];
+$_SESSION["kws_state"] = $_SESSION["resulting_arr"];
 
 unset(
     $_SESSION["additional_kws"],

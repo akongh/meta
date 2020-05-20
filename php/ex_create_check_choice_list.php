@@ -80,11 +80,11 @@ if (isset($arr_marked_kws) && isset($dopolnenie_unikalnoe)) {
 }
 
 
-if (isset($_SESSION["arr_state_of_kws_set"]) && $resulting_arr != null) {
-    $arr_state_of_kws_set = $_SESSION["arr_state_of_kws_set"];
-    $resulting_arr = array_values(array_unique(array_merge($arr_state_of_kws_set, $resulting_arr)));
-} elseif (isset($_SESSION["arr_state_of_kws_set"]) && $resulting_arr == null) {
-    $resulting_arr = $_SESSION["arr_state_of_kws_set"];
+if (isset($_SESSION["kws_state"]) && $resulting_arr != null) {
+    $kws_state = $_SESSION["kws_state"];
+    $resulting_arr = array_values(array_unique(array_merge($kws_state, $resulting_arr)));
+} elseif (isset($_SESSION["kws_state"]) && $resulting_arr == null) {
+    $resulting_arr = $_SESSION["kws_state"];
 }
 
 //ещё одна проверка на смесь кирилицы и латиницы
