@@ -25,3 +25,12 @@ function kws_state_markup($data_array)
         <br>
         ";
 }
+
+/**
+ * @param string $data_string
+ * @return string
+ */
+function err_msg_markup($data_string)
+{
+    return "<span class='error'>{$data_string}</span><br>";
+}

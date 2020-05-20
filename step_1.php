@@ -62,13 +62,13 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["err_msg_empty_input"])) {
-            echo "<span class='error'>{$_SESSION["err_msg_empty_input"]}</span><br>";
+            echo err_msg_markup($_SESSION["err_msg_empty_input"]);
         }
         if (isset($_SESSION["err_msg_illegal_char"])) {
-            echo "<span class='error'>{$_SESSION["err_msg_illegal_char"]}</span><br>";
+            echo err_msg_markup($_SESSION["err_msg_illegal_char"]);
         }
         if (isset($_SESSION["err_msg_illegal_kws_query_amount"])) {
-            echo "<span class='error'>{$_SESSION["err_msg_illegal_kws_query_amount"]}</span><br>";
+            echo err_msg_markup($_SESSION["err_msg_illegal_kws_query_amount"]);
         }
         ?>
         <br>
