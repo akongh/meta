@@ -14,8 +14,8 @@ if (isset($_SESSION["arr_of_result"])) {
 if (isset($_SESSION["additional_kws"])) {
     $additional_kws = $_SESSION["additional_kws"];
 }
-if (isset($_SESSION["state_of_kws_set"])) {
-    $state_of_kws_set = $_SESSION["state_of_kws_set"];
+if (isset($_SESSION["assembled_kws_set"])) {
+    $assembled_kws_set = $_SESSION["assembled_kws_set"];
 }
 
 var_dump($_SESSION);
@@ -68,8 +68,8 @@ var_dump($_SESSION);
         <br>
         <br>
         <?php
-        if (isset($state_of_kws_set)) {
-            echo $state_of_kws_set;
+        if (isset($assembled_kws_set)) {
+            echo $assembled_kws_set;
         }
         ?>
         <h1 class="bold">…и добавляем свои</h1>
