@@ -82,10 +82,6 @@ if (isset($non_strict_choice) && $count_kws_query > 1) {
             if (count($arr_of_result) == $max_choice_amount) {
                 break;
             }
-            if (count($arr_of_result) > $max_choice_amount) {//todo:уже в базе обрезается
-                $arr_of_result = array_slice($arr_of_result, 0, $max_choice_amount);
-                break;
-            }
         } else {
             if ($i == 1) {
                 $arr_of_result = $kws_query;
