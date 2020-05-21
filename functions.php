@@ -12,6 +12,32 @@ error_reporting(-1);
  * @since     0.1.0
  */
 
+/**
+ * @param array $arr_list
+ * @param array $arr_checked
+ * @return string
+ */
+function kws_list_markup($arr_list, $arr_checked)
+{
+    $markup = "";
+
+    foreach ($arr_list as $kw) {
+        if (in_array($kw, $arr_checked)) {
+            $status = "checked";
+        } else {
+            $status = "";
+        }
+        $markup .= "
+                <label class='label-highlight'>
+                <input type='checkbox'
+                       name='marked_kws[]'
+                       {$status}
+                       value = '{$kw}'>{$kw}</label><br>
+                       ";
+    }
+
+    return $markup;
+}
 
 /**
  * @param array $data_array

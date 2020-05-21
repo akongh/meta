@@ -46,22 +46,7 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
-        <?php
-        foreach ($arr_kws_selection as $kw) {
-            if (in_array($kw, $_SESSION["arr_kws_query"])) {
-                $checked = "checked";
-            } else {
-                $checked = "";
-            }
-            echo "
-                <label class='label-highlight'>
-                <input type='checkbox'
-                       name='marked_kws[]'
-                       {$checked}
-                       value = '{$kw}'>{$kw}</label><br>
-                       ";
-        }
-        ?>
+        <?php echo kws_list_markup($arr_kws_selection, $_SESSION["arr_kws_query"]); ?>
         <br>
         <br>
         <?php
