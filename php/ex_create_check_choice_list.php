@@ -28,18 +28,22 @@ if (isset($_SESSION["arr_kws_addition"]) && count($_SESSION["arr_kws_addition"])
 }
 
 //итоговый массив из подбора, дополнения и состояния
-if (isset($_SESSION["arr_kws_state"])) {
-    $array_param[] = $_SESSION["arr_kws_state"];
+if (!isset($_SESSION["arr_kws_state"])) {
+    $arr_kws_state = array();
+} else {
+    $arr_kws_state = $_SESSION["arr_kws_state"];
 }
-if (isset($_SESSION["arr_kws_selection_marked"])) {
-    $array_param[] = $_SESSION["arr_kws_selection_marked"];
+if (!isset($_SESSION["arr_kws_selection_marked"])) {
+    $arr_kws_selection_marked = array();
+} else {
+    $arr_kws_selection_marked = $_SESSION["arr_kws_selection_marked"];
 }
-if (isset($_SESSION["arr_kws_addition"])) {
-    $array_param[] = $_SESSION["arr_kws_addition"];
+if (!isset($_SESSION["arr_kws_addition"])) {
+    $arr_kws_addition = array();
+} else {
+    $arr_kws_addition = $_SESSION["arr_kws_addition"];
 }
-if (isset($array_param)) {
-    $_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($array_param)))[0];
-}
+$_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($arr_kws_state, $arr_kws_selection_marked, $arr_kws_addition)));
 
 //остаёмся исправлять ошибки
 if (isset($_SESSION["err_msg_illegal_char"])) {
