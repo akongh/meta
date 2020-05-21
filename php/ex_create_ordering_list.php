@@ -6,8 +6,8 @@ session_start();
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 
-if ( isset( $_POST["po_chastote"] ) ) {
-    $po_chastote = $_POST["po_chastote"];
+if ( isset( $_POST["by_frequency"] ) ) {
+    $by_frequency = $_POST["by_frequency"];
 }
 
 if ( isset( $_POST["resulting_arr"] ) ) {
@@ -22,7 +22,7 @@ if ( !isset($resulting_arr) || count( $resulting_arr ) < 8) {
     exit;
 }
 //сортировать или нет по частоте
-if ( isset( $po_chastote ) && $po_chastote == "on" ) {
+if ( isset( $by_frequency ) && $by_frequency == "on" ) {
     $resulting_arr_2 = implode( "','", $resulting_arr );
 
     $mysqli_result = $mysqli->query( sql_select_kws_frequency($resulting_arr_2) );
@@ -44,7 +44,7 @@ if ( isset( $po_chastote ) && $po_chastote == "on" ) {
 }
 
 unset( $resulting_arr_2 );
-unset( $po_chastote );
+unset( $by_frequency );
 
 $_SESSION["total_kws_amount"] = count( $_POST["resulting_arr"] );
 

@@ -75,7 +75,7 @@ var_dump($_SESSION);
         <br>
         <label title="По частоте использования в Мете другими авторами">
             <input type="checkbox"
-                   name="po_chastote"> По частоте в Мете.</label>
+                   name="by_frequency"> По частоте в Мете.</label>
         <br>
         <br>
         <input name="priority_kws"
