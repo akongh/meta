@@ -21,7 +21,7 @@ function kws_string_to_array($data_string)
 {
     $data_string = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($data_string))), "utf-8"));
     $data_string = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $data_string);
-    $data_array = preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY);
+    $data_array = array_values(array_unique(preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY)));
 
     foreach ($data_array as &$value) {
         $value = trim($value);
