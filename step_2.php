@@ -49,7 +49,7 @@ var_dump($_SESSION);
         ?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
-        <textarea name="input_str_kws_adding"
+        <textarea name="input_str_kws_addition"
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
