@@ -8,8 +8,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
 
 
 unset(
-    $_SESSION["err_msg_of_kws_amount"],
-    $_SESSION["total_untranslated_ru_kws"]
+    $_SESSION["err_msg_of_kws_amount"]
 );
 
 $rus = $_POST["spisok_mesto"];

@@ -12,7 +12,6 @@ unset(
     $_SESSION["err_msg_empty_input"],
     $_SESSION["err_msg_illegal_char"],
     $_SESSION["err_msg_illegal_kws_query_amount"],
-    $_SESSION["total_untranslated_ru_kws"]
 );
 
 if (isset($_POST["non_strict_choice"])) {
