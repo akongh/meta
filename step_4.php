@@ -9,7 +9,7 @@ if (!isset($_SESSION["presence_mark"])) {
 }
 if (isset($_SESSION["err_msg_of_kws_amount"])) {
     $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
-};
+}
 
 var_dump($_SESSION);
 ?>
@@ -43,11 +43,11 @@ var_dump($_SESSION);
     <form method="post"
           action="/php/ex_create_translation_list.php">
         <ul id="sortable">
-            <?php if (isset($_SESSION["arr_kws_marked"])) {
-                for ($i = 0; $i < count($_POST["arr_kws_marked"]); $i++) {
-                    $arr_kws_marked[$i] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $_POST["arr_kws_marked"][$i] . "'>" . $_POST["arr_kws_marked"][$i] . "</li>";
+            <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
+                for ($i = 0; $i < count($_SESSION["arr_kws_assembled_marked"]); $i++) {
+                    $arr_kws_assembled_marked[$i] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $_SESSION["arr_kws_assembled_marked"][$i] . "'>" . $_SESSION["arr_kws_assembled_marked"][$i] . "</li>";
                 }
-                echo implode("<br>", $arr_kws_marked);
+                echo implode("", $arr_kws_assembled_marked);
             } ?>
         </ul>
         <br>
