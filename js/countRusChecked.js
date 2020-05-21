@@ -1,4 +1,4 @@
-let arrRus = document.getElementsByName("resulting_arr[]");
+let arrRus = document.getElementsByName("arr_kws_marked[]");
 
 for (let i = 0; i < arrRus.length; i++){
     arrRus[i].onclick = countRusChecked;
