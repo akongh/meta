@@ -7,12 +7,9 @@ session_start();
 if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["assembled_kws_set"] ) ) {
-    $assembled_kws_set = $_SESSION["assembled_kws_set"];
-};
 if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
     $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
-};
+}
 
 var_dump($_SESSION);
 ?>
@@ -42,7 +39,9 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/php/ex_create_ordering_list.php">
-        <?php if (isset($assembled_kws_set)){echo $assembled_kws_set;}; ?>
+        <?php if (isset($_SESSION["arr_kws_assembled"])) {
+            echo kws_list_markup($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
+        } ?>
         <br>
         <br>
         <span id="countRusChecked" class="counter"></span>
