@@ -30,7 +30,7 @@ function kws_list_markup($arr_list, $arr_checked)
         $markup .= "
                 <label class='label-highlight'>
                 <input type='checkbox'
-                       name='marked_kws[]'
+                       name='arr_kws_marked[]'
                        {$status}
                        value = '{$kw}'>{$kw}</label><br>
                        ";

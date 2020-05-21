@@ -43,8 +43,8 @@ var_dump($_SESSION);
     <br>
     <br>
     <?php
-    if (isset($_SESSION["kws_state"])) {
-        echo kws_state_markup($_SESSION["kws_state"]);
+    if (isset($_SESSION["arr_kws_state"])) {
+        echo kws_state_markup($_SESSION["arr_kws_state"]);
     }
     ?>
     <form action="/php/ex_create_choice_list.php"

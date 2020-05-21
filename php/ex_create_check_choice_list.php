@@ -8,12 +8,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php');
 unset(
     $_SESSION["err_msg_illegal_char"],
     $_SESSION["err_msg_of_kws_amount"],
-    $_SESSION["arr_kws_adding"],
+    $_SESSION["arr_kws_addition"],
     $_SESSION["total_untranslated_ru_kws"]
 );
 
-if (isset($_POST["marked_kws"])) {
-    $arr_marked_kws = $_POST["marked_kws"];
+if (isset($_POST["arr_kws_marked"])) {
+    $arr_kws_selection_marked = $_SESSION["arr_kws_selection_marked"] = $_POST["arr_kws_marked"];
 }
 $arr_kws_selection = $_SESSION["arr_kws_selection"];
 

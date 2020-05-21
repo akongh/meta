@@ -9,13 +9,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if (isset($_SESSION["arr_kws_selection"])) {
-    $arr_kws_selection = $_SESSION["arr_kws_selection"];
-    $count_arr_kws_selection = count($arr_kws_selection);
-}
-if (isset($_SESSION["assembled_kws_set"])) {
-    $assembled_kws_set = $_SESSION["assembled_kws_set"];
-}
 
 var_dump($_SESSION);
 ?>
@@ -46,12 +39,12 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/php/ex_create_check_choice_list.php">
-        <?php echo kws_list_markup($arr_kws_selection, $_SESSION["arr_kws_query"]); ?>
+        <?php echo kws_list_markup($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]); ?>
         <br>
         <br>
         <?php
-        if (isset($_SESSION["kws_state"])) {
-            echo kws_state_markup($_SESSION["kws_state"]);
+        if (isset($_SESSION["arr_kws_state"])) {
+            echo kws_state_markup($_SESSION["arr_kws_state"]);
         }
         ?>
         <h1 class="bold">…и добавляем свои</h1>
@@ -61,8 +54,8 @@ var_dump($_SESSION);
                   wrap="soft"
                   rows="8"
                   placeholder=""><?php
-            if (isset($_SESSION["arr_kws_adding"])) {
-                echo implode("\n", $_SESSION["arr_kws_adding"]);
+            if (isset($_SESSION["arr_kws_addition"])) {
+                echo implode("\n", $_SESSION["arr_kws_addition"]);
             }
             ?></textarea>
         <br>
