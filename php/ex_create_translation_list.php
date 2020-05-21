@@ -12,12 +12,12 @@ unset(
 );
 
 $rus = $_POST["spisok_mesto"];
-for ( $i = 0; $i < count( $rus ); $i ++ ) {
+for ($i = 0; $i < count($rus); $i++) {
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
+    if (!$mysqli_stmt->bind_param("s", $rus[$i])) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
@@ -30,15 +30,15 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
-    foreach ( $sql_select_en_translation_and_meaning as $key => $val ) {
-        $p[ $key ]   = $val["s"];
-        $p2[ $key ]  = preg_replace( "/'/", "&#039;", $p[ $key ] );
-        $z[ $key ]   = $val["z"];
-        $p_z[ $key ] = "
+    foreach ($sql_select_en_translation_and_meaning as $key => $val) {
+        $p[$key] = $val["s"];
+        $p2[$key] = preg_replace("/'/", "&#039;", $p[$key]);
+        $z[$key] = $val["z"];
+        $p_z[$key] = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
-                <input type='checkbox' name='angl[]' value = '" . $p2[ $key ] . "'> " . $p[ $key ] . "
-            </span> — " . $z[ $key ]. "
+                <input type='checkbox' name='angl[]' value = '" . $p2[$key] . "'> " . $p[$key] . "
+            </span> — " . $z[$key] . "
         </label>";
     }
 
@@ -46,7 +46,7 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     if (!($mysqli_stmt = $mysqli->prepare(SQL_SELECT_KW_STATUSES))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("s", $rus[ $i ])) {
+    if (!$mysqli_stmt->bind_param("s", $rus[$i])) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
@@ -59,80 +59,86 @@ for ( $i = 0; $i < count( $rus ); $i ++ ) {
     $mysqli_stmt->free_result();
     $mysqli_stmt->close();
 
-    foreach ( $sql_select_kw_statuses as $key => $val ) {
-        $f[ $key ] = $val["f"];
+    foreach ($sql_select_kw_statuses as $key => $val) {
+        $f[$key] = $val["f"];
     }
 
-    if ( isset( $f[0] ) ) {
+    if (isset($f[0])) {
         $f = $f[0];
     } else {
         $f = null;
     };
 
-    if ( isset( $p_z ) && count( $p_z ) > 1 ) {
-        $p_z               = implode( "<br>", $p_z );
-        $with_translation[ $i ] = "
+    if (isset($p_z) && count($p_z) > 1) {
+        $p_z = implode("<br>", $p_z);
+        $with_translation[$i] = "
         <div class = 'block-translated'>
 		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
+		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[$i] . "'>" . $rus[$i] . "
 		    </span>
 		    <br>
 		    " . $p_z . "
 		</div>
 		";
 
-    } else if ( isset( $p_z ) && count( $p_z ) == 1 ) {
-        $p_z               = "
+    } else {
+        if (isset($p_z) && count($p_z) == 1) {
+            $p_z = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
                 <input type='checkbox' name='angl[]' checked value = '" . $p2[0] . "'> " . $p[0] . "
             </span> — " . $z[0] . "
         </label>";
-        $with_translation[ $i ] = "
+            $with_translation[$i] = "
         <div class = 'block-translated'>
 		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
+		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[$i] . "'>" . $rus[$i] . "
 		    </span>
 		    <br>
 		    " . $p_z . "
 		</div>
 		";
 
-    } else if ( ! isset( $p_z ) && ( $f == 0 or $f == null ) ) {
-        $neperevedennye[ $i ] = $rus[ $i ];
-        $with_translation[ $i ]    = "
+        } else {
+            if (!isset($p_z) && ($f == 0 or $f == null)) {
+                $neperevedennye[$i] = $rus[$i];
+                $with_translation[$i] = "
         <div class = 'block-not-translated'>
 		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
+		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[$i] . "'>" . $rus[$i] . "
 		    </span>
 		    <br>
-		    (перевода пока нет)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $rus[ $i ] . "'>
+		    (перевода пока нет)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $rus[$i] . "'>
 		</div>
 		";
 
-    } else if ( ! isset( $p_z ) && $f == 7 ) {
-        $neperevedennye[ $i ] = $rus[ $i ];
-        $with_translation[ $i ]    = "
+            } else {
+                if (!isset($p_z) && $f == 7) {
+                    $neperevedennye[$i] = $rus[$i];
+                    $with_translation[$i] = "
         <div class = 'block-not-translated'>
 		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[ $i ] . "'>" . $rus[ $i ] . "
+		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $rus[$i] . "'>" . $rus[$i] . "
 		    </span>
 		    <br>
-		    (в заявке на перевод)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $rus[ $i ] . "'>
+		    (в заявке на перевод)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $rus[$i] . "'>
 		</div>
 		";
+                }
+            }
+        }
     }
 
-    unset( $p_z, $p, $z, $f );
+    unset($p_z, $p, $z, $f);
 }
 
-$with_translation = implode( "<br>", $with_translation );
+$with_translation = implode("<br>", $with_translation);
 
-if ( isset( $neperevedennye ) ) {
-    $neperevedennye_kol = count( $neperevedennye );
-    $neperevedennye     = implode( ", ", $neperevedennye );
+if (isset($neperevedennye)) {
+    $neperevedennye_kol = count($neperevedennye);
+    $neperevedennye = implode(", ", $neperevedennye);
 
-    $total_untranslated_ru_kws             = "
+    $total_untranslated_ru_kws = "
 	<h2 class = 'bold'>Непереведённые</h2>
     <br>
     <span class='result' name='result-no-transl'>" . $neperevedennye . "</span>
@@ -149,9 +155,9 @@ if ( isset( $neperevedennye ) ) {
 
 $_SESSION["with_translation"] = $with_translation;
 
-if ( isset( $about_request ) ) {
+if (isset($about_request)) {
     $_SESSION["about_request"] = $about_request;
 }
 
 $mysqli->close();
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php" );
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php");
