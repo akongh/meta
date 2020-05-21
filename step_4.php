@@ -16,7 +16,8 @@ var_dump($_SESSION);
 <head>
     <meta charset="utf-8">
     <title>4/6. Определяем очерёдность ключевых слов</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
@@ -47,7 +48,8 @@ var_dump($_SESSION);
                             <input type='checkbox'
                                    name='spisok_mesto[]'
                                    class='hidden'
-                                   checked value = '{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
+                                   checked
+                                   value='{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
                                    ";
                 }
                 echo implode("", $arr_kws_assembled_marked);
