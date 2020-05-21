@@ -22,7 +22,7 @@ if (isset($_POST["input_str_kws_addition"])) {
 
 //делаем вывод ошибки символа, если она есть
 if (isset($_SESSION["arr_kws_addition"]) && count($_SESSION["arr_kws_addition"]) > 0) {
-    if (kws_string_check(implode("", $_SESSION["arr_kws_addition"]))) {
+    if (!kws_string_check(implode("", $_SESSION["arr_kws_addition"]))) {
         $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
     }
 }
