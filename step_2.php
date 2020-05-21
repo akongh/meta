@@ -4,6 +4,8 @@ error_reporting(-1);
 
 session_start();
 
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
@@ -63,8 +65,8 @@ var_dump($_SESSION);
         <br>
         <br>
         <?php
-        if (isset($assembled_kws_set)) {
-            echo $assembled_kws_set;
+        if (isset($_SESSION["kws_state"])) {
+            echo kws_state_markup($_SESSION["kws_state"]);
         }
         ?>
         <h1 class="bold">…и добавляем свои</h1>
