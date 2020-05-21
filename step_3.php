@@ -9,9 +9,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
-if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
-    $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
-}
 
 var_dump($_SESSION);
 ?>
@@ -49,7 +46,9 @@ var_dump($_SESSION);
         <span id="countRusChecked" class="counter"></span>
         <br>
         <!--<?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
-        <?php if (isset($err_msg_of_kws_amount)){echo $err_msg_of_kws_amount;};?>
+        <?php if (isset($_SESSION["err_msg_of_kws_amount"])) {
+            echo err_msg_markup($_SESSION["err_msg_of_kws_amount"]);
+        } ?>
         <br>
         <br>
         <br>
