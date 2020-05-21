@@ -37,9 +37,12 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
         $p_z[$key] = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
-                <input type='checkbox' name='angl[]' value = '" . $p2[$key] . "'> " . $p[$key] . "
+                <input type='checkbox'
+                       name='angl[]'
+                       value='" . $p2[$key] . "'> " . $p[$key] . "
             </span> — " . $z[$key] . "
-        </label>";
+        </label>
+        ";
     }
 
     //выясняем флаг русского слова, если оно уже есть в базе, или его отсутствие, если слова в базе пока нет
@@ -69,58 +72,82 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
     if (isset($p_z) && count($p_z) > 1) {
         $p_z = implode("<br>", $p_z);
         $with_translation[$i] = "
-        <div class = 'block-translated'>
-		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
+        <div class='block-translated'>
+		    <span class='keyword-ru'>
+		        <input type='checkbox'
+		               name='russk[]'
+		               class='hidden'
+		               checked
+		               value='" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
 		    </span>
 		    <br>
 		    " . $p_z . "
 		</div>
 		";
-
     } else {
         if (isset($p_z) && count($p_z) == 1) {
             $p_z = "
-        <label class='label-highlight separate-checkbox'>
-            <span class='keyword-en'>
-                <input type='checkbox' name='angl[]' checked value = '" . $p2[0] . "'> " . $p[0] . "
-            </span> — " . $z[0] . "
-        </label>";
+            <label class='label-highlight separate-checkbox'>
+                <span class='keyword-en'>
+                    <input type='checkbox'
+                           name='angl[]'
+                           checked
+                           value='" . $p2[0] . "'> " . $p[0] . "
+                </span> — " . $z[0] . "
+            </label>";
             $with_translation[$i] = "
-        <div class = 'block-translated'>
-		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
-		    </span>
-		    <br>
-		    " . $p_z . "
-		</div>
-		";
-
+            <div class='block-translated'>
+                <span class='keyword-ru'>
+                    <input type='checkbox'
+                           name='russk[]'
+                           class='hidden'
+                           checked
+                           value='" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
+                </span>
+                <br>
+                " . $p_z . "
+            </div>
+            ";
         } else {
             if (!isset($p_z) && ($f == 0 or $f == null)) {
                 $neperevedennye[$i] = $arr_kws_ru[$i];
                 $with_translation[$i] = "
-        <div class = 'block-not-translated'>
-		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
-		    </span>
-		    <br>
-		    (перевода пока нет)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>
-		</div>
-		";
-
+                <div class='block-not-translated'>
+                    <span class='keyword-ru'>
+                        <input type='checkbox'
+                               name='russk[]'
+                               class='hidden'
+                               checked
+                               value='" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
+                    </span>
+                    <br>
+                    (перевода пока нет)<input type='checkbox'
+                                              name='zayavka[]'
+                                              class='hidden'
+                                              checked
+                                              value='" . $arr_kws_ru[$i] . "'>
+                </div>
+                ";
             } else {
                 if (!isset($p_z) && $f == 7) {
                     $neperevedennye[$i] = $arr_kws_ru[$i];
                     $with_translation[$i] = "
-        <div class = 'block-not-translated'>
-		    <span class = 'keyword-ru'>
-		        <input type='checkbox' name='russk[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
-		    </span>
-		    <br>
-		    (в заявке на перевод)<input type='checkbox' name='zayavka[]' class='hidden' checked value = '" . $arr_kws_ru[$i] . "'>
-		</div>
-		";
+                    <div class='block-not-translated'>
+                        <span class='keyword-ru'>
+                            <input type='checkbox'
+                                   name='russk[]'
+                                   class='hidden'
+                                   checked
+                                   value='" . $arr_kws_ru[$i] . "'>" . $arr_kws_ru[$i] . "
+                        </span>
+                        <br>
+                        (в заявке на перевод)<input type='checkbox'
+                                                    name='zayavka[]'
+                                                    class='hidden'
+                                                    checked
+                                                    value='" . $arr_kws_ru[$i] . "'>
+                    </div>
+                    ";
                 }
             }
         }
@@ -136,9 +163,10 @@ if (isset($neperevedennye)) {
     $neperevedennye = implode(", ", $neperevedennye);
 
     $total_untranslated_ru_kws = "
-	<h2 class = 'bold'>Непереведённые</h2>
+	<h2 class='bold'>Непереведённые</h2>
     <br>
-    <span class='result' name='result-no-transl'>" . $neperevedennye . "</span>
+    <span class='result'
+          name='result-no-transl'>" . $neperevedennye . "</span>
     <span class='counter'> " . $neperevedennye_kol . "</span>
     <br>
     <br>
