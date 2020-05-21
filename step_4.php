@@ -52,7 +52,7 @@ var_dump($_SESSION);
                                    value='{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
                                    ";
                 }
-                echo implode("", $arr_kws_assembled_marked);
+                echo implode("\n", $arr_kws_assembled_marked);
             } ?>
         </ul>
         <br>

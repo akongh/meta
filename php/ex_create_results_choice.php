@@ -78,7 +78,7 @@ if (isset($kws_en)) {
     $_SESSION["amount_chosen_en_kws"] = 0;
 }
 if (isset($kws_mark_transl)) {
-    $kws_mark_transl = implode("', '", $kws_mark_transl);
+    $kws_mark_transl = implode("','", $kws_mark_transl);
     $mysqli->query(sql_update_mark_kws_for_translation($kws_mark_transl));
 }
 

@@ -64,7 +64,7 @@ function kws_list_markup($arr_list, $arr_checked)
                        ";
     }
 
-    return implode("<br>", $markup);
+    return implode("\n", $markup);
 }
 
 /**
@@ -73,7 +73,7 @@ function kws_list_markup($arr_list, $arr_checked)
  */
 function kws_state_markup($data_array)
 {
-    return implode("; ", $data_array) . "
+    return implode(", ", $data_array) . "
         <span class='counter'>" . count($data_array) . "</span>
         <br>
         <br>
