@@ -4,13 +4,10 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["presence_mark"] ) ) {
-    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
+if (!isset($_SESSION["presence_mark"])) {
+    header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if ( isset( $_SESSION["priority_kws"] ) ) {
-    $priority_kws = $_SESSION["priority_kws"];
-};
-if ( isset( $_SESSION["err_msg_of_kws_amount"] ) ) {
+if (isset($_SESSION["err_msg_of_kws_amount"])) {
     $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
 };
 
@@ -26,7 +23,7 @@ var_dump($_SESSION);
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/changeOrderingList.js"></script>
@@ -35,7 +32,7 @@ var_dump($_SESSION);
 <div class="page">
     <br>
     <br>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <br>
     <br>
     <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
@@ -46,18 +43,25 @@ var_dump($_SESSION);
     <form method="post"
           action="/php/ex_create_translation_list.php">
         <ul id="sortable">
-            <?php if(isset($priority_kws)){echo $priority_kws;}; ?>
+            <?php if (isset($_SESSION["arr_kws_marked"])) {
+                for ($i = 0; $i < count($_POST["arr_kws_marked"]); $i++) {
+                    $arr_kws_marked[$i] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $_POST["arr_kws_marked"][$i] . "'>" . $_POST["arr_kws_marked"][$i] . "</li>";
+                }
+                echo implode("<br>", $arr_kws_marked);
+            } ?>
         </ul>
         <br>
         <br>
         <span class="counter">
-            <?php if (isset($_SESSION["total_kws_amount"])){echo $_SESSION["total_kws_amount"];}; ?></span>
+            <?php if (isset($_SESSION["arr_kws_marked"])) {
+                echo count($_SESSION["arr_kws_marked"]);
+            } ?></span>
         <br>
         <br>
         <br>
         <br>
         <div class="content-right">
-            <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
+            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?><span id="help" class="help hidden">
             1. <span class="bold">Перетаскивать</span> ключевое слово удобнее, хватаясь за строку с&nbsp;ним, а&nbsp;не целясь
             в&nbsp;само слово.<br>
             2. <span class="bold">Некоторые стоки</span> учитывают очерёдность ключевых слов.
@@ -72,7 +76,7 @@ var_dump($_SESSION);
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/showHelp.js"></script>
 </body>

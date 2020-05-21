@@ -73,10 +73,6 @@ var_dump($_SESSION);
             <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
         </div>
         <br>
-        <label title="По частоте использования в Мете другими авторами">
-            <input type="checkbox"
-                   name="by_frequency"> По частоте в Мете.</label>
-        <br>
         <br>
         <input name="priority_kws"
                type="submit"

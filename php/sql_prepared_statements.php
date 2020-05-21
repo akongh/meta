@@ -17,21 +17,6 @@ error_reporting(-1);
  * @param string $data_string
  * @return string
  */
-function sql_select_kws_frequency($data_string)
-{
-    $data_string = "'$data_string'";
-    return <<<SQL
-        select `s`, `kol`
-        from `k-ts`
-        where `s` in ($data_string)
-        order by `k-ts`.`kol` desc
-SQL;
-}
-
-/**
- * @param string $data_string
- * @return string
- */
 function sql_update_mark_kws_for_translation($data_string)
 {
     $data_string = "'$data_string'";
