@@ -16,8 +16,9 @@ if (isset($_POST["arr_kws_marked"])) {
 }
 
 //делаем массив из дополнительных слов
-$input_str_kws_addition = $_POST["input_str_kws_addition"];
-$_SESSION["arr_kws_addition"] = kws_string_to_array($input_str_kws_addition);
+if (isset($_POST["input_str_kws_addition"])) {
+    $_SESSION["arr_kws_addition"] = kws_string_to_array($_POST["input_str_kws_addition"]);
+}
 
 //делаем вывод ошибки символа, если она есть
 if (isset($_SESSION["arr_kws_addition"]) && count($_SESSION["arr_kws_addition"]) > 0) {
@@ -27,7 +28,18 @@ if (isset($_SESSION["arr_kws_addition"]) && count($_SESSION["arr_kws_addition"])
 }
 
 //итоговый массив из подбора, дополнения и состояния
-$_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($_SESSION["arr_kws_selection_marked"], $_SESSION["arr_kws_addition"], $_SESSION["kws_state"])));
+if ($_SESSION["arr_kws_selection_marked"]) {
+    $array_param[] = $_SESSION["arr_kws_selection_marked"];
+}
+if ($_SESSION["arr_kws_addition"]) {
+    $array_param[] = $_SESSION["arr_kws_addition"];
+}
+if ($_SESSION["arr_kws_state"]) {
+    $array_param[] = $_SESSION["arr_kws_state"];
+}
+if (isset($array_param)) {
+    $_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($array_param)))[0];
+}
 
 //остаёмся исправлять ошибки
 if (isset($_SESSION["err_msg_illegal_char"])) {

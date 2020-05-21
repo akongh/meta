@@ -4,6 +4,8 @@ error_reporting(-1);
 
 session_start();
 
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+
 if ( ! isset( $_SESSION["presence_mark"] ) ) {
     header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
 }
