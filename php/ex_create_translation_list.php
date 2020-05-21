@@ -24,9 +24,7 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
         echo PHP_EOL . $mysqli_stmt_translation->errno . " --> " . $mysqli_stmt_translation->error . PHP_EOL;
     }
     $result = $mysqli_stmt_translation->get_result();
-
     $sql_select_en_translation_and_meaning = $result->fetch_all(MYSQLI_ASSOC);
-
     $mysqli_stmt_translation->free_result();
     $mysqli_stmt_translation->close();
 
@@ -53,9 +51,7 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
         echo PHP_EOL . $mysqli_stmt_statuses->errno . " --> " . $mysqli_stmt_statuses->error . PHP_EOL;
     }
     $result = $mysqli_stmt_statuses->get_result();
-
     $sql_select_kw_statuses = $result->fetch_all(MYSQLI_ASSOC);
-
     $mysqli_stmt_statuses->free_result();
     $mysqli_stmt_statuses->close();
 
