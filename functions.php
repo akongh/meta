@@ -31,7 +31,7 @@ function kws_string_to_array($data_string)
  */
 function kws_list_markup($arr_list, $arr_checked)
 {
-    $markup = "";
+    $markup = array();
 
     foreach ($arr_list as $kw) {
         if (in_array($kw, $arr_checked)) {
@@ -39,16 +39,16 @@ function kws_list_markup($arr_list, $arr_checked)
         } else {
             $status = "";
         }
-        $markup .= "
+        $markup[] = "
                 <label class='label-highlight'>
                 <input type='checkbox'
                        name='arr_kws_marked[]'
                        {$status}
-                       value = '{$kw}'>{$kw}</label><br>
+                       value = '{$kw}'>{$kw}</label>
                        ";
     }
 
-    return $markup;
+    return implode("<br>", $markup);
 }
 
 /**
