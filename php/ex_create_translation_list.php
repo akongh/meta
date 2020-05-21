@@ -3,15 +3,15 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
-
 
 unset(
     $_SESSION["err_msg_of_kws_amount"]
 );
 
-$rus = $_POST["spisok_mesto"];
+$rus = $_POST["arr_kws_marked"];
 for ($i = 0; $i < count($rus); $i++) {
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING))) {

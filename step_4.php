@@ -46,7 +46,7 @@ var_dump($_SESSION);
                     $arr_kws_assembled_marked[$i] = "
                         <li>
                             <input type='checkbox'
-                                   name='spisok_mesto[]'
+                                   name='arr_kws_marked[]'
                                    class='hidden'
                                    checked
                                    value='{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
