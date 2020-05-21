@@ -6,7 +6,6 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
-require($_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 unset(
@@ -42,7 +41,7 @@ if ($count_arr_kws_query > 8) {
     $_SESSION["err_msg_illegal_kws_query_amount"] = "Не более 8-ми опорных ключевых слов.";
     $err_mark = false;
 }
-if ($count_arr_kws_query > 0 && !preg_match($regex_check_ru_kws_query, implode("", $arr_kws_query))) {
+if ($count_arr_kws_query > 0 && !kws_string_check(implode("", $arr_kws_query))) {
     $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
     $err_mark = false;
 }

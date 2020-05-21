@@ -15,6 +15,15 @@ error_reporting(-1);
 
 /**
  * @param string $data_string
+ * @return boolean
+ */
+function kws_string_check($data_string)
+{
+    return preg_match("/^[а-яёА-ЯЁ0-9 \-]+$/iu", $data_string);
+}
+
+/**
+ * @param string $data_string
  * @return array
  */
 function kws_string_to_array($data_string)
