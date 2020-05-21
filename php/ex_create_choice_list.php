@@ -21,9 +21,7 @@ if (isset($_POST["non_strict_choice"])) {
 }
 $max_choice_amount = $_POST["max_choice_amount"];
 $input_str_kws_query = $_POST["input_str_kws_query"];
-$input_str_kws_query = mb_strtolower(htmlspecialchars(strip_tags(stripslashes($input_str_kws_query))), "utf-8");
-$input_str_kws_query = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $input_str_kws_query);
-$arr_kws_query = preg_split("/[\n,;]/", $input_str_kws_query, -1, PREG_SPLIT_NO_EMPTY);
+$arr_kws_query = kws_string_to_array($input_str_kws_query);
 
 foreach ($arr_kws_query as &$value) {
     $value = trim($value);

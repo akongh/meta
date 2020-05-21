@@ -12,6 +12,18 @@ error_reporting(-1);
  * @since     0.1.0
  */
 
+
+/**
+ * @param string $data_string
+ * @return array
+ */
+function kws_string_to_array($data_string)
+{
+    $data_string = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($data_string))), "utf-8"));
+    $data_string = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $data_string);
+    return preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY);
+}
+
 /**
  * @param array $arr_list
  * @param array $arr_checked

@@ -3,7 +3,9 @@ declare(strict_types=1);
 error_reporting(-1);
 
 session_start();
+
 require($_SERVER["DOCUMENT_ROOT"] . '/php/regexp.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 unset(
     $_SESSION["err_msg_illegal_char"],
@@ -37,10 +39,8 @@ if (isset($spisok) && $spisok != null) {
     $_SESSION["output_marked_kws_list"] = $output_marked_kws_list;
 }
 //делаем массив из дополнительных слов
-$additional_kws = $_POST["input_str_kws_adding"];
-$additional_kws = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($additional_kws))), "utf-8"));
-$additional_kws = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $additional_kws);
-$arr_additional_kws = preg_split("/[\n,;]/", $additional_kws, -1, PREG_SPLIT_NO_EMPTY);
+$input_str_kws_addition = $_POST["input_str_kws_addition"];
+$arr_kws_addition = kws_string_to_array($input_str_kws_addition);
 
 for ($i = 0; $i < count($arr_additional_kws); $i++) {
     $arr_additional_kws[$i] = trim($arr_additional_kws[$i]);
