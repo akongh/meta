@@ -7,9 +7,6 @@ session_start();
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
-if (isset($_SESSION["err_msg_of_kws_amount"])) {
-    $err_msg_of_kws_amount = $_SESSION["err_msg_of_kws_amount"];
-}
 
 var_dump($_SESSION);
 ?>
@@ -45,7 +42,13 @@ var_dump($_SESSION);
         <ul id="sortable">
             <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
                 for ($i = 0; $i < count($_SESSION["arr_kws_assembled_marked"]); $i++) {
-                    $arr_kws_assembled_marked[$i] = "<li><input type='checkbox' name='spisok_mesto[]' class='hidden' checked value = '" . $_SESSION["arr_kws_assembled_marked"][$i] . "'>" . $_SESSION["arr_kws_assembled_marked"][$i] . "</li>";
+                    $arr_kws_assembled_marked[$i] = "
+                        <li>
+                            <input type='checkbox'
+                                   name='spisok_mesto[]'
+                                   class='hidden'
+                                   checked value = '{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
+                                   ";
                 }
                 echo implode("", $arr_kws_assembled_marked);
             } ?>
@@ -53,8 +56,8 @@ var_dump($_SESSION);
         <br>
         <br>
         <span class="counter">
-            <?php if (isset($_SESSION["arr_kws_marked"])) {
-                echo count($_SESSION["arr_kws_marked"]);
+            <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
+                echo count($_SESSION["arr_kws_assembled_marked"]);
             } ?></span>
         <br>
         <br>
