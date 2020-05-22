@@ -92,7 +92,7 @@ var_dump($_SESSION);
                 $flag = $flag[0];
             } else {
                 $flag = null;
-            };
+            }
 
             if (isset($translation_meaning) && count($translation_meaning) > 1) {
                 $translation_meaning = implode("\n", $translation_meaning);
