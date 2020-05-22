@@ -153,13 +153,11 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
 $mysqli_stmt_translation->close();
 $mysqli_stmt_statuses->close();
 
-$with_translation = implode("<br>", $with_translation);
+$_SESSION["with_translation"] = implode("<br>", $with_translation);
 
 if (isset($arr_kws_untranslated)) {
     $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
-
-$_SESSION["with_translation"] = $with_translation;
 
 if (isset($about_request)) {
     $_SESSION["about_request"] = $about_request;
