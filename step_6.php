@@ -4,23 +4,23 @@ error_reporting(-1);
 
 session_start();
 
-if ( ! isset( $_SESSION["presence_mark"] ) ) {
-    header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php" );
+if (!isset($_SESSION["presence_mark"])) {
+    header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
 
-if ( isset( $_SESSION["amount_chosen_ru_kws"] ) ) {
+if (isset($_SESSION["amount_chosen_ru_kws"])) {
     $amount_chosen_ru_kws = $_SESSION["amount_chosen_ru_kws"];
 }
-if ( isset( $_SESSION["amount_chosen_en_kws"] ) ) {
+if (isset($_SESSION["amount_chosen_en_kws"])) {
     $amount_chosen_en_kws = $_SESSION["amount_chosen_en_kws"];
 }
-if ( isset( $_SESSION["resulting_ru_kws_set"] ) ) {
+if (isset($_SESSION["resulting_ru_kws_set"])) {
     $resulting_ru_kws_set = $_SESSION["resulting_ru_kws_set"];
 }
-if ( isset( $_SESSION["resulting_en_kws_set"] ) ) {
+if (isset($_SESSION["resulting_en_kws_set"])) {
     $resulting_en_kws_set = $_SESSION["resulting_en_kws_set"];
 };
-if ( isset( $_SESSION["arr_kws_untranslated"] ) ) {
+if (isset($_SESSION["arr_kws_untranslated"])) {
     $arr_kws_untranslated = $_SESSION["arr_kws_untranslated"];
 }
 
@@ -43,7 +43,7 @@ var_dump($_SESSION);
 <div class="page">
     <br>
     <br>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' ); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <br>
     <br>
     <h1 class="bold">6/6. Результат строками</h1>
@@ -51,25 +51,8 @@ var_dump($_SESSION);
     <br>
     <br>
     <br>
-<!--    <div class="notice">-->
-<!--        <p class="notice-title">-->
-<!--            Удобно извлекайте со&nbsp;стоков подсказки для поисковых запросов с&nbsp;инструментом-->
-<!--            <a href="http://meta.afoteris.com/hints/hints.php"-->
-<!--               title="Перейти в Мета-подсказки"-->
-<!--               target="_blank">«Мета-подсказки»</a>-->
-<!--        </p>-->
-<!--        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков-->
-<!--            по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;этих стоков.-->
-<!--        </p>-->
-<!--        <a href="http://meta.afoteris.com/hints/hints.php"-->
-<!--           title="Перейти в Мета-подсказки"-->
-<!--           target="_blank">-->
-<!--            <img src="images/meta_hints_interface.png" alt="Мета-подсказки"></a>-->
-<!--    </div>-->
-<!--    <br>-->
-<!--    <br>-->
     <div class="content-right">
-        <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' ); ?>
+        <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
         <span id="help"
               class="help hidden">
             1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
@@ -91,27 +74,27 @@ var_dump($_SESSION);
         <br>
         <h2 class="bold">На русском</h2>
         <br>
-        <span class="result"><?php if ( isset( $resulting_ru_kws_set ) ) {
+        <span class="result"><?php if (isset($resulting_ru_kws_set)) {
                 echo $resulting_ru_kws_set;
-            }; ?></span>
-        <span class="counter"><?php if ( isset( $amount_chosen_ru_kws ) ) {
+            } ?></span>
+        <span class="counter"><?php if (isset($amount_chosen_ru_kws)) {
                 echo $amount_chosen_ru_kws;
-            }; ?></span>
+            } ?></span>
         <br>
         <br>
         <br>
         <br>
         <h2 class="bold">На английском</h2>
         <br>
-        <span class="result"><?php if ( isset( $resulting_en_kws_set ) ) {
+        <span class="result"><?php if (isset($resulting_en_kws_set)) {
                 echo $resulting_en_kws_set;
-            }; ?></span>
-        <span class="counter"><?php if ( isset( $amount_chosen_en_kws ) ) {
+            } ?></span>
+        <span class="counter"><?php if (isset($amount_chosen_en_kws)) {
                 echo $amount_chosen_en_kws;
-            }; ?></span>
+            } ?></span>
     </div>
     <div id="single-result-view"
-          class="hidden">
+         class="hidden">
         <span class="content-right">
             <a id="separate-view-button"
                class="link-button"
@@ -122,35 +105,35 @@ var_dump($_SESSION);
         <br>
         <h2 class="bold">На русском и английском</h2>
         <br>
-        <span class="result"><?php if ( isset( $resulting_ru_kws_set ) ) {
+        <span class="result"><?php if (isset($resulting_ru_kws_set)) {
                 echo $resulting_ru_kws_set;
-            }; ?>
+            } ?>
             <br>
             <br>
-            <?php if ( isset( $resulting_en_kws_set ) ) {
+            <?php if (isset($resulting_en_kws_set)) {
                 echo $resulting_en_kws_set;
-            }; ?></span>
+            } ?></span>
         <br>
         <br>
-        <span class="counter"><?php if ( isset( $amount_chosen_ru_kws ) ) {
+        <span class="counter"><?php if (isset($amount_chosen_ru_kws)) {
                 echo $amount_chosen_ru_kws;
-            }; ?> / <?php if ( isset( $amount_chosen_en_kws ) ) {
+            } ?> / <?php if (isset($amount_chosen_en_kws)) {
                 echo $amount_chosen_en_kws;
-            }; ?></span>
+            } ?></span>
     </div>
     <br>
     <br>
     <br>
     <br>
-    <?php if ( isset( $arr_kws_untranslated ) ) {
+    <?php if (isset($arr_kws_untranslated)) {
         $str_kws_untranslated = implode(", ", $arr_kws_untranslated);
         $count_kws_untranslated = count($arr_kws_untranslated);
-    }; ?>
-	<h2 class='bold'>Непереведённые</h2>
+    } ?>
+    <h2 class='bold'>Непереведённые</h2>
     <br>
     <span class='result'
-          name='result-no-transl'><?php echo $str_kws_untranslated;?></span>
-    <span class='counter'><?php echo $count_kws_untranslated;?></span>
+          name='result-no-transl'><?php echo $str_kws_untranslated; ?></span>
+    <span class='counter'><?php echo $count_kws_untranslated; ?></span>
     <br>
     <br>
     <br>
@@ -198,7 +181,7 @@ var_dump($_SESSION);
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/changeResultView.js"></script>
 <script src="/js/selectResult.js"></script>
