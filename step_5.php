@@ -96,7 +96,7 @@ var_dump($_SESSION);
 
             if (isset($p_z) && count($p_z) > 1) {
                 $p_z = implode("\n", $p_z);
-                $with_translation[$i] = "
+                $arr_markup_translation_block[$i] = "
         <div class='block-translated'>
 		    <span class='keyword-ru'>
 		        <input type='checkbox'
@@ -120,7 +120,7 @@ var_dump($_SESSION);
                            value='" . $p2[0] . "'> " . $p[0] . "
                 </span> — " . $z[0] . "
         </label>";
-                    $with_translation[$i] = "
+                    $arr_markup_translation_block[$i] = "
         <div class='block-translated'>
                 <span class='keyword-ru'>
                     <input type='checkbox'
@@ -136,7 +136,7 @@ var_dump($_SESSION);
                 } else {
                     if (!isset($p_z) && ($f == 0 or $f == null)) {
                         $arr_kws_untranslated[$i] = $_SESSION["arr_kws_ordered"][$i];
-                        $with_translation[$i] = "
+                        $arr_markup_translation_block[$i] = "
         <div class='block-not-translated'>
                     <span class='keyword-ru'>
                         <input type='checkbox'
@@ -156,7 +156,7 @@ var_dump($_SESSION);
                     } else {
                         if (!isset($p_z) && $f == 7) {
                             $arr_kws_untranslated[$i] = $_SESSION["arr_kws_ordered"][$i];
-                            $with_translation[$i] = "
+                            $arr_markup_translation_block[$i] = "
         <div class='block-not-translated'>
                         <span class='keyword-ru'>
                             <input type='checkbox'
@@ -184,7 +184,7 @@ var_dump($_SESSION);
         $mysqli_stmt_translation->close();
         $mysqli_stmt_statuses->close();
 
-        echo implode("\n", $with_translation);
+        echo implode("\n", $arr_markup_translation_block);
 
         if (isset($arr_kws_untranslated)) {
             $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
