@@ -104,7 +104,7 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
             ";
         } else {
             if (!isset($p_z) && ($f == 0 or $f == null)) {
-                $neperevedennye[$i] = $arr_kws_ru[$i];
+                $arr_kws_untranslated[$i] = $arr_kws_ru[$i];
                 $with_translation[$i] = "
                 <div class='block-not-translated'>
                     <span class='keyword-ru'>
@@ -124,7 +124,7 @@ for ($i = 0; $i < count($arr_kws_ru); $i++) {
                 ";
             } else {
                 if (!isset($p_z) && $f == 7) {
-                    $neperevedennye[$i] = $arr_kws_ru[$i];
+                    $arr_kws_untranslated[$i] = $arr_kws_ru[$i];
                     $with_translation[$i] = "
                     <div class='block-not-translated'>
                         <span class='keyword-ru'>
@@ -155,24 +155,8 @@ $mysqli_stmt_statuses->close();
 
 $with_translation = implode("<br>", $with_translation);
 
-if (isset($neperevedennye)) {
-    $neperevedennye_kol = count($neperevedennye);
-    $neperevedennye = implode(", ", $neperevedennye);
-
-    $total_untranslated_ru_kws = "
-	<h2 class='bold'>Непереведённые</h2>
-    <br>
-    <span class='result'
-          name='result-no-transl'>" . $neperevedennye . "</span>
-    <span class='counter'> " . $neperevedennye_kol . "</span>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-	";
-    $_SESSION["total_untranslated_ru_kws"] = $total_untranslated_ru_kws;
+if (isset($arr_kws_untranslated)) {
+    $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
 
 $_SESSION["with_translation"] = $with_translation;

@@ -20,8 +20,8 @@ if ( isset( $_SESSION["resulting_ru_kws_set"] ) ) {
 if ( isset( $_SESSION["resulting_en_kws_set"] ) ) {
     $resulting_en_kws_set = $_SESSION["resulting_en_kws_set"];
 };
-if ( isset( $_SESSION["total_untranslated_ru_kws"] ) ) {
-    $total_untranslated_ru_kws = $_SESSION["total_untranslated_ru_kws"];
+if ( isset( $_SESSION["arr_kws_untranslated"] ) ) {
+    $arr_kws_untranslated = $_SESSION["arr_kws_untranslated"];
 }
 
 var_dump($_SESSION);
@@ -142,9 +142,21 @@ var_dump($_SESSION);
     <br>
     <br>
     <br>
-    <?php if ( isset( $total_untranslated_ru_kws ) ) {
-        echo $total_untranslated_ru_kws;
+    <?php if ( isset( $arr_kws_untranslated ) ) {
+        $str_kws_untranslated = implode(", ", $arr_kws_untranslated);
+        $count_kws_untranslated = count($arr_kws_untranslated);
     }; ?>
+	<h2 class='bold'>Непереведённые</h2>
+    <br>
+    <span class='result'
+          name='result-no-transl'><?php echo $str_kws_untranslated;?></span>
+    <span class='counter'><?php echo $count_kws_untranslated;?></span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
