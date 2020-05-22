@@ -95,7 +95,7 @@ var_dump($_SESSION);
             };
 
             if (isset($p_z) && count($p_z) > 1) {
-                $p_z = implode("<br>", $p_z);
+                $p_z = implode("\n", $p_z);
                 $with_translation[$i] = "
         <div class='block-translated'>
 		    <span class='keyword-ru'>
@@ -184,7 +184,7 @@ var_dump($_SESSION);
         $mysqli_stmt_translation->close();
         $mysqli_stmt_statuses->close();
 
-        $_SESSION["with_translation"] = implode("<br>", $with_translation);
+        echo implode("\n", $with_translation);
 
         if (isset($arr_kws_untranslated)) {
             $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
@@ -192,13 +192,10 @@ var_dump($_SESSION);
 
         $mysqli->close(); ?>
 
-
         <br>
         <br>
         <span class="counter">
-            <?php if (isset($_SESSION["total_kws_amount"])) {
-                echo $_SESSION["total_kws_amount"];
-            }; ?>
+            <?php echo count($_SESSION["arr_kws_ordered"]); ?>
             /
             <span id="countUniqEngChecked"></span></span>
         <br>
