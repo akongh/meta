@@ -159,9 +159,5 @@ if (isset($arr_kws_untranslated)) {
     $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
 
-if (isset($about_request)) {
-    $_SESSION["about_request"] = $about_request;
-}
-
 $mysqli->close();
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php");

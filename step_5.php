@@ -9,10 +9,7 @@ if ( ! isset( $_SESSION["presence_mark"] ) ) {
 }
 if ( isset( $_SESSION["with_translation"] ) ) {
     $with_translation = $_SESSION["with_translation"];
-};
-if ( isset( $_SESSION["about_request"] ) ) {
-    $about_request = $_SESSION["about_request"];
-};
+}
 
 unset( $_SESSION["about_request"] );
 
@@ -71,7 +68,6 @@ var_dump($_SESSION);
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
-    <?php if(isset($about_request)){echo $about_request;};?>
     <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/js/countUniqEngChecked.js"></script>
