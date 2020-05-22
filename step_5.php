@@ -55,20 +55,20 @@ var_dump($_SESSION);
                 echo PHP_EOL . $mysqli_stmt_translation->errno . " --> " . $mysqli_stmt_translation->error . PHP_EOL;
             }
             $result = $mysqli_stmt_translation->get_result();
-            $sql_select_en_translation_and_meaning = $result->fetch_all(MYSQLI_ASSOC);
+            $arr_en_translation_meaning = $result->fetch_all(MYSQLI_ASSOC);
             $mysqli_stmt_translation->free_result();
 
-            foreach ($sql_select_en_translation_and_meaning as $key => $val) {
-                $p[$key] = $val["s"];
-                $p2[$key] = preg_replace("/'/", "&#039;", $p[$key]);
-                $z[$key] = $val["z"];
-                $p_z[$key] = "
+            foreach ($arr_en_translation_meaning as $key => $val) {
+                $translation[$key] = $val["s"];
+                $translation_entity[$key] = preg_replace("/'/", "&#039;", $translation[$key]);
+                $meaning[$key] = $val["z"];
+                $translation_meaning[$key] = "
         <label class='label-highlight separate-checkbox'>
             <span class='keyword-en'>
                 <input type='checkbox'
                        name='angl[]'
-                       value='" . $p2[$key] . "'> " . $p[$key] . "
-            </span> — " . $z[$key] . "
+                       value='" . $translation_entity[$key] . "'> " . $translation[$key] . "
+            </span> — " . $meaning[$key] . "
         </label>
         ";
             }
@@ -81,21 +81,21 @@ var_dump($_SESSION);
                 echo PHP_EOL . $mysqli_stmt_statuses->errno . " --> " . $mysqli_stmt_statuses->error . PHP_EOL;
             }
             $result = $mysqli_stmt_statuses->get_result();
-            $sql_select_kw_statuses = $result->fetch_all(MYSQLI_ASSOC);
+            $kw_status = $result->fetch_all(MYSQLI_ASSOC);
             $mysqli_stmt_statuses->free_result();
 
-            foreach ($sql_select_kw_statuses as $key => $val) {
-                $f[$key] = $val["f"];
+            foreach ($kw_status as $key => $val) {
+                $flag[$key] = $val["f"];
             }
 
-            if (isset($f[0])) {
-                $f = $f[0];
+            if (isset($flag[0])) {
+                $flag = $flag[0];
             } else {
-                $f = null;
+                $flag = null;
             };
 
-            if (isset($p_z) && count($p_z) > 1) {
-                $p_z = implode("\n", $p_z);
+            if (isset($translation_meaning) && count($translation_meaning) > 1) {
+                $translation_meaning = implode("\n", $translation_meaning);
                 $arr_markup_translation_block[$i] = "
         <div class='block-translated'>
 		    <span class='keyword-ru'>
@@ -106,19 +106,19 @@ var_dump($_SESSION);
                        value='" . $_SESSION["arr_kws_ordered"][$i] . "'>" . $_SESSION["arr_kws_ordered"][$i] . "
 		    </span>
             <br>
-            " . $p_z . "
+            " . $translation_meaning . "
         </div>
         ";
             } else {
-                if (isset($p_z) && count($p_z) == 1) {
-                    $p_z = "
+                if (isset($translation_meaning) && count($translation_meaning) == 1) {
+                    $translation_meaning = "
         <label class='label-highlight separate-checkbox'>
                 <span class='keyword-en'>
                     <input type='checkbox'
                            name='angl[]'
                            checked
-                           value='" . $p2[0] . "'> " . $p[0] . "
-                </span> — " . $z[0] . "
+                           value='" . $translation_entity[0] . "'> " . $translation[0] . "
+                </span> — " . $meaning[0] . "
         </label>";
                     $arr_markup_translation_block[$i] = "
         <div class='block-translated'>
@@ -130,11 +130,11 @@ var_dump($_SESSION);
                            value='" . $_SESSION["arr_kws_ordered"][$i] . "'>" . $_SESSION["arr_kws_ordered"][$i] . "
                 </span>
             <br>
-            " . $p_z . "
+            " . $translation_meaning . "
         </div>
         ";
                 } else {
-                    if (!isset($p_z) && ($f == 0 or $f == null)) {
+                    if (!isset($translation_meaning) && ($flag == 0 or $flag == null)) {
                         $arr_kws_untranslated[$i] = $_SESSION["arr_kws_ordered"][$i];
                         $arr_markup_translation_block[$i] = "
         <div class='block-not-translated'>
@@ -154,7 +154,7 @@ var_dump($_SESSION);
         </div>
         ";
                     } else {
-                        if (!isset($p_z) && $f == 7) {
+                        if (!isset($translation_meaning) && $flag == 7) {
                             $arr_kws_untranslated[$i] = $_SESSION["arr_kws_ordered"][$i];
                             $arr_markup_translation_block[$i] = "
         <div class='block-not-translated'>
@@ -178,17 +178,17 @@ var_dump($_SESSION);
                 }
             }
 
-            unset($p_z, $p, $z, $f);
+            unset($translation_meaning, $translation, $meaning, $flag);
         }
 
         $mysqli_stmt_translation->close();
         $mysqli_stmt_statuses->close();
 
-        echo implode("\n", $arr_markup_translation_block);
-
         if (isset($arr_kws_untranslated)) {
             $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
         }
+
+        echo implode("\n", $arr_markup_translation_block);
 
         $mysqli->close(); ?>
 
