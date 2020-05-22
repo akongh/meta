@@ -11,8 +11,6 @@ if ( isset( $_SESSION["with_translation"] ) ) {
     $with_translation = $_SESSION["with_translation"];
 }
 
-unset( $_SESSION["about_request"] );
-
 var_dump($_SESSION);
 ?>
 
