@@ -4,7 +4,7 @@ error_reporting(-1);
 
 session_start();
 
-$_SESSION["kws_state"] = $_SESSION["resulting_arr"];
+$_SESSION["arr_kws_state"] = $_SESSION["arr_kws_assembled"];
 
 unset(
     $_SESSION["err_msg_of_kws_amount"]
