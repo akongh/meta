@@ -4,7 +4,6 @@ error_reporting(-1);
 
 session_start();
 session_unset();
-
 unset($_POST);
 
 require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
