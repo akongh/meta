@@ -52,8 +52,8 @@ var_dump($_SESSION);
 
             if ($el[2] == 0 or $el[2] == 7) {
                 $div_class = "block-not-translated";
-                $translation_meaning_markup = $comment . "
-                    <input type='checkbox'
+                $translation_meaning_markup = "
+                    {$comment}<input type='checkbox'
                            name='zayavka[]'
                            class='hidden'
                            checked
@@ -88,6 +88,7 @@ var_dump($_SESSION);
                     {$translation_meaning_markup}
               </div>
               ";
+            unset ($translation_meaning);
         }
         ?>
         <br>
