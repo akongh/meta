@@ -35,7 +35,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <form method="post"
-          action="/ex_create_results_choice.php">
+          action="/step_5_to_6.php">
 
         <?php
         foreach ($_SESSION["arr_list_kws_translations"] as $el) {
