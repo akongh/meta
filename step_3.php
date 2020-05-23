@@ -45,7 +45,6 @@ var_dump($_SESSION);
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
-        <!--<?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php'); ?>-->
         <?php if (isset($_SESSION["err_msg_of_kws_amount"])) {
             echo err_msg_markup($_SESSION["err_msg_of_kws_amount"]);
         } ?>
