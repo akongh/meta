@@ -6,7 +6,7 @@ session_start();
 session_unset();
 
 require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/php/sql_prepared_statements.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
 
 unset($_POST);
 

@@ -4,7 +4,7 @@ error_reporting(-1);
 
 session_start();
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
-require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
 if (isset($_POST["russk"])) {
     $_SESSION["arr_kws_ru"] = $_POST["russk"];
