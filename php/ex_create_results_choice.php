@@ -29,16 +29,17 @@ if (isset($_POST["russk"])) {
     foreach ($_SESSION["arr_kws_ru"] as $kw_ru) {
         $arr_kws_ru_to_db[] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kw_ru));//todo: is it necessary "/ {2,}/" --> " " ?
     }
-    $str_kws_ru_to_db = implode("','", $arr_kws_ru_to_db);
 
     if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
-    if (!$mysqli_stmt->bind_param("s", $str_kws_ru_to_db)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
-    }
-    if (!$mysqli_stmt->execute()) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+    foreach ($arr_kws_ru_to_db as $kw_ru_to_db) {
+        if (!$mysqli_stmt->bind_param("s", $kw_ru_to_db)) {
+            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+        }
+        if (!$mysqli_stmt->execute()) {
+            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+        }
     }
 
     // Создание связей ключевых слов с набором todo:transl
