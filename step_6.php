@@ -4,10 +4,6 @@ error_reporting(-1);
 
 session_start();
 
-if (!isset($_SESSION["presence_mark"])) {
-    header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
-}
-
 if (isset($_SESSION["arr_kws_ru"])) {
     $str_kws_ru = implode(", ", $_SESSION["arr_kws_ru"]);
     $count_kws_ru = count($_SESSION["arr_kws_ru"]);

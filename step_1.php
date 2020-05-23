@@ -6,8 +6,6 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
-$_SESSION["presence_mark"] = true;
-
 var_dump($_SESSION);
 ?>
 
