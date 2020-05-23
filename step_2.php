@@ -81,7 +81,6 @@ var_dump($_SESSION);
             определении очерёдности.
             </span><br>
             <br>
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php'); ?><br>
         </div>
         <br>
         <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">

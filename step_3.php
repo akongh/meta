@@ -67,8 +67,6 @@ var_dump($_SESSION);
             </span><br>
             <br>
             <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php'); ?><br>
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_2_edit_current_choice.php'); ?><br>
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php'); ?><br>
         </div>
         <br>
         <br>
