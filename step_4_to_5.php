@@ -35,9 +35,10 @@ foreach ($_SESSION["arr_kws_ordered"] as $kw) {
     if (!$mysqli_stmt_statuses->execute()) {
         echo PHP_EOL . $mysqli_stmt_statuses->errno . " --> " . $mysqli_stmt_statuses->error . PHP_EOL;
     }
-    $result = $mysqli_stmt_statuses->get_result();
-    if (isset($result->fetch_all(MYSQLI_ASSOC)[0]["f"])) {
-        $arr_kw_translations[2] = $result->fetch_all(MYSQLI_ASSOC)[0]["f"];
+    $result = $mysqli_stmt_statuses->get_result();//var_dump($result->fetch_all(MYSQLI_ASSOC));exit;
+    $arr_status = $result->fetch_all(MYSQLI_ASSOC);
+    if (isset($arr_status) and count($arr_status) > 0) {
+        $arr_kw_translations[2] = $arr_status[0]["f"];
     } else {
         $arr_kw_translations[2] = null;
     }
