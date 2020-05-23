@@ -47,7 +47,7 @@ foreach ($_SESSION["arr_kws_ordered"] as $kw) {
     if ($arr_kw_translations[2] == 0 or $arr_kw_translations[2] == 7 or $arr_kw_translations[2] == null) {
         $arr_kws_untranslated[] = $kw;
     }
-    $arr_list_kws_translations[] = $arr_kw_translations;
+    $arr_kws_translations[] = $arr_kw_translations;
 }
 
 $mysqli_stmt_translation->close();
@@ -57,6 +57,6 @@ $mysqli->close();
 if (isset($arr_kws_untranslated) and $arr_kws_untranslated != null) {
     $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
-$_SESSION["arr_list_kws_translations"] = $arr_list_kws_translations;
+$_SESSION["arr_kws_translations"] = $arr_kws_translations;
 
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php");

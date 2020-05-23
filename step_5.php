@@ -34,7 +34,7 @@ var_dump($_SESSION);
           action="/step_5_to_6.php">
 
         <?php
-        foreach ($_SESSION["arr_list_kws_translations"] as $el) {
+        foreach ($_SESSION["arr_kws_translations"] as $el) {
             if ($el[2] == 0) {
                 $comment = "(перевода пока нет)";
             } else {
