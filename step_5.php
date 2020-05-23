@@ -52,28 +52,23 @@ var_dump($_SESSION);
 
             if ($el[2] == 0 or $el[2] == 7) {
                 $div_class = "block-not-translated";
-                $translation_meaning_markup = "
-                    {$comment}<input type='checkbox'
-                           name='zayavka[]'
-                           class='hidden'
-                           checked
-                           value='{$el[0]}'>
-                           ";
+                $translation_meaning_markup = "{$comment}<input type='checkbox'
+                                                                name='zayavka[]'
+                                                                class='hidden'
+                                                                checked
+                                                                value='{$el[0]}'>";
             } else {
                 $div_class = "block-translated";
                 foreach ($el[1] as $val) {
                     $translation = $val["s"];
                     $translation_entity = preg_replace("/'/", "&#039;", $translation);
                     $meaning = $val["z"];
-                    $translation_meaning[] = "
-                        <label class='label-highlight separate-checkbox'>
-                            <span class='keyword-en'>
-                                <input type='checkbox'
-                                       name='angl[]'
-                                       value='{$translation_entity}'>{$translation}
-                            </span> — {$meaning}
-                        </label>
-                        ";
+                    $translation_meaning[] = "<label class='label-highlight separate-checkbox'>
+                                                  <span class='keyword-en'>
+                                                      <input type='checkbox'
+                                                             name='angl[]'
+                                                             value='{$translation_entity}'>{$translation}</span> — {$meaning}
+                                              </label>";
                 }
                 $translation_meaning_markup = implode("\n", $translation_meaning);
             }
@@ -83,20 +78,17 @@ var_dump($_SESSION);
                                name='russk[]'
                                class='hidden'
                                checked
-                               value='{$el[0]}'>{$el[0]}</span>
-                    <br>
+                               value='{$el[0]}'>{$el[0]}</span><br>
                     {$translation_meaning_markup}
-              </div>
-              ";
+              </div>";
             unset ($translation_meaning);
         }
         ?>
         <br>
         <br>
         <span class="counter">
-            <?php echo count($_SESSION["arr_kws_ordered"]); ?>
-            /
-            <span id="countUniqEngChecked"></span></span>
+            <?php echo count($_SESSION["arr_kws_ordered"]); ?> / <span id="countUniqEngChecked"></span>
+        </span>
         <br>
         <br>
         <br>
