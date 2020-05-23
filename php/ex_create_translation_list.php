@@ -36,7 +36,11 @@ foreach ($_SESSION["arr_kws_ordered"] as $kw) {
         echo PHP_EOL . $mysqli_stmt_statuses->errno . " --> " . $mysqli_stmt_statuses->error . PHP_EOL;
     }
     $result = $mysqli_stmt_statuses->get_result();
-    $arr_kw_translations[2] = $result->fetch_all(MYSQLI_ASSOC)[0]["f"];
+    if (isset($result->fetch_all(MYSQLI_ASSOC)[0]["f"])) {
+        $arr_kw_translations[2] = $result->fetch_all(MYSQLI_ASSOC)[0]["f"];
+    } else {
+        $arr_kw_translations[2] = null;
+    }
     $mysqli_stmt_statuses->free_result();
 
     if ($arr_kw_translations[2] == 0 or $arr_kw_translations[2] == 7 or $arr_kw_translations[2] == null) {
