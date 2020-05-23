@@ -4,9 +4,6 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
-require($_SERVER["DOCUMENT_ROOT"] . '/php/sql_prepared_statements.php');
-
 if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }

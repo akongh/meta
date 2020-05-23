@@ -45,6 +45,10 @@ foreach ($_SESSION["arr_kws_ordered"] as $kw) {
     $arr_list_kws_translations[] = $arr_kw_translations;
 }
 
+$mysqli_stmt_translation->close();
+$mysqli_stmt_statuses->close();
+$mysqli->close();
+
 if (isset($arr_kws_untranslated) and $arr_kws_untranslated != null) {
     $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
