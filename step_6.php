@@ -8,6 +8,30 @@ if (!isset($_SESSION["presence_mark"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/meta.php");
 }
 
+if (isset($_SESSION["arr_kws_ru"])) {
+    $str_kws_ru = implode(", ", $_SESSION["arr_kws_ru"]);
+    $count_kws_ru = count($_SESSION["arr_kws_ru"]);
+} else {
+    $str_kws_ru = "";
+    $count_kws_ru = 0;
+}
+
+if (isset($_SESSION["arr_kws_en"])) {
+    $str_kws_en = implode(", ", $_SESSION["arr_kws_en"]);
+    $count_kws_en = count($_SESSION["arr_kws_en"]);
+} else {
+    $str_kws_en = "";
+    $count_kws_en = 0;
+}
+
+if (isset($_SESSION["arr_kws_untranslated"])) {
+    $str_kws_untranslated = implode(", ", $_SESSION["arr_kws_untranslated"]);
+    $count_kws_untranslated = count($_SESSION["arr_kws_untranslated"]);
+} else {
+    $str_kws_untranslated = "";
+    $count_kws_untranslated = 0;
+}
+
 var_dump($_SESSION);
 ?>
 
@@ -58,16 +82,16 @@ var_dump($_SESSION);
         <br>
         <h2 class="bold">На русском</h2>
         <br>
-        <span class="result"><?php echo implode(", ", $_SESSION["arr_kws_ru"]); ?></span>
-        <span class="counter"><?php echo count($_SESSION["arr_kws_ru"]); ?></span>
+        <span class="result"><?php echo $str_kws_ru; ?></span>
+        <span class="counter"><?php echo $count_kws_ru; ?></span>
         <br>
         <br>
         <br>
         <br>
         <h2 class="bold">На английском</h2>
         <br>
-        <span class="result"><?php echo implode(", ", $_SESSION["arr_kws_en"]); ?></span>
-        <span class="counter"><?php echo count($_SESSION["arr_kws_en"]); ?></span>
+        <span class="result"><?php echo $str_kws_en; ?></span>
+        <span class="counter"><?php echo $count_kws_en; ?></span>
     </div>
     <div id="single-result-view"
          class="hidden">
@@ -82,15 +106,15 @@ var_dump($_SESSION);
         <h2 class="bold">На русском и английском</h2>
         <br>
         <span class="result">
-            <?php echo implode(", ", $_SESSION["arr_kws_ru"]); ?>
+            <?php echo $str_kws_ru; ?>
             <br>
             <br>
-            <?php echo implode(", ", $_SESSION["arr_kws_en"]); ?>
+            <?php echo $str_kws_en; ?>
         </span>
         <br>
         <br>
         <span class="counter">
-            <?php echo count($_SESSION["arr_kws_ru"]); ?> / <?php echo count($_SESSION["arr_kws_en"]); ?>
+            <?php echo $count_kws_ru; ?> / <?php echo $count_kws_en; ?>
         </span>
     </div>
     <br>
@@ -100,8 +124,8 @@ var_dump($_SESSION);
     <h2 class='bold'>Непереведённые</h2>
     <br>
     <span class='result'
-          name='result-no-transl'><?php echo implode(", ", $_SESSION["arr_kws_untranslated"]); ?></span>
-    <span class='counter'><?php echo count($_SESSION["arr_kws_untranslated"]); ?></span>
+          name='result-no-transl'><?php echo $str_kws_untranslated; ?></span>
+    <span class='counter'><?php echo $count_kws_untranslated; ?></span>
     <br>
     <br>
     <br>
