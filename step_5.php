@@ -77,9 +77,7 @@ var_dump($_SESSION);
                 }
                 $translation_meaning_markup = implode("\n", $translation_meaning);
             }
-        }
-
-        echo "<div class='{$div_class}'>
+            echo "<div class='{$div_class}'>
                     <span class='keyword-ru'>
                         <input type='checkbox'
                                name='russk[]'
@@ -90,6 +88,7 @@ var_dump($_SESSION);
                     {$translation_meaning_markup}
               </div>
               ";
+        }
         ?>
         <br>
         <br>
