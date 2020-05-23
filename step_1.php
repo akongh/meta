@@ -47,7 +47,7 @@ var_dump($_SESSION);
         echo kws_state_markup($_SESSION["arr_kws_state"]);
     }
     ?>
-    <form action="/php/ex_create_choice_list.php"
+    <form action="/ex_create_choice_list.php"
           method="post">
         <textarea name="input_str_kws_query"
                   class="textarea-keywords"

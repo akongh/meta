@@ -37,7 +37,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <form method="post"
-          action="/php/ex_create_ordering_list.php">
+          action="/ex_create_ordering_list.php">
         <?php if (isset($_SESSION["arr_kws_assembled"])) {
             echo kws_list_markup($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
         } ?>

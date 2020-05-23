@@ -39,7 +39,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <form method="post"
-          action="/php/ex_create_translation_list.php">
+          action="/ex_create_translation_list.php">
         <ul id="sortable">
             <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
                 for ($i = 0; $i < count($_SESSION["arr_kws_assembled_marked"]); $i++) {

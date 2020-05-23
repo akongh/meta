@@ -38,7 +38,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <form method="post"
-          action="/php/ex_create_check_choice_list.php">
+          action="/ex_create_check_choice_list.php">
         <?php echo kws_list_markup($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]); ?>
         <br>
         <br>
