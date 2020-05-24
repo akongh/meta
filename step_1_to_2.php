@@ -10,19 +10,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
+$max_choice_amount = $_POST["max_choice_amount"];
 if (isset($_POST["non_strict_choice"])) {
     $non_strict_choice = $_POST["non_strict_choice"];
 }
-$max_choice_amount = $_POST["max_choice_amount"];
 $input_str_kws_query = $_POST["input_str_kws_query"];
 $arr_kws_query = kws_string_to_array($input_str_kws_query);
 
-foreach ($arr_kws_query as &$value) {
-    $value = trim($value);
-}
-unset($value);
-
-$arr_kws_query = array_values(array_unique((array_diff($arr_kws_query, array("")))));
 $_SESSION["arr_kws_query"] = $arr_kws_query;
 
 $count_arr_kws_query = count($arr_kws_query);
