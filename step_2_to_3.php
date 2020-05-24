@@ -4,12 +4,9 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+unset($_SESSION["error_messages"]);
 
-unset(
-    $_SESSION["err_msg_illegal_char"],
-    $_SESSION["err_msg_of_kws_amount"],
-);
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 if (isset($_POST["arr_kws_marked"])) {
     $_SESSION["arr_kws_selection_marked"] = $_POST["arr_kws_marked"];

@@ -4,6 +4,8 @@ error_reporting(-1);
 
 session_start();
 
+unset($_SESSION["error_messages"]);
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 if (!isset($_POST["arr_kws_marked"]) || count($_POST["arr_kws_marked"]) < 8) {

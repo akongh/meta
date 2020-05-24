@@ -4,15 +4,11 @@ error_reporting(-1);
 
 session_start();
 
+unset($_SESSION["error_messages"]);
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
-
-unset(
-    $_SESSION["err_msg_empty_input"],
-    $_SESSION["err_msg_illegal_char"],
-    $_SESSION["err_msg_illegal_kws_query_amount"],
-);
 
 if (isset($_POST["non_strict_choice"])) {
     $non_strict_choice = $_POST["non_strict_choice"];
