@@ -6,6 +6,7 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
+var_dump($_POST);
 var_dump($_SESSION);
 ?>
 
