@@ -15,7 +15,7 @@ if (isset($_POST["russk"])) {
 
     // Создание номера нового набора todo:transl
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID))) {
+    if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->bind_param("i", $kwsset_time)) {
@@ -33,7 +33,7 @@ if (isset($_POST["russk"])) {
         $arr_kws_ru_to_db[] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kw_ru));//todo: is it necessary "/ {2,}/" --> " " ?
     }
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS))) {
+    if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     foreach ($arr_kws_ru_to_db as $kw_ru_to_db) {
@@ -47,7 +47,7 @@ if (isset($_POST["russk"])) {
 
     // Создание связей ключевых слов с набором todo:transl
 
-    if (!($mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_RELATIONS))) {
+    if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_RELATIONS)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
     foreach ($arr_kws_ru_to_db as $kw_ru_to_db) {

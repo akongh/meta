@@ -11,10 +11,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
 $_SESSION["arr_kws_ordered"] = $_POST["arr_kws_marked"];
 
-if (!($mysqli_stmt_translation = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING))) {
+if (!$mysqli_stmt_translation = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING)) {
     echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
 }
-if (!($mysqli_stmt_statuses = $mysqli->prepare(SQL_SELECT_KW_STATUSES))) {
+if (!$mysqli_stmt_statuses = $mysqli->prepare(SQL_SELECT_KW_STATUSES)) {
     echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
 }
 
