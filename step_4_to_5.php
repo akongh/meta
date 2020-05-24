@@ -4,6 +4,8 @@ error_reporting(-1);
 
 session_start();
 
+var_dump($_POST);
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
