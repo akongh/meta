@@ -4,22 +4,14 @@ error_reporting(-1);
 
 session_start();
 
-unset($_SESSION["error_messages"]);
-
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
-require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
-require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
-
+$input_str_kws_query = $_POST["input_str_kws_query"];
+$arr_kws_query = kws_string_to_array($input_str_kws_query);
+$_SESSION["arr_kws_query"] = $arr_kws_query;
+$count_arr_kws_query = count($arr_kws_query);
 $max_choice_amount = $_POST["max_choice_amount"];
 if (isset($_POST["non_strict_choice"])) {
     $non_strict_choice = $_POST["non_strict_choice"];
 }
-$input_str_kws_query = $_POST["input_str_kws_query"];
-$arr_kws_query = kws_string_to_array($input_str_kws_query);
-
-$_SESSION["arr_kws_query"] = $arr_kws_query;
-
-$count_arr_kws_query = count($arr_kws_query);
 
 $err_mark = true;
 if (!isset($_SESSION["arr_kws_state"]) && $arr_kws_query == null) {
@@ -38,6 +30,12 @@ if (false === $err_mark) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
     exit;
 }
+
+unset($_SESSION["error_messages"]);
+
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 $str_kws_query = implode("','", $arr_kws_query);
 
