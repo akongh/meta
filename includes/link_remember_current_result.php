@@ -1,2 +1,2 @@
-<a class="link-button" href="/step_3_1_remember.php"
+<a class="link-button" href="/step_3_to_1_remember.php"
    title="Запомнить текущий список подобранных ключевых слов для дополнительного подбора">[Запомнить и ещё запрос]</a>
