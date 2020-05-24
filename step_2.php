@@ -64,7 +64,9 @@ var_dump($_SESSION);
         <br>
         <br>
         <div class="content-right">
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?><span id="help" class="help hidden">
+            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
+            <span id="help"
+                  class="help hidden">
             1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
             2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
             3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
@@ -75,8 +77,7 @@ var_dump($_SESSION);
             в&nbsp;алфавитном порядке, чтобы удобнее было исключать похожие избыточные ключевые слова. Галочку имеет смысл
             снять, если вас устраивает текущий порядок ключевых слов. Это сэкономит время на четвёртом шаге при
             определении очерёдности.
-            </span><br>
-            <br>
+            </span>
         </div>
         <br>
         <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">

@@ -48,7 +48,9 @@ var_dump($_SESSION);
         <br>
         <br>
         <div class="content-right">
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?><span id="help" class="help hidden">
+            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
+            <span id="help"
+                  class="help hidden">
             1. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
             именно в&nbsp;квадратик.<br>
             2. <span class="bold">«Запомнить и&nbsp;ещё запрос»</span>&nbsp;— запомнит текущий список подобранных
@@ -60,9 +62,8 @@ var_dump($_SESSION);
             5. <span class="bold">«По частоте в&nbsp;Мете»</span>&nbsp;— список ключевых слов на следующем шаге выстраивается
             по частоте их использования в&nbsp;Мете другими авторами. Выбор условия определяется опытным путём и&nbsp;иногда
             экономит время на определении очерёдности.
-            </span><br>
-            </div>
-        <br>
+            </span>
+        </div>
         <br>
         <input name="order"
                type="submit"
