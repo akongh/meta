@@ -6,18 +6,16 @@ session_start();
 
 //var_dump($_POST);
 
+unset($_SESSION["error_messages"]);
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
-$input_str_kws_query = $_POST["input_str_kws_query"];
-$arr_kws_query = kws_string_to_array($input_str_kws_query);
+$arr_kws_query = kws_string_to_array($_POST["input_str_kws_query"]);
 $_SESSION["arr_kws_query"] = $arr_kws_query;
 $count_arr_kws_query = count($arr_kws_query);
 $max_choice_amount = $_POST["max_choice_amount"];
-if (isset($_POST["non_strict_choice"])) {
-    $non_strict_choice = $_POST["non_strict_choice"];
-}
 
 $err_mark = true;
 if (!isset($_SESSION["arr_kws_state"]) && $arr_kws_query == null) {
@@ -37,11 +35,9 @@ if (false === $err_mark) {
     exit;
 }
 
-unset($_SESSION["error_messages"]);
-
 $str_kws_query = implode("','", $arr_kws_query);
 
-if (isset($non_strict_choice) && $count_arr_kws_query > 1) {
+if (isset($_POST["non_strict_choice"]) && $count_arr_kws_query > 1) {
     if (!($mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_kws_query)))) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
     }
