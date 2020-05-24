@@ -33,7 +33,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <form method="post"
-          action="/step_3_to_4.php">
+          action="/step_3_to_1_or_4.php">
         <?php if (isset($_SESSION["arr_kws_assembled"])) {
             echo kws_list_markup($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
         } ?>
@@ -61,14 +61,17 @@ var_dump($_SESSION);
             по частоте их использования в&nbsp;Мете другими авторами. Выбор условия определяется опытным путём и&nbsp;иногда
             экономит время на определении очерёдности.
             </span><br>
-            <br>
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php'); ?><br>
-        </div>
+            </div>
         <br>
         <br>
-        <input name="priority_kws"
+        <input name="order"
                type="submit"
                value="3/6 Определить очерёдность">
+        <br>
+        <br>
+        <input name="remember"
+               type="submit"
+               value="[Запомнить и ещё запрос]">
     </form>
     <br>
     <div class="content-right">

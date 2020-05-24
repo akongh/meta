@@ -2,12 +2,16 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-session_start();
+//session_start();
 
 //var_dump($_POST);
 
 unset($_SESSION["error_messages"]);
 
-$_SESSION["arr_kws_state"] = $_SESSION["arr_kws_assembled"];
+if (isset($_SESSION["arr_kws_state"]) and count($_SESSION["arr_kws_state"]) > 0) {
+    $_SESSION["arr_kws_state"] = array_values(array_unique(array_merge($_SESSION["arr_kws_state"], $_POST["arr_kws_marked"])));
+} else {
+    $_SESSION["arr_kws_state"] = $_POST["arr_kws_marked"];
+}
 
 header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");
