@@ -28,7 +28,6 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     $count_kws_untranslated = 0;
 }
 
-var_dump($_POST);
 var_dump($_SESSION);
 ?>
 

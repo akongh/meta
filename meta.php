@@ -21,7 +21,6 @@ $count_request = number_format((float)$arr_result[0], 0, "", "&nbsp;");
 
 $mysqli->close();
 
-var_dump($_POST);
 var_dump($_SESSION);
 ?>
 
