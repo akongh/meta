@@ -81,12 +81,15 @@ function kws_state_markup($data_array)
 }
 
 /**
- * @param string $data_string
+ * @param array $data_array
  * @return string
  */
-function err_msg_markup($data_string)
+function error_messages_markup($data_array)
 {
-    return "<span class='error'>{$data_string}</span><br>";
+    foreach ($data_array as $item) {
+        $data_array_markup[] = "<span class='error'>{$item}</span>";
+    }
+    return implode("<br>", $data_array_markup);
 }
 
 /**

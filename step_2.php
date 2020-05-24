@@ -56,8 +56,8 @@ var_dump($_SESSION);
             ?></textarea>
         <br>
         <?php
-        if (isset($_SESSION["err_msg_illegal_char"])) {
-            echo err_msg_markup($_SESSION["err_msg_illegal_char"]);
+        if (isset($_SESSION["error_messages"])) {
+            echo error_messages_markup($_SESSION["error_messages"]);
         }
         ?>
         <br>

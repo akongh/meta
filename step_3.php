@@ -41,9 +41,11 @@ var_dump($_SESSION);
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
-        <?php if (isset($_SESSION["err_msg_of_kws_amount"])) {
-            echo err_msg_markup($_SESSION["err_msg_of_kws_amount"]);
-        } ?>
+        <?php
+        if (isset($_SESSION["error_messages"])) {
+            echo error_messages_markup($_SESSION["error_messages"]);
+        }
+        ?>
         <br>
         <br>
         <br>
