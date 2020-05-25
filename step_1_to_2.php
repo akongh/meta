@@ -35,7 +35,7 @@ if (false === $err_mark) {
     exit;
 }
 
-$str_kws_query = implode("','", $arr_kws_query);
+$str_kws_query = sql_prepare_array_to_string_query($arr_kws_query);
 
 if (isset($_POST["non_strict_choice"]) && $count_arr_kws_query > 1) {
     if (!$mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_kws_query))) {

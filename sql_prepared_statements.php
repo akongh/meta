@@ -14,12 +14,20 @@ error_reporting(-1);
 
 
 /**
+ * @param array $data_array
+ * @return string
+ */
+function sql_prepare_array_to_string_query($data_array) {
+    $data_string = implode("','", $data_array);
+    return "'$data_string'";
+}
+
+/**
  * @param string $data_string
  * @return string
  */
 function sql_update_mark_kws_for_translation($data_string)
 {
-    $data_string = "'$data_string'";
     return <<<SQL
         update `k-ts`
         set `f` = 7
@@ -33,7 +41,6 @@ SQL;
  */
 function sql_select_kws_choice($data_string)
 {
-    $data_string = "'$data_string'";
     return <<<SQL
         select `k-ts`.`s`
         from (
