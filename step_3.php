@@ -35,7 +35,7 @@ var_dump($_SESSION);
     <form method="post"
           action="/step_3_to_1_or_4.php">
         <?php if (isset($_SESSION["arr_kws_assembled"])) {
-            echo kws_list_markup($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
+            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
         } ?>
         <br>
         <br>
@@ -43,7 +43,7 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {
-            echo error_messages_markup($_SESSION["error_messages"]);
+            echo meta_markup_errors_list($_SESSION["error_messages"]);
         }
         ?>
         <br>

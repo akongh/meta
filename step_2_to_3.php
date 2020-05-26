@@ -16,12 +16,12 @@ if (isset($_POST["arr_kws_marked"])) {
 
 //делаем массив из дополнительных слов
 if (isset($_POST["input_str_kws_addition"])) {
-    $_SESSION["arr_kws_addition"] = kws_string_to_array($_POST["input_str_kws_addition"]);
+    $_SESSION["arr_kws_addition"] = meta_kws_string_to_array($_POST["input_str_kws_addition"]);
 }
 
 //делаем вывод ошибки символа, если она есть
 if (isset($_SESSION["arr_kws_addition"]) && count($_SESSION["arr_kws_addition"]) > 0) {
-    if (!kws_string_check(implode("", $_SESSION["arr_kws_addition"]))) {
+    if (!meta_kws_check_only_cyrillic(implode("", $_SESSION["arr_kws_addition"]))) {
         $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
     }
 }

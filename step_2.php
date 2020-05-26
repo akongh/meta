@@ -35,12 +35,12 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/step_2_to_3.php">
-        <?php echo kws_list_markup($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]); ?>
+        <?php echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]); ?>
         <br>
         <br>
         <?php
         if (isset($_SESSION["arr_kws_state"])) {
-            echo kws_state_markup($_SESSION["arr_kws_state"]);
+            echo meta_kws_markup_state_amount($_SESSION["arr_kws_state"]);
         }
         ?>
         <h1 class="bold">…и добавляем свои</h1>
@@ -57,7 +57,7 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {
-            echo error_messages_markup($_SESSION["error_messages"]);
+            echo meta_markup_errors_list($_SESSION["error_messages"]);
         }
         ?>
         <br>
