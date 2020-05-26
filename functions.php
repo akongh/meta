@@ -120,3 +120,22 @@ function meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choic
         return null;
     }
 }
+
+/**
+ * @param integer $data_integer
+ * @return string
+ */
+function meta_error_mesage($data_integer)
+{
+    switch ($data_integer) {
+        case 1:
+            $return = "Только кириллица, пробел, дефис и цифры.";
+            break;
+        case 2:
+            $return = "Превышен объём отправляемых данных.";
+            break;
+        case 3:
+            $return = "Не более 8-ми опорных ключевых слов.";
+    }
+    return $return;
+}

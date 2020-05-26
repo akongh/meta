@@ -19,12 +19,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 // $_POST["input_str_kws_query"]
 
 if (!meta_kws_check_only_cyrillic($_POST["input_str_kws_query"])) {
-    $_SESSION["error_messages"][] = "Только кириллица, пробел, дефис и цифры.";
+    $_SESSION["error_messages"][] = meta_error_mesage(1);
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
     exit;
 }
 if (iconv_strlen($_POST["input_str_kws_query"],'UTF-8') > 128) {
-    $_SESSION["error_messages"][] = "Превышен объём отправляемых данных.";
+    $_SESSION["error_messages"][] = meta_error_mesage(2);
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
     exit;
 }
@@ -60,8 +60,7 @@ if (!isset($_SESSION["arr_kws_state"]) && $arr_kws_query == null) {
     $err_mark = false;
 }
 if ($count_arr_kws_query > 8) {
-    $_SESSION["err_msg_illegal_kws_query_amount"] = "Не более 8-ми опорных ключевых слов.";
-    $err_mark = false;
+    $_SESSION["error_messages"][] = meta_error_mesage(3);
 }
 if ($count_arr_kws_query > 0 && !kws_string_check(implode("", $arr_kws_query))) {
     $_SESSION["err_msg_illegal_char"] = "Только кириллица, цифры, пробел и&nbsp;дефис.";
