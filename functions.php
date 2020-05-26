@@ -19,7 +19,7 @@ error_reporting(-1);
  */
 function meta_kws_check_only_cyrillic($data_string)
 {
-    return preg_match("/^[а-яёА-ЯЁ0-9 \-]+$/iu", $data_string);
+    return preg_match("/^[а-яё\s\-0-9,;]*$/umDi", $data_string);
 }
 
 /**
@@ -28,8 +28,8 @@ function meta_kws_check_only_cyrillic($data_string)
  */
 function meta_kws_string_to_array($data_string)
 {
-    $data_string = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($data_string))), "utf-8"));
-    $data_string = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $data_string);
+    $data_string = trim(mb_strtolower($data_string));
+    $data_string = preg_replace(["/\s{2,}/", "/-{2,}/"], [" ", "-"], $data_string);
     $data_array = preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY);
     foreach ($data_array as $value) {
         $value = trim($value);
