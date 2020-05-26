@@ -16,7 +16,7 @@ if (isset($_POST["arr_kws_marked"])) {
 
 //делаем массив из дополнительных слов
 if (isset($_POST["input_str_kws_addition"])) {
-    $_SESSION["arr_kws_addition"] = meta_kws_string_to_array($_POST["input_str_kws_addition"]);
+    $_SESSION["arr_kws_addition"] = meta_kws_input_string_to_array($_POST["input_str_kws_addition"]);
 }
 
 //делаем вывод ошибки символа, если она есть

@@ -43,13 +43,7 @@ if (iconv_strlen($_POST["input_str_kws_query"],'UTF-8') > 128) {
 */
 
 
-
-
-
-
-
-
-$arr_kws_query = meta_kws_string_to_array($_POST["input_str_kws_query"]);
+$arr_kws_query = meta_kws_input_string_to_array($input_str_kws_query);
 $_SESSION["arr_kws_query"] = $arr_kws_query;
 $count_arr_kws_query = count($arr_kws_query);
 $max_choice_amount = $_POST["max_choice_amount"];

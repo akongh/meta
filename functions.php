@@ -26,7 +26,7 @@ function meta_kws_check_only_cyrillic($data_string)
  * @param string $data_string
  * @return array
  */
-function meta_kws_string_to_array($data_string)
+function meta_kws_input_string_to_array($data_string)
 {
     $data_string = trim(mb_strtolower($data_string));
     $data_string = preg_replace(["/\s{2,}/", "/-{2,}/"], [" ", "-"], $data_string);
