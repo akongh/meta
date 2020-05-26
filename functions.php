@@ -17,7 +17,7 @@ error_reporting(-1);
  * @param string $data_string
  * @return boolean
  */
-function kws_string_check($data_string)
+function meta_kws_check_only_cyrillic($data_string)
 {
     return preg_match("/^[а-яёА-ЯЁ0-9 \-]+$/iu", $data_string);
 }
@@ -26,7 +26,7 @@ function kws_string_check($data_string)
  * @param string $data_string
  * @return array
  */
-function kws_string_to_array($data_string)
+function meta_kws_string_to_array($data_string)
 {
     $data_string = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($data_string))), "utf-8"));
     $data_string = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $data_string);
@@ -44,7 +44,7 @@ function kws_string_to_array($data_string)
  * @param array $arr_checked
  * @return string
  */
-function kws_list_markup($arr_list, $arr_checked)
+function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 {
     $markup = array();
 
@@ -70,7 +70,7 @@ function kws_list_markup($arr_list, $arr_checked)
  * @param array $data_array
  * @return string
  */
-function kws_state_markup($data_array)
+function meta_kws_markup_state_amount($data_array)
 {
     return implode(", ", $data_array) . "
         <span class='counter'>" . count($data_array) . "</span>
@@ -83,7 +83,7 @@ function kws_state_markup($data_array)
  * @param array $data_array
  * @return string
  */
-function error_messages_markup($data_array)
+function meta_markup_errors_list($data_array)
 {
     foreach ($data_array as $item) {
         $data_array_markup[] = "<span class='error'>{$item}</span>";
@@ -97,7 +97,7 @@ function error_messages_markup($data_array)
  * @param integer $max_choice_amount
  * @return array
  */
-function arr_kws_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount)
+function meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount)
 {
     if (!$mysqli_stmt->bind_param("ii", $count_arr_kws_query, $max_choice_amount)) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
