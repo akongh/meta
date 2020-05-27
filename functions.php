@@ -107,13 +107,20 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 }
 
 /**
- * @param array $data_array
+ * @param integer $data_int
  * @return string
  */
-function meta_kws_content_input($data_array = null)
+function meta_kws_content_input($data_int)
 {
-    if (isset($data_array)) {
-        $content = htmlspecialchars(implode("\n", $data_array), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    switch ($data_int) {
+        case 1:
+            $content_name = "arr_kws_query";
+            break;
+        case 2:
+            $content_name = "arr_kws_addition";
+    }
+    if (isset($_SESSION[$content_name])) {
+        $content = htmlspecialchars(implode("\n", $_SESSION[$content_name]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
     } else {
         $content = "";
     }

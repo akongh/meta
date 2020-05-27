@@ -50,7 +50,7 @@ var_dump($_SESSION);
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php echo meta_kws_content_input($_SESSION["arr_kws_addition"]); ?></textarea>
+                  autofocus><?php echo meta_kws_content_input(2); ?></textarea>
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {
