@@ -85,7 +85,7 @@ var_dump($_SESSION);
             </span>
         </div>
         <br>
-        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Не менее
+        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Граница
             <select size="1"
                     name="max_choice_amount">
             <option selected
