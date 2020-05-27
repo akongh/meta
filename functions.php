@@ -107,6 +107,21 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 }
 
 /**
+ * @param array $data_array
+ * @return string
+ */
+function meta_kws_content_input($data_array = null)
+{
+    if (isset($data_array)) {
+        $content = htmlspecialchars(implode("\n", $data_array), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    } else {
+        $content = "";
+    }
+
+    return $content;
+}
+
+/**
  * @return string
  */
 function meta_kws_markup_state_amount()

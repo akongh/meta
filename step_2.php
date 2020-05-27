@@ -49,11 +49,8 @@ var_dump($_SESSION);
                   class="textarea-keywords"
                   wrap="soft"
                   rows="8"
-                  placeholder=""><?php
-            if (isset($_SESSION["arr_kws_addition"])) {
-                echo htmlspecialchars(implode("\n", $_SESSION["arr_kws_addition"]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-            }
-            ?></textarea>
+                  placeholder=""
+                  autofocus><?php echo meta_kws_content_input($_SESSION["arr_kws_addition"]); ?></textarea>
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {

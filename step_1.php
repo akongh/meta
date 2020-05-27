@@ -48,11 +48,7 @@ var_dump($_SESSION);
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php
-            if (isset($_SESSION["arr_kws_query"])) {
-                echo htmlspecialchars(implode("\n", $_SESSION["arr_kws_query"]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-            }
-            ?></textarea>
+                  autofocus><?php echo meta_kws_content_input($_SESSION["arr_kws_query"]); ?></textarea>
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {
