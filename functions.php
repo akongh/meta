@@ -28,6 +28,9 @@ function meta_error_mesage($data_integer)
             break;
         case 3:
             $return = "Не более 8-ми опорных ключевых слов.";
+            break;
+        case 4:
+            $return = "Должно быть не менее 8-ми ключевых слов.";
     }
     return $return;
 }
