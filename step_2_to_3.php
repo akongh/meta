@@ -45,10 +45,6 @@ if (!isset($_SESSION["arr_kws_addition"])) {
 }
 $_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($arr_kws_state, $arr_kws_selection_marked, $arr_kws_addition)));
 
-if (count($_SESSION["arr_kws_assembled"]) < 8) {
-    $_SESSION["error_messages"][] = meta_error_mesage(4);
-}
-
 if (isset($_SESSION["error_messages"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
     exit;
