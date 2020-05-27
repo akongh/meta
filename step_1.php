@@ -60,7 +60,7 @@ var_dump($_SESSION);
         <br>
         <?php
         if (isset($_SESSION["error_messages"])) {
-            echo meta_markup_errors_list($_SESSION["error_messages"]);
+            echo meta_errors_markup_list($_SESSION["error_messages"]);
         }
         ?>
         <br>

@@ -108,7 +108,7 @@ function meta_kws_markup_state_amount($data_array)
  * @param array $data_array
  * @return string
  */
-function meta_markup_errors_list($data_array)
+function meta_errors_markup_list($data_array)
 {
     foreach ($data_array as $item) {
         $data_array_markup[] = "<span class='error'>{$item}</span>";
