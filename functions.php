@@ -71,14 +71,13 @@ function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_cou
  */
 function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 {
-    $markup = array();
-
     foreach ($arr_list as $kw) {
         if (in_array($kw, $arr_checked)) {
             $status = "checked";
         } else {
             $status = "";
         }
+        $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
         $markup[] = "
                 <label class='label-highlight'>
                 <input type='checkbox'
@@ -97,8 +96,12 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
  */
 function meta_kws_markup_state_amount($data_array)
 {
-    return implode(", ", $data_array) . "
-        <span class='counter'>" . count($data_array) . "</span>
+    foreach ($data_array as $kw) {
+        $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    }
+
+    return implode(", ", $kws) . "
+        <span class='counter'>" . count($kws) . "</span>
         <br>
         <br>
         ";
@@ -111,6 +114,7 @@ function meta_kws_markup_state_amount($data_array)
 function meta_errors_markup_list($data_array)
 {
     foreach ($data_array as $item) {
+        $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
         $data_array_markup[] = "<span class='error'>{$item}</span>";
     }
     return implode("<br>", $data_array_markup);
