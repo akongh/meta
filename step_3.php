@@ -41,11 +41,7 @@ var_dump($_SESSION);
         <br>
         <span id="countRusChecked" class="counter"></span>
         <br>
-        <?php
-        if (isset($_SESSION["error_messages"])) {
-            echo meta_errors_markup_list($_SESSION["error_messages"]);
-        }
-        ?>
+        <?php echo meta_errors_markup_list(); ?>
         <br>
         <br>
         <br>

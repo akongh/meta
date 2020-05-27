@@ -36,16 +36,21 @@ function meta_error_mesage($data_integer)
 }
 
 /**
- * @param array $data_array
  * @return string
  */
-function meta_errors_markup_list($data_array)
+function meta_errors_markup_list()
 {
-    foreach ($data_array as $item) {
-        $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-        $data_array_markup[] = "<span class='error'>{$item}</span>";
+    if (isset($_SESSION["error_messages"])) {
+        foreach ($_SESSION["error_messages"] as $item) {
+            $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+            $data_array_markup[] = "<span class='error'>{$item}</span>";
+        }
+        $markup = implode("<br>", $data_array_markup);
+    } else {
+        $markup = "";
     }
-    return implode("<br>", $data_array_markup);
+
+    return $markup;
 }
 
 /**

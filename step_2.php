@@ -52,11 +52,7 @@ var_dump($_SESSION);
                   placeholder=""
                   autofocus><?php echo meta_kws_content_input(2); ?></textarea>
         <br>
-        <?php
-        if (isset($_SESSION["error_messages"])) {
-            echo meta_errors_markup_list($_SESSION["error_messages"]);
-        }
-        ?>
+        <?php echo meta_errors_markup_list(); ?>
         <br>
         <br>
         <br>
