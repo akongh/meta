@@ -54,7 +54,7 @@ var_dump($_SESSION);
                   placeholder=""
                   autofocus><?php
             if (isset($_SESSION["arr_kws_query"])) {
-                echo implode("\n", $_SESSION["arr_kws_query"]);
+                echo htmlspecialchars(implode("\n", $_SESSION["arr_kws_query"]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
             }
             ?></textarea>
         <br>

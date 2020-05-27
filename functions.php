@@ -15,26 +15,31 @@ error_reporting(-1);
 
 /**
  * @param string $data_string
- * @return boolean
- */
-function meta_kws_check_only_cyrillic($data_string)
-{
-    return preg_match("/^[а-яё\s\-0-9,;]*$/umDi", $data_string);
-}
-
-/**
- * @param string $data_string
+ * @param integer $data_width
+ * @param integer $data_kws_count
  * @return array
  */
-function meta_kws_input_string_to_array($data_string)
+function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_count)
 {
-    $data_string = trim(mb_strtolower($data_string));
-    $data_string = preg_replace(["/\s{2,}/", "/-{2,}/"], [" ", "-"], $data_string);
+    if (iconv_strlen($data_string, 'UTF-8') > $data_width) {
+        $data_string = mb_strimwidth($data_string, 0, $data_width, "", 'UTF-8');
+        $_SESSION["error_messages"][] = meta_error_mesage(1);
+    }
+    $data_string = mb_strtolower(preg_replace(["/\s{2,}/", "/-{2,}/"], [" ", "-"], $data_string));
     $data_array = preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY);
     foreach ($data_array as $value) {
         $value = trim($value);
     }
     $data_array = array_values(array_unique(array_diff($data_array, array(""))));
+    foreach ($data_array as $value) {
+        if (!preg_match("/^[а-яё\s\-0-9]*$/umDi", $value)) {
+            $_SESSION["error_messages"][] = meta_error_mesage(2);
+            break;
+        }
+    }
+    if (count($data_array) > $data_kws_count) {
+        $_SESSION["error_messages"][] = meta_error_mesage(3);
+    }
 
     return $data_array;
 }
@@ -129,10 +134,10 @@ function meta_error_mesage($data_integer)
 {
     switch ($data_integer) {
         case 1:
-            $return = "Только кириллица, пробел, дефис и цифры.";
+            $return = "Превышен допустимый размер введённых данных и они были обрезаны.";
             break;
         case 2:
-            $return = "Превышен объём отправляемых данных.";
+            $return = "Только кириллица, пробел, дефис и цифры.";
             break;
         case 3:
             $return = "Не более 8-ми опорных ключевых слов.";
