@@ -41,17 +41,18 @@ function meta_error_mesage($data_integer)
 function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_count)
 {
     if (iconv_strlen($data_string, 'UTF-8') > $data_width) {
-        $data_string = mb_strimwidth($data_string, 0, $data_width, "", 'UTF-8');
+        $data_string = mb_substr($data_string, 0, $data_width, 'UTF-8');
         $_SESSION["error_messages"][] = meta_error_mesage(1);
     }
-    $data_string = mb_strtolower(preg_replace(["/\s{2,}/", "/-{2,}/"], [" ", "-"], $data_string));
-    $data_array = preg_split("/[\n,;]/", $data_string, -1, PREG_SPLIT_NO_EMPTY);
-    foreach ($data_array as $value) {
-        $value = trim($value);
+    $data_string = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $data_string));
+    $data_array = preg_split("/[\n,;]/u", $data_string, -1, PREG_SPLIT_NO_EMPTY);
+    foreach ($data_array as &$value) {
+        $value = trim(trim($value), "-");
+        unset($value);
     }
     $data_array = array_values(array_unique(array_diff($data_array, array(""))));
     foreach ($data_array as $value) {
-        if (!preg_match("/^[а-яё\s\-0-9]*$/umDi", $value)) {
+        if (!preg_match("/^[а-яё0-9 -]*$/u", $value)) {
             $_SESSION["error_messages"][] = meta_error_mesage(2);
             break;
         }
