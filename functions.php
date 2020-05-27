@@ -14,6 +14,25 @@ error_reporting(-1);
 
 
 /**
+ * @param integer $data_integer
+ * @return string
+ */
+function meta_error_mesage($data_integer)
+{
+    switch ($data_integer) {
+        case 1:
+            $return = "Превышен допустимый размер введённых данных и они были обрезаны.";
+            break;
+        case 2:
+            $return = "Только кириллица, пробел, дефис и цифры.";
+            break;
+        case 3:
+            $return = "Не более 8-ми опорных ключевых слов.";
+    }
+    return $return;
+}
+
+/**
  * @param string $data_string
  * @param integer $data_width
  * @param integer $data_kws_count
@@ -124,23 +143,4 @@ function meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choic
     } else {
         return null;
     }
-}
-
-/**
- * @param integer $data_integer
- * @return string
- */
-function meta_error_mesage($data_integer)
-{
-    switch ($data_integer) {
-        case 1:
-            $return = "Превышен допустимый размер введённых данных и они были обрезаны.";
-            break;
-        case 2:
-            $return = "Только кириллица, пробел, дефис и цифры.";
-            break;
-        case 3:
-            $return = "Не более 8-ми опорных ключевых слов.";
-    }
-    return $return;
 }
