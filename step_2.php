@@ -37,7 +37,7 @@ var_dump($_SESSION);
           action="/step_2_to_3.php">
         <?php
         if (isset($_SESSION["arr_kws_selection"])) {
-            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]);
+            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_selection_marked"]);
         }
         ?>
         <br>

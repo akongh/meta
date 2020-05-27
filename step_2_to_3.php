@@ -52,7 +52,7 @@ if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled
 }
 
 if (isset($_SESSION["error_messages"])) {
-    header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
+    header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
     exit;
 }
 
