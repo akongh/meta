@@ -33,6 +33,19 @@ function meta_error_mesage($data_integer)
 }
 
 /**
+ * @param array $data_array
+ * @return string
+ */
+function meta_errors_markup_list($data_array)
+{
+    foreach ($data_array as $item) {
+        $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        $data_array_markup[] = "<span class='error'>{$item}</span>";
+    }
+    return implode("<br>", $data_array_markup);
+}
+
+/**
  * @param string $data_string
  * @param integer $data_width
  * @param integer $data_kws_count
@@ -105,19 +118,6 @@ function meta_kws_markup_state_amount($data_array)
         <br>
         <br>
         ";
-}
-
-/**
- * @param array $data_array
- * @return string
- */
-function meta_errors_markup_list($data_array)
-{
-    foreach ($data_array as $item) {
-        $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-        $data_array_markup[] = "<span class='error'>{$item}</span>";
-    }
-    return implode("<br>", $data_array_markup);
 }
 
 /**
