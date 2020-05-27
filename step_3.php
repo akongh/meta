@@ -34,9 +34,11 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/step_3_to_1_or_4.php">
-        <?php if (isset($_SESSION["arr_kws_assembled"])) {
+        <?php
+        if (isset($_SESSION["arr_kws_assembled"])) {
             echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
-        } ?>
+        }
+        ?>
         <br>
         <br>
         <span id="countRusChecked" class="counter"></span>
