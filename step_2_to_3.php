@@ -45,15 +45,17 @@ if (!isset($_SESSION["arr_kws_addition"])) {
 }
 $_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($arr_kws_state, $arr_kws_selection_marked, $arr_kws_addition)));
 
-if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled"]) > 8) {
-    if (isset($_POST["alphabetical_order"]) && $_POST["alphabetical_order"] == "on") {
-        sort($_SESSION["arr_kws_assembled"], SORT_STRING);
-    }
+if (count($_SESSION["arr_kws_assembled"]) < 8) {
+    $_SESSION["error_messages"][] = meta_error_mesage(4);
 }
 
 if (isset($_SESSION["error_messages"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
     exit;
+}
+
+if (isset($_POST["alphabetical_order"]) && $_POST["alphabetical_order"] == "on") {
+    sort($_SESSION["arr_kws_assembled"], SORT_STRING);
 }
 
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_3.php");
