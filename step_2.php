@@ -42,11 +42,7 @@ var_dump($_SESSION);
         ?>
         <br>
         <br>
-        <?php
-        if (isset($_SESSION["arr_kws_state"])) {
-            echo meta_kws_markup_state_amount($_SESSION["arr_kws_state"]);
-        }
-        ?>
+        <?php echo meta_kws_markup_state_amount(); ?>
         <h1 class="bold">…и добавляем свои</h1>
         <br>
         <textarea name="input_str_kws_addition"

@@ -40,11 +40,7 @@ var_dump($_SESSION);
     <br>
     <br>
     <br>
-    <?php
-    if (isset($_SESSION["arr_kws_state"])) {
-        echo meta_kws_markup_state_amount($_SESSION["arr_kws_state"]);
-    }
-    ?>
+    <?php echo meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
           method="post">
         <textarea name="input_str_kws_query"

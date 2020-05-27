@@ -107,20 +107,21 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 }
 
 /**
- * @param array $data_array
  * @return string
  */
-function meta_kws_markup_state_amount($data_array)
+function meta_kws_markup_state_amount()
 {
-    foreach ($data_array as $kw) {
-        $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    if (isset($_SESSION["arr_kws_state"]) and count($_SESSION["arr_kws_state"]) > 0) {
+        foreach ($_SESSION["arr_kws_state"] as $kw) {
+            $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        }
+        $markup = implode(", ", $kws) . "<span class='counter'>" . count($kws) . "</span>";
+    } else {
+        $markup = "Нет сохранённого состояния набора.";
     }
+    $markup = "<div class='kws_state'>{$markup}</div>";
 
-    return implode(", ", $kws) . "
-        <span class='counter'>" . count($kws) . "</span>
-        <br>
-        <br>
-        ";
+    return $markup;
 }
 
 /**
