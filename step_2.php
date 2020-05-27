@@ -35,7 +35,11 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/step_2_to_3.php">
-        <?php echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]); ?>
+        <?php
+        if (isset($_SESSION["arr_kws_selection"])) {
+            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_query"]);
+        }
+        ?>
         <br>
         <br>
         <?php
@@ -51,7 +55,7 @@ var_dump($_SESSION);
                   rows="8"
                   placeholder=""><?php
             if (isset($_SESSION["arr_kws_addition"])) {
-                echo implode("\n", $_SESSION["arr_kws_addition"]);
+                echo htmlspecialchars(implode("\n", $_SESSION["arr_kws_addition"]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
             }
             ?></textarea>
         <br>
