@@ -98,6 +98,9 @@ var_dump($_SESSION);
                value="5/6 Получить результат строками">
     </form>
     <br>
+    <a class="link-button-reset"
+       href="/step_4.php"
+       title="Назад"><<<< Назад</a>
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>

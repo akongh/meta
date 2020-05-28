@@ -87,6 +87,9 @@ var_dump($_SESSION);
                value="2/6 Собрать в список">
     </form>
     <br>
+    <a class="link-button-reset"
+       href="/step_1.php"
+       title="Назад"><<<< Назад</a>
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
