@@ -22,6 +22,7 @@ foreach ($raw_kws_for_translation as $key => $val) {
 
 if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
     $html_kws_for_translation = implode("<br>", $arr_kws_for_translation);
+    $html_kws_for_translation = htmlspecialchars($html_kws_for_translation, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
 } else {
     $html_kws_for_translation = "Заявок на перевод пока нет.";
 }
