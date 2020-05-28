@@ -50,7 +50,10 @@ var_dump($_SESSION);
                   placeholder=""
                   autofocus><?php echo meta_kws_content_input(1); ?></textarea>
         <br>
-        <?php echo meta_errors_markup_list(); ?>
+        <?php
+        echo meta_errors_markup_list();
+        unset($_SESSION["error_messages"]);
+        ?>
         <br>
         <br>
         <br>
