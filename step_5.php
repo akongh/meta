@@ -73,7 +73,7 @@ var_dump($_SESSION);
                                value='{$el[0]}'>{$el[0]}</span><br>
                     {$translation_meaning_markup}
               </div>";
-            unset ($translation_meaning);
+            unset($translation_meaning);
         }
         ?>
         <br>

@@ -6,8 +6,6 @@ session_start();
 
 //var_dump($_POST);
 
-unset($_SESSION["error_messages"]);
-
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 /*
