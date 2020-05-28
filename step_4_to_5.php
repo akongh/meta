@@ -9,7 +9,7 @@ session_start();
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
-$_SESSION["arr_kws_ordered"] = $_POST["arr_kws_marked"];
+//$_SESSION["arr_kws_ordered"] = $_POST["arr_kws_marked"];
 
 if (!$mysqli_stmt_translation = $mysqli->prepare(SQL_SELECT_EN_TRANSLATION_AND_MEANING)) {
     echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
@@ -56,7 +56,7 @@ $mysqli_stmt_translation->close();
 $mysqli_stmt_statuses->close();
 $mysqli->close();
 
-if (isset($arr_kws_untranslated) and $arr_kws_untranslated != null) {
+if (isset($arr_kws_untranslated)) {
     $_SESSION["arr_kws_untranslated"] = $arr_kws_untranslated;
 }
 $_SESSION["arr_kws_translations"] = $arr_kws_translations;

@@ -34,12 +34,12 @@ var_dump($_SESSION);
           action="/step_5_to_6.php">
         <?php
         foreach ($_SESSION["arr_kws_translations"] as $el) {
-            if ($el[2] == 0) {
-                $comment = "(перевода пока нет)";
-            } else {
-                if ($el[2] == 7) {
+            switch ($el[2]) {
+                case 0:
+                    $comment = "(перевода пока нет)";
+                    break;
+                case 7:
                     $comment = "(в заявке на перевод)";
-                }
             }
 
             if ($el[2] == 0 or $el[2] == 7) {
