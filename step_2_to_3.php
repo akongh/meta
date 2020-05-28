@@ -14,15 +14,15 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
  * INCOMING DATA
  */
 
-// $_POST["input_str_kws_addition"]
-
-$_SESSION["arr_kws_addition"] = meta_kws_input_string_to_array($_POST["input_str_kws_addition"], 4096, 128);
-
 // $_POST["arr_kws_marked"]
 
 if (isset($_POST["arr_kws_marked"])) {
     $_SESSION["arr_kws_selection_marked"] = $_POST["arr_kws_marked"];
 }
+
+// $_POST["input_str_kws_addition"]
+
+$_SESSION["arr_kws_addition"] = meta_kws_input_string_to_array($_POST["input_str_kws_addition"], 4096, 128);
 
 /*
  * LOGIC
