@@ -76,10 +76,9 @@ var_dump($_SESSION);
     <br>
     <br>
     Ключевых слов переведено
-    <span class="counter">
-        <?php if (isset($count_translated)) {
-            echo $count_translated;
-        }; ?></span>,
+    <?php if (isset($count_translated)) {
+        echo "<span class=\"counter\">{$count_translated}</span>";
+    }; ?>,
     в <a href="/queue_for_translation.php"
          title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
     <span class="counter">

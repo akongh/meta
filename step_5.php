@@ -32,7 +32,6 @@ var_dump($_SESSION);
     <br>
     <form method="post"
           action="/step_5_to_6.php">
-
         <?php
         foreach ($_SESSION["arr_kws_translations"] as $el) {
             if ($el[2] == 0) {
@@ -79,9 +78,7 @@ var_dump($_SESSION);
         ?>
         <br>
         <br>
-        <span class="counter">
-            <?php echo count($_SESSION["arr_kws_ordered"]); ?> / <span id="countUniqEngChecked"></span>
-        </span>
+        <?php echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
         <br>
         <br>
         <br>

@@ -53,10 +53,9 @@ var_dump($_SESSION);
         </ul>
         <br>
         <br>
-        <span class="counter">
-            <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
-                echo count($_SESSION["arr_kws_assembled_marked"]);
-            } ?></span>
+        <?php if (isset($_SESSION["arr_kws_ordered"])) {
+            echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . "</span>";
+        } ?>
         <br>
         <br>
         <br>

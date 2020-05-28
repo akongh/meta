@@ -56,7 +56,7 @@ var_dump($_SESSION);
     <?php echo $html_kws_for_translation; ?>
     <br>
     <br>
-    <span class="counter"><?php echo $amount_kws_for_translation; ?></span>
+    <?php echo "<span class=\"counter\">{$amount_kws_for_translation}</span>"; ?>
     <br>
     <br>
     <br>
