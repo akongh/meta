@@ -1,24 +1,25 @@
 <?php error_reporting( - 1 );
 
-if ( isset( $_POST["author"] ) ) {
-    $author = trim( $_POST["author"] );
-    if ( $author != "" ) {
-        $author = preg_replace( "/ /", "+", $author );
+if ( isset( $_POST['author'] ) ) {
+    $author = trim( $_POST['author'] );
+    if ( $author != '' ) {
+        $author = preg_replace( '/ /', '+', $author );
     }
 }
 
-if ( isset( $_POST["keyword"] ) ) {
-    $keyword = trim( $_POST["keyword"] );
-    if ( $keyword != "" ) {
-        $keyword = preg_replace(["/ /", "/\\n/"], "+", $keyword);
+if ( isset( $_POST['keyword'] ) ) {
+    $keyword = trim( $_POST['keyword'] );
+    if ( $keyword != '' ) {
+        $keyword = preg_replace( '/ /', '+', $keyword );
+        $keyword = preg_replace( '/\\n/', '+', $keyword );
     }
 }
 
-$image_type = $_POST["imageType"];
+$image_type = $_POST['imageType'];
 
-//var_dump( $_POST["author"] );
-//var_dump( $_POST["keyword"] );
-//var_dump( $_POST["imageType"] );
+//var_dump( $_POST['author'] );
+//var_dump( $_POST['keyword'] );
+//var_dump( $_POST['imageType'] );
 
 //var_dump( $author );
 //var_dump( $keyword );
@@ -29,7 +30,7 @@ require_once( $_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/arrays_cookies_
 $useragent = RANDOM_SELECT_STRING( $array_useragents );
 $cookies   = RANDOM_SELECT_STRING( $array_cookies );
 
-if ( $author == "" ) {
+if ( $author == '' ) {
     $search_url = 'https://www.shutterstock.com/en/search/' . $keyword . '?image_type=' . $image_type;
 
 //    echo $search_url;
@@ -55,8 +56,8 @@ $array_selling_keywords = json_decode( $json_selling_keywords, true );
 
 for ( $i = 0; $i < count( $array_works_data ); $i ++ ) {
     for ( $j = 0; $i < count( $array_selling_keywords ); $j ++ ) {
-        if ( (int) $array_works_data[ $i ]["id"] == (int) $array_selling_keywords[ $j ]["media_id"] ) {
-            $array_works_data[ $i ]["keywords"] = $array_selling_keywords[ $j ]["keywords"];
+        if ( (int) $array_works_data[ $i ]['id'] == (int) $array_selling_keywords[ $j ]['media_id'] ) {
+            $array_works_data[ $i ]['keywords'] = $array_selling_keywords[ $j ]['keywords'];
             break;
         }
     }
@@ -82,7 +83,7 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 
 //    echo $data;
 
-    preg_match_all( '/(<img class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
+    preg_match_all( '/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block );
 
 //    var_dump( $array_works_block );
 //    echo count( $array_works_block[0]);
@@ -97,12 +98,13 @@ function ARRAY_WORKS_DATA_HTML( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
         preg_match( '/(alt=").*?(")/su', $array_works_block[ $i ], $title );
-        $title = preg_replace(["/alt="/', '/"/"], "", $title);
+        $title = preg_replace( '/alt="/', '', $title );
+        $title = preg_replace( '/"/', '', $title );
 
         $img = $array_works_block[ $i ];
 
-        preg_match( "/[0-9]*\.jpg/su", $array_works_block[ $i ], $id );
-        $id = preg_replace( "/\.jpg/", "", $id );
+        preg_match( "/[0-9]*.jpg/su", $array_works_block[ $i ], $id );
+        $id = preg_replace( '/.jpg/', '', $id );
 
         $array_works_data[ $i ] = [
             'title' => $title[0],
@@ -118,25 +120,26 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 
     $data = USE_CURL( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies );
 
-    preg_match_all( '/<script data-react-helmet="true" type="application\/ld\+json">\[.*]<\/script>/su', $data, $array_works_block );
+    preg_match_all( '/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[.*\]<\/script>/su', $data, $array_works_block );
 
     if ( count( $array_works_block[0] ) == 0 ) {
         echo( '-1' );
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace(["/<script data-react-helmet="true" type="application\/ld\+json">\[/', "/]<\/script>/"], "", $array_works_block[0][0]);
-    $array_works_block[0][0] = preg_replace("/},{/", "},,,,{", $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace( '/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[/', '', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace( '/\]<\/script>/', '', $array_works_block[0][0] );
+    $array_works_block[0][0] = preg_replace( '/\},\{/', '},,,,{', $array_works_block[0][0] );
     $array_works_block       = explode( ",,,,", $array_works_block[0][0] );
 
     for ( $i = 0; $i < count( $array_works_block ); $i ++ ) {
 
         $array_works_json_decode = json_decode( $array_works_block[ $i ], true );
-        preg_match( "/[0-9]*$/su", $array_works_json_decode["name"], $id );
+        preg_match( "/[0-9]*$/su", $array_works_json_decode['name'], $id );
         $id                     = $id[0];
         $array_works_data[ $i ] = [
-            'title' => $array_works_json_decode["name"],
-            'img'   => '<img src="' . $array_works_json_decode["thumbnail"] . '">',
+            'title' => $array_works_json_decode['name'],
+            'img'   => '<img src="' . $array_works_json_decode['thumbnail'] . '">',
             'id'    => $id,
         ];
     }
@@ -147,10 +150,10 @@ function ARRAY_WORKS_DATA_JSON( $_PARAM_url, $_PARAM_useragent, $_PARAM_cookies 
 function CREATE_URL( $_PARAM_array_works_ids ) {
 
     for ( $i = 0; $i < count( $_PARAM_array_works_ids ); $i ++ ) {
-        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]["id"];
+        $array_params[ $i ] = 'ids[]=' . $_PARAM_array_works_ids[ $i ]['id'];
     }
 
-    $string_params = implode( "&", $array_params );
+    $string_params = implode( '&', $array_params );
     $url           = 'https://submit.shutterstock.com/api/earnings/keywords?' . $string_params;
 
     return ( $url );
