@@ -35,8 +35,10 @@ var_dump($_SESSION);
     <form method="post"
           action="/step_3_to_1_or_4.php">
         <?php
-        if (isset($_SESSION["arr_kws_assembled"])) {
+        if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled"]) > 0) {
             echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled"]);
+        } else {
+            echo "Список выбранных ключевых слов пуст.";
         }
         ?>
         <br>
