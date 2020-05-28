@@ -38,14 +38,14 @@ var_dump($_SESSION);
           action="/step_4_to_5.php">
         <ul id="sortable">
             <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
-                for ($i = 0; $i < count($_SESSION["arr_kws_assembled_marked"]); $i++) {
-                    $arr_kws_assembled_marked[$i] = "
+                foreach ($_SESSION["arr_kws_assembled_marked"] as $kw) {
+                    $arr_kws_assembled_marked[] = "
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
                                    class='hidden'
                                    checked
-                                   value='{$_SESSION["arr_kws_assembled_marked"][$i]}'>{$_SESSION["arr_kws_assembled_marked"][$i]}</li>
+                                   value='{$kw}'>{$kw}</li>
                                    ";
                 }
                 echo implode("\n", $arr_kws_assembled_marked);
