@@ -34,6 +34,7 @@ var_dump($_SESSION);
           action="/step_5_to_6.php">
         <?php
         foreach ($_SESSION["arr_kws_translations"] as $el) {
+            $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
             switch ($el[2]) {
                 case 0:
                     $comment = "(перевода пока нет)";
@@ -52,14 +53,13 @@ var_dump($_SESSION);
             } else {
                 $div_class = "block-translated";
                 foreach ($el[1] as $val) {
-                    $translation = $val["s"];
-                    $translation_entity = preg_replace("/'/", "&#039;", $translation);
-                    $meaning = $val["z"];
+                    $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                    $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                     $translation_meaning[] = "<label class='label-highlight separate-checkbox'>
                                                   <span class='keyword-en'>
                                                       <input type='checkbox'
                                                              name='angl[]'
-                                                             value='{$translation_entity}'>{$translation}</span> — {$meaning}
+                                                             value='{$translation}'>{$translation}</span> — {$meaning}
                                               </label>";
                 }
                 $translation_meaning_markup = implode("\n", $translation_meaning);
