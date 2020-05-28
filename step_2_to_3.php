@@ -44,6 +44,7 @@ if (!isset($_SESSION["arr_kws_addition"])) {
     $arr_kws_addition = $_SESSION["arr_kws_addition"];
 }
 $_SESSION["arr_kws_assembled"] = array_values(array_unique(array_merge($arr_kws_state, $arr_kws_selection_marked, $arr_kws_addition)));
+$_SESSION["arr_kws_assembled_marked"] = $_SESSION["arr_kws_assembled"];
 
 if (isset($_SESSION["error_messages"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
