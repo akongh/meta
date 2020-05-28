@@ -3,7 +3,7 @@ let sendMessageButton = document.querySelector("#sendMessageButton");
 
 sendMessageButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendMessage("php/get_message.php");
+    sendMessage("get_message.php");
 }, false);
 
 function sendMessage(url) {
