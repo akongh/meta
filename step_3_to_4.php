@@ -2,8 +2,6 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-session_start();
-
 //var_dump($_POST);
 
 unset($_SESSION["error_messages"]);
