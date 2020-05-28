@@ -16,6 +16,7 @@ if (!isset($_POST["arr_kws_marked"]) || count($_POST["arr_kws_marked"]) < 8) {
     exit;
 } else {
     $_SESSION["arr_kws_assembled_marked"] = $_POST["arr_kws_marked"];
+    $_SESSION["arr_kws_ordered"] = $_SESSION["arr_kws_assembled_marked"];
 }
 
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_4.php");
