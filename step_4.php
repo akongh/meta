@@ -37,9 +37,9 @@ var_dump($_SESSION);
     <form method="post"
           action="/step_4_to_5.php">
         <ul id="sortable">
-            <?php if (isset($_SESSION["arr_kws_assembled_marked"])) {
-                foreach ($_SESSION["arr_kws_assembled_marked"] as $kw) {
-                    $arr_kws_assembled_marked[] = "
+            <?php if (isset($_SESSION["arr_kws_ordered"])) {
+                foreach ($_SESSION["arr_kws_ordered"] as $kw) {
+                    $arr_kws_ordered[] = "
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
@@ -48,7 +48,9 @@ var_dump($_SESSION);
                                    value='{$kw}'>{$kw}</li>
                                    ";
                 }
-                echo implode("\n", $arr_kws_assembled_marked);
+                echo implode("\n", $arr_kws_ordered);
+            } else {
+                echo "Нечему выставлять очерёдность.";
             } ?>
         </ul>
         <br>
