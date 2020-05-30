@@ -54,12 +54,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         <br>
         <input name="order"
                type="submit"
-               value="3/6 Определить очерёдность">
+               value="Определить очерёдность">
         <br>
         <br>
         <input name="remember"
                type="submit"
-               value="[Запомнить и ещё запрос]">
+               value="Запомнить и ещё запрос">
     </form>
     <br>
     <a class="link-button-reset"

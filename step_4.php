@@ -65,7 +65,7 @@ session_start();
         <br>
         <input name="poluchit"
                type="submit"
-               value="4/6 Выбрать перевод">
+               value="Выбрать перевод">
     </form>
     <br>
     <a class="link-button-reset"

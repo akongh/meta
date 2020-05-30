@@ -73,7 +73,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         <br>
         <input name="make_choice"
                type="submit"
-               value="1/6 Подобрать">
+               value="Подобрать">
     </form>
     <br>
     <div class="content-right">

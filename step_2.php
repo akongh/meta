@@ -70,7 +70,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         <br>
         <input name="sobrat"
                type="submit"
-               value="2/6 Собрать в список">
+               value="Собрать в список">
     </form>
     <br>
     <a class="link-button-reset"

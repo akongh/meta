@@ -85,7 +85,7 @@ session_start();
         <br>
         <input name="poluchit"
                type="submit"
-               value="5/6 Получить результат строками">
+               value="Получить результат строками">
     </form>
     <br>
     <a class="link-button-reset"
