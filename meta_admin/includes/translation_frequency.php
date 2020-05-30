@@ -31,7 +31,7 @@
                 <input name="perevod[]" type="text" class="vvod_perevod" autofocus>
                 —
                 <input name="znachenie[]" type="text" class="vvod_znachenie" value="<?php echo $slovo;?>">
-                <a onclick="return deleteField(this)" href="#" class="link">
+                <a onclick="return deleteField(this)" href="##" class="link">
                     <div class="minus_plus">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a onclick="return addField()" href="#" class="link">
+        <a onclick="return addField()" href="##" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit" value="+">
             </div>

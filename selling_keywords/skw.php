@@ -55,11 +55,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div class="content-right">
         <a id="create-variants-queries-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Создатть варианты запросов">[Создать варианты]</a>
         <a id="delete-variants-queries-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Удалить варианты запросов">[x]</a>
     </div>
     <br>
@@ -72,7 +72,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <span class="hover-invert">vaselenka</span>
     <a id="delete-author-button"
        class="link-button"
-       href="#"
+       href="##"
        title="Удалить автора">[x]</a>
     <br>
     <br>
@@ -87,7 +87,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div class="content-right">
         <a id="clear-keyword-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Очистить поле запроса">[x]</a>
     </div>
     <br>
@@ -125,7 +125,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
               class="counter">0</span>
         <a id="delete-keywords-objects-array-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Удалить текущую строку результата">[x]</a>
     </div>
     <br>

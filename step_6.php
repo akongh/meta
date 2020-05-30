@@ -62,7 +62,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <span class="content-right">
             <a id="single-view-button"
                class="link-button"
-               href="#"
+               href="##"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
         </span>
         <br>
@@ -85,7 +85,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <span class="content-right">
             <a id="separate-view-button"
                class="link-button"
-               href="#"
+               href="##"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
         </span>
         <br>
@@ -146,11 +146,11 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
          class="content-right">
         <a id="clearButton"
            class="link-button"
-           href="#"
+           href="##"
            title="Очистить поле отзыва">[x]</a>
         <a id="sendMessageButton"
            class="link-button"
-           href="#"
+           href="##"
            title="Отправить отзыв">[Отправить]</a>
     </div>
     <br>
