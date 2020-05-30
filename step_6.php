@@ -117,12 +117,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <a class="link-button-reset"
+       href="/step_5.php"
+       title="Назад">[<<<< Назад]</a>
+    <div class="content-right">
+        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
+    </div>
     <span id="messageBlock">
         Обратная связь.
         <br>
@@ -152,16 +152,6 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
            class="link-button"
            href="##"
            title="Отправить отзыв">[Отправить]</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a class="link-button-reset"
-       href="/step_5.php"
-       title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
-        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
