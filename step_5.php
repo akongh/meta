@@ -4,7 +4,7 @@ error_reporting(-1);
 
 session_start();
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>

@@ -6,7 +6,7 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>
