@@ -169,6 +169,5 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 <script src="/js/selectResult.js"></script>
 <script src="/js/controlMessage.js"></script>
 <script src="/js/sendMessage.js"></script>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>

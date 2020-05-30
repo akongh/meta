@@ -98,6 +98,5 @@ session_start();
 </div>
 <script src="/js/countUniqEngChecked.js"></script>
 <script src="/js/uncheckedTranslations.js"></script>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>

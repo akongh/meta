@@ -76,6 +76,5 @@ session_start();
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>

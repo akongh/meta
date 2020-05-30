@@ -71,6 +71,5 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/countRusChecked.js"></script>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>
