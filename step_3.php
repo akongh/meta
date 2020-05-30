@@ -64,7 +64,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <br>
     <a class="link-button-reset"
        href="/step_2.php"
-       title="Назад"><<<< Назад</a>
+       title="Назад">[<<<< Назад]</a>
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
