@@ -1,1 +1,0 @@
-<a id="help-button" class="link-button" href="#" title="Справка">[?]</a>

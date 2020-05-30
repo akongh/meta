@@ -58,18 +58,6 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <br>
     <br>
     <br>
-    <div class="content-right">
-        <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
-        <span id="help"
-              class="help hidden">
-            1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
-            2. <span class="bold">«Изменить вид на единый»</span>&nbsp;— объединяет результаты на русском и&nbsp;на английском
-            в&nbsp;один текст из двух абзацев для единого выделения и&nbsp;копирования.<br>
-            3. <span class="bold">«Изменить вид на раздельный»</span>&nbsp;— разделяет результаты на русском и&nbsp;на английском
-            на два текста по одному абзацу для раздельного выделения и&nbsp;копирования.
-        </span>
-    </div>
-    <br>
     <div id="separate-result-view">
         <span class="content-right">
             <a id="single-view-button"

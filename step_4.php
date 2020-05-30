@@ -63,16 +63,6 @@ session_start();
         <br>
         <br>
         <br>
-        <div class="content-right">
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
-            <span id="help"
-                  class="help hidden">
-            1. <span class="bold">Перетаскивать</span> ключевое слово удобнее, хватаясь за строку с&nbsp;ним, а&nbsp;не целясь
-            в&nbsp;само слово.<br>
-            2. <span class="bold">Некоторые стоки</span> учитывают очерёдность ключевых слов.
-            </span>
-        </div>
-        <br>
         <input name="poluchit"
                type="submit"
                value="4/6 Выбрать перевод">

@@ -83,16 +83,6 @@ session_start();
         <br>
         <br>
         <br>
-        <div class="content-right">
-            <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php'); ?>
-            <span id="help"
-                  class="help hidden">
-            1. <span class="bold">Дубликаты</span> переводов удалятся автоматически.<br>
-            2. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
-            именно в&nbsp;квадратик.
-            </span>
-        </div>
-        <br>
         <input name="poluchit"
                type="submit"
                value="5/6 Получить результат строками">
