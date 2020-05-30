@@ -16,6 +16,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 if (isset($_POST["arr_kws_marked"])) {
     $_SESSION["arr_kws_selection_marked"] = $_POST["arr_kws_marked"];
+} else {
+    $_SESSION["arr_kws_selection_marked"] = array();
 }
 
 // $_POST["input_str_kws_addition"]
