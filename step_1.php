@@ -57,7 +57,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         <br>
         <br>
         <br>
-        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Граница
+        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
             <select size="1"
                     name="max_choice_amount">
             <option selected
