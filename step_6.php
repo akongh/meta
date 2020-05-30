@@ -142,24 +142,13 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <br>
         <br>
     </span>
-    <div id="responseMessage"
-         class="content-right">
-        <a id="clearButton"
-           class="link-button"
-           href="##"
-           title="Очистить поле отзыва">[x]</a>
-        <a id="sendMessageButton"
-           class="link-button"
-           href="##"
-           title="Отправить отзыв">[Отправить]</a>
-    </div>
     <br>
     <br>
     <br>
     <br>
     <a class="link-button-reset"
        href="/step_5.php"
-       title="Назад">[[<<<< Назад]]</a>
+       title="Назад">[<<<< Назад]</a>
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
