@@ -45,50 +45,25 @@ $mysqli->close();
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
     <h1 class="bold">
         <span class="meta">МЕТА</span>
-        <br>
-        <br>
         Русско-английский сервис подбора ключевых слов для&nbsp;стоков
     </h1>
-    <br>
-    <h2>
-        Для тех, кто не знает английского,<br>
-        и для тех, кто хочет думать сам.
-    </h2>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2>
-        Думайте и подбирайте ключевые слова к&nbsp;своим произведениям для&nbsp;стоков на&nbsp;русском языке и&nbsp;получайте
-        результат с&nbsp;переводом на&nbsp;английский.
-    </h2>
-    <br>
-    <h2>
-        Никакой кривой автоматики, каждое ключевое слово проверено и&nbsp;переведено вручную с&nbsp;учётом языковых
-        особенностей.
-    </h2>
-    <br>
-    <br>
-    <br>
-    <br>
-    Ключевых слов переведено
+    <p>
+        Ключевых слов переведено
+        <span class="counter">
     <?php if (isset($count_translated)) {
-        echo "<span class=\"counter\">{$count_translated}</span>";
-    }; ?>,
-    в <a href="/queue_for_translation.php"
-         title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
-    <span class="counter">
+        echo "{$count_translated}";
+    }; ?></span>
+    </p>
+    <p>
+        В <a href="/queue_for_translation.php"
+             title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
+        <span class="counter">
         <?php if (isset($count_request)) {
             echo $count_request;
-        }; ?></span>.
-    <br>
-    <br>
-    <br>
-    <br>
+        }; ?></span>
+    </p>
     <div class="content-right">
         <a class="link-button"
            href="/step_1.php"
