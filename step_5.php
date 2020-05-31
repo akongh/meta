@@ -14,8 +14,10 @@ session_start();
     <title>5/6. Выбираем перевод</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css">
+    <link rel="stylesheet"
+          href="/css/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>

@@ -16,8 +16,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <title>3/6. Получаем текущий результат списком</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css">
+    <link rel="stylesheet"
+          href="/css/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>

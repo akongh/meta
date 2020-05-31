@@ -29,17 +29,12 @@ $mysqli->close();
 <head>
     <meta charset="utf-8">
     <title>МЕТА. Русско-английский сервис подбора ключевых слов для&nbsp;стоков</title>
-    <meta name="Description"
-          content="Подбирайте ключевые слова на русском, результат получайте на английском.
-    Для фото, видео, иллюстраций, вектора и других произведений."/>
-    <meta name="Keywords"
-          content="ключевые слова фото, ключевые слова перевод, ключевые слова для стоков,
-    подбор слов для стоков, подбор ключевых слов для стоков, ключевые слова для фотостока, ключевалка,
-    микростоки подбор ключевых"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css">
+    <link rel="stylesheet"
+          href="/css/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>

@@ -14,17 +14,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 <head>
     <meta charset="utf-8">
     <title>1/6. Задаём опорные ключевые слова для подбора</title>
-    <meta name="Description"
-          content="Подбирайте ключевые слова на русском, результат получайте на английском.
-    Составной подбор, удаление дубликатов, задание очерёдности, ручной перевод."/>
-    <meta name="Keywords"
-          content="ключевые слова фотографий, фотостоки подбор слов, подбор ключевых слов для фотостоков,
-    атрибутирование фотографий, ключевые слова перевод на английский, сервис для создания ключевых слов,
-    ключевые слова фотобанков, ключевые слова для фотографа, ключевики для стоков"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css">
+    <link rel="stylesheet"
+          href="/css/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
