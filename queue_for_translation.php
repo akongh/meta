@@ -35,7 +35,8 @@ if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
 <head>
     <meta charset="utf-8">
     <title>МЕТА. Очередь заявок на перевод</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">

@@ -14,7 +14,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 <head>
     <meta charset="utf-8">
     <title>3/6. Получаем текущий результат списком</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
