@@ -16,13 +16,12 @@ $mysqli_result->free();
 
 $mysqli->close();
 
-foreach ($raw_kws_for_translation as $key => $val) {
-    $arr_kws_for_translation[$key] = $val["s"];
-}
-
-if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
+if (0 < $amount_kws_for_translation) {
+    $arr_kws_for_translation = array();
+    foreach ($raw_kws_for_translation as $el) {
+        $arr_kws_for_translation[] = htmlspecialchars($el["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    }
     $html_kws_for_translation = implode("<br>", $arr_kws_for_translation);
-    $html_kws_for_translation = htmlspecialchars($html_kws_for_translation, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
 } else {
     $html_kws_for_translation = "Заявок на перевод пока нет.";
 }
@@ -58,26 +57,7 @@ if (isset($arr_kws_for_translation) && $arr_kws_for_translation != null) {
     <?php echo $html_kws_for_translation; ?>
     <br>
     <br>
-    <?php echo "<span class=\"counter\">{$amount_kws_for_translation}</span>"; ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2>
-        <!--Перевод прекращён на неопределённое время.-->
-        Мы&nbsp;переводим ключевые слова в&nbsp;порядке убывания по&nbsp;их&nbsp;популярности. Переводим вручную, чтобы
-        избежать неполноценности автоматического перевода. Ключевых слов не&nbsp;одна тысяча, и&nbsp;поэтому это&nbsp;долгий
-        и&nbsp;кропотливый процесс. И&nbsp;хоть уже&nbsp;переведено достаточно ключевых слов, чтобы охватить наиболее
-        популярные тематики среди авторов, всё&nbsp;равно встречаются менее используемые и&nbsp;поэтому пока
-        непереведённые
-        ключевые слова, которые автоматически попадают в&nbsp;список первоочерёдных на&nbsp;перевод при переходе к&nbsp;получению
-        результата строками.
-        <br>
-        <br>
-        Данные ключевые слова к&nbsp;таковым и&nbsp;относятся и&nbsp;мы&nbsp;их&nbsp;переведём в&nbsp;течение двух или&nbsp;более
-        дней, в&nbsp;зависимости от&nbsp;нашей загрузки.
-    </h2>
+    <?php echo "<span class='counter'>{$amount_kws_for_translation}</span>"; ?>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>
