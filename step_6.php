@@ -60,12 +60,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
         </div>
         <h2>На русском</h2>
-        <div class="result"><?= $str_kws_ru; ?></div>
+        <div class="result"><span><?= $str_kws_ru; ?></span></div>
         <div class="amount_kws">
             <span class="amount"><?= $count_kws_ru; ?></span>
         </div>
         <h2>На английском</h2>
-        <div class="result"><?= $str_kws_en; ?></div>
+        <div class="result"><span><?= $str_kws_en; ?></span></div>
         <div class="amount_kws">
             <span class="amount"><?= $count_kws_en; ?></span>
         </div>
@@ -79,9 +79,9 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         </div>
         <h2>На русском и английском</h2>
         <div class="result">
-            <?= $str_kws_ru; ?>
+            <span><?= $str_kws_ru; ?>
             <br>
-            <?= $str_kws_en; ?>
+            <?= $str_kws_en; ?></span>
         </div>
         <div class="amount_kws">
             <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
@@ -89,7 +89,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     </div>
     <h2>Непереведённые</h2>
     <div id='result_no_transl'>
-        <?= $str_kws_untranslated; ?>
+        <span><?= $str_kws_untranslated; ?></span>
     </div>
     <div class="amount_kws">
     <span class='amount'><?= $count_kws_untranslated; ?></span>
