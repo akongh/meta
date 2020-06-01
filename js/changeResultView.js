@@ -1,7 +1,7 @@
-let separateViewButton = document.querySelector("#separate-view-button");
-let singleViewButton = document.querySelector("#single-view-button");
-let separateResultView = document.querySelector("#separate-result-view");
-let singleResultView = document.querySelector("#single-result-view");
+let separateViewButton = document.querySelector("#separate_view_button");
+let singleViewButton = document.querySelector("#single_view_button");
+let separateResultView = document.querySelector("#separate_result_view");
+let singleResultView = document.querySelector("#single_result_view");
 
 separateViewButton.addEventListener("click", function (e) {
     e.preventDefault();

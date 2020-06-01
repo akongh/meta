@@ -8,7 +8,7 @@ for (let i = 0; i < resultNode.length; i++) {
     // });
 }
 
-let resultNodeNotTransl = document.querySelectorAll("span[name='result-no-transl']");
+let resultNodeNotTransl = document.querySelector("#result_no_transl");
 
 for (let i = 0; i < resultNodeNotTransl.length; i++) {
     resultNodeNotTransl[i].addEventListener('click', selectResult);

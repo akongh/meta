@@ -51,88 +51,72 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-
     <h1>6/6. Результат строками</h1>
-
-    <div id="separate-result-view">
-        <span class="content_right">
-            <a id="single-view-button"
-               class="link-button"
+    <div id="separate_result_view">
+        <div class="content_right">
+            <a id="single_view_button"
                href="##"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
-        </span>
-
-        <h2 class="bold">На русском</h2>
-
-        <span class="result"><?= $str_kws_ru; ?></span>
+        </div>
+        <h2>На русском</h2>
+        <p><?= $str_kws_ru; ?></p>
         <span class="amount"><?= $count_kws_ru; ?></span>
-
-        <h2 class="bold">На английском</h2>
-
-        <span class="result"><?= $str_kws_en; ?></span>
+        <h2>На английском</h2>
+        <p><?= $str_kws_en; ?></p>
         <span class="amount"><?= $count_kws_en; ?></span>
     </div>
-    <div id="single-result-view"
+    <div id="single_result_view"
          class="hidden">
-        <span class="content_right">
-            <a id="separate-view-button"
-               class="link-button"
+        <div class="content_right">
+            <a id="separate_view_button"
                href="##"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
-        </span>
-
-        <h2 class="bold">На русском и английском</h2>
-
-        <span class="result">
+        </div>
+        <h2>На русском и английском</h2>
+        <p>
             <?= $str_kws_ru; ?>
-
+        </p>
+        <p>
             <?= $str_kws_en; ?>
-        </span>
-
+        </p>
         <span class="amount">
             <?= $count_kws_ru; ?> / <?= $count_kws_en; ?>
         </span>
     </div>
-
-    <h2 class='bold'>Непереведённые</h2>
-
-    <span class='result'
-          name='result-no-transl'><?= $str_kws_untranslated; ?></span>
+    <h2>Непереведённые</h2>
+    <p id='result_no_transl'>
+        <?= $str_kws_untranslated; ?>
+    </p>
     <span class='amount'><?= $count_kws_untranslated; ?></span>
-
-    <a class="link-button-reset"
-       href="/step_5.php"
-       title="Назад">[<<<< Назад]</a>
+    <p>
+        <a href="/step_4.php"
+           title="Назад">[<<<< Назад]</a>
+    </p>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
-    <span id="messageBlock">
-        Обратная связь.
-
-        <span class="content_right">
+    <div id="messageBlock">
+        <p>Обратная связь.</p>
+        <div class="content_right">
             <span class="amount">
-                <span id="countInformer">
-                </span>
+                <span id="countInformer"></span>
             </span>
-        </span>
+        </div>
+        <label>
         <textarea id="messageForm"
                   wrap="soft"
                   rows="4"
                   placeholder=""
-                  maxlength="240"></textarea>
+                  maxlength="240"></textarea></label>
         <!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
-
-    </span>
+    </div>
     <div id="responseMessage"
          class="content_right">
         <a id="clearButton"
-           class="link-button"
            href="##"
            title="Очистить поле отзыва">[x]</a>
         <a id="sendMessageButton"
-           class="link-button"
            href="##"
            title="Отправить отзыв">[Отправить]</a>
     </div>
