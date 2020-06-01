@@ -55,8 +55,10 @@ session_start();
                type="submit"
                value="Выбрать перевод">
     </form>
-    <a href="/step_3.php"
-       title="Назад">[<<<< Назад]</a>
+    <p>
+        <a href="/step_3.php"
+           title="Назад">[<<<< Назад]</a>
+    </p>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>

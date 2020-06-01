@@ -63,6 +63,43 @@ body {
     display: none;
 }
 
+.label_highlight {
+
+}
+
+.label_highlight {
+    display: inline-block;
+    width: 100%;
+}
+
+.label_highlight input {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.separate_checkbox {
+    padding-left: 48px;
+    text-indent: -26px;
+}
+
+.keyword_ru {
+    display: inline-block;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: #000;
+}
+
+.keyword_en {
+    color: #000;
+}
+
+.block_not_translated {
+    color: #888;
+}
+
+.block_translated {
+    color: #888;
+}
 /*
  * ----------------------------------------------------------------
  * Typography

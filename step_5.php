@@ -24,11 +24,8 @@ session_start();
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-
     <h1>5/6. Выбираем перевод</h1>
-
     <form method="post"
           action="/step_5_to_6.php">
         <?php
@@ -41,21 +38,20 @@ session_start();
                 case 7:
                     $comment = "(в заявке на перевод)";
             }
-
             if ($el[2] == 0 or $el[2] == 7) {
-                $div_class = "block-not-translated";
+                $div_class = "block_not_translated";
                 $translation_meaning_markup = "{$comment}<input type='checkbox'
                                                                 name='zayavka[]'
                                                                 class='hidden'
                                                                 checked
                                                                 value='{$el[0]}'>";
             } else {
-                $div_class = "block-translated";
+                $div_class = "block_translated";
                 foreach ($el[1] as $val) {
                     $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                     $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                     $translation_meaning[] = "<label class='label_highlight separate_checkbox'>
-                                                  <span class='keyword-en'>
+                                                  <span class='keyword_en'>
                                                       <input type='checkbox'
                                                              name='angl[]'
                                                              value='{$translation}'>{$translation}</span> — {$meaning}
@@ -64,28 +60,27 @@ session_start();
                 $translation_meaning_markup = implode("", $translation_meaning);
             }
             echo "<div class='{$div_class}'>
-                    <span class='keyword-ru'>
+                    <span class='keyword_ru'>
                         <input type='checkbox'
                                name='russk[]'
                                class='hidden'
                                checked
-                               value='{$el[0]}'>{$el[0]}</span><br>
+                               value='{$el[0]}'>{$el[0]}</span>
                     {$translation_meaning_markup}
               </div>";
             unset($translation_meaning);
         }
         ?>
-
         <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
 
         <input name="poluchit"
                type="submit"
                value="Получить результат строками">
     </form>
-
-    <a class="link-button-reset"
-       href="/step_4.php"
-       title="Назад">[<<<< Назад]</a>
+    <p>
+        <a href="/step_4.php"
+           title="Назад">[<<<< Назад]</a>
+    </p>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
