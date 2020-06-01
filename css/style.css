@@ -146,7 +146,7 @@ a:hover {
 }
 
 .content_right .link_reset_and_start_over:hover {
-    color: #ff0000
+    color: #ff0000;
 }
 
 .add_kws {
@@ -235,6 +235,11 @@ margin-top: 8px;
 
 .meta_info p {
     margin-bottom: 16px;
+}
+
+.block_not_translated,
+.block_translated {
+    margin-bottom: 8px;
 }
 
 /*
