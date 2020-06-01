@@ -30,15 +30,18 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <h1>2/6. Выбираем из подобранных…</h1>
     <form method="post"
           action="/step_2_to_3.php">
-        <?php
-        if (isset($_SESSION["arr_kws_selection"]) and count($_SESSION["arr_kws_selection"]) > 0) {
-            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"], $_SESSION["arr_kws_selection_marked"]);
-        } else {
-            echo "Список подобраных ключевых слов пуст.";
-        }
-        ?>
+        <div class="wrap_list_kws">
+            <?php
+            if (isset($_SESSION["arr_kws_selection"]) and count($_SESSION["arr_kws_selection"]) > 0) {
+                echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"],
+                    $_SESSION["arr_kws_selection_marked"]);
+            } else {
+                echo "Список подобраных ключевых слов пуст.";
+            }
+            ?>
+        </div>
         <?= meta_kws_markup_state_amount(); ?>
-        <p>…и добавляем свои</p>
+        <div class="add_kws">…и добавляем свои</div>
         <label>
         <textarea name="input_str_kws_addition"
                   wrap="soft"
@@ -50,19 +53,21 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-        <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
-            <input type="checkbox"
-                   checked
-                   name="alphabetical_order">
-            Алфавитный порядок.</label>
+        <div class="label_info">
+            <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
+                <input type="checkbox"
+                       checked
+                       name="alphabetical_order">
+                Алфавитный порядок.</label>
+        </div>
         <input name="sobrat"
                type="submit"
                value="Собрать в список">
     </form>
-    <p>
+    <div class="back_link">
         <a href="/step_1.php"
            title="Назад">[<<<< Назад]</a>
-    </p>
+    </div>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>

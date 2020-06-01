@@ -31,7 +31,7 @@ session_start();
     <h1>4/6. Определяем очерёдность ключевых слов</h1>
     <form method="post"
           action="/step_4_to_5.php">
-        <ul id="sortable">
+        <ul id="sortable" class="wrap_list_kws">
             <?php
             $arr_kws_ordered = array();
             foreach ($_SESSION["arr_kws_ordered"] as $kw) {
@@ -40,7 +40,7 @@ session_start();
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
-                                   class='hidden'
+                                   hidden
                                    checked
                                    value='{$kw}'>{$kw}</li>
                                    ";
@@ -48,17 +48,17 @@ session_start();
             echo implode("", $arr_kws_ordered);
             ?>
         </ul>
-        <p>
+        <div class="amount_kws">
             <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>"; ?>
-        </p>
+        </div>
         <input name="poluchit"
                type="submit"
                value="Выбрать перевод">
     </form>
-    <p>
+    <div class="back_link">
         <a href="/step_3.php"
            title="Назад">[<<<< Назад]</a>
-    </p>
+    </div>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>

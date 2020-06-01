@@ -1,4 +1,4 @@
-let resultNode = document.querySelectorAll("p[class='result']");
+let resultNode = document.querySelectorAll("div[class='result']");
 console.log(resultNode);
 for (let i = 0; i < resultNode.length; i++) {
     resultNode[i].addEventListener('click', selectResult);
@@ -8,7 +8,7 @@ for (let i = 0; i < resultNode.length; i++) {
     // });
 }
 
-let resultNodeNotTransl = document.querySelectorAll("p[id='result_no_transl']");
+let resultNodeNotTransl = document.querySelectorAll("div[id='result_no_transl']");
 console.log(resultNodeNotTransl);
 for (let i = 0; i < resultNodeNotTransl.length; i++) {
     resultNodeNotTransl[i].addEventListener('click', selectResult);

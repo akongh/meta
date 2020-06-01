@@ -41,19 +41,21 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-        <label title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
-            <select name="max_choice_amount"
-                    size="1">
-                <option selected
-                        value="64">64
-                </option>
-                <option value="128">128
-                </option>
-            </select>.</label>
-        <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
-            <input type="checkbox"
-                   name="non_strict_choice"
-                   checked> Нестрого.</label>
+        <div class="label_info">
+            <label title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
+                <select name="max_choice_amount"
+                        size="1">
+                    <option selected
+                            value="64">64
+                    </option>
+                    <option value="128">128
+                    </option>
+                </select>.</label>
+            <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
+                <input type="checkbox"
+                       name="non_strict_choice"
+                       checked> Нестрого.</label>
+        </div>
         <input name="make_choice"
                type="submit"
                value="Подобрать">
