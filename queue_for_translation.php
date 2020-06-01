@@ -45,17 +45,21 @@ if (0 < $amount_kws_for_translation) {
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
-<div class="page">
-
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-
-    <a href="/step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
-
-    <h1 class="bold">Очередь заявок на перевод</h1>
-
-    <?= $html_kws_for_translation; ?>
-
-    <?= "<span class='counter'>{$amount_kws_for_translation}</span>"; ?>
+<div class="wrap">
+    <p>
+        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
+    </p>
+    <p>
+        <a href="/step_1.php"
+           title="Начать подбирать ключевые слова">К подбору</a>
+    </p>
+    <h1>Очередь заявок на перевод</h1>
+    <p>
+        <?= $html_kws_for_translation; ?>
+    </p>
+    <p>
+        <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
+    </p>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>

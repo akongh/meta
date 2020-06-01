@@ -23,7 +23,7 @@ session_start();
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
@@ -76,7 +76,7 @@ session_start();
         }
         ?>
 
-        <?= "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
+        <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
 
         <input name="poluchit"
                type="submit"

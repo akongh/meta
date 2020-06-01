@@ -142,7 +142,7 @@ function meta_kws_markup_state_amount()
         foreach ($_SESSION["arr_kws_state"] as $kw) {
             $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
         }
-        $markup = implode(", ", $kws) . "<span class='counter'>" . count($kws) . "</span>";
+        $markup = implode(", ", $kws) . "<span class='amount'>" . count($kws) . "</span>";
     } else {
         $markup = "Нет сохранённого состояния набора.";
     }

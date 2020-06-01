@@ -26,7 +26,7 @@ session_start();
     <script src="/js/changeOrderingList.js"></script>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
@@ -54,7 +54,7 @@ session_start();
         </ul>
 
         <?php if (isset($_SESSION["arr_kws_ordered"])) {
-            echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . "</span>";
+            echo "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>";
         } ?>
 
         <input name="poluchit"

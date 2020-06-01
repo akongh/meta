@@ -25,7 +25,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
@@ -41,7 +41,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         }
         ?>
 
-        <span id="countRusChecked" class="counter"></span>
+        <span id="countRusChecked" class="amount"></span>
 
         <?php
         echo meta_errors_markup_list();

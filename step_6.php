@@ -50,7 +50,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
@@ -67,12 +67,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <h2 class="bold">На русском</h2>
 
         <span class="result"><?= $str_kws_ru; ?></span>
-        <span class="counter"><?= $count_kws_ru; ?></span>
+        <span class="amount"><?= $count_kws_ru; ?></span>
 
         <h2 class="bold">На английском</h2>
 
         <span class="result"><?= $str_kws_en; ?></span>
-        <span class="counter"><?= $count_kws_en; ?></span>
+        <span class="amount"><?= $count_kws_en; ?></span>
     </div>
     <div id="single-result-view"
          class="hidden">
@@ -91,7 +91,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
             <?= $str_kws_en; ?>
         </span>
 
-        <span class="counter">
+        <span class="amount">
             <?= $count_kws_ru; ?> / <?= $count_kws_en; ?>
         </span>
     </div>
@@ -100,7 +100,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 
     <span class='result'
           name='result-no-transl'><?= $str_kws_untranslated; ?></span>
-    <span class='counter'><?= $count_kws_untranslated; ?></span>
+    <span class='amount'><?= $count_kws_untranslated; ?></span>
 
     <a class="link-button-reset"
        href="/step_5.php"
@@ -112,7 +112,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         Обратная связь.
 
         <span class="content-right">
-            <span class="counter">
+            <span class="amount">
                 <span id="countInformer">
                 </span>
             </span>
