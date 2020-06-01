@@ -26,11 +26,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-
     <h1>2/6. Выбираем из подобранных…</h1>
-
     <form method="post"
           action="/step_2_to_3.php">
         <?php
@@ -40,35 +37,32 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
             echo "Список подобраных ключевых слов пуст.";
         }
         ?>
-
         <?= meta_kws_markup_state_amount(); ?>
-        <h1>…и добавляем свои</h1>
-
+        <p>…и добавляем свои</p>
+        <label>
         <textarea name="input_str_kws_addition"
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?= meta_kws_content_input(2); ?></textarea>
+                  autofocus><?= meta_kws_content_input(2); ?></textarea></label>
 
         <?php
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-
         <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
             <input type="checkbox"
                    checked
                    name="alphabetical_order">
             Алфавитный порядок.</label>
-
         <input name="sobrat"
                type="submit"
                value="Собрать в список">
     </form>
-
-    <a class="link-button-reset"
-       href="/step_1.php"
-       title="Назад">[<<<< Назад]</a>
+    <p>
+        <a href="/step_1.php"
+           title="Назад">[<<<< Назад]</a>
+    </p>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
