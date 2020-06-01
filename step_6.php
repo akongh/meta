@@ -65,13 +65,13 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 
         <h2 class="bold">На русском</h2>
 
-        <span class="result"><?php echo $str_kws_ru; ?></span>
-        <span class="counter"><?php echo $count_kws_ru; ?></span>
+        <span class="result"><?= $str_kws_ru; ?></span>
+        <span class="counter"><?= $count_kws_ru; ?></span>
 
         <h2 class="bold">На английском</h2>
 
-        <span class="result"><?php echo $str_kws_en; ?></span>
-        <span class="counter"><?php echo $count_kws_en; ?></span>
+        <span class="result"><?= $str_kws_en; ?></span>
+        <span class="counter"><?= $count_kws_en; ?></span>
     </div>
     <div id="single-result-view"
          class="hidden">
@@ -85,21 +85,21 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <h2 class="bold">На русском и английском</h2>
 
         <span class="result">
-            <?php echo $str_kws_ru; ?>
+            <?= $str_kws_ru; ?>
 
-            <?php echo $str_kws_en; ?>
+            <?= $str_kws_en; ?>
         </span>
 
         <span class="counter">
-            <?php echo $count_kws_ru; ?> / <?php echo $count_kws_en; ?>
+            <?= $count_kws_ru; ?> / <?= $count_kws_en; ?>
         </span>
     </div>
 
     <h2 class='bold'>Непереведённые</h2>
 
     <span class='result'
-          name='result-no-transl'><?php echo $str_kws_untranslated; ?></span>
-    <span class='counter'><?php echo $count_kws_untranslated; ?></span>
+          name='result-no-transl'><?= $str_kws_untranslated; ?></span>
+    <span class='counter'><?= $count_kws_untranslated; ?></span>
 
     <a class="link-button-reset"
        href="/step_5.php"

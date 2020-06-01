@@ -30,7 +30,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
     <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
 
-    <?php echo meta_kws_markup_state_amount(); ?>
+    <?= meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
           method="post">
         <textarea name="input_str_kws_query"
@@ -38,7 +38,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php echo meta_kws_content_input(1); ?></textarea>
+                  autofocus><?= meta_kws_content_input(1); ?></textarea>
         <?php
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);

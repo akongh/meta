@@ -40,7 +40,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         }
         ?>
 
-        <?php echo meta_kws_markup_state_amount(); ?>
+        <?= meta_kws_markup_state_amount(); ?>
         <h1 class="bold">…и добавляем свои</h1>
 
         <textarea name="input_str_kws_addition"
@@ -48,7 +48,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?php echo meta_kws_content_input(2); ?></textarea>
+                  autofocus><?= meta_kws_content_input(2); ?></textarea>
 
         <?php
         echo meta_errors_markup_list();

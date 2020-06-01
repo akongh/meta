@@ -52,9 +52,9 @@ if (0 < $amount_kws_for_translation) {
 
     <h1 class="bold">Очередь заявок на перевод</h1>
 
-    <?php echo $html_kws_for_translation; ?>
+    <?= $html_kws_for_translation; ?>
 
-    <?php echo "<span class='counter'>{$amount_kws_for_translation}</span>"; ?>
+    <?= "<span class='counter'>{$amount_kws_for_translation}</span>"; ?>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>

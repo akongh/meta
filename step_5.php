@@ -75,7 +75,7 @@ session_start();
         }
         ?>
 
-        <?php echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
+        <?= "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
 
         <input name="poluchit"
                type="submit"
