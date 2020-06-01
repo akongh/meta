@@ -41,11 +41,11 @@ session_start();
                 }
                 if ($el[2] == 0 or $el[2] == 7) {
                     $div_class = "block_not_translated";
-                    $translation_meaning_markup = "{$comment}<input type='checkbox'
+                    $translation_meaning_markup = "<div class='meaning_notice'><input type='checkbox'
                                                                 name='zayavka[]'
                                                                 hidden
                                                                 checked
-                                                                value='{$el[0]}'>";
+                                                                value='{$el[0]}'>{$comment}</div>";
                 } else {
                     $div_class = "block_translated";
                     foreach ($el[1] as $val) {
@@ -54,22 +54,22 @@ session_start();
                         $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
                             'UTF-8');
                         $translation_meaning[] = "
-                                                 <label class='label_highlight separate_checkbox'>
+                                                 <div class='meaning_notice'><label class='label_highlight'>
                                                      <span class='keyword_en'>
                                                          <input type='checkbox'
                                                                 name='angl[]'
-                                                                value='{$translation}'>{$translation}</span> — {$meaning}</label>
+                                                                value='{$translation}'>{$translation}</span> — {$meaning}</label></div>
                                                                 ";
                     }
                     $translation_meaning_markup = implode("", $translation_meaning);
                 }
                 echo "<div class='{$div_class}'>
-                    <span class='keyword_ru'>
+                    <div class='keyword_ru'>
                         <input type='checkbox'
                                name='russk[]'
                                hidden
                                checked
-                               value='{$el[0]}'>{$el[0]}</span>
+                               value='{$el[0]}'>{$el[0]}</div>
                     {$translation_meaning_markup}
               </div>";
                 unset($translation_meaning);
