@@ -92,7 +92,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <span><?= $str_kws_untranslated; ?></span>
     </div>
     <div class="amount_kws">
-    <span class='amount'><?= $count_kws_untranslated; ?></span>
+        <span class='amount'><?= $count_kws_untranslated; ?></span>
     </div>
     <div class="back_link">
         <a href="/step_5.php"

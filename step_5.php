@@ -40,7 +40,7 @@ session_start();
                         $comment = "(в заявке на перевод)";
                 }
                 if ($el[2] == 0 or $el[2] == 7) {
-                    $div_class                  = "block_not_translated";
+                    $div_class = "block_not_translated";
                     $translation_meaning_markup = "{$comment}<input type='checkbox'
                                                                 name='zayavka[]'
                                                                 class='hidden'
@@ -49,9 +49,9 @@ session_start();
                 } else {
                     $div_class = "block_translated";
                     foreach ($el[1] as $val) {
-                        $translation           = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
+                        $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
                             'UTF-8');
-                        $meaning               = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
+                        $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
                             'UTF-8');
                         $translation_meaning[] = "<label class='label_highlight separate_checkbox'>
                                                   <span class='keyword_en'>

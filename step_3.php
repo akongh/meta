@@ -41,7 +41,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
             ?>
         </div>
         <div class="amount_kws">
-        <span id="countRusChecked" class="amount"></span>
+            <span id="countRusChecked" class="amount"></span>
         </div>
         <?php
         echo meta_errors_markup_list();
