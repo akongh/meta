@@ -61,7 +61,7 @@ session_start();
                                                              value='{$translation}'>{$translation}</span> — {$meaning}
                                               </label>";
                 }
-                $translation_meaning_markup = implode("\n", $translation_meaning);
+                $translation_meaning_markup = implode("", $translation_meaning);
             }
             echo "<div class='{$div_class}'>
                     <span class='keyword-ru'>

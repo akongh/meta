@@ -108,7 +108,7 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
                        ";
     }
 
-    return implode("\n", $markup);
+    return implode("", $markup);
 }
 
 /**

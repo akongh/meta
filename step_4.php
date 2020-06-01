@@ -27,18 +27,16 @@ session_start();
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-
     <h1>4/6. Определяем очерёдность ключевых слов</h1>
-
     <form method="post"
           action="/step_4_to_5.php">
         <ul id="sortable">
-            <?php if (isset($_SESSION["arr_kws_ordered"])) {
-                foreach ($_SESSION["arr_kws_ordered"] as $kw) {
-                    $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                    $arr_kws_ordered[] = "
+            <?php
+            $arr_kws_ordered = array();
+            foreach ($_SESSION["arr_kws_ordered"] as $kw) {
+                $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                $arr_kws_ordered[] = "
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
@@ -46,24 +44,18 @@ session_start();
                                    checked
                                    value='{$kw}'>{$kw}</li>
                                    ";
-                }
-                echo implode("\n", $arr_kws_ordered);
-            } else {
-                echo "Нечему выставлять очерёдность.";
-            } ?>
+            }
+            echo implode("", $arr_kws_ordered);
+            ?>
         </ul>
-
-        <?php if (isset($_SESSION["arr_kws_ordered"])) {
-            echo "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>";
-        } ?>
-
+        <p>
+            <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>"; ?>
+        </p>
         <input name="poluchit"
                type="submit"
                value="Выбрать перевод">
     </form>
-
-    <a class="link-button-reset"
-       href="/step_3.php"
+    <a href="/step_3.php"
        title="Назад">[<<<< Назад]</a>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
