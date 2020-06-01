@@ -40,29 +40,24 @@ $mysqli->close();
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
-<div class="page">
-    <h1 class="bold">
-        <span class="meta">МЕТА</span>
-        Русско-английский сервис подбора ключевых слов для&nbsp;стоков
-    </h1>
+<div class="wrap">
+    <h1>МЕТА</h1>
+    <h2>Русско-английский сервис подбора ключевых слов для&nbsp;стоков</h2>
     <p>
         Ключевых слов переведено
-        <span class="counter">
-    <?php if (isset($count_translated)) {
-        echo "{$count_translated}";
-    }; ?></span>
+        <span class="amount"><?php if (isset($count_translated)) {
+                echo "{$count_translated}";
+            }; ?></span>
     </p>
     <p>
         В <a href="/queue_for_translation.php"
              title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
-        <span class="counter">
-        <?php if (isset($count_request)) {
-            echo $count_request;
-        }; ?></span>
+        <span class="amount"><?php if (isset($count_request)) {
+                echo $count_request;
+            }; ?></span>
     </p>
-    <div class="content-right">
-        <a class="link-button"
-           href="/step_1.php"
+    <div class="content_right">
+        <a href="/step_1.php"
            title="Начать подбирать ключевые слова">[Русско-английский подбор]</a>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>

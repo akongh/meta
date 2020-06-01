@@ -31,6 +31,18 @@ body {
     padding-right: 8px;
 }
 
+.content_right {
+    text-align: right;
+}
+
+.amount {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-weight: 700;
+    color: #000;
+    background: #ddd;
+}
+
 /*
  * ----------------------------------------------------------------
  * Typography
