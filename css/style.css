@@ -185,6 +185,14 @@ margin-top: 8px;
     margin-top: 16px;
 }
 
+.meta_info {
+    margin-top: 24px;
+}
+
+.meta_info p {
+    margin-bottom: 16px;
+}
+
 /*
  * ----------------------------------------------------------------
  * Typography
