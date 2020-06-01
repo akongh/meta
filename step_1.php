@@ -26,44 +26,40 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-
-    <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
+    <h1>1/6. Задаём опорные ключевые слова для подбора</h1>
 
     <?= meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
           method="post">
+        <label>
         <textarea name="input_str_kws_query"
-                  class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""
-                  autofocus><?= meta_kws_content_input(1); ?></textarea>
+                  autofocus><?= meta_kws_content_input(1); ?></textarea></label>
         <?php
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-
-        <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
-            <select size="1"
-                    name="max_choice_amount">
-            <option selected
-                    value="64">64</option>
-            <option value="128">128</option>
-        </select>.</span>
+        <label title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
+            <select name="max_choice_amount"
+                    size="1">
+                <option selected
+                        value="64">64
+                </option>
+                <option value="128">128
+                </option>
+            </select>.</label>
         <label title="Постепенное автоматическое уменьшение строгости, если не удаётся ничего подобрать">
             <input type="checkbox"
                    name="non_strict_choice"
-                   checked> Нестрого.
-        </label>
-
+                   checked> Нестрого.</label>
         <input name="make_choice"
                type="submit"
                value="Подобрать">
     </form>
-
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>

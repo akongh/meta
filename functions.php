@@ -43,9 +43,9 @@ function meta_errors_markup_list()
     if (isset($_SESSION["error_messages"])) {
         foreach ($_SESSION["error_messages"] as $item) {
             $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-            $data_array_markup[] = "<span class='error'>{$item}</span>";
+            $data_array_markup[] = "<p class='error'>{$item}</p>";
         }
-        $markup = implode("<br>", $data_array_markup);
+        $markup = implode("", $data_array_markup);
     } else {
         $markup = "";
     }
@@ -100,7 +100,7 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
         }
         $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
         $markup[] = "
-                <label class='label-highlight'>
+                <label class='label_highlight'>
                 <input type='checkbox'
                        name='arr_kws_marked[]'
                        {$status}
@@ -146,7 +146,7 @@ function meta_kws_markup_state_amount()
     } else {
         $markup = "Нет сохранённого состояния набора.";
     }
-    $markup = "<div class='kws_state'>{$markup}</div>";
+    $markup = "<p>{$markup}</p>";
 
     return $markup;
 }

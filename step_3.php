@@ -29,7 +29,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
-    <h1 class="bold">3/6. Получаем текущий результат списком</h1>
+    <h1>3/6. Получаем текущий результат списком</h1>
 
     <form method="post"
           action="/step_3_to_1_or_4.php">
@@ -60,7 +60,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <a class="link-button-reset"
        href="/step_2.php"
        title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>

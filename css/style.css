@@ -43,6 +43,22 @@ body {
     background: #ddd;
 }
 
+.error {
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes error {
+    0% {
+        color: #888;
+    }
+    100% {
+        color: #ddd;
+    }
+}
+
 /*
  * ----------------------------------------------------------------
  * Typography

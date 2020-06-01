@@ -29,7 +29,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
-    <h1 class="bold">2/6. Выбираем из подобранных…</h1>
+    <h1>2/6. Выбираем из подобранных…</h1>
 
     <form method="post"
           action="/step_2_to_3.php">
@@ -42,10 +42,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         ?>
 
         <?= meta_kws_markup_state_amount(); ?>
-        <h1 class="bold">…и добавляем свои</h1>
+        <h1>…и добавляем свои</h1>
 
         <textarea name="input_str_kws_addition"
-                  class="textarea-keywords"
                   wrap="soft"
                   rows="8"
                   placeholder=""
@@ -70,7 +69,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <a class="link-button-reset"
        href="/step_1.php"
        title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>

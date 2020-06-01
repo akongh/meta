@@ -54,10 +54,10 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
-    <h1 class="bold">6/6. Результат строками</h1>
+    <h1>6/6. Результат строками</h1>
 
     <div id="separate-result-view">
-        <span class="content-right">
+        <span class="content_right">
             <a id="single-view-button"
                class="link-button"
                href="##"
@@ -76,7 +76,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     </div>
     <div id="single-result-view"
          class="hidden">
-        <span class="content-right">
+        <span class="content_right">
             <a id="separate-view-button"
                class="link-button"
                href="##"
@@ -105,20 +105,19 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <a class="link-button-reset"
        href="/step_5.php"
        title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
     <span id="messageBlock">
         Обратная связь.
 
-        <span class="content-right">
+        <span class="content_right">
             <span class="amount">
                 <span id="countInformer">
                 </span>
             </span>
         </span>
         <textarea id="messageForm"
-                  class="textarea-message"
                   wrap="soft"
                   rows="4"
                   placeholder=""
@@ -127,7 +126,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 
     </span>
     <div id="responseMessage"
-         class="content-right">
+         class="content_right">
         <a id="clearButton"
            class="link-button"
            href="##"

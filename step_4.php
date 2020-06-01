@@ -30,7 +30,7 @@ session_start();
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
-    <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
+    <h1>4/6. Определяем очерёдность ключевых слов</h1>
 
     <form method="post"
           action="/step_4_to_5.php">
@@ -65,7 +65,7 @@ session_start();
     <a class="link-button-reset"
        href="/step_3.php"
        title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>

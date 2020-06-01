@@ -27,7 +27,7 @@ session_start();
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
 
-    <h1 class="bold">5/6. Выбираем перевод</h1>
+    <h1>5/6. Выбираем перевод</h1>
 
     <form method="post"
           action="/step_5_to_6.php">
@@ -54,7 +54,7 @@ session_start();
                 foreach ($el[1] as $val) {
                     $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                     $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                    $translation_meaning[] = "<label class='label-highlight separate-checkbox'>
+                    $translation_meaning[] = "<label class='label_highlight separate_checkbox'>
                                                   <span class='keyword-en'>
                                                       <input type='checkbox'
                                                              name='angl[]'
@@ -86,7 +86,7 @@ session_start();
     <a class="link-button-reset"
        href="/step_4.php"
        title="Назад">[<<<< Назад]</a>
-    <div class="content-right">
+    <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
