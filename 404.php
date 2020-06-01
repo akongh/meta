@@ -11,18 +11,20 @@ error_reporting(-1);
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="//commonresources.afoteris.com/initstyles.css">
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="/css/style.css"
+          href="css/style.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="block-404-503">
-    <div class="content-404-503">
+<div class="wrap">
+    <h1>404</h1>
+    <p>
         <a href="/meta.php"
-           title="Вернуться из ниоткуда">404</a>
-    </div>
+           title="Вернуться из ниоткуда">Вернуться из ниоткуда</a>
+    </p>
 </div>
 </body>
 </html>

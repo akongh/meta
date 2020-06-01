@@ -18,11 +18,13 @@ Table of content
  */
 
 body {
+    font-family: 'Source Code Pro', monospace;
     cursor: default;
+    color: #444444;
 }
 
-.page {
-    max-width: 736px;
+.wrap {
+    max-width: 720px;
     margin-right: auto;
     margin-left: auto;
     padding-left: 8px;
@@ -35,9 +37,6 @@ body {
  * ----------------------------------------------------------------
  */
 
-body {
-    font-family: 'Source Code Pro', monospace;
-}
 
 /*
  * ----------------------------------------------------------------
@@ -45,6 +44,4 @@ body {
  * ----------------------------------------------------------------
  */
 
-body {
-    color: #222222;
-}
+
