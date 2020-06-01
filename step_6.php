@@ -60,11 +60,15 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
         </div>
         <h2>На русском</h2>
-        <p class="result"><?= $str_kws_ru; ?></p>
-        <span class="amount"><?= $count_kws_ru; ?></span>
+        <div class="result"><?= $str_kws_ru; ?></div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_ru; ?></span>
+        </div>
         <h2>На английском</h2>
-        <p class="result"><?= $str_kws_en; ?></p>
-        <span class="amount"><?= $count_kws_en; ?></span>
+        <div class="result"><?= $str_kws_en; ?></div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_en; ?></span>
+        </div>
     </div>
     <div id="single_result_view"
          class="hidden">
@@ -74,18 +78,22 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
         </div>
         <h2>На русском и английском</h2>
-        <p class="result">
+        <div class="result">
             <?= $str_kws_ru; ?>
             <br>
             <?= $str_kws_en; ?>
-        </p>
-        <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
+        </div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
+        </div>
     </div>
     <h2>Непереведённые</h2>
-    <p id='result_no_transl'>
+    <div id='result_no_transl'>
         <?= $str_kws_untranslated; ?>
-    </p>
+    </div>
+    <div class="amount_kws">
     <span class='amount'><?= $count_kws_untranslated; ?></span>
+    </div>
     <div class="back_link">
         <a href="/step_5.php"
            title="Назад">[<<<< Назад]</a>

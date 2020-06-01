@@ -48,9 +48,9 @@ session_start();
             echo implode("", $arr_kws_ordered);
             ?>
         </ul>
-        <p>
+        <div class="amount_kws">
             <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>"; ?>
-        </p>
+        </div>
         <input name="poluchit"
                type="submit"
                value="Выбрать перевод">

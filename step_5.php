@@ -75,7 +75,7 @@ session_start();
             }
             ?>
         </div>
-        <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
+        <?= "<div class=\"amount_kws\"><span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span></div>"; ?>
 
         <input name="poluchit"
                type="submit"

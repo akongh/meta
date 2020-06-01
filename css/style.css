@@ -126,6 +126,15 @@ input[type="submit"] {
     margin-top: 24px;
 }
 
+#messageBlock .content_right {
+    margin-bottom: -24px;
+    margin-top: 0;
+}
+
+#messageBlock {
+    margin-top: 64px;
+}
+
 .wrap_list_kws {
     margin-top: 64px;
 }
@@ -137,7 +146,7 @@ ul {
 
 h1, h2 {
     font-size: inherit;
-    margin: 32px 0;
+    margin-top: 32px;
 }
 
 h1:first-child {
@@ -156,7 +165,7 @@ margin-top: 8px;
     margin-top: 24px;
 }
 
-.amount {
+.saved_set .amount {
     margin-left: 16px;
 }
 
@@ -166,6 +175,14 @@ margin-top: 8px;
 
 .add_kws {
     margin-top: 24px;
+}
+
+.amount_kws {
+    margin-top: 8px;
+}
+
+.result {
+    margin-top: 16px;
 }
 
 /*
