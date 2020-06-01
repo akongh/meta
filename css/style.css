@@ -64,10 +64,6 @@ body {
 }
 
 .label_highlight {
-
-}
-
-.label_highlight {
     display: inline-block;
     width: 100%;
 }
@@ -93,13 +89,14 @@ body {
     color: #000;
 }
 
+.block_translated {
+    color: #888;
+}
+
 .block_not_translated {
     color: #888;
 }
 
-.block_translated {
-    color: #888;
-}
 /*
  * ----------------------------------------------------------------
  * Typography
