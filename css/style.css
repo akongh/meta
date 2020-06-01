@@ -20,7 +20,7 @@ Table of content
 body {
     font-family: 'Source Code Pro', monospace;
     cursor: default;
-    color: #444444;
+    color: #000000;
 }
 
 .wrap {
@@ -101,24 +101,61 @@ textarea {
     resize: none;
     outline: none;
     overflow: auto;
-    border: dashed 1px;
+    border: dashed 1px #dddddd;
     cursor: text;
     margin-top: 24px;
 }
 
 input[type="submit"] {
-    border: solid 1px;
+    border: solid 1px #888888;
     padding: 8px;
     width: 100%;
     text-align: center;
     outline: none;
     margin-top: 24px;
     display: block;
+    font-weight: bolder;
+    color: #888888;
+}
+
+input[type="submit"]:hover {
+    border: solid 1px #000000;
+    color: #000000;
+}
+
+a {
+    color: #888888;
+}
+
+a:hover {
+    color: #000000;
+}
+
+.label_highlight:hover {
+    background-color: #eeeeee;
+}
+
+.ui-sortable-handle:hover {
+    background-color: #eeeeee;
+}
+
+.result:hover,
+#result_no_transl:hover {
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.content_right .link_reset_and_start_over:hover {
+    color: #ff0000
+}
+
+.add_kws {
+    font-weight: bolder;
 }
 
 .footer {
     margin-top: 128px;
-    border-top: dashed 1px;
+    border-top: dashed 1px #dddddd;
     padding-top: 40px;
 }
 
@@ -142,6 +179,7 @@ input[type="submit"] {
 ul {
     list-style: none;
     padding: 0;
+    cursor: move;
 }
 
 h1, h2 {
@@ -181,7 +219,8 @@ margin-top: 8px;
     margin-top: 8px;
 }
 
-.result {
+.result,
+#result_no_transl {
     margin-top: 16px;
 }
 
