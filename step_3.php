@@ -26,11 +26,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 </head>
 <body>
 <div class="wrap">
-
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-
     <h1>3/6. Получаем текущий результат списком</h1>
-
     <form method="post"
           action="/step_3_to_1_or_4.php">
         <?php
@@ -40,26 +37,22 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
             echo "Список выбранных ключевых слов пуст.";
         }
         ?>
-
         <span id="countRusChecked" class="amount"></span>
-
         <?php
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-
         <input name="order"
                type="submit"
                value="Определить очерёдность">
-
         <input name="remember"
                type="submit"
                value="Запомнить и ещё запрос">
     </form>
-
-    <a class="link-button-reset"
-       href="/step_2.php"
-       title="Назад">[<<<< Назад]</a>
+    <p>
+        <a href="/step_2.php"
+           title="Назад">[<<<< Назад]</a>
+    </p>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>

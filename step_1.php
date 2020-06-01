@@ -28,7 +28,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 <div class="wrap">
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     <h1>1/6. Задаём опорные ключевые слова для подбора</h1>
-
     <?= meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
           method="post">
