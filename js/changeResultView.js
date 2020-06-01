@@ -15,10 +15,10 @@ singleViewButton.addEventListener("click", function (e) {
 
 function separateView() {
     singleResultView.style.display = "none";
-    separateResultView.style.display = "inline-block";
+    separateResultView.style.display = "block";
 }
 
 function singleView() {
     separateResultView.style.display = "none";
-    singleResultView.style.display = "inline-block";
+    singleResultView.style.display = "block";
 }

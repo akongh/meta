@@ -53,6 +53,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 <div class="wrap">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>6/6. Результат строками</h1>
+
     <div id="separate_result_view">
         <div class="content_right">
             <a id="single_view_button"
@@ -66,6 +67,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <p><?= $str_kws_en; ?></p>
         <span class="amount"><?= $count_kws_en; ?></span>
     </div>
+
     <div id="single_result_view"
          class="hidden">
         <div class="content_right">
@@ -80,10 +82,9 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <p>
             <?= $str_kws_en; ?>
         </p>
-        <span class="amount">
-            <?= $count_kws_ru; ?> / <?= $count_kws_en; ?>
-        </span>
+        <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
     </div>
+
     <h2>Непереведённые</h2>
     <p id='result_no_transl'>
         <?= $str_kws_untranslated; ?>
