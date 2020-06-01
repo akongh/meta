@@ -139,8 +139,8 @@ a:hover {
     background-color: #eeeeee;
 }
 
-.result:hover,
-#result_no_transl:hover {
+.result span:hover,
+#result_no_transl span:hover {
     background-color: #eeeeee;
     cursor: pointer;
 }
