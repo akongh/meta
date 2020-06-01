@@ -90,10 +90,10 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <?= $str_kws_untranslated; ?>
     </p>
     <span class='amount'><?= $count_kws_untranslated; ?></span>
-    <p>
+    <div class="back_link">
         <a href="/step_4.php"
            title="Назад">[<<<< Назад]</a>
-    </p>
+    </div>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>

@@ -27,8 +27,7 @@ body {
     max-width: 720px;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 24px 8px;
 }
 
 .content_right {
@@ -95,6 +94,78 @@ body {
 
 .block_not_translated {
     color: #888;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px;
+    cursor: text;
+    margin-top: 24px;
+}
+
+input[type="submit"] {
+    border: solid 1px;
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    margin-top: 24px;
+    display: block;
+}
+
+.footer {
+    margin-top: 128px;
+    border-top: dashed 1px;
+    padding-top: 40px;
+}
+
+.content_right {
+    margin-top: 24px;
+}
+
+.wrap_list_kws {
+    margin-top: 64px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+h1, h2 {
+    font-size: inherit;
+    margin: 32px 0;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+.error {
+margin-top: 8px;
+}
+
+.back_link {
+    margin-top: 24px;
+}
+
+.label_info {
+    margin-top: 24px;
+}
+
+.amount {
+    margin-left: 16px;
+}
+
+.saved_set {
+    margin-top: 24px;
+}
+
+.add_kws {
+    margin-top: 24px;
 }
 
 /*

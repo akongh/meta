@@ -30,13 +30,16 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <h1>3/6. Получаем текущий результат списком</h1>
     <form method="post"
           action="/step_3_to_1_or_4.php">
-        <?php
-        if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled"]) > 0) {
-            echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"], $_SESSION["arr_kws_assembled_marked"]);
-        } else {
-            echo "Список выбранных ключевых слов пуст.";
-        }
-        ?>
+        <div class="wrap_list_kws">
+            <?php
+            if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled"]) > 0) {
+                echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"],
+                    $_SESSION["arr_kws_assembled_marked"]);
+            } else {
+                echo "Список выбранных ключевых слов пуст.";
+            }
+            ?>
+        </div>
         <span id="countRusChecked" class="amount"></span>
         <?php
         echo meta_errors_markup_list();
@@ -49,10 +52,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                type="submit"
                value="Запомнить и ещё запрос">
     </form>
-    <p>
+    <div class="back_link">
         <a href="/step_2.php"
            title="Назад">[<<<< Назад]</a>
-    </p>
+    </div>
     <div class="content_right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
