@@ -208,7 +208,12 @@ margin-top: 8px;
 }
 
 .saved_set {
-    margin-top: 24px;
+    margin-top: 64px;
+}
+
+#separate_result_view,
+#single_result_view {
+    margin-top: 64px;
 }
 
 .add_kws {
