@@ -17,7 +17,7 @@ session_start();
     <link rel="stylesheet"
           href="//commonresources.afoteris.com/initstyles.css">
     <link rel="stylesheet"
-          href="/css/meta.css"
+          href="/css/style.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
