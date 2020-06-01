@@ -53,12 +53,13 @@ session_start();
                             'UTF-8');
                         $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
                             'UTF-8');
-                        $translation_meaning[] = "<label class='label_highlight separate_checkbox'>
-                                                  <span class='keyword_en'>
-                                                      <input type='checkbox'
-                                                             name='angl[]'
-                                                             value='{$translation}'>{$translation}</span> — {$meaning}
-                                              </label>";
+                        $translation_meaning[] = "
+                                                 <label class='label_highlight separate_checkbox'>
+                                                     <span class='keyword_en'>
+                                                         <input type='checkbox'
+                                                                name='angl[]'
+                                                                value='{$translation}'>{$translation}</span> — {$meaning}</label>
+                                                                ";
                     }
                     $translation_meaning_markup = implode("", $translation_meaning);
                 }
