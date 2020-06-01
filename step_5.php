@@ -43,7 +43,7 @@ session_start();
                     $div_class = "block_not_translated";
                     $translation_meaning_markup = "{$comment}<input type='checkbox'
                                                                 name='zayavka[]'
-                                                                class='hidden'
+                                                                hidden
                                                                 checked
                                                                 value='{$el[0]}'>";
                 } else {
@@ -66,7 +66,7 @@ session_start();
                     <span class='keyword_ru'>
                         <input type='checkbox'
                                name='russk[]'
-                               class='hidden'
+                               hidden
                                checked
                                value='{$el[0]}'>{$el[0]}</span>
                     {$translation_meaning_markup}

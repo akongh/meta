@@ -40,7 +40,7 @@ session_start();
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
-                                   class='hidden'
+                                   hidden
                                    checked
                                    value='{$kw}'>{$kw}</li>
                                    ";
