@@ -25,16 +25,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
+
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-    <br>
-    <br>
+
     <h1 class="bold">1/6. Задаём опорные ключевые слова для подбора</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <?php echo meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
           method="post">
@@ -44,14 +39,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                   rows="8"
                   placeholder=""
                   autofocus><?php echo meta_kws_content_input(1); ?></textarea>
-        <br>
         <?php
         echo meta_errors_markup_list();
         unset($_SESSION["error_messages"]);
         ?>
-        <br>
-        <br>
-        <br>
+
         <span title="Граница количества ключевых слов в результате подбора на следующем шаге">Предел выборки
             <select size="1"
                     name="max_choice_amount">
@@ -64,13 +56,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                    name="non_strict_choice"
                    checked> Нестрого.
         </label>
-        <br>
-        <br>
+
         <input name="make_choice"
                type="submit"
                value="Подобрать">
     </form>
-    <br>
+
     <div class="content-right">
         <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>

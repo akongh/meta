@@ -26,16 +26,11 @@ session_start();
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
+
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-    <br>
-    <br>
+
     <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <form method="post"
           action="/step_4_to_5.php">
         <ul id="sortable">
@@ -56,20 +51,16 @@ session_start();
                 echo "Нечему выставлять очерёдность.";
             } ?>
         </ul>
-        <br>
-        <br>
+
         <?php if (isset($_SESSION["arr_kws_ordered"])) {
             echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . "</span>";
         } ?>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <input name="poluchit"
                type="submit"
                value="Выбрать перевод">
     </form>
-    <br>
+
     <a class="link-button-reset"
        href="/step_3.php"
        title="Назад">[<<<< Назад]</a>

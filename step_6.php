@@ -50,16 +50,11 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
+
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-    <br>
-    <br>
+
     <h1 class="bold">6/6. Результат строками</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <div id="separate-result-view">
         <span class="content-right">
             <a id="single-view-button"
@@ -67,18 +62,14 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                href="##"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
         </span>
-        <br>
-        <br>
+
         <h2 class="bold">На русском</h2>
-        <br>
+
         <span class="result"><?php echo $str_kws_ru; ?></span>
         <span class="counter"><?php echo $count_kws_ru; ?></span>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <h2 class="bold">На английском</h2>
-        <br>
+
         <span class="result"><?php echo $str_kws_en; ?></span>
         <span class="counter"><?php echo $count_kws_en; ?></span>
     </div>
@@ -90,35 +81,26 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                href="##"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
         </span>
-        <br>
-        <br>
+
         <h2 class="bold">На русском и английском</h2>
-        <br>
+
         <span class="result">
             <?php echo $str_kws_ru; ?>
-            <br>
-            <br>
+
             <?php echo $str_kws_en; ?>
         </span>
-        <br>
-        <br>
+
         <span class="counter">
             <?php echo $count_kws_ru; ?> / <?php echo $count_kws_en; ?>
         </span>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <h2 class='bold'>Непереведённые</h2>
-    <br>
+
     <span class='result'
           name='result-no-transl'><?php echo $str_kws_untranslated; ?></span>
     <span class='counter'><?php echo $count_kws_untranslated; ?></span>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <a class="link-button-reset"
        href="/step_5.php"
        title="Назад">[<<<< Назад]</a>
@@ -127,7 +109,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     </div>
     <span id="messageBlock">
         Обратная связь.
-        <br>
+
         <span class="content-right">
             <span class="counter">
                 <span id="countInformer">
@@ -141,8 +123,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                   placeholder=""
                   maxlength="240"></textarea>
         <!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
-        <br>
-        <br>
+
     </span>
     <div id="responseMessage"
          class="content-right">

@@ -23,16 +23,11 @@ session_start();
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
+
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
-    <br>
-    <br>
+
     <h1 class="bold">5/6. Выбираем перевод</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <form method="post"
           action="/step_5_to_6.php">
         <?php
@@ -79,18 +74,14 @@ session_start();
             unset($translation_meaning);
         }
         ?>
-        <br>
-        <br>
+
         <?php echo "<span class='counter'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span>"; ?>
-        <br>
-        <br>
-        <br>
-        <br>
+
         <input name="poluchit"
                type="submit"
                value="Получить результат строками">
     </form>
-    <br>
+
     <a class="link-button-reset"
        href="/step_4.php"
        title="Назад">[<<<< Назад]</a>

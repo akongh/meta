@@ -45,20 +45,15 @@ if (0 < $amount_kws_for_translation) {
 </head>
 <body>
 <div class="page">
-    <br>
-    <br>
+
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-    <br>
+
     <a href="/step_1.php" title="Начать подбирать ключевые слова">К подбору</a>
-    <br>
-    <br>
+
     <h1 class="bold">Очередь заявок на перевод</h1>
-    <br>
-    <br>
-    <br>
+
     <?php echo $html_kws_for_translation; ?>
-    <br>
-    <br>
+
     <?php echo "<span class='counter'>{$amount_kws_for_translation}</span>"; ?>
     <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
