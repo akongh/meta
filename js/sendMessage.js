@@ -5,7 +5,7 @@ let clearMessageButton = document.querySelector("#clearMessageButton");
 let sendMessageButton = document.querySelector("#sendMessageButton");
 
 textMessageForm.maxLength = textMessageMaxLength;
-lengthMessageInformer.innerHTML = textMessageMaxLength;
+lengthMessageInformer.innerHTML = textMessageMaxLength.toString();
 
 textMessageForm.addEventListener("input", checkMesageLength);
 
@@ -20,12 +20,12 @@ sendMessageButton.addEventListener("click", function (e) {
 }, false);
 
 function checkMesageLength() {
-    lengthMessageInformer.innerHTML = textMessageMaxLength - textMessageForm.value.length;
+    lengthMessageInformer.innerHTML = (textMessageMaxLength - textMessageForm.value.length).toString();
 }
 
 function clearMessage() {
     textMessageForm.value = "";
-    lengthMessageInformer.innerHTML = textMessageMaxLength;
+    lengthMessageInformer.innerHTML = textMessageMaxLength.toString();
 }
 
 function sendMessage(url) {
