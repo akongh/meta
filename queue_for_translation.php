@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 
@@ -42,12 +43,14 @@ if (0 < $amount_kws_for_translation) {
     <link rel="stylesheet"
           href="css/style.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
 <div class="wrap">
     <p>
-        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     </p>
     <p>
         <a href="/step_1.php"
@@ -60,7 +63,8 @@ if (0 < $amount_kws_for_translation) {
     <p>
         <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
     </p>
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>
 </html>

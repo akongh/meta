@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 ?>
@@ -16,7 +17,8 @@ error_reporting(-1);
     <link rel="stylesheet"
           href="css/style.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">

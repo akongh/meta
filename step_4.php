@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 
@@ -20,14 +21,16 @@ session_start();
     <link rel="stylesheet"
           href="css/style.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/changeOrderingList.js"></script>
 </head>
 <body>
 <div class="wrap">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>4/6. Определяем очерёдность ключевых слов</h1>
     <form method="post"
           action="/step_4_to_5.php">
@@ -60,9 +63,11 @@ session_start();
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
-        <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 </body>
 </html>

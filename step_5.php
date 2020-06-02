@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 
@@ -20,11 +21,13 @@ session_start();
     <link rel="stylesheet"
           href="css/style.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>5/6. Выбираем перевод</h1>
     <form method="post"
           action="/step_5_to_6.php">
@@ -86,9 +89,11 @@ session_start();
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
-        <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
     </div>
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/countUniqEngChecked.js"></script>
 <script src="/js/uncheckedTranslations.js"></script>

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 /**
@@ -17,7 +18,8 @@ error_reporting(-1);
  * @param array $data_array
  * @return string
  */
-function sql_prepare_array_to_string_query($data_array) {
+function sql_prepare_array_to_string_query($data_array)
+{
     $data_string = implode("','", $data_array);
     return "'$data_string'";
 }

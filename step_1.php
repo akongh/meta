@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 error_reporting(-1);
 
@@ -22,11 +23,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <link rel="stylesheet"
           href="css/style.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
 </head>
 <body>
 <div class="wrap">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     <h1>1/6. Задаём опорные ключевые слова для подбора</h1>
     <?= meta_kws_markup_state_amount(); ?>
     <form action="/step_1_to_2.php"
@@ -61,9 +64,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                value="Подобрать">
     </form>
     <div class="content_right">
-        <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
     </div>
-    <?php require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
 </body>
 </html>
