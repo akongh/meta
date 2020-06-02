@@ -9,6 +9,82 @@ body {
     color: #000000;
 }
 
+textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px #dddddd;
+    cursor: text;
+    margin-top: 24px;
+}
+
+input[type="submit"] {
+    border: solid 1px #888888;
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    margin-top: 24px;
+    display: block;
+    font-weight: bolder;
+    color: #888888;
+}
+
+input[type="submit"]:hover {
+    border: solid 1px #000000;
+    color: #000000;
+}
+
+a {
+    color: #888888;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    cursor: move;
+}
+
+h1, h2 {
+    font-size: inherit;
+    margin-top: 32px;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+#separate_result_view,
+#single_result_view {
+    margin-top: 64px;
+}
+
+#messageBlock .content_right {
+    margin-bottom: -24px;
+    margin-top: 0;
+}
+
+#messageBlock {
+    margin-top: 64px;
+}
+
+#result_no_transl,
+.result {
+    margin-top: 16px;
+}
+
+#result_no_transl span:hover,
+.result span:hover {
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
 .wrap {
     max-width: 720px;
     margin-right: auto;
@@ -33,6 +109,7 @@ body {
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    margin-top: 8px;
 }
 
 @keyframes error {
@@ -84,54 +161,12 @@ body {
     color: #888888;
 }
 
-textarea {
-    width: 100%;
-    resize: none;
-    outline: none;
-    overflow: auto;
-    border: dashed 1px #dddddd;
-    cursor: text;
-    margin-top: 24px;
-}
-
-input[type="submit"] {
-    border: solid 1px #888888;
-    padding: 8px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-    margin-top: 24px;
-    display: block;
-    font-weight: bolder;
-    color: #888888;
-}
-
-input[type="submit"]:hover {
-    border: solid 1px #000000;
-    color: #000000;
-}
-
-a {
-    color: #888888;
-    text-decoration: underline;
-}
-
-a:hover {
-    color: #000000;
-}
-
 .label_highlight:hover {
     background-color: #eeeeee;
 }
 
 .ui-sortable-handle:hover {
     background-color: #eeeeee;
-}
-
-.result span:hover,
-#result_no_transl span:hover {
-    background-color: #eeeeee;
-    cursor: pointer;
 }
 
 .content_right .link_reset_and_start_over:hover {
@@ -152,36 +187,8 @@ a:hover {
     margin-top: 24px;
 }
 
-#messageBlock .content_right {
-    margin-bottom: -24px;
-    margin-top: 0;
-}
-
-#messageBlock {
-    margin-top: 64px;
-}
-
 .wrap_list_kws {
     margin-top: 64px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    cursor: move;
-}
-
-h1, h2 {
-    font-size: inherit;
-    margin-top: 32px;
-}
-
-h1:first-child {
-    margin-top: 0;
-}
-
-.error {
-    margin-top: 8px;
 }
 
 .back_link {
@@ -206,22 +213,12 @@ h1:first-child {
     margin-top: 64px;
 }
 
-#separate_result_view,
-#single_result_view {
-    margin-top: 64px;
-}
-
 .add_kws {
     margin-top: 24px;
 }
 
 .amount_kws {
     margin-top: 24px;
-}
-
-.result,
-#result_no_transl {
-    margin-top: 16px;
 }
 
 .meta_info {
