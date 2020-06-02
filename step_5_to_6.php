@@ -12,6 +12,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
 if (isset($_POST["russk"])) {
     $_SESSION["arr_kws_ru"] = $_POST["russk"];
+    $arr_kws_ru_to_db = $_SESSION["arr_kws_ru"];
     $kwsset_time = time();
 
     // Создание номера нового набора todo:transl
@@ -29,12 +30,6 @@ if (isset($_POST["russk"])) {
     $kwsset_id = $mysqli->insert_id;
 
     // Добавление новых ключевых слов в БД todo:transl
-
-    $arr_kws_ru_to_db = array();
-
-    foreach ($_SESSION["arr_kws_ru"] as $kw_ru) {
-        $arr_kws_ru_to_db[] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kw_ru));//todo: is it necessary "/ {2,}/" --> " " ?
-    }
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
