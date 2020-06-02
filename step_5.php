@@ -44,7 +44,7 @@ session_start();
                 }
                 if ($el[2] == 0 or $el[2] == 7) {
                     $div_class = "block_not_translated";
-                    $translation_meaning_markup = "<div class='meaning_notice'><input type='checkbox'
+                    $translation_meaning_markup = "<div><input type='checkbox'
                                                                 name='zayavka[]'
                                                                 hidden
                                                                 checked
@@ -57,7 +57,7 @@ session_start();
                         $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
                             'UTF-8');
                         $translation_meaning[] = "
-                                                 <div class='meaning_notice'><label class='label_highlight'>
+                                                 <div><label class='label_highlight'>
                                                      <span class='keyword_en'>
                                                          <input type='checkbox'
                                                                 name='angl[]'
