@@ -48,21 +48,21 @@ if (0 < $amount_kws_for_translation) {
 </head>
 <body>
 <div class="wrap">
-    <p>
+    <div>
         <?php
         require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-    </p>
-    <p>
+    </div>
+    <div>
         <a href="/step_1.php"
            title="Начать подбирать ключевые слова">К подбору</a>
-    </p>
+    </div>
     <h1>Очередь заявок на перевод</h1>
-    <p>
+    <div class="wrap_list_kws">
         <?= $html_kws_for_translation; ?>
-    </p>
-    <p>
+    </div>
+    <div class="amount_kws">
         <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
-    </p>
+    </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
 </div>
