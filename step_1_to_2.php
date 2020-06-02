@@ -15,8 +15,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
  * INCOMING DATA
  */
 
-// $_POST["input_str_kws_query"]
-
 $_SESSION["arr_kws_query"] = meta_kws_input_string_to_array($_POST["input_str_kws_query"], 256, 8);
 $_SESSION["arr_kws_selection_marked"] = $_SESSION["arr_kws_query"];
 
@@ -24,8 +22,6 @@ if (isset($_SESSION["error_messages"])) {
     header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
     exit;
 }
-
-// $_POST["max_choice_amount"]
 
 switch ((int)$_POST["max_choice_amount"]) {
     case 64:
