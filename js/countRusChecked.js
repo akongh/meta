@@ -13,5 +13,5 @@ function countRusChecked(){
             count++;
         }
     }
-    document.getElementById("countRusChecked").innerHTML = count;
+    document.getElementById("countRusChecked").innerHTML = count.toString();
 }
