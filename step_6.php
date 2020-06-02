@@ -80,7 +80,8 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <h2>На русском и английском</h2>
         <div class="result">
             <span><?= $str_kws_ru; ?>
-            <br>
+                <br>
+                <br>
             <?= $str_kws_en; ?></span>
         </div>
         <div class="amount_kws">
