@@ -2,16 +2,6 @@
 
 declare(strict_types=1);
 error_reporting(-1);
-/**
- * Meta functions.
- *
- * PHP version 7.3
- *
- * @package   Meta
- * @author    Andrei Korzhyts <andreikorzhyts@dmail.com>
- * @copyright 2018 Andrei Korzhyts, Elena Abrazhevich
- * @since     0.1.0
- */
 
 
 /**
