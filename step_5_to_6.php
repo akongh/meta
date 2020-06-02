@@ -15,7 +15,7 @@ if (isset($_POST["russk"])) {
     $arr_kws_ru_to_db = $_SESSION["arr_kws_ru"];
     $kwsset_time = time();
 
-    // Создание номера нового набора todo:transl
+    // Creating of number of new set
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
@@ -29,7 +29,7 @@ if (isset($_POST["russk"])) {
 
     $kwsset_id = $mysqli->insert_id;
 
-    // Добавление новых ключевых слов в БД todo:transl
+    // Adding of new keywords to database
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
@@ -43,7 +43,7 @@ if (isset($_POST["russk"])) {
         }
     }
 
-    // Создание связей ключевых слов с набором todo:transl
+    // Creating of relations of keywords with set
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_RELATIONS)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
