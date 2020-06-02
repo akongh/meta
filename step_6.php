@@ -109,12 +109,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
             </span>
         </div>
         <label>
-        <textarea id="messageForm"
+        <textarea id="textMessageForm"
                   wrap="soft"
                   rows="4"
                   placeholder=""
                   maxlength="240"></textarea></label>
-        <!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
+        <!-- Установка [maxLength] продублирована в [js/sendMessage.js (var maxLength)]. -->
     </div>
     <div id="responseMessage"
          class="content_right">
@@ -129,7 +129,6 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 </div>
 <script src="/js/changeResultView.js"></script>
 <script src="/js/selectResult.js"></script>
-<script src="/js/controlMessage.js"></script>
 <script src="/js/sendMessage.js"></script>
 </body>
 </html>
