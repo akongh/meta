@@ -53,6 +53,11 @@ session_start();
                     $div_class = "block_translated";
                     $translation_meaning = array();
                     foreach ($el[1] as $val) {
+                        if (in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                            $status = "checked";
+                        } else {
+                            $status = "";
+                        }
                         $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                         $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                         $translation_meaning[] = "
@@ -60,6 +65,7 @@ session_start();
                                                      <span class='keyword_en'>
                                                          <input type='checkbox'
                                                                 name='angl[]'
+                                                                {$status}
                                                                 value='{$translation}'>{$translation}</span> — {$meaning}</label></div>
                                                                 ";
                     }

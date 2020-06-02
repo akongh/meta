@@ -65,6 +65,7 @@ if (isset($_POST["russk"])) {
 
 if (isset($_POST["angl"])) {
     $_SESSION["arr_kws_en"] = $_POST["angl"];
+    $_SESSION["arr_kws_en_marked"] = $_SESSION["arr_kws_en"];
 }
 
 if (isset($_POST["zayavka"])) {
