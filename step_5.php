@@ -53,7 +53,7 @@ session_start();
                     $div_class = "block_translated";
                     $translation_meaning = array();
                     foreach ($el[1] as $val) {
-                        if (in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                        if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
                             $status = "checked";
                         } else {
                             $status = "";
