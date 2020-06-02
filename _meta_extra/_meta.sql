@@ -32,11 +32,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `k-tn` (
   `idn` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `vr` int(11) NOT NULL,
-  `ses` varchar(32) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `vr` int(11) NOT NULL COMMENT 'Time',
   PRIMARY KEY (`idn`),
-  KEY `vr` (`vr`),
-  KEY `ses` (`ses`)
+  KEY `vr` (`vr`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580386 ;
 
 -- --------------------------------------------------------
@@ -49,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
 
 CREATE TABLE IF NOT EXISTS `k-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
   `kol` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT 'Amount',
   `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
@@ -68,13 +66,13 @@ CREATE TABLE IF NOT EXISTS `k-ts` (
 
 CREATE TABLE IF NOT EXISTS `k-t_s` (
   `id_sv` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `id_n` int(10) unsigned zerofill NOT NULL,
-  `id_s` int(10) unsigned zerofill NOT NULL,
+  `id_n` int(10) unsigned zerofill NOT NULL COMMENT 'Set ID',
+  `id_s` int(10) unsigned zerofill NOT NULL COMMENT 'Word ID',
   PRIMARY KEY (`id_sv`),
   UNIQUE KEY `sost` (`id_n`,`id_s`),
   KEY `id_s` (`id_s`),
   KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for the Cyrillic' AUTO_INCREMENT=9276493 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for Cyrillic' AUTO_INCREMENT=9276493 ;
 
 -- --------------------------------------------------------
 
@@ -86,14 +84,14 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
 
 CREATE TABLE IF NOT EXISTS `k_l` (
   `idk_l` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `idk` int(10) unsigned zerofill NOT NULL COMMENT 'In Russian',
-  `idl` int(10) unsigned zerofill NOT NULL COMMENT 'In English',
-  `idz` int(10) unsigned zerofill NOT NULL COMMENT 'Numbers of meanings',
+  `idk` int(10) unsigned zerofill NOT NULL COMMENT 'Cyrillic word ID',
+  `idl` int(10) unsigned zerofill NOT NULL COMMENT 'Latin word ID',
+  `idz` int(10) unsigned zerofill NOT NULL COMMENT 'Meaning ID',
   PRIMARY KEY (`idk_l`),
   KEY `idk` (`idk`),
   KEY `idl` (`idl`),
   KEY `idz` (`idz`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin AUTO_INCREMENT=33803 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for translation' AUTO_INCREMENT=33803 ;
 
 -- --------------------------------------------------------
 
@@ -105,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 
 CREATE TABLE IF NOT EXISTS `l-ts` (
   `ids` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL,
+  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
   `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
@@ -122,10 +120,10 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
 
 CREATE TABLE IF NOT EXISTS `tz` (
   `idz` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word meaning',
+  `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Meaning',
   PRIMARY KEY (`idz`),
   UNIQUE KEY `z` (`z`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin AUTO_INCREMENT=33809 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Meanings for translation' AUTO_INCREMENT=33809 ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
