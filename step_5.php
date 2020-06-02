@@ -51,11 +51,10 @@ session_start();
                                                                 value='{$el[0]}'>{$comment}</div>";
                 } else {
                     $div_class = "block_translated";
+                    $translation_meaning = array();
                     foreach ($el[1] as $val) {
-                        $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
-                            'UTF-8');
-                        $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5,
-                            'UTF-8');
+                        $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                        $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                         $translation_meaning[] = "
                                                  <div><label class='label_highlight padding_left'>
                                                      <span class='keyword_en'>

@@ -30,6 +30,8 @@ if (isset($_POST["russk"])) {
 
     // Добавление новых ключевых слов в БД todo:transl
 
+    $arr_kws_ru_to_db = array();
+
     foreach ($_SESSION["arr_kws_ru"] as $kw_ru) {
         $arr_kws_ru_to_db[] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], trim($kw_ru));//todo: is it necessary "/ {2,}/" --> " " ?
     }

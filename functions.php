@@ -22,7 +22,11 @@ function meta_error_mesage($data_integer)
             break;
         case 4:
             $return = "Должно быть больше ключевых слов в готовом наборе.";
+            break;
+        default:
+            $return = "";
     }
+
     return $return;
 }
 
@@ -31,6 +35,7 @@ function meta_error_mesage($data_integer)
  */
 function meta_errors_markup_list()
 {
+    $data_array_markup = array();
     if (isset($_SESSION["error_messages"])) {
         foreach ($_SESSION["error_messages"] as $item) {
             $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
@@ -83,6 +88,7 @@ function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_cou
  */
 function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
 {
+    $markup = array();
     foreach ($arr_list as $kw) {
         if (in_array($kw, $arr_checked)) {
             $status = "checked";
@@ -114,6 +120,9 @@ function meta_kws_content_input($data_int)
             break;
         case 2:
             $content_name = "arr_kws_addition";
+            break;
+        default:
+            $content_name = array();
     }
     if (isset($_SESSION[$content_name])) {
         $content = htmlspecialchars(implode("\n", $_SESSION[$content_name]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
@@ -130,6 +139,7 @@ function meta_kws_content_input($data_int)
 function meta_kws_markup_state_amount()
 {
     if (isset($_SESSION["arr_kws_state"]) and count($_SESSION["arr_kws_state"]) > 0) {
+        $kws = array();
         foreach ($_SESSION["arr_kws_state"] as $kw) {
             $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
         }
@@ -158,13 +168,10 @@ function meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choic
     }
     $data = "";
     $mysqli_stmt->bind_result($data);
-
     while ($mysqli_stmt->fetch()) {
         $arr_kws_selection[] = $data;
     }
-
     $mysqli_stmt->free_result();
-
     if (isset ($arr_kws_selection) && null != $arr_kws_selection) {
         return $arr_kws_selection;
     } else {
