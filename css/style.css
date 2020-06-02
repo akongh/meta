@@ -3,20 +3,6 @@
 
 /* Есть цвет в скрипте js/uncheckedTranslations.js */
 
-/*
-Table of content
-
-    General
-    Typography
-    Color
- */
-
-/*
- * ----------------------------------------------------------------
- * General
- * ----------------------------------------------------------------
- */
-
 body {
     font-family: 'Source Code Pro', monospace;
     cursor: default;
@@ -38,8 +24,8 @@ body {
     padding-left: 4px;
     padding-right: 4px;
     font-weight: 700;
-    color: #000;
-    background: #ddd;
+    color: #000000;
+    background: #dddddd;
 }
 
 .error {
@@ -51,10 +37,10 @@ body {
 
 @keyframes error {
     0% {
-        color: #888;
+        color: #888888;
     }
     100% {
-        color: #ddd;
+        color: #dddddd;
     }
 }
 
@@ -83,19 +69,19 @@ body {
 .keyword_ru {
     margin-bottom: 4px;
     font-weight: 700;
-    color: #000;
+    color: #000000;
 }
 
 .keyword_en {
-    color: #000;
+    color: #000000;
 }
 
 .block_translated {
-    color: #888;
+    color: #888888;
 }
 
 .block_not_translated {
-    color: #888;
+    color: #888888;
 }
 
 textarea {
@@ -195,7 +181,7 @@ h1:first-child {
 }
 
 .error {
-margin-top: 8px;
+    margin-top: 8px;
 }
 
 .back_link {
@@ -250,18 +236,3 @@ margin-top: 8px;
 .block_translated {
     margin-bottom: 8px;
 }
-
-/*
- * ----------------------------------------------------------------
- * Typography
- * ----------------------------------------------------------------
- */
-
-
-/*
- * ----------------------------------------------------------------
- * Color
- * ----------------------------------------------------------------
- */
-
-
