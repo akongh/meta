@@ -65,6 +65,7 @@ body {
 .label_highlight {
     display: inline-block;
     width: 100%;
+    padding-left: 24px;
 }
 
 .label_highlight input {
@@ -234,10 +235,6 @@ margin-top: 8px;
 .block_not_translated,
 .block_translated {
     margin-bottom: 8px;
-}
-
-.meaning_notice {
-    padding-left: 24px;
 }
 
 /*
