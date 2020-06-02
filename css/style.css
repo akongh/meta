@@ -120,6 +120,7 @@ input[type="submit"]:hover {
 
 a {
     color: #888888;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -192,6 +193,12 @@ margin-top: 8px;
 
 .back_link {
     margin-top: 24px;
+}
+
+.back_link a,
+.content_right a,
+.link_reset_and_start_over {
+    text-decoration: none;
 }
 
 .label_info {
