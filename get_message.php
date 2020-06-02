@@ -4,11 +4,15 @@ declare(strict_types=1);
 error_reporting(-1);
 
 if (isset($_POST["messageText"])) {
-    $e_mail = "andreikorzhyts@gmail.com";
+    $from = "andreikorzhyts@gmail.com";
+    $to = "andreikorzhyts@gmail.com";
     $subject = "META.afoteris.com";
-    $message_text = $_POST["messageText"];
+    $message = $_POST["messageText"];
+    $headers = "From: {$from}
+    Reply-To: andreikorzhyts@gmail.com
+    X-Mailer: PHP/" . phpversion();
 
-    if (mail($e_mail, $subject, $message_text)) {
+    if (mail($to, $subject, $message, $headers)) {
         echo("Сообщение отправлено.");
     } else {
         echo("Что-то не так… Сообщение не отправлено. Попробуйте andreikorzhyts на gmail.");
