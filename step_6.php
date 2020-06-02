@@ -105,7 +105,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <p>Обратная связь.</p>
         <div class="content_right">
             <span class="amount">
-                <span id="countInformer"></span>
+                <span id="lengthMessageInformer"></span>
             </span>
         </div>
         <label>
@@ -118,7 +118,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     </div>
     <div id="responseMessage"
          class="content_right">
-        <a id="clearButton"
+        <a id="clearMessageButton"
            href="##"
            title="Очистить поле отзыва">[x]</a>
         <a id="sendMessageButton"
