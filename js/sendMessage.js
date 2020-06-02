@@ -1,11 +1,11 @@
-let maxLength = 240; // Установка [maxLength] продублирована в [step_6.html (textarea id="textMessageForm")].
+let textMessageMaxLength = 240; // Установка [maxLength] продублирована в [step_6.html (textarea id="textMessageForm")].
 let textMessageForm = document.querySelector("#textMessageForm");
 let countInformer = document.querySelector("#countInformer");
 let clearButton = document.querySelector("#clearButton");
 let sendMessageButton = document.querySelector("#sendMessageButton");
 
-textMessageForm.maxLength = maxLength;
-countInformer.innerHTML = maxLength;
+textMessageForm.maxLength = textMessageMaxLength;
+countInformer.innerHTML = textMessageMaxLength;
 
 textMessageForm.addEventListener("input", checkMesageLength);
 
@@ -20,12 +20,12 @@ sendMessageButton.addEventListener("click", function (e) {
 }, false);
 
 function checkMesageLength() {
-    countInformer.innerHTML = maxLength - textMessageForm.value.length;
+    countInformer.innerHTML = textMessageMaxLength - textMessageForm.value.length;
 }
 
 function clearMessage() {
     textMessageForm.value = "";
-    countInformer.innerHTML = maxLength;
+    countInformer.innerHTML = textMessageMaxLength;
 }
 
 function sendMessage(url) {

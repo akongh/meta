@@ -114,7 +114,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                   rows="4"
                   placeholder=""
                   maxlength="240"></textarea></label>
-        <!-- Установка [maxLength] продублирована в [js/sendMessage.js (var maxLength)]. -->
+        <!-- Установка [maxLength] продублирована в [js/sendMessage.js (let textMessageMaxLength)]. -->
     </div>
     <div id="responseMessage"
          class="content_right">
