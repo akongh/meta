@@ -1,16 +1,11 @@
-<?php error_reporting( - 1 );
-session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+<?php
 
-if ( ! isset( $_SESSION["metka"] ) ) {
-    header( "Location: http://" . $site_domain_name . "/meta.php" );
-}
-if ( isset( $_SESSION["ochered"] ) ) {
-    $ochered = $_SESSION["ochered"];
-};
-if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
-    $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
-};
+declare(strict_types=1);
+error_reporting(-1);
+
+session_start();
+
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>
@@ -18,61 +13,61 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
 <head>
     <meta charset="utf-8">
     <title>4/6. Определяем очерёдность ключевых слов</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
+    <link rel="stylesheet"
+          href="css/style.css"
+          type="text/css">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
     <script src="/js/jquery-1.10.2.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/changeOrderingList.js"></script>
 </head>
 <body>
-<div class="page">
-    <br>
-    <br>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' );?>
-    <br>
-    <br>
-    <h1 class="bold">4/6. Определяем очерёдность ключевых слов</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="wrap">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <h1>4/6. Определяем очерёдность ключевых слов</h1>
     <form method="post"
-          action="/php/ex_create_translation_list.php">
-        <ul id="sortable">
-            <?php if(isset($ochered)){echo $ochered;}; ?>
+          action="/step_4_to_5.php">
+        <ul id="sortable" class="wrap_list_kws">
+            <?php
+            $arr_kws_ordered = array();
+            foreach ($_SESSION["arr_kws_ordered"] as $kw) {
+                $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                $arr_kws_ordered[] = "
+                        <li>
+                            <input type='checkbox'
+                                   name='arr_kws_marked[]'
+                                   hidden
+                                   checked
+                                   value='{$kw}'>{$kw}</li>
+                                   ";
+            }
+            echo implode("", $arr_kws_ordered);
+            ?>
         </ul>
-        <br>
-        <br>
-        <span class="counter">
-            <?php if (isset($_SESSION["kol_slov_itog"])){echo $_SESSION["kol_slov_itog"];}; ?></span>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="content-right">
-            <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' );?><span id="help" class="help hidden">
-            1. <span class="bold">Перетаскивать</span> ключевое слово удобнее, хватаясь за строку с&nbsp;ним, а&nbsp;не целясь
-            в&nbsp;само слово.<br>
-            2. <span class="bold">Некоторые стоки</span> учитывают очерёдность ключевых слов.
-            </span><br>
+        <div class="amount_kws">
+            <?= "<span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . "</span>"; ?>
         </div>
-        <br>
         <input name="poluchit"
                type="submit"
-               value="4/6 Выбрать перевод">
+               value="Выбрать перевод">
     </form>
-    <br>
-    <div class="content-right">
-        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_reset_choice.php' );?>
+    <div class="back_link">
+        <a href="/step_3.php"
+           title="Назад">[<<<< Назад]</a>
     </div>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
+    <div class="content_right">
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+    </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>

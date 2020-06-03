@@ -1,26 +1,38 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
+
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
 
-if ( ! isset( $_SESSION["metka"] ) ) {
-    header( "Location: http://" . $site_domain_name . "/meta.php" );
+if (isset($_SESSION["arr_kws_ru"])) {
+    $str_kws_ru = implode(", ", $_SESSION["arr_kws_ru"]);
+    $str_kws_ru = htmlspecialchars($str_kws_ru, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $count_kws_ru = count($_SESSION["arr_kws_ru"]);
+} else {
+    $str_kws_ru = "";
+    $count_kws_ru = 0;
 }
 
-if ( isset( $_SESSION["kol_slov_russk"] ) ) {
-    $kol_slov_russk = $_SESSION["kol_slov_russk"];
+if (isset($_SESSION["arr_kws_en"])) {
+    $str_kws_en = implode(", ", $_SESSION["arr_kws_en"]);
+    $str_kws_en = htmlspecialchars($str_kws_en, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $count_kws_en = count($_SESSION["arr_kws_en"]);
+} else {
+    $str_kws_en = "";
+    $count_kws_en = 0;
 }
-if ( isset( $_SESSION["kol_slov_angl"] ) ) {
-    $kol_slov_angl = $_SESSION["kol_slov_angl"];
+
+if (isset($_SESSION["arr_kws_untranslated"])) {
+    $str_kws_untranslated = implode(", ", $_SESSION["arr_kws_untranslated"]);
+    $str_kws_untranslated = htmlspecialchars($str_kws_untranslated, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $count_kws_untranslated = count($_SESSION["arr_kws_untranslated"]);
+} else {
+    $str_kws_untranslated = "";
+    $count_kws_untranslated = 0;
 }
-if ( isset( $_SESSION["_REZULTAT_russk"] ) ) {
-    $_REZULTAT_russk = $_SESSION["_REZULTAT_russk"];
-}
-if ( isset( $_SESSION["_REZULTAT_angl"] ) ) {
-    $_REZULTAT_angl = $_SESSION["_REZULTAT_angl"];
-};
-if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
-    $_REZULTAT_russk_neperevedennye = $_SESSION["_REZULTAT_russk_neperevedennye"];
-}
+
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>
@@ -30,170 +42,99 @@ if ( isset( $_SESSION["_REZULTAT_russk_neperevedennye"] ) ) {
     <title>6/6. Результат строками</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' ); ?>
+    <link rel="stylesheet"
+          href="css/style.css"
+          type="text/css">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
-    <br>
-    <br>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_to_index.php' ); ?>
-    <br>
-    <br>
-    <h1 class="bold">6/6. Результат строками</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-<!--    <div class="notice">-->
-<!--        <p class="notice-title">-->
-<!--            Удобно извлекайте со&nbsp;стоков подсказки для поисковых запросов с&nbsp;инструментом-->
-<!--            <a href="http://meta.afoteris.com/hints/hints.php"-->
-<!--               title="Перейти в Мета-подсказки"-->
-<!--               target="_blank">«Мета-подсказки»</a>-->
-<!--        </p>-->
-<!--        <p class="notice-description">Ещё один, действующий на&nbsp;базе Меты, инструмент подбора ключевых слов для&nbsp;стоков-->
-<!--            по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;этих стоков.-->
-<!--        </p>-->
-<!--        <a href="http://meta.afoteris.com/hints/hints.php"-->
-<!--           title="Перейти в Мета-подсказки"-->
-<!--           target="_blank">-->
-<!--            <img src="images/meta_hints_interface.png" alt="Мета-подсказки"></a>-->
-<!--    </div>-->
-<!--    <br>-->
-<!--    <br>-->
-    <div class="content-right">
-        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/link_help.php' ); ?>
-        <span id="help"
-              class="help hidden">
-            1. <span class="bold">Чтобы выбрать текст</span>, просто щёлкните по нему.<br>
-            2. <span class="bold">«Изменить вид на единый»</span>&nbsp;— объединяет результаты на русском и&nbsp;на английском
-            в&nbsp;один текст из двух абзацев для единого выделения и&nbsp;копирования.<br>
-            3. <span class="bold">«Изменить вид на раздельный»</span>&nbsp;— разделяет результаты на русском и&nbsp;на английском
-            на два текста по одному абзацу для раздельного выделения и&nbsp;копирования.
-        </span>
-    </div>
-    <br>
-    <div id="separate-result-view">
-        <span class="content-right">
-            <a id="single-view-button"
-               class="link-button"
-               href="#"
+<div class="wrap">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <h1>6/6. Результат строками</h1>
+    <div id="separate_result_view">
+        <div class="content_right">
+            <a id="single_view_button"
+               href="##"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
-        </span>
-        <br>
-        <br>
-        <h2 class="bold">На русском</h2>
-        <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
-                echo $_REZULTAT_russk;
-            }; ?></span>
-        <span class="counter"><?php if ( isset( $kol_slov_russk ) ) {
-                echo $kol_slov_russk;
-            }; ?></span>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h2 class="bold">На английском</h2>
-        <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_angl ) ) {
-                echo $_REZULTAT_angl;
-            }; ?></span>
-        <span class="counter"><?php if ( isset( $kol_slov_angl ) ) {
-                echo $kol_slov_angl;
-            }; ?></span>
+        </div>
+        <h2>На русском</h2>
+        <div class="result"><span><?= $str_kws_ru; ?></span></div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_ru; ?></span>
+        </div>
+        <h2>На английском</h2>
+        <div class="result"><span><?= $str_kws_en; ?></span></div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_en; ?></span>
+        </div>
     </div>
-    <div id="single-result-view"
-          class="hidden">
-        <span class="content-right">
-            <a id="separate-view-button"
-               class="link-button"
-               href="#"
+    <div id="single_result_view"
+         class="hidden">
+        <div class="content_right">
+            <a id="separate_view_button"
+               href="##"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
-        </span>
-        <br>
-        <br>
-        <h2 class="bold">На русском и английском</h2>
-        <br>
-        <span class="result"><?php if ( isset( $_REZULTAT_russk ) ) {
-                echo $_REZULTAT_russk;
-            }; ?>
-            <br>
-            <br>
-            <?php if ( isset( $_REZULTAT_angl ) ) {
-                echo $_REZULTAT_angl;
-            }; ?></span>
-        <br>
-        <br>
-        <span class="counter"><?php if ( isset( $kol_slov_russk ) ) {
-                echo $kol_slov_russk;
-            }; ?> / <?php if ( isset( $kol_slov_angl ) ) {
-                echo $kol_slov_angl;
-            }; ?></span>
+        </div>
+        <h2>На русском и английском</h2>
+        <div class="result">
+            <span><?= $str_kws_ru; ?>
+                <br>
+                <br>
+            <?= $str_kws_en; ?></span>
+        </div>
+        <div class="amount_kws">
+            <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
+        </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <?php if ( isset( $_REZULTAT_russk_neperevedennye ) ) {
-        echo $_REZULTAT_russk_neperevedennye;
-    }; ?>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/socialIcons.php' ); ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <span id="messageBlock">
-        Обратная связь.
-        <br>
-        <span class="content-right">
-            <span class="counter">
-                <span id="countInformer">
-                </span>
-            </span>
-        </span>
-        <textarea id="messageForm"
-                  class="textarea-message"
-                  wrap="soft"
-                  rows="4"
-                  placeholder=""
-                  maxlength="240"></textarea>
-        <!-- Установка [maxLength] продублирована в [js/controlMessage.js (var maxLength)]. -->
-        <br>
-        <br>
-    </span>
-    <div id="responseMessage"
-         class="content-right">
-        <a id="clearButton"
-           class="link-button"
-           href="#"
-           title="Очистить поле отзыва">[x]</a>
-        <a id="sendMessageButton"
-           class="link-button"
-           href="#"
-           title="Отправить отзыв">[Отправить]</a>
+    <h2>Непереведённые</h2>
+    <div id='result_no_transl'>
+        <span><?= $str_kws_untranslated; ?></span>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="content-right">
-        <a class="link-button"
-           href="/php/reset_choice.php"
-           title="Перейти к первому шагу и начать новый подбор">[Начать новый подбор]</a>
+    <div class="amount_kws">
+        <span class='amount'><?= $count_kws_untranslated; ?></span>
     </div>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' ); ?>
+    <div class="back_link">
+        <a href="/step_5.php"
+           title="Назад">[<<<< Назад]</a>
+    </div>
+    <div class="content_right">
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
+    </div>
+<!--    <div id="messageBlock">-->
+<!--        <p>Обратная связь.</p>-->
+<!--        <div class="content_right">-->
+<!--            <span class="amount">-->
+<!--                <span id="lengthMessageInformer"></span>-->
+<!--            </span>-->
+<!--        </div>-->
+<!--        <label>-->
+<!--        <textarea id="textMessageForm"-->
+<!--                  wrap="soft"-->
+<!--                  rows="4"-->
+<!--                  placeholder=""-->
+<!--                  maxlength="240"></textarea></label>-->
+        <!-- Установка [maxLength] продублирована в [js/sendMessage.js (let textMessageMaxLength)]. -->
+<!--    </div>-->
+<!--    <div id="responseMessage"-->
+<!--         class="content_right">-->
+<!--        <a id="clearMessageButton"-->
+<!--           href="##"-->
+<!--           title="Очистить поле отзыва">[x]</a>-->
+<!--        <a id="sendMessageButton"-->
+<!--           href="##"-->
+<!--           title="Отправить отзыв">[Отправить]</a>-->
+<!--    </div>-->
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/changeResultView.js"></script>
 <script src="/js/selectResult.js"></script>
-<script src="/js/controlMessage.js"></script>
-<script src="/js/sendMessage.js"></script>
-<script src="/js/showHelp.js"></script>
+<!--<script src="/js/sendMessage.js"></script>-->
 </body>
 </html>

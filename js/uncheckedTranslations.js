@@ -7,7 +7,7 @@ for (let l = 0; l < inputsEngListAddEvent.length; l++) {
 missedTranslations();
 
 function missedTranslations() {
-    let blocksTranslation = document.getElementsByClassName("block-translated");
+    let blocksTranslation = document.getElementsByClassName("block_translated");
     for (let i = 0; i < blocksTranslation.length; i++) {
         let inputsEngList = blocksTranslation[i].querySelectorAll("input[name='angl[]']");
             let f = false;

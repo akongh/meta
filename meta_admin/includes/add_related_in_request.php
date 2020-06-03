@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>Заявка на перевод (рус.)</title>
 <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
@@ -25,7 +24,7 @@
   <a href="php/ex_request_reset.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
      </div>
   <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
 </div>
 </body>
 </html>

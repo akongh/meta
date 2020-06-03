@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("/webfonts/PTMonoWeb/stylesheet.css");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Есть цвет в скрипте js/uncheckedTranslations.js */
 
@@ -104,6 +104,11 @@ option {
 .label-highlight {
     display: inline-block;
     width: 100%;
+}
+
+.label-highlight input {
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
 .help {
@@ -239,6 +244,57 @@ option {
     margin-bottom: 16px;
 }
 
+.textarea-author {
+    width: 40%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px;
+    cursor: text;
+}
+
+.table-kws {
+    width: 296px;
+}
+
+.variant-query-table {
+    width: 100%;
+}
+
+.variant-query-td {
+    width: 100%;
+}
+
+.variant-query {
+    width: 100%;
+}
+
+.variant-query:hover {
+    cursor: pointer;
+}
+
+.variant-checkbox {
+    margin-right: 40px;
+}
+
+.variant-checkbox-label {
+    cursor: pointer;
+}
+
+.right {
+    text-align: right;
+}
+
+img {
+    float: left;
+    margin-right: 24px;
+    max-width: 400px;
+}
+
+hr {
+    clear: both;
+}
+
 /*
  * ----------------------------------------------------------------
  * Typography
@@ -246,57 +302,52 @@ option {
  */
 
 body {
-    font-family: "PT Mono", monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 16px;
     font-weight: normal;
 }
 
 h1 {
-    font-family: "PT Mono", monospace;
     font-weight: normal;
     font-size: 16px;
 }
 
 h2 {
-    font-family: "PT Mono", monospace;
     font-weight: normal;
     font-size: 16px;
 }
 
 input[type="submit"] {
-    font-family: "PT Mono Bold", monospace;
+    font-weight: 700;
     font-size: 16px;
 }
 
 select {
-    font-family: "PT Mono", monospace;
     font-size: 16px;
 }
 
 .bold {
-    font-family: "PT Mono Bold", monospace;
+    font-weight: 700;
 }
 
 .textarea-keywords {
-    font-family: "PT Mono", monospace;
     font-size: 16px;
 }
 
 .textarea-message {
-    font-family: "PT Mono", monospace;
     font-size: 16px;
 }
 
 .counter {
-    font-family: "PT Mono Bold", monospace;
+    font-weight: 700;
 }
 
 .keyword-ru {
-    font-family: "PT Mono Bold", monospace;
+    font-weight: 700;
 }
 
 .hover-invert {
-    font-family: "PT Mono Bold", monospace;
+    font-weight: 700;
 }
 
 .notice-title {
@@ -313,6 +364,14 @@ select {
 
 .link-button-reset:hover {
     text-decoration: none;
+}
+
+.textarea-author {
+    font-size: 16px;
+}
+
+.variant-query:hover {
+    font-weight: 700;
 }
 
 /*
@@ -465,4 +524,20 @@ a:hover {
 
 .notice a {
     color: #000;
+}
+
+.textarea-author {
+    border-color: #ddd;
+}
+
+.table-kws tr:hover {
+    background: #eee;
+}
+
+.variant-query:hover {
+    background: #eee;
+}
+
+.variant-checkbox-label:hover {
+    background: #eee;
 }

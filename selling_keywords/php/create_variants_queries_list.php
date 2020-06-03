@@ -1,11 +1,11 @@
 <?php error_reporting( - 1 );
 
-$level             = $_POST['level'];
-$full_string_query = $_POST['fullStringQuery'];
+$level             = $_POST["level"];
+$full_string_query = $_POST["fullStringQuery"];
 
 $queries_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $full_string_query ) ) ), "utf-8" );
 $queries_array = preg_replace( "/ {2,}/", " ", $queries_array );
-$queries_array = preg_split( "[\n|,|;]", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
+$queries_array = preg_split( "/[\n,;]/", $queries_array, - 1, PREG_SPLIT_NO_EMPTY );
 
 for ( $i = 0; $i < count( $queries_array ); $i ++ ) {
     $queries_array[ $i ] = trim( $queries_array[ $i ] );

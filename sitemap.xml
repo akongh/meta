@@ -13,7 +13,7 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://meta.afoteris.com/translation_request.php</loc>
+  <loc>http://meta.afoteris.com/queue_for_translation.php</loc>
   <lastmod>2019-04-14T08:26:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>

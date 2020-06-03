@@ -4,16 +4,14 @@
     <meta charset="utf-8">
     <title>Управление Метой</title>
     <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/meta_admin_title.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/meta_admin_title.php');?>
     <hr class="otbivka_48">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/statistic.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/statistic.php');?>
     <hr class="otbivka_24">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/yandex_metric_admin.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/yandex_metric_admin.php');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -33,7 +31,7 @@
     <hr class="otbivka_24">
     <h2>Правка по связям (возможность не готова)</h2>
     <hr class="otbivka_48">
-    <a href="#">Добавление</a><!--Ссылка на файл add.php-->
+    <a href="##">Добавление</a><!--Ссылка на файл add.php-->
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -44,21 +42,15 @@
     <div class="statistika">
         Последний раз обновлено строк: <span class="statistika_czyfra">
 <?php
-if ( isset( $obnovlenie_chastoty ) ) {
-	echo $obnovlenie_chastoty;
+if ( isset( $amount_updated_frequencies ) ) {
+	echo $amount_updated_frequencies;
 };
 ?>
   </span></div>
     <hr class="otbivka_48">
     <hr class="cherta">
-    <hr class="otbivka_24">
-    <h2>Сбор наборов</h2>
-    <hr class="otbivka_48">
-    <a href="lori_keyword_parser.php">Лори (рус.)</a>
-    <hr class="otbivka_48">
-    <hr class="cherta">
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
     <hr class="otbivka_24">
 </div>
 </body>

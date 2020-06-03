@@ -1,16 +1,13 @@
-<?php error_reporting( - 1 );
-session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+<?php
 
-if ( ! isset( $_SESSION["metka"] ) ) {
-    header( "Location: http://" . $site_domain_name . "/meta.php" );
-}
-if ( isset( $_SESSION["sobranny_nabor"] ) ) {
-    $sobranny_nabor = $_SESSION["sobranny_nabor"];
-};
-if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
-    $oshibka_kolichestva = $_SESSION["oshibka_kolichestva"];
-};
+declare(strict_types=1);
+error_reporting(-1);
+
+session_start();
+
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>
@@ -18,75 +15,59 @@ if ( isset( $_SESSION["oshibka_kolichestva"] ) ) {
 <head>
     <meta charset="utf-8">
     <title>3/6. Получаем текущий результат списком</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/yandex_metric_meta.php' );?>
+    <link rel="stylesheet"
+          href="css/style.css"
+          type="text/css">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
-    <br>
-    <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
-    <br>
-    <br>
-    <h1 class="bold">3/6. Получаем текущий результат списком</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="wrap">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <h1>3/6. Получаем текущий результат списком</h1>
     <form method="post"
-          action="/php/ex_create_ordering_list.php">
-        <?php if (isset($sobranny_nabor)){echo $sobranny_nabor;}; ?>
-        <br>
-        <br>
-        <span id="countRusChecked" class="counter"></span>
-        <br>
-        <!--<?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_rebuild_chek_choice_list.php' );?>-->
-        <?php if (isset($oshibka_kolichestva)){echo $oshibka_kolichestva;};?>
-        <br>
-        <br>
-        <br>
-        <div class="content-right">
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
-            1. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
-            именно в&nbsp;квадратик.<br>
-            2. <span class="bold">«Запомнить и&nbsp;ещё запрос»</span>&nbsp;— запомнит текущий список подобранных
-            ключевых слов (без учёта снятых галочек) и&nbsp;вернёт вас на первый шаг для дополнительного подбора.<br>
-            3. <span class="bold">«Изменить подбор»</span>&nbsp;— вернёт вас на предыдущий шаг с&nbsp;сохранёнными списками
-            отмеченных и&nbsp;дополненных ключевых слов для возможности их изменения.<br>
-            4. <span class="bold">«Уточнить запрос»</span>&nbsp;— вернёт вас на первый шаг с&nbsp;сохранением списка опорных
-            ключевых слов.<br>
-            5. <span class="bold">«По частоте в&nbsp;Мете»</span>&nbsp;— список ключевых слов на следующем шаге выстраивается
-            по частоте их использования в&nbsp;Мете другими авторами. Выбор условия определяется опытным путём и&nbsp;иногда
-            экономит время на определении очерёдности.
-            </span><br>
-            <br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_remember_current_result.php' );?><br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_2_edit_current_choice.php' );?><br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
+          action="/step_3_to_1_or_4.php">
+        <div class="wrap_list_kws">
+            <?php
+            if (isset($_SESSION["arr_kws_assembled"]) and count($_SESSION["arr_kws_assembled"]) > 0) {
+                echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_assembled"],
+                    $_SESSION["arr_kws_assembled_marked"]);
+            } else {
+                echo "Список выбранных ключевых слов пуст.";
+            }
+            ?>
         </div>
-        <br>
-        <label title="По частоте использования в Мете другими авторами">
-            <input type="checkbox"
-                   name="po_chastote"> По частоте в Мете.</label>
-        <br>
-        <br>
-        <input name="ochered"
+        <div class="amount_kws">
+            <span id="countRusChecked" class="amount"></span>
+        </div>
+        <?php
+        echo meta_errors_markup_list();
+        unset($_SESSION["error_messages"]);
+        ?>
+        <input name="order"
                type="submit"
-               value="3/6 Определить очерёдность">
+               value="Определить очерёдность">
+        <input name="remember"
+               type="submit"
+               value="Запомнить и ещё запрос">
     </form>
-    <br>
-    <div class="content-right">
-        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+    <div class="back_link">
+        <a href="/step_2.php"
+           title="Назад">[<<<< Назад]</a>
     </div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <div class="content_right">
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+    </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/countRusChecked.js"></script>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>

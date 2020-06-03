@@ -1,17 +1,16 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-$perevedeno_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
+$perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
-$propustit_zapros = mysqli_query( $db_connect, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
+$propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
 $propustit        = $propustit_otvet[0];
 
-$slovo_kolichestvo = mysqli_query( $db_connect, "
+$kw_ruolichestvo = mysqli_query( $mysqli, "
 	SELECT `s` slovo, `kol`
 	from `k-ts`
 	where `f` = 5
@@ -20,15 +19,15 @@ $slovo_kolichestvo = mysqli_query( $db_connect, "
 	" );
 
 $n = 0;
-while ( $data = mysqli_fetch_array( $slovo_kolichestvo ) ) {
-    $slovo[ $n ] = $data['slovo'];
-    $kol[ $n ]   = $data['kol'];
+while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
+    $slovo[ $n ] = $data["slovo"];
+    $kol[ $n ]   = $data["kol"];
     $n ++;
 }
 
 $slovo                      = $slovo[0];
 $kol                        = $kol[0];
-$_SESSION["slovo_original"] = $slovo;
+$_SESSION["original_kw"] = $slovo;
 
-mysqli_close( $db_connect );
-include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );
+mysqli_close( $mysqli );
+require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php' );

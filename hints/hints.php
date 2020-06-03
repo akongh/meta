@@ -1,7 +1,6 @@
 <?php error_reporting( - 1 );
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +14,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
@@ -45,8 +41,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <div class="content-right">
-        <a id="get-translation-button" class="link-button" href="#" title="Получить перевод">[Перевод]</a>
-        <a id="clear-translation-button" class="link-button" href="#" title="Очистить перевод">[х]</a>
+        <a id="get-translation-button" class="link-button" href="##" title="Получить перевод">[Перевод]</a>
+        <a id="clear-translation-button" class="link-button" href="##" title="Очистить перевод">[х]</a>
     </div>
     <br>
     <br>
@@ -64,8 +60,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <div class="content-right">
-        <a id="add-keywords-to-list-button" class="link-button" href="#" title="Добавить в список свои ключевые слова">[Добавить в&nbsp;список]</a>
-        <a id="clear-button" class="link-button" href="#" title="Очистить поле запроса">[x]</a>
+        <a id="add-keywords-to-list-button" class="link-button" href="##" title="Добавить в список свои ключевые слова">[Добавить в&nbsp;список]</a>
+        <a id="clear-button" class="link-button" href="##" title="Очистить поле запроса">[x]</a>
     </div>
     <br>
     <label><input type="radio" name="media-type" value="image" checked> Изображения</label>
@@ -101,25 +97,25 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <br>
     <br>
-    <a id="create-result-string-button" class="link-button" href="#" title="Создать строку результата">[Результат]</a>
-    <a id="rank-hints-list-button" class="link-button" href="#" title="Задать очерёдность подсказок в списке">[Очерёдность]</a>
-    <a id="return-to-list-view-button" class="link-button" href="#" title="Вернуть список подсказок">[Список]</a>
-    <a id="sort-a-z-button" class="link-button" href="#" title="Сортировать список по алфавиту">[По&nbsp;алфавиту]</a>
-    <a id="delete-deselected-hints-button" class="link-button" href="#" title="Очистить список от невыбранных подсказок">[Очистить]</a>
+    <a id="create-result-string-button" class="link-button" href="##" title="Создать строку результата">[Результат]</a>
+    <a id="rank-hints-list-button" class="link-button" href="##" title="Задать очерёдность подсказок в списке">[Очерёдность]</a>
+    <a id="return-to-list-view-button" class="link-button" href="##" title="Вернуть список подсказок">[Список]</a>
+    <a id="sort-a-z-button" class="link-button" href="##" title="Сортировать список по алфавиту">[По&nbsp;алфавиту]</a>
+    <a id="delete-deselected-hints-button" class="link-button" href="##" title="Очистить список от невыбранных подсказок">[Очистить]</a>
     <br>
     <br>
-    <a id="select-all-hints-button" class="link-button" href="#" title="Вернуть список подсказок">[Все]</a>
-    <a id="deselect-all-hints-button" class="link-button" href="#" title="Очистить список от невыбранных подсказок">[Ничего]</a>
+    <a id="select-all-hints-button" class="link-button" href="##" title="Вернуть список подсказок">[Все]</a>
+    <a id="deselect-all-hints-button" class="link-button" href="##" title="Очистить список от невыбранных подсказок">[Ничего]</a>
     <br>
     <br>
     <div class="content-right">
         <span id="hints-total-and-selected" class="counter"></span>
-        <a id="delete-hints-objects-array-button" class="link-button" href="#" title="Удалить текущий список подсказок">[x]</a>
+        <a id="delete-hints-objects-array-button" class="link-button" href="##" title="Удалить текущий список подсказок">[x]</a>
     </div>
     <br>
     <br>
     <div id="hints-area">Список подсказок пуст.</div>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="/hints/js/hints.js"></script>
 <script src="/js/jquery-1.10.2.js"></script>

@@ -1,29 +1,25 @@
-#доступ
-#AuthName "Мета"
+# ACCESS
 #AuthType Basic
-##AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-#AuthUserFile D:/Afoteris/Meta/www_vc_meta/access_meta/.htpasswd
+#AuthName "Мета"
+#AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
 #require valid-user
 
-#запрет выдачи листинга пустого каталога
+# DISABLE DIRECTORY INDEX LISTINGS
 Options -Indexes
 
-#назначаем главный файл сайта
+# MAIN FILE OF META
 DirectoryIndex meta.php
 
-#404
-ErrorDocument 404 /404.html
+# 404
+ErrorDocument 404 /404.php
 
-#503
-ErrorDocument 503 /503.html
+# 503
+ErrorDocument 503 /503.php
 
-#обслуживание
+# MAINTENANCE
 #RewriteEngine On
-##RewriteCond %{REMOTE_ADDR} !^127.0.0.1
-##RewriteCond %{REMOTE_ADDR} !^37.45.151.255
-##RewriteCond %{REMOTE_ADDR} !^178.125.170.22
-#RewriteCond %{SCRIPT_FILENAME} !/503.html
-#RewriteCond %{SCRIPT_FILENAME} !/css/meta.css
-#RewriteCond %{SCRIPT_FILENAME} !/webfonts
+#RewriteCond %{REMOTE_ADDR} !^IP for access during maintenance
+#RewriteCond %{SCRIPT_FILENAME} !/503.php
+#RewriteCond %{SCRIPT_FILENAME} !/css/style.css
 #RewriteCond %{SCRIPT_FILENAME} !/favicon.ico
-#RewriteRule ^.*$ /503.html [R=503,L]
+#RewriteRule ^.*$ /503.php [R=503,L]

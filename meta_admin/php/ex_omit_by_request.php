@@ -1,15 +1,14 @@
 <?php error_reporting( - 1 );
 session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-$slovo_k = $_SESSION["slovo_original"];
+$kw_ru = $_SESSION["original_kw"];
 
-mysqli_query( $db_connect, "
+mysqli_query( $mysqli, "
 UPDATE `k-ts`
 SET `f` = 5
-WHERE `s` = '" . $slovo_k . "' 
+WHERE `s` = '" . $kw_ru . "' 
 " );
 
-mysqli_close( $db_connect );
-header( "Location: http://" . $site_domain_name . "/meta_admin/translation_request.php" );
+mysqli_close( $mysqli );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_request.php" );

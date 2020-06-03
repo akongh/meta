@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Добавление по присутствию</title>
     <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
 </head>
 <body>
 <div class="korobka">
@@ -24,7 +23,7 @@
         <div id="parentId">
             <div>
                 <input name="perevod[]" type="text" class="vvod_prisutstvie" autofocus>
-                <a onclick="return deleteField(this)" href="#" class="link">
+                <a onclick="return deleteField(this)" href="##" class="link">
                     <div class="minus_plus_prisutstvie">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -33,7 +32,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a onclick="return addField()" href="#" class="link">
+        <a onclick="return addField()" href="##" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit_prisutstvie" value="+">
             </div>
@@ -47,7 +46,7 @@
         <hr class="otbivka_96">
         <a href="meta_admin.php">На главную</a></div>
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
 </div>
 <script src="js/addAndDeleteField.js"></script>
 </body>

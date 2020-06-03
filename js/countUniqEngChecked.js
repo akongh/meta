@@ -27,5 +27,5 @@ function countUniqEngChecked() {
             }
         }
     }
-    document.getElementById("countUniqEngChecked").innerHTML = checked.length;
+    document.getElementById("countUniqEngChecked").innerHTML = checked.length.toString();
 }
