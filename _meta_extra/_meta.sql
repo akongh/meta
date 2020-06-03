@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `k-tn` (
-  `idn` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idn` int unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idn`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580386 ;
 
@@ -44,10 +44,10 @@ CREATE TABLE IF NOT EXISTS `k-tn` (
 --
 
 CREATE TABLE IF NOT EXISTS `k-ts` (
-  `ids` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ids` int unsigned NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
-  `kol` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT 'Amount',
-  `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
+  `kol` mediumint unsigned NOT NULL DEFAULT '0' COMMENT 'Amount',
+  `f` tinyint unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`),
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS `k-ts` (
 --
 
 CREATE TABLE IF NOT EXISTS `k-t_s` (
-  `id_sv` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_n` int(10) unsigned NOT NULL COMMENT 'Set ID',
-  `id_s` int(10) unsigned NOT NULL COMMENT 'Word ID',
+  `id_sv` int unsigned NOT NULL AUTO_INCREMENT,
+  `id_n` int unsigned NOT NULL COMMENT 'Set ID',
+  `id_s` int unsigned NOT NULL COMMENT 'Word ID',
   PRIMARY KEY (`id_sv`),
   UNIQUE KEY `sost` (`id_n`,`id_s`),
   KEY `id_s` (`id_s`),
@@ -81,10 +81,10 @@ CREATE TABLE IF NOT EXISTS `k-t_s` (
 --
 
 CREATE TABLE IF NOT EXISTS `k_l` (
-  `idk_l` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `idk` int(10) unsigned NOT NULL COMMENT 'Cyrillic word ID',
-  `idl` int(10) unsigned NOT NULL COMMENT 'Latin word ID',
-  `idz` int(10) unsigned NOT NULL COMMENT 'Meaning ID',
+  `idk_l` int unsigned NOT NULL AUTO_INCREMENT,
+  `idk` int unsigned NOT NULL COMMENT 'Cyrillic word ID',
+  `idl` int unsigned NOT NULL COMMENT 'Latin word ID',
+  `idz` int unsigned NOT NULL COMMENT 'Meaning ID',
   PRIMARY KEY (`idk_l`),
   KEY `idk` (`idk`),
   KEY `idl` (`idl`),
@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS `k_l` (
 --
 
 CREATE TABLE IF NOT EXISTS `l-ts` (
-  `ids` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ids` int unsigned NOT NULL AUTO_INCREMENT,
   `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
-  `f` tinyint(3) unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
+  `f` tinyint unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
   PRIMARY KEY (`ids`),
   UNIQUE KEY `s` (`s`),
   KEY `f` (`f`)
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `l-ts` (
 --
 
 CREATE TABLE IF NOT EXISTS `tz` (
-  `idz` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idz` int unsigned NOT NULL AUTO_INCREMENT,
   `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Meaning',
   PRIMARY KEY (`idz`),
   UNIQUE KEY `z` (`z`)
