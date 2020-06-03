@@ -49,8 +49,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         <textarea name="input_str_kws_addition"
                   wrap="soft"
                   rows="8"
-                  placeholder=""
-                  autofocus><?= meta_kws_content_input(2); ?></textarea></label>
+                  placeholder=""><?= meta_kws_content_input(2); ?></textarea></label>
 
         <?php
         echo meta_errors_markup_list();
