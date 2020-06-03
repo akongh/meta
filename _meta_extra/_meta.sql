@@ -32,9 +32,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `k-tn` (
   `idn` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `vr` int(11) NOT NULL COMMENT 'Time',
   PRIMARY KEY (`idn`),
-  KEY `vr` (`vr`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=580386 ;
 
 -- --------------------------------------------------------

@@ -74,8 +74,8 @@ define("SQL_SELECT_KWS_FOR_TRANSLATION", "
 ");
 
 define("SQL_INSERT_CREATE_KWS_SET_ID", "
-    INSERT INTO `k-tn` (`vr`)
-    VALUES ( ? )
+    INSERT INTO `k-tn` (`idn`)
+    VALUE (null)
 ");
 
 define("SQL_INSERT_CREATE_KWS_SET_KWS", "

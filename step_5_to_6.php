@@ -13,15 +13,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 if (isset($_POST["russk"])) {
     $_SESSION["arr_kws_ru"] = $_POST["russk"];
     $arr_kws_ru_to_db = $_SESSION["arr_kws_ru"];
-    $kwsset_time = time();
 
     // Creating of number of new set
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID)) {
         echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
-    }
-    if (!$mysqli_stmt->bind_param("i", $kwsset_time)) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
         echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
