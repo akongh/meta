@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
--- http://www.phpmyadmin.net
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
 --
--- Host: mysql5.activeby.net
--- Generation Time: Apr 18, 2020 at 11:50 AM
--- Server version: 5.5.52
--- PHP Version: 5.4.45
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jun 04, 2020 at 02:43 AM
+-- Server version: 8.0.19
+-- PHP Version: 7.4.5
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `user2031505_meta`
+-- Database: `_meta`
 --
 
 -- --------------------------------------------------------
@@ -27,101 +26,163 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `k-tn`
 --
--- Creation: Apr 18, 2020 at 08:45 AM
---
 
-CREATE TABLE IF NOT EXISTS `k-tn` (
-  `idn` int unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`idn`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic' AUTO_INCREMENT=0 ;
+CREATE TABLE `k-tn` (
+  `idn` int UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Sets in Cyrillic';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `k-ts`
 --
--- Creation: Apr 18, 2020 at 08:43 AM
---
 
-CREATE TABLE IF NOT EXISTS `k-ts` (
-  `ids` int unsigned NOT NULL AUTO_INCREMENT,
-  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
-  `kol` mediumint unsigned NOT NULL DEFAULT '0' COMMENT 'Amount',
-  `f` tinyint unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
-  PRIMARY KEY (`ids`),
-  UNIQUE KEY `s` (`s`),
-  KEY `f` (`f`),
-  KEY `kol` (`kol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Cyrillic' AUTO_INCREMENT=0 ;
+CREATE TABLE `k-ts` (
+  `ids` int UNSIGNED NOT NULL,
+  `s` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
+  `kol` mediumint UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Amount',
+  `f` tinyint UNSIGNED NOT NULL DEFAULT '7' COMMENT 'Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Cyrillic';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `k-t_s`
 --
--- Creation: Oct 20, 2018 at 07:19 AM
---
 
-CREATE TABLE IF NOT EXISTS `k-t_s` (
-  `id_sv` int unsigned NOT NULL AUTO_INCREMENT,
-  `id_n` int unsigned NOT NULL COMMENT 'Set ID',
-  `id_s` int unsigned NOT NULL COMMENT 'Word ID',
-  PRIMARY KEY (`id_sv`),
-  UNIQUE KEY `sost` (`id_n`,`id_s`),
-  KEY `id_s` (`id_s`),
-  KEY `id_n` (`id_n`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for Cyrillic' AUTO_INCREMENT=0 ;
+CREATE TABLE `k-t_s` (
+  `id_sv` int UNSIGNED NOT NULL,
+  `id_n` int UNSIGNED NOT NULL COMMENT 'Set ID',
+  `id_s` int UNSIGNED NOT NULL COMMENT 'Word ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for Cyrillic';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `k_l`
 --
--- Creation: Oct 20, 2018 at 07:23 AM
---
 
-CREATE TABLE IF NOT EXISTS `k_l` (
-  `idk_l` int unsigned NOT NULL AUTO_INCREMENT,
-  `idk` int unsigned NOT NULL COMMENT 'Cyrillic word ID',
-  `idl` int unsigned NOT NULL COMMENT 'Latin word ID',
-  `idz` int unsigned NOT NULL COMMENT 'Meaning ID',
-  PRIMARY KEY (`idk_l`),
-  KEY `idk` (`idk`),
-  KEY `idl` (`idl`),
-  KEY `idz` (`idz`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for translation' AUTO_INCREMENT=0 ;
+CREATE TABLE `k_l` (
+  `idk_l` int UNSIGNED NOT NULL,
+  `idk` int UNSIGNED NOT NULL COMMENT 'Cyrillic word ID',
+  `idl` int UNSIGNED NOT NULL COMMENT 'Latin word ID',
+  `idz` int UNSIGNED NOT NULL COMMENT 'Meaning ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Links for translation';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `l-ts`
 --
--- Creation: Apr 18, 2020 at 08:47 AM
---
 
-CREATE TABLE IF NOT EXISTS `l-ts` (
-  `ids` int unsigned NOT NULL AUTO_INCREMENT,
-  `s` varchar(60) COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
-  `f` tinyint unsigned NOT NULL DEFAULT '7' COMMENT 'Status',
-  PRIMARY KEY (`ids`),
-  UNIQUE KEY `s` (`s`),
-  KEY `f` (`f`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Latin' AUTO_INCREMENT=0 ;
+CREATE TABLE `l-ts` (
+  `ids` int UNSIGNED NOT NULL,
+  `s` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'Word',
+  `f` tinyint UNSIGNED NOT NULL DEFAULT '7' COMMENT 'Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Words in Latin';
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `tz`
 --
--- Creation: Oct 20, 2018 at 07:47 AM
+
+CREATE TABLE `tz` (
+  `idz` int UNSIGNED NOT NULL,
+  `z` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'Meaning'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Meanings for translation';
+
+--
+-- Indexes for dumped tables
 --
 
-CREATE TABLE IF NOT EXISTS `tz` (
-  `idz` int unsigned NOT NULL AUTO_INCREMENT,
-  `z` varchar(191) COLLATE utf8mb4_bin NOT NULL COMMENT 'Meaning',
-  PRIMARY KEY (`idz`),
-  UNIQUE KEY `z` (`z`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='Meanings for translation' AUTO_INCREMENT=0 ;
+--
+-- Indexes for table `k-tn`
+--
+ALTER TABLE `k-tn`
+  ADD PRIMARY KEY (`idn`);
+
+--
+-- Indexes for table `k-ts`
+--
+ALTER TABLE `k-ts`
+  ADD PRIMARY KEY (`ids`),
+  ADD UNIQUE KEY `s` (`s`),
+  ADD KEY `f` (`f`),
+  ADD KEY `kol` (`kol`);
+
+--
+-- Indexes for table `k-t_s`
+--
+ALTER TABLE `k-t_s`
+  ADD PRIMARY KEY (`id_sv`),
+  ADD UNIQUE KEY `sost` (`id_n`,`id_s`),
+  ADD KEY `id_s` (`id_s`),
+  ADD KEY `id_n` (`id_n`);
+
+--
+-- Indexes for table `k_l`
+--
+ALTER TABLE `k_l`
+  ADD PRIMARY KEY (`idk_l`),
+  ADD KEY `idk` (`idk`),
+  ADD KEY `idl` (`idl`),
+  ADD KEY `idz` (`idz`);
+
+--
+-- Indexes for table `l-ts`
+--
+ALTER TABLE `l-ts`
+  ADD PRIMARY KEY (`ids`),
+  ADD UNIQUE KEY `s` (`s`),
+  ADD KEY `f` (`f`);
+
+--
+-- Indexes for table `tz`
+--
+ALTER TABLE `tz`
+  ADD PRIMARY KEY (`idz`),
+  ADD UNIQUE KEY `z` (`z`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `k-tn`
+--
+ALTER TABLE `k-tn`
+  MODIFY `idn` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `k-ts`
+--
+ALTER TABLE `k-ts`
+  MODIFY `ids` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `k-t_s`
+--
+ALTER TABLE `k-t_s`
+  MODIFY `id_sv` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `k_l`
+--
+ALTER TABLE `k_l`
+  MODIFY `idk_l` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `l-ts`
+--
+ALTER TABLE `l-ts`
+  MODIFY `ids` int UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tz`
+--
+ALTER TABLE `tz`
+  MODIFY `idz` int UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
