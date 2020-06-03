@@ -130,7 +130,7 @@ p {
     margin: 0 -4px;
 }
 
-.podval {
+.footer {
     margin: 0;
     width: 100%;
     text-align: left;
@@ -390,7 +390,7 @@ h2 {
     font-size: 32px;
 }
 
-.podval {
+.footer {
     font-size: 12px;
 }
 
@@ -502,7 +502,7 @@ a:hover {
     border-color: #ffc;
 }
 
-.podval {
+.footer {
     color: #999;
 }
 

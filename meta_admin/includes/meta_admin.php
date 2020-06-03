@@ -50,7 +50,7 @@ if ( isset( $amount_updated_frequencies ) ) {
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
     <hr class="otbivka_24">
 </div>
 </body>
