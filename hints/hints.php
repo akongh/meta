@@ -11,11 +11,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <head>
     <meta charset="UTF-8">
     <title>Действующий на&nbsp;базе Меты инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них</title>
-    <meta name="Description" content="Подбор ключевых слов, используя подсказки ключевых запросов."/>
-    <meta name="Keywords" content="ключевые слова, подсказки, ключевые запросы, перевод на английский, перевод на русском, шаттерсток"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
 </head>
