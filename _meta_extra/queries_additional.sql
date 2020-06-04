@@ -66,7 +66,7 @@ ORDER BY COUNT(`id_n`) DESC;
 
 # СОЗДАНИЕ ИНДЕКСА
 
-CREATE INDEX `ids` ON `ts` (`ids`);
+CREATE INDEX `ids` ON `k-ts` (`ids`);
 
 
 # ВЫБОР ПЕРЕВОДА И ЗНАЧЕНИЯ ДЛЯ ЗАДАННОГО РУССКОГО СЛОВА
@@ -91,11 +91,6 @@ WHERE LENGTH(`s`) > 40;
 SELECT *
 FROM `k-ts`
 WHERE CHAR_LENGTH(`s`) > 40;
-#------------------------------------------------
-SELECT *
-FROM `k-tn`
-WHERE `ses` = '200slov_proba'
-LIMIT 0 , 400;
 
 
 # НОМЕР И КОЛИЧЕСТВО ЗАДАННОГО СЛОВА
@@ -122,23 +117,23 @@ ORDER BY COUNT(`k-t_s`.`id_s`) DESC;
 # ВСЕ НАБОРЫ С ЛАТИНИЦЕЙ И ЦИФРАМИ
 
 SELECT `idn`
-FROM `tn`
+FROM `k-tn`
        JOIN
-     `t_s` ON `tn`.`idn` = `t_s`.`id_n`
+     `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
        JOIN
-     `ts` ON `t_s`.`id_s` = `ts`.`ids`
-WHERE `ts`.`s` REGEXP '[a-z0-9]';
+     `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+WHERE `k-ts`.`s` REGEXP '[a-z0-9]';
 
 
 # ВЫБОР ЧИСЛА НАБОРОВ С ЛАТИНИЦЕЙ
 
-SELECT COUNT(DISTINCT `tn`.`idn`)
-FROM `tn`
+SELECT COUNT(DISTINCT `k-tn`.`idn`)
+FROM `k-tn`
        JOIN
-     `t_s` ON `tn`.`idn` = `t_s`.`id_n`
+     `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
        JOIN
-     `ts` ON `t_s`.`id_s` = `ts`.`ids`
-WHERE `ts`.`s` REGEXP '[a-z]';
+     `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+WHERE `k-ts`.`s` REGEXP '[a-z]';
 
 #################################################
 

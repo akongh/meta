@@ -1,11 +1,8 @@
-#################################################
+# ПРОСМОТР И УПРАВЛЕНИЕ
 
 SHOW VARIABLES;
 SHOW PROCESSLIST;
 KILL 1234;
-
-#################################################
-
 SET group_concat_max_len = 102400;
 
 
@@ -17,7 +14,7 @@ SET `k-ts`.`kol` = (SELECT COUNT(*) FROM `k-t_s` WHERE `k-t_s`.`id_s` = `k-ts`.`
 
 # УДАЛЕНИЕ ДУБЛИКАТОВ НАБОРОВ ЧЕРЕЗ ПРОМЕЖУТОЧНУЮ ТАБЛИЦУ
 
-CREATE TABLE IF NOT EXISTS `webart_meta`.`x`
+CREATE TABLE IF NOT EXISTS `database_name`.`x`
 (
   `id` INT(10) UNSIGNED ZEROFILL NOT NULL,
   KEY `id` (`id`)
@@ -75,9 +72,7 @@ WHERE `idn` NOT IN (SELECT `str`.`id_n`
                           FROM `k-t_s`
                           GROUP BY `k-t_s`.`id_n`) `str`
                     GROUP BY `str`.`sostav`);
-
-#################################################
-
+#------------------------------------------------
 DELETE `k-tn`
 FROM `k-tn`
        LEFT JOIN
@@ -92,7 +87,7 @@ FROM `k-tn`
 WHERE `nom`.`id_n` IS NULL;
 
 
-# РЗМЕРЫ БД
+# РАЗМЕРЫ БД
 
 SELECT table_schema                                  'database_name',
        data_length / 1024 / 1024                     'Data in MB',

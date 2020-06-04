@@ -1,16 +1,13 @@
-#################################################
+# ВЫБОРКИ КОЛИЧЕСТВА
 
-SELECT COUNT(*)
+SELECT COUNT(*) as `count`
 FROM `k-tn`;
 
-SELECT COUNT(*)
-FROM `k-ts`;
-
-SELECT COUNT(*)
+SELECT COUNT(*) as `count`
 FROM `k-ts`
-WHERE `kol` in (1);
+WHERE `kol` in (1, 2, 3);
 
-SELECT COUNT(*)
+SELECT COUNT(*) as `count`
 FROM `k-ts`
 WHERE `kol` > 10;
 
@@ -28,51 +25,16 @@ UPDATE `k-ts`
 SET `k-ts`.`f` = 7
 WHERE `k-ts`.`f` = 3;
 
-#################################################
+
+# ВЫБОРКИ
 
 SELECT *
 FROM `k-tn`
 WHERE `idn` = '576635';
-#------------------------------------------------
+
 SELECT *
 FROM `tz`
 WHERE `z` regexp 'лурд';
-
-SELECT *
-FROM `tz`
-WHERE `z` regexp 'си-';
-
-SELECT *
-FROM `tz`
-WHERE `z` = ' (перевод не предусмотрен)';
-
-SELECT *
-FROM `tz`
-WHERE `z` regexp '\\?';
-
-SELECT *
-FROM `tz`
-WHERE `idz` = 12879;
-#------------------------------------------------
-SELECT *
-FROM `k-ts`
-WHERE `s` regexp ' ';
-
-SELECT *
-FROM `k-ts`
-WHERE `s` = 'вич';
-
-SELECT *
-FROM `k-ts`
-WHERE `ids` = '4819458';
-
-SELECT *
-FROM `k-ts`
-WHERE `s` regexp '^нит';
-
-SELECT *
-FROM `k-ts`
-WHERE `s` regexp '[a-z]';
 
 SELECT *
 FROM `k-ts`
@@ -85,108 +47,12 @@ WHERE `s` in ('лето', 'природа', 'пейзаж', 'море');
 
 SELECT *
 FROM `k-ts`
-WHERE `s` = 'льётся';
-
-SELECT *
-FROM `k-ts`
-WHERE `ids` in (1185, 60703, 228866, 1354571);
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 0;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 1;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 2;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 3;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 4;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 5;
-
-SELECT *
-FROM `k-ts`
-WHERE `f` = 6;
-
-SELECT *
-FROM `k-ts`
 WHERE `f` = 7
 order by `kol` desc;
 
 SELECT *
-FROM `k-ts`
-WHERE `kol` = 10000;
-#------------------------------------------------
-SELECT *
-FROM `l-ts`
-WHERE `s` regexp ' ';
-
-SELECT *
-FROM `l-ts`
-WHERE `s` = '';
-
-SELECT *
-FROM `l-ts`
-WHERE `s` in ('toe-nail', 'toe-nails');
-
-SELECT *
-FROM `l-ts`
-WHERE `s` regexp 'caf';
-
-SELECT *
-FROM `l-ts`
-WHERE `s` regexp '\'';
-
-SELECT *
-FROM `l-ts`
-WHERE `s` REGEXP '[а-яё]';
-
-SELECT *
-FROM `l-ts`
-WHERE `ids` = 212891;
-
-SELECT *
-FROM `l-ts`
-WHERE `s` regexp '\\?';
-#------------------------------------------------
-SELECT *
-FROM `l-t_s`
-WHERE `id_s` = 92490;
-
-SELECT *
-FROM `l-t_s`
-WHERE `id_s` in (SELECT `ids` FROM `l-ts` WHERE `s` = 'five thousand');
-
-SELECT *
 FROM `k-t_s`
-WHERE `id_s` = 240816;
-#------------------------------------------------
-SELECT *
-FROM `k_l`
-WHERE `idk_l` = 13086;
-
-SELECT *
-FROM `k_l`
-WHERE `idk` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'льётся');
-
-SELECT *
-FROM `k_l`
-WHERE `idl` in (SELECT `ids` FROM `l-ts` WHERE `s` = '');
-
-SELECT *
-FROM `k_l`
-WHERE `idz` in (SELECT `idz` FROM `tz` WHERE `z` = ' (перевод не предусмотрен)');
+WHERE `id_s` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'слово');
 
 SELECT *
 FROM `k_l`
@@ -196,23 +62,6 @@ WHERE `idk` IN (SELECT `ids`
   AND `idl` IN (SELECT `ids`
                 FROM `l-ts`
                 WHERE `s` = 'bow');
-
-SELECT *
-FROM `k_l`
-WHERE `idl` in (SELECT `ids` FROM `l-ts` WHERE `s` = 'wages')
-  and `idk` in (SELECT `ids` FROM `k-ts` WHERE `s` = 'зарплата');
-
-SELECT *
-FROM `k_l`
-WHERE `idk` = 9230147;
-
-SELECT *
-FROM `k_l`
-WHERE `idl` = 97260;
-
-SELECT *
-FROM `k_l`
-WHERE `idz` in (30817);
 
 
 # УДАЛЕНИЕ НЕПРАВИЛЬНЫХ ПЕРЕВОДОВ
@@ -231,12 +80,12 @@ DELETE `k_l`
 FROM `k_l`
        inner JOIN `tz` ON `k_l`.`idz` = `tz`.`idz`
 WHERE `tz`.`idz` IS NULL;
-#------------------------------------------------
+
+
+# ОНОВЛЕНИЕ С ЗАМЕНОЙ ПОДСТРОКИ
+
 UPDATE `tz`
 SET `z` = REPLACE(`z`, '?', '́') /*WHERE id>100*/;
-
-UPDATE `l-ts`
-SET `s` = REPLACE(`s`, '?', '́') /*WHERE id>100*/;
 
 
 # НОМЕРА НЕСУЩЕСТВУЮЩИХ ЗНАЧЕНИЙ В ТАБЛИЦЕ ПЕРЕВОДА
@@ -257,24 +106,24 @@ from `tz`
        LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
 
-#################################################
+
+# ВСТАВКА СЛОВ
 
 insert into `k-ts` (`s`) value ('жаккард'), ('пледы'), ('постельное бельё'), ('ранфорс');
 
-#################################################
 
 # ВЫБОР СЛОВ ИЗ ОДНОГО ИЗ ПРЕДЫДУЩИХ НАБОРОВ
 
-/*SELECT 
+/*SELECT
     `s`
 FROM
     `k-ts`
         JOIN
     `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
-        AND `k-t_s`.`id_n` = (SELECT 
+        AND `k-t_s`.`id_n` = (SELECT
             `idn`
         FROM `k-tn` where `idn` in
-            (SELECT 
+            (SELECT
                 `idn`
             FROM
                 `k-tn`
@@ -307,11 +156,8 @@ select `s`
 from `k-ts`
        join `k-t_s` on `k-ts`.`ids` = `k-t_s`.`id_s` and `k-t_s`.`id_n` = '0000570780';
 
-select `s`
-from `l-ts`
-       join `l-t_s` on `l-ts`.`ids` = `l-t_s`.`id_s` and `l-t_s`.`id_n` = '272108';
 
-#################################################
+# ЧИСТКА ТАБЛИЦЫ СВЯЗЕЙ ОТ НЕСУЩЕСТВУЮЩИХ СЛОВ
 
 SELECT `k-t_s`.*
 FROM `k-t_s`
@@ -322,7 +168,10 @@ delete `k-t_s`
 from `k-t_s`
        LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
-#------------------------------------------------
+
+
+# ЧИСТКА ТАБЛИЦЫ СВЯЗЕЙ ОТ НЕСУЩЕСТВУЮЩИХ НАБОРОВ
+
 SELECT `k-t_s`.*
 FROM `k-t_s`
        LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
@@ -332,7 +181,10 @@ delete `k-t_s`
 FROM `k-t_s`
        LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
 WHERE `k-tn`.`idn` IS NULL;
-#------------------------------------------------
+
+
+# ЧИСТКА ТАБЛИЦЫ НАБОРОВ ОТ НЕСУЩЕСТВУЮЩИХ СВЯЗЕЙ
+
 SELECT `k-tn`.*
 FROM `k-tn`
        LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
@@ -342,21 +194,21 @@ DELETE `k-tn`
 FROM `k-tn`
        LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
 WHERE `k-t_s`.`id_n` IS NULL;
-#------------------------------------------------
+
+
+# ЧИСТКА ТАБЛИЦЫ СЛОВ ОТ НЕСУЩЕСТВУЮЩИХ СВЯЗЕЙ
+
 SELECT `k-ts`.*
 FROM `k-ts`
        LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL;
-
-
-# ! ОСТОРОЖНО
-# УДАЛИТ ВСЕ СВОБОДНЫЕ СЛОВА, ДАЖЕ ПЕРЕВЕДЁННЫЕ
-
+#------------------------------------------------
+# !!! Удалит все свободные слова, даже переведённые
 DELETE `k-ts`
 FROM `k-ts`
        LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL;
-#------------------------------------------------
+
 SELECT `k-ts`.*
 FROM `k-ts`
        LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
@@ -369,7 +221,8 @@ FROM `k-ts`
 WHERE `k-t_s`.`id_s` IS NULL
   and `k-ts`.`f` not in (1);
 
-#################################################
+
+# ЧИСТКА ТАБЛИЦЫ ЗНАЧЕНИЙ ОТ НЕСУЩЕСТВУЮЩИХ СВЯЗЕЙ ПЕРЕВОДОВ
 
 SELECT `tz`.*
 FROM `tz`
@@ -380,7 +233,7 @@ delete `tz`
 FROM `tz`
        LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
-#------------------------------------------------
+
 SELECT `k_l`.*
 FROM `k_l`
        LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
@@ -391,40 +244,13 @@ FROM `k_l`
        LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
 
-#################################################
-
-SELECT `l-t_s`.*
-FROM `l-t_s`
-       LEFT JOIN `l-ts` ON `l-t_s`.`id_s` = `l-ts`.`ids`
-WHERE `l-ts`.`ids` IS NULL;
-#------------------------------------------------
-DELETE `l-t_s`
-FROM `l-t_s`
-       LEFT JOIN `l-ts` ON `l-t_s`.`id_s` = `l-ts`.`ids`
-WHERE `l-ts`.`ids` IS NULL;
-#------------------------------------------------
-SELECT `l-t_s`.*
-FROM `l-t_s`
-       LEFT JOIN `l-tn` ON `l-t_s`.`id_n` = `l-tn`.`idn`
-WHERE `l-tn`.`idn` IS NULL;
-#------------------------------------------------
-DELETE `l-t_s`
-FROM `l-t_s`
-       LEFT JOIN `l-tn` ON `l-t_s`.`id_n` = `l-tn`.`idn`
-WHERE `l-tn`.`idn` IS NULL;
-#------------------------------------------------
-SELECT `l-tn`.*
-FROM `l-tn`
-       LEFT JOIN `l-t_s` ON `l-tn`.`idn` = `l-t_s`.`id_n`
-WHERE `l-t_s`.`id_n` IS NULL;
-#------------------------------------------------
-DELETE `l-tn`
-FROM `l-tn`
-       LEFT JOIN `l-t_s` ON `l-tn`.`idn` = `l-t_s`.`id_n`
-WHERE `l-t_s`.`id_n` IS NULL;
-
 
 # ВЫБОР АНГЛИЙСКИХ СЛОВ, КОТОРЫХ НЕТ В СВЯЗЯХ ПЕРЕВОДА
+
+SELECT count(*)
+FROM `l-ts`
+         LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+WHERE `k_l`.`idl` IS NULL;
 
 SELECT `l-ts`.*
 FROM `l-ts`
@@ -435,11 +261,6 @@ DELETE `l-ts`
 FROM `l-ts`
        LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
 WHERE `k_l`.`idl` IS NULL;
-#------------------------------------------------
-SELECT count(*)
-FROM `l-ts`
-       LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
-WHERE `k_l`.`idl` IS NULL;
 
 
 # ВЫБОР ПОСЛЕДНИХ ПЕРЕВЕДЁННЫХ СЛОВ (НЕ ПО ФАКТУ, А ПО НОМЕРУ ПЕРЕВОДА)
@@ -447,7 +268,7 @@ WHERE `k_l`.`idl` IS NULL;
 SELECT `k-ts`.`s`, `k_l`.`idk_l`
 FROM `k_l`
        JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
-GROUP BY `k_l`.`idk`
+GROUP BY `k_l`.`idk`, `k_l`.`idk_l`
 ORDER BY `k_l`.`idk_l` DESC
 LIMIT 10;
 
@@ -461,7 +282,7 @@ WHERE t1.`idk` = t2.`idk`
   AND t1.`idl` = t2.`idl`
   AND t1.`idz` = t2.`idz`
   AND t1.`idk_l` > t2.`idk_l`
-ORDER BY `t2`.`idz` ASC;
+ORDER BY `t2`.`idz`;
 
 
 # УДАЛЕНИЕ ДУБЛИКАТОВ ПЕРЕВОДОВ
@@ -492,7 +313,7 @@ WHERE `k_l`.`idl` IN (SELECT `k_l`.`idl`
 GROUP BY `k-ts`.`ids`;
 
 
-# НОМЕРА НАБОРОВ С ЗАДАННЫМ ЧИСЛОМ СЛОВ (РУССК.)
+# НОМЕРА НАБОРОВ С ЗАДАННЫМ ЧИСЛОМ СЛОВ (RU)
 
 SELECT *
 FROM `k-t_s`
@@ -514,17 +335,6 @@ FROM `k-tn`
       FROM `k-t_s`
       GROUP BY `id_n`
       HAVING COUNT(*) < 8) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
-
-
-# НОМЕРА НАБОРОВ С ЗАДАННЫМ ЧИСЛОМ СЛОВ (АНГЛ.)
-
-DELETE `l-tn`
-FROM `l-tn`
-       JOIN
-     (SELECT `id_n`
-      FROM `l-t_s`
-      GROUP BY `id_n`
-      HAVING COUNT(*) < 5) AS `a` ON `l-tn`.`idn` = `a`.`id_n`;
 
 
 # ЧИСЛО УНИКАЛЬНЫХ НАБОРОВ
