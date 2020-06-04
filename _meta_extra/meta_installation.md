@@ -1,11 +1,15 @@
-# Установка Меты
+# Meta installation
 
-**Dependent files and folders**
+**Fix before sending**
 ```
-- /_meta_extra          — содержит дополнительные вещи, не связанные с логикой Меты и на хостинге не требуется.
-- /_meta_privacy        — на хостинге вынести за пределы папки Меты.
-- /meta_admin/.htaccess
-- /.gitignore           — необходим только для системы контроля версий Git и на хостинге не требуется.
-- /.htaccess
-- /robots.txt
+/_meta_privacy/
+/meta_admin/.htaccess
+/.htaccess
+/robots.txt
+```
+
+**Not send**
+```
+/_meta_extra/
+/.gitignore
 ```
