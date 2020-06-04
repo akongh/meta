@@ -149,7 +149,7 @@ p {
 }
 
 .korobka {
-    width: 600px;
+    max-width: 720px;
     margin: 24px auto;
     text-align: left;
     padding: 48px 60px;
@@ -344,7 +344,6 @@ p {
  */
 
 body {
-    font-size: 14px;
     font-style: normal;
     font-family: 'Source Code Pro', monospace;
     text-decoration: none;
