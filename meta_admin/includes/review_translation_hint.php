@@ -3,7 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Предпросмотр перевода подсказки</title>
-    <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta_admin.css"
+          type="text/css">
 </head>
 <body>
 <div class="korobka">
