@@ -3,12 +3,17 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-//получаем и определяем параметр mediaType и строку ОКС
-$media_type            = $_POST["mediaType"];
+//получаем и определяем строку ОКС
 $basic_keywords_string = $_POST["basicKeywordsString"];
 
 //готовим для запросов массив ОКС из строки ОКС
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
+
+//проверка на непустой запрос
+if ( $basic_keywords_array == [ "" ] ) {
+    echo( "-3" );
+    exit;
+}
 
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 16 ) {
@@ -17,20 +22,20 @@ if ( count( $basic_keywords_array ) > 16 ) {
 }
 
 //подстроки для правила удаления ОКС из подсказки
-require( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
+require( $_SERVER["DOCUMENT_ROOT"] . '/search_hints/php/rules.php' );
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ], $media_type );
+    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ] );
 
     //очистка json-ответа от служебной информации
     $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ] );
 
-    //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
+    //поднимаем на один уроввень мерность, оставляя только шаблон
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
 
         //на всякий случай чистим края
-        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["pattern"] );
+        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["term"] );
 
         //удаляем ОКС из подсказок, если ОКС вначале подсказки и подскажка не имеет союзов и предлогов
         //TODO: если в ОКС есть предлог или союз, то это ОКС удаляться из подсказки не будет
@@ -77,7 +82,7 @@ if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     //удаляем пробелы на конце у ОКС, уравниваем код амперсанда, дубликаты удалятся далее
-    $basic_keywords_array[ $i ] = preg_replace("/%26/", "&", trim( $basic_keywords_array[ $i ] ));
+    $basic_keywords_array[$i] = preg_replace("/%26/", "&", trim($basic_keywords_array[$i]));
 }
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
@@ -119,8 +124,9 @@ echo( $json_result );
 //готовит для запросов массив ОКС из строки ОКС
 function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
+    $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     //заменяем код амперсанда для запроса подсказок
-    $basic_keywords_array = preg_replace(["/ {2,}/", "/&amp;/"], [" ", "%26"], $basic_keywords_array);
+    $basic_keywords_array = preg_replace( "/&amp;/", "%26", $basic_keywords_array );
     $basic_keywords_array = preg_split( "/[\n,;]/", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -146,14 +152,14 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
 }
 
 //создаёт json-ответ для одного ОКС
-function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_media_type ) {
+function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
     if ( $_PARAM_basic_keyword != "" ) {
         $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
     }
     $anticache_time = time();
     $anticache_num  = rand( 100, 999 );
     $anticache_id   = $anticache_time . $anticache_num;
-    $url            = "https://www.shutterstock.com/api/autocomplete?q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&_=" . $anticache_id;
+    $url            = "https://autocomplete.fotolia.com/?language_id=2&query=" . $_PARAM_basic_keyword . "&callback=$.fotolia_search_autocomplete.searchCallback&_=" . $anticache_id;
     $sesion         = curl_init();
     curl_setopt( $sesion, CURLOPT_URL, $url );
     curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
@@ -167,8 +173,11 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_med
 //очищает от служебной информации массив подсказок для одного json-ответа
 function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce ) {
     $clean_json_responce       = preg_replace( "/ {2,}/", " ", $_PARAM_json_responce );
+    $string_pattern      = '/\$.fotolia_search_autocomplete.searchCallback\(/';
+    $clean_json_responce = preg_replace( $string_pattern, "", $clean_json_responce );
+    $clean_json_responce = preg_replace("/\)/", "", $clean_json_responce);
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
-    $clean_json_responce_array = $clean_json_responce_array["data"]["autocompletions"];
+    $clean_json_responce_array = $clean_json_responce_array["hits"];
 
     return $clean_json_responce_array;
 }

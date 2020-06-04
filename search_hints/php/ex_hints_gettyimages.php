@@ -9,6 +9,12 @@ $basic_keywords_string = $_POST["basicKeywordsString"];
 //готовим для запросов массив ОКС из строки ОКС
 $basic_keywords_array = PREPARE_BASIC_KEYWORDS_ARRAY( $basic_keywords_string );
 
+//проверка на непустой запрос
+if ( $basic_keywords_array == [ "" ] ) {
+    echo( "-3" );
+    exit;
+}
+
 //проверка колличества ОКС
 if ( count( $basic_keywords_array ) > 16 ) {
     echo( "-1" );
@@ -16,23 +22,20 @@ if ( count( $basic_keywords_array ) > 16 ) {
 }
 
 //подстроки для правила удаления ОКС из подсказки
-require( $_SERVER["DOCUMENT_ROOT"] . '/hints/php/rules.php' );
-
-//эта переменная вынесена отдельно, т. к. используется в нескольких функциях
-$anticache_id  = 'h' . rand( 100000000, 999999999 );
+require( $_SERVER["DOCUMENT_ROOT"] . '/search_hints/php/rules.php' );
 
 //получаем json-ответы для каждого ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ], $anticache_id );
+    $json_responce_array[ $i ] = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $basic_keywords_array[ $i ] );
 
-    //очистка json-ответа от служебной информации
-    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ], $anticache_id );
+    //очистка json-ответа от имени функции-обёртки
+    $clean_json_responce_array[ $i ] = CLEANING_FOR_ONE_JSON_RESPONCE( $json_responce_array[ $i ], $basic_keywords_array[ $i ] );
 
-    //поднимаем на один уроввень мерность с шаблоном и вероятностью, оставляя только шаблон
+    //поднимаем на один уроввень мерность
     for ( $j = 0; $j < count( $clean_json_responce_array[ $i ] ); $j ++ ) {
 
         //на всякий случай чистим края
-        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["value"] );
+        $only_pattern_array[ $i ][ $j ] = trim( $clean_json_responce_array[ $i ][ $j ]["DisplayText"] );
 
         //удаляем ОКС из подсказок, если ОКС вначале подсказки и подскажка не имеет союзов и предлогов
         //TODO: если в ОКС есть предлог или союз, то это ОКС удаляться из подсказки не будет
@@ -79,7 +82,7 @@ if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
 //добавляем в результат ОКС
 for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
     //удаляем пробелы на конце у ОКС, уравниваем код амперсанда, дубликаты удалятся далее
-    $basic_keywords_array[$i] = preg_replace("/%26/", "&", trim($basic_keywords_array[$i]));
+    $basic_keywords_array[ $i ] = preg_replace("/%26/", "&", trim( $basic_keywords_array[ $i ] ));
 }
 if ( isset( $hint_keyword_array ) ) {
     $hint_keyword_array = array_merge( $basic_keywords_array, $hint_keyword_array );
@@ -95,8 +98,8 @@ $hint_individual_keyword_array = explode( " ", $hint_individual_keyword_array );
 $hint_keyword_array            = array_values( array_unique( array_merge( $hint_keyword_array, $hint_individual_keyword_array ) ) );
 
 //заменяем амперсанд, чтоб не ломал javscript потом
-for ( $i = 0; $i < count( $hint_keyword_array ); $i ++ ) {
-    $hint_keyword_array[ $i ] = preg_replace( "/&/", "&amp;", $hint_keyword_array[ $i ] );
+for($i = 0; $i < count($hint_keyword_array); $i++){
+    $hint_keyword_array[$i] = preg_replace("/&/","&amp;",$hint_keyword_array[$i]);
 }
 
 //добавление перевода
@@ -121,9 +124,8 @@ echo( $json_result );
 //готовит для запросов массив ОКС из строки ОКС
 function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     $basic_keywords_array = mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $_PARAM_basic_keywords_string ) ) ), "utf-8" );
-    $basic_keywords_array = preg_replace( "/ {2,}/", " ", $basic_keywords_array );
     //заменяем код амперсанда для запроса подсказок
-    $basic_keywords_array = preg_replace( "/&amp;/", "%26", $basic_keywords_array );
+    $basic_keywords_array = preg_replace(["/ {2,}/", "/&amp;/"], [" ", "%26"], $basic_keywords_array);
     $basic_keywords_array = preg_split( "/[\n,;]/", $basic_keywords_array, - 1, PREG_SPLIT_NO_EMPTY );
 
     for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
@@ -136,37 +138,22 @@ function PREPARE_BASIC_KEYWORDS_ARRAY( $_PARAM_basic_keywords_string ) {
     }
     $basic_keywords_array = array_values( array_unique( ( array_diff( $basic_keywords_array, array( "" ) ) ) ) );
     if ( count( $basic_keywords_array ) == 0 ) {
-        $basic_keywords_array = [ " " ];
-    } else {
-        for ( $i = 0; $i < count( $basic_keywords_array ); $i ++ ) {
-            //создаём дополнительный массив ОКС с пробелами на конце, чтобы искать и по отдельному слову
-            $basic_keywords_array_endspase[ $i ] = $basic_keywords_array[ $i ] . " ";
-        }
-        $basic_keywords_array = array_merge( $basic_keywords_array, $basic_keywords_array_endspase );
+        $basic_keywords_array = [ "" ];
     }
 
     return $basic_keywords_array;
 }
 
 //создаёт json-ответ для одного ОКС
-function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_anticache_id ) {
-//    if ( $_PARAM_basic_keyword != "" ) {
-//        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
-//    }
-
-    $url        = 'https://depositphotos.com/api';
-    $postfields = '[{"hash":"' . $_PARAM_anticache_id . '","query":{"dp_command":"searchHint","dp_search_prefix":"' . $_PARAM_basic_keyword . '","dp_language":"en"}}]';
-
+function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword ) {
+    if ( $_PARAM_basic_keyword != "" ) {
+        $_PARAM_basic_keyword = preg_replace( "/ /", "+", $_PARAM_basic_keyword );
+    }
+    $url    = "http://as.gettyservices.com/GettyImages.Autocomplete.KeywordService.Service/KeywordService1/Suggestedkeywords/705/en-us/image/" . $_PARAM_basic_keyword . "/any?usePopularity=true&callback=as_cb_" . preg_replace("/%/", "_", $_PARAM_basic_keyword);
     $sesion = curl_init();
-
-    curl_setopt( $sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49' );
-    curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
-    curl_setopt( $sesion, CURLOPT_HTTPHEADER, array(
-        "Content-Type: application/json; charset=utf-8"
-    ) );
     curl_setopt( $sesion, CURLOPT_URL, $url );
-    curl_setopt( $sesion, CURLOPT_POSTFIELDS, $postfields );
-
+    curl_setopt( $sesion, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt( $sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49' );
     $json_responce = curl_exec( $sesion );
     curl_close( $sesion );
 
@@ -174,10 +161,13 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD( $_PARAM_basic_keyword, $_PARAM_ant
 }
 
 //очищает от служебной информации массив подсказок для одного json-ответа
-function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_anticache_id ) {
+function CLEANING_FOR_ONE_JSON_RESPONCE( $_PARAM_json_responce, $_PARAM_basic_keyword ) {
     $clean_json_responce       = preg_replace( "/ {2,}/", " ", $_PARAM_json_responce );
+    $string_pattern            = '/as_cb_' . preg_replace("/%/", "_", $_PARAM_basic_keyword) . '\(/';
+    $clean_json_responce       = preg_replace( $string_pattern, "", $clean_json_responce );
+    $clean_json_responce       = preg_replace( "/\)/", "", $clean_json_responce );
     $clean_json_responce_array = json_decode( $clean_json_responce, true );
-    $clean_json_responce_array = $clean_json_responce_array[$_PARAM_anticache_id]["hints"];
+    $clean_json_responce_array = $clean_json_responce_array["CompletedKeywords"];
 
     return $clean_json_responce_array;
 }
@@ -206,7 +196,7 @@ FROM
         JOIN
     `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE
-    `l-ts`.`s` = '" . preg_replace( "/'/", "\'", $_PARAM_hint_keyword ) . "';
+    `l-ts`.`s` = '" . preg_replace("/'/", "\'", $_PARAM_hint_keyword) . "';
     ";
     $_SQL_translations        = mysqli_query( $_PARAM_db_connect, $_SQL_select_translations );
     $n                        = 0;

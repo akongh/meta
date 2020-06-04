@@ -122,7 +122,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div id="hints-area">Список подсказок пуст.</div>
     <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
-<script src="/hints/js/hints.js"></script>
+<script src="/search_hints/js/search_hints.js"></script>
 <script src="/js/jquery-1.10.2.js"></script>
 <script src="/js/jquery-ui.js"></script>
 </body>
