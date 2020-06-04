@@ -1,5 +1,10 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
+
 session_start();
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '7'" );

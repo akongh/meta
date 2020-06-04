@@ -1,5 +1,10 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
+
 session_start();
+
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $kw_ru = $_SESSION["kw_ru"];

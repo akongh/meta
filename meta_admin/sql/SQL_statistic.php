@@ -1,4 +1,4 @@
-<?php error_reporting( - 1 );
+<?php
 
 $amount_ru_kws_zapros     = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts`" );
 $amount_ru_kws_set_zapros  = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-tn`" );
