@@ -3,8 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Перевод по заявке (рус.—анг.)</title>
-    <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta_admin.css"
+          type="text/css">
 </head>
 <body>
 <div class="korobka">
@@ -27,14 +33,14 @@
                                               class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
         <hr class="otbivka_24">
         <div class="blok_perevoda">
-            <?php echo $s_perevodom;?> </div>
+            <?php echo $with_translation;?> </div>
         <hr class="otbivka_48">
         <div id="parentId">
             <div>
                 <input name="perevod[]" type="text" class="vvod_perevod" autofocus>
                 —
                 <input name="znachenie[]" type="text" class="vvod_znachenie" value="<?php echo $slovo;?>">
-                <a onclick="return deleteField(this)" href="#" class="link">
+                <a onclick="return deleteField(this)" href="##" class="link">
                     <div class="minus_plus">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -43,7 +49,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a onclick="return addField()" href="#" class="link">
+        <a onclick="return addField()" href="##" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit" value="+">
             </div>
@@ -56,7 +62,7 @@
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
     </div>
     <hr class="otbivka_96">
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/footer.php' );?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
 </div>
 <script src="js/addAndDeleteField.js"></script>
 </body>

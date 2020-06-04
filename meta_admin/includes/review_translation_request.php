@@ -3,14 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Предпросмотр перевода по заявке</title>
-    <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta_admin.css"
+          type="text/css">
 </head>
 <body>
 <div class="korobka">
     <hr class="otbivka_48">
     <div class="blok_perevoda">
-        <?php if (isset($s_perevodom)){echo $s_perevodom;};?>
+        <?php if (isset($with_translation)){echo $with_translation;};?>
     </div>
     <hr class="otbivka_24">
     <div class="upravlenie">

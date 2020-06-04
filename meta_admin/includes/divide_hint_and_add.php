@@ -3,8 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Разбить-добавить (анг.)</title>
-    <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta_admin.css"
+          type="text/css">
 </head>
 <body>
 <div class="korobka">
@@ -24,7 +30,7 @@
         <input name="razbit" type="submit" class="knopka" value="Разбить-добавить">
     </form>
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
 </div>
 </body>
 </html>

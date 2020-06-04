@@ -1,13 +1,35 @@
+let textMessageMaxLength = 240; // Установка [maxLength] продублирована в [step_6.html (textarea id="textMessageForm")].
+let textMessageForm = document.querySelector("#textMessageForm");
+let lengthMessageInformer = document.querySelector("#lengthMessageInformer");
+let clearMessageButton = document.querySelector("#clearMessageButton");
 let sendMessageButton = document.querySelector("#sendMessageButton");
-// let messageForm = document.querySelector("#messageForm"); — уже объявлена в первее загруженном скрипте controlMessage.js.
+
+textMessageForm.maxLength = textMessageMaxLength;
+lengthMessageInformer.innerHTML = textMessageMaxLength.toString();
+
+textMessageForm.addEventListener("input", checkMesageLength);
+
+clearMessageButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    clearMessage();
+}, false);
 
 sendMessageButton.addEventListener("click", function (e) {
     e.preventDefault();
-    sendMessage("php/get_message.php");
+    sendMessage("get_message.php");
 }, false);
 
+function checkMesageLength() {
+    lengthMessageInformer.innerHTML = (textMessageMaxLength - textMessageForm.value.length).toString();
+}
+
+function clearMessage() {
+    textMessageForm.value = "";
+    lengthMessageInformer.innerHTML = textMessageMaxLength.toString();
+}
+
 function sendMessage(url) {
-    let messageText = messageForm.value;
+    let messageText = textMessageForm.value;
     messageText = 'messageText=' + messageText;
     let request = new XMLHttpRequest();
 

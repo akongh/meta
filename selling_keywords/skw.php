@@ -1,7 +1,9 @@
-<?php error_reporting( - 1 );
+<?php
 
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config_db.php' );
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+declare(strict_types=1);
+error_reporting(-1);
+
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,14 +20,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <link href="/css/meta.css"
           rel="stylesheet"
           type="text/css">
-    <link href="/css/meta_sell_kws.css"
-          rel="stylesheet"
-          type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
 
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/yandex_metric_meta.php' ); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 
 </head>
 <body>
@@ -62,11 +58,11 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <div class="content-right">
         <a id="create-variants-queries-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Создатть варианты запросов">[Создать варианты]</a>
         <a id="delete-variants-queries-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Удалить варианты запросов">[x]</a>
     </div>
     <br>
@@ -79,7 +75,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <span class="hover-invert">vaselenka</span>
     <a id="delete-author-button"
        class="link-button"
-       href="#"
+       href="##"
        title="Удалить автора">[x]</a>
     <br>
     <br>
@@ -94,7 +90,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <div class="content-right">
         <a id="clear-keyword-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Очистить поле запроса">[x]</a>
     </div>
     <br>
@@ -132,7 +128,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
               class="counter">0</span>
         <a id="delete-keywords-objects-array-button"
            class="link-button"
-           href="#"
+           href="##"
            title="Удалить текущую строку результата">[x]</a>
     </div>
     <br>
@@ -144,10 +140,10 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
     <br>
     <div id="works-list">Список произведений пуст.</div>
 
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php' ); ?>
+    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
 
 </div>
-<script src="/libs/lodash.js"></script>
+<script src="/js/lodash.js"></script>
 <script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>

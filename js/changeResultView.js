@@ -1,7 +1,7 @@
-let separateViewButton = document.querySelector("#separate-view-button");
-let singleViewButton = document.querySelector("#single-view-button");
-let separateResultView = document.querySelector("#separate-result-view");
-let singleResultView = document.querySelector("#single-result-view");
+let separateViewButton = document.querySelector("#separate_view_button");
+let singleViewButton = document.querySelector("#single_view_button");
+let separateResultView = document.querySelector("#separate_result_view");
+let singleResultView = document.querySelector("#single_result_view");
 
 separateViewButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -15,10 +15,10 @@ singleViewButton.addEventListener("click", function (e) {
 
 function separateView() {
     singleResultView.style.display = "none";
-    separateResultView.style.display = "inline-block";
+    separateResultView.style.display = "block";
 }
 
 function singleView() {
     separateResultView.style.display = "none";
-    singleResultView.style.display = "inline-block";
+    singleResultView.style.display = "block";
 }

@@ -1,12 +1,8 @@
-#доступ
-AuthName "Управление Меты"
-AuthType Basic
-#AuthUserFile /home/user2031505/www/access_meta/.htpasswd
-AuthUserFile D:/Afoteris/Meta/www_vc_meta/access_meta/.htpasswd
-require valid-user
+# ACCESS
+#AuthType Basic
+#AuthName "Управление Меты"
+#AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
+#require valid-user
 
-#запрет выдачи листинга пустого каталога
-Options -Indexes
-
-#назначаем главный файл сайта
+# MAIN FILE OF ADMINISTRATIVE PART OF META
 DirectoryIndex meta_admin.php

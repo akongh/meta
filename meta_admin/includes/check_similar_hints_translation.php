@@ -3,8 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Проверка похожего перевода</title>
-    <link href="/css/meta_admin.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="http://<?php echo $site_domain_name ?>/favicon.ico" type="image/ven.microsoft.ico">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/css/meta_admin.css"
+          type="text/css">
 </head>
 <body>
 <div class="korobka">
@@ -18,14 +24,14 @@
         <div class="kol"><?php if ( isset ( $kol ) ) { echo $kol; }; ?></div>
         <hr class="otbivka_24">
         <div class="blok_perevoda">
-            <?php echo $s_perevodom;?> </div>
+            <?php echo $with_translation;?> </div>
         <hr class="otbivka_48">
         <input name="proverit_pox_perevod" type="submit" class="knopka" value="&#9658; Проверить похожий перевод">
     </form>
     <hr class="otbivka_48">
-    <?php if ( isset ( $vyvod_spiska_flagov ) ) { echo $vyvod_spiska_flagov; }; ?>
+    <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>
     <hr class="otbivka_96">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/meta_admin/parts/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
 </div>
 </body>
 </html>

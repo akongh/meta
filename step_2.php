@@ -1,22 +1,13 @@
-<?php error_reporting( - 1 );
-session_start();
-include( $_SERVER['DOCUMENT_ROOT'] . '/meta_config.php' );
+<?php
 
-if ( ! isset( $_SESSION["metka"] ) ) {
-    header( "Location: http://" . $site_domain_name . "/meta.php" );
-}
-if ( isset( $_SESSION["vyvod_spiska_flagov"] ) ) {
-    $vyvod_spiska_flagov = $_SESSION["vyvod_spiska_flagov"];
-};
-if ( isset( $_SESSION["dopolnitelnye_slova"] ) ) {
-    $dopolnitelnye_slova = $_SESSION["dopolnitelnye_slova"];
-};
-if ( isset( $_SESSION["oshibka_simvola"] ) ) {
-    $oshibka_simvola = $_SESSION["oshibka_simvola"];
-};
-if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
-    $sostoyanie_nabora = $_SESSION["sostoyanie_nabora"];
-};
+declare(strict_types=1);
+error_reporting(-1);
+
+session_start();
+
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
+
+//var_dump($_SESSION);
 ?>
 
 <!doctype html>
@@ -24,78 +15,68 @@ if ( isset( $_SESSION["sostoyanie_nabora"] ) ) {
 <head>
     <meta charset="utf-8">
     <title>2/6. Выбираем из подобранных и добавляем свои</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
-          rel="stylesheet"
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
-    <link rel="shortcut icon"
-          href="http://<?php echo $site_domain_name ?>/favicon.ico"
-          type="image/ven.microsoft.ico">
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/yandex_metric_meta.php' );?>
+    <link rel="stylesheet"
+          href="css/style.css"
+          type="text/css">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
 </head>
 <body>
-<div class="page">
-    <br>
-    <br>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php' );?>
-    <br>
-    <br>
-    <h1 class="bold">2/6. Выбираем из подобранных…</h1>
-    <br>
-    <br>
-    <br>
-    <br>
+<div class="wrap">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    <h1>2/6. Выбираем из подобранных…</h1>
     <form method="post"
-          action="/php/ex_create_check_choice_list.php">
-        <?php if (isset($vyvod_spiska_flagov)){echo $vyvod_spiska_flagov;};?>
-        <?php if (isset($sostoyanie_nabora)){echo $sostoyanie_nabora;};?>
-        <h1 class="bold">…и добавляем свои</h1>
-        <br>
-        <textarea name="vvod_dop_slov"
-                  class="textarea-keywords"
+          action="/step_2_to_3.php">
+        <div class="wrap_list_kws">
+            <?php
+            if (isset($_SESSION["arr_kws_selection"]) and count($_SESSION["arr_kws_selection"]) > 0) {
+                echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"],
+                    $_SESSION["arr_kws_selection_marked"]);
+            } else {
+                echo "Список подобраных ключевых слов пуст.";
+            }
+            ?>
+        </div>
+        <?= meta_kws_markup_state_amount(); ?>
+        <div class="add_kws">…и добавляем свои</div>
+        <label>
+        <textarea name="input_str_kws_addition"
                   wrap="soft"
                   rows="8"
-                  placeholder=""><?php if (isset($dopolnitelnye_slova)){echo $dopolnitelnye_slova;};?></textarea>
-        <br>
-        <?php if (isset($oshibka_simvola)){echo $oshibka_simvola;};?>
-        <br>
-        <br>
-        <br>
-        <div class="content-right">
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_help.php' );?><span id="help" class="help hidden">
-            1. <span class="bold">е&nbsp;≠&nbsp;ё</span>.<br>
-            2. <span class="bold">Дубликаты</span> ключевых слов удалятся автоматически.<br>
-            3. <span class="bold">Галочки</span> удобнее ставить, щёлкая по связанным строке или слову, а&nbsp;не целясь
-            именно в&nbsp;квадратик.<br>
-            4. <span class="bold">«Уточнить запрос»</span>&nbsp;— вернёт вас на первый шаг с&nbsp;сохранением списка опорных
-            ключевых слов.<br>
-            5. <span class="bold">«Алфавитный порядок»</span>&nbsp;— выстраивает на следующем шаге общий результат подбора
-            в&nbsp;алфавитном порядке, чтобы удобнее было исключать похожие избыточные ключевые слова. Галочку имеет смысл
-            снять, если вас устраивает текущий порядок ключевых слов. Это сэкономит время на четвёртом шаге при
-            определении очерёдности.
-            </span><br>
-            <br>
-            <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_back_to_step_1_refine_current_query.php' );?><br>
+                  placeholder=""><?= meta_kws_content_input(2); ?></textarea></label>
+
+        <?php
+        echo meta_errors_markup_list();
+        unset($_SESSION["error_messages"]);
+        ?>
+        <div class="label_info">
+            <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
+                <input type="checkbox"
+                       checked
+                       name="alphabetical_order">
+                Алфавитный порядок.</label>
         </div>
-        <br>
-        <label title="Для наглядного определения избыточных похожих ключевых слов на следующем шаге">
-            <input type="checkbox"
-                   checked
-                   name="abv">
-            Алфавитный порядок.</label>
-        <br>
-        <br>
         <input name="sobrat"
                type="submit"
-               value="2/6 Собрать в список">
+               value="Собрать в список">
     </form>
-    <br>
-    <div class="content-right">
-        <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_choice.php' );?>
+    <div class="back_link">
+        <a href="/step_1.php"
+           title="Назад">[<<<< Назад]</a>
     </div>
-    <?php include( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <div class="content_right">
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+    </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
 <script src="/js/selectAll.js"></script>
-<script src="/js/showHelp.js"></script>
 </body>
 </html>
