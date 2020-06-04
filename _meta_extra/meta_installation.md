@@ -7,6 +7,7 @@
 /meta_admin/parts/analytics_info.php
 /meta_admin/.htaccess
 /.htaccess
+/_privacy_path.php
 /robots.txt
 ```
 
