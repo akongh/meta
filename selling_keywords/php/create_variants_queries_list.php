@@ -1,4 +1,7 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
 
 $level             = $_POST["level"];
 $full_string_query = $_POST["fullStringQuery"];

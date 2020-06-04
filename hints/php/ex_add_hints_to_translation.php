@@ -1,4 +1,7 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
 
 $json_hints_string_for_translation = $_POST["jsonHintsStringForTranlation"];
 $json_hints_array_for_translation  = json_decode( $json_hints_string_for_translation, JSON_UNESCAPED_UNICODE );

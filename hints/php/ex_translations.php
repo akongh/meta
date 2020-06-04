@@ -1,4 +1,7 @@
-<?php error_reporting( - 1 );
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
 
 //получаем и определяем ОКС на русском языке для перевода
 $keyword_in_russian = $_POST["keywordInRussian"];
