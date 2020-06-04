@@ -319,7 +319,7 @@ SELECT *
 FROM `k-t_s`
 group by `id_n`
 having count(*) < 8;
-#------------------------------------------------
+
 SELECT `k-tn`.*
 FROM `k-tn`
        JOIN
