@@ -33,34 +33,35 @@ session_start();
           action="/keyword_selection/step_5_to_6.php">
         <div class="wrap_list_kws">
             <?php
-            foreach ($_SESSION["arr_kws_translations"] as $el) {
-                $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                switch ($el[2]) {
-                    case 0:
-                        $comment = "(перевода пока нет)";
-                        break;
-                    case 7:
-                        $comment = "(в заявке на перевод)";
-                }
-                if ($el[2] == 0 or $el[2] == 7) {
-                    $div_class = "block_not_translated";
-                    $translation_meaning_markup = "<div class='translation_notice padding_left'><input type='checkbox'
+            if (isset($_SESSION["arr_kws_translations"])) {
+                foreach ($_SESSION["arr_kws_translations"] as $el) {
+                    $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                    switch ($el[2]) {
+                        case 0:
+                            $comment = "(перевода пока нет)";
+                            break;
+                        case 7:
+                            $comment = "(в заявке на перевод)";
+                    }
+                    if ($el[2] == 0 or $el[2] == 7) {
+                        $div_class = "block_not_translated";
+                        $translation_meaning_markup = "<div class='translation_notice padding_left'><input type='checkbox'
                                                                 name='zayavka[]'
                                                                 hidden
                                                                 checked
                                                                 value='{$el[0]}'>{$comment}</div>";
-                } else {
-                    $div_class = "block_translated";
-                    $translation_meaning = array();
-                    foreach ($el[1] as $val) {
-                        if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
-                            $status = "checked";
-                        } else {
-                            $status = "";
-                        }
-                        $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                        $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                        $translation_meaning[] = "
+                    } else {
+                        $div_class = "block_translated";
+                        $translation_meaning = array();
+                        foreach ($el[1] as $val) {
+                            if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                                $status = "checked";
+                            } else {
+                                $status = "";
+                            }
+                            $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                            $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                            $translation_meaning[] = "
                                                  <div><label class='label_highlight padding_left'>
                                                      <span class='keyword_en'>
                                                          <input type='checkbox'
@@ -68,10 +69,10 @@ session_start();
                                                                 {$status}
                                                                 value='{$translation}'>{$translation}</span> — {$meaning}</label></div>
                                                                 ";
+                        }
+                        $translation_meaning_markup = implode("", $translation_meaning);
                     }
-                    $translation_meaning_markup = implode("", $translation_meaning);
-                }
-                echo "<div class='{$div_class}'>
+                    echo "<div class='{$div_class}'>
                     <div class='keyword_ru'>
                         <input type='checkbox'
                                name='russk[]'
@@ -80,11 +81,18 @@ session_start();
                                value='{$el[0]}'>{$el[0]}</div>
                     {$translation_meaning_markup}
               </div>";
-                unset($translation_meaning);
+                    unset($translation_meaning);
+                }
+            } else {
+                echo "Список пуст.";
             }
             ?>
         </div>
-        <?= "<div class='amount_kws'><span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span></div>"; ?>
+        <?php
+        if (!isset($_SESSION["arr_kws_ordered"])) {
+            $_SESSION["arr_kws_ordered"] = array();
+        }
+        echo "<div class='amount_kws'><span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span></div>"; ?>
         <input name="poluchit"
                type="submit"
                value="Получить результат строками">
