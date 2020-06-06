@@ -19,7 +19,7 @@ $_SESSION["arr_kws_query"] = meta_kws_input_string_to_array($_POST["input_str_kw
 $_SESSION["arr_kws_selection_marked"] = $_SESSION["arr_kws_query"];
 
 if (isset($_SESSION["error_messages"])) {
-    header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_1.php");
+    header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/step_1.php");
     exit;
 }
 
@@ -84,4 +84,4 @@ if (isset($_POST["non_strict_choice"]) && $count_arr_kws_query > 1) {
 $_SESSION["arr_kws_selection"] = $arr_kws_selection;
 
 $mysqli->close();
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_2.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/step_2.php");

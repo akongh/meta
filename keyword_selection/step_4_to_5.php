@@ -66,4 +66,4 @@ if (isset($arr_kws_untranslated)) {
 }
 $_SESSION["arr_kws_translations"] = $arr_kws_translations;
 
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_5.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/step_5.php");

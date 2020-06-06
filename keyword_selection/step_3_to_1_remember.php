@@ -13,4 +13,4 @@ if (isset($_POST["arr_kws_marked"]) and count($_POST["arr_kws_marked"]) > 0) {
     }
 }
 
-header("Location: //{$_SERVER["HTTP_HOST"]}/step_1.php");
+header("Location: //{$_SERVER["HTTP_HOST"]}/keyword_selection/step_1.php");

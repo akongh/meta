@@ -68,4 +68,4 @@ if (isset($_POST["zayavka"])) {
 $mysqli_stmt->close();
 $mysqli->close();
 
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/step_6.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/step_6.php");
