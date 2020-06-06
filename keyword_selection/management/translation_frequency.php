@@ -66,9 +66,9 @@ if ( isset( $kol[0] ) ) {
 
 if ( isset( $slovo ) ) {
     $_SESSION["original_kw"] = $slovo;
-    require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/translation_frequency.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/translation_frequency.php');
 } else {
-    require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/no_keyword_for_translation.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/no_keyword_for_translation.php');
 }
 
 mysqli_close( $mysqli );

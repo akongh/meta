@@ -18,4 +18,4 @@ $perevedeno        = $perevedeno_otvet[0];
 $slovo_razbit = $_SESSION["original_kw"];
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/divide_hint_and_add.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/divide_hint_and_add.php');

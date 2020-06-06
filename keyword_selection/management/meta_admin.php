@@ -7,7 +7,7 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-require($_SERVER["DOCUMENT_ROOT"] . '/management/sql/SQL_statistic.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/sql/SQL_statistic.php');
 $amount_ru_kws_otvet          = mysqli_fetch_row( $amount_ru_kws_zapros );
 $amount_ru_kws_set_otvet       = mysqli_fetch_row( $amount_ru_kws_set_zapros );
 $amount_en_kws_otvet          = mysqli_fetch_row( $amount_en_kws_zapros );
@@ -41,4 +41,4 @@ if ( isset( $_SESSION["amount_updated_frequencies"] ) ) {
 }
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/meta_admin.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/meta_admin.php');

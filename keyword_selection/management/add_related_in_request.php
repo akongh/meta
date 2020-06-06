@@ -16,4 +16,4 @@ $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/add_related_in_request.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/add_related_in_request.php');
