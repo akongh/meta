@@ -54,7 +54,7 @@ $mysqli->close();
                 } ?></span>
         </p>
         <p>
-            В <a href="/keyword_selection/queue_for_translation.php"
+            В <a href="/queue_for_translation.php"
                  title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
             <span class="amount"><?php
                 if (isset($count_request)) {
