@@ -9,7 +9,7 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/management.css"
+          href="/style.css"
           type="text/css">
 </head>
 <body>

@@ -21,7 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/functions.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="../style.css"
+          href="/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>

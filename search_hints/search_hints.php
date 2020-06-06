@@ -17,20 +17,20 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta.css"
+          href="/style.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php');?>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
     <div id="up-button-block" class="up-block">
         <div class="up-center-block content-right">
             <span id="hints-total-and-selected-top" class="counter"></span>
             <a class="link-button up-button" href="#top" title="Наверх">[Наверх]</a>
         </div>
     </div>
-    <br>
-    <br>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1 class="bold">
         <span class="meta">МЕТА-подсказки</span>
         <br>

@@ -11,21 +11,20 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <head>
     <meta charset="UTF-8">
     <title>Продавшие ключевые слова на Шаттерстоке</title>
-    <meta name="Description"
-          content=""/>
-    <meta name="Keywords"
-          content=""/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/meta.css"
-          rel="stylesheet"
+    <link rel="stylesheet"
+          href="//commonresources.afoteris.com/initstyles.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="/style.css"
           type="text/css">
 
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 
 </head>
 <body>
-<div class="page">
+<div class="wrap">
     <div id="up-button-block"
          class="up-block">
         <div class="up-center-block content-right">

@@ -55,18 +55,6 @@ option {
 
 }
 
-.page {
-    max-width: 736px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.meta {
-
-}
-
 .img-index {
     width: 100%;
 }
