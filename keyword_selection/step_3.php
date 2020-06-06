@@ -29,7 +29,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/functions.php');
 <body>
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_to_index.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/link_to_index.php'); ?>
     <h1>3/6. Получаем текущий результат списком</h1>
     <form method="post"
           action="/keyword_selection/step_3_to_1_or_4.php">

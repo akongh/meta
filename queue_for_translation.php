@@ -50,11 +50,7 @@ if (0 < $amount_kws_for_translation) {
 <div class="wrap">
     <div>
         <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/includes/link_to_index.php"); ?>
-    </div>
-    <div>
-        <a href="/keyword_selection/step_1.php"
-           title="Начать подбирать ключевые слова">К подбору</a>
+        require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     </div>
     <h1>Очередь заявок на перевод</h1>
     <div class="wrap_list_kws">

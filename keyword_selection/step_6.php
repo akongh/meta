@@ -54,7 +54,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 <body>
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_to_index.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/link_to_index.php'); ?>
     <h1>6/6. Результат строками</h1>
     <div id="separate_result_view">
         <div class="content_right">

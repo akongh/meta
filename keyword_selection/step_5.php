@@ -27,7 +27,7 @@ session_start();
 <body>
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_to_index.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/link_to_index.php'); ?>
     <h1>5/6. Выбираем перевод</h1>
     <form method="post"
           action="/keyword_selection/step_5_to_6.php">
