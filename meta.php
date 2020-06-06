@@ -83,7 +83,7 @@ $mysqli->close();
                       rows="4"
                       placeholder=""
                       maxlength="240"></textarea></label>
-        Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].
+        <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
     </div>
     <div id="responseMessage"
          class="content_right">
@@ -97,5 +97,6 @@ $mysqli->close();
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
 </div>
+<script src="/sendMessage.js"></script>
 </body>
 </html>
