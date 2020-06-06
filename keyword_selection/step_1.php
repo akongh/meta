@@ -21,7 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="../css/style.css"
+          href="../style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>

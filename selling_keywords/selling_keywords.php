@@ -17,7 +17,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
           content=""/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link href="/css/meta.css"
+    <link href="/meta.css"
           rel="stylesheet"
           type="text/css">
 

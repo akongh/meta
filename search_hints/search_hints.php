@@ -17,7 +17,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/css/meta.css"
+          href="/meta.css"
           type="text/css">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php');?>
 </head>

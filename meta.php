@@ -21,7 +21,7 @@ unset($_POST);
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/analytics_code.php"); ?>
