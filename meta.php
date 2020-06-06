@@ -8,7 +8,7 @@ session_unset();
 unset($_POST);
 
 require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/sql_prepared_statements.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_SELECT_COUNT_TRANSLATED_KWS);
 $arr_result = $mysqli_result->fetch_array();
@@ -69,6 +69,30 @@ $mysqli->close();
     <div class="content_right">
         <a href="/search_hints/search_hints.php"
            title="Подбор ключевых слов для стоков по их поисковым подсказкам">[Поисковые подсказки]</a>
+    </div>
+    <div id="messageBlock">
+        <p>Обратная связь.</p>
+        <div class="content_right">
+                <span class="amount">
+                    <span id="lengthMessageInformer"></span>
+                </span>
+        </div>
+        <label>
+            <textarea id="textMessageForm"
+                      wrap="soft"
+                      rows="4"
+                      placeholder=""
+                      maxlength="240"></textarea></label>
+        Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].
+    </div>
+    <div id="responseMessage"
+         class="content_right">
+        <a id="clearMessageButton"
+           href="##"
+           title="Очистить поле отзыва">[x]</a>
+        <a id="sendMessageButton"
+           href="##"
+           title="Отправить отзыв">[Отправить]</a>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>

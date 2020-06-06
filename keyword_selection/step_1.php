@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/functions.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 //var_dump($_SESSION);
 ?>

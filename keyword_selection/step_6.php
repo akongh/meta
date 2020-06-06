@@ -106,35 +106,11 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <?php
         require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/includes/link_reset_and_start_over.php"); ?>
     </div>
-<!--    <div id="messageBlock">-->
-<!--        <p>Обратная связь.</p>-->
-<!--        <div class="content_right">-->
-<!--            <span class="amount">-->
-<!--                <span id="lengthMessageInformer"></span>-->
-<!--            </span>-->
-<!--        </div>-->
-<!--        <label>-->
-<!--        <textarea id="textMessageForm"-->
-<!--                  wrap="soft"-->
-<!--                  rows="4"-->
-<!--                  placeholder=""-->
-<!--                  maxlength="240"></textarea></label>-->
-        <!-- Установка [maxLength] продублирована в [js/sendMessage.js (let textMessageMaxLength)]. -->
-<!--    </div>-->
-<!--    <div id="responseMessage"-->
-<!--         class="content_right">-->
-<!--        <a id="clearMessageButton"-->
-<!--           href="##"-->
-<!--           title="Очистить поле отзыва">[x]</a>-->
-<!--        <a id="sendMessageButton"-->
-<!--           href="##"-->
-<!--           title="Отправить отзыв">[Отправить]</a>-->
-<!--    </div>-->
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/keyword_selection/js/changeResultView.js"></script>
 <script src="/keyword_selection/js/selectResult.js"></script>
-<!--<script src="/js/sendMessage.js"></script>-->
+<!--<script src="/sendMessage.js"></script>-->
 </body>
 </html>

@@ -5,7 +5,7 @@ error_reporting(-1);
 
 //var_dump($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/functions.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 
 if (!isset($_POST["arr_kws_marked"]) || count($_POST["arr_kws_marked"]) < 8) {
     if (isset($_POST["arr_kws_marked"])) {
