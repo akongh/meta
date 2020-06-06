@@ -3,12 +3,12 @@
 **Fix before sending**
 ```
 /_meta_privacy/
-/includes/analytics_code.php
-/management/parts/analytics_info.php
-/management/.htaccess
+/keyword_selection/management/.htaccess
 /selling_keywords/php/arrays_cookies_agents.php
 /.htaccess
 /_privacy_path.php
+/analytics_code.php
+/analytics_info.php
 /robots.txt
 ```
 

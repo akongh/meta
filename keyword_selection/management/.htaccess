@@ -1,8 +1,8 @@
 # ACCESS
 #AuthType Basic
-#AuthName "Управление Меты"
+#AuthName "META MANAGEMENT"
 #AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
 #require valid-user
 
-# MAIN FILE OF ADMINISTRATIVE PART OF META
+# MAIN FILE OF MANAGEMENT PART OF META
 DirectoryIndex management.php
