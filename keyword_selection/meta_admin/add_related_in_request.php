@@ -15,7 +15,5 @@ $perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
-$slovo_razbit = $_SESSION["original_kw"];
-
 mysqli_close( $mysqli );
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/divide_and_add.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add_related_in_request.php');

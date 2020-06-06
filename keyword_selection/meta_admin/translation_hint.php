@@ -92,9 +92,9 @@ if ( isset( $slovo ) ) {
     };
 
     $_SESSION["original_kw"] = $slovo;
-    require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_hint.php' );
+    require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_hint.php');
 } else {
-    require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_hints_for_translation.php' );
+    require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_hints_for_translation.php');
 }
 
 mysqli_close( $mysqli );

@@ -21,7 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
@@ -32,7 +32,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>2/6. Выбираем из подобранных…</h1>
     <form method="post"
-          action="/step_2_to_3.php">
+          action="/keyword_selection/step_2_to_3.phpon/step_2_to_3.php">
         <div class="wrap_list_kws">
             <?php
             if (isset($_SESSION["arr_kws_selection"]) and count($_SESSION["arr_kws_selection"]) > 0) {
@@ -67,7 +67,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                value="Собрать в список">
     </form>
     <div class="back_link">
-        <a href="/step_1.php"
+        <a href="/keyword_selection/step_1.phplection/step_1.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
@@ -77,6 +77,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
-<script src="/js/selectAll.js"></script>
+<script src="/keyword_selection/js/selectAll.js"></script>
 </body>
 </html>

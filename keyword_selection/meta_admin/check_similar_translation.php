@@ -54,7 +54,7 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/sql/SQL_choice.php');
 $_SQL_rezultat_podbora = mysqli_query( $mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
@@ -76,4 +76,4 @@ if ( isset( $_MASSIV_spisok_podbora ) ) {
 
 
 mysqli_close( $mysqli );
-require( $_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_hints_translation.php' );
+require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/check_similar_translation.php');

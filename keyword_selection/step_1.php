@@ -21,7 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
@@ -32,7 +32,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
     require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     <h1>1/6. Задаём опорные ключевые слова для подбора</h1>
     <?= meta_kws_markup_state_amount(); ?>
-    <form action="/step_1_to_2.php"
+    <form action="/keyword_selection/step_1_to_2.phpon/step_1_to_2.php"
           method="post">
         <label>
         <textarea name="input_str_kws_query"

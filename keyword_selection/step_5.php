@@ -19,7 +19,7 @@ session_start();
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
@@ -30,7 +30,7 @@ session_start();
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>5/6. Выбираем перевод</h1>
     <form method="post"
-          action="/step_5_to_6.php">
+          action="/keyword_selection/step_5_to_6.phpon/step_5_to_6.php">
         <div class="wrap_list_kws">
             <?php
             foreach ($_SESSION["arr_kws_translations"] as $el) {
@@ -90,7 +90,7 @@ session_start();
                value="Получить результат строками">
     </form>
     <div class="back_link">
-        <a href="/step_4.php"
+        <a href="/keyword_selection/step_4.phplection/step_4.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
@@ -100,7 +100,7 @@ session_start();
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
-<script src="/js/countUniqEngChecked.js"></script>
-<script src="/js/uncheckedTranslations.js"></script>
+<script src="/keyword_selection/js/countUniqEngChecked.js"></script>
+<script src="/keyword_selection/js/uncheckedTranslations.js"></script>
 </body>
 </html>

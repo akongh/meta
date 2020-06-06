@@ -19,13 +19,13 @@ session_start();
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
-    <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/jquery-ui.js"></script>
-    <script src="/js/changeOrderingList.js"></script>
+    <script src="/keyword_selection/js/jquery-1.10.2.js"></script>
+    <script src="/keyword_selection/js/jquery-ui.js"></script>
+    <script src="/keyword_selection/js/changeOrderingList.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -33,7 +33,7 @@ session_start();
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
     <h1>4/6. Определяем очерёдность ключевых слов</h1>
     <form method="post"
-          action="/step_4_to_5.php">
+          action="/keyword_selection/step_4_to_5.phpon/step_4_to_5.php">
         <ul id="sortable" class="wrap_list_kws">
             <?php
             $arr_kws_ordered = array();
@@ -59,7 +59,7 @@ session_start();
                value="Выбрать перевод">
     </form>
     <div class="back_link">
-        <a href="/step_3.php"
+        <a href="/keyword_selection/step_3.phplection/step_3.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">

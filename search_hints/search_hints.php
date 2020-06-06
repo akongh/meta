@@ -19,7 +19,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <link rel="stylesheet"
           href="/css/meta.css"
           type="text/css">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php');?>
 </head>
 <body>
 <div class="page">
@@ -120,10 +120,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <br>
     <br>
     <div id="hints-area">Список подсказок пуст.</div>
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' );?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
 <script src="/search_hints/js/search_hints.js"></script>
-<script src="/js/jquery-1.10.2.js"></script>
-<script src="/js/jquery-ui.js"></script>
+<script src="/keyword_selection/js/jquery-1.10.2.js"></script>
+<script src="/keyword_selection/js/jquery-ui.js"></script>
 </body>
 </html>

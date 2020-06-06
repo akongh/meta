@@ -41,7 +41,7 @@ if (0 < $amount_kws_for_translation) {
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
@@ -53,7 +53,7 @@ if (0 < $amount_kws_for_translation) {
         require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
     </div>
     <div>
-        <a href="/step_1.php"
+        <a href="/keyword_selection/step_1.php"
            title="Начать подбирать ключевые слова">К подбору</a>
     </div>
     <h1>Очередь заявок на перевод</h1>

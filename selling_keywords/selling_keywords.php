@@ -21,7 +21,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
           rel="stylesheet"
           type="text/css">
 
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 
 </head>
 <body>
@@ -140,10 +140,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <br>
     <div id="works-list">Список произведений пуст.</div>
 
-    <?php require( $_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php' ); ?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 
 </div>
-<script src="/js/lodash.js"></script>
+<script src="/keyword_selection/js/lodash.js"></script>
 <script src="/selling_keywords/js/skw.js"></script>
 </body>
 </html>

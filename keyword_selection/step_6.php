@@ -46,7 +46,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="../css/style.css"
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
@@ -99,7 +99,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <span class='amount'><?= $count_kws_untranslated; ?></span>
     </div>
     <div class="back_link">
-        <a href="/step_5.php"
+        <a href="/keyword_selection/step_5.phplection/step_5.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
@@ -133,8 +133,8 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
 </div>
-<script src="/js/changeResultView.js"></script>
-<script src="/js/selectResult.js"></script>
+<script src="/keyword_selection/js/changeResultView.js"></script>
+<script src="/keyword_selection/js/selectResult.js"></script>
 <!--<script src="/js/sendMessage.js"></script>-->
 </body>
 </html>
