@@ -52,6 +52,8 @@ if (isset($_POST["russk"])) {
             echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
         }
     }
+
+    $mysqli_stmt->close();
 }
 
 if (isset($_POST["angl"])) {
@@ -65,7 +67,6 @@ if (isset($_POST["zayavka"])) {
     $mysqli->query(sql_update_mark_kws_for_translation($kws_mark_transl));
 }
 
-$mysqli_stmt->close();
 $mysqli->close();
 
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/step_6.php");
