@@ -48,13 +48,13 @@
         <input name="dobavlenie" type="submit" class="knopka" value="&#9658; Добавить">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
+    <div class="upravlenie"><a href="/keyword_selection/management/php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         <hr class="otbivka_96">
         <a href="meta_admin.php">На главную</a></div>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
-<script src="js/addAndDeleteField.js"></script>
+<script src="/keyword_selection/management/js/addAndDeleteField.js"></script>
 </body>
 </html>

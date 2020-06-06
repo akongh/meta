@@ -22,7 +22,7 @@
         Ключевых слов на русском переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
     </div>
     <hr class="otbivka_96">
-    <form method="post" action="php/ex_save_frequency_translation.php">
+    <form method="post" action="/keyword_selection/management/php/ex_save_frequency_translation.php">
         <h1>
             <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
         </h1>
@@ -56,12 +56,12 @@
         <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить перевод">
     </form>
     <hr class="otbivka_24">
-    <div class="upravlenie"><a href="php/ex_omit_by_frequency.php" title="Пропустить">&#9660; Пропустить</a> —
+    <div class="upravlenie"><a href="/keyword_selection/management/php/ex_omit_by_frequency.php" title="Пропустить">&#9660; Пропустить</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
     </div>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
-<script src="js/addAndDeleteField.js"></script>
+<script src="/keyword_selection/management/js/addAndDeleteField.js"></script>
 </body>
 </html>

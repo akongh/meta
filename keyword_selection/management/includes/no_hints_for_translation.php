@@ -25,7 +25,7 @@
     <hr class="otbivka_96">
     <div class="upravlenie"><a href="meta_admin.php">На главную</a></div>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
 </body>
 </html>

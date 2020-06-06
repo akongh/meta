@@ -23,13 +23,13 @@
         Ключевых слов на русском на заявке: <span class="statistika_czyfra">
           <?php if (isset($na_zayavke)){echo $na_zayavke;};?></span></div>
     <hr class="otbivka_96">
-    <form action="php/ex_add_in_request.php" method="post">
+    <form action="/keyword_selection/management/php/ex_add_in_request.php" method="post">
         <textarea name="opornoe_slovo_sbrosa" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
         <hr class="otbivka_24">
         <input name="zayavka" type="submit" class="knopka" value="Сбросить в заявку">
     </form>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
 </body>
 </html>

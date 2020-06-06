@@ -21,17 +21,17 @@
   <div class="statistika">Ключевых слов на русском переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span> <br>
     Ключевых слов на русском на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span> </div>
   <hr class="otbivka_96">
-  <form action="php/ex_add_related_in_request.php" method="post">
+  <form action="/keyword_selection/management/php/ex_add_related_in_request.php" method="post">
     <textarea name="opornoe_slovo_zayavki" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
     <hr class="otbivka_24">
     <input name="zayavka" type="submit" class="knopka" value="Отправить заявку">
   </form>
   <hr class="otbivka_96">
   <div class="upravlenie">
-  <a href="php/ex_request_reset.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
+  <a href="/keyword_selection/management/php/ex_request_reset.php" title="Сброс заявок" class="krasnaya">&#9660; Сброс заявок</a>
      </div>
   <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
 </body>
 </html>

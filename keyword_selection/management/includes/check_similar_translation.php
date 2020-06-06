@@ -31,7 +31,7 @@
     <hr class="otbivka_48">
     <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
 </body>
 </html>

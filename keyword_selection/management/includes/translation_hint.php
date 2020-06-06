@@ -22,7 +22,7 @@
         <br>
         Подсказок на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
     <hr class="otbivka_96">
-    <form method="post" action="php/ex_save_hint_translation.php">
+    <form method="post" action="/keyword_selection/management/php/ex_save_hint_translation.php">
         <div class="kol"><a href="divide_hint_and_add.php" class="proverit_pox_perevod">Разбить-добавить &#9658;</a></div>
         <hr class="otbivka_12">
         <h1>
@@ -70,9 +70,9 @@
     <hr class="otbivka_24">
     <?php echo $queue_hints_translation;?>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>
-<script src="js/addAndDeleteFieldForHints.js"></script>
-<script src="js/addTranslationMessage.js"></script>
+<script src="/keyword_selection/management/js/addAndDeleteFieldForHints.js"></script>
+<script src="/keyword_selection/management/js/addTranslationMessage.js"></script>
 </body>
 </html>

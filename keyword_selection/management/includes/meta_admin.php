@@ -14,11 +14,11 @@
 </head>
 <body>
 <div class="korobka">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/meta_admin_title.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/meta_admin_title.php');?>
     <hr class="otbivka_48">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/statistic.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/statistic.php');?>
     <hr class="otbivka_24">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/analytics_info.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/analytics_info.php');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -44,7 +44,7 @@
     <hr class="otbivka_24">
     <h2>Обслуживание</h2>
     <hr class="otbivka_48">
-    <a href="php/ex_frequency_update.php">Обновление частоты (рус.)</a>
+    <a href="/keyword_selection/management/php/ex_frequency_update.php">Обновление частоты (рус.)</a>
     <hr class="otbivka_12">
     <div class="statistika">
         Последний раз обновлено строк: <span class="statistika_czyfra">
@@ -57,7 +57,7 @@ if ( isset( $amount_updated_frequencies ) ) {
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
     <hr class="otbivka_24">
 </div>
 </body>
