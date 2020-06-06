@@ -9,14 +9,14 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta_admin.css"
+          href="/management.css"
           type="text/css">
 </head>
 <body>
 <div class="korobka">
     <h2>Перевод по заявке (анг.—рус.)</h2>
     <hr class="otbivka_24">
-    <a href="meta_admin.php">На главную</a>
+    <a href="management.php">На главную</a>
     <hr class="otbivka_24">
     <div class="statistika">Подсказок переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
         <br>

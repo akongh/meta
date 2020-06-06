@@ -9,12 +9,12 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta_admin.css"
+          href="/management.css"
           type="text/css">
 </head>
 <body>
 <div class="korobka">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/meta_admin_title.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/management_title.php');?>
     <hr class="otbivka_48">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/statistic.php');?>
     <hr class="otbivka_24">

@@ -9,7 +9,7 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta_admin.css"
+          href="/management.css"
           type="text/css">
 </head>
 <body>
@@ -51,7 +51,7 @@
     <div class="upravlenie"><a href="/keyword_selection/management/php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
         <span class="statistika_czyfra"><?php echo $propustit;?></span>
         <hr class="otbivka_96">
-        <a href="meta_admin.php">На главную</a></div>
+        <a href="management.php">На главную</a></div>
     <hr class="otbivka_96">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>

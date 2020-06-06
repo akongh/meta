@@ -41,4 +41,4 @@ if ( isset( $_SESSION["amount_updated_frequencies"] ) ) {
 }
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/meta_admin.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/management.php');

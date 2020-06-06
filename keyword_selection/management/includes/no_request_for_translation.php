@@ -9,7 +9,7 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta_admin.css"
+          href="/management.css"
           type="text/css">
 </head>
 <body>
@@ -23,7 +23,7 @@
     <hr class="otbivka_96">
     Заявок на перевод пока нет.
     <hr class="otbivka_96">
-    <div class="upravlenie"><a href="meta_admin.php">На главную</a></div>
+    <div class="upravlenie"><a href="management.php">На главную</a></div>
     <hr class="otbivka_96">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
 </div>

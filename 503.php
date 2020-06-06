@@ -18,7 +18,7 @@ error_reporting(-1);
           href="style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">

@@ -9,14 +9,14 @@
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="/meta_admin.css"
+          href="/management.css"
           type="text/css">
 </head>
 <body>
 <div class="korobka">
     <h2>Разбить-добавить (анг.)</h2>
     <hr class="otbivka_24">
-    <a href="meta_admin.php">На главную</a>
+    <a href="management.php">На главную</a>
     <hr class="otbivka_24">
     <a href="translation_hint.php">&#9668; По заявке</a>
     <hr class="otbivka_24">

@@ -5,4 +5,4 @@
 #require valid-user
 
 # MAIN FILE OF ADMINISTRATIVE PART OF META
-DirectoryIndex meta_admin.php
+DirectoryIndex management.php
