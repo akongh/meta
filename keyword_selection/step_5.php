@@ -33,7 +33,7 @@ session_start();
           action="/keyword_selection/step_5_to_6.php">
         <div class="wrap_list_kws">
             <?php
-            if (isset($_SESSION["arr_kws_translations"])) {
+            if (isset($_SESSION["arr_kws_translations"]) and 0 < count($_SESSION["arr_kws_translations"])) {
                 foreach ($_SESSION["arr_kws_translations"] as $el) {
                     $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
                     switch ($el[2]) {
@@ -84,7 +84,7 @@ session_start();
                     unset($translation_meaning);
                 }
             } else {
-                echo "Список пуст.";
+                echo "Список для выбора перевода пуст.";
             }
             ?>
         </div>

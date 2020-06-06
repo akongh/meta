@@ -36,10 +36,11 @@ session_start();
           action="/keyword_selection/step_4_to_5.php">
         <ul id="sortable" class="wrap_list_kws">
             <?php
-            $arr_kws_ordered = array();
-            foreach ($_SESSION["arr_kws_ordered"] as $kw) {
-                $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                $arr_kws_ordered[] = "
+            if (isset($_SESSION["arr_kws_ordered"]) and 0 < count($_SESSION["arr_kws_ordered"])) {
+                $arr_kws_ordered = array();
+                foreach ($_SESSION["arr_kws_ordered"] as $kw) {
+                    $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                    $arr_kws_ordered[] = "
                         <li>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
@@ -47,8 +48,11 @@ session_start();
                                    checked
                                    value='{$kw}'>{$kw}</li>
                                    ";
+                }
+                echo implode("", $arr_kws_ordered);
+            } else {
+                echo "Список для задания очерёдности пуст.";
             }
-            echo implode("", $arr_kws_ordered);
             ?>
         </ul>
         <div class="amount_kws">
