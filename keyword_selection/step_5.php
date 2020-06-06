@@ -22,15 +22,15 @@ session_start();
           href="../style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_to_index.php'); ?>
     <h1>5/6. Выбираем перевод</h1>
     <form method="post"
-          action="/keyword_selection/step_5_to_6.phpon/step_5_to_6.php">
+          action="/keyword_selection/step_5_to_6.php">
         <div class="wrap_list_kws">
             <?php
             foreach ($_SESSION["arr_kws_translations"] as $el) {
@@ -90,15 +90,15 @@ session_start();
                value="Получить результат строками">
     </form>
     <div class="back_link">
-        <a href="/keyword_selection/step_4.phplection/step_4.php"
+        <a href="/keyword_selection/step_4.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
         <?php
-        require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_reset_and_start_over.php'); ?>
+        require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_reset_and_start_over.php'); ?>
     </div>
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/keyword_selection/js/countUniqEngChecked.js"></script>
 <script src="/keyword_selection/js/uncheckedTranslations.js"></script>

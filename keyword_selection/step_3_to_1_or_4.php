@@ -8,7 +8,7 @@ session_start();
 //var_dump($_POST);
 
 if (isset($_POST["order"])) {
-    require($_SERVER["DOCUMENT_ROOT"] . '/step_3_to_4.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/step_3_to_4.php');
 } elseif (isset($_POST["remember"])) {
-    require($_SERVER["DOCUMENT_ROOT"] . '/step_3_to_1_remember.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/step_3_to_1_remember.php');
 }

@@ -49,12 +49,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
           href="../style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/link_to_index.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/includes/link_to_index.php'); ?>
     <h1>6/6. Результат строками</h1>
     <div id="separate_result_view">
         <div class="content_right">
@@ -99,12 +99,12 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         <span class='amount'><?= $count_kws_untranslated; ?></span>
     </div>
     <div class="back_link">
-        <a href="/keyword_selection/step_5.phplection/step_5.php"
+        <a href="/keyword_selection/step_5.php"
            title="Назад">[<<<< Назад]</a>
     </div>
     <div class="content_right">
         <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_reset_and_start_over.php"); ?>
+        require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/includes/link_reset_and_start_over.php"); ?>
     </div>
 <!--    <div id="messageBlock">-->
 <!--        <p>Обратная связь.</p>-->
@@ -131,7 +131,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
 <!--           title="Отправить отзыв">[Отправить]</a>-->
 <!--    </div>-->
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/footer.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/keyword_selection/js/changeResultView.js"></script>
 <script src="/keyword_selection/js/selectResult.js"></script>

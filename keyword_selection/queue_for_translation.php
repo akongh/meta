@@ -8,7 +8,7 @@ session_unset();
 unset($_POST);
 
 require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_SELECT_KWS_FOR_TRANSLATION);
 $raw_kws_for_translation = $mysqli_result->fetch_all(MYSQLI_ASSOC);
@@ -44,13 +44,13 @@ if (0 < $amount_kws_for_translation) {
           href="../style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . "/analytics_code.php"); ?>
 </head>
 <body>
 <div class="wrap">
     <div>
         <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
+        require($_SERVER["DOCUMENT_ROOT"] . "/keyword_selection/includes/link_to_index.php"); ?>
     </div>
     <div>
         <a href="/keyword_selection/step_1.php"
@@ -64,7 +64,7 @@ if (0 < $amount_kws_for_translation) {
         <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
     </div>
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
 </div>
 </body>
 </html>
