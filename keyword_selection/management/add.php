@@ -35,4 +35,4 @@ $kol                        = $kol[0];
 $_SESSION["original_kw"] = $slovo;
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/add.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/add.php');

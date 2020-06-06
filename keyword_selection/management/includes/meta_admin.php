@@ -14,11 +14,11 @@
 </head>
 <body>
 <div class="korobka">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/meta_admin_title.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/meta_admin_title.php');?>
     <hr class="otbivka_48">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/statistic.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/statistic.php');?>
     <hr class="otbivka_24">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/parts/analytics_info.php');?>
+    <?php require($_SERVER["DOCUMENT_ROOT"] . '/management/parts/analytics_info.php');?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">

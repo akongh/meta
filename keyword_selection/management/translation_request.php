@@ -9,42 +9,42 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 unset( $_SESSION["original_kw"] );
 
-$na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '7'" );
+$na_zayavke_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '7'" );
 $na_zayavke_otvet  = mysqli_fetch_row( $na_zayavke_zapros );
 $na_zayavke        = $na_zayavke_otvet[0];
 
-$propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '5'" );
+$propustit_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '5'" );
 $propustit_otvet  = mysqli_fetch_row( $propustit_zapros );
 $propustit        = $propustit_otvet[0];
 
-$perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '1'" );
+$perevedeno_zapros = mysqli_query( $mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'" );
 $perevedeno_otvet  = mysqli_fetch_row( $perevedeno_zapros );
 $perevedeno        = $perevedeno_otvet[0];
 
 $kw_ruolichestvo = mysqli_query( $mysqli, "
-	SELECT `s` slovo, `ids`
-	from `l-ts`
+	SELECT `s` slovo, `kol`
+	from `k-ts`
 	where `f` = 7
-	ORDER BY `l-ts`.`ids`
+	ORDER BY `k-ts`.`kol` DESC
 	LIMIT 1
 	" );
 
 $n = 0;
 while ( $data = mysqli_fetch_array( $kw_ruolichestvo ) ) {
     $slovo[ $n ] = $data["slovo"];
-//    $kol[ $n ]   = $data["ids"];
+    $kol[ $n ]   = $data["kol"];
     $n ++;
 }
 if ( isset( $slovo[0] ) ) {
     $slovo = $slovo[0];
 
     $sql_select_en_translation_and_meaning = mysqli_query( $mysqli, "
-select `k-ts`.`s`, `tz`.`z`
+select `l-ts`.`s`, `tz`.`z`
 from `k-ts`
 join `k_l` on `k-ts`.`ids`=`k_l`.`idk`
 join `l-ts` on `l-ts`.`ids`=`k_l`.`idl`
 join `tz` on `tz`.`idz`=`k_l`.`idz`
-where `l-ts`.`s`='" . preg_replace("/'/", "\'", $slovo) . "'
+where `k-ts`.`s`='" . $slovo . "'
 " );
 };
 if ( isset( $sql_select_en_translation_and_meaning ) ) {
@@ -67,34 +67,15 @@ if ( isset( $p_z ) ) {
 
 unset( $p_z, $p, $z );
 
-//if ( isset( $kol[0] ) ) {
-//    $kol = $kol[0];
-//};
+if ( isset( $kol[0] ) ) {
+    $kol = $kol[0];
+};
 
 if ( isset( $slovo ) ) {
-
-    $queue_hints_translation_querry = mysqli_query( $mysqli, "
-	SELECT `s` hints, `ids`
-	from `l-ts`
-	where `f` = 7
-	ORDER BY `l-ts`.`ids`
-	" );
-
-    $n = 0;
-    while ( $data = mysqli_fetch_array( $queue_hints_translation_querry ) ) {
-        if ( $n > 0 ) {
-            $queue_hints_translation[ $n ] = $data["hints"];
-        };
-        $n ++;
-    }
-    if ( isset( $queue_hints_translation ) && count( $queue_hints_translation ) > 0 ) {
-        $queue_hints_translation = implode( '<br>', $queue_hints_translation );
-    };
-
     $_SESSION["original_kw"] = $slovo;
-    require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/translation_hint.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/translation_request.php');
 } else {
-    require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/no_hints_for_translation.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/no_request_for_translation.php');
 }
 
 mysqli_close( $mysqli );

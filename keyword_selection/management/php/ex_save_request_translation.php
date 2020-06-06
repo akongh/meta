@@ -22,14 +22,14 @@ if ( isset( $perevod ) ) {
 	for ( $i = 0; $i < count( $perevod ); $i ++ ) {
 		$perevod[ $i ] = trim( $perevod[ $i ] );
         $perevod[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], $perevod[$i]);
-    }
+	}
 }
 
 if ( isset( $znachenie ) ) {
 	for ( $i = 0; $i < count( $znachenie ); $i ++ ) {
 		$znachenie[ $i ] = trim( $znachenie[ $i ] );
         $znachenie[$i] = preg_replace(["/ {2,}/", "/'/"], [" ", "\'"], $znachenie[$i]);
-    }
+	}
 }
 if ( $original_kw != $kw_ru ) {
 	$proverka_nalichiya_slova = mysqli_query( $mysqli, "  
@@ -128,9 +128,15 @@ if ( isset( $perevod ) ) {
 	SET `f` = 1
 	WHERE `s` = '" . $kw_ru . "' 
 	" );
+} else if ( ! isset( $perevod ) && ( $original_kw == $kw_ru ) ) //просто помечаем слово переведённым, если ничего не меняли с ним (предполагается, что слово имеет уже переводы)
+{
+	mysqli_query( $mysqli, "
+		UPDATE `k-ts`
+		SET `f` = 1
+		WHERE `s` = '" . $kw_ru . "'
+		" );
 }
-
 $_SESSION["kw_ru"] = $kw_ru;
 
 mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/review_translation_frequency.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/management/review_translation_request.php" );

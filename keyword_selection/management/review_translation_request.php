@@ -36,4 +36,4 @@ if ( isset( $p_z ) ) {
 unset( $p_z, $p, $z );
 
 mysqli_close( $mysqli );
-require($_SERVER["DOCUMENT_ROOT"] . '/meta_admin/includes/review_translation_request.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/management/includes/review_translation_request.php');

@@ -16,4 +16,4 @@ WHERE `s` = '" . $kw_ru . "'
 " );
 
 mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_frequency.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_frequency.php" );

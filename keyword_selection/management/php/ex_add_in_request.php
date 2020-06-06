@@ -33,4 +33,4 @@ unset(
 );
 
 mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/meta_admin/translation_request.php" );
+header( "Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_request.php" );
