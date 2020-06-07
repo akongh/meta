@@ -19,9 +19,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <link rel="stylesheet"
           href="/style.css"
           type="text/css">
-
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
-
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
 </head>
 <body>
 <div class="wrap">
@@ -35,19 +34,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <br>
-    <br>
-    <br>
-    <br>
     <h1>Продавшие ключевые слова на Шаттерстоке</h1>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a name="top"></a>
+    <a id="top"></a>
     <div id="variants-queries-list">Без вариантов.</div>
-    <br>
-    <br>
     <div class="content-left">
         <span title="Число уровней повторяемости вариантов запросов">Основных <select size="1" id="level">
             <option selected value="1">1</option>
@@ -66,8 +55,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Удалить варианты запросов">[x]</a>
     </div>
-    <br>
-    <br>
     <input type="text"
            id="author"
            class="textarea-author"
@@ -78,28 +65,21 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        id="delete-author-button"
        class="link-button"
        title="Удалить автора">[x]</a>
-    <br>
-    <br>
     <textarea id="keyword"
               class="textarea-keywords"
               wrap="soft"
               rows="8"
               placeholder=""
               autofocus></textarea>
-    <br>
-    <br>
     <div class="content-right">
         <a href="#"
            id="clear-keyword-button"
            class="link-button"
            title="Очистить поле запроса">[x]</a>
     </div>
-    <br>
     <label><input type="checkbox"
                   name="use-variant-queries"
                   value=""> На основе вариантов</label>
-    <br>
-    <br>
     <label><input type="radio"
                   name="image_type"
                   value="all"
@@ -113,17 +93,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <label><input type="radio"
                   name="image_type"
                   value="illustration"> Иллюстрации</label>
-    <br>
-    <br>
     <input id="get-selling-keywords-button"
            name="get-selling-keywords-button"
            type="submit"
            value="Получить продавшие ключевые слова">
-    <br>
-    <br>
     <span id="status"></span>
-    <br>
-    <br>
     <div class="content-right">
         <span id="count-keywords"
               class="counter">0</span>
@@ -132,17 +106,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Удалить текущую строку результата">[x]</a>
     </div>
-    <br>
-    <br>
     <div id="selling-keywords-string">Строка результата пуста.</div>
-    <br>
-    <br>
-    <br>
-    <br>
     <div id="works-list">Список произведений пуст.</div>
-
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
-
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/_third_party/lodash.js"></script>
 <script src="/selling_keywords/js/skw.js"></script>
