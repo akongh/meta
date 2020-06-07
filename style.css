@@ -399,11 +399,6 @@
     width: 100%;
 }
 
-.counter {
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
 .separate-checkbox {
     padding-left: 48px;
     text-indent: -26px;
@@ -521,10 +516,6 @@ hr {
     font-weight: 700;
 }
 
-.counter {
-    font-weight: 700;
-}
-
 .hover-invert {
     font-weight: 700;
 }
@@ -543,11 +534,6 @@ hr {
 
 #sortable li:hover {
     background: #eee;
-}
-
-.counter {
-    color: #000;
-    background: #ddd;
 }
 
 .block-translated {

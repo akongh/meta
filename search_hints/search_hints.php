@@ -28,7 +28,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
          class="up-block">
         <div class="up-center-block content-right">
             <span id="hints-total-and-selected-top"
-                  class="counter"></span>
+                  class="amount"></span>
             <a href="#top"
                class="link-button up-button"
                title="Наверх">[Наверх]</a>
@@ -144,7 +144,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
     <div class="content-right">
         <span id="hints-total-and-selected"
-              class="counter"></span>
+              class="amount"></span>
         <a href="#"
            id="delete-hints-objects-array-button"
            class="link-button"

@@ -37,7 +37,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <h1>Продавшие ключевые слова на Шаттерстоке</h1>
     <a id="top"></a>
     <div id="variants-queries-list">Без вариантов.</div>
-    <div class="content-left">
+    <div>
         <span title="Число уровней повторяемости вариантов запросов">
             Основных
             <label><select size="1"
@@ -82,22 +82,26 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Очистить поле запроса">[x]</a>
     </div>
-    <label><input type="checkbox"
-                  name="use-variant-queries"
-                  value=""> На основе вариантов</label>
-    <label><input type="radio"
-                  name="image_type"
-                  value="all"
-                  checked> Все</label>
-    <label><input type="radio"
-                  name="image_type"
-                  value="photo"> Фото</label>
-    <label><input type="radio"
-                  name="image_type"
-                  value="vector"> Вектор</label>
-    <label><input type="radio"
-                  name="image_type"
-                  value="illustration"> Иллюстрации</label>
+    <div>
+        <label><input type="checkbox"
+                      name="use-variant-queries"
+                      value=""> На основе вариантов</label>
+    </div>
+    <div>
+        <label><input type="radio"
+                      name="image_type"
+                      value="all"
+                      checked> Все</label>
+        <label><input type="radio"
+                      name="image_type"
+                      value="photo"> Фото</label>
+        <label><input type="radio"
+                      name="image_type"
+                      value="vector"> Вектор</label>
+        <label><input type="radio"
+                      name="image_type"
+                      value="illustration"> Иллюстрации</label>
+    </div>
     <input type="submit"
            id="get-selling-keywords-button"
            name="get-selling-keywords-button"
@@ -105,7 +109,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <span id="status"></span>
     <div class="content-right">
         <span id="count-keywords"
-              class="counter">0</span>
+              class="amount">0</span>
         <a href="#"
            id="delete-keywords-objects-array-button"
            class="link-button"
