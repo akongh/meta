@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Действующий на&nbsp;базе Меты инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них</title>
+    <title>Поисковые подсказки</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -31,12 +31,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1>
-        <span class="meta">МЕТА-подсказки</span>
-        <br>
-        <br>
-        Действующий на&nbsp;базе Меты инструмент подбора ключевых слов для&nbsp;стоков по&nbsp;подсказкам ключевых запросов в&nbsp;строке поиска от&nbsp;некоторых из&nbsp;них
-    </h1>
+    <h1>Поисковые подсказки</h1>
     <br>
     <br>
     <br>
