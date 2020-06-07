@@ -12,7 +12,7 @@
           href="/style.css"
           type="text/css">
 </head>
-<body>
+<body class="bg">
 <div class="korobka">
     <hr class="otbivka_48">
     <div class="blok_perevoda">

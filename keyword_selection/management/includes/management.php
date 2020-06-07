@@ -12,7 +12,7 @@
           href="/style.css"
           type="text/css">
 </head>
-<body>
+<body class="bg">
 <div class="korobka">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/management_title.php');?>
     <hr class="otbivka_48">

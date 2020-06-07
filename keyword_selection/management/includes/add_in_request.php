@@ -12,7 +12,7 @@
           href="/style.css"
           type="text/css">
 </head>
-<body>
+<body class="bg">
 <div class="korobka">
     <h2>Сброс в заявку (рус.)</h2>
     <hr class="otbivka_24">

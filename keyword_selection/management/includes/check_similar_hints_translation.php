@@ -12,7 +12,7 @@
           href="/style.css"
           type="text/css">
 </head>
-<body>
+<body class="bg">
 <div class="korobka">
     <h2>Проверка похожего перевода</h2>
     <hr class="otbivka_96">
