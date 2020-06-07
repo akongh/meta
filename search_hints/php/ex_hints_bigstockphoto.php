@@ -4,7 +4,7 @@ declare(strict_types=1);
 error_reporting(-1);
 
 //получаем и определяем параметр type и строку ОКС
-$type                  = $_POST["type"];
+$type                  = $_POST["media_type_bigstockphoto"];
 $basic_keywords_string = $_POST["basicKeywordsString"];
 
 //готовим для запросов массив ОКС из строки ОКС

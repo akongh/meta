@@ -98,11 +98,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            id="get-basic-keywords-button-fotolia"
            value="От Фотолии">
     <label><input type="radio"
-                  name="type"
+                  name="media_type_bigstockphoto"
                   value="image"
                   checked> Изображения</label>
     <label><input type="radio"
-                  name="type"
+                  name="media_type_bigstockphoto"
                   value="video"> Видео</label>
     <input type="submit"
            id="get-basic-keywords-button-bigstockphoto"
