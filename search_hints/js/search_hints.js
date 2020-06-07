@@ -817,37 +817,37 @@ function deselectAllHints() {
 
 function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.disabled = true;
-    getBasicKeywordsButtonShutterstock.value = "…";
+    getBasicKeywordsButtonShutterstock.value = "";
     getBasicKeywordsButtonShutterstock.style.background = "#dddddd";
     getBasicKeywordsButtonShutterstock.style.cursor = "default";
 
     getBasicKeywordsButtonIstockphoto.disabled = true;
-    getBasicKeywordsButtonIstockphoto.value = "…";
+    getBasicKeywordsButtonIstockphoto.value = "";
     getBasicKeywordsButtonIstockphoto.style.background = "#dddddd";
     getBasicKeywordsButtonIstockphoto.style.cursor = "default";
 
     getBasicKeywordsButtonGetty.disabled = true;
-    getBasicKeywordsButtonGetty.value = "…";
+    getBasicKeywordsButtonGetty.value = "";
     getBasicKeywordsButtonGetty.style.background = "#dddddd";
     getBasicKeywordsButtonGetty.style.cursor = "default";
 
     getBasicKeywordsButtonFotolia.disabled = true;
-    getBasicKeywordsButtonFotolia.value = "…";
+    getBasicKeywordsButtonFotolia.value = "";
     getBasicKeywordsButtonFotolia.style.background = "#dddddd";
     getBasicKeywordsButtonFotolia.style.cursor = "default";
 
     getBasicKeywordsButtonBigstockphoto.disabled = true;
-    getBasicKeywordsButtonBigstockphoto.value = "…";
+    getBasicKeywordsButtonBigstockphoto.value = "";
     getBasicKeywordsButtonBigstockphoto.style.background = "#dddddd";
     getBasicKeywordsButtonBigstockphoto.style.cursor = "default";
 
     getBasicKeywordsButtonDepositphotos.disabled = true;
-    getBasicKeywordsButtonDepositphotos.value = "…";
+    getBasicKeywordsButtonDepositphotos.value = "";
     getBasicKeywordsButtonDepositphotos.style.background = "#dddddd";
     getBasicKeywordsButtonDepositphotos.style.cursor = "default";
 
     getBasicKeywordsButton123rf.disabled = true;
-    getBasicKeywordsButton123rf.value = "…";
+    getBasicKeywordsButton123rf.value = "";
     getBasicKeywordsButton123rf.style.background = "#dddddd";
     getBasicKeywordsButton123rf.style.cursor = "default";
 }
