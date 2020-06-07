@@ -31,7 +31,8 @@ session_start();
 <div class="wrap">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/link_to_index.php'); ?>
-    <h1>4/6. Определяем очерёдность ключевых слов</h1>
+    <h1>Русско-английский подбор<br>
+        4/6. Определяем очерёдность ключевых слов</h1>
     <form method="post"
           action="/keyword_selection/step_4_to_5.php">
         <ul id="sortable" class="wrap_list_kws">

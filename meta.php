@@ -43,8 +43,8 @@ $mysqli->close();
 </head>
 <body>
 <div class="wrap">
-    <h1>МЕТА</h1>
-    <h2>Инстументы для ключевых слов</h2>
+    <h1>МЕТА<br>
+        Инстументы для ключевых слов</h1>
     <div class="tool_list">
         <p>
             <a href="/keyword_selection/step_1.php"
