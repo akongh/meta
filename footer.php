@@ -1,4 +1,4 @@
 <div class="footer">
-    МЕТА 0.2.0<br>
-    © Андрей К., Елена А., 2014&mdash;2020
+    META 0.2.0<br>
+    © Korzhyts Andrei, Abrazhevich Elena, 2014&mdash;2020
 </div>
