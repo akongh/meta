@@ -388,20 +388,7 @@
     border-color: #ccc;
 }
 
-.img-index {
-    width: 100%;
-}
-
 .textarea-keywords {
-    width: 100%;
-    resize: none;
-    outline: none;
-    overflow: auto;
-    border: dashed 1px;
-    cursor: text;
-}
-
-.textarea-message {
     width: 100%;
     resize: none;
     outline: none;
@@ -432,12 +419,6 @@
     vertical-align: middle;
 }
 
-.help {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-}
-
 #sortable {
     list-style-type: none;
     cursor: move;
@@ -448,11 +429,6 @@
 .counter {
     padding-left: 4px;
     padding-right: 4px;
-}
-
-.keyword-ru {
-    display: inline-block;
-    margin-bottom: 4px;
 }
 
 .separate-checkbox {
@@ -498,15 +474,6 @@
     padding-left: 24px;
 }
 
-.line {
-    border-top: dashed 1px;
-}
-
-.kw-pattern {
-    display: inline-block;
-    width: 100%;
-}
-
 .up-block {
     position: fixed;
     top: 0;
@@ -522,47 +489,8 @@
     padding-right: 8px;
 }
 
-.block-404-503 {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-}
-
-.content-404-503 {
-    display: block;
-    border: none;
-    text-align: left;
-}
-
 .hidden {
     display: none;
-}
-
-.pluso {
-    margin-left: -4px;
-}
-
-.pluso-more {
-    display: none !important;
-}
-
-.notice {
-    padding: 8px 16px;
-}
-
-.notice img {
-    width: 100%;
-    padding-top: 16px;
-}
-
-.notice-title {
-    margin-bottom: 16px;
 }
 
 .textarea-author {
@@ -624,15 +552,7 @@ hr {
     font-size: 16px;
 }
 
-.textarea-message {
-    font-size: 16px;
-}
-
 .counter {
-    font-weight: 700;
-}
-
-.keyword-ru {
     font-weight: 700;
 }
 
@@ -640,19 +560,7 @@ hr {
     font-weight: 700;
 }
 
-.notice-title {
-    font-weight: 700;
-}
-
 .link-button {
-    text-decoration: none;
-}
-
-.link-button-reset {
-    text-decoration: none;
-}
-
-.link-button-reset:hover {
     text-decoration: none;
 }
 
@@ -666,23 +574,6 @@ hr {
 
 .textarea-keywords {
     border-color: #ddd;
-}
-
-.textarea-message {
-    border-color: #ddd;
-}
-
-.help {
-    background: #eee;
-    color: #888;
-}
-
-.link-button-reset {
-    color: #888;
-}
-
-.link-button-reset:hover {
-    color: #000;
 }
 
 #sortable li:hover {
@@ -700,10 +591,6 @@ hr {
 
 .block-not-translated {
     color: #888;
-}
-
-.keyword-ru {
-    color: #000;
 }
 
 .keyword-en {
@@ -749,25 +636,8 @@ hr {
     color: #888;
 }
 
-.line {
-    border-color: #ddd;
-}
-
-.kw-pattern:hover {
-    background: #eee;
-}
-
 .up-button {
     background: #fff;
-}
-
-.notice {
-    background-color: #63eec1;
-    color: #000;
-}
-
-.notice a {
-    color: #000;
 }
 
 .textarea-author {
