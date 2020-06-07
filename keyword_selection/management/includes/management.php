@@ -14,11 +14,14 @@
 </head>
 <body class="bg">
 <div class="wrap">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/management_title.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/management_title.php'); ?>
     <hr class="otbivka_48">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/statistic.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/statistic.php'); ?>
     <hr class="otbivka_24">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/analytics_info.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_info.php'); ?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
@@ -49,15 +52,16 @@
     <div class="statistika">
         Последний раз обновлено строк: <span class="statistika_czyfra">
 <?php
-if ( isset( $amount_updated_frequencies ) ) {
-	echo $amount_updated_frequencies;
-};
+if (isset($amount_updated_frequencies)) {
+    echo $amount_updated_frequencies;
+}
 ?>
   </span></div>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
     <hr class="otbivka_24">
 </div>
 </body>

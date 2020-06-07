@@ -18,20 +18,29 @@
     <hr class="otbivka_96">
     <form method="post" action="check_similar_translation.php">
         <h1>
-            <input name="slovo_proverka" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
+            <input name="slovo_proverka" type="text" class="vvod_slovo" value="<?php
+            echo $slovo; ?>">
         </h1>
         <hr class="otbivka_12">
-        <div class="kol"><?php if ( isset ( $kol ) ) { echo $kol; }; ?></div>
+        <div class="kol"><?php
+            if (isset ($kol)) {
+                echo $kol;
+            } ?></div>
         <hr class="otbivka_24">
         <div class="blok_perevoda">
-            <?php echo $with_translation;?> </div>
+            <?php
+            echo $with_translation; ?> </div>
         <hr class="otbivka_48">
         <input name="proverit_pox_perevod" type="submit" value="&#9658; Проверить похожий перевод">
     </form>
     <hr class="otbivka_48">
-    <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>
+    <?php
+    if (isset ($output_marked_kws_list)) {
+        echo $output_marked_kws_list;
+    } ?>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 </body>
 </html>

@@ -16,21 +16,26 @@
 <div class="wrap">
     <h2>Разбить-добавить (анг.)</h2>
     <hr class="otbivka_24">
-    <a href="management.php">На главную</a>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?>
     <hr class="otbivka_24">
     <a href="translation_hint.php">&#9668; По заявке</a>
     <hr class="otbivka_24">
-    <div class="statistika">Подсказок переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span> <br>
-        Подсказок на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
+    <div class="statistika">Подсказок переведено: <span class="statistika_czyfra"><?php
+            echo $perevedeno; ?></span> <br>
+        Подсказок на заявке: <span class="statistika_czyfra"><?php
+            echo $na_zayavke; ?></span></div>
     <hr class="otbivka_96">
     <form action="/keyword_selection/management/php/ex_divide_hint_and_add.php" method="post">
         <textarea name="novoe_slovo_razbit" wrap="soft" class="vvod_slov_tekst" placeholder=""
-                  autofocus><?php echo $slovo_razbit;?></textarea>
+                  autofocus><?php
+            echo $slovo_razbit; ?></textarea>
         <hr class="otbivka_24">
         <input name="razbit" type="submit" value="Разбить-добавить">
     </form>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 </body>
 </html>

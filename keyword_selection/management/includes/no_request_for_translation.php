@@ -17,15 +17,20 @@
     <h2>Пераквох па заяуцы;)</h2>
     <hr class="otbivka_24">
     <div class="statistika">
-        Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+        Ключевых слов переведено: <span class="statistika_czyfra"><?php
+            echo $perevedeno; ?></span>
         <br>
-        Ключевых слов на заявке: <span class="statistika_czyfra"><?php echo $na_zayavke;?></span></div>
+        Ключевых слов на заявке: <span class="statistika_czyfra"><?php
+            echo $na_zayavke; ?></span></div>
     <hr class="otbivka_96">
     Заявок на перевод пока нет.
     <hr class="otbivka_96">
-    <div class="upravlenie"><a href="management.php">На главную</a></div>
+    <div class="upravlenie">
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?></div>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 </body>
 </html>

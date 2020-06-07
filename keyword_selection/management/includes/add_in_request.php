@@ -16,12 +16,19 @@
 <div class="wrap">
     <h2>Сброс в заявку (рус.)</h2>
     <hr class="otbivka_24">
-    <a href="management.php">На главную</a>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?>
     <hr class="otbivka_24">
     <div class="statistika">Ключевых слов на русском переведено: <span class="statistika_czyfra">
-      <?php if (isset($perevedeno)){echo $perevedeno;};?></span> <br>
+      <?php
+      if (isset($perevedeno)) {
+          echo $perevedeno;
+      } ?></span> <br>
         Ключевых слов на русском на заявке: <span class="statistika_czyfra">
-          <?php if (isset($na_zayavke)){echo $na_zayavke;};?></span></div>
+          <?php
+          if (isset($na_zayavke)) {
+              echo $na_zayavke;
+          } ?></span></div>
     <hr class="otbivka_96">
     <form action="/keyword_selection/management/php/ex_add_in_request.php" method="post">
         <textarea name="opornoe_slovo_sbrosa" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
@@ -29,7 +36,8 @@
         <input name="zayavka" type="submit" value="Сбросить в заявку">
     </form>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 </body>
 </html>

@@ -16,16 +16,19 @@
 <div class="wrap">
     <h2>Добавление по присутствию</h2>
     <hr class="otbivka_24">
-    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>
+    <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php
+            echo $perevedeno; ?></span>
     </div>
     <hr class="otbivka_96">
     <form method="post" action="add.php">
         <h1>
-            <input name="slovo" type="text" class="vvod_slovo" value="<?php echo $slovo;?>">
+            <input name="slovo" type="text" class="vvod_slovo" value="<?php
+            echo $slovo; ?>">
         </h1>
         <hr class="otbivka_12">
-        <div class="kol"><?php echo $kol;?><a href="check_similar_translation.php" target="_blank"
-                                              class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
+        <div class="kol"><?php
+            echo $kol; ?><a href="check_similar_translation.php" target="_blank"
+                            class="proverit_pox_perevod">Проверить похожий перевод &#9658;</a></div>
         <hr class="otbivka_48">
         <div id="parentId">
             <div>
@@ -49,11 +52,15 @@
     </form>
     <hr class="otbivka_24">
     <div class="upravlenie"><a href="/keyword_selection/management/php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —
-        <span class="statistika_czyfra"><?php echo $propustit;?></span>
+        <span class="statistika_czyfra">
+            <?php
+            echo $propustit; ?></span>
         <hr class="otbivka_96">
-        <a href="management.php">На главную</a></div>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?></div>
     <hr class="otbivka_96">
-    <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/keyword_selection/management/js/addAndDeleteField.js"></script>
 </body>
