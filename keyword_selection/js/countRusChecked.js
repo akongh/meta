@@ -1,15 +1,15 @@
 let arrRus = document.getElementsByName("arr_kws_marked[]");
 
-for (let i = 0; i < arrRus.length; i++){
+for (let i = 0; i < arrRus.length; i++) {
     arrRus[i].onclick = countRusChecked;
 }
 
 countRusChecked();
 
-function countRusChecked(){
+function countRusChecked() {
     let count = 0;
-    for (let i = 0; i < arrRus.length; i++){
-        if (true === arrRus[i].checked){
+    for (let i = 0; i < arrRus.length; i++) {
+        if (true === arrRus[i].checked) {
             count++;
         }
     }

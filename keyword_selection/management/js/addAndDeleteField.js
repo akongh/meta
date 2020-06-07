@@ -12,6 +12,7 @@ function deleteField(a) {
     // Возвращаем false, чтобы не было перехода по ссылке
     return false;
 }
+
 function addField() {
     // Увеличиваем текущее значение числа полей
     countOfFields++;
