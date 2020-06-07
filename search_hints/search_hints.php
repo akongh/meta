@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Поисковые подсказки</title>
+    <title>Поисковые подсказки ключевых слов</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -36,7 +36,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1>Поисковые подсказки</h1>
+    <h1>Поисковые подсказки ключевых слов</h1>
     <label for="in-russian">Вспомогательный русско-английский перевод</label>
     <input type="text"
            id="in-russian"
@@ -48,7 +48,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
         <a href="#"
            id="get-translation-button"
            class="link-button"
-           title="Получить перевод">[Перевод]</a>
+           title="Перевести">[Перевести]</a>
         <a href="#"
            id="clear-translation-button"
            class="link-button"
@@ -69,11 +69,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
         <a href="#"
            id="add-keywords-to-list-button"
            class="link-button"
-           title="Добавить в список свои ключевые слова">[Добавить в&nbsp;список]</a>
+           title="Добавить в список ключевых слов">[Добавить в&nbsp;список]</a>
         <a href="#"
            id="clear-button"
            class="link-button"
-           title="Очистить поле запроса">[x]</
+           title="Очистить поле опорных ключевых слов">[x]</
     </div>
     <label><input type="radio"
                   name="media-type"
@@ -85,17 +85,17 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <label><input type="radio"
                   name="media-type"
                   value="video"> Видео</label>
-    <input id="get-basic-keywords-button-shutterstock"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
-    <input id="get-basic-keywords-button-istockphoto"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-istockphoto"
            value="От Айстокфото">
-    <input id="get-basic-keywords-button-getty"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-getty"
            value="От Геттиимаджес">
-    <input id="get-basic-keywords-button-fotolia"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-fotolia"
            value="От Фотолии">
     <label><input type="radio"
                   name="type"
@@ -104,46 +104,53 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <label><input type="radio"
                   name="type"
                   value="video"> Видео</label>
-    <input id="get-basic-keywords-button-bigstockphoto"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-bigstockphoto"
            value="От Бигстокфото">
-    <input id="get-basic-keywords-button-depositphotos"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-depositphotos"
            value="От Депозитфотос">
-    <input id="get-basic-keywords-button-123rf"
-           type="submit"
+    <input type="submit"
+           id="get-basic-keywords-button-123rf"
            value="От 123РФ">
     <a id="top"></a>
-    <a href="#" id="create-result-string-button"
+    <a href="#"
+       id="create-result-string-button"
        class="link-button"
-       title="Создать строку результата">[Результат]</a>
-    <a href="#" id="rank-hints-list-button"
+       title="Создать строку результата из списка ключевых слов">[Результат]</a>
+    <a href="#"
+       id="rank-hints-list-button"
        class="link-button"
-       title="Задать очерёдность подсказок в списке">[Очерёдность]</a>
-    <a href="#" id="return-to-list-view-button"
+       title="Задать очерёдность в списке ключевых слов">[Очерёдность]</a>
+    <a href="#"
+       id="return-to-list-view-button"
        class="link-button"
-       title="Вернуть список подсказок">[Список]</a>
-    <a href="#" id="sort-a-z-button"
+       title="Вернуть список ключевых слов">[Список]</a>
+    <a href="#"
+       id="sort-a-z-button"
        class="link-button"
-       title="Сортировать список по алфавиту">[По&nbsp;алфавиту]</a>
-    <a href="#" id="delete-deselected-hints-button"
+       title="Сортировать список ключевых слов по алфавиту">[По&nbsp;алфавиту]</a>
+    <a href="#"
+       id="delete-deselected-hints-button"
        class="link-button"
-       title="Очистить список от невыбранных подсказок">[Очистить]</a>
-    <a href="#" id="select-all-hints-button"
+       title="Очистить список ключевых слов от невыбранных">[Очистить]</a>
+    <a href="#"
+       id="select-all-hints-button"
        class="link-button"
-       title="Вернуть список подсказок">[Все]</a>
-    <a href="#" id="deselect-all-hints-button"
+       title="Выбрать все ключевые слова">[Все]</a>
+    <a href="#"
+       id="deselect-all-hints-button"
        class="link-button"
-       title="Очистить список от невыбранных подсказок">[Ничего]</a>
+       title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
     <div class="content-right">
         <span id="hints-total-and-selected"
               class="counter"></span>
         <a href="#"
            id="delete-hints-objects-array-button"
            class="link-button"
-           title="Удалить текущий список подсказок">[x]</a>
+           title="Удалить текущий список ключевых слов">[x]</a>
     </div>
-    <div id="hints-area">Список подсказок пуст.</div>
+    <div id="hints-area">Список ключевых слов пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
