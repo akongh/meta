@@ -260,10 +260,6 @@
     font-style: italic;
 }
 
-.nomer_shaga {
-    font-size: 60px;
-}
-
 .statistika {
     font-style: italic;
 }
@@ -346,10 +342,6 @@
     color: #666;
 }
 
-.nomer_shaga {
-    color: #666;
-}
-
 .statistika {
     color: #666;
 }
@@ -394,16 +386,6 @@
     color: #f00;
     background-color: #ffc;
     border-color: #ccc;
-}
-
-input[type="checkbox"] {
-    width: 14px;
-    height: 14px;
-}
-
-select {
-    outline: none;
-    border: solid 1px;
 }
 
 .img-index {
@@ -634,10 +616,6 @@ hr {
     clear: both;
 }
 
-select {
-    font-size: 16px;
-}
-
 .bold {
     font-weight: 700;
 }
@@ -684,14 +662,6 @@ select {
 
 .variant-query:hover {
     font-weight: 700;
-}
-
-select {
-    border-color: #ddd;
-}
-
-label:hover {
-    background: #eee;
 }
 
 .textarea-keywords {
