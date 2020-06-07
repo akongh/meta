@@ -7,14 +7,14 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-mysqli_query( $mysqli, "
+mysqli_query($mysqli, "
 	UPDATE `k-ts`
 	SET `k-ts`.`kol` = (SELECT COUNT(*)
 	FROM `k-t_s`
 	WHERE `k-t_s`.`id_s` = `k-ts`.`ids`)
-	" );
+	");
 
-$_SESSION["amount_updated_frequencies"] = mysqli_affected_rows( $mysqli );
+$_SESSION["amount_updated_frequencies"] = mysqli_affected_rows($mysqli);
 
-mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/management/management.php" );
+mysqli_close($mysqli);
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/keyword_selection/management/management.php");

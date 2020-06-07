@@ -7,28 +7,28 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
+if (isset($_POST["opornoe_slovo_zayavki"])) {
     $opornoe_slovo_zayavki = $_POST["opornoe_slovo_zayavki"];
-    unset( $_POST["opornoe_slovo_zayavki"] );
-    $opornoe_slovo_zayavki = trim( mb_strtolower( htmlspecialchars( strip_tags( stripslashes( $opornoe_slovo_zayavki ) ) ), "utf-8" ) );
+    unset($_POST["opornoe_slovo_zayavki"]);
+    $opornoe_slovo_zayavki = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($opornoe_slovo_zayavki))), "utf-8"));
     $opornoe_slovo_zayavki = preg_replace(["/ {2,}/", "/-{2,}/"], [" ", "-"], $opornoe_slovo_zayavki);
-    $_MASSIV_opornoe_slovo_zayavki = preg_split( "/[\n,;]/", $opornoe_slovo_zayavki, - 1, PREG_SPLIT_NO_EMPTY );
+    $_MASSIV_opornoe_slovo_zayavki = preg_split("/[\n,;]/", $opornoe_slovo_zayavki, -1, PREG_SPLIT_NO_EMPTY);
 
-    for ( $i = 0; $i < count( $_MASSIV_opornoe_slovo_zayavki ); $i ++ ) {
-        $_MASSIV_opornoe_slovo_zayavki[ $i ] = trim( $_MASSIV_opornoe_slovo_zayavki[ $i ] );
+    for ($i = 0; $i < count($_MASSIV_opornoe_slovo_zayavki); $i++) {
+        $_MASSIV_opornoe_slovo_zayavki[$i] = trim($_MASSIV_opornoe_slovo_zayavki[$i]);
     }
 
-    $_MASSIV_opornoe_slovo_zayavki = array_values( array_unique( ( array_diff( $_MASSIV_opornoe_slovo_zayavki, array( "" ) ) ) ) );
+    $_MASSIV_opornoe_slovo_zayavki = array_values(array_unique((array_diff($_MASSIV_opornoe_slovo_zayavki, array("")))));
 
-    $_SQL_opornoe_slovo_zayavki = implode( "','", $_MASSIV_opornoe_slovo_zayavki );
+    $_SQL_opornoe_slovo_zayavki = implode("','", $_MASSIV_opornoe_slovo_zayavki);
 
     $zayavka_na_perevod_opornyx_slov = "
 	update `k-ts`
 	set `f` = 7
 	where `s` in ('" . $_SQL_opornoe_slovo_zayavki . "') and `f` != 1";
-    mysqli_query( $mysqli, $zayavka_na_perevod_opornyx_slov );
+    mysqli_query($mysqli, $zayavka_na_perevod_opornyx_slov);
 
-    $kolichestvo_opornoe_slovo_zayavki = count( $_MASSIV_opornoe_slovo_zayavki );
+    $kolichestvo_opornoe_slovo_zayavki = count($_MASSIV_opornoe_slovo_zayavki);
 
     $zayavka_na_perevod = "
 	update `k-ts`
@@ -47,7 +47,7 @@ if ( isset( $_POST["opornoe_slovo_zayavki"] ) ) {
 		order by count(*) desc, `k-ts`.`s` LIMIT 0, 160) `k`
 	where `k`.`f` = 0)
 	";
-    mysqli_query( $mysqli, $zayavka_na_perevod );
+    mysqli_query($mysqli, $zayavka_na_perevod);
 }
-mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/management/add_related_in_request.php" );
+mysqli_close($mysqli);
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/add_related_in_request.php");

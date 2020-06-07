@@ -9,11 +9,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $kw_ru = $_SESSION["original_kw"];
 
-mysqli_query( $mysqli, "
+mysqli_query($mysqli, "
 UPDATE `k-ts`
 SET `f` = 5
 WHERE `s` = '" . $kw_ru . "' 
-" );
+");
 
-mysqli_close( $mysqli );
-header( "Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_request.php" );
+mysqli_close($mysqli);
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_request.php");
