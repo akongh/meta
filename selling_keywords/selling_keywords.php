@@ -33,6 +33,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
                title="Наверх">[Наверх]</a>
         </div>
     </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <br>
     <br>
     <br>

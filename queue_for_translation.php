@@ -48,10 +48,8 @@ if (0 < $amount_kws_for_translation) {
 </head>
 <body>
 <div class="wrap">
-    <div>
-        <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Очередь заявок на перевод</h1>
     <div class="wrap_list_kws">
         <?= $html_kws_for_translation; ?>
