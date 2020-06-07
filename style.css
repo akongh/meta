@@ -1066,6 +1066,7 @@ h1:first-child {
     margin-top: 128px;
     border-top: dashed 1px #dddddd;
     padding-top: 40px;
+    color: #888888;
 }
 
 .content_right {
