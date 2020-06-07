@@ -23,8 +23,8 @@ session_start();
           type="text/css">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
-    <script src="/keyword_selection/js/jquery-1.10.2.js"></script>
-    <script src="/keyword_selection/js/jquery-ui.js"></script>
+    <script src="/_third_party/jquery-1.10.2.js"></script>
+    <script src="/_third_party/jquery-ui.js"></script>
     <script src="/keyword_selection/js/changeOrderingList.js"></script>
 </head>
 <body>
