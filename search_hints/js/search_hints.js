@@ -101,6 +101,7 @@ clearTranslationButton.addEventListener("click", function (e) {
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
+
 /**
  * Functions.
  */
@@ -630,6 +631,14 @@ function returnToListView() {
     }
 }
 
+function selectResult() {
+    let selectRange = document.createRange();
+    selectRange.selectNodeContents(this);
+    let select = window.getSelection();
+    select.removeAllRanges();
+    select.addRange(selectRange);
+}
+
 function createResultString() {
     clearErrors();
     reSortingHintsObjectsArray();
@@ -644,27 +653,17 @@ function createResultString() {
         }
         if (resultString.length > 0) {
 
-
             let request = new XMLHttpRequest();
             let jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + encodeURIComponent(JSON.stringify(resultString));
             request.open("POST", 'php/ex_add_hints_to_translation.php', true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(jsonHintsStringForTranlation);
 
-
             document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
                 resultString.join(", ") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
-
-            function selectResult() {
-                let selectRange = document.createRange();
-                selectRange.selectNodeContents(this);
-                let select = window.getSelection();
-                select.removeAllRanges();
-                select.addRange(selectRange);
-            }
         } else {
             document.querySelector("#hints-area").innerHTML = "Ничего не выбрано.";
         }
@@ -754,13 +753,14 @@ function deleteDeselectedHints() {
     }
 }
 
+function compareObjectHints(a, b) {
+    if (a.hint > b.hint) return 1;
+    if (a.hint < b.hint) return -1;
+}
+
 function sortAz() {
     clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
-        function compareObjectHints(a, b) {
-            if (a.hint > b.hint) return 1;
-            if (a.hint < b.hint) return -1;
-        }
 
         window.hintsObjectsArray.sort(compareObjectHints);
         createHTMLHintsList(window.hintsObjectsArray);
