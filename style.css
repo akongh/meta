@@ -1,12 +1,6 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Есть цвет в скрипте js/uncheckedTranslations.js */
-
-.bg {
-    background: url('/bg_pattern.jpg') fixed;
-}
-
 .blok_perevoda {
     padding: 2px 12px;
     margin: 0 -12px 2px -12px;
@@ -609,6 +603,8 @@ hr {
 
 /* ######################################################################################################################## */
 
+/* Есть цвет в скрипте js/uncheckedTranslations.js */
+
 body {
     font-family: 'Source Code Pro', monospace;
     cursor: default;
@@ -695,11 +691,15 @@ h1:first-child {
     background-color: #ffffff;
 }
 
+.bg {
+    background: url('/bg_pattern.jpg') fixed;
+}
+
 .tool_list {
     margin-top: 128px;
 }
 
-.tool_title  h2 {
+.tool_title h2 {
     font-size: 1.25em;
 }
 
