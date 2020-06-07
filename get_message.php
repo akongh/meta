@@ -8,9 +8,10 @@ if (isset($_POST["messageText"])) {
     $to = "andreikorzhyts@gmail.com";
     $subject = "META.afoteris.com";
     $message = $_POST["messageText"];
-    $headers = "From: {$from}
-    Reply-To: andreikorzhyts@gmail.com
-    X-Mailer: PHP/" . phpversion();
+    $headers = "From: <{$from}>\r\n" .
+        "Reply-To: <{$to}>\r\n" .
+        "Content-type: text/html\r\n" .
+        "X-Mailer: PHP/" . phpversion();
 
     if (mail($to, $subject, $message, $headers)) {
         echo("Сообщение отправлено.");
