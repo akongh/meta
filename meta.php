@@ -74,7 +74,7 @@ $mysqli->close();
     </div>
     <div class="message_form">
         <div id="messageBlock">
-            <p>Обратная связь.</p>
+            <p>Обратная связь</p>
             <div class="content_right">
                 <span class="amount">
                     <span id="lengthMessageInformer"></span>
@@ -92,10 +92,10 @@ $mysqli->close();
              class="content_right">
             <a id="clearMessageButton"
                href="##"
-               title="Очистить поле отзыва">[x]</a>
+               title="Очистить поле текста сообщения">[x]</a>
             <a id="sendMessageButton"
                href="##"
-               title="Отправить отзыв">[Отправить]</a>
+               title="Отправить сообщение">[Отправить]</a>
         </div>
     </div>
     <?php
