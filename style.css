@@ -690,10 +690,6 @@ h1:first-child {
     margin-top: 0;
 }
 
-#messageBlock {
-    margin-top: 64px;
-}
-
 #result_no_transl,
 .result {
     margin-top: 16px;
@@ -711,6 +707,14 @@ h1:first-child {
     margin-left: auto;
     padding: 24px;
     background-color: #ffffff;
+}
+
+.tool_list {
+    font-size: 1.25em;
+}
+
+.message_form {
+    margin-top: 64px;
 }
 
 .content_right {

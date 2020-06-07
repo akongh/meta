@@ -62,37 +62,41 @@ $mysqli->close();
                 } ?></span>
         </p>
     </div>
-    <div class="content_right">
-        <a href="/keyword_selection/step_1.php"
-           title="Русско-английский подбор ключевых слов для стоков">[Русско-английский подбор]</a>
+    <div class="tool_list">
+        <p>
+            <a href="/keyword_selection/step_1.php"
+               title="Русско-английский подбор ключевых слов для стоков">Русско-английский подбор</a>
+        </p>
+        <p>
+            <a href="/search_hints/search_hints.php"
+               title="Подбор ключевых слов для стоков по их поисковым подсказкам">Поисковые подсказки</a>
+        </p>
     </div>
-    <div class="content_right">
-        <a href="/search_hints/search_hints.php"
-           title="Подбор ключевых слов для стоков по их поисковым подсказкам">[Поисковые подсказки]</a>
-    </div>
-    <div id="messageBlock">
-        <p>Обратная связь.</p>
-        <div class="content_right">
+    <div class="message_form">
+        <div id="messageBlock">
+            <p>Обратная связь.</p>
+            <div class="content_right">
                 <span class="amount">
                     <span id="lengthMessageInformer"></span>
                 </span>
-        </div>
-        <label>
+            </div>
+            <label>
             <textarea id="textMessageForm"
                       wrap="soft"
                       rows="4"
                       placeholder=""
                       maxlength="240"></textarea></label>
-        <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
-    </div>
-    <div id="responseMessage"
-         class="content_right">
-        <a id="clearMessageButton"
-           href="##"
-           title="Очистить поле отзыва">[x]</a>
-        <a id="sendMessageButton"
-           href="##"
-           title="Отправить отзыв">[Отправить]</a>
+            <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
+        </div>
+        <div id="responseMessage"
+             class="content_right">
+            <a id="clearMessageButton"
+               href="##"
+               title="Очистить поле отзыва">[x]</a>
+            <a id="sendMessageButton"
+               href="##"
+               title="Отправить отзыв">[Отправить]</a>
+        </div>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
