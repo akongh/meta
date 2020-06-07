@@ -51,13 +51,13 @@ $mysqli->close();
                 <a href="/keyword_selection/step_1.php"
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
-            <p>Русско-английский подбор ключевых слов для стоков</p></div>
+            <p>Русско-английский подбор ключевых слов для стоков.</p></div>
         <div class="tool_title">
             <h2>
                 <a href="/search_hints/search_hints.php"
                    title="Поисковые подсказки">Поисковые подсказки ключевых слов</a>
             </h2>
-            <p>Подбор ключевых слов для стоков по подсказкам в их строке поиска</p></div>
+            <p>Подбор ключевых слов для стоков по подсказкам в их строке поиска.</p></div>
     </div>
     <div class="meta_info">
         <p>
@@ -65,7 +65,7 @@ $mysqli->close();
             <span class="amount"><?php
                 if (isset($count_translated)) {
                     echo "{$count_translated}";
-                } ?></span>
+                } ?></span>.
         </p>
         <p>
             В <a href="/queue_for_translation.php"
@@ -73,7 +73,7 @@ $mysqli->close();
             <span class="amount"><?php
                 if (isset($count_request)) {
                     echo $count_request;
-                } ?></span>
+                } ?></span>.
         </p>
     </div>
     <div class="message_form">
