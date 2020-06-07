@@ -710,12 +710,16 @@ h1:first-child {
 }
 
 .tool_list {
-    margin-top: 64px;
+    margin-top: 128px;
     font-size: 1.25em;
 }
 
 .tool_list p {
     margin-bottom: 16px;
+}
+
+.meta_info {
+    margin-top: 128px;
 }
 
 .message_form {
@@ -850,10 +854,6 @@ h1:first-child {
 
 .amount_kws {
     margin-top: 24px;
-}
-
-.meta_info {
-    margin-top: 64px;
 }
 
 .block_not_translated,
