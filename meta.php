@@ -90,11 +90,11 @@ $mysqli->close();
         </div>
         <div id="responseMessage"
              class="content_right">
-            <a id="clearMessageButton"
-               href="##"
+            <a href="##"
+               id="clearMessageButton"
                title="Очистить поле текста сообщения">[x]</a>
-            <a id="sendMessageButton"
-               href="##"
+            <a href="##"
+               id="sendMessageButton"
                title="Отправить сообщение">[Отправить]</a>
         </div>
     </div>

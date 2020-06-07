@@ -20,7 +20,7 @@ function addField() {
     // Создаем элемент ДИВ
     let div = document.createElement("div");
     // Добавляем HTML-контент с пом. свойства innerHTML
-    div.innerHTML = "<input name=\"perevod[]\" type=\"text\" class=\"vvod_perevod\"> — <input name=\"znachenie[]\" type=\"text\" class=\"vvod_znachenie\" value=\"" + slovo + "\"><a onclick=\"return deleteField(this)\" href=\"#\" class=\"link\"><div class=\"minus_plus\"><input type=\"button\" class=\"pm_knopka\" onclick=\"return deleteField(this)\" value=\"×\"></div></a><hr class=\"otbivka_12\">";
+    div.innerHTML = "<input name=\"perevod[]\" type=\"text\" class=\"vvod_perevod\"> — <input name=\"znachenie[]\" type=\"text\" class=\"vvod_znachenie\" value=\"" + slovo + "\"><a href=\"#\" onclick=\"return deleteField(this)\" class=\"link\"><div class=\"minus_plus\"><input type=\"button\" class=\"pm_knopka\" onclick=\"return deleteField(this)\" value=\"×\"></div></a><hr class=\"otbivka_12\">";
     // Добавляем новый узел в конец списка полей
     document.getElementById("parentId").appendChild(div);
     // Возвращаем false, чтобы не было перехода по сслыке

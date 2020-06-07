@@ -28,8 +28,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div id="up-button-block"
          class="up-block">
         <div class="up-center-block content-right">
-            <a class="link-button up-button"
-               href="#top"
+            <a href="##"
+               class="link-button up-button"
                title="Наверх">[Наверх]</a>
         </div>
     </div>
@@ -57,13 +57,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
         </select></span>
     </div>
     <div class="content-right">
-        <a id="create-variants-queries-button"
+        <a href="##"
+           id="create-variants-queries-button"
            class="link-button"
-           href="##"
            title="Создатть варианты запросов">[Создать варианты]</a>
-        <a id="delete-variants-queries-button"
+        <a href="##"
+           id="delete-variants-queries-button"
            class="link-button"
-           href="##"
            title="Удалить варианты запросов">[x]</a>
     </div>
     <br>
@@ -74,9 +74,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            maxlength="26">
     <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
-    <a id="delete-author-button"
+    <a href="##"
+       id="delete-author-button"
        class="link-button"
-       href="##"
        title="Удалить автора">[x]</a>
     <br>
     <br>
@@ -89,9 +89,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <br>
     <br>
     <div class="content-right">
-        <a id="clear-keyword-button"
+        <a href="##"
+           id="clear-keyword-button"
            class="link-button"
-           href="##"
            title="Очистить поле запроса">[x]</a>
     </div>
     <br>
@@ -127,9 +127,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div class="content-right">
         <span id="count-keywords"
               class="counter">0</span>
-        <a id="delete-keywords-objects-array-button"
+        <a href="##"
+           id="delete-keywords-objects-array-button"
            class="link-button"
-           href="##"
            title="Удалить текущую строку результата">[x]</a>
     </div>
     <br>
