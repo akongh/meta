@@ -44,10 +44,10 @@ $mysqli->close();
 <body>
 <div class="wrap">
     <h1>МЕТА</h1>
-    <h2>Набор инстументов для подбора ключевых слов</h2>
+    <h2>Инстументы для ключевых слов</h2>
     <div class="meta_info">
         <p>
-            Ключевых слов переведено
+            Ключевых слов на русском переведено на английский
             <span class="amount"><?php
                 if (isset($count_translated)) {
                     echo "{$count_translated}";
