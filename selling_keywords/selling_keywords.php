@@ -39,7 +39,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <br>
     <br>
     <br>
-    <h1 class="bold">Продавшие ключевые слова на Шаттерстоке</h1>
+    <h1>Продавшие ключевые слова на Шаттерстоке</h1>
     <br>
     <br>
     <br>

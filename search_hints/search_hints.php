@@ -31,7 +31,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1 class="bold">
+    <h1>
         <span class="meta">МЕТА-подсказки</span>
         <br>
         <br>
