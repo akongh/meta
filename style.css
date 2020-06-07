@@ -711,6 +711,9 @@ h1:first-child {
 
 .tool_list {
     margin-top: 128px;
+}
+
+.tool_title  h2 {
     font-size: 1.25em;
 }
 
