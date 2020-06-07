@@ -73,7 +73,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
         <a href="#"
            id="clear-button"
            class="link-button"
-           title="Очистить поле опорных ключевых слов">[x]</
+           title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
     <label><input type="radio"
                   name="media-type"
