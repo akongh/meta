@@ -14,6 +14,8 @@
 </head>
 <body class="bg">
 <div class="wrap">
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?>
     <h2>Пераквох па заяуцы;)</h2>
     <hr class="otbivka_24">
     <div class="statistika">
@@ -22,10 +24,6 @@
     </div>
     <hr class="otbivka_96">
     Слов на перевод пока нет.
-    <hr class="otbivka_96">
-    <div class="upravlenie">
-        <?php
-        require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?></div>
     <hr class="otbivka_96">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>

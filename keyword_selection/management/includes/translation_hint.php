@@ -14,10 +14,9 @@
 </head>
 <body class="bg">
 <div class="wrap">
-    <h2>Перевод по заявке (анг.—рус.)</h2>
-    <hr class="otbivka_24">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?>
+    <h2>Перевод по заявке (анг.—рус.)</h2>
     <hr class="otbivka_24">
     <div class="statistika">Подсказок переведено: <span class="statistika_czyfra"><?php
             echo $perevedeno; ?></span>
