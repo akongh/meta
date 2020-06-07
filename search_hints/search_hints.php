@@ -55,9 +55,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            title="Очистить перевод">[х]</a>
     </div>
     <div id="translations-area">Список перевода пуст.</div>
-    <label for="basic-keywords-string">Опорные ключевые слова</label>
-    <textarea id="basic-keywords-string"
-              name="basic-keywords-string"
+    <label for="basic_keywords_string">Опорные ключевые слова</label>
+    <textarea id="basic_keywords_string"
+              name="basic_keywords_string"
               class="textarea-keywords"
               wrap="soft"
               rows="8"
@@ -76,14 +76,14 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
     <label><input type="radio"
-                  name="media-type"
+                  name="media_type_shutterstock"
                   value="image"
                   checked> Изображения</label>
     <label><input type="radio"
-                  name="media-type"
+                  name="media_type_shutterstock"
                   value="audio"> Аудио</label>
     <label><input type="radio"
-                  name="media-type"
+                  name="media_type_shutterstock"
                   value="video"> Видео</label>
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"

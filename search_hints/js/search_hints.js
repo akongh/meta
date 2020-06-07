@@ -108,7 +108,7 @@ window.addEventListener("scroll", viewHideUpButton);
 function addKeywordsToList(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
-    let basicKeywordsString = document.querySelector("#basic-keywords-string");
+    let basicKeywordsString = document.querySelector("#basic_keywords_string");
     let basicKeywordsStringTrim = basicKeywordsString.value.trim();
 
     if (basicKeywordsStringTrim === "") {
@@ -145,7 +145,7 @@ function addKeywordsToList(PARAM_url) {
 
                     countHintsTotalAndSelected();
                     createHTMLHintsList(window.hintsObjectsArray);
-                    document.querySelector("#basic-keywords-string").value = '';
+                    document.querySelector("#basic_keywords_string").value = '';
                 }
             }
         };
@@ -160,8 +160,8 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let mediaType = "mediaType=" + document.querySelector("input[name='media-type']:checked").value;
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let mediaType = "mediaType=" + document.querySelector("input[name='media_type_shutterstock']:checked").value;
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
     let requestSet = basicKeywordsString + "&" + mediaType;
 
     request.onreadystatechange = function () {
@@ -209,7 +209,7 @@ function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -260,7 +260,7 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -311,7 +311,7 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -362,7 +362,7 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
 
     let request = new XMLHttpRequest();
     let type = "type=" + document.querySelector("input[name='type']:checked").value;
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
     let requestSet = basicKeywordsString + "&" + type;
 
     request.onreadystatechange = function () {
@@ -414,7 +414,7 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -462,7 +462,7 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic-keywords-string").value);
+    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -717,7 +717,7 @@ function reSortingHintsObjectsArray() {
 
 function clearQuery() {
     clearErrors();
-    document.querySelector("textarea[name='basic-keywords-string']").value = "";
+    document.querySelector("textarea[name='basic_keywords_string']").value = "";
 }
 
 function deleteHintsObjectsArray() {
@@ -768,12 +768,12 @@ function sortAz() {
 }
 
 function keywordwPatternToQuery() {
-    let lastKws = document.querySelector("#basic-keywords-string").value;
+    let lastKws = document.querySelector("#basic_keywords_string").value;
 
     if (lastKws !== "" || lastKws.trim() !== "") {
-        document.querySelector("#basic-keywords-string").value = lastKws.trim() + "\n" + this.innerHTML.replace('&amp;', '&');
+        document.querySelector("#basic_keywords_string").value = lastKws.trim() + "\n" + this.innerHTML.replace('&amp;', '&');
     } else {
-        document.querySelector("#basic-keywords-string").value = this.innerHTML.replace('&amp;', '&');
+        document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
     }
 }
 
