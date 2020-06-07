@@ -189,7 +189,8 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
                         }
                     }
                     // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);                } else {
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+                } else {
                     window.hintsObjectsArray = resultArray;
                 }
 
@@ -656,6 +657,7 @@ function createResultString() {
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
+
             function selectResult() {
                 let selectRange = document.createRange();
                 selectRange.selectNodeContents(this);
@@ -742,8 +744,7 @@ function deleteDeselectedHints() {
         if (window.hintsObjectsArray.length > 0) {
             countHintsTotalAndSelected();
             createHTMLHintsList(window.hintsObjectsArray);
-        }
-        else {
+        } else {
             delete window.hintsObjectsArray;
             countHintsTotalAndSelected();
             document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
@@ -760,6 +761,7 @@ function sortAz() {
             if (a.hint > b.hint) return 1;
             if (a.hint < b.hint) return -1;
         }
+
         window.hintsObjectsArray.sort(compareObjectHints);
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
