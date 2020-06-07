@@ -268,10 +268,6 @@
     font-weight: 700;
 }
 
-.vvod_slov_tekst {
-    font-size: 14px;
-}
-
 .vvod_slovo {
     font-weight: 700;
     font-size: 32px;
@@ -279,16 +275,13 @@
 
 .vvod_perevod {
     font-weight: 700;
-    font-size: 14px;
 }
 
 .vvod_prisutstvie {
     font-weight: 700;
-    font-size: 14px;
 }
 
 .vvod_znachenie {
-    font-size: 14px;
     font-style: italic;
 }
 
@@ -548,10 +541,6 @@ hr {
     font-weight: 700;
 }
 
-.textarea-keywords {
-    font-size: 16px;
-}
-
 .counter {
     font-weight: 700;
 }
@@ -562,10 +551,6 @@ hr {
 
 .link-button {
     text-decoration: none;
-}
-
-.textarea-author {
-    font-size: 16px;
 }
 
 .variant-query:hover {
