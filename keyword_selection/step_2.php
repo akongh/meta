@@ -30,8 +30,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 <div class="wrap">
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/link_to_index.php'); ?>
-    <h1>Русско-английский подбор<br>
-        2/6. Выбираем из подобранных…</h1>
+    <h1>Русско-английский подбор</h1>
+    <h2>2/6. Выбираем из подобранных…</h2>
     <form method="post"
           action="/keyword_selection/step_2_to_3.php">
         <div class="wrap_list_kws">
@@ -45,7 +45,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
             ?>
         </div>
         <?= meta_kws_markup_state_amount(); ?>
-        <div class="add_kws">…и добавляем свои</div>
+        <h2>…и добавляем свои</h2>
         <label>
         <textarea name="input_str_kws_addition"
                   wrap="soft"

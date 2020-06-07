@@ -803,11 +803,6 @@ h1:first-child {
     color: #ff0000;
 }
 
-.add_kws {
-    font-weight: bolder;
-    margin-top: 24px;
-}
-
 .footer {
     margin-top: 128px;
     border-top: dashed 1px #dddddd;
