@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
 //var_dump($_SESSION);
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">

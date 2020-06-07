@@ -30,7 +30,7 @@ if (0 < $amount_kws_for_translation) {
 //var_dump($_SESSION);
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">

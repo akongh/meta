@@ -25,7 +25,7 @@ $mysqli->close();
 //var_dump($_SESSION);
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
