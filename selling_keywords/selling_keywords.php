@@ -38,12 +38,17 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <a id="top"></a>
     <div id="variants-queries-list">Без вариантов.</div>
     <div class="content-left">
-        <span title="Число уровней повторяемости вариантов запросов">Основных <select size="1" id="level">
-            <option selected value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select></span>
+        <span title="Число уровней повторяемости вариантов запросов">
+            Основных
+            <label><select size="1"
+                           id="level">
+                <option selected
+                        value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                </select></label>
+        </span>
     </div>
     <div class="content-right">
         <a href="#"
@@ -55,22 +60,22 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Удалить варианты запросов">[x]</a>
     </div>
-    <input type="text"
-           id="author"
-           class="textarea-author"
-           maxlength="26">
+    <label><input type="text"
+                  id="author"
+                  class="textarea-author"
+                  maxlength="26"></label>
     <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
     <a href="#"
        id="delete-author-button"
        class="link-button"
        title="Удалить автора">[x]</a>
-    <textarea id="keyword"
-              class="textarea-keywords"
-              wrap="soft"
-              rows="8"
-              placeholder=""
-              autofocus></textarea>
+    <label><textarea id="keyword"
+                     class="textarea-keywords"
+                     wrap="soft"
+                     rows="8"
+                     placeholder=""
+                     autofocus></textarea></label>
     <div class="content-right">
         <a href="#"
            id="clear-keyword-button"
@@ -93,9 +98,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <label><input type="radio"
                   name="image_type"
                   value="illustration"> Иллюстрации</label>
-    <input id="get-selling-keywords-button"
+    <input type="submit"
+           id="get-selling-keywords-button"
            name="get-selling-keywords-button"
-           type="submit"
            value="Получить продавшие ключевые слова">
     <span id="status"></span>
     <div class="content-right">
