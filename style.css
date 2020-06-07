@@ -714,6 +714,10 @@ h1:first-child {
     font-size: 1.25em;
 }
 
+.tool_list p {
+    margin-bottom: 16px;
+}
+
 .message_form {
     margin-top: 64px;
 }
@@ -849,11 +853,7 @@ h1:first-child {
 }
 
 .meta_info {
-    margin-top: 24px;
-}
-
-.meta_info p {
-    margin-bottom: 16px;
+    margin-top: 64px;
 }
 
 .block_not_translated,

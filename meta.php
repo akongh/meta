@@ -45,6 +45,16 @@ $mysqli->close();
 <div class="wrap">
     <h1>МЕТА</h1>
     <h2>Инстументы для ключевых слов</h2>
+    <div class="tool_list">
+        <p>
+            <a href="/keyword_selection/step_1.php"
+               title="Русско-английский подбор ключевых слов для стоков">Русско-английский подбор</a>
+        </p>
+        <p>
+            <a href="/search_hints/search_hints.php"
+               title="Подбор ключевых слов для стоков по их поисковым подсказкам">Поисковые подсказки</a>
+        </p>
+    </div>
     <div class="meta_info">
         <p>
             Ключевых слов на русском переведено на английский
@@ -60,16 +70,6 @@ $mysqli->close();
                 if (isset($count_request)) {
                     echo $count_request;
                 } ?></span>
-        </p>
-    </div>
-    <div class="tool_list">
-        <p>
-            <a href="/keyword_selection/step_1.php"
-               title="Русско-английский подбор ключевых слов для стоков">Русско-английский подбор</a>
-        </p>
-        <p>
-            <a href="/search_hints/search_hints.php"
-               title="Подбор ключевых слов для стоков по их поисковым подсказкам">Поисковые подсказки</a>
         </p>
     </div>
     <div class="message_form">
