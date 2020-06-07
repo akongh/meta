@@ -805,6 +805,7 @@ h1:first-child {
 
 .add_kws {
     font-weight: bolder;
+    margin-top: 24px;
 }
 
 .footer {
@@ -842,10 +843,6 @@ h1:first-child {
 
 .saved_set {
     margin-top: 64px;
-}
-
-.add_kws {
-    margin-top: 24px;
 }
 
 .amount_kws {
