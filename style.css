@@ -239,29 +239,13 @@
     border: 0;
 }
 
-.perevoda_net {
-    font-style: italic;
-}
-
 .russk {
     font-weight: 700;
-}
-
-.znachenie {
-    font-style: italic;
 }
 
 .opornoe_slovo_zayavki {
     font-weight: 700;
     font-size: 32px;
-}
-
-.upravlenie {
-    font-style: italic;
-}
-
-.statistika {
-    font-style: italic;
 }
 
 .statistika_czyfra {
@@ -279,10 +263,6 @@
 
 .vvod_prisutstvie {
     font-weight: 700;
-}
-
-.vvod_znachenie {
-    font-style: italic;
 }
 
 .pm_knopka {
