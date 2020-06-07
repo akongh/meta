@@ -41,7 +41,7 @@
     <hr class="otbivka_24">
     <h2>Правка по связям (возможность не готова)</h2>
     <hr class="otbivka_48">
-    <a href="##">Добавление</a><!--Ссылка на файл add.php-->
+    <a href="#">Добавление</a><!--Ссылка на файл add.php-->
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">

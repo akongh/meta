@@ -36,7 +36,7 @@
         <div id="parentId">
             <div>
                 <input name="perevod[]" type="text" class="vvod_prisutstvie" autofocus>
-                <a href="##" onclick="return deleteField(this)" class="link">
+                <a href="#" onclick="return deleteField(this)" class="link">
                     <div class="minus_plus_prisutstvie">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a href="##" onclick="return addField()" class="link">
+        <a href="#" onclick="return addField()" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit_prisutstvie" value="+">
             </div>

@@ -28,7 +28,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div id="up-button-block"
          class="up-block">
         <div class="up-center-block content-right">
-            <a href="##"
+            <a href="#"
                class="link-button up-button"
                title="Наверх">[Наверх]</a>
         </div>
@@ -57,11 +57,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
         </select></span>
     </div>
     <div class="content-right">
-        <a href="##"
+        <a href="#"
            id="create-variants-queries-button"
            class="link-button"
            title="Создатть варианты запросов">[Создать варианты]</a>
-        <a href="##"
+        <a href="#"
            id="delete-variants-queries-button"
            class="link-button"
            title="Удалить варианты запросов">[x]</a>
@@ -74,7 +74,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            maxlength="26">
     <span class="hover-invert">andreikorzhyts</span>
     <span class="hover-invert">vaselenka</span>
-    <a href="##"
+    <a href="#"
        id="delete-author-button"
        class="link-button"
        title="Удалить автора">[x]</a>
@@ -89,7 +89,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <br>
     <br>
     <div class="content-right">
-        <a href="##"
+        <a href="#"
            id="clear-keyword-button"
            class="link-button"
            title="Очистить поле запроса">[x]</a>
@@ -127,7 +127,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <div class="content-right">
         <span id="count-keywords"
               class="counter">0</span>
-        <a href="##"
+        <a href="#"
            id="delete-keywords-objects-array-button"
            class="link-button"
            title="Удалить текущую строку результата">[x]</a>

@@ -46,7 +46,7 @@
                 <input name="perevod[]" type="text" class="vvod_perevod" autofocus>
                 —
                 <input name="znachenie[]" type="text" class="vvod_znachenie">
-                <a href="##" onclick="return deleteField(this)" class="link">
+                <a href="#" onclick="return deleteField(this)" class="link">
                     <div class="minus_plus">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a href="##" onclick="return addField()" class="link">
+        <a href="#" onclick="return addField()" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit" value="+">
             </div>
@@ -65,7 +65,7 @@
     </form>
     <hr class="otbivka_24">
     <div class="upravlenie">
-        <a href="##" id="add-translation-message-button">Перевод не предусмотрен</a>
+        <a href="#" id="add-translation-message-button">Перевод не предусмотрен</a>
         <!--<br>-->
         <!--<br>-->
         <!--<a href="php/ex_omit_hint_by_request.php" title="Пропустить">&#9660; Пропустить</a> —-->

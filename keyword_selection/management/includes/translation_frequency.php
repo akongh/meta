@@ -44,7 +44,7 @@
                 —
                 <input name="znachenie[]" type="text" class="vvod_znachenie" value="<?php
                 echo $slovo; ?>">
-                <a href="##" onclick="return deleteField(this)" class="link">
+                <a href="#" onclick="return deleteField(this)" class="link">
                     <div class="minus_plus">
                         <input type="button" class="pm_knopka" onclick="return deleteField(this)" value="×">
                     </div>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <hr class="otbivka_12">
-        <a href="##" onclick="return addField()" class="link">
+        <a href="#" onclick="return addField()" class="link">
             <div class="minus_plus_dobavit">
                 <input type="button" class="pm_knopka_dobavit" value="+">
             </div>

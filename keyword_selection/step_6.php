@@ -59,7 +59,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <h2>6/6. Результат строками</h2>
     <div id="separate_result_view">
         <div class="content_right">
-            <a href="##"
+            <a href="#"
                id="single_view_button"
                title="Изменить вид результата на единый">[Изменить вид на единый]</a>
         </div>
@@ -77,7 +77,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
     <div id="single_result_view"
          class="hidden">
         <div class="content_right">
-            <a href="##"
+            <a href="#"
                id="separate_view_button"
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
         </div>
