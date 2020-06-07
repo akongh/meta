@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <h2>Добавление по присутствию</h2>
     <hr class="otbivka_24">
     <div class="statistika"> Ключевых слов переведено: <span class="statistika_czyfra"><?php echo $perevedeno;?></span>

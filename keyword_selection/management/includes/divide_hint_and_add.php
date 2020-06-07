@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <h2>Разбить-добавить (анг.)</h2>
     <hr class="otbivka_24">
     <a href="management.php">На главную</a>

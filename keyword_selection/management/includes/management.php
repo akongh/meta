@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/management_title.php');?>
     <hr class="otbivka_48">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/parts/statistic.php');?>

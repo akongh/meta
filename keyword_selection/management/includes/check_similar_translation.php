@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <h2>Проверка похожего перевода</h2>
     <hr class="otbivka_96">
     <form method="post" action="check_similar_translation.php">

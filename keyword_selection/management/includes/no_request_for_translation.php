@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <h2>Пераквох па заяуцы;)</h2>
     <hr class="otbivka_24">
     <div class="statistika">

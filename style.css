@@ -7,30 +7,6 @@
     background: url('/bg_pattern.jpg') fixed;
 }
 
-form {
-    padding: 0;
-    border: 0;
-    margin: 0;
-}
-
-h1 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: block;
-}
-
-h2 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    display: block;
-}
-
-p {
-    margin: 0;
-}
-
 .blok_perevoda {
     padding: 2px 12px;
     margin: 0 -12px 2px -12px;
@@ -114,29 +90,11 @@ p {
     margin: 0 -4px;
 }
 
-.footer {
-    margin: 0;
-    width: 100%;
-    text-align: left;
-    border: 0;
-    padding: 0;
-}
-
-.poyasnenie {
-}
-
 .proverit_pox_perevod {
     display: block;
     float: right;
     padding: 0;
     margin: 0 36px 0 0;
-}
-
-.korobka {
-    max-width: 720px;
-    margin: 24px auto;
-    text-align: left;
-    padding: 48px 60px;
 }
 
 .cherta {
@@ -305,30 +263,12 @@ p {
     padding: 0 0 0 40px;
 }
 
-.ot-do {
-    text-align: right;
-    margin: 0;
-    padding: 12px;
-    border: 1px solid;
-    width: 112px;
-}
-
 .analytics_info {
     padding: 0;
     width: 100%;
     text-align: left;
     margin: 0 0 -24px 0;
     border: 0;
-}
-
-h1 {
-    font-size: 32px;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 18px;
-    font-weight: 700;
 }
 
 .perevoda_net {
@@ -359,10 +299,6 @@ h2 {
 .opornoe_slovo_zayavki {
     font-weight: 700;
     font-size: 32px;
-}
-
-.footer {
-    font-size: 12px;
 }
 
 .knopka {
@@ -425,19 +361,6 @@ h2 {
     font-size: 40px;
 }
 
-.ot-do {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-a {
-    color: #09f;
-}
-
-a:hover {
-    color: #393;
-}
-
 .blok_perevoda {
     background-color: #ffffea;
     border-color: #e9e9e9;
@@ -461,15 +384,6 @@ a:hover {
 
 .opornoe_slovo_zayavki {
     border-color: #ffc;
-}
-
-.footer {
-    color: #999;
-}
-
-.korobka {
-    background-color: #fff;
-    box-shadow: 0 0 6px 6px rgba(122, 122, 122, 0.180);
 }
 
 .cherta {
@@ -551,30 +465,6 @@ a:hover {
     border-color: #ccc;
 }
 
-.ot-do {
-    border-color: #3399FF;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    border: solid 1px;
-    padding: 8px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-}
-
-input[type="submit"]:hover {
-    border: solid 1px;
-    cursor: pointer;
-}
-
 input[type="checkbox"] {
     width: 14px;
     height: 14px;
@@ -583,10 +473,6 @@ input[type="checkbox"] {
 select {
     outline: none;
     border: solid 1px;
-}
-
-option {
-
 }
 
 .img-index {
@@ -817,21 +703,6 @@ hr {
     clear: both;
 }
 
-h1 {
-    font-weight: normal;
-    font-size: 16px;
-}
-
-h2 {
-    font-weight: normal;
-    font-size: 16px;
-}
-
-input[type="submit"] {
-    font-weight: 700;
-    font-size: 16px;
-}
-
 select {
     font-size: 16px;
 }
@@ -884,40 +755,12 @@ select {
     font-weight: 700;
 }
 
-input[type="submit"] {
-    color: #888;
-    border-color: #888;
-    background: #fff;
-}
-
-input[type="submit"]:hover {
-    color: #000;
-    border-color: #000;
-}
-
 select {
     border-color: #ddd;
 }
 
 label:hover {
     background: #eee;
-}
-
-a {
-    color: #888;
-}
-
-a:hover {
-    color: #000;
-}
-
-@keyframes error {
-    0% {
-        color: #888;
-    }
-    100% {
-        color: #ddd;
-    }
 }
 
 .textarea-keywords {

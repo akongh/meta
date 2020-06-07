@@ -13,7 +13,7 @@
           type="text/css">
 </head>
 <body class="bg">
-<div class="korobka">
+<div class="wrap">
     <hr class="otbivka_48">
     <div class="blok_perevoda">
         <?php if (isset($with_translation)){echo $with_translation;};?>
