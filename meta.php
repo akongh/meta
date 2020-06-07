@@ -46,14 +46,14 @@ $mysqli->close();
     <h1>МЕТА<br>
         Инстументы для ключевых слов</h1>
     <div class="tool_list">
-        <p>
+        <h2>
             <a href="/keyword_selection/step_1.php"
                title="Русско-английский подбор ключевых слов для стоков">Русско-английский подбор</a>
-        </p>
-        <p>
+        </h2>
+        <h2>
             <a href="/search_hints/search_hints.php"
                title="Подбор ключевых слов для стоков по их поисковым подсказкам">Поисковые подсказки</a>
-        </p>
+        </h2>
     </div>
     <div class="meta_info">
         <p>
