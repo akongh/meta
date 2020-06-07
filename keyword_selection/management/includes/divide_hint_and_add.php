@@ -15,7 +15,8 @@
 <body class="bg">
 <div class="wrap">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php'); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/link_to_main.php');
+    require($_SERVER["DOCUMENT_ROOT"] . '/keyword_selection/management/includes/management_title.php'); ?>
     <h2>Разбить-добавить (анг.)</h2>
     <hr class="otbivka_24">
     <a href="translation_hint.php">&#9668; По заявке</a>
