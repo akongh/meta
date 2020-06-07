@@ -24,7 +24,7 @@
   <form action="/keyword_selection/management/php/ex_add_related_in_request.php" method="post">
     <textarea name="opornoe_slovo_zayavki" wrap="soft" class="vvod_slov_tekst" placeholder="" autofocus></textarea>
     <hr class="otbivka_24">
-    <input name="zayavka" type="submit" class="knopka" value="Отправить заявку">
+    <input name="zayavka" type="submit" value="Отправить заявку">
   </form>
   <hr class="otbivka_96">
   <div class="upravlenie">

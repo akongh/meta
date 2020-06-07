@@ -45,7 +45,7 @@
             </div>
         </a>
         <hr class="otbivka_96">
-        <input name="dobavlenie" type="submit" class="knopka" value="&#9658; Добавить">
+        <input name="dobavlenie" type="submit" value="&#9658; Добавить">
     </form>
     <hr class="otbivka_24">
     <div class="upravlenie"><a href="/keyword_selection/management/php/ex_omit_by_request.php" title="Пропустить">&#9660; Прапускунчунец</a> —

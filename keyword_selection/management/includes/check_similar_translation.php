@@ -26,7 +26,7 @@
         <div class="blok_perevoda">
             <?php echo $with_translation;?> </div>
         <hr class="otbivka_48">
-        <input name="proverit_pox_perevod" type="submit" class="knopka" value="&#9658; Проверить похожий перевод">
+        <input name="proverit_pox_perevod" type="submit" value="&#9658; Проверить похожий перевод">
     </form>
     <hr class="otbivka_48">
     <?php if ( isset ( $output_marked_kws_list ) ) { echo $output_marked_kws_list; }; ?>

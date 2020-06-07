@@ -55,7 +55,7 @@
             </div>
         </a>
         <hr class="otbivka_96">
-        <input name="soxranit_perevod" type="submit" class="knopka" value="&#9658; Сохранить перевод">
+        <input name="soxranit_perevod" type="submit" value="&#9658; Сохранить перевод">
     </form>
     <hr class="otbivka_24">
     <div class="upravlenie">

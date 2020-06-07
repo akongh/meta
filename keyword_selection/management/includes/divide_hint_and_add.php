@@ -27,7 +27,7 @@
         <textarea name="novoe_slovo_razbit" wrap="soft" class="vvod_slov_tekst" placeholder=""
                   autofocus><?php echo $slovo_razbit;?></textarea>
         <hr class="otbivka_24">
-        <input name="razbit" type="submit" class="knopka" value="Разбить-добавить">
+        <input name="razbit" type="submit" value="Разбить-добавить">
     </form>
     <hr class="otbivka_96">
     <?php require($_SERVER["DOCUMENT_ROOT"] . '/footer.php');?>
