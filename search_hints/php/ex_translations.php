@@ -3,46 +3,42 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-//получаем и определяем ОКС на русском языке для перевода
+require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+
 $keyword_in_russian = $_POST["keywordInRussian"];
 
-//готовим ОКС на русском для зопроса переводов
 $keyword_in_russian = PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($keyword_in_russian);
 
-//нечего переводить
 if ($keyword_in_russian == "") {
     echo("-2");
     exit;
 }
 
-//только кирилица, цифры, пробел и дефис
-if (!preg_match("/^[а-яё0-9 \-]+$/iu", $keyword_in_russian)) {
+if (!preg_match("/^[а-яё0-9 -]*$/u", $keyword_in_russian)) {
     echo("-3");
     exit;
 }
 
-//попытка найти для полученного ОКС переводы
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 $translations_array = SEARCH_TRANLATIONS($mysqli, $keyword_in_russian);
+
 mysqli_close($mysqli);
 
-//перевод не найден
 if ($translations_array == "-1") {
     echo("-1");
     exit;
 }
 
-//подготовка json-ответа
 $json_result = json_encode($translations_array, JSON_UNESCAPED_UNICODE);
 
 echo $json_result;
+
 
 /**
  * Functions.
  */
 
-//проверяет, чистит и правит полученное ОКС
 /**
+ * Проверяет, чистит и правит полученное ОКС.
  * @param string $PARAM_keyword_in_russian
  * @return string
  */
@@ -54,7 +50,11 @@ function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($PARAM_keyword_in_russian)
     return $keyword_in_russian;
 }
 
-//ищет в базе переводы
+/**
+ * Ищет в базе переводы.
+ * @param string $PARAM_keyword_in_russian
+ * @return array|string
+ */
 function SEARCH_TRANLATIONS($PARAM_db_connect, $PARAM_keyword_in_russian)
 {
     $SQL_select_translations_and_sense = mysqli_query($PARAM_db_connect, "
