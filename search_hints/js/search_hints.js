@@ -121,6 +121,8 @@ function addKeywordsToList(PARAM_url) {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
             } else if (request.responseText === "-3") {
                 document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
+            } else if (request.responseText === "-4") {
+                document.querySelector("#error-hints").innerHTML = "Превышен допустимый размер введённых данных и они были обрезаны.";
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
@@ -149,7 +151,7 @@ function addKeywordsToList(PARAM_url) {
         }
     };
 
-    basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString);
+    basicKeywordsString = "basicKeywordsString=" + basicKeywordsString;
 
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
