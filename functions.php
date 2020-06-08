@@ -38,7 +38,7 @@ function meta_errors_markup_list()
     $data_array_markup = array();
     if (isset($_SESSION["error_messages"])) {
         foreach ($_SESSION["error_messages"] as $item) {
-            $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+            $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
             $data_array_markup[] = "<div class='error'>{$item}</div>";
         }
         $markup = implode("", $data_array_markup);
@@ -57,8 +57,8 @@ function meta_errors_markup_list()
  */
 function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_count)
 {
-    if (iconv_strlen($data_string, 'UTF-8') > $data_width) {
-        $data_string = mb_substr($data_string, 0, $data_width, 'UTF-8');
+    if (iconv_strlen($data_string, 'utf-8') > $data_width) {
+        $data_string = mb_substr($data_string, 0, $data_width, 'utf-8');
         $_SESSION["error_messages"][] = meta_error_mesage(1);
     }
     $data_string = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $data_string));
@@ -95,7 +95,7 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
         } else {
             $status = "";
         }
-        $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
         $markup[] = "
                     <label class='label_highlight'>
                     <input type='checkbox'
@@ -125,7 +125,7 @@ function meta_kws_content_input($data_int)
             $content_name = array();
     }
     if (isset($_SESSION[$content_name])) {
-        $content = htmlspecialchars(implode("\n", $_SESSION[$content_name]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        $content = htmlspecialchars(implode("\n", $_SESSION[$content_name]), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     } else {
         $content = "";
     }
@@ -141,7 +141,7 @@ function meta_kws_markup_state_amount()
     if (isset($_SESSION["arr_kws_state"]) and count($_SESSION["arr_kws_state"]) > 0) {
         $kws = array();
         foreach ($_SESSION["arr_kws_state"] as $kw) {
-            $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+            $kws[] = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
         }
         $markup = implode(", ", $kws) . "<span class='amount'>" . count($kws) . "</span>";
     } else {

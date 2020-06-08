@@ -7,7 +7,7 @@ session_start();
 
 if (isset($_SESSION["arr_kws_ru"])) {
     $str_kws_ru = implode(", ", $_SESSION["arr_kws_ru"]);
-    $str_kws_ru = htmlspecialchars($str_kws_ru, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $str_kws_ru = htmlspecialchars($str_kws_ru, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     $count_kws_ru = count($_SESSION["arr_kws_ru"]);
 } else {
     $str_kws_ru = "";
@@ -16,7 +16,7 @@ if (isset($_SESSION["arr_kws_ru"])) {
 
 if (isset($_SESSION["arr_kws_en"])) {
     $str_kws_en = implode(", ", $_SESSION["arr_kws_en"]);
-    $str_kws_en = htmlspecialchars($str_kws_en, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $str_kws_en = htmlspecialchars($str_kws_en, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     $count_kws_en = count($_SESSION["arr_kws_en"]);
 } else {
     $str_kws_en = "";
@@ -25,7 +25,7 @@ if (isset($_SESSION["arr_kws_en"])) {
 
 if (isset($_SESSION["arr_kws_untranslated"])) {
     $str_kws_untranslated = implode(", ", $_SESSION["arr_kws_untranslated"]);
-    $str_kws_untranslated = htmlspecialchars($str_kws_untranslated, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    $str_kws_untranslated = htmlspecialchars($str_kws_untranslated, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     $count_kws_untranslated = count($_SESSION["arr_kws_untranslated"]);
 } else {
     $str_kws_untranslated = "";

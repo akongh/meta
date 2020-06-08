@@ -7,7 +7,7 @@ error_reporting(-1);
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>503</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">

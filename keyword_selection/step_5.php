@@ -36,7 +36,7 @@ session_start();
             <?php
             if (isset($_SESSION["arr_kws_translations"]) and 0 < count($_SESSION["arr_kws_translations"])) {
                 foreach ($_SESSION["arr_kws_translations"] as $el) {
-                    $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                    $el[0] = htmlspecialchars($el[0], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
                     switch ($el[2]) {
                         case 0:
                             $comment = "(перевода пока нет)";
@@ -60,8 +60,8 @@ session_start();
                             } else {
                                 $status = "";
                             }
-                            $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
-                            $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+                            $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
+                            $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
                             $translation_meaning[] = "
                                                  <div><label class='label_highlight padding_left'>
                                                      <span class='keyword_en'>

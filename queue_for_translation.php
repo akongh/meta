@@ -20,7 +20,7 @@ $mysqli->close();
 if (0 < $amount_kws_for_translation) {
     $arr_kws_for_translation = array();
     foreach ($raw_kws_for_translation as $el) {
-        $arr_kws_for_translation[] = htmlspecialchars($el["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        $arr_kws_for_translation[] = htmlspecialchars($el["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     }
     $html_kws_for_translation = implode("<br>", $arr_kws_for_translation);
 } else {
