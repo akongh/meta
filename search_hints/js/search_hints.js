@@ -109,10 +109,9 @@ window.addEventListener("scroll", viewHideUpButton);
 function addKeywordsToList(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
-    let basicKeywordsString = document.querySelector("#basic_keywords_string");
-    let basicKeywordsStringTrim = basicKeywordsString.value.trim();
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value.trim();
 
-    if (basicKeywordsStringTrim === "") {
+    if (basicKeywordsString === "") {
         document.querySelector("#hints-area").innerHTML = "Нечего добавлять.";
     } else {
         let request = new XMLHttpRequest();
@@ -126,7 +125,8 @@ function addKeywordsToList(PARAM_url) {
                     document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
                 } else {
                     let resultArray = JSON.parse(request.responseText);
-                    addStatusForHints(resultArray);
+
+                    addDeselectStatusForHints(resultArray);
 
                     if (typeof window.hintsObjectsArray !== "undefined") {
                         for (let i = 0; i < resultArray.length; i++) {
@@ -146,7 +146,7 @@ function addKeywordsToList(PARAM_url) {
 
                     countHintsTotalAndSelected();
                     createHTMLHintsList(window.hintsObjectsArray);
-                    document.querySelector("#basic_keywords_string").value = '';
+                    document.querySelector("#basic_keywords_string").value = "";
                 }
             }
         };
@@ -177,7 +177,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -228,7 +228,7 @@ function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -279,7 +279,7 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -329,7 +329,7 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -382,7 +382,7 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -430,7 +430,7 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -481,7 +481,7 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
@@ -548,7 +548,7 @@ function clearTranslationArea() {
     document.querySelector("#translations-area").innerHTML = "Список перевода пуст.";
 }
 
-function addStatusForHints(PARAM_hintsObjectsArray) {
+function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         PARAM_hintsObjectsArray[i].status = "deselect";
     }
