@@ -115,6 +115,9 @@ function addKeywordsToList(PARAM_url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
+
+// console.log(request.responseText);
+
             if (request.responseText === "-1") {
                 document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
             } else if (request.responseText === "-2") {
@@ -151,10 +154,7 @@ function addKeywordsToList(PARAM_url) {
         }
     };
 
-    basicKeywordsString = "basicKeywordsString=" + basicKeywordsString;
-
     request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(basicKeywordsString);
 }
 
