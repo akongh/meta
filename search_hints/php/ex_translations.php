@@ -42,10 +42,14 @@ echo $json_result;
  */
 
 //проверяет, чистит и правит полученное ОКС
+/**
+ * @param string $PARAM_keyword_in_russian
+ * @return string
+ */
 function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($PARAM_keyword_in_russian)
 {
-    $keyword_in_russian = mb_strtolower(htmlspecialchars(strip_tags(stripslashes($PARAM_keyword_in_russian))), "utf-8");
-    $keyword_in_russian = trim(preg_replace("/ {2,}/", " ", $keyword_in_russian));
+    $keyword_in_russian = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $PARAM_keyword_in_russian));
+    $keyword_in_russian = trim(trim($keyword_in_russian), "-");
 
     return $keyword_in_russian;
 }
