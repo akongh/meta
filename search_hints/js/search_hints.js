@@ -112,10 +112,9 @@ function addKeywordsToList(PARAM_url) {
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value.trim();
 
     if (basicKeywordsString === "") {
-        document.querySelector("#hints-area").innerHTML = "Нечего добавлять.";
+        document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
     } else {
         let request = new XMLHttpRequest();
-        basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString.value);
 
         request.onreadystatechange = function () {
             if (request.readyState === 4 && request.status === 200) {
@@ -150,6 +149,9 @@ function addKeywordsToList(PARAM_url) {
                 }
             }
         };
+
+        basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString);
+
         request.open("POST", PARAM_url, true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send(basicKeywordsString);
