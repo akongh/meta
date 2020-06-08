@@ -5,7 +5,7 @@ error_reporting(-1);
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-$basic_keywords_string = $_POST["basicKeywordsString"];
+$basic_keywords_string = file_get_contents("php://input");
 $data_width = 12288;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
@@ -14,10 +14,15 @@ if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     exit;
 }
 
-$basic_keywords_string = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $basic_keywords_string));
+if ("" === trim($basic_keywords_string)) {
+    echo("-3");
+    exit;
+}
+
+$basic_keywords_string = mb_strtolower(preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string));
 $basic_keywords_array = preg_split("/[\n,;]/u", $basic_keywords_string, -1, PREG_SPLIT_NO_EMPTY);
 foreach ($basic_keywords_array as &$value) {
-    $value = trim(trim($value), "-");
+    $value = trim($value);
     unset($value);
 }
 $basic_keywords_array = array_values(array_unique(array_diff($basic_keywords_array, array(""))));
@@ -28,14 +33,15 @@ if (count($basic_keywords_array) > 384) {
 }
 
 foreach ($basic_keywords_array as $value) {
-    if (!preg_match("/^[a-z0-9 -'&]*$/u", $value)) {
-        echo("-2");
+    if (!preg_match("/^[a-z0-9'& -]*$/u", $value)) {
+        echo("-2"); // A0 - ' & z9
         exit;
     }
 }
 
+$result_array = array();
 foreach ($basic_keywords_array as $element) {
-    $result_array [] = [
+    $result_array[] = [
         "hint" => $element,
         "translation" => SELECT_TRANSLATION($element, $mysqli)
     ];
@@ -60,7 +66,8 @@ echo($json_result);
  */
 function SELECT_TRANSLATION($_PARAM_hint_keyword, $_PARAM_db_connect)
 {
-    $_SQL_select_translations = "SELECT
+    $_SQL_select_translations = "
+SELECT
     `tz`.`z`
 FROM
     `tz`
@@ -71,14 +78,17 @@ FROM
 WHERE
     `l-ts`.`s` = '" . preg_replace("/'/", "\'", $_PARAM_hint_keyword) . "';
     ";
+
     $_SQL_translations = mysqli_query($_PARAM_db_connect, $_SQL_select_translations);
-    $n = 0;
-    while ($data = mysqli_fetch_array($_SQL_translations)) {
-        $translations_array[$n] = $data["z"];
-        $n++;
-    }
-    if (!isset($translations_array) || count($translations_array) == 0) {
-        $translations_array[0] = "-";
+
+    $translations_array = array();
+
+    if (0 === $_SQL_translations->num_rows) {
+        $translations_array[] = "-";
+    } else {
+        while ($data = mysqli_fetch_array($_SQL_translations)) {
+            $translations_array[] = $data["z"];
+        }
     }
 
     return $translations_array;
