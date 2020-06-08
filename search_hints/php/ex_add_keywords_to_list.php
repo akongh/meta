@@ -10,12 +10,12 @@ $data_width = 12288;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     $basic_keywords_string = mb_substr($basic_keywords_string, 0, $data_width, 'utf-8');
-    echo("-4");
+    echo("err_1");
     exit;
 }
 
 if ("" === trim($basic_keywords_string)) {
-    echo("-3");
+    echo("err_2");
     exit;
 }
 
@@ -28,13 +28,13 @@ foreach ($basic_keywords_array as &$value) {
 $basic_keywords_array = array_values(array_unique(array_diff($basic_keywords_array, array(""))));
 
 if (count($basic_keywords_array) > 384) {
-    echo("-1");
+    echo("err_3");
     exit;
 }
 
 foreach ($basic_keywords_array as $value) {
     if (!preg_match("/^[a-z0-9'& -]*$/u", $value)) {
-        echo("-2"); // A0 - ' & z9
+        echo("err_4"); // A0 - ' & z9
         exit;
     }
 }

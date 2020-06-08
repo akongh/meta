@@ -118,14 +118,14 @@ function addKeywordsToList(PARAM_url) {
 
 // console.log(request.responseText);
 
-            if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
-            } else if (request.responseText === "-3") {
-                document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
-            } else if (request.responseText === "-4") {
+            if (request.responseText === "err_1") {
                 document.querySelector("#error-hints").innerHTML = "Превышен допустимый размер введённых данных и они были обрезаны.";
+            } else if (request.responseText === "err_2") {
+                document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
+            } else if (request.responseText === "err_3") {
+                document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
+            } else if (request.responseText === "err_4") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
