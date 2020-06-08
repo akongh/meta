@@ -52,6 +52,7 @@ function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($PARAM_keyword_in_russian)
 
 /**
  * Ищет в базе переводы.
+ * @param mysqli $PARAM_db_connect
  * @param string $PARAM_keyword_in_russian
  * @return array|string
  */
