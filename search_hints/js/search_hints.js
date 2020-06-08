@@ -109,53 +109,51 @@ window.addEventListener("scroll", viewHideUpButton);
 function addKeywordsToList(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
-    let basicKeywordsString = document.querySelector("#basic_keywords_string").value.trim();
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
 
-    if (basicKeywordsString === "") {
-        document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
-    } else {
-        let request = new XMLHttpRequest();
+    let request = new XMLHttpRequest();
 
-        request.onreadystatechange = function () {
-            if (request.readyState === 4 && request.status === 200) {
-                if (request.responseText === "-1") {
-                    document.querySelector("#error-hints").innerHTML = "Не более 2&nbsp;000 добавляемых ключевых слов.";
-                } else if (request.responseText === "-2") {
-                    document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
-                } else {
-                    let resultArray = JSON.parse(request.responseText);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Не более 2&nbsp;000 добавляемых ключевых слов.";
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и&nbsp;амперсанд.";
+            } else if (request.responseText === "-3") {
+                document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
+            } else {
+                let resultArray = JSON.parse(request.responseText);
 
-                    addDeselectStatusForHints(resultArray);
+                addDeselectStatusForHints(resultArray);
 
-                    if (typeof window.hintsObjectsArray !== "undefined") {
-                        for (let i = 0; i < resultArray.length; i++) {
-                            for (let j = 0; j < window.hintsObjectsArray.length; j++) {
-                                if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                                    resultArray.splice(i, 1);
-                                    i--;
-                                    break;
-                                }
+                if (typeof window.hintsObjectsArray !== "undefined") {
+                    for (let i = 0; i < resultArray.length; i++) {
+                        for (let j = 0; j < window.hintsObjectsArray.length; j++) {
+                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+                                resultArray.splice(i, 1);
+                                i--;
+                                break;
                             }
                         }
-                        // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-                        window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
-                    } else {
-                        window.hintsObjectsArray = resultArray;
                     }
-
-                    countHintsTotalAndSelected();
-                    createHTMLHintsList(window.hintsObjectsArray);
-                    document.querySelector("#basic_keywords_string").value = "";
+                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
+                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+                } else {
+                    window.hintsObjectsArray = resultArray;
                 }
+
+                countHintsTotalAndSelected();
+                createHTMLHintsList(window.hintsObjectsArray);
+                document.querySelector("#basic_keywords_string").value = "";
             }
-        };
+        }
+    };
 
-        basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString);
+    basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(basicKeywordsString);
 
-        request.open("POST", PARAM_url, true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(basicKeywordsString);
-    }
+    request.open("POST", PARAM_url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(basicKeywordsString);
 }
 
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
