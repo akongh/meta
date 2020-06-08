@@ -76,7 +76,7 @@ if ( isset( $hint_keyword_array_full ) ) {
 //делаем единый массив обрезанных и необрезанных подсказок, если оба исходника существуют
 if ( isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = array_merge( $hint_keyword_array, $hint_keyword_array_full );
-} else if ( ! isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
+} elseif ( ! isset( $hint_keyword_array ) && isset ( $hint_keyword_array_full ) ) {
     $hint_keyword_array = $hint_keyword_array_full;
 }
 
