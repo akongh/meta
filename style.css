@@ -715,6 +715,10 @@ h1:first-child {
     text-align: right;
 }
 
+.deselect_highlighted {
+    background-color: #ffcc66;
+}
+
 .amount {
     padding-left: 4px;
     padding-right: 4px;

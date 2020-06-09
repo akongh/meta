@@ -676,14 +676,19 @@ function createResultString() {
 function rankHintsList() {
     clearErrors();
     reSortingHintsObjectsArray();
-    deleteDeselectedHints();
 
     if (typeof window.hintsObjectsArray !== "undefined") {
 
         let listResultArray = [];
+        let classDeselect;
 
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            listResultArray[i] = "<div class='rank-hint-box'>" +
+            if (window.hintsObjectsArray[i].status === "deselect") {
+                classDeselect = " deselect_highlighted";
+            } else {
+                classDeselect = "";
+            }
+            listResultArray[i] = "<div class='rank-hint-box" + classDeselect + "'>" +
                 "<span class='bold'>" + window.hintsObjectsArray[i].hint + "</span>" +
                 "</div>";
         }
