@@ -771,10 +771,10 @@ function sortAz() {
 }
 
 function keywordwPatternToQuery() {
-    let lastKws = document.querySelector("#basic_keywords_string").value;
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
 
-    if (lastKws !== "" || lastKws.trim() !== "") {
-        document.querySelector("#basic_keywords_string").value = lastKws.trim() + "\n" + this.innerHTML.replace('&amp;', '&');
+    if (basicKeywordsString !== "" || basicKeywordsString.trim() !== "") {
+        document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace('&amp;', '&');
     } else {
         document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
     }
