@@ -574,19 +574,18 @@ function countHintsTotalAndSelected() {
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
     clearErrors();
     let listResultArray = [];
+    let statusClass = "";
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         if (PARAM_hintsObjectsArray[i].status === "deselect") {
-            listResultArray[i] = "<div id='hint-box' class='hint-box-deselect'>" +
-                "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-                "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
-                "</div>";
+            statusClass = "hint-box-deselect";
         } else {
-            listResultArray[i] = "<div id='hint-box' class='hint-box-select'>" +
-                "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-                "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
-                "</div>";
+            statusClass = "hint-box-select";
         }
+        listResultArray[i] = "<div id='hint-box' class='" + statusClass + "'>" +
+            "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
+            "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
+            "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
