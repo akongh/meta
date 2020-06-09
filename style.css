@@ -386,13 +386,6 @@
     vertical-align: middle;
 }
 
-#sortable {
-    list-style-type: none;
-    cursor: move;
-    display: inline-block;
-    width: 100%;
-}
-
 .separate-checkbox {
     padding-left: 48px;
     text-indent: -26px;
@@ -517,10 +510,6 @@ hr {
 
 .textarea-keywords {
     border-color: #ddd;
-}
-
-#sortable li:hover {
-    background: #eee;
 }
 
 .block-translated {
@@ -668,6 +657,18 @@ h1:first-child {
     cursor: pointer;
 }
 
+#sortable {
+    list-style-type: none;
+    cursor: move;
+    display: inline-block;
+    width: 100%;
+}
+
+#sortable li:hover,
+.ui-sortable-handle:hover {
+    background-color: #eeeeee;
+}
+
 .wrap {
     max-width: 800px;
     margin-right: auto;
@@ -783,10 +784,6 @@ h1:first-child {
 }
 
 .label_highlight:hover {
-    background-color: #eeeeee;
-}
-
-.ui-sortable-handle:hover {
     background-color: #eeeeee;
 }
 
