@@ -774,9 +774,9 @@ function keywordwPatternToQuery() {
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
 
     if (basicKeywordsString !== "" || basicKeywordsString.trim() !== "") {
-        document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace('&amp;', '&');
+        document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace(/&amp;/g, '&');
     } else {
-        document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
+        document.querySelector("#basic_keywords_string").value = this.innerHTML.replace(/&amp;/g, '&');
     }
 }
 
