@@ -567,8 +567,8 @@ function countHintsTotalAndSelected() {
             }
         }
     }
-    document.querySelector("#hints-total-and-selected-top").innerHTML = countTotal + " / " + countSelected;
-    document.querySelector("#hints-total-and-selected").innerHTML = countTotal + " / " + countSelected;
+    document.querySelector("#hints-total-and-selected-top").innerHTML = countSelected + " / " + countTotal;
+    document.querySelector("#hints-total-and-selected").innerHTML = countSelected + " / " + countTotal;
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
