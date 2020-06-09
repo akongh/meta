@@ -700,10 +700,6 @@ h1:first-child {
     text-align: right;
 }
 
-.deselect_highlighted {
-    background-color: #ffcc66;
-}
-
 .amount {
     padding-left: 4px;
     padding-right: 4px;
@@ -743,7 +739,7 @@ h1:first-child {
     vertical-align: middle;
 }
 
-.rank-hint-box {
+.rank_hint_box {
     width: 100%;
     cursor: move;
     padding-top: 2px;
@@ -751,8 +747,12 @@ h1:first-child {
     font-weight: 700;
 }
 
-.rank-hint-box:hover {
-    background: #eee;
+.rank_hint_box:hover {
+    background: #eeeeee;
+}
+
+.rank_hint_box_deselect {
+    background-color: #ffcc66;
 }
 
 .padding_left {

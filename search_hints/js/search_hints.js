@@ -684,11 +684,11 @@ function rankHintsList() {
 
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             if (window.hintsObjectsArray[i].status === "deselect") {
-                classDeselect = " deselect_highlighted";
+                classDeselect = "rank_hint_box_deselect";
             } else {
-                classDeselect = "";
+                classDeselect = "rank_hint_box";
             }
-            listResultArray[i] = "<li class='rank-hint-box" + classDeselect + "'>" +
+            listResultArray[i] = "<li class='" + classDeselect + "'>" +
                 window.hintsObjectsArray[i].hint +
                 "</li>";
         }
