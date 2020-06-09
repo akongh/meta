@@ -607,7 +607,7 @@ function selectDeselectHint() {
     clearErrors();
     let hint = this.firstChild.innerHTML;
     for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-        if (window.hintsObjectsArray[i].hint === hint) {
+        if (window.hintsObjectsArray[i].hint === hint.replace(/&amp;/g, '&')) {
             if (window.hintsObjectsArray[i].status === "deselect") {
                 window.hintsObjectsArray[i].status = "select";
             } else {
