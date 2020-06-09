@@ -40,7 +40,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
                 echo meta_kws_markup_checkbox_list($_SESSION["arr_kws_selection"],
                     $_SESSION["arr_kws_selection_marked"]);
             } else {
-                echo "Список подобраных ключевых слов пуст.";
+                echo "Список подобранных ключевых слов пуст.";
             }
             ?>
         </div>
