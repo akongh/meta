@@ -688,11 +688,11 @@ function rankHintsList() {
             } else {
                 classDeselect = "";
             }
-            listResultArray[i] = "<div class='rank-hint-box" + classDeselect + "'>" +
-                "<span class='bold'>" + window.hintsObjectsArray[i].hint + "</span>" +
-                "</div>";
+            listResultArray[i] = "<li class='rank-hint-box" + classDeselect + "'>" +
+                window.hintsObjectsArray[i].hint +
+                "</li>";
         }
-        document.querySelector("#hints-area").innerHTML = "<div id='rank-hints-list'>" + listResultArray.join("") + "</div>";
+        document.querySelector("#hints-area").innerHTML = "<ul id='rank-hints-list'>" + listResultArray.join("") + "</ul>";
 
         $(function () {
             $("#rank-hints-list").sortable().disableSelection();

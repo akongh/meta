@@ -420,13 +420,6 @@
     border: dashed 1px;
 }
 
-.rank-hint-box {
-    width: 100%;
-    cursor: move;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
 .hover-invert:hover {
     cursor: pointer;
 }
@@ -562,14 +555,6 @@ hr {
 
 .hint-box-select:hover {
     border-color: #888;
-}
-
-.rank-hint-box {
-    background: #fff;
-}
-
-.rank-hint-box:hover {
-    background: #eee;
 }
 
 .hover-invert:hover {
@@ -756,6 +741,18 @@ h1:first-child {
 .label_highlight input {
     margin-right: 8px;
     vertical-align: middle;
+}
+
+.rank-hint-box {
+    width: 100%;
+    cursor: move;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: 700;
+}
+
+.rank-hint-box:hover {
+    background: #eee;
 }
 
 .padding_left {
