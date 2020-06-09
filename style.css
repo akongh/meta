@@ -752,6 +752,7 @@ h1:first-child {
 }
 
 .rank_hint_box_deselect {
+    font-weight: 700;
     background-color: #ffcc66;
 }
 
