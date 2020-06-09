@@ -657,6 +657,8 @@ h1:first-child {
     cursor: pointer;
 }
 
+/*/////////////////////////////////////////*/
+
 #sortable {
     list-style-type: none;
     cursor: move;
@@ -664,10 +666,44 @@ h1:first-child {
     width: 100%;
 }
 
-#sortable li:hover,
+#sortable li:hover {
+    background-color: #eeeeee;
+}
+
+.wrap_list_kws {
+    margin-top: 64px;
+}
+
+#rank-hints-list {
+
+}
+
+.rank_hint_box_deselect {
+    font-weight: 700;
+    background-color: #ffcc66;
+}
+
+.rank_hint_box {
+    width: 100%;
+    cursor: move;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-weight: 700;
+}
+
+.ui-sortable {
+
+}
+
+.ui-sortable-handle {
+
+}
+
 .ui-sortable-handle:hover {
     background-color: #eeeeee;
 }
+
+/*/////////////////////////////////////////*/
 
 .wrap {
     max-width: 800px;
@@ -740,21 +776,8 @@ h1:first-child {
     vertical-align: middle;
 }
 
-.rank_hint_box {
-    width: 100%;
-    cursor: move;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    font-weight: 700;
-}
-
 .rank_hint_box:hover {
     background: #eeeeee;
-}
-
-.rank_hint_box_deselect {
-    font-weight: 700;
-    background-color: #ffcc66;
 }
 
 .padding_left {
@@ -800,10 +823,6 @@ h1:first-child {
 
 .content_right {
     margin-top: 24px;
-}
-
-.wrap_list_kws {
-    margin-top: 64px;
 }
 
 .back_link {
