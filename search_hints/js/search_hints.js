@@ -703,8 +703,6 @@ function reSortingHintsObjectsArray() {
     if (rankHintsBoxes.length > 0) {
         window.hintsObjectsArrayReRank = [];
         for (let i = 0; i < rankHintsBoxes.length; i++) {
-            rankHintsBoxes[i].innerText = rankHintsBoxes[i].innerText.replace(/&amp;/g, '&');
-            rankHintsBoxes[i].innerText = rankHintsBoxes[i].innerText.replace('&', '&amp;');
             for (let j = 0; j < window.hintsObjectsArray.length; j++) {
                 if (rankHintsBoxes[i].innerText === window.hintsObjectsArray[j].hint) {
                     window.hintsObjectsArrayReRank[i] = window.hintsObjectsArray[j];
