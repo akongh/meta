@@ -574,7 +574,7 @@ function countHintsTotalAndSelected() {
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
     clearErrors();
     let listResultArray = [];
-    let statusClass = "";
+    let statusClass;
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         if (PARAM_hintsObjectsArray[i].status === "deselect") {
