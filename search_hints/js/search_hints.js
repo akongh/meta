@@ -21,8 +21,8 @@ let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
 
 
-window.onload = countHintsTotalAndSelected;
-window.onload = viewHideUpButton;
+window.onload = countHintsTotalAndSelected();
+window.onload = viewHideUpButton();
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListShutterstock("php/ex_hints_shutterstock.php");
