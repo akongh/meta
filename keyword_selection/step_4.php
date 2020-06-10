@@ -42,7 +42,7 @@ session_start();
                 foreach ($_SESSION["arr_kws_ordered"] as $kw) {
                     $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
                     $arr_kws_ordered[] = "
-                        <li>
+                        <li class='sortable_element'>
                             <input type='checkbox'
                                    name='arr_kws_marked[]'
                                    hidden

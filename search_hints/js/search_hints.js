@@ -684,18 +684,18 @@ function rankHintsList() {
 
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             if (window.hintsObjectsArray[i].status === "deselect") {
-                classDeselect = "rank_hint_box_deselect";
+                classDeselect = "sortable_element_deselect";
             } else {
-                classDeselect = "rank_hint_box";
+                classDeselect = "sortable_element";
             }
             listResultArray[i] = "<li class='" + classDeselect + "'>" +
                 window.hintsObjectsArray[i].hint +
                 "</li>";
         }
-        document.querySelector("#hints-area").innerHTML = "<ul id='rank-hints-list'>" + listResultArray.join("") + "</ul>";
+        document.querySelector("#hints-area").innerHTML = "<ul id='sortable'>" + listResultArray.join("") + "</ul>";
 
         $(function () {
-            $("#rank-hints-list").sortable().disableSelection();
+            $("#sortable").sortable().disableSelection();
         });
 
     } else {
