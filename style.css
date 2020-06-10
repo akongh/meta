@@ -386,16 +386,8 @@
     text-indent: -26px;
 }
 
-.result:hover {
+.result span:hover {
     cursor: pointer;
-}
-
-#hints-area.result:hover {
-    cursor: default;
-}
-
-#hints-area.result span:hover {
-    background: none;
 }
 
 .hint-box-deselect {
