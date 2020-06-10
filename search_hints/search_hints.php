@@ -42,8 +42,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            id="in-russian"
            class="textarea-keywords"
            maxlength="64">
-    <span id='error-translations'
-          class='error'></span>
+    <div id='error-translations'
+          class='error'></div>
     <div class="content_right">
         <a href="#"
            id="get-translation-button"
