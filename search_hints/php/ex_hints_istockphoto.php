@@ -22,7 +22,7 @@ if (count($basic_keywords_array) > 16) {
 }
 
 //подстроки для правила удаления ОКС из подсказки
-require($_SERVER["DOCUMENT_ROOT"] . '/search_hints/php/rules.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/search_hints/rules.php');
 
 //получаем json-ответы для каждого ОКС
 for ($i = 0; $i < count($basic_keywords_array); $i++) {
