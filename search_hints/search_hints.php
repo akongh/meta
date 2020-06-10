@@ -37,7 +37,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки ключевых слов</h1>
-    <label for="in-russian">Вспомогательный русско-английский перевод</label>
+    <h2><label for="in-russian">Вспомогательный русско-английский перевод</label></h2>
     <input type="text"
            id="in-russian"
            class="textarea-keywords"
@@ -55,7 +55,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            title="Очистить перевод">[х]</a>
     </div>
     <div id="translations-area">Список перевода пуст.</div>
-    <label for="basic_keywords_string">Опорные ключевые слова</label>
+    <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
     <textarea id="basic_keywords_string"
               name="basic_keywords_string"
               class="textarea-keywords"
