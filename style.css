@@ -519,10 +519,6 @@ hr {
     color: #000;
 }
 
-.result:hover {
-    background: #eee;
-}
-
 .hint-box-deselect {
     background: #eee;
     border-color: #eee;

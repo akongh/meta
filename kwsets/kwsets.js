@@ -275,7 +275,7 @@ function createResultString() {
             request.open("POST", 'add_keyword_to_db.php', true);
             request.send(jsonHintsStringForTranlation);
 
-            document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
+            document.querySelector("#hints-area").innerHTML = "<span id='select-result'>" +
                 resultString.join(", ") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");

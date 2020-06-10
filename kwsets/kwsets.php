@@ -114,7 +114,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Удалить текущий список ключевых слов">[x]</a>
     </div>
-    <div id="hints-area">Список ключевых слов пуст.</div>
+    <div id="hints-area" class="result">Список ключевых слов пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
