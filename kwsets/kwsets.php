@@ -63,8 +63,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
               rows="8"
               placeholder=""
               autofocus></textarea>
-    <span id="error-hints"
-          class='error'></span>
+    <div id="error-hints"
+          class='error'></div>
     <div class="content_right">
         <a href="#"
            id="add-keywords-to-list-button"
@@ -76,6 +76,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
     <a id="top"></a>
+    <div class="links_block">
     <a href="#"
        id="create-result-string-button"
        class="link-button"
@@ -104,6 +105,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        id="deselect-all-hints-button"
        class="link-button"
        title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
+    </div>
     <div class="content_right">
         <span id="hints-total-and-selected"
               class="amount"></span>

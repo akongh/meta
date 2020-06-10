@@ -823,3 +823,8 @@ input[type="text"] {
 .block_translated {
     margin-bottom: 8px;
 }
+
+.links_block {
+    margin-top: 24px;
+    line-height: 1.6;
+}
