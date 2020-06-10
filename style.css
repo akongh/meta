@@ -371,11 +371,6 @@
     animation-iteration-count: infinite;
 }
 
-.content-right {
-    display: block;
-    text-align: right;
-}
-
 .label-highlight {
     display: inline-block;
     width: 100%;
@@ -711,6 +706,7 @@ h1:first-child {
 
 .content_right {
     text-align: right;
+    margin-top: 24px;
 }
 
 .amount {
@@ -791,10 +787,6 @@ h1:first-child {
     border-top: dashed 1px #dddddd;
     padding-top: 40px;
     color: #888888;
-}
-
-.content_right {
-    margin-top: 24px;
 }
 
 .back_link {

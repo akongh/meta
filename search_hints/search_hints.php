@@ -26,7 +26,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <div class="wrap">
     <div id="up-button-block"
          class="up-block">
-        <div class="up-center-block content-right">
+        <div class="up-center-block content_right">
             <span id="hints-total-and-selected-top"
                   class="amount"></span>
             <a href="#top"
@@ -44,7 +44,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            maxlength="64">
     <span id='error-translations'
           class='error'></span>
-    <div class="content-right">
+    <div class="content_right">
         <a href="#"
            id="get-translation-button"
            class="link-button"
@@ -65,7 +65,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
               autofocus></textarea>
     <span id="error-hints"
           class='error'></span>
-    <div class="content-right">
+    <div class="content_right">
         <a href="#"
            id="add-keywords-to-list-button"
            class="link-button"
@@ -142,7 +142,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        id="deselect-all-hints-button"
        class="link-button"
        title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
-    <div class="content-right">
+    <div class="content_right">
         <span id="hints-total-and-selected"
               class="amount"></span>
         <a href="#"

@@ -26,7 +26,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <div class="wrap">
     <div id="up-button-block"
          class="up-block">
-        <div class="up-center-block content-right">
+        <div class="up-center-block content_right">
             <a href="#"
                class="link-button up-button"
                title="Наверх">[Наверх]</a>
@@ -50,7 +50,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
                 </select></label>
         </span>
     </div>
-    <div class="content-right">
+    <div class="content_right">
         <a href="#"
            id="create-variants-queries-button"
            class="link-button"
@@ -76,7 +76,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
                      rows="8"
                      placeholder=""
                      autofocus></textarea></label>
-    <div class="content-right">
+    <div class="content_right">
         <a href="#"
            id="clear-keyword-button"
            class="link-button"
@@ -107,7 +107,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            name="get-selling-keywords-button"
            value="Получить продавшие ключевые слова">
     <span id="status"></span>
-    <div class="content-right">
+    <div class="content_right">
         <span id="count-keywords"
               class="amount">0</span>
         <a href="#"
