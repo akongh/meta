@@ -192,9 +192,9 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         } else {
             statusClass = "hint-box-select";
         }
-        listResultArray[i] = "<div id='hint-box' class='" + statusClass + "'>" +
+        listResultArray[i] = "<div id='hint-box' class='" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
             "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-            "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
+            // "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
