@@ -36,8 +36,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Продавшие ключевые слова на Шаттерстоке</h1>
     <a id="top"></a>
-    <div id="variants-queries-list">Без вариантов.</div>
-    <div>
+    <div id="variants-queries-list" class="saved_set">Без вариантов.</div>
+    <div class="label_info">
         <span title="Число уровней повторяемости вариантов запросов">
             Основных
             <label><select size="1"
