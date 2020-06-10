@@ -1,4 +1,4 @@
-let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
+// let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
 let clearButton = document.querySelector("#clear-button");
 let deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
@@ -17,10 +17,10 @@ let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button"
 
 window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
-getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
-    e.preventDefault();
-    sendQueryGetHintsCreateHTMLHintsListShutterstock("php/ex_hints_shutterstock.php");
-}, false);
+// getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     sendQueryGetHintsCreateHTMLHintsListShutterstock("php/ex_hints_shutterstock.php");
+// }, false);
 addKeywordsToListButton.addEventListener("click", function (e) {
     e.preventDefault();
     addKeywordsToList("php/ex_add_keywords_to_list.php");
@@ -127,54 +127,54 @@ function addKeywordsToList(PARAM_url) {
     request.send(basicKeywordsString);
 }
 
-function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
-    clearErrors();
-    disableGetBasicKeywordsButton();
-
-    let request = new XMLHttpRequest();
-    let mediaType = "mediaType=" + document.querySelector("input[name='media_type_shutterstock']:checked").value;
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
-    let requestSet = basicKeywordsString + "&" + mediaType;
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
-                enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-                enableGetBasicKeywordsButton();
-            } else {
-
-                let resultArray = JSON.parse(request.responseText);
-
-                addDeselectStatusForHints(resultArray);
-
-                if (typeof window.hintsObjectsArray !== "undefined") {
-                    for (let i = 0; i < resultArray.length; i++) {
-                        for (let j = 0; j < window.hintsObjectsArray.length; j++) {
-                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                                resultArray.splice(i, 1);
-                                i--;
-                                break;
-                            }
-                        }
-                    }
-                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
-                } else {
-                    window.hintsObjectsArray = resultArray;
-                }
-
-                countHintsTotalAndSelected();
-                createHTMLHintsList(window.hintsObjectsArray);
-                setTimeout("enableGetBasicKeywordsButton()", 200);
-            }
-        }
-    };
-    request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(requestSet);
-}
+// function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
+//     clearErrors();
+//     disableGetBasicKeywordsButton();
+//
+//     let request = new XMLHttpRequest();
+//     let mediaType = "mediaType=" + document.querySelector("input[name='media_type_shutterstock']:checked").value;
+//     let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
+//     let requestSet = basicKeywordsString + "&" + mediaType;
+//
+//     request.onreadystatechange = function () {
+//         if (request.readyState === 4 && request.status === 200) {
+//             if (request.responseText === "-1") {
+//                 document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
+//                 enableGetBasicKeywordsButton();
+//             } else if (request.responseText === "-2") {
+//                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+//                 enableGetBasicKeywordsButton();
+//             } else {
+//
+//                 let resultArray = JSON.parse(request.responseText);
+//
+//                 addDeselectStatusForHints(resultArray);
+//
+//                 if (typeof window.hintsObjectsArray !== "undefined") {
+//                     for (let i = 0; i < resultArray.length; i++) {
+//                         for (let j = 0; j < window.hintsObjectsArray.length; j++) {
+//                             if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
+//                                 resultArray.splice(i, 1);
+//                                 i--;
+//                                 break;
+//                             }
+//                         }
+//                     }
+//                     window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
+//                 } else {
+//                     window.hintsObjectsArray = resultArray;
+//                 }
+//
+//                 countHintsTotalAndSelected();
+//                 createHTMLHintsList(window.hintsObjectsArray);
+//                 setTimeout("enableGetBasicKeywordsButton()", 200);
+//             }
+//         }
+//     };
+//     request.open("POST", PARAM_url, true);
+//     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     request.send(requestSet);
+// }
 
 function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
     clearErrors();
