@@ -631,6 +631,10 @@ h1:first-child {
     margin-top: 0;
 }
 
+input[type="text"] {
+    margin-top: 24px;
+}
+
 #separate_result_view,
 #single_result_view {
     margin-top: 64px;
