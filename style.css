@@ -390,6 +390,14 @@
     cursor: pointer;
 }
 
+#hints-area.result:hover {
+    cursor: default;
+}
+
+#hints-area.result span:hover {
+    background: none;
+}
+
 .hint-box-deselect {
     width: 100%;
     border: solid 1px;
@@ -647,7 +655,6 @@ input[type="text"] {
 
 .result span:hover {
     background-color: #eeeeee;
-    cursor: pointer;
 }
 
 #sortable {
