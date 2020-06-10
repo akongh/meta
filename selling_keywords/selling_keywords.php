@@ -82,12 +82,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Очистить поле запроса">[x]</a>
     </div>
-    <div>
+    <div class="label_info">
         <label><input type="checkbox"
                       name="use-variant-queries"
                       value=""> На основе вариантов</label>
     </div>
-    <div>
+    <div class="label_info">
         <label><input type="radio"
                       name="image_type"
                       value="all"
@@ -115,8 +115,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Удалить текущую строку результата">[x]</a>
     </div>
-    <div id="selling-keywords-string">Строка результата пуста.</div>
-    <div id="works-list">Список произведений пуст.</div>
+    <div id="selling-keywords-string" class="result">Строка результата пуста.</div>
+    <div id="works-list" class="result">Список произведений пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>

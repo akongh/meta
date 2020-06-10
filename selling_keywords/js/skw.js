@@ -161,7 +161,7 @@ function createSellingKeywordsString() {
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     window.arraySortUnicSellingKeywords = arraySortUnicSellingKeywords;
     countKeywords();
-    return '<span class="result">' + arraySortUnicSellingKeywords.join(', ') + '</span>';
+    return '<span>' + arraySortUnicSellingKeywords.join(', ') + '</span>';
 }
 
 function createWorksList() {
