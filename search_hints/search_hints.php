@@ -75,19 +75,19 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="link-button"
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
-    <label><input type="radio"
-                  name="media_type_shutterstock"
-                  value="image"
-                  checked> Изображения</label>
-    <label><input type="radio"
-                  name="media_type_shutterstock"
-                  value="audio"> Аудио</label>
-    <label><input type="radio"
-                  name="media_type_shutterstock"
-                  value="video"> Видео</label>
-    <input type="submit"
-           id="get-basic-keywords-button-shutterstock"
-           value="От Шаттерстока">
+<!--    <label><input type="radio"-->
+<!--                  name="media_type_shutterstock"-->
+<!--                  value="image"-->
+<!--                  checked> Изображения</label>-->
+<!--    <label><input type="radio"-->
+<!--                  name="media_type_shutterstock"-->
+<!--                  value="audio"> Аудио</label>-->
+<!--    <label><input type="radio"-->
+<!--                  name="media_type_shutterstock"-->
+<!--                  value="video"> Видео</label>-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-shutterstock"-->
+<!--           value="От Шаттерстока">-->
 <!--    <input type="submit"-->
 <!--           id="get-basic-keywords-button-istockphoto"-->
 <!--           value="От Айстокфото">-->
