@@ -641,12 +641,10 @@ input[type="text"] {
     margin-top: 0;
 }
 
-#result_no_transl,
 .result {
     margin-top: 16px;
 }
 
-#result_no_transl span:hover,
 .result span:hover {
     background-color: #eeeeee;
     cursor: pointer;

@@ -93,7 +93,7 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
         </div>
     </div>
     <h2>Непереведённые</h2>
-    <div id='result_no_transl'>
+    <div id='result_no_transl' class="result">
         <span><?= $str_kws_untranslated; ?></span>
     </div>
     <div class="amount_kws">
