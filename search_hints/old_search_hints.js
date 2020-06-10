@@ -534,7 +534,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
                     hintKeywords[i].addEventListener("click", function (e) {
                         e.stopPropagation();
                     }, false);
-                    hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+                    hintKeywords[i].addEventListener("click", keywordPatternToQuery);
                 }
             }
         }
@@ -594,7 +594,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         hintKeywords[i].addEventListener("click", function (e) {
             e.stopPropagation();
         }, false);
-        hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
 
     let hintBoxes = document.querySelectorAll("#hint-box");
@@ -773,7 +773,7 @@ function sortAz() {
     }
 }
 
-function keywordwPatternToQuery() {
+function keywordPatternToQuery() {
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
 
     if (basicKeywordsString !== "" || basicKeywordsString.trim() !== "") {
