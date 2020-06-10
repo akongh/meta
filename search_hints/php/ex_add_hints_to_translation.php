@@ -5,12 +5,11 @@ error_reporting(-1);
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-$json_hints_string_for_translation = $_POST["jsonHintsStringForTranlation"];
-$json_hints_array_for_translation = json_decode($json_hints_string_for_translation, JSON_UNESCAPED_UNICODE);
+$json_hints_string_for_translation = file_get_contents("php://input");
+$json_hints_array_for_translation = json_decode($json_hints_string_for_translation);
 
 foreach ($json_hints_array_for_translation as $element) {
-    $element = preg_replace(["/&amp;/", "/'/"], ["&", "\'"], $element);
-
+    $element = mysqli_real_escape_string($mysqli, $element);
     mysqli_query($mysqli, "
 	INSERT IGNORE INTO `l-ts` (`s`)
 	VALUES ('" . $element . "')

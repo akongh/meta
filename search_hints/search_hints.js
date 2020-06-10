@@ -317,11 +317,16 @@ function createResultString() {
             }
         }
         if (resultString.length > 0) {
-
             let request = new XMLHttpRequest();
-            let jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + encodeURIComponent(JSON.stringify(resultString));
+
+            // request.onreadystatechange = function () {
+            //     if (request.readyState === 4 && request.status === 200) {
+            //         console.log(request.responseText);
+            //     }
+            // }
+
+            let jsonHintsStringForTranlation = JSON.stringify(resultString);
             request.open("POST", 'php/ex_add_hints_to_translation.php', true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(jsonHintsStringForTranlation);
 
             document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
