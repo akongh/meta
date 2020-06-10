@@ -154,7 +154,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
-<script src="/search_hints/kwsets.js"></script>
+<script src="/kwsets/kwsets.js"></script>
 <script src="/_third_party/jquery-1.10.2.js"></script>
 <script src="/_third_party/jquery-ui.js"></script>
 </body>
