@@ -86,10 +86,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        class="link-button"
        title="Вернуть список ключевых слов">[Список]</a>
     <a href="#"
-       id="sort-a-z-button"
-       class="link-button"
-       title="Сортировать список ключевых слов по алфавиту">[По&nbsp;алфавиту]</a>
-    <a href="#"
        id="delete-deselected-hints-button"
        class="link-button"
        title="Очистить список ключевых слов от невыбранных">[Очистить]</a>

@@ -8,7 +8,6 @@ let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-bu
 let clearButton = document.querySelector("#clear-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
-let sortAzButton = document.querySelector("#sort-a-z-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -53,10 +52,6 @@ deleteDeselectedHintsButton.addEventListener("click", function (e) {
 returnToListViewButton.addEventListener("click", function (e) {
     e.preventDefault();
     returnToListView();
-}, false);
-sortAzButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    sortAz();
 }, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -499,16 +494,6 @@ function deleteDeselectedHints() {
 function compareObjectHints(a, b) {
     if (a.hint > b.hint) return 1;
     if (a.hint < b.hint) return -1;
-}
-
-function sortAz() {
-    if (typeof window.hintsObjectsArray !== "undefined") {
-
-        window.hintsObjectsArray.sort(compareObjectHints);
-        createHTMLHintsList(window.hintsObjectsArray);
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего сортировать.";
-    }
 }
 
 function selectAllHints() {
