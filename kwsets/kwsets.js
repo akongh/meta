@@ -192,7 +192,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         } else {
             statusClass = "hint-box-select";
         }
-        listResultArray[i] = "<div id='hint-box' class='" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
+        listResultArray[i] = "<div class='hint-box' class='" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
             "<span>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             // "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             // "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
@@ -208,7 +208,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     //     hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     // }
 
-    let hintBoxes = document.querySelectorAll("#hint-box");
+    let hintBoxes = document.querySelectorAll(".hint-box");
     for (let i = 0; i < hintBoxes.length; i++) {
         hintBoxes[i].addEventListener("click", selectDeselectHint);
     }

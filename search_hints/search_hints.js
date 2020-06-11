@@ -363,7 +363,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     let listResultArray = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div id='hint-box'>" +
+        listResultArray[i] = "<div class='hint-box'>" +
             PARAM_hintsObjectsArray[i]["pattern"] +
             "<br>" +
             PARAM_hintsObjectsArray[i]["probability"] +
