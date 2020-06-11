@@ -397,7 +397,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div id='hint-box'>" +
-            "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
+            "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i] + "</span>" +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");

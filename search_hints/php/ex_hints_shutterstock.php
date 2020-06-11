@@ -96,18 +96,8 @@ for ($i = 0; $i < count($hint_keyword_array); $i++) {
     $hint_keyword_array[$i] = preg_replace("/&/", "&amp;", $hint_keyword_array[$i]);
 }
 
-//добавление перевода
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
-for ($i = 0; $i < count($hint_keyword_array); $i++) {
-    $result_array [$i] = [
-        "hint" => $hint_keyword_array[$i],
-        "translation" => SELECT_TRANSLATION($hint_keyword_array[$i], $mysqli)
-    ];
-}
-mysqli_close($mysqli);
-
 //подготовка json-ответа
-$json_result = json_encode($result_array, JSON_UNESCAPED_UNICODE);
+$json_result = json_encode($hint_keyword_array, JSON_UNESCAPED_UNICODE);
 
 echo($json_result);
 
@@ -186,32 +176,4 @@ function DELETE_BASIC_KEYWORD_FROM_HINT($_PARAM_basic_keyword, $_PARAM_hint)
     }
 
     return $hint_keyword;
-}
-
-//выбирает перевод для одной подсказки
-function SELECT_TRANSLATION($_PARAM_hint_keyword, $_PARAM_db_connect)
-{
-    $_PARAM_hint_keyword = preg_replace("/&amp;/", "&", $_PARAM_hint_keyword);
-    $_SQL_select_translations = "SELECT
-    `tz`.`z`
-FROM
-    `tz`
-        JOIN
-    `k_l` ON `tz`.`idz` = `k_l`.`idz`
-        JOIN
-    `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
-WHERE
-    `l-ts`.`s` = '" . preg_replace("/'/", "\'", $_PARAM_hint_keyword) . "';
-    ";
-    $_SQL_translations = mysqli_query($_PARAM_db_connect, $_SQL_select_translations);
-    $n = 0;
-    while ($data = mysqli_fetch_array($_SQL_translations)) {
-        $translations_array[$n] = $data["z"];
-        $n++;
-    }
-    if (!isset($translations_array) || count($translations_array) == 0) {
-        $translations_array[0] = "-";
-    }
-
-    return $translations_array;
 }
