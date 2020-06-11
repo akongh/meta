@@ -47,6 +47,7 @@ clearButton.addEventListener("click", function (e) {
  */
 
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
+    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -456,4 +457,8 @@ function enableGetBasicKeywordsButton() {
     // getBasicKeywordsButton123rf.value = "От 123РФ";
     // getBasicKeywordsButton123rf.style.background = "";
     // getBasicKeywordsButton123rf.style.cursor = "";
+}
+
+function clearErrors() {
+    document.querySelector("#error-hints").innerHTML = "";
 }
