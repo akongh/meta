@@ -320,7 +320,7 @@ function rankHintsList() {
 }
 
 function reSortingHintsObjectsArray() {
-    let rankHintsBoxes = document.querySelectorAll('.rank-hint-box');
+    let rankHintsBoxes = document.querySelectorAll('.ui-sortable-handle');
     if (rankHintsBoxes.length > 0) {
         window.hintsObjectsArrayReRank = [];
         for (let i = 0; i < rankHintsBoxes.length; i++) {
