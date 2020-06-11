@@ -6,13 +6,11 @@ let getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-key
 let getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
 let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 let clearButton = document.querySelector("#clear-button");
-let deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
 let sortAzButton = document.querySelector("#sort-a-z-button");
 let createResultStringButton = document.querySelector("#create-result-string-button");
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
-let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 let upButtonBlock = document.querySelector("#up-button-block");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
@@ -52,10 +50,6 @@ getBasicKeywordsButton123rf.addEventListener("click", function (e) {
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearQuery();
-}, false);
-deleteHintsObjectsArrayButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    deleteHintsObjectsArray();
 }, false);
 deleteDeselectedHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -460,21 +454,6 @@ function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         PARAM_hintsObjectsArray[i].status = "deselect";
     }
-}
-
-function countHintsTotalAndSelected() {
-    let countTotal = 0;
-    let countSelected = 0;
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        countTotal = window.hintsObjectsArray.length;
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            if (window.hintsObjectsArray[i].status === "select") {
-                countSelected++;
-            }
-        }
-    }
-    document.querySelector("#hints-total-and-selected-top").innerHTML = countSelected + " / " + countTotal;
-    document.querySelector("#hints-total-and-selected").innerHTML = countSelected + " / " + countTotal;
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {

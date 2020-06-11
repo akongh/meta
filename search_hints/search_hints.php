@@ -24,16 +24,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 </head>
 <body>
 <div class="wrap">
-    <div id="up-button-block"
-         class="up-block">
-        <div class="up-center-block content_right">
-            <span id="hints-total-and-selected-top"
-                  class="amount"></span>
-            <a href="#top"
-               class="link-button up-button"
-               title="Наверх">[Наверх]</a>
-        </div>
-    </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки ключевых слов</h1>
@@ -120,14 +110,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
        id="deselect-all-hints-button"
        class="link-button"
        title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
-    <div class="content_right">
-        <span id="hints-total-and-selected"
-              class="amount"></span>
-        <a href="#"
-           id="delete-hints-objects-array-button"
-           class="link-button"
-           title="Удалить текущий список ключевых слов">[x]</a>
-    </div>
     <div id="hints-area">Список ключевых слов пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
