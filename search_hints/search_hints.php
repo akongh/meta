@@ -28,13 +28,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки ключевых слов</h1>
     <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
-    <textarea id="basic_keywords_string"
-              name="basic_keywords_string"
-              class="textarea-keywords"
-              wrap="soft"
-              rows="8"
-              placeholder=""
-              autofocus></textarea>
+    <input type="text"
+           id="basic_keywords_string"
+           name="basic_keywords_string"
+           class="textarea-keywords"
+           placeholder=""
+           autofocus>
     <span id="error-hints"
           class='error'></span>
     <div class="content_right">
@@ -56,31 +55,31 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-istockphoto"-->
-<!--           value="От Айстокфото">-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-getty"-->
-<!--           value="От Геттиимаджес">-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-fotolia"-->
-<!--           value="От Фотолии">-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_bigstockphoto"-->
-<!--                  value="image"-->
-<!--                  checked> Изображения</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_bigstockphoto"-->
-<!--                  value="video"> Видео</label>-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-bigstockphoto"-->
-<!--           value="От Бигстокфото">-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-depositphotos"-->
-<!--           value="От Депозитфотос">-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-123rf"-->
-<!--           value="От 123РФ">-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-istockphoto"-->
+    <!--           value="От Айстокфото">-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-getty"-->
+    <!--           value="От Геттиимаджес">-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-fotolia"-->
+    <!--           value="От Фотолии">-->
+    <!--    <label><input type="radio"-->
+    <!--                  name="media_type_bigstockphoto"-->
+    <!--                  value="image"-->
+    <!--                  checked> Изображения</label>-->
+    <!--    <label><input type="radio"-->
+    <!--                  name="media_type_bigstockphoto"-->
+    <!--                  value="video"> Видео</label>-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-bigstockphoto"-->
+    <!--           value="От Бигстокфото">-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-depositphotos"-->
+    <!--           value="От Депозитфотос">-->
+    <!--    <input type="submit"-->
+    <!--           id="get-basic-keywords-button-123rf"-->
+    <!--           value="От 123РФ">-->
     <div id="hints-area">Список подсказок пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
