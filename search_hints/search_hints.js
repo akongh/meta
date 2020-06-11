@@ -9,9 +9,7 @@ let clearButton = document.querySelector("#clear-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
 let sortAzButton = document.querySelector("#sort-a-z-button");
-let createResultStringButton = document.querySelector("#create-result-string-button");
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
-let upButtonBlock = document.querySelector("#up-button-block");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -60,10 +58,6 @@ returnToListViewButton.addEventListener("click", function (e) {
 sortAzButton.addEventListener("click", function (e) {
     e.preventDefault();
     sortAz();
-}, false);
-createResultStringButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    createResultString();
 }, false);
 rankHintsListButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -455,46 +449,6 @@ function returnToListView() {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
-    }
-}
-
-function selectResult() {
-    let selectRange = document.createRange();
-    selectRange.selectNodeContents(this);
-    let select = window.getSelection();
-    select.removeAllRanges();
-    select.addRange(selectRange);
-}
-
-function createResultString() {
-    reSortingHintsObjectsArray();
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        let resultString = [];
-        let k = 0;
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            if (window.hintsObjectsArray[i].status === "select") {
-                resultString[k] = window.hintsObjectsArray[i].hint;
-                k++;
-            }
-        }
-        if (resultString.length > 0) {
-
-            let request = new XMLHttpRequest();
-            let jsonHintsStringForTranlation = 'jsonHintsStringForTranlation=' + encodeURIComponent(JSON.stringify(resultString));
-            request.open("POST", 'php/ex_add_hints_to_translation.php', true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send(jsonHintsStringForTranlation);
-
-            document.querySelector("#hints-area").innerHTML = "<span id='select-result' class='result'>" +
-                resultString.join(", ") +
-                "</span>";
-            let resultNode = document.querySelector("#select-result");
-            resultNode.addEventListener('click', selectResult);
-        } else {
-            document.querySelector("#hints-area").innerHTML = "Ничего не выбрано.";
-        }
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего собирать в результат.";
     }
 }
 
