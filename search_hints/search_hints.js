@@ -14,7 +14,6 @@ let createResultStringButton = document.querySelector("#create-result-string-but
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 let upButtonBlock = document.querySelector("#up-button-block");
-let getTranslationButton = document.querySelector("#get-translation-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -77,10 +76,6 @@ createResultStringButton.addEventListener("click", function (e) {
 rankHintsListButton.addEventListener("click", function (e) {
     e.preventDefault();
     rankHintsList();
-}, false);
-getTranslationButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    sendQueryGetTranslationsCreateHTMLTranslationsList("php/ex_translations.php");
 }, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -453,38 +448,6 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(basicKeywordsString);
-}
-
-function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
-    clearErrors();
-
-    let request = new XMLHttpRequest();
-    let keywordInRussian = "keywordInRussian=" + document.querySelector("#in-russian").value;
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#translations-area").innerHTML = "Перевода нет.";
-            } else if (request.responseText === "-2") {
-                document.querySelector("#translations-area").innerHTML = "Нечего переводить.";
-            } else if (request.responseText === "-3") {
-                document.querySelector("#error-translations").innerHTML = "Только кириллица, цифры, пробел и дефис.";
-            } else {
-                document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
-
-                let hintKeywords = document.querySelectorAll(".hover-invert");
-                for (let i = 0; i < hintKeywords.length; i++) {
-                    hintKeywords[i].addEventListener("click", function (e) {
-                        e.stopPropagation();
-                    }, false);
-                    hintKeywords[i].addEventListener("click", keywordPatternToQuery);
-                }
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(keywordInRussian.replace('&', '%26'));
 }
 
 function clearTranslationArea() {

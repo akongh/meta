@@ -37,23 +37,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки ключевых слов</h1>
-    <h2><label for="in-russian">Вспомогательный русско-английский перевод</label></h2>
-    <input type="text"
-           id="in-russian"
-           class="textarea-keywords"
-           maxlength="64">
-    <div id='error-translations'
-         class='error'></div>
-    <div class="content_right">
-        <a href="#"
-           id="get-translation-button"
-           class="link-button"
-           title="Перевести">[Перевести]</a>
-        <a href="#"
-           id="clear-translation-button"
-           class="link-button"
-           title="Очистить перевод">[х]</a>
-    </div>
     <div id="translations-area">Список перевода пуст.</div>
     <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
     <textarea id="basic_keywords_string"
