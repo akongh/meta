@@ -386,12 +386,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //     request.send(basicKeywordsString);
 // }
 
-function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
-    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        PARAM_hintsObjectsArray[i].status = "deselect";
-    }
-}
-
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
     let listResultArray = [];
 
