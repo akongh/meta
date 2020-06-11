@@ -440,50 +440,13 @@ function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
     let listResultArray = [];
-    let statusClass;
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        if (PARAM_hintsObjectsArray[i].status === "deselect") {
-            statusClass = "hint-box-deselect";
-        } else {
-            statusClass = "hint-box-select";
-        }
-        listResultArray[i] = "<div id='hint-box' class='" + statusClass + "'>" +
+        listResultArray[i] = "<div id='hint-box'>" +
             "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-            "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
-
-    let hintKeywords = document.querySelectorAll(".hover-invert");
-    for (let i = 0; i < hintKeywords.length; i++) {
-        hintKeywords[i].addEventListener("click", function (e) {
-            e.stopPropagation();
-        }, false);
-        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
-    }
-
-    let hintBoxes = document.querySelectorAll("#hint-box");
-    for (let i = 0; i < hintBoxes.length; i++) {
-        hintBoxes[i].addEventListener("click", selectDeselectHint);
-    }
-}
-
-function selectDeselectHint() {
-    let hint = this.firstChild.innerHTML;
-    for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-        if (window.hintsObjectsArray[i].hint === hint.replace(/&amp;/g, '&')) {
-            if (window.hintsObjectsArray[i].status === "deselect") {
-                window.hintsObjectsArray[i].status = "select";
-            } else {
-                window.hintsObjectsArray[i].status = "deselect"
-            }
-
-            break;
-        }
-    }
-
-    createHTMLHintsList(window.hintsObjectsArray);
 }
 
 function returnToListView() {
@@ -625,16 +588,6 @@ function sortAz() {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего сортировать.";
-    }
-}
-
-function keywordPatternToQuery() {
-    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-
-    if (basicKeywordsString !== "" || basicKeywordsString.trim() !== "") {
-        document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace(/&amp;/g, '&');
-    } else {
-        document.querySelector("#basic_keywords_string").value = this.innerHTML.replace(/&amp;/g, '&');
     }
 }
 
