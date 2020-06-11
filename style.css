@@ -386,18 +386,6 @@
     text-indent: -26px;
 }
 
-.result span:hover {
-    cursor: pointer;
-}
-
-.hint-box {
-    /*он назначается блоку в js-коде в двух местах: в одном по нему ищутся элементы для выделения, а в другом просто так, может понадобится*/
-}
-
-.hover-invert:hover {
-    cursor: pointer;
-}
-
 .hint-translations {
     width: 100%;
     padding-left: 24px;
@@ -477,10 +465,6 @@ hr {
     font-weight: 700;
 }
 
-.hover-invert {
-    font-weight: 700;
-}
-
 .link-button {
     text-decoration: none;
 }
@@ -505,14 +489,8 @@ hr {
     color: #000;
 }
 
-.hint-box-deselect {
-    width: 100%;
-    border: solid 1px #eee;
-    background: #eee;
-}
-
-.hint-box-deselect:hover {
-    border: dashed 1px #888;
+.hint-box {
+    /*он назначается блоку в js-коде в двух местах: в одном по нему ищутся элементы для выделения, а в другом просто так, может понадобится*/
 }
 
 .hint-box-select {
@@ -521,13 +499,15 @@ hr {
     border: solid 1px #fff;
 }
 
-.hint-box-select:hover {
-    border: dashed 1px #888;
+.hint-box-deselect {
+    width: 100%;
+    border: solid 1px #eee;
+    background: #eee;
 }
 
-.result .hover-invert:hover {
-    background: #000;
-    color: #fff;
+.hint-box-select:hover,
+.hint-box-deselect:hover {
+    border: dashed 1px #888;
 }
 
 .hint-translations {
@@ -634,7 +614,20 @@ input[type="text"] {
 }
 
 .result span:hover {
-    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.result .hover-invert:hover {
+    background: #000;
+    color: #fff;
+}
+
+.hover-invert {
+    font-weight: 700;
+}
+
+.hover-invert:hover {
+    cursor: pointer;
 }
 
 #sortable {
