@@ -66,8 +66,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 
                 let resultArray = JSON.parse(request.responseText);
 
-                addDeselectStatusForHints(resultArray);
-
                 if (typeof window.hintsObjectsArray !== "undefined") {
                     for (let i = 0; i < resultArray.length; i++) {
                         for (let j = 0; j < window.hintsObjectsArray.length; j++) {
@@ -114,8 +112,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //             } else {
 //
 //                 let resultArray = JSON.parse(request.responseText);
-//
-//                 addDeselectStatusForHints(resultArray);
 //
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
@@ -164,8 +160,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //
 //                 let resultArray = JSON.parse(request.responseText);
 //
-//                 addDeselectStatusForHints(resultArray);
-//
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
 //                         for (let j = 0; j < window.hintsObjectsArray.length; j++) {
@@ -211,8 +205,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 enableGetBasicKeywordsButton();
 //             } else {
 //                 let resultArray = JSON.parse(request.responseText);
-//
-//                 addDeselectStatusForHints(resultArray);
 //
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
@@ -263,8 +255,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //
 //                 let resultArray = JSON.parse(request.responseText);
 //
-//                 addDeselectStatusForHints(resultArray);
-//
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
 //                         for (let j = 0; j < window.hintsObjectsArray.length; j++) {
@@ -308,8 +298,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //             } else {
 //
 //                 let resultArray = JSON.parse(request.responseText);
-//
-//                 addDeselectStatusForHints(resultArray);
 //
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
@@ -357,8 +345,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //             } else {
 //
 //                 let resultArray = JSON.parse(request.responseText);
-//
-//                 addDeselectStatusForHints(resultArray);
 //
 //                 if (typeof window.hintsObjectsArray !== "undefined") {
 //                     for (let i = 0; i < resultArray.length; i++) {
