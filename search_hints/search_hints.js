@@ -747,8 +747,3 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButton123rf.style.background = "";
     getBasicKeywordsButton123rf.style.cursor = "";
 }
-
-function clearErrors() {
-    document.querySelector("#error-hints").innerHTML = "";
-    document.querySelector("#error-translations").innerHTML = "";
-}
