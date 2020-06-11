@@ -81,14 +81,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <input type="submit"
            id="get-basic-keywords-button-123rf"
            value="От 123РФ">
-    <a href="#"
-       id="select-all-hints-button"
-       class="link-button"
-       title="Выбрать все ключевые слова">[Все]</a>
-    <a href="#"
-       id="deselect-all-hints-button"
-       class="link-button"
-       title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
     <div id="hints-area">Список ключевых слов пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>

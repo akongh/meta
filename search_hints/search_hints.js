@@ -7,8 +7,6 @@ let getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-key
 let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 let clearButton = document.querySelector("#clear-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
-let selectAllHintsButton = document.querySelector("#select-all-hints-button");
-let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
@@ -42,14 +40,6 @@ getBasicKeywordsButton123rf.addEventListener("click", function (e) {
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearQuery();
-}, false);
-selectAllHintsButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    selectAllHints();
-}, false);
-deselectAllHintsButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    deselectAllHints();
 }, false);
 clearTranslationButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -456,32 +446,6 @@ function deleteHintsObjectsArray() {
 function compareObjectHints(a, b) {
     if (a.hint > b.hint) return 1;
     if (a.hint < b.hint) return -1;
-}
-
-function selectAllHints() {
-    reSortingHintsObjectsArray();
-
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            window.hintsObjectsArray[i].status = 'select';
-        }
-        createHTMLHintsList(window.hintsObjectsArray);
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего выбирать.";
-    }
-}
-
-function deselectAllHints() {
-    reSortingHintsObjectsArray();
-
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            window.hintsObjectsArray[i].status = 'deselect';
-        }
-        createHTMLHintsList(window.hintsObjectsArray);
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
-    }
 }
 
 function disableGetBasicKeywordsButton() {
