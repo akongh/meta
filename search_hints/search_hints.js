@@ -56,11 +56,11 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
+
+            //console.log(request.responseText);
+
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Не более 16-ти опорных ключевых слов.";
-                enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
                 enableGetBasicKeywordsButton();
             } else {
 
@@ -361,7 +361,9 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div id='hint-box'>" +
-            PARAM_hintsObjectsArray[i] +
+            PARAM_hintsObjectsArray[i]["pattern"] +
+            "<br>" +
+            PARAM_hintsObjectsArray[i]["probability"] +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
