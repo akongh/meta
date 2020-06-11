@@ -9,7 +9,6 @@ let clearButton = document.querySelector("#clear-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
 let sortAzButton = document.querySelector("#sort-a-z-button");
-let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -58,10 +57,6 @@ returnToListViewButton.addEventListener("click", function (e) {
 sortAzButton.addEventListener("click", function (e) {
     e.preventDefault();
     sortAz();
-}, false);
-rankHintsListButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    rankHintsList();
 }, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -449,35 +444,6 @@ function returnToListView() {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
-    }
-}
-
-function rankHintsList() {
-    reSortingHintsObjectsArray();
-
-    if (typeof window.hintsObjectsArray !== "undefined") {
-
-        let listResultArray = [];
-        let classDeselect;
-
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            if (window.hintsObjectsArray[i].status === "deselect") {
-                classDeselect = "sortable_element_deselect";
-            } else {
-                classDeselect = "sortable_element";
-            }
-            listResultArray[i] = "<li class='" + classDeselect + "'>" +
-                window.hintsObjectsArray[i].hint +
-                "</li>";
-        }
-        document.querySelector("#hints-area").innerHTML = "<ul id='sortable'>" + listResultArray.join("") + "</ul>";
-
-        $(function () {
-            $("#sortable").sortable().disableSelection();
-        });
-
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечему задавать очерёдность.";
     }
 }
 
