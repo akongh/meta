@@ -56,31 +56,31 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
-    <input type="submit"
-           id="get-basic-keywords-button-istockphoto"
-           value="От Айстокфото">
-    <input type="submit"
-           id="get-basic-keywords-button-getty"
-           value="От Геттиимаджес">
-    <input type="submit"
-           id="get-basic-keywords-button-fotolia"
-           value="От Фотолии">
-    <label><input type="radio"
-                  name="media_type_bigstockphoto"
-                  value="image"
-                  checked> Изображения</label>
-    <label><input type="radio"
-                  name="media_type_bigstockphoto"
-                  value="video"> Видео</label>
-    <input type="submit"
-           id="get-basic-keywords-button-bigstockphoto"
-           value="От Бигстокфото">
-    <input type="submit"
-           id="get-basic-keywords-button-depositphotos"
-           value="От Депозитфотос">
-    <input type="submit"
-           id="get-basic-keywords-button-123rf"
-           value="От 123РФ">
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-istockphoto"-->
+<!--           value="От Айстокфото">-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-getty"-->
+<!--           value="От Геттиимаджес">-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-fotolia"-->
+<!--           value="От Фотолии">-->
+<!--    <label><input type="radio"-->
+<!--                  name="media_type_bigstockphoto"-->
+<!--                  value="image"-->
+<!--                  checked> Изображения</label>-->
+<!--    <label><input type="radio"-->
+<!--                  name="media_type_bigstockphoto"-->
+<!--                  value="video"> Видео</label>-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-bigstockphoto"-->
+<!--           value="От Бигстокфото">-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-depositphotos"-->
+<!--           value="От Депозитфотос">-->
+<!--    <input type="submit"-->
+<!--           id="get-basic-keywords-button-123rf"-->
+<!--           value="От 123РФ">-->
     <div id="hints-area">Список подсказок пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
