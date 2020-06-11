@@ -37,7 +37,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки ключевых слов</h1>
-    <div id="translations-area">Список перевода пуст.</div>
     <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
     <textarea id="basic_keywords_string"
               name="basic_keywords_string"
