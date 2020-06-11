@@ -17,7 +17,6 @@ let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
 
 
-window.onload = viewHideUpButton();
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListShutterstock("php/ex_hints_shutterstock.php");
@@ -82,7 +81,6 @@ clearTranslationButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearTranslationArea();
 }, false);
-window.addEventListener("scroll", viewHideUpButton);
 
 
 /**
@@ -637,14 +635,6 @@ function keywordPatternToQuery() {
         document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace(/&amp;/g, '&');
     } else {
         document.querySelector("#basic_keywords_string").value = this.innerHTML.replace(/&amp;/g, '&');
-    }
-}
-
-function viewHideUpButton() {
-    if (hintsTotalAndSelected.getBoundingClientRect().bottom < 0) {
-        upButtonBlock.style.display = "inline-block";
-    } else {
-        upButtonBlock.style.display = "none";
     }
 }
 
