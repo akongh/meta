@@ -4,13 +4,18 @@ declare(strict_types=1);
 error_reporting(-1);
 
 //получаем и определяем параметр mediaType и строку ОКС
-$media_type = $_POST["mediaType"];
-$basic_keywords_string = $_POST["basicKeywordsString"];
+$php_input_to_array = explode("\n", file_get_contents("php://input"));//var_dump($php_input_to_array);exit;
+$media_type = $php_input_to_array[0];
+$basic_keywords_string = $php_input_to_array[1];
 
 $data_width = 64;
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
-    $data_string = mb_substr($basic_keywords_string, 0, $data_width, 'utf-8');
     echo("-1");
+    exit;
+}
+
+if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
+    echo("-2"); // A0 - ' & z9
     exit;
 }
 

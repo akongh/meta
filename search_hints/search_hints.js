@@ -50,17 +50,20 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
-    let mediaType = "mediaType=" + document.querySelector("input[name='media_type_shutterstock']:checked").value;
-    let basicKeywordsString = "basicKeywordsString=" + encodeURIComponent(document.querySelector("#basic_keywords_string").value);
-    let requestSet = basicKeywordsString + "&" + mediaType;
+    let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+    let requestSet = mediaType + "\n" + basicKeywordsString;
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
 
-            //console.log(request.responseText);
+            console.log(request.responseText);
 
             if (request.responseText === "-1") {
                 document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
                 enableGetBasicKeywordsButton();
             } else {
 
@@ -72,7 +75,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
         }
     }
     request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(requestSet);
 }
 
