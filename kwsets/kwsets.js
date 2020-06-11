@@ -80,9 +80,6 @@ function addKeywordsToList(PARAM_url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-
-// console.log(request.responseText);
-
             if (request.responseText === "err_1") {
                 document.querySelector("#error-hints").innerHTML = "Превышен допустимый размер введённых данных и они были обрезаны.";
             } else if (request.responseText === "err_2") {
@@ -197,7 +194,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             // "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             // "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
             "</div>";
-    }console.log(listResultArray);
+    }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
     // let hintKeywords = document.querySelectorAll(".hover-invert");
@@ -265,12 +262,6 @@ function createResultString() {
         }
         if (resultString.length > 0) {
             let request = new XMLHttpRequest();
-
-            // request.onreadystatechange = function () {
-            //     if (request.readyState === 4 && request.status === 200) {
-            //         console.log(request.responseText);
-            //     }
-            // }
 
             let jsonHintsStringForTranlation = JSON.stringify(resultString);
             request.open("POST", 'add_keyword_to_db.php', true);

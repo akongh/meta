@@ -57,9 +57,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-
-            console.log(request.responseText);
-
             if (request.responseText === "-1") {
                 document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
                 enableGetBasicKeywordsButton();

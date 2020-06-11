@@ -62,9 +62,7 @@ function getSellingKeywordsData() {
     let sellingKeywordsRequest;
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
-        // console.log(arrayKeywordsFromVariants);
         let i = 0;
-
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
@@ -82,16 +80,9 @@ function getSellingKeywordsData() {
 }
 
 function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
-    // console.log(PARAM_sellingKeywordsRequest);
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-
-            /////////////////////////////////////
-            // console.log(request.responseText);
-            /////////////////////////////////////
-
-            // console.log(window.worksDataObjects);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
@@ -156,7 +147,6 @@ function createSellingKeywordsString() {
         // arraySortUnicSellingKeywords[i]['weght'] = arraySortUnicSellingKeywords[i]['sumOrders'] / arraySortUnicSellingKeywords[i]['count'];
     }
     arraySortUnicSellingKeywords = _.sortBy(arraySortUnicSellingKeywords, ['count', 'keyword']);
-    // console.log(arraySortUnicSellingKeywords);
     arraySortUnicSellingKeywords = _.map(arraySortUnicSellingKeywords, 'keyword');
     arraySortUnicSellingKeywords = _.reverse(arraySortUnicSellingKeywords);
     window.arraySortUnicSellingKeywords = arraySortUnicSellingKeywords;
@@ -211,12 +201,10 @@ function createVariantsQueries(PARAM_url) {
     let fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
-            // console.log(request.responseText);
             if (request.responseText === '-1') {
                 document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
             } else {
                 window.variantsQueriesArray = JSON.parse(request.responseText);
-                // console.log(window.variantsQueries);
                 displayVariantsQueries();
             }
         }
@@ -236,7 +224,6 @@ function displayVariantsQueries() {
             window.variantsQueriesArray[i] +
             '</div></td></tr>';
     }
-    // console.log(variantsQueriesArrayHTML);
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
     let variantsQueries = document.querySelectorAll("div[name='variant-query']");
     for (let i = 0; i < variantsQueries.length; i++) {
