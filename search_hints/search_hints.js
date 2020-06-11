@@ -6,7 +6,6 @@ let getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-key
 let getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
 let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 let clearButton = document.querySelector("#clear-button");
-let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -43,10 +42,6 @@ getBasicKeywordsButton123rf.addEventListener("click", function (e) {
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearQuery();
-}, false);
-deleteDeselectedHintsButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    deleteDeselectedHints();
 }, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -455,25 +450,6 @@ function deleteHintsObjectsArray() {
         document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
-    }
-}
-
-function deleteDeselectedHints() {
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-            if (window.hintsObjectsArray[i].status === "deselect") {
-                window.hintsObjectsArray.splice(i, 1);
-                i--;
-            }
-        }
-        if (window.hintsObjectsArray.length > 0) {
-            createHTMLHintsList(window.hintsObjectsArray);
-        } else {
-            delete window.hintsObjectsArray;
-            document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
-        }
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего очищать.";
     }
 }
 
