@@ -17,7 +17,6 @@ let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
 
 
-window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
@@ -91,7 +90,6 @@ window.addEventListener("scroll", viewHideUpButton);
  */
 
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -129,7 +127,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -141,7 +138,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -180,7 +176,6 @@ function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -192,7 +187,6 @@ function sendQueryGetHintsCreateHTMLHintsListIstockphoto(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -231,7 +225,6 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -243,7 +236,6 @@ function sendQueryGetHintsCreateHTMLHintsListGetty(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -281,7 +273,6 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -293,7 +284,6 @@ function sendQueryGetHintsCreateHTMLHintsListFotolia(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -334,7 +324,6 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -346,7 +335,6 @@ function sendQueryGetHintsCreateHTMLHintsListBigstockphoto(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -382,7 +370,6 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -394,7 +381,6 @@ function sendQueryGetHintsCreateHTMLHintsListDepositphotos(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
-    clearErrors();
     disableGetBasicKeywordsButton();
 
     let request = new XMLHttpRequest();
@@ -433,7 +419,6 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
                     window.hintsObjectsArray = resultArray;
                 }
 
-                countHintsTotalAndSelected();
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
@@ -445,7 +430,6 @@ function sendQueryGetHintsCreateHTMLHintsList123rf(PARAM_url) {
 }
 
 function clearTranslationArea() {
-    clearErrors();
     document.querySelector("#in-russian").value = "";
     document.querySelector("#translations-area").innerHTML = "Список перевода пуст.";
 }
@@ -457,7 +441,6 @@ function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-    clearErrors();
     let listResultArray = [];
     let statusClass;
 
@@ -489,7 +472,6 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 }
 
 function selectDeselectHint() {
-    clearErrors();
     let hint = this.firstChild.innerHTML;
     for (let i = 0; i < window.hintsObjectsArray.length; i++) {
         if (window.hintsObjectsArray[i].hint === hint.replace(/&amp;/g, '&')) {
@@ -503,12 +485,10 @@ function selectDeselectHint() {
         }
     }
 
-    countHintsTotalAndSelected();
     createHTMLHintsList(window.hintsObjectsArray);
 }
 
 function returnToListView() {
-    clearErrors();
     reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
@@ -526,7 +506,6 @@ function selectResult() {
 }
 
 function createResultString() {
-    clearErrors();
     reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
         let resultString = [];
@@ -559,7 +538,6 @@ function createResultString() {
 }
 
 function rankHintsList() {
-    clearErrors();
     reSortingHintsObjectsArray();
 
     if (typeof window.hintsObjectsArray !== "undefined") {
@@ -606,15 +584,12 @@ function reSortingHintsObjectsArray() {
 }
 
 function clearQuery() {
-    clearErrors();
     document.querySelector("textarea[name='basic_keywords_string']").value = "";
 }
 
 function deleteHintsObjectsArray() {
-    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
         delete window.hintsObjectsArray;
-        countHintsTotalAndSelected();
         document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
@@ -630,11 +605,9 @@ function deleteDeselectedHints() {
             }
         }
         if (window.hintsObjectsArray.length > 0) {
-            countHintsTotalAndSelected();
             createHTMLHintsList(window.hintsObjectsArray);
         } else {
             delete window.hintsObjectsArray;
-            countHintsTotalAndSelected();
             document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
         }
     } else {
@@ -648,7 +621,6 @@ function compareObjectHints(a, b) {
 }
 
 function sortAz() {
-    clearErrors();
     if (typeof window.hintsObjectsArray !== "undefined") {
 
         window.hintsObjectsArray.sort(compareObjectHints);
@@ -677,14 +649,12 @@ function viewHideUpButton() {
 }
 
 function selectAllHints() {
-    clearErrors();
     reSortingHintsObjectsArray();
 
     if (typeof window.hintsObjectsArray !== "undefined") {
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             window.hintsObjectsArray[i].status = 'select';
         }
-        countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего выбирать.";
@@ -692,14 +662,12 @@ function selectAllHints() {
 }
 
 function deselectAllHints() {
-    clearErrors();
     reSortingHintsObjectsArray();
 
     if (typeof window.hintsObjectsArray !== "undefined") {
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             window.hintsObjectsArray[i].status = 'deselect';
         }
-        countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
