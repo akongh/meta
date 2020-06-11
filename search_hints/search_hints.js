@@ -6,7 +6,6 @@ let getBasicKeywordsButtonBigstockphoto = document.querySelector("#get-basic-key
 let getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-keywords-button-depositphotos");
 let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 let clearButton = document.querySelector("#clear-button");
-let clearTranslationButton = document.querySelector("#clear-translation-button");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
@@ -40,10 +39,6 @@ getBasicKeywordsButton123rf.addEventListener("click", function (e) {
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearQuery();
-}, false);
-clearTranslationButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    clearTranslationArea();
 }, false);
 
 
