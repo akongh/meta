@@ -4,7 +4,7 @@ declare(strict_types=1);
 error_reporting(-1);
 
 //получаем и определяем параметр mediaType и строку ОКС
-$php_input_to_array = explode("\n", file_get_contents("php://input"));//var_dump($php_input_to_array);exit;
+$php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));//var_dump($php_input_to_array);exit;
 $media_type = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
 
