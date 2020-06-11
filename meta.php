@@ -48,16 +48,22 @@ $mysqli->close();
     <div class="tool_list">
         <div class="tool_title">
             <h2>
-                <a href="/keyword_selection/step_1.php"
-                   title="Русско-английский подбор">Русско-английский подбор</a>
-            </h2>
-            <p>Русско-английский подбор ключевых слов для стоков.</p></div>
-        <div class="tool_title">
-            <h2>
                 <a href="/kwsets/kwsets.php"
                    title="Составитель наборов">Составитель наборов</a>
             </h2>
             <p>Составитель наборов ключевых слов.</p></div>
+        <div class="tool_title">
+            <h2>
+                <a href="/search_hints/search_hints.php"
+                   title="Составитель наборов">Поисковые подсказки</a>
+            </h2>
+            <p>Поисковые подсказки.</p></div>
+        <div class="tool_title">
+            <h2>
+                <a href="/keyword_selection/step_1.php"
+                   title="Русско-английский подбор">Русско-английский подбор</a>
+            </h2>
+            <p>Русско-английский подбор ключевых слов для стоков.</p></div>
     </div>
     <div class="meta_info">
         <p>
