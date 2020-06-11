@@ -82,10 +82,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            id="get-basic-keywords-button-123rf"
            value="От 123РФ">
     <a href="#"
-       id="return-to-list-view-button"
-       class="link-button"
-       title="Вернуть список ключевых слов">[Список]</a>
-    <a href="#"
        id="delete-deselected-hints-button"
        class="link-button"
        title="Очистить список ключевых слов от невыбранных">[Очистить]</a>

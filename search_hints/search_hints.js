@@ -7,7 +7,6 @@ let getBasicKeywordsButtonDepositphotos = document.querySelector("#get-basic-key
 let getBasicKeywordsButton123rf = document.querySelector("#get-basic-keywords-button-123rf");
 let clearButton = document.querySelector("#clear-button");
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
-let returnToListViewButton = document.querySelector("#return-to-list-view-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
@@ -48,10 +47,6 @@ clearButton.addEventListener("click", function (e) {
 deleteDeselectedHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
     deleteDeselectedHints();
-}, false);
-returnToListViewButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    returnToListView();
 }, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -431,15 +426,6 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
-}
-
-function returnToListView() {
-    reSortingHintsObjectsArray();
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        createHTMLHintsList(window.hintsObjectsArray);
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
-    }
 }
 
 function reSortingHintsObjectsArray() {
