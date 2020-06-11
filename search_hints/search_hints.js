@@ -376,15 +376,6 @@ function clearQuery() {
     document.querySelector("textarea[name='basic_keywords_string']").value = "";
 }
 
-function deleteHintsObjectsArray() {
-    if (typeof window.hintsObjectsArray !== "undefined") {
-        delete window.hintsObjectsArray;
-        document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
-    } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
-    }
-}
-
 function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.disabled = true;
     getBasicKeywordsButtonShutterstock.value = "";
