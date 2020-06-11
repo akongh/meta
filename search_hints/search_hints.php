@@ -81,7 +81,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <input type="submit"
            id="get-basic-keywords-button-123rf"
            value="От 123РФ">
-    <div id="hints-area">Список ключевых слов пуст.</div>
+    <div id="hints-area">Список подсказок пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
