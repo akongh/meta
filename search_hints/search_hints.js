@@ -49,11 +49,11 @@ clearButton.addEventListener("click", function (e) {
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
-
-    let request = new XMLHttpRequest();
     let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let requestSet = mediaType + "\n" + basicKeywordsString;
+
+    let request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
