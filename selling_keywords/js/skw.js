@@ -116,7 +116,7 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
             enableGetBasicKeywordsButton();
             // console.dir(request.responseText);
         }
-    };
+    }
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(PARAM_sellingKeywordsRequest);
@@ -220,7 +220,7 @@ function createVariantsQueries(PARAM_url) {
                 displayVariantsQueries();
             }
         }
-    };
+    }
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(fullStringQuery);

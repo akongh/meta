@@ -69,7 +69,7 @@ unset($p_z, $p, $z);
 
 //if ( isset( $kol[0] ) ) {
 //    $kol = $kol[0];
-//};
+//}
 
 if (isset($slovo)) {
     $queue_hints_translation_querry = mysqli_query($mysqli, "

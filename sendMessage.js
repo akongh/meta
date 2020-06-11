@@ -38,7 +38,7 @@ function sendMessage(url) {
             document.querySelector("#messageBlock").style.display = "none";
             document.querySelector("#responseMessage").innerHTML = request.responseText;
         }
-    };
+    }
 
     request.open("POST", url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

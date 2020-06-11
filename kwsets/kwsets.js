@@ -116,7 +116,7 @@ function addKeywordsToList(PARAM_url) {
                 document.querySelector("#basic_keywords_string").value = "";
             }
         }
-    };
+    }
 
     request.open("POST", PARAM_url, true);
     request.send(basicKeywordsString);
@@ -148,7 +148,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
                 }
             }
         }
-    };
+    }
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(keywordInRussian.replace('&', '%26'));
@@ -435,20 +435,6 @@ function deselectAllHints() {
     } else {
         document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
     }
-}
-
-function disableGetBasicKeywordsButton() {
-    getBasicKeywordsButtonShutterstock.disabled = true;
-    getBasicKeywordsButtonShutterstock.value = "";
-    getBasicKeywordsButtonShutterstock.style.background = "#dddddd";
-    getBasicKeywordsButtonShutterstock.style.cursor = "default";
-}
-
-function enableGetBasicKeywordsButton() {
-    getBasicKeywordsButtonShutterstock.disabled = false;
-    getBasicKeywordsButtonShutterstock.value = "От Шаттерстока";
-    getBasicKeywordsButtonShutterstock.style.background = "";
-    getBasicKeywordsButtonShutterstock.style.cursor = "";
 }
 
 function clearErrors() {

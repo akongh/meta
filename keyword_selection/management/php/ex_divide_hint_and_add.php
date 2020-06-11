@@ -73,7 +73,7 @@ mysqli_query($mysqli, "
 //		" );
 //        }
 //    }
-//};
+//}
 
 mysqli_close($mysqli);
 header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_hint.php");

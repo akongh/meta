@@ -152,7 +152,7 @@ function addKeywordsToList(PARAM_url) {
                 document.querySelector("#basic_keywords_string").value = "";
             }
         }
-    };
+    }
 
     request.open("POST", PARAM_url, true);
     request.send(basicKeywordsString);
@@ -202,7 +202,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
                 setTimeout("enableGetBasicKeywordsButton()", 200);
             }
         }
-    };
+    }
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(requestSet);
@@ -253,7 +253,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(basicKeywordsString);
@@ -304,7 +304,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(basicKeywordsString);
@@ -354,7 +354,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(basicKeywordsString);
@@ -407,7 +407,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(requestSet);
@@ -455,7 +455,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(basicKeywordsString);
@@ -506,7 +506,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 //                 setTimeout("enableGetBasicKeywordsButton()", 200);
 //             }
 //         }
-//     };
+//     }
 //     request.open("POST", PARAM_url, true);
 //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     request.send(basicKeywordsString);
@@ -538,7 +538,7 @@ function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
                 }
             }
         }
-    };
+    }
     request.open("POST", PARAM_url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(keywordInRussian.replace('&', '%26'));
