@@ -64,23 +64,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
                 enableGetBasicKeywordsButton();
             } else {
 
-                let resultArray = JSON.parse(request.responseText);
-
-                if (typeof window.hintsObjectsArray !== "undefined") {
-                    for (let i = 0; i < resultArray.length; i++) {
-                        for (let j = 0; j < window.hintsObjectsArray.length; j++) {
-                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                                resultArray.splice(i, 1);
-                                i--;
-                                break;
-                            }
-                        }
-                    }
-                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
-                } else {
-                    window.hintsObjectsArray = resultArray;
-                }
+                window.hintsObjectsArray = JSON.parse(request.responseText);
 
                 createHTMLHintsList(window.hintsObjectsArray);
                 setTimeout("enableGetBasicKeywordsButton()", 200);
