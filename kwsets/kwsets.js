@@ -188,16 +188,16 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         if (PARAM_hintsObjectsArray[i].status === "deselect") {
-            statusClass = "hint-box-deselect";
+            statusClass = " hint-box-deselect";
         } else {
-            statusClass = "hint-box-select";
+            statusClass = " hint-box-select";
         }
-        listResultArray[i] = "<div class='hint-box' class='" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
+        listResultArray[i] = "<div class='hint-box" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
             "<span>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             // "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             // "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
             "</div>";
-    }
+    }console.log(listResultArray);
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
     // let hintKeywords = document.querySelectorAll(".hover-invert");
