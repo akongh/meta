@@ -14,7 +14,6 @@ let createResultStringButton = document.querySelector("#create-result-string-but
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 let upButtonBlock = document.querySelector("#up-button-block");
-let addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
 let getTranslationButton = document.querySelector("#get-translation-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
@@ -50,10 +49,6 @@ getBasicKeywordsButtonDepositphotos.addEventListener("click", function (e) {
 getBasicKeywordsButton123rf.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsList123rf("php/ex_hints_123rf.php");
-}, false);
-addKeywordsToListButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    addKeywordsToList("php/ex_add_keywords_to_list.php");
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -105,58 +100,6 @@ window.addEventListener("scroll", viewHideUpButton);
 /**
  * Functions.
  */
-
-function addKeywordsToList(PARAM_url) {
-    clearErrors();
-    reSortingHintsObjectsArray();
-    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-
-    let request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-
-// console.log(request.responseText);
-
-            if (request.responseText === "err_1") {
-                document.querySelector("#error-hints").innerHTML = "Превышен допустимый размер введённых данных и они были обрезаны.";
-            } else if (request.responseText === "err_2") {
-                document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
-            } else if (request.responseText === "err_3") {
-                document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
-            } else if (request.responseText === "err_4") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-            } else {
-                let resultArray = JSON.parse(request.responseText);
-
-                addDeselectStatusForHints(resultArray);
-
-                if (typeof window.hintsObjectsArray !== "undefined") {
-                    for (let i = 0; i < resultArray.length; i++) {
-                        for (let j = 0; j < window.hintsObjectsArray.length; j++) {
-                            if (window.hintsObjectsArray[j].hint === resultArray[i].hint) {
-                                resultArray.splice(i, 1);
-                                i--;
-                                break;
-                            }
-                        }
-                    }
-                    // window.hintsObjectsArray = resultArray.concat(window.hintsObjectsArray);
-                    window.hintsObjectsArray = window.hintsObjectsArray.concat(resultArray);
-                } else {
-                    window.hintsObjectsArray = resultArray;
-                }
-
-                countHintsTotalAndSelected();
-                createHTMLHintsList(window.hintsObjectsArray);
-                document.querySelector("#basic_keywords_string").value = "";
-            }
-        }
-    }
-
-    request.open("POST", PARAM_url, true);
-    request.send(basicKeywordsString);
-}
 
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();

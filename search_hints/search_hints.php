@@ -43,7 +43,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
            class="textarea-keywords"
            maxlength="64">
     <div id='error-translations'
-          class='error'></div>
+         class='error'></div>
     <div class="content_right">
         <a href="#"
            id="get-translation-button"
@@ -66,10 +66,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <span id="error-hints"
           class='error'></span>
     <div class="content_right">
-        <a href="#"
-           id="add-keywords-to-list-button"
-           class="link-button"
-           title="Добавить в список ключевых слов">[Добавить в&nbsp;список]</a>
         <a href="#"
            id="clear-button"
            class="link-button"
