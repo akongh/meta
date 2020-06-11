@@ -81,7 +81,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     <input type="submit"
            id="get-basic-keywords-button-123rf"
            value="От 123РФ">
-    <a id="top"></a>
     <a href="#"
        id="rank-hints-list-button"
        class="link-button"
