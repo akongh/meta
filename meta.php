@@ -48,7 +48,7 @@ $mysqli->close();
     <div class="tool_list">
         <div class="tool_title">
             <h2>
-                <a href="/kwsets/kwsets.php"
+                <a href="/set_compiler/set_compiler.php"
                    title="Составитель наборов">Составитель наборов</a>
             </h2>
             <p>Составление отдельных наборов ключевых слов из одного общего набора.</p></div>
