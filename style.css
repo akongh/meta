@@ -651,7 +651,8 @@ input[type="text"] {
 }
 
 .sortable_element_deselect {
-    background-color: #ffcc66;
+    background-color: #dddddd;
+    border: 1px solid #dddddd;
 }
 
 .wrap {
