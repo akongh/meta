@@ -610,7 +610,7 @@ input[type="text"] {
 }
 
 .result {
-    margin-top: 16px;
+    margin-top: 32px;
 }
 
 .result span:hover {
@@ -684,7 +684,7 @@ input[type="text"] {
 
 .content_right {
     text-align: right;
-    margin-top: 24px;
+    margin-top: 8px;
 }
 
 .amount {
