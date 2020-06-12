@@ -615,6 +615,7 @@ input[type="text"] {
 
 .result span:hover {
     cursor: pointer;
+    background-color: #eeeeee;
 }
 
 .result .hover-invert:hover {
