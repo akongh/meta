@@ -121,6 +121,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
 </div>
 <script src="/_third_party/lodash.js"></script>
-<script src="/selling_keywords/js/skw.js"></script>
+<script src="/selling_keywords/js/selling_keywords.js"></script>
 </body>
 </html>
