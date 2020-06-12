@@ -60,7 +60,7 @@ $mysqli->close();
             <p>Просмотр поисковых подсказок ключевых слов.</p></div>
         <div class="tool_title">
             <h2>
-                <a href="/keyword_selection/step_1.php"
+                <a href="/ru_en_selection/step_1.php"
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p></div>

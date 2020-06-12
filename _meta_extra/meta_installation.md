@@ -3,7 +3,7 @@
 **Fix before sending**
 ```
 /_meta_privacy/
-/keyword_selection/management/.htaccess
+/ru_en_selection/management/.htaccess
 /selling_keywords/php/arrays_cookies_agents.php
 /.htaccess
 /_privacy_path.php
