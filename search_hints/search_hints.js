@@ -370,7 +370,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
 }
 
 function clearQuery() {
-    document.querySelector("textarea[name='basic_keywords_string']").value = "";
+    document.getElementById("basic_keywords_string").value = "";
 }
 
 function disableGetBasicKeywordsButton() {
