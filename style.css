@@ -643,8 +643,7 @@ input[type="text"] {
 }
 
 .sortable_element {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    border: 1px solid transparent;
 }
 
 .sortable_element:hover {
