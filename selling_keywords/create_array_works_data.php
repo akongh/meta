@@ -68,10 +68,15 @@ for ($i = 0; $i < count($array_works_data); $i++) {
 
 echo(json_encode($array_works_data));
 
+
 /**
  * Functions.
  */
 
+/**
+ * @param array $_PARAM_array_strings
+ * @return string
+ */
 function RANDOM_SELECT_STRING($_PARAM_array_strings)
 {
     $max = count($_PARAM_array_strings) - 1;
@@ -80,13 +85,19 @@ function RANDOM_SELECT_STRING($_PARAM_array_strings)
     return ($string);
 }
 
+/**
+ * @param string $_PARAM_url
+ * @param string $_PARAM_useragent
+ * @param string $_PARAM_cookies
+ * @return array
+ */
 function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
 
 //    echo $data;
 
-    preg_match_all('/(<img\ class="z_h_l z_h_c z_h_e").*?(>)/su', $data, $array_works_block);
+    preg_match_all('/<img class="z_h_l z_h_c z_h_e".*?>/su', $data, $array_works_block);
 
 //    var_dump( $array_works_block );
 //    echo count( $array_works_block[0]);
@@ -98,17 +109,17 @@ function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 
     $array_works_block = $array_works_block[0];
 
-    for ($i = 0; $i < count($array_works_block); $i++) {
-        preg_match('/(alt=").*?(")/su', $array_works_block[$i], $title);
+    foreach ($array_works_block as $element) {
+        preg_match('/alt=".*?"/su', $element, $title);
         $title = preg_replace('/alt="/', '', $title);
         $title = preg_replace('/"/', '', $title);
 
-        $img = $array_works_block[$i];
+        $img = $element;
 
-        preg_match("/[0-9]*.jpg/su", $array_works_block[$i], $id);
-        $id = preg_replace('/.jpg/', '', $id);
+        preg_match("/[0-9]*\.jpg/su", $element, $id);
+        $id = preg_replace('/\.jpg/', '', $id);
 
-        $array_works_data[$i] = [
+        $array_works_data[] = [
             'title' => $title[0],
             'img' => $img,
             'id' => $id[0]
@@ -118,20 +129,26 @@ function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
     return $array_works_data;
 }
 
+/**
+ * @param string $_PARAM_url
+ * @param string $_PARAM_useragent
+ * @param string $_PARAM_cookies
+ * @return array
+ */
 function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
 
-    preg_match_all('/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[.*\]<\/script>/su', $data, $array_works_block);
+    preg_match_all('/<script data-react-helmet="true" type="application\/ld\+json">\[.*]<\/script>/su', $data, $array_works_block);
 
     if (count($array_works_block[0]) == 0) {
         echo('-1');
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace('/<script\sdata-react-helmet="true"\stype="application\/ld\+json">\[/', '', $array_works_block[0][0]);
-    $array_works_block[0][0] = preg_replace('/\]<\/script>/', '', $array_works_block[0][0]);
-    $array_works_block[0][0] = preg_replace('/\},\{/', '},,,,{', $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace('/<script data-react-helmet="true" type="application\/ld\+json">\[/', '', $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace('/]<\/script>/', '', $array_works_block[0][0]);
+    $array_works_block[0][0] = preg_replace('/},{/', '},,,,{', $array_works_block[0][0]);
     $array_works_block = explode(",,,,", $array_works_block[0][0]);
 
     for ($i = 0; $i < count($array_works_block); $i++) {
@@ -148,6 +165,10 @@ function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
     return $array_works_data;
 }
 
+/**
+ * @param array $_PARAM_array_works_ids
+ * @return string
+ */
 function CREATE_URL($_PARAM_array_works_ids)
 {
     for ($i = 0; $i < count($_PARAM_array_works_ids); $i++) {
@@ -160,6 +181,12 @@ function CREATE_URL($_PARAM_array_works_ids)
     return ($url);
 }
 
+/**
+ * @param string $_PARAM_url
+ * @param string $_PARAM_useragent
+ * @param string $_PARAM_cookies
+ * @return bool|string
+ */
 function USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $SESSION = curl_init();
