@@ -13,8 +13,7 @@ if (isset($_POST['author'])) {
 if (isset($_POST['keyword'])) {
     $keyword = trim($_POST['keyword']);
     if ($keyword != '') {
-        $keyword = preg_replace('/ /', '+', $keyword);
-        $keyword = preg_replace('/\\n/', '+', $keyword);
+        $keyword = preg_replace('/\s/', '+', $keyword);
     }
 }
 
