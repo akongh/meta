@@ -111,26 +111,22 @@ function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
-    preg_match_all('/<script data-react-helmet="true" type="application\/ld\+json">\[.*]<\/script>/su', $data, $array_works_block);
+    preg_match('/<script data-react-helmet="true" type="application\/ld\+json">(.*?)<\/script>/su', $data, $array_works_block);
 
-    if (count($array_works_block[0]) == 0) {
+    if (count($array_works_block) == 0) {
         echo('-1');
         exit;
     }
 
-    $array_works_block[0][0] = preg_replace('/<script data-react-helmet="true" type="application\/ld\+json">\[/', '', $array_works_block[0][0]);
-    $array_works_block[0][0] = preg_replace('/]<\/script>/', '', $array_works_block[0][0]);
-    $array_works_block[0][0] = preg_replace('/},{/', '},,,,{', $array_works_block[0][0]);
-    $array_works_block = explode(",,,,", $array_works_block[0][0]);
+    $array_works_block = json_decode($array_works_block[1], true);
     $array_works_data = array();
 
     foreach ($array_works_block as $element) {
-        $array_works_json_decode = json_decode($element, true);
-        preg_match("/[0-9]*$/su", $array_works_json_decode['name'], $id);
+        preg_match("/[0-9]*$/su", $element['name'], $id);
         $id = $id[0];
         $array_works_data[] = [
-            'title' => $array_works_json_decode['name'],
-            'img' => '<img src="' . $array_works_json_decode['thumbnail'] . '">',
+            'title' => $element['name'],
+            'img' => '<img src="' . $element['thumbnail'] . '">',
             'id' => $id
         ];
     }
