@@ -286,7 +286,7 @@ function viewHideUpButton() {
 
 function disableGetBasicKeywordsButton() {
     getSellingKeywordsButton.disabled = true;
-    getSellingKeywordsButton.value = "…";
+    getSellingKeywordsButton.value = "";
     getSellingKeywordsButton.style.background = "#dddddd";
     getSellingKeywordsButton.style.cursor = "default";
 }
