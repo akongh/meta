@@ -57,10 +57,10 @@ $json_selling_keywords = USE_CURL($url, $useragent, $cookies);
 $array_selling_keywords = json_decode($json_selling_keywords, true);
 //var_dump( $array_selling_keywords );
 
-for ($i = 0; $i < count($array_works_data); $i++) {
-    for ($j = 0; $i < count($array_selling_keywords); $j++) {
-        if ((int)$array_works_data[$i]['id'] == (int)$array_selling_keywords[$j]['media_id']) {
-            $array_works_data[$i]['keywords'] = $array_selling_keywords[$j]['keywords'];
+foreach ($array_works_data as $element_1) {
+    foreach ($array_selling_keywords as $element_2) {
+        if ((int)$element_1['id'] == (int)$element_2['media_id']) {
+            $element_1['keywords'] = $element_2['keywords'];
             break;
         }
     }
@@ -108,6 +108,7 @@ function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
     }
 
     $array_works_block = $array_works_block[0];
+    $array_works_data = array();
 
     foreach ($array_works_block as $element) {
         preg_match('/alt=".*?"/su', $element, $title);
@@ -151,14 +152,16 @@ function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
     $array_works_block[0][0] = preg_replace('/},{/', '},,,,{', $array_works_block[0][0]);
     $array_works_block = explode(",,,,", $array_works_block[0][0]);
 
-    for ($i = 0; $i < count($array_works_block); $i++) {
-        $array_works_json_decode = json_decode($array_works_block[$i], true);
+    $array_works_data = array();
+
+    foreach ($array_works_block as $element) {
+        $array_works_json_decode = json_decode($element, true);
         preg_match("/[0-9]*$/su", $array_works_json_decode['name'], $id);
         $id = $id[0];
-        $array_works_data[$i] = [
+        $array_works_data[] = [
             'title' => $array_works_json_decode['name'],
             'img' => '<img src="' . $array_works_json_decode['thumbnail'] . '">',
-            'id' => $id,
+            'id' => $id
         ];
     }
 
@@ -171,8 +174,10 @@ function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
  */
 function CREATE_URL($_PARAM_array_works_ids)
 {
-    for ($i = 0; $i < count($_PARAM_array_works_ids); $i++) {
-        $array_params[$i] = 'ids[]=' . $_PARAM_array_works_ids[$i]['id'];
+    $array_params = array();
+
+    foreach ($_PARAM_array_works_ids as $element) {
+        $array_params[] = 'ids[]=' . $element['id'];
     }
 
     $string_params = implode('&', $array_params);
