@@ -6,7 +6,7 @@ error_reporting(-1);
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
 $basic_keywords_string = file_get_contents("php://input");
-$data_width = 12288;
+$data_width = 32768;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     $basic_keywords_string = mb_substr($basic_keywords_string, 0, $data_width, 'utf-8');
@@ -27,7 +27,7 @@ foreach ($basic_keywords_array as &$value) {
 }
 $basic_keywords_array = array_values(array_unique(array_diff($basic_keywords_array, array(""))));
 
-if (count($basic_keywords_array) > 384) {
+if (count($basic_keywords_array) > 1024) {
     echo("err_3");
     exit;
 }
