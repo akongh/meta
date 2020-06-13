@@ -63,15 +63,15 @@ function getSellingKeywordsData() {
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         let i = 0;
-        function getWitsTimeout() {
+        function getWithTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
             sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
             i++;
-            if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
+            if (i < arrayKeywordsFromVariants.length) setTimeout(getWithTimeout, 4000);
         }
 
-        getWitsTimeout();
+        getWithTimeout();
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
         sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
