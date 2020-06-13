@@ -3,18 +3,18 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-if (isset($_POST['author'])) {
-    $author = trim($_POST['author']);
-    if ($author != '') {
-        $author = preg_replace('/\s/', '+', $author);
-    }
+
+if (isset($_POST['author']) and "" !== $_POST['author']) {
+    $author = preg_replace('/\s/', '+', $_POST['author']);
+} else {
+    $author = "";
 }
 
-if (isset($_POST['keyword'])) {
-    $keyword = trim($_POST['keyword']);
-    if ($keyword != '') {
-        $keyword = preg_replace('/\s/', '+', $keyword);
-    }
+if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
+    $keyword = preg_replace('/\s/', '+', $_POST['keyword']);
+    $slash = "/";
+} else {
+    $keyword = $slash = "";
 }
 
 $image_type = $_POST['imageType'];
@@ -25,10 +25,10 @@ $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
 if ($author == '') {
-    $search_url = 'https://www.shutterstock.com/search/' . $keyword . '?image_type=' . $image_type . '&safe=off';
+    $search_url = 'https://www.shutterstock.com/search' . $slash . $keyword . '?image_type=' . $image_type . '&safe=off';
     $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 } else {
-    $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&search_source=base_gallery&language=en&page=1&sort=popular&image_type=' . $image_type . '&measurement=px&safe=true';
+    $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&sort=popular';
     $array_works_data = ARRAY_WORKS_DATA_HTML($search_url, $useragent, $cookies);
 }
 
