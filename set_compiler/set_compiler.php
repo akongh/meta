@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Поисковые подсказки ключевых слов</title>
+    <title>Составитель наборов</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -36,8 +36,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1>Поисковые подсказки ключевых слов</h1>
-    <h2><label for="in-russian">Вспомогательный русско-английский перевод</label></h2>
+    <h1>Составитель наборов</h1>
+    <h2><label for="in-russian">Составление отдельных наборов ключевых слов из одного общего набора.</label></h2>
     <input type="text"
            id="in-russian"
            class="textarea-keywords"

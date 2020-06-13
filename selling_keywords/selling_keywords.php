@@ -10,7 +10,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Продавшие ключевые слова на Шаттерстоке</title>
+    <title>Продавшие ключевые слова</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -34,7 +34,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1>Продавшие ключевые слова на Шаттерстоке</h1>
+    <h1>Продавшие ключевые слова</h1>
     <a id="top"></a>
     <div id="variants-queries-list" class="saved_set">Без вариантов.</div>
     <div class="label_info">
