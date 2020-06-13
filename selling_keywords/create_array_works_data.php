@@ -6,7 +6,7 @@ error_reporting(-1);
 if (isset($_POST['author'])) {
     $author = trim($_POST['author']);
     if ($author != '') {
-        $author = preg_replace('/ /', '+', $author);
+        $author = preg_replace('/\s/', '+', $author);
     }
 }
 
