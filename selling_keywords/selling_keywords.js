@@ -34,7 +34,7 @@ clearKeywordButton.addEventListener("click", function (e) {
 }, false);
 createVariantsQueriesButton.addEventListener("click", function (e) {
     e.preventDefault();
-    createVariantsQueries('php/create_variants_queries_list.php');
+    createVariantsQueries('create_variants_queries_list.php');
 }, false);
 deleteVariantsQueriesButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -66,7 +66,7 @@ function getSellingKeywordsData() {
         function getWitsTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
-            sendPapamsGetSellingKeywords("php/create_array_works_data.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
+            sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
             i++;
             if (i < arrayKeywordsFromVariants.length) setTimeout(getWitsTimeout, 4000);
         }
@@ -75,7 +75,7 @@ function getSellingKeywordsData() {
     } else {
         keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
         sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
-        sendPapamsGetSellingKeywords("php/create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
+        sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
     }
 }
 

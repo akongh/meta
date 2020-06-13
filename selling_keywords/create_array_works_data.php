@@ -28,7 +28,7 @@ $image_type = $_POST['imageType'];
 //var_dump( $keyword );
 //var_dump( $image_type );
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/php/arrays_cookies_agents.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/arrays_cookies_agents.php");
 
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
