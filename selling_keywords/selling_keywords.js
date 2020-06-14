@@ -63,6 +63,7 @@ function getSellingKeywordsData() {
     if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
         let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
         let i = 0;
+
         function getWithTimeout() {
             keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
             sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
@@ -100,6 +101,10 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 if (PARAM_useVariants === 0) {
                     document.querySelector("#works-list").innerHTML = createWorksList();
+                    let workTitle = document.querySelectorAll(".work_title");
+                    for (let i = 0; i < workTitle.length; i++) {
+                        workTitle[i].addEventListener("click", selectResult);
+                    }
                 } else {
                     document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
@@ -168,7 +173,7 @@ function createWorksList() {
                     '%</td></tr>';
             }
         }
-        worksList[i] = '<span class="bold">' +
+        worksList[i] = '<span class="work_title bold">' +
             worksData[i].title +
             '</span><br><br>' +
             worksData[i].img +
