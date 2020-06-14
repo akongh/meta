@@ -225,12 +225,12 @@ function displayVariantsQueries() {
     for (let i = 0; i < window.variantsQueriesArray.length; i++) {
         variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
             window.variantsQueriesArray[i] +
-            '"></label></td><td class="variant-query-td"><div class="variant-query" name="variant-query">' +
+            '"></label></td><td class="variant-query-td"><div class="variant_query">' +
             window.variantsQueriesArray[i] +
             '</div></td></tr>';
     }
     document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
-    let variantsQueries = document.querySelectorAll("div[name='variant-query']");
+    let variantsQueries = document.querySelectorAll(".variant_query");
     for (let i = 0; i < variantsQueries.length; i++) {
         variantsQueries[i].addEventListener("click", variantQueryToQuery);
     }
