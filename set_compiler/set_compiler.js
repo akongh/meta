@@ -191,19 +191,9 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         }
         listResultArray[i] = "<div class='hint-box" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
             "<span>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-            // "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
-            // "<div class='hint-translations'>" + PARAM_hintsObjectsArray[i].translation.join("<br>") + "</div>" +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
-
-    // let hintKeywords = document.querySelectorAll(".hover-invert");
-    // for (let i = 0; i < hintKeywords.length; i++) {
-    //     hintKeywords[i].addEventListener("click", function (e) {
-    //         e.stopPropagation();
-    //     }, false);
-    //     hintKeywords[i].addEventListener("click", keywordPatternToQuery);
-    // }
 
     let hintBoxes = document.querySelectorAll(".hint-box");
     for (let i = 0; i < hintBoxes.length; i++) {
