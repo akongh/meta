@@ -21,6 +21,7 @@ if ("all" == $_POST['imageType']) {
 } else {
     $image_type = "&filter[image_type]={$_POST['imageType']}";
 }
+$amount = 200;
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
@@ -30,7 +31,7 @@ if ($author == '') {
         "q={$keyword}",
         "&language=en",
         "&country={$country}",
-        "&page[size]=2",
+        "&page[size]={$amount}",
         "&page[number]=1",
         "&recordActivity=true",
         "&activity_type=footage_search",
