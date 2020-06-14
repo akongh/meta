@@ -221,7 +221,6 @@ function createVariantsQueries(PARAM_url) {
 
 function displayVariantsQueries() {
     let variantsQueriesArrayHTML = [];
-    let a = window.variantsQueriesArray.length - 1;
     for (let i = 0; i < window.variantsQueriesArray.length; i++) {
         variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
             window.variantsQueriesArray[i] +
