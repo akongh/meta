@@ -10,54 +10,64 @@ if (isset($_POST['author']) and "" !== $_POST['author']) {
 } else {
     $author = "";
 }
+
 if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
     $keyword = preg_replace('/\s/', '+', $_POST['keyword']);
 } else {
     $keyword = $slash = "";
 }
+
 $country = RANDOM_SELECT_STRING($array_countries);
+
 if ("all" == $_POST['imageType']) {
-    $image_type = "";
+    $image_type = "&filter[image_type]=";
 } else {
     $image_type = "&filter[image_type]={$_POST['imageType']}";
 }
+
 $amount = 200;
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
 if ($author == '') {
-    $search_url = implode("", [
-        "https://www.shutterstock.com/studioapi/images/search?",
-        "q={$keyword}",
-        "&language=en",
-        "&country={$country}",
-        "&page[size]={$amount}",
-        "&page[number]=1",
-        "&recordActivity=true",
-        "&activity_type=footage_search",
-        "&include=contributor-limited-meta",
-        "&experiment=shutterstock-image-search-v5",
-        "&variant=",
-        "&allow_inject=true",
-        "&fields[images]=displays",
-        "&fields[images]=alt",
-        "&fields[images]=aspect",
-        "&fields[images]=title",
-        "&fields[images]=link",
-        "&fields[images]=image_type",
-        "&fields[images]=is_editorial",
-        "&fields[images]=has_model_release",
-        "&fields[images]=has_property_release",
-        $image_type,
-        "&filter[is_adult_content]=true",
-        "&queryTranslations=true"
-    ]);
-    $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
+    $author_id = "";
 } else {
-    $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&sort=popular';
-    $array_works_data = ARRAY_WORKS_DATA_HTML($search_url, $useragent, $cookies);
+    $url = "https://www.shutterstock.com/studioapi/contributors?filter%5Bdisplay_name%5D={$author}&include=contributor-stats";
+    $author_info = USE_CURL($url, $useragent, $cookies);
+    $author_info = json_decode($author_info, true);//var_dump($author_info);exit;
+    $author_id = $author_info["data"][0]["id"];
 }
 
+$search_url = implode("", [
+    "https://www.shutterstock.com/studioapi/images/search?",
+    "q={$keyword}",
+    "&language=en",
+    "&country={$country}",
+    "&page[size]={$amount}",
+    "&page[number]=1",
+    "&recordActivity=false",
+    "&activity_type=footage_search",
+    "&include=contributor-limited-meta",
+    "&experiment=",
+    "&variant=",
+    "&allow_inject=true",
+    "&fields[images]=displays",
+    "&fields[images]=alt",
+    "&fields[images]=aspect",
+    "&fields[images]=title",
+    "&fields[images]=link",
+    "&fields[images]=image_type",
+    "&fields[images]=is_editorial",
+    "&fields[images]=has_model_release",
+    "&fields[images]=has_property_release",
+    $image_type,//
+    "&filter[is_adult_content]=true",//
+    "&queryTranslations=false",//
+    "&filter%5Bsubmitter%5D={$author_id}",
+    "&sort=popular"
+]);
+
+$array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 $url = CREATE_URL($array_works_data);
 $json_selling_keywords = USE_CURL($url, $useragent, $cookies);
 $array_selling_keywords = json_decode($json_selling_keywords, true);
@@ -97,49 +107,10 @@ function RANDOM_SELECT_STRING($_PARAM_array_strings)
  * @param string $_PARAM_cookies
  * @return array
  */
-function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
-{
-    $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
-    preg_match_all('/<img class="z_h_l z_h_c z_h_e".*?>/su', $data, $array_works_block);
-
-    if (count($array_works_block[0]) == 0) {
-        echo('-1');
-        exit;
-    }
-
-    $array_works_block = $array_works_block[0];
-    $array_works_data = array();
-
-    foreach ($array_works_block as $element) {
-        preg_match('/alt=".*?"/su', $element, $title);
-        $title = preg_replace('/alt="/', '', $title);
-        $title = preg_replace('/"/', '', $title);
-        $img = $element;
-
-        preg_match("/[0-9]*\.jpg/su", $element, $id);
-        $id = preg_replace('/\.jpg/', '', $id);
-
-        $array_works_data[] = [
-            'title' => $title[0],
-            'img' => $img,
-            'id' => $id[0]
-        ];
-    }
-
-    return $array_works_data;
-}
-
-/**
- * @param string $_PARAM_url
- * @param string $_PARAM_useragent
- * @param string $_PARAM_cookies
- * @return array
- */
 function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
     $array_works_block = json_decode($data, true)["data"];
-
 
     if (count($array_works_block) == 0) {
         echo('-1');
