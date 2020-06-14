@@ -7,5 +7,33 @@ $array_useragents = [
 
 $array_cookies = [
 //    'session=s%3AKs0rztI19z0EjYiKf-VGs1t-c98LPJTF.Vunn0ychkPfKLCyr%2FaI%2BLoAoLuvmyUt4X5CEBO4faU8', // Elena
-    'session=s%3AwN9yOlsrfGB5KA4h_v8m0dqjbBriR7mN.Rf8DU%2FC8w%2BFB%2B1qemdZjAGWQYw2TMsrNfc%2FzMRs3rrA' // Andrei
+    'session=s%3Alcb48Z6nJFqjxN-FvE0AaD5t9fLMNEsJ.obgs%2Bz902GABhwXOl%2B0GFEi%2BJ1WAir%2Bq3Zi%2B68lpHrM' // Andrei
+];
+
+$array_countries = [
+    "AU",
+    "AT",
+    "AR",
+    "BE",
+    "BR",
+    "GB",
+    "DE",
+    "DK",
+    "IL",
+    "IE",
+    "ES",
+    "IT",
+    "CA",
+    "CN",
+    "NL",
+    "NO",
+    "AE",
+    "PL",
+    "RU",
+    "US",
+    "TR",
+    "FR",
+    "CH",
+    "ZA",
+    "JP"
 ];

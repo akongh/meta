@@ -3,29 +3,54 @@
 declare(strict_types=1);
 error_reporting(-1);
 
+require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/arrays_cookies_agents.php");
 
 if (isset($_POST['author']) and "" !== $_POST['author']) {
     $author = preg_replace('/\s/', '+', $_POST['author']);
 } else {
     $author = "";
 }
-
 if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
     $keyword = preg_replace('/\s/', '+', $_POST['keyword']);
-    $slash = "/";
 } else {
     $keyword = $slash = "";
 }
-
-$image_type = $_POST['imageType'];
-
-require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/arrays_cookies_agents.php");
-
+$country = RANDOM_SELECT_STRING($array_countries);
+if ("all" == $_POST['imageType']) {
+    $image_type = "";
+} else {
+    $image_type = "&filter[image_type]={$_POST['imageType']}";
+}
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
 if ($author == '') {
-    $search_url = 'https://www.shutterstock.com/search' . $slash . $keyword . '?image_type=' . $image_type . '&safe=off';
+    $search_url = implode("", [
+        "https://www.shutterstock.com/studioapi/images/search?",
+        "q={$keyword}",
+        "&language=en",
+        "&country={$country}",
+        "&page[size]=2",
+        "&page[number]=1",
+        "&recordActivity=true",
+        "&activity_type=footage_search",
+        "&include=contributor-limited-meta",
+        "&experiment=shutterstock-image-search-v5",
+        "&variant=",
+        "&allow_inject=true",
+        "&fields[images]=displays",
+        "&fields[images]=alt",
+        "&fields[images]=aspect",
+        "&fields[images]=title",
+        "&fields[images]=link",
+        "&fields[images]=image_type",
+        "&fields[images]=is_editorial",
+        "&fields[images]=has_model_release",
+        "&fields[images]=has_property_release",
+        $image_type,
+        "&filter[is_adult_content]=true",
+        "&queryTranslations=true"
+    ]);
     $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 } else {
     $search_url = 'https://www.shutterstock.com/g/' . $author . '?searchterm=' . $keyword . '&sort=popular';
@@ -36,10 +61,11 @@ $url = CREATE_URL($array_works_data);
 $json_selling_keywords = USE_CURL($url, $useragent, $cookies);
 $array_selling_keywords = json_decode($json_selling_keywords, true);
 
-foreach ($array_works_data as $element_1) {
+foreach ($array_works_data as &$element_1) {
     foreach ($array_selling_keywords as $element_2) {
         if ((int)$element_1['id'] == (int)$element_2['media_id']) {
             $element_1['keywords'] = $element_2['keywords'];
+            unset($element_1);
             break;
         }
     }
@@ -111,23 +137,22 @@ function ARRAY_WORKS_DATA_HTML($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
-    preg_match('/<script data-react-helmet="true" type="application\/ld\+json">(.*?)<\/script>/su', $data, $array_works_block);
+    $array_works_block = json_decode($data, true)["data"];
+
 
     if (count($array_works_block) == 0) {
         echo('-1');
         exit;
     }
 
-    $array_works_block = json_decode($array_works_block[1], true);
     $array_works_data = array();
 
     foreach ($array_works_block as $element) {
-        preg_match("/[0-9]*$/su", $element['name'], $id);
-        $id = $id[0];
         $array_works_data[] = [
-            'title' => $element['name'],
-            'img' => '<img src="' . $element['thumbnail'] . '">',
-            'id' => $id
+            'id' => $element['id'],
+            'title' => $element['attributes']["title"],
+            'img' => '<img src="' . $element['attributes']["displays"]["260nw"]["src"] . '">',
+            "link" => $element['attributes']["link"]
         ];
     }
 
