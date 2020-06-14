@@ -3,7 +3,7 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/arrays_cookies_agents.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/selling_keywords/arrays_random_data.php");
 
 if (isset($_POST['author']) and "" !== $_POST['author']) {
     $author = preg_replace('/\s/', '+', $_POST['author']);

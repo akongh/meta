@@ -4,7 +4,7 @@
 ```
 /_meta_privacy/
 /ru_en_selection/management/.htaccess
-/selling_keywords/php/arrays_cookies_agents.php
+/selling_keywords/php/arrays_random_data.php
 /.htaccess
 /_privacy_path.php
 /analytics_code.php
