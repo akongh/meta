@@ -20,7 +20,7 @@ if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
 $country = RANDOM_SELECT_STRING($array_countries);
 
 if ("all" == $_POST['imageType']) {
-    $image_type = "&filter[image_type]=";
+    $image_type = "";
 } else {
     $image_type = "&filter[image_type]={$_POST['imageType']}";
 }
@@ -34,8 +34,8 @@ if ($author == '') {
 } else {
     $url = "https://www.shutterstock.com/studioapi/contributors?filter%5Bdisplay_name%5D={$author}&include=contributor-stats";
     $author_info = USE_CURL($url, $useragent, $cookies);
-    $author_info = json_decode($author_info, true);//var_dump($author_info);exit;
-    $author_id = $author_info["data"][0]["id"];
+    $author_info = json_decode($author_info, true);
+    $author_id = "&filter%5Bsubmitter%5D={$author_info["data"][0]["id"]}";
 }
 
 $search_url = implode("", [
@@ -60,10 +60,10 @@ $search_url = implode("", [
     "&fields[images]=is_editorial",
     "&fields[images]=has_model_release",
     "&fields[images]=has_property_release",
-    $image_type,//
-    "&filter[is_adult_content]=true",//
-    "&queryTranslations=false",//
-    "&filter%5Bsubmitter%5D={$author_id}",
+    $image_type,
+    "&filter[is_adult_content]=true",
+    "&queryTranslations=false",
+    $author_id,
     "&sort=popular"
 ]);
 
