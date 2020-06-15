@@ -50,13 +50,23 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     let listResultArray = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box'><strong>" +
+        listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
             PARAM_hintsObjectsArray[i]["pattern"] +
-            "</strong> — " +
+            "</span> — " +
             PARAM_hintsObjectsArray[i]["probability"] +
             "</div>";
     }
+
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    let hintKeywords = document.querySelectorAll(".hover-invert");
+
+    for (let i = 0; i < hintKeywords.length; i++) {
+        hintKeywords[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+    }
 }
 
 function clearQuery() {
@@ -79,4 +89,8 @@ function enableGetBasicKeywordsButton() {
 
 function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
+}
+
+function keywordwPatternToQuery() {
+    document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
 }
