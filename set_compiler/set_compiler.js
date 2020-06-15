@@ -251,11 +251,11 @@ function createResultString() {
             }
         }
         if (resultString.length > 0) {
-            let request = new XMLHttpRequest();
 
-            let jsonHintsStringForTranlation = JSON.stringify(resultString);
-            request.open("POST", 'add_keyword_to_db.php', true);
-            request.send(jsonHintsStringForTranlation);
+            // let request = new XMLHttpRequest();
+            // let jsonHintsStringForTranlation = JSON.stringify(resultString);
+            // request.open("POST", 'add_keyword_to_db.php', true);
+            // request.send(jsonHintsStringForTranlation);
 
             document.querySelector("#hints-area").innerHTML = "<span id='select-result'>" +
                 resultString.join(", ") +
