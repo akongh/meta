@@ -139,4 +139,4 @@ if (isset($perevod)) {
 $_SESSION["kw_ru"] = $kw_ru;
 
 mysqli_close($mysqli);
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/review_translation_request.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/review_translation_request.php");

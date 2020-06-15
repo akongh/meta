@@ -76,4 +76,4 @@ if (isset($MASSIV_nomera_naborov_s_originalom)) {
 }
 
 mysqli_close($mysqli);
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_request.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/translation_request.php");

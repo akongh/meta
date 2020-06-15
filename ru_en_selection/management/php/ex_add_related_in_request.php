@@ -50,4 +50,4 @@ if (isset($_POST["opornoe_slovo_zayavki"])) {
     mysqli_query($mysqli, $zayavka_na_perevod);
 }
 mysqli_close($mysqli);
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/add_related_in_request.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/add_related_in_request.php");

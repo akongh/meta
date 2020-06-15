@@ -16,4 +16,4 @@ WHERE `s` = '" . $kw_ru . "'
 ");
 
 mysqli_close($mysqli);
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/management/translation_hint.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/translation_hint.php");
