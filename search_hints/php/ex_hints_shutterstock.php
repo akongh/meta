@@ -35,7 +35,13 @@ echo($json_result);
  * Functions.
  */
 
-//создаёт json-ответ для одного ОКС
+/**
+ * Создаёт json-ответ для одного ОКС.
+ *
+ * @param string $_PARAM_basic_keyword
+ * @param string $_PARAM_media_type
+ * @return bool|string
+ */
 function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($_PARAM_basic_keyword, $_PARAM_media_type)
 {
     if ($_PARAM_basic_keyword != "") {
@@ -55,7 +61,12 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($_PARAM_basic_keyword, $_PARAM_medi
     return $json_responce;
 }
 
-//очищает от служебной информации массив подсказок для одного json-ответа
+/**
+ * Очищает от служебной информации массив подсказок для одного json-ответа.
+ *
+ * @param string $_PARAM_json_responce
+ * @return string
+ */
 function CLEANING_FOR_ONE_JSON_RESPONCE($_PARAM_json_responce)
 {
     $clean_json_responce = preg_replace("/ {2,}/", " ", $_PARAM_json_responce);
