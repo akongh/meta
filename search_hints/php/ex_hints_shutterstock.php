@@ -3,7 +3,6 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-//получаем и определяем параметр mediaType и строку ОКС
 $php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));//var_dump($php_input_to_array);exit;
 $media_type = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
@@ -19,13 +18,8 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-//получаем json-ответы для каждого ОКС
 $json_responce = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $media_type);
-
-//очистка json-ответа от служебной информации
 $clean_json_responce = CLEANING_FOR_ONE_JSON_RESPONCE($json_responce);//var_dump($clean_json_responce);exit;
-
-//подготовка json-ответа
 $json_result = json_encode($clean_json_responce, JSON_UNESCAPED_UNICODE);
 
 echo($json_result);
