@@ -2,20 +2,12 @@ let resultNode = document.querySelectorAll("div[class='result']");
 
 for (let i = 0; i < resultNode.length; i++) {
     resultNode[i].addEventListener('click', selectResult);
-    // resultNode[i].addEventListener("copy", function (e) {
-    //     e.preventDefault();
-    //     e.clipboardData.setData('text/plain', e.target.textContent);
-    // });
 }
 
 let resultNodeNotTransl = document.querySelectorAll("div[id='result_no_transl']");
 
 for (let i = 0; i < resultNodeNotTransl.length; i++) {
     resultNodeNotTransl[i].addEventListener('click', selectResult);
-    // resultNodeNotTransl[i].addEventListener("copy", function (e) {
-    //     e.preventDefault();
-    //     e.clipboardData.setData('text/plain', e.target.textContent);
-    // });
 }
 
 function selectResult() {
