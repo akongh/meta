@@ -30,6 +30,6 @@ if (file_exists($patch_to_db_connection)) {
     $mysqli->query("SET NAMES utf8");
     $mysqli->query("SET CHARACTER SET utf8");
 } else {
-    echo "Database connection settings were not found.";
+    echo "Database connection settings not found.";
     exit;
 }
