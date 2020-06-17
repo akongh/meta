@@ -44,7 +44,7 @@ $str_kws_query = sql_prepare_array_to_string_query($_SESSION["arr_kws_query"]);
 
 if (isset($_POST["non_strict_choice"]) && $count_arr_kws_query > 1) {
     if (!$mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_kws_query))) {
-        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     }
     for ($i = $count_arr_kws_query; $i > 0; $i--) {
         $arr_kws_selection = meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount);
@@ -68,7 +68,7 @@ if (isset($_POST["non_strict_choice"]) && $count_arr_kws_query > 1) {
     $mysqli_stmt->close();
 } else {
     if (!$mysqli_stmt = $mysqli->prepare(sql_select_kws_choice($str_kws_query))) {
-        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     }
     $arr_kws_selection = meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount);
 

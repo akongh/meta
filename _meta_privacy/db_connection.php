@@ -11,7 +11,7 @@ $name = "_meta";
 $mysqli = new mysqli($server, $user, $password, $name);
 
 if ($mysqli->connect_errno) {
-    echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+    echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     exit;
 }
 

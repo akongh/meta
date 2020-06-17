@@ -17,10 +17,10 @@ if (isset($_POST["russk"])) {
     // Creating of number of new set
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_ID)) {
-        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     }
     if (!$mysqli_stmt->execute()) {
-        echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+        echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
     }
 
     $kwsset_id = $mysqli->insert_id;
@@ -28,28 +28,28 @@ if (isset($_POST["russk"])) {
     // Adding of new keywords to database
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_KWS)) {
-        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     }
     foreach ($arr_kws_ru_to_db as $kw_ru_to_db) {
         if (!$mysqli_stmt->bind_param("s", $kw_ru_to_db)) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
         }
     }
 
     // Creating of relations of keywords with set
 
     if (!$mysqli_stmt = $mysqli->prepare(SQL_INSERT_CREATE_KWS_SET_RELATIONS)) {
-        echo PHP_EOL . $mysqli->errno . " --> " . $mysqli->error . PHP_EOL;
+        echo PHP_EOL . $mysqli->errno . PHP_EOL . $mysqli->error . PHP_EOL;
     }
     foreach ($arr_kws_ru_to_db as $kw_ru_to_db) {
         if (!$mysqli_stmt->bind_param("is", $kwsset_id, $kw_ru_to_db)) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
         }
         if (!$mysqli_stmt->execute()) {
-            echo PHP_EOL . $mysqli_stmt->errno . " --> " . $mysqli_stmt->error . PHP_EOL;
+            echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
         }
     }
 
