@@ -15,6 +15,7 @@
 <body class="bg">
 <div class="wrap">
     <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php");
     require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/includes/management_title.php'); ?>
     <hr class="otbivka_48">
     <?php
