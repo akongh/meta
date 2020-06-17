@@ -48,6 +48,12 @@ $mysqli->close();
     <div class="tool_list">
         <div class="tool_title">
             <h2>
+                <a href="/selling_keywords/selling_keywords.php"
+                   title="Продавшие ключевые слова на Шаттерстоке">Продавшие ключевые слова</a>
+            </h2>
+            <p>Получение по поисковому запросу только тех ключевых слов, по которым были проданы произведения на Шаттерстоке.</p></div>
+        <div class="tool_title">
+            <h2>
                 <a href="/set_compiler/set_compiler.php"
                    title="Составитель наборов">Составитель наборов</a>
             </h2>
