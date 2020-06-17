@@ -2,7 +2,7 @@
 
 **Configure and host on the server**
 ```
-../_meta_privacy/
+/_meta_privacy/ -> ../_meta_privacy/
 ```
 
 **Fix before sending**

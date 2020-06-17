@@ -8,6 +8,6 @@ if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/../_meta_privacy/db_connection.php
 } elseif (file_exists($_SERVER["DOCUMENT_ROOT"] . "/_meta_privacy/db_connection.php")) {
     require($_SERVER["DOCUMENT_ROOT"] . "/_meta_privacy/db_connection.php");
 } else {
-    echo "Не найдены настройки подключения к БД.";
+    echo "Database connection settings were not found.";
     exit;
 }
