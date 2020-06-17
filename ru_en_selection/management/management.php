@@ -7,7 +7,7 @@ session_start();
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
 
-require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/sql/SQL_statistic.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/SQL_statistic.php');
 $amount_ru_kws_otvet = mysqli_fetch_row($amount_ru_kws_zapros);
 $amount_ru_kws_set_otvet = mysqli_fetch_row($amount_ru_kws_set_zapros);
 $amount_en_kws_otvet = mysqli_fetch_row($amount_en_kws_zapros);

@@ -54,7 +54,7 @@ if (isset($p_z)) {
 unset($p_z, $p, $z);
 
 
-require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/sql/SQL_choice.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/SQL_choice.php');
 $_SQL_rezultat_podbora = mysqli_query($mysqli, $_SQL_zapros_podbor);
 
 $n = 0;
