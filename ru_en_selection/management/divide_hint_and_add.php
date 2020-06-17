@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $na_zayavke_zapros = mysqli_query($mysqli, "SELECT COUNT(*) FROM `l-ts` WHERE `f` = '7'");
 $na_zayavke_otvet = mysqli_fetch_row($na_zayavke_zapros);

@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $kw_en = $_SESSION["kw_en"];
 

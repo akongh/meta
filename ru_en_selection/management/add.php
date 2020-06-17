@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $perevedeno_zapros = mysqli_query($mysqli, "SELECT COUNT(*) FROM `k-ts` WHERE `f` = '1'");
 $perevedeno_otvet = mysqli_fetch_row($perevedeno_zapros);

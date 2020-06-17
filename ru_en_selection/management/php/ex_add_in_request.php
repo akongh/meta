@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $na_sbros = $_POST["opornoe_slovo_sbrosa"];
 $na_sbros = trim(mb_strtolower(htmlspecialchars(strip_tags(stripslashes($na_sbros))), "utf-8"));

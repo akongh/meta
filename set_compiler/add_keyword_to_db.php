@@ -3,7 +3,7 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $json_hints_string_for_translation = file_get_contents("php://input");
 $json_hints_array_for_translation = json_decode($json_hints_string_for_translation);

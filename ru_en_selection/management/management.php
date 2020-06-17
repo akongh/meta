@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/SQL_statistic.php');
 $amount_ru_kws_otvet = mysqli_fetch_row($amount_ru_kws_zapros);

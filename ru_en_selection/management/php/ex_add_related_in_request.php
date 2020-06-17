@@ -5,7 +5,7 @@ error_reporting(-1);
 
 session_start();
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 if (isset($_POST["opornoe_slovo_zayavki"])) {
     $opornoe_slovo_zayavki = $_POST["opornoe_slovo_zayavki"];

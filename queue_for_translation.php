@@ -7,7 +7,7 @@ session_start();
 session_unset();
 unset($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/_meta_privacy_db_connection.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_SELECT_KWS_FOR_TRANSLATION);

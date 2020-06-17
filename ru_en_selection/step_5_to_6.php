@@ -7,7 +7,7 @@ session_start();
 
 //var_dump($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_privacy_path.php');
+require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 require($_SERVER["DOCUMENT_ROOT"] . '/sql_prepared_statements.php');
 
 if (isset($_POST["russk"])) {
