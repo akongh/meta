@@ -8,8 +8,8 @@ $message_settings = file($patch_to_message_settings, FILE_IGNORE_NEW_LINES | FIL
 
 if (isset($_POST["messageText"])) {
     $from = $message_settings[0];
-    $to = $message_settings[0];
-    $subject = $message_settings[1];
+    $to = $message_settings[1];
+    $subject = $message_settings[2];
     $message = $_POST["messageText"];
     $headers = "From: <{$from}>\r\n" .
         "Reply-To: <{$to}>\r\n" .
