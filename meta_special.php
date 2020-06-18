@@ -29,7 +29,7 @@ $mysqli->close();
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>МЕТА</title>
+    <title>МЕТА SPECIAL</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -43,9 +43,21 @@ $mysqli->close();
 </head>
 <body>
 <div class="wrap">
-    <h1>МЕТА<br>
+    <h1>МЕТА SPECIAL<br>
         Инстументы для ключевых слов</h1>
     <div class="tool_list">
+        <div class="tool_title">
+            <h2>
+                <a href="/selling_keywords/selling_keywords.php"
+                   title="Продавшие ключевые слова на Шаттерстоке">Продавшие ключевые слова</a>
+            </h2>
+            <p>Получение по поисковому запросу только тех ключевых слов, по которым были проданы произведения на Шаттерстоке.</p></div>
+        <div class="tool_title">
+            <h2>
+                <a href="/set_compiler/set_compiler.php"
+                   title="Составитель наборов">Составитель наборов</a>
+            </h2>
+            <p>Составление отдельных наборов ключевых слов из одного общего набора.</p></div>
         <div class="tool_title">
             <h2>
                 <a href="/search_hints/search_hints.php"
@@ -58,6 +70,8 @@ $mysqli->close();
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
+            <a href="/ru_en_selection/management/"
+               title="Управление">Управление</a></div>
     </div>
     <div class="meta_info">
         <p>
