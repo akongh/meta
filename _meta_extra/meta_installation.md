@@ -16,6 +16,7 @@ For example of filling see `_meta_extra/_meta_privacy`.
 
 **Not send to prodaction**
 ```
+readme.md
 /_meta_extra/
 /.gitignore
 ```
