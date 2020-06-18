@@ -1,21 +1,20 @@
 # Meta installation
 
-**Configure and host on the server**
-```
-/_meta_privacy/ -> ../_meta_privacy/
-```
+**Privacy settings**
 
-**Fix before sending**
+On hosting `_meta_privacy` folder must be placed on same level as Meta (`/meta/../_meta_privacy/`).
+For example of filling see `_meta_extra/_meta_privacy`.
+
+**Fix before sending to prodaction**
 ```
 /ru_en_selection/management/.htaccess
-/selling_keywords/arrays_random_data.php
 /.htaccess
 /analytics_code.php
 /analytics_info.php
 /robots.txt
 ```
 
-**Not send**
+**Not send to prodaction**
 ```
 /_meta_extra/
 /.gitignore
