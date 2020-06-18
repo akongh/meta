@@ -14,7 +14,7 @@ unset($_POST);
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>МЕТА</title>
+    <title>МЕТА SPECIAL</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
@@ -28,47 +28,40 @@ unset($_POST);
 </head>
 <body>
 <div class="wrap">
-    <h1>МЕТА<br>
+    <h1>МЕТА SPECIAL<br>
         Инстументы для ключевых слов</h1>
     <div class="tool_list">
         <div class="tool_title">
             <h2>
+                <a href="/selling_keywords/selling_keywords.php"
+                   target="_blank"
+                   title="Продавшие ключевые слова на Шаттерстоке">Продавшие ключевые слова</a>
+            </h2>
+            <p>Получение по поисковому запросу только тех ключевых слов, по которым были проданы произведения на Шаттерстоке.</p></div>
+        <div class="tool_title">
+            <h2>
+                <a href="/set_compiler/set_compiler.php"
+                   target="_blank"
+                   title="Составитель наборов">Составитель наборов</a>
+            </h2>
+            <p>Составление отдельных наборов ключевых слов из одного общего набора.</p></div>
+        <div class="tool_title">
+            <h2>
                 <a href="/search_hints/search_hints.php"
+                   target="_blank"
                    title="Поисковые подсказки">Поисковые подсказки</a>
             </h2>
             <p>Просмотр поисковых подсказок ключевых слов.</p></div>
         <div class="tool_title">
             <h2>
                 <a href="/ru_en_selection/step_1.php"
+                   target="_blank"
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
-    </div>
-    <div class="message_form">
-        <div id="messageBlock">
-            <p>Обратная связь</p>
-            <div class="content_right">
-                <span class="amount">
-                    <span id="lengthMessageInformer"></span>
-                </span>
-            </div>
-            <label>
-            <textarea id="textMessageForm"
-                      wrap="soft"
-                      rows="4"
-                      placeholder=""
-                      maxlength="240"></textarea></label>
-            <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
-        </div>
-        <div id="responseMessage"
-             class="content_right">
-            <a href="#"
-               id="clearMessageButton"
-               title="Очистить поле текста сообщения">[x]</a>
-            <a href="#"
-               id="sendMessageButton"
-               title="Отправить сообщение">[Отправить]</a>
-        </div>
+            <a href="/ru_en_selection/management/"
+               target="_blank"
+               title="Управление">Управление</a></div>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>

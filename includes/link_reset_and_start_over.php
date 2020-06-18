@@ -1,2 +1,0 @@
-<a class="link_reset_and_start_over" href="/step_any_to_1_reset.php"
-   title="Сбросить текущий подбор и перейти на первый шаг">[Сбросить и сначала]</a>

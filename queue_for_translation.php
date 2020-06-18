@@ -7,7 +7,7 @@ session_start();
 session_unset();
 unset($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . "/_privacy_path.php");
+require($_SERVER["DOCUMENT_ROOT"] . "/_meta_privacy_db_connection.php");
 require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
 
 $mysqli_result = $mysqli->query(SQL_SELECT_KWS_FOR_TRANSLATION);
@@ -20,7 +20,7 @@ $mysqli->close();
 if (0 < $amount_kws_for_translation) {
     $arr_kws_for_translation = array();
     foreach ($raw_kws_for_translation as $el) {
-        $arr_kws_for_translation[] = htmlspecialchars($el["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+        $arr_kws_for_translation[] = htmlspecialchars($el["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
     }
     $html_kws_for_translation = implode("<br>", $arr_kws_for_translation);
 } else {
@@ -30,7 +30,7 @@ if (0 < $amount_kws_for_translation) {
 //var_dump($_SESSION);
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
@@ -41,21 +41,15 @@ if (0 < $amount_kws_for_translation) {
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="/style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/includes/analytics_code.php"); ?>
+    echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/../_meta_privacy/analytics_code'); ?>
 </head>
 <body>
 <div class="wrap">
-    <div>
-        <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/includes/link_to_index.php"); ?>
-    </div>
-    <div>
-        <a href="/step_1.php"
-           title="Начать подбирать ключевые слова">К подбору</a>
-    </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Очередь заявок на перевод</h1>
     <div class="wrap_list_kws">
         <?= $html_kws_for_translation; ?>
@@ -64,7 +58,7 @@ if (0 < $amount_kws_for_translation) {
         <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
     </div>
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/includes/footer.php"); ?>
+    require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
 </div>
 </body>
 </html>

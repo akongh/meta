@@ -7,7 +7,7 @@ error_reporting(-1);
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>503</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
@@ -15,10 +15,10 @@ error_reporting(-1);
           href="//commonresources.afoteris.com/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
-          href="css/style.css"
+          href="/style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/includes/analytics_code.php'); ?>
+    echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/../_meta_privacy/analytics_code'); ?>
 </head>
 <body>
 <div class="wrap">

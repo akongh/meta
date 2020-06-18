@@ -1,0 +1,805 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.blok_perevoda {
+    padding: 2px 12px;
+    margin: 0 -12px 2px -12px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.perevod {
+    padding: 0;
+    margin: 0 0 0 12px;
+}
+
+.perevoda_net {
+    padding: 0;
+    margin: 0 0 0 12px;
+}
+
+.znachenie {
+    margin: 0;
+    padding: 0;
+}
+
+.otbivka_0 {
+    clear: both;
+    border: 0;
+    margin: 0;
+}
+
+.otbivka_6 {
+    clear: both;
+    margin: 0 0 6px 0;
+    border: 0;
+}
+
+.otbivka_12 {
+    clear: both;
+    margin: 0 0 12px 0;
+    border: 0;
+}
+
+.otbivka_24 {
+    clear: both;
+    margin: 0 0 24px 0;
+    border: 0;
+}
+
+.otbivka_48 {
+    clear: both;
+    margin: 0 0 48px 0;
+    border: 0;
+}
+
+.otbivka_96 {
+    clear: both;
+    margin: 0 0 96px 0;
+    border: 0;
+}
+
+.opornoe_slovo_zayavki {
+    border: 4px dashed;
+    width: 588px;
+    padding: 0 6px 4px 6px;
+    margin: 0 -4px;
+}
+
+.proverit_pox_perevod {
+    display: block;
+    float: right;
+    padding: 0;
+    margin: 0 36px 0 0;
+}
+
+.cherta {
+    margin: 0;
+    padding: 0;
+    border: 1px dashed;
+}
+
+.krasnaya {
+    border: 0;
+}
+
+.krasnaya a {
+    margin: 0 -4px;
+    padding: 0 4px;
+}
+
+.krasnaya a:hover {
+    margin: 0 -4px;
+    padding: 0 4px;
+}
+
+.upravlenie {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: 0;
+}
+
+.statistika {
+    border: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+.stop {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.output_marked_kws_list {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    border: 0;
+}
+
+.vvod_slov {
+    width: 300px;
+    margin: 0;
+    float: left;
+    padding: 0;
+    border: 0;
+}
+
+.vvod_slov_tekst {
+    height: 178px;
+    width: 278px;
+    margin: 0;
+    resize: none;
+    padding: 10px;
+    border: 1px solid;
+    text-align: left;
+    display: block;
+}
+
+.vvod_slovo {
+    border: 4px dashed;
+    width: 553px;
+    padding: 0 6px 4px 6px;
+    margin: 0 -4px;
+}
+
+.kol {
+    margin: 0;
+    padding: 0 0 0 6px;
+}
+
+.vvod_perevod {
+    width: 160px;
+    height: 24px;
+    padding: 0 6px;
+    margin: 0;
+    border: 1px solid;
+}
+
+.vvod_prisutstvie {
+    width: 286px;
+    height: 24px;
+    padding: 0 6px;
+    border: 1px solid;
+    margin: 0;
+}
+
+.vvod_znachenie {
+    width: 356px;
+    padding: 0 6px;
+    margin: 0;
+    border: 1px solid;
+    height: 24px;
+}
+
+.minus_plus {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    float: right;
+}
+
+.minus_plus_prisutstvie {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 290px;
+    float: right;
+}
+
+.minus_plus_dobavit {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.pm_knopka {
+    width: 26px;
+    height: 26px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid;
+}
+
+.pm_knopka_dobavit {
+    width: 565px;
+    height: 38px;
+    margin: 0;
+    border: 1px solid;
+    text-align: left;
+    padding: 0 0 0 40px;
+}
+
+.pm_knopka_dobavit_prisutstvie {
+    width: 300px;
+    height: 38px;
+    margin: 0;
+    border: 1px solid;
+    text-align: left;
+    padding: 0 0 0 40px;
+}
+
+.analytics_info {
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    margin: 0 0 -24px 0;
+    border: 0;
+}
+
+.russk {
+    font-weight: 700;
+}
+
+.opornoe_slovo_zayavki {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.statistika_czyfra {
+    font-weight: 700;
+}
+
+.vvod_slovo {
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.vvod_perevod {
+    font-weight: 700;
+}
+
+.vvod_prisutstvie {
+    font-weight: 700;
+}
+
+.pm_knopka {
+    font-size: 20px;
+}
+
+.pm_knopka_dobavit {
+    font-size: 40px;
+}
+
+.pm_knopka_dobavit_prisutstvie {
+    font-size: 40px;
+}
+
+.blok_perevoda {
+    background-color: #ffffea;
+    border-color: #e9e9e9;
+}
+
+.perevod {
+    color: #630;
+}
+
+.perevoda_net {
+    color: #f00;
+}
+
+.opornoe_slovo_zayavki {
+    border-color: #ffc;
+}
+
+.cherta {
+    border-color: #ccc;
+}
+
+.krasnaya {
+    color: #f00;
+}
+
+.krasnaya a {
+    color: #f00;
+}
+
+.krasnaya a:hover {
+    color: #fff;
+    background-color: #f00;
+}
+
+.upravlenie {
+    color: #666;
+}
+
+.statistika {
+    color: #666;
+}
+
+.statistika_czyfra {
+    color: #000;
+}
+
+.vvod_slov_tekst {
+    border-color: #fc6;
+}
+
+.vvod_slovo {
+    border-color: #ffc;
+}
+
+.vvod_perevod {
+    border-color: #ccc;
+}
+
+.vvod_prisutstvie {
+    border-color: #ccc;
+}
+
+.vvod_znachenie {
+    border-color: #ccc;
+}
+
+.pm_knopka {
+    color: #f00;
+    background-color: #ffc;
+    border-color: #ccc;
+}
+
+.pm_knopka_dobavit {
+    color: #f00;
+    background-color: #ffc;
+    border-color: #ccc;
+}
+
+.pm_knopka_dobavit_prisutstvie {
+    color: #f00;
+    background-color: #ffc;
+    border-color: #ccc;
+}
+
+.textarea-keywords {
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px;
+    cursor: text;
+}
+
+.error {
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.label-highlight {
+    display: inline-block;
+    width: 100%;
+}
+
+.label-highlight input {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.separate-checkbox {
+    padding-left: 48px;
+    text-indent: -26px;
+}
+
+.hint-translations {
+    width: 100%;
+    padding-left: 24px;
+}
+
+.up-block {
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.up-center-block {
+    max-width: 736px;
+    margin: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+.textarea-author {
+    width: 40%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px;
+    cursor: text;
+}
+
+.table-kws {
+    width: 296px;
+}
+
+.variant-query-table {
+    width: 100%;
+}
+
+.variant-query-td {
+    width: 100%;
+}
+
+.variant-query {
+    width: 100%;
+}
+
+.variant-query:hover {
+    cursor: pointer;
+}
+
+.variant-checkbox {
+    margin-right: 40px;
+}
+
+.variant-checkbox-label {
+    cursor: pointer;
+}
+
+.right {
+    text-align: right;
+}
+
+img {
+    float: left;
+    margin-right: 24px;
+    max-width: 400px;
+}
+
+hr {
+    clear: both;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.link-button {
+    text-decoration: none;
+}
+
+.variant-query:hover {
+    font-weight: 700;
+}
+
+.textarea-keywords {
+    border-color: #ddd;
+}
+
+.block-translated {
+    color: #888;
+}
+
+.block-not-translated {
+    color: #888;
+}
+
+.keyword-en {
+    color: #000;
+}
+
+.hint-box {
+    /*он назначается блоку в js-коде в двух местах: в одном по нему ищутся элементы для выделения, а в другом просто так, может понадобится*/
+}
+
+.hint-box-select {
+    background: #fff;
+    width: 100%;
+    border: solid 1px #fff;
+}
+
+.hint-box-deselect {
+    width: 100%;
+    border: solid 1px #eee;
+    background: #eee;
+}
+
+.hint-box-select:hover,
+.hint-box-deselect:hover {
+    border: dashed 1px #888;
+}
+
+.hint-translations {
+    color: #888;
+}
+
+.up-button {
+    background: #fff;
+}
+
+.textarea-author {
+    border-color: #ddd;
+}
+
+.table-kws tr:hover {
+    background: #eee;
+}
+
+.variant-query:hover {
+    background: #eee;
+}
+
+.variant-checkbox-label:hover {
+    background: #eee;
+}
+
+/* ######################################################################################################################## */
+
+/* Есть цвет в скрипте js/uncheckedTranslations.js */
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    cursor: default;
+    color: #000000;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    border: dashed 1px #dddddd;
+    cursor: text;
+    margin-top: 24px;
+}
+
+input[type="submit"] {
+    border: solid 1px #888888;
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    margin-top: 24px;
+    display: block;
+    font-weight: bolder;
+    color: #888888;
+}
+
+input[type="submit"]:hover {
+    border: solid 1px #000000;
+    color: #000000;
+}
+
+a {
+    color: #888888;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    cursor: move;
+}
+
+h1, h2 {
+    font-size: inherit;
+    margin-top: 32px;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+input[type="text"] {
+    margin-top: 24px;
+}
+
+#separate_result_view,
+#single_result_view {
+    margin-top: 64px;
+}
+
+#messageBlock .content_right {
+    margin-bottom: -24px;
+    margin-top: 0;
+}
+
+.result {
+    margin-top: 32px;
+}
+
+.result span:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.result .hover-invert:hover {
+    background: #000;
+    color: #fff;
+}
+
+.hover-invert {
+    font-weight: 700;
+}
+
+.hover-invert:hover {
+    cursor: pointer;
+}
+
+#sortable {
+    list-style-type: none;
+    cursor: move;
+    display: inline-block;
+    width: 100%;
+}
+
+.wrap_list_kws {
+    margin-top: 64px;
+}
+
+.sortable_element {
+    border: 1px solid transparent;
+}
+
+.sortable_element:hover {
+    background-color: #eeeeee;
+}
+
+.sortable_element_deselect {
+    background-color: #dddddd;
+    border: 1px solid #dddddd;
+}
+
+.wrap {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 24px;
+    background-color: #ffffff;
+}
+
+.bg {
+    background: url('/bg_pattern.jpg') fixed;
+}
+
+.tool_list {
+    margin-top: 128px;
+}
+
+.tool_title h2 {
+    font-size: 1.25em;
+}
+
+.meta_info {
+    margin-top: 128px;
+}
+
+.message_form {
+    margin-top: 64px;
+}
+
+.content_right {
+    text-align: right;
+    margin-top: 8px;
+}
+
+.amount {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-weight: 700;
+    color: #000000;
+    background: #dddddd;
+}
+
+.error {
+    animation-name: error;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    margin-top: 8px;
+}
+
+@keyframes error {
+    0% {
+        color: #888888;
+    }
+    100% {
+        color: #dddddd;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.label_highlight {
+    display: inline-block;
+    width: 100%;
+}
+
+.label_highlight input {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.padding_left {
+    padding-left: 24px;
+}
+
+.translation_notice {
+    font-size: 0.8em;
+}
+
+.keyword_ru {
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.keyword_en {
+    color: #000000;
+}
+
+.block_translated {
+    color: #888888;
+}
+
+.block_not_translated {
+    color: #888888;
+}
+
+.label_highlight:hover {
+    background-color: #eeeeee;
+}
+
+.content_right .link_reset_and_start_over:hover {
+    color: #ff0000;
+}
+
+.footer {
+    margin-top: 128px;
+    border-top: dashed 1px #dddddd;
+    padding-top: 40px;
+    color: #888888;
+}
+
+.back_link {
+    margin-top: 24px;
+}
+
+.back_link a,
+.content_right a,
+.link_reset_and_start_over {
+    text-decoration: none;
+}
+
+.label_info {
+    margin-top: 24px;
+}
+
+.saved_set .amount {
+    margin-left: 16px;
+}
+
+.saved_set {
+    margin-top: 64px;
+}
+
+.amount_kws {
+    margin-top: 24px;
+}
+
+.block_not_translated,
+.block_translated {
+    margin-bottom: 8px;
+}
+
+.links_block {
+    margin-top: 24px;
+    line-height: 1.6;
+}

@@ -1,19 +1,22 @@
 # Meta installation
 
-**Fix before sending**
+**Fix on prodaction**
+
+On hosting `_meta_privacy` folder must be placed on same level as Meta (`/meta/../_meta_privacy/`).  
+For example of filling see `_meta_extra/_meta_privacy`.
+
 ```
-/_meta_privacy/
-/includes/analytics_code.php
-/meta_admin/parts/analytics_info.php
-/meta_admin/.htaccess
-/selling_keywords/php/arrays_cookies_agents.php
+/meta/../_meta_privacy/
+/ru_en_selection/management/.htaccess
 /.htaccess
-/_privacy_path.php
-/robots.txt
 ```
 
-**Not send**
+**Not send to prodaction**
+
 ```
 /_meta_extra/
+/ru_en_selection/management/.htaccess
+/.htaccess
 /.gitignore
+readme.md
 ```
