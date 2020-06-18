@@ -11,7 +11,6 @@ For example of filling see `_meta_extra/_meta_privacy`.
 /.htaccess
 /analytics_code.php
 /analytics_info.php
-/robots.txt
 ```
 
 **Not send to prodaction**
