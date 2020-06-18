@@ -7,21 +7,6 @@ session_start();
 session_unset();
 unset($_POST);
 
-require($_SERVER["DOCUMENT_ROOT"] . "/_meta_privacy_db_connection.php");
-require($_SERVER["DOCUMENT_ROOT"] . "/sql_prepared_statements.php");
-
-$mysqli_result = $mysqli->query(SQL_SELECT_COUNT_TRANSLATED_KWS);
-$arr_result = $mysqli_result->fetch_array();
-$mysqli_result->free();
-$count_translated = number_format((float)$arr_result[0], 0, "", "&nbsp;");
-
-$mysqli_result = $mysqli->query(SQL_SELECT_COUNT_KWS_FOR_TRANSLATION);
-$arr_result = $mysqli_result->fetch_array();
-$mysqli_result->free();
-$count_request = number_format((float)$arr_result[0], 0, "", "&nbsp;");
-
-$mysqli->close();
-
 //var_dump($_SESSION);
 ?>
 
@@ -72,49 +57,6 @@ $mysqli->close();
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
             <a href="/ru_en_selection/management/"
                title="Управление">Управление</a></div>
-    </div>
-    <div class="meta_info">
-        <p>
-            Ключевых слов на русском переведено на английский
-            <span class="amount"><?php
-                if (isset($count_translated)) {
-                    echo "{$count_translated}";
-                } ?></span>.
-        </p>
-        <p>
-            В <a href="/queue_for_translation.php"
-                 title="Список ключевых слов, добавленных пользователями в очередь на перевод">очереди на перевод</a>
-            <span class="amount"><?php
-                if (isset($count_request)) {
-                    echo $count_request;
-                } ?></span>.
-        </p>
-    </div>
-    <div class="message_form">
-        <div id="messageBlock">
-            <p>Обратная связь</p>
-            <div class="content_right">
-                <span class="amount">
-                    <span id="lengthMessageInformer"></span>
-                </span>
-            </div>
-            <label>
-            <textarea id="textMessageForm"
-                      wrap="soft"
-                      rows="4"
-                      placeholder=""
-                      maxlength="240"></textarea></label>
-            <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
-        </div>
-        <div id="responseMessage"
-             class="content_right">
-            <a href="#"
-               id="clearMessageButton"
-               title="Очистить поле текста сообщения">[x]</a>
-            <a href="#"
-               id="sendMessageButton"
-               title="Отправить сообщение">[Отправить]</a>
-        </div>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
