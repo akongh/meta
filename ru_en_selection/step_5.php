@@ -22,7 +22,7 @@ session_start();
           href="/style.css"
           type="text/css">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_code.php'); ?>
+    echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/../_meta_privacy/analytics_code'); ?>
 </head>
 <body>
 <div class="wrap">

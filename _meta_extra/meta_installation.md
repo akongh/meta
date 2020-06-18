@@ -9,8 +9,6 @@ For example of filling see `_meta_extra/_meta_privacy`.
 /meta/../_meta_privacy/
 /ru_en_selection/management/.htaccess
 /.htaccess
-/analytics_code.php
-/analytics_info.php
 ```
 
 **Not send to prodaction**

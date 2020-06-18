@@ -22,7 +22,7 @@
     require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/includes/statistic.php'); ?>
     <hr class="otbivka_24">
     <?php
-    require($_SERVER["DOCUMENT_ROOT"] . '/analytics_info.php'); ?>
+    echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/../_meta_privacy/analytics_info'); ?>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
