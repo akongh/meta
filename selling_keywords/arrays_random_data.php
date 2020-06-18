@@ -6,7 +6,6 @@ $array_useragents = [
 ];
 
 $patch_to_selling_keywords_sessions = $_SERVER["DOCUMENT_ROOT"] . "/../_meta_privacy/selling_keywords_sessions";
-
 if (file_exists($patch_to_selling_keywords_sessions)) {
     $array_cookies = file($patch_to_selling_keywords_sessions, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 } else {
