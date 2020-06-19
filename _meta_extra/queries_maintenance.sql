@@ -16,8 +16,8 @@ SET `k-ts`.`kol` = (SELECT COUNT(*) FROM `k-t_s` WHERE `k-t_s`.`id_s` = `k-ts`.`
 
 CREATE TABLE IF NOT EXISTS `database_name`.`x`
 (
-  `id` INT(10) UNSIGNED ZEROFILL NOT NULL,
-  KEY `id` (`id`)
+    `id` INT(10) UNSIGNED ZEROFILL NOT NULL,
+    KEY `id` (`id`)
 ) ENGINE = INNODB
   DEFAULT CHARACTER SET = UTF8;
 
@@ -30,8 +30,8 @@ FROM (SELECT `k-t_s`.`id_n`,
                           ORDER BY `k-t_s`.`id_s`
                           SEPARATOR '') `sostav`
       FROM `k-t_s`
-        /*JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
-            AND `k-tn`.`f` = 0*/
+          /*JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
+              AND `k-tn`.`f` = 0*/
       GROUP BY `k-t_s`.`id_n`) `str`
 GROUP BY `str`.`sostav`;
 
@@ -39,7 +39,7 @@ GROUP BY `str`.`sostav`;
 
 SELECT `k-tn`.*
 FROM `k-tn`
-       LEFT JOIN
+         LEFT JOIN
      `x` ON `k-tn`.`idn` = `x`.`id`
 WHERE `x`.`id` IS NULL;
 
@@ -47,7 +47,7 @@ WHERE `x`.`id` IS NULL;
 
 SELECT COUNT(`k-tn`.`idn`)
 FROM `k-tn`
-       LEFT JOIN
+         LEFT JOIN
      `x` ON `k-tn`.`idn` = `x`.`id`
 WHERE `x`.`id` IS NULL;
 
@@ -55,7 +55,7 @@ WHERE `x`.`id` IS NULL;
 
 DELETE `k-tn`
 FROM `k-tn`
-       LEFT JOIN
+         LEFT JOIN
      `x` ON `k-tn`.`idn` = `x`.`id`
 WHERE `x`.`id` IS NULL;
 
@@ -75,7 +75,7 @@ WHERE `idn` NOT IN (SELECT `str`.`id_n`
 #------------------------------------------------
 DELETE `k-tn`
 FROM `k-tn`
-       LEFT JOIN
+         LEFT JOIN
      (SELECT `str`.`id_n`
       FROM (SELECT `k-t_s`.`id_n`,
                    GROUP_CONCAT(`k-t_s`.`id_s`
