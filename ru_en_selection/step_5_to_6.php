@@ -58,6 +58,8 @@ if (isset($_POST["russk"])) {
 
 if (isset($_POST["angl"])) {
     $_SESSION["arr_kws_en"] = array_values(array_unique($_POST["angl"]));
+} else {
+    $_SESSION["arr_kws_en"] = array();
 }
 
 if (isset($_POST["zayavka"])) {
