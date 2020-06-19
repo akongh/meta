@@ -2,9 +2,9 @@
 
 SELECT `tz`.`z`
 FROM `tz`
-       JOIN
+         JOIN
      `k_l` ON `tz`.`idz` = `k_l`.`idz`
-       JOIN
+         JOIN
      `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE `l-ts`.`s` = 'food'
 limit 1;
@@ -20,12 +20,12 @@ WHERE `s` IN (SELECT `k`.`s`
                            COUNT(*)
                     FROM (SELECT `k-t_s`.`id_n`
                           FROM `k-ts`
-                                 JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+                                   JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
                           WHERE `k-ts`.`s` IN ('новый год', 'рождество')
                           GROUP BY `k-t_s`.`id_n`
                           HAVING COUNT(`k-t_s`.`id_s`) = 2) `g`
-                           JOIN `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
-                           JOIN `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+                             JOIN `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
+                             JOIN `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
                     WHERE `k-ts`.`f` IN (0, 1, 6)
                     GROUP BY `k-t_s`.`id_s`, `k-ts`.`s`
                     ORDER BY COUNT(*) DESC, `k-ts`.`s`
@@ -43,12 +43,12 @@ FROM (SELECT `k-ts`.`s`,
              COUNT(*) `kol`
       FROM (SELECT `k-t_s`.`id_n`
             FROM `k-ts`
-                   JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+                     JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
             WHERE `k-ts`.`s` IN ('медицина')
             GROUP BY `k-t_s`.`id_n`
             HAVING COUNT(`k-t_s`.`id_s`) = '1') `g`
-             JOIN `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
-             JOIN `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+               JOIN `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
+               JOIN `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
       GROUP BY `k-t_s`.`id_s`, `k-ts`.`s`
       ORDER BY COUNT(*) DESC, `k-ts`.`s`) `gg`
 WHERE `gg`.`f` = 0
@@ -74,11 +74,11 @@ CREATE INDEX `ids` ON `k-ts` (`ids`);
 SELECT `l-ts`.`s`,
        `tz`.`z`
 FROM `k-ts`
-       JOIN
+         JOIN
      `k_l` ON `k-ts`.`ids` = `k_l`.`idk`
-       JOIN
+         JOIN
      `l-ts` ON `l-ts`.`ids` = `k_l`.`idl`
-       JOIN
+         JOIN
      `tz` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k-ts`.`s` = 'фон';
 
@@ -98,7 +98,7 @@ WHERE CHAR_LENGTH(`s`) > 40;
 SELECT `id_s`        `slovo`,
        COUNT(`id_s`) `kol`
 FROM `k-t_s`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`s` = 'природа';
 
@@ -108,7 +108,7 @@ WHERE `k-ts`.`s` = 'природа';
 SELECT `k-ts`.`s` `slovo`,
        COUNT(*)   `kol`
 FROM `k-t_s`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 GROUP BY `k-t_s`.`id_s`
 ORDER BY COUNT(`k-t_s`.`id_s`) DESC;
@@ -118,9 +118,9 @@ ORDER BY COUNT(`k-t_s`.`id_s`) DESC;
 
 SELECT `idn`
 FROM `k-tn`
-       JOIN
+         JOIN
      `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`s` REGEXP '[a-z0-9]';
 
@@ -129,29 +129,30 @@ WHERE `k-ts`.`s` REGEXP '[a-z0-9]';
 
 SELECT COUNT(DISTINCT `k-tn`.`idn`)
 FROM `k-tn`
-       JOIN
+         JOIN
      `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`s` REGEXP '[a-z]';
 
 #################################################
 
-explain EXTENDED SELECT `k-ts`.`s`,
-                        COUNT(*)
-                 FROM (SELECT `k-t_s`.`id_n`
-                       FROM `k-ts`
-                              JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
-                       WHERE `k-ts`.`s` IN ('фон')
-                       GROUP BY `k-t_s`.`id_n`
-                       HAVING COUNT(`k-t_s`.`id_s`) = '1') `g`
-                        JOIN
-                      `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
-                        JOIN
-                      `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
-                 GROUP BY `k-t_s`.`id_s`, `k-ts`.`s`
-                 ORDER BY COUNT(*) DESC, `k-ts`.`s`
-                 LIMIT 0 , 200;
+explain EXTENDED
+SELECT `k-ts`.`s`,
+       COUNT(*)
+FROM (SELECT `k-t_s`.`id_n`
+      FROM `k-ts`
+               JOIN `k-t_s` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+      WHERE `k-ts`.`s` IN ('фон')
+      GROUP BY `k-t_s`.`id_n`
+      HAVING COUNT(`k-t_s`.`id_s`) = '1') `g`
+         JOIN
+     `k-t_s` ON `k-t_s`.`id_n` = `g`.`id_n`
+         JOIN
+     `k-ts` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+GROUP BY `k-t_s`.`id_s`, `k-ts`.`s`
+ORDER BY COUNT(*) DESC, `k-ts`.`s`
+LIMIT 0 , 200;
 #------------------------------------------------
 SHOW WARNINGS;
 

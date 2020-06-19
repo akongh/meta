@@ -67,18 +67,18 @@ WHERE `idk` IN (SELECT `ids`
 # УДАЛЕНИЕ НЕПРАВИЛЬНЫХ ПЕРЕВОДОВ
 
 DELETE
-  `k_l`
+    `k_l`
 FROM `k_l`
-       INNER JOIN
+         INNER JOIN
      `tz` ON `k_l`.`idz` = `tz`.`idz`
-       INNER JOIN
+         INNER JOIN
      `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
 WHERE `tz`.`z` REGEXP '^красится'
   AND `l-ts`.`s` = 'colour';
 
 DELETE `k_l`
 FROM `k_l`
-       inner JOIN `tz` ON `k_l`.`idz` = `tz`.`idz`
+         inner JOIN `tz` ON `k_l`.`idz` = `tz`.`idz`
 WHERE `tz`.`idz` IS NULL;
 
 
@@ -92,9 +92,9 @@ SET `z` = REPLACE(`z`, '?', '́') /*WHERE id>100*/;
 
 SELECT `tz`.*
 FROM `tz`
-       LEFT JOIN
+         LEFT JOIN
      `k_l` ON `tz`.`idz` = `k_l`.`idz`
-       LEFT JOIN
+         LEFT JOIN
      `k-ts` ON `k-ts`.`ids` = `k_l`.`idk`
 WHERE `k-ts`.`ids` IS NULL;
 
@@ -103,7 +103,7 @@ WHERE `k-ts`.`ids` IS NULL;
 
 delete `tz`
 from `tz`
-       LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
+         LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
 
 
@@ -136,10 +136,10 @@ FROM
 
 SELECT `s`
 FROM `k-ts`
-       JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s` AND `k-t_s`.`id_n` = (SELECT `k-tn`.`idn`
-                                                                           FROM `k-tn`
-                                                                           ORDER BY `k-tn`.`idn` DESC
-                                                                           LIMIT 1);
+         JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s` AND `k-t_s`.`id_n` = (SELECT `k-tn`.`idn`
+                                                                             FROM `k-tn`
+                                                                             ORDER BY `k-tn`.`idn` DESC
+                                                                             LIMIT 1);
 
 
 # ВЫБОР ПОСЛЕДНИХ НОМЕРОВ НАБОРОВ
@@ -154,19 +154,19 @@ limit 10;
 
 select `s`
 from `k-ts`
-       join `k-t_s` on `k-ts`.`ids` = `k-t_s`.`id_s` and `k-t_s`.`id_n` = '0000570780';
+         join `k-t_s` on `k-ts`.`ids` = `k-t_s`.`id_s` and `k-t_s`.`id_n` = '0000570780';
 
 
 # ЧИСТКА ТАБЛИЦЫ СВЯЗЕЙ ОТ НЕСУЩЕСТВУЮЩИХ СЛОВ
 
 SELECT `k-t_s`.*
 FROM `k-t_s`
-       LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+         LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
 #------------------------------------------------
 delete `k-t_s`
 from `k-t_s`
-       LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
+         LEFT JOIN `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
 
 
@@ -174,12 +174,12 @@ WHERE `k-ts`.`ids` IS NULL;
 
 SELECT `k-t_s`.*
 FROM `k-t_s`
-       LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
+         LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
 WHERE `k-tn`.`idn` IS NULL;
 #------------------------------------------------
 delete `k-t_s`
 FROM `k-t_s`
-       LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
+         LEFT JOIN `k-tn` ON `k-t_s`.`id_n` = `k-tn`.`idn`
 WHERE `k-tn`.`idn` IS NULL;
 
 
@@ -187,12 +187,12 @@ WHERE `k-tn`.`idn` IS NULL;
 
 SELECT `k-tn`.*
 FROM `k-tn`
-       LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
+         LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
 WHERE `k-t_s`.`id_n` IS NULL;
 #------------------------------------------------
 DELETE `k-tn`
 FROM `k-tn`
-       LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
+         LEFT JOIN `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
 WHERE `k-t_s`.`id_n` IS NULL;
 
 
@@ -200,24 +200,24 @@ WHERE `k-t_s`.`id_n` IS NULL;
 
 SELECT `k-ts`.*
 FROM `k-ts`
-       LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+         LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL;
 #------------------------------------------------
 # !!! Удалит все свободные слова, даже переведённые
 DELETE `k-ts`
 FROM `k-ts`
-       LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+         LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL;
 
 SELECT `k-ts`.*
 FROM `k-ts`
-       LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+         LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL
   and `k-ts`.`f` not in (1);
 #------------------------------------------------
 DELETE `k-ts`
 FROM `k-ts`
-       LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
+         LEFT JOIN `k-t_s` ON `k-ts`.`ids` = `k-t_s`.`id_s`
 WHERE `k-t_s`.`id_s` IS NULL
   and `k-ts`.`f` not in (1);
 
@@ -226,22 +226,22 @@ WHERE `k-t_s`.`id_s` IS NULL
 
 SELECT `tz`.*
 FROM `tz`
-       LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
+         LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
 #------------------------------------------------
 delete `tz`
 FROM `tz`
-       LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
+         LEFT JOIN `k_l` ON `tz`.`idz` = `k_l`.`idz`
 WHERE `k_l`.`idz` IS NULL;
 
 SELECT `k_l`.*
 FROM `k_l`
-       LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
+         LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
 #------------------------------------------------
 delete `k_l`
 FROM `k_l`
-       LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
+         LEFT JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IS NULL;
 
 
@@ -254,12 +254,12 @@ WHERE `k_l`.`idl` IS NULL;
 
 SELECT `l-ts`.*
 FROM `l-ts`
-       LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+         LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
 WHERE `k_l`.`idl` IS NULL;
 #------------------------------------------------
 DELETE `l-ts`
 FROM `l-ts`
-       LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
+         LEFT JOIN `k_l` ON `l-ts`.`ids` = `k_l`.`idl`
 WHERE `k_l`.`idl` IS NULL;
 
 
@@ -267,7 +267,7 @@ WHERE `k_l`.`idl` IS NULL;
 
 SELECT `k-ts`.`s`, `k_l`.`idk_l`
 FROM `k_l`
-       JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
+         JOIN `k-ts` ON `k_l`.`idk` = `k-ts`.`ids`
 GROUP BY `k_l`.`idk`, `k_l`.`idk_l`
 ORDER BY `k_l`.`idk_l` DESC
 LIMIT 10;
@@ -303,11 +303,11 @@ SELECT `k-ts`.`ids`,
        `k-ts`.`f`,
        `k_l`.`idl`
 FROM `k-ts`
-       JOIN
+         JOIN
      `k_l` ON `k-ts`.`ids` = `k_l`.`idk`
 WHERE `k_l`.`idl` IN (SELECT `k_l`.`idl`
                       FROM `k_l`
-                             LEFT JOIN
+                               LEFT JOIN
                            `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
                       WHERE `l-ts`.`ids` IS NULL)
 GROUP BY `k-ts`.`ids`;
@@ -322,19 +322,19 @@ having count(*) < 8;
 
 SELECT `k-tn`.*
 FROM `k-tn`
-       JOIN
+         JOIN
      (SELECT `id_n`
       FROM `k-t_s`
       GROUP BY `id_n`
-      HAVING COUNT(*) > 99) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
+      HAVING COUNT(*) > 80) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
 #------------------------------------------------
 DELETE `k-tn`
 FROM `k-tn`
-       JOIN
+         JOIN
      (SELECT `id_n`
       FROM `k-t_s`
       GROUP BY `id_n`
-      HAVING COUNT(*) < 8) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
+      HAVING COUNT(*) > 80) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
 
 
 # ЧИСЛО УНИКАЛЬНЫХ НАБОРОВ
@@ -366,9 +366,9 @@ GROUP BY `str`.`sostav`;
 
 SELECT `k-tn`.`idn`
 FROM `k-tn`
-       JOIN
+         JOIN
      `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` = (SELECT `ids`
                       FROM `k-ts`
@@ -381,13 +381,13 @@ WHERE `k-ts`.`ids` = (SELECT `ids`
 
 CREATE TABLE IF NOT EXISTS `y`
 (
-  `id_sv` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `id_n`  int(10) unsigned zerofill NOT NULL,
-  `id_s`  int(10) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`id_sv`),
-  UNIQUE KEY `sost` (`id_n`, `id_s`),
-  KEY `id_s` (`id_s`),
-  KEY `id_n` (`id_n`)
+    `id_sv` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+    `id_n`  int(10) unsigned zerofill NOT NULL,
+    `id_s`  int(10) unsigned zerofill NOT NULL,
+    PRIMARY KEY (`id_sv`),
+    UNIQUE KEY `sost` (`id_n`, `id_s`),
+    KEY `id_s` (`id_s`),
+    KEY `id_n` (`id_n`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='Связи для кириллицы'
   AUTO_INCREMENT = 1;
@@ -396,9 +396,9 @@ INSERT IGNORE INTO `y` (`id_n`, `id_s`)
 SELECT `k-tn`.`idn`,
        `k-ts`.`ids`
 FROM `k-tn`
-       JOIN
+         JOIN
      `k-t_s` ON `k-tn`.`idn` = `k-t_s`.`id_n`
-       JOIN
+         JOIN
      `k-ts` ON `k-t_s`.`id_s` = `k-ts`.`ids`
 WHERE `k-ts`.`ids` IN (SELECT `ids`
                        FROM `k-ts`

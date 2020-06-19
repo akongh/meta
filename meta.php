@@ -29,7 +29,7 @@ unset($_POST);
 <body>
 <div class="wrap">
     <h1>МЕТА<br>
-        Инстументы для ключевых слов</h1>
+        Инструменты для ключевых слов</h1>
     <div class="tool_list">
         <div class="tool_title">
             <h2>
