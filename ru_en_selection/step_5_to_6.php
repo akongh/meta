@@ -57,12 +57,13 @@ if (isset($_POST["russk"])) {
 }
 
 if (isset($_POST["angl"])) {
-    $_SESSION["arr_kws_en"] = $_POST["angl"];
-    $_SESSION["arr_kws_en_marked"] = $_SESSION["arr_kws_en"];
+    $_SESSION["arr_kws_en"] = array_values(array_unique($_POST["angl"]));
+} else {
+    $_SESSION["arr_kws_en"] = array();
 }
 
 if (isset($_POST["zayavka"])) {
-    $_SESSION["arr_kws_untranslated"] = $_POST["zayavka"];
+    $_SESSION["arr_kws_untranslated"] = array_values(array_unique($_POST["zayavka"]));
     $kws_mark_transl = sql_prepare_array_to_string_query($_SESSION["arr_kws_untranslated"]);
     $mysqli->query(sql_update_mark_kws_for_translation($kws_mark_transl));
 }
