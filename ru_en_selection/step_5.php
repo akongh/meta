@@ -58,7 +58,7 @@ session_start();
                             if (1 === count($el[1])) {
                                 $status = "checked";
                             } else {
-                                if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                                if (isset($_SESSION["arr_kws_en"]) and in_array($val["s"], $_SESSION["arr_kws_en"])) {
                                     $status = "checked";
                                 } else {
                                     $status = "";
