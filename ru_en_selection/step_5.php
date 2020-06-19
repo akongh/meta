@@ -55,10 +55,14 @@ session_start();
                         $div_class = "block_translated";
                         $translation_meaning = array();
                         foreach ($el[1] as $val) {
-                            if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                            if (1 === count($el[1])) {
                                 $status = "checked";
                             } else {
-                                $status = "";
+                                if (isset($_SESSION["arr_kws_en_marked"]) and in_array($val["s"], $_SESSION["arr_kws_en_marked"])) {
+                                    $status = "checked";
+                                } else {
+                                    $status = "";
+                                }
                             }
                             $translation = htmlspecialchars($val["s"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
                             $meaning = htmlspecialchars($val["z"], ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
