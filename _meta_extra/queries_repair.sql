@@ -326,7 +326,7 @@ FROM `k-tn`
      (SELECT `id_n`
       FROM `k-t_s`
       GROUP BY `id_n`
-      HAVING COUNT(*) > 99) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
+      HAVING COUNT(*) > 80) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
 #------------------------------------------------
 DELETE `k-tn`
 FROM `k-tn`
@@ -334,7 +334,7 @@ FROM `k-tn`
      (SELECT `id_n`
       FROM `k-t_s`
       GROUP BY `id_n`
-      HAVING COUNT(*) < 8) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
+      HAVING COUNT(*) > 80) AS `a` ON `k-tn`.`idn` = `a`.`id_n`;
 
 
 # ЧИСЛО УНИКАЛЬНЫХ НАБОРОВ
