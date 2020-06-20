@@ -9,7 +9,7 @@ if (file_exists($patch_to_feedback_data)) {
 ?>
 
 <div class="footer">
-    META 0.3.4<br>
+    META 0.4.0<br>
     © Andrei Korzhyts, Elena Abrazhevich, 2014&mdash;2020
     <?php
     if (isset($feedback_data)) {
