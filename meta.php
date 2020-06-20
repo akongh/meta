@@ -43,36 +43,9 @@ unset($_POST);
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
-    </div>
-    <div class="message_form">
-        <div id="messageBlock">
-            <p>Обратная связь</p>
-            <div class="content_right">
-                <span class="amount">
-                    <span id="lengthMessageInformer"></span>
-                </span>
-            </div>
-            <label>
-            <textarea id="textMessageForm"
-                      wrap="soft"
-                      rows="4"
-                      placeholder=""
-                      maxlength="240"></textarea></label>
-            <!--Установка [maxLength] продублирована в [/sendMessage.js (let textMessageMaxLength)].-->
         </div>
-        <div id="responseMessage"
-             class="content_right">
-            <a href="#"
-               id="clearMessageButton"
-               title="Очистить поле текста сообщения">[x]</a>
-            <a href="#"
-               id="sendMessageButton"
-               title="Отправить сообщение">[Отправить]</a>
-        </div>
+        <?php
+        require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
     </div>
-    <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
-</div>
-<script src="/sendMessage.js"></script>
 </body>
 </html>

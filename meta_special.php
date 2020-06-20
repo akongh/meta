@@ -66,6 +66,5 @@ unset($_POST);
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
 </div>
-<script src="/sendMessage.js"></script>
 </body>
 </html>
