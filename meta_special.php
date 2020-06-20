@@ -44,14 +44,16 @@ unset($_POST);
                    target="_blank"
                    title="Составитель наборов">Составитель наборов</a>
             </h2>
-            <p>Составление отдельных наборов ключевых слов из одного общего набора.</p></div>
+            <p>Составление отдельных наборов ключевых слов из одного общего набора.</p>
+        </div>
         <div class="tool_title">
             <h2>
                 <a href="/search_hints/search_hints.php"
                    target="_blank"
                    title="Поисковые подсказки">Поисковые подсказки</a>
             </h2>
-            <p>Просмотр поисковых подсказок ключевых слов.</p></div>
+            <p>Просмотр поисковых подсказок ключевых слов.</p>
+        </div>
         <div class="tool_title">
             <h2>
                 <a href="/ru_en_selection/step_1.php"
@@ -61,7 +63,8 @@ unset($_POST);
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
             <a href="/ru_en_selection/management/"
                target="_blank"
-               title="Управление">Управление</a></div>
+               title="Управление">Управление</a>
+        </div>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>

@@ -36,7 +36,8 @@ unset($_POST);
                 <a href="/search_hints/search_hints.php"
                    title="Поисковые подсказки">Поисковые подсказки</a>
             </h2>
-            <p>Просмотр поисковых подсказок ключевых слов.</p></div>
+            <p>Просмотр поисковых подсказок ключевых слов.</p>
+        </div>
         <div class="tool_title">
             <h2>
                 <a href="/ru_en_selection/step_1.php"
@@ -44,8 +45,9 @@ unset($_POST);
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
         </div>
-        <?php
-        require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
     </div>
+    <?php
+    require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
+</div>
 </body>
 </html>
