@@ -604,11 +604,6 @@ input[type="text"] {
     margin-top: 64px;
 }
 
-#messageBlock .content_right {
-    margin-bottom: -24px;
-    margin-top: 0;
-}
-
 .result {
     margin-top: 32px;
 }
@@ -677,10 +672,6 @@ input[type="text"] {
 
 .meta_info {
     margin-top: 128px;
-}
-
-.message_form {
-    margin-top: 64px;
 }
 
 .content_right {
