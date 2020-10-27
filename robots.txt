@@ -7,4 +7,4 @@ Disallow: /ru_en_selection/management
 User-agent: *
 Disallow: /ru_en_selection/management
 
-Host: meta.afoteris.com
+Host: meta.afoteris.ru
