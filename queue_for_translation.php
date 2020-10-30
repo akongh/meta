@@ -38,7 +38,7 @@ if (0 < $amount_kws_for_translation) {
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="//commonresources.afoteris.com/initstyles.css"
+          href="//commonresources.afoteris.ru/initstyles.css"
           type="text/css">
     <link rel="stylesheet"
           href="/style.css"
