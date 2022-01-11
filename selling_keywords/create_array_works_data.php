@@ -25,7 +25,7 @@ if ("all" == $_POST['imageType']) {
     $image_type = "&filter[image_type]={$_POST['imageType']}";
 }
 
-$amount = 200;
+$amount = 100;
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
@@ -110,6 +110,7 @@ function RANDOM_SELECT_STRING($_PARAM_array_strings)
 function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
+    file_put_contents('responce_data_from_shutterstock.json', $data);
     $array_works_block = json_decode($data, true)["data"];
 
     if (count($array_works_block) == 0) {

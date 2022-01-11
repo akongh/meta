@@ -14,7 +14,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="//commonresources.afoteris.ru/initstyles.css"
+          href="/_third_party/normalize.css"
           type="text/css">
     <link rel="stylesheet"
           href="/style.css"
