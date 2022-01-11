@@ -25,7 +25,7 @@ if ("all" == $_POST['imageType']) {
     $image_type = "&filter[image_type]={$_POST['imageType']}";
 }
 
-$amount = 200;
+$amount = 100;
 $useragent = RANDOM_SELECT_STRING($array_useragents);
 $cookies = RANDOM_SELECT_STRING($array_cookies);
 
