@@ -62,7 +62,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         </div>
         <input name="make_choice"
                type="submit"
-               value="Подобрать">
+               value="Подобрать >>>>">
     </form>
     <div class="content_right">
         <?php

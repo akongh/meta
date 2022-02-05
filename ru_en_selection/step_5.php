@@ -100,7 +100,7 @@ session_start();
         echo "<div class='amount_kws'><span class='amount'>" . count($_SESSION["arr_kws_ordered"]) . " / <span id='countUniqEngChecked'></span></span></div>"; ?>
         <input name="poluchit"
                type="submit"
-               value="Получить результат строками">
+               value="Получить результат строками >>>>">
     </form>
     <div class="back_link">
         <a href="/ru_en_selection/step_4.php"

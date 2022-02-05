@@ -65,7 +65,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         </div>
         <input name="sobrat"
                type="submit"
-               value="Собрать в список">
+               value="Собрать в список >>>>">
     </form>
     <div class="back_link">
         <a href="/ru_en_selection/step_1.php"

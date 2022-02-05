@@ -7,7 +7,7 @@
 # DISABLE DIRECTORY INDEX LISTINGS
 Options -Indexes
 
-# MAIN FILE OF META
+# INDEX
 DirectoryIndex meta.php
 
 # 404
