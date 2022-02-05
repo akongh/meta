@@ -61,7 +61,7 @@ session_start();
         </div>
         <input name="poluchit"
                type="submit"
-               value="Выбрать перевод">
+               value="Выбрать перевод >>>>">
     </form>
     <div class="back_link">
         <a href="/ru_en_selection/step_3.php"

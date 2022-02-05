@@ -53,10 +53,10 @@ require($_SERVER["DOCUMENT_ROOT"] . '/functions.php');
         ?>
         <input name="order"
                type="submit"
-               value="Определить очерёдность">
+               value="Определить очерёдность >>>>">
         <input name="remember"
                type="submit"
-               value="Запомнить и ещё запрос">
+               value="<<<< Запомнить и ещё запрос">
     </form>
     <div class="back_link">
         <a href="/ru_en_selection/step_2.php"
