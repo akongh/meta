@@ -87,7 +87,7 @@ function addKeywordsToList(PARAM_url) {
             } else if (request.responseText === "err_3") {
                 document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
             } else if (request.responseText === "err_4") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф и амперсанд.";
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
