@@ -72,7 +72,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
     <input type="submit"
-           id="add-keywords-to-list-button"
+           id="add-keywords-to-set-button"
            value="Добавить в список">
     <a id="top"></a>
     <div class="links_block">

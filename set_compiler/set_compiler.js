@@ -7,7 +7,7 @@ let createResultStringButton = document.querySelector("#create-result-string-but
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 let upButtonBlock = document.querySelector("#up-button-block");
-let addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
+let addKeywordsToSetButton = document.querySelector("#add-keywords-to-set-button");
 let getTranslationButton = document.querySelector("#get-translation-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
@@ -16,9 +16,9 @@ let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button"
 
 window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
-addKeywordsToListButton.addEventListener("click", function (e) {
+addKeywordsToSetButton.addEventListener("click", function (e) {
     e.preventDefault();
-    addKeywordsToList("add_keywords_to_set.php");
+    addKeywordsToSet("add_keywords_to_set.php");
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -71,7 +71,7 @@ window.addEventListener("scroll", viewHideUpButton);
  * Functions.
  */
 
-function addKeywordsToList(PARAM_url) {
+function addKeywordsToSet(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
