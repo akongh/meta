@@ -582,8 +582,8 @@ a:hover {
 
 ul {
     list-style: none;
+    margin: 0;
     padding: 0;
-    cursor: move;
 }
 
 h1, h2 {
@@ -627,7 +627,6 @@ input[type="text"] {
 }
 
 #sortable {
-    list-style-type: none;
     cursor: move;
     display: inline-block;
     width: 100%;

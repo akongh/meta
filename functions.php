@@ -96,13 +96,11 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
             $status = "";
         }
         $kw = htmlspecialchars($kw, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
-        $markup[] = "
-                    <label class='label_highlight'>
-                    <input type='checkbox'
-                           name='arr_kws_marked[]'
-                           {$status}
-                           value = '{$kw}'>{$kw}</label>
-                           ";
+        $markup[] = "<label class='label_highlight'>
+                     <input type='checkbox'
+                            name='arr_kws_marked[]'
+                            {$status}
+                            value = '{$kw}'>{$kw}</label>";
     }
 
     return implode("", $markup);

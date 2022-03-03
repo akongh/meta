@@ -71,9 +71,7 @@ function SEARCH_TRANLATIONS($PARAM_db_connect, $PARAM_keyword_in_russian)
     while ($result = mysqli_fetch_array($SQL_select_translations_and_sense)) {
         $translation[$n] = $result["s"];
         $sense[$n] = $result["z"];
-        $translations_array[$n] = "
-        <span class='hover-invert'>" . $translation[$n] . "</span> - " . $sense[$n] . "<br>
-        ";
+        $translations_array[$n] = "<span class='hover-invert'>" . $translation[$n] . "</span> - " . $sense[$n] . "<br>";
         $n++;
     }
 

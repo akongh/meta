@@ -1,24 +1,30 @@
-let clearButton = document.querySelector("#clear-button");
-let deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
-let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
-let returnToListViewButton = document.querySelector("#return-to-list-view-button");
-let sortAzButton = document.querySelector("#sort-a-z-button");
-let createResultStringButton = document.querySelector("#create-result-string-button");
-let rankHintsListButton = document.querySelector("#rank-hints-list-button");
-let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
 let upButtonBlock = document.querySelector("#up-button-block");
-let addKeywordsToListButton = document.querySelector("#add-keywords-to-list-button");
+
 let getTranslationButton = document.querySelector("#get-translation-button");
 let clearTranslationButton = document.querySelector("#clear-translation-button");
+
+let clearButton = document.querySelector("#clear-button");
+
+let addKeywordsToSetButton = document.querySelector("#add-keywords-to-set-button");
+
+let createResultStringButton = document.querySelector("#create-result-string-button");
+let rankHintsListButton = document.querySelector("#rank-hints-list-button");
+let returnToListViewButton = document.querySelector("#return-to-list-view-button");
+let sortAzButton = document.querySelector("#sort-a-z-button");
+
+let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
 let deselectAllHintsButton = document.querySelector("#deselect-all-hints-button");
+
+let hintsTotalAndSelected = document.querySelector("#hints-total-and-selected");
+let deleteHintsObjectsArrayButton = document.querySelector("#delete-hints-objects-array-button");
 
 
 window.onload = countHintsTotalAndSelected();
 window.onload = viewHideUpButton();
-addKeywordsToListButton.addEventListener("click", function (e) {
+addKeywordsToSetButton.addEventListener("click", function (e) {
     e.preventDefault();
-    addKeywordsToList("add_keywords_to_set.php");
+    addKeywordsToSet("add_keywords_to_set.php");
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -71,7 +77,7 @@ window.addEventListener("scroll", viewHideUpButton);
  * Functions.
  */
 
-function addKeywordsToList(PARAM_url) {
+function addKeywordsToSet(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
@@ -87,7 +93,7 @@ function addKeywordsToList(PARAM_url) {
             } else if (request.responseText === "err_3") {
                 document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
             } else if (request.responseText === "err_4") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф и амперсанд.";
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
