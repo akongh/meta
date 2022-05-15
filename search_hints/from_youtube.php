@@ -72,7 +72,8 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): b
  */
 function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): string
 {
-    $clean_youtube_response = preg_replace("/ {2,}/", " ", $_PARAM_youtube_response);
+    $clean_youtube_response = preg_replace("/google\.sbox\.p50 && google\.sbox\.p50\(/", "", $_PARAM_youtube_response);
+    $clean_youtube_response = preg_replace("/\)/", "", $clean_youtube_response);
     $clean_youtube_response = json_decode($clean_youtube_response, true);
 
     return $clean_youtube_response["data"]["autocompletions"];
