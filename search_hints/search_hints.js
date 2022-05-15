@@ -9,7 +9,7 @@ getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
 }, false);
 getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
     e.preventDefault();
-    sendQueryGetHintsCreateHTMLHintsListYoutube("from_Youtube.php");
+    sendQueryGetHintsCreateHTMLHintsListYoutube("from_youtube.php");
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
