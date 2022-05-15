@@ -16,7 +16,7 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$json_responce = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
+$json_responce = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($json_responce);exit;
 $clean_json_responce = CLEANING_FOR_ONE_JSON_RESPONCE($json_responce);//var_dump($clean_json_responce);exit;
 $json_result = json_encode($clean_json_responce, JSON_UNESCAPED_UNICODE);
 
