@@ -18,9 +18,9 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$json_responce = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $media_type);
-$clean_json_responce = CLEANING_FOR_ONE_JSON_RESPONCE($json_responce);//var_dump($clean_json_responce);exit;
-$json_result = json_encode($clean_json_responce, JSON_UNESCAPED_UNICODE);
+$json_response = JSON_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $media_type);
+$clean_json_response = CLEANING_FOR_ONE_JSON_RESPONSE($json_response);//var_dump($clean_json_response);exit;
+$json_result = json_encode($clean_json_response, JSON_UNESCAPED_UNICODE);
 
 echo($json_result);
 
@@ -36,7 +36,7 @@ echo($json_result);
  * @param string $_PARAM_media_type
  * @return bool|string
  */
-function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($_PARAM_basic_keyword, $_PARAM_media_type)
+function JSON_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type): bool|string
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
@@ -49,23 +49,22 @@ function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($_PARAM_basic_keyword, $_PARAM_medi
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
-    $json_responce = curl_exec($sesion);
+    $json_response = curl_exec($sesion);
     curl_close($sesion);
 
-    return $json_responce;
+    return $json_response;
 }
 
 /**
  * Очищает от служебной информации массив подсказок для одного json-ответа.
  *
- * @param string $_PARAM_json_responce
+ * @param string $_PARAM_json_response
  * @return string
  */
-function CLEANING_FOR_ONE_JSON_RESPONCE($_PARAM_json_responce)
+function CLEANING_FOR_ONE_JSON_RESPONSE(string $_PARAM_json_response): string
 {
-    $clean_json_responce = preg_replace("/ {2,}/", " ", $_PARAM_json_responce);
-    $clean_json_responce = json_decode($clean_json_responce, true);
-    $clean_json_responce = $clean_json_responce["data"]["autocompletions"];
+    $clean_json_response = preg_replace("/ {2,}/", " ", $_PARAM_json_response);
+    $clean_json_response = json_decode($clean_json_response, true);
 
-    return $clean_json_responce;
+    return $clean_json_response["data"]["autocompletions"];
 }
