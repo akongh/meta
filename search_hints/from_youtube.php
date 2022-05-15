@@ -16,11 +16,11 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$json_responce = JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($json_responce);exit;
-$clean_json_responce = CLEANING_FOR_ONE_JSON_RESPONCE($json_responce);//var_dump($clean_json_responce);exit;
-$json_result = json_encode($clean_json_responce, JSON_UNESCAPED_UNICODE);
+$youtube_response = youtube_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($youtube_response);exit;
+$clean_youtube_response = CLEANING_FOR_ONE_youtube_RESPONSE($youtube_response);//var_dump($clean_youtube_response);exit;
+$result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 
-echo($json_result);
+echo($result);
 
 
 /**
@@ -28,41 +28,52 @@ echo($json_result);
  */
 
 /**
- * Создаёт json-ответ для одного ОКС.
+ * Создаёт youtube-ответ для одного ОКС.
  *
  * @param string $_PARAM_basic_keyword
  * @return bool|string
  */
-function JSON_RESPONCE_FOR_ONE_BASIC_KEYWORD($_PARAM_basic_keyword)
+function youtube_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): bool|string
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
-    $anticache_time = time();
-    $anticache_num = rand(100, 999);
-    $anticache_id = $anticache_time . $anticache_num;
-    $url = "https://www.youtube.com/????=" . $_PARAM_basic_keyword;
+    $url="
+        https://suggestqueries-clients6.youtube.com/complete/search
+        ?client=youtube
+        &hl=en
+        &gl=us
+        &sugexp=qszpp,ytpo.bo.me=1,ytposo.bo.me=1,cfro=1,ytpo.bo.me=0,ytposo.bo.me=0,ytpo.bo.zo.mq=15,ytpo.bo.zo.ms=0,ytposo.bo.zo.mq=15,ytposo.bo.zo.ms=0
+        &gs_rn=64
+        &gs_ri=youtube
+        &tok=qwer0000
+        &ds=yt
+        &cp=3
+        &gs_id=k
+        &q=". $_PARAM_basic_keyword . "
+        &callback=google.sbox.p50
+        &gs_gbg=qwer0000
+        ";
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
-    $json_responce = curl_exec($sesion);
+    $youtube_response = curl_exec($sesion);
     curl_close($sesion);
 
-    return $json_responce;
+    return $youtube_response;
 }
 
 /**
- * Очищает от служебной информации массив подсказок для одного json-ответа.
+ * Очищает от служебной информации массив подсказок для одного youtube-ответа.
  *
- * @param string $_PARAM_json_responce
+ * @param string $_PARAM_youtube_response
  * @return string
  */
-function CLEANING_FOR_ONE_JSON_RESPONCE($_PARAM_json_responce)
+function CLEANING_FOR_ONE_youtube_RESPONSE(string $_PARAM_youtube_response): string
 {
-    $clean_json_responce = preg_replace("/ {2,}/", " ", $_PARAM_json_responce);
-    $clean_json_responce = json_decode($clean_json_responce, true);
-    $clean_json_responce = $clean_json_responce["data"]["autocompletions"];
+    $clean_youtube_response = preg_replace("/ {2,}/", " ", $_PARAM_youtube_response);
+    $clean_youtube_response = json_decode($clean_youtube_response, true);
 
-    return $clean_json_responce;
+    return $clean_youtube_response["data"]["autocompletions"];
 }
