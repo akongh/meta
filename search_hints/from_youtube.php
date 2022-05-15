@@ -16,8 +16,8 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$youtube_response = youtube_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($youtube_response);exit;
-$clean_youtube_response = CLEANING_FOR_ONE_youtube_RESPONSE($youtube_response);//var_dump($clean_youtube_response);exit;
+$youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($youtube_response);exit;
+$clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);//var_dump($clean_youtube_response);exit;
 $result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 
 echo($result);
@@ -33,7 +33,7 @@ echo($result);
  * @param string $_PARAM_basic_keyword
  * @return bool|string
  */
-function youtube_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): bool|string
+function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): bool|string
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
@@ -70,7 +70,7 @@ function youtube_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): b
  * @param string $_PARAM_youtube_response
  * @return string
  */
-function CLEANING_FOR_ONE_youtube_RESPONSE(string $_PARAM_youtube_response): string
+function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): string
 {
     $clean_youtube_response = preg_replace("/ {2,}/", " ", $_PARAM_youtube_response);
     $clean_youtube_response = json_decode($clean_youtube_response, true);
