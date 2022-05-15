@@ -1,10 +1,15 @@
 let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
+let getBasicKeywordsButtonYoutube = document.querySelector("#get-basic-keywords-button-youtube");
 let clearButton = document.querySelector("#clear-button");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListShutterstock("from_shutterstock.php");
+}, false);
+getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsListYoutube("from_Youtube.php");
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -22,6 +27,34 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let requestSet = mediaType + "\n" + basicKeywordsString;
+
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                enableGetBasicKeywordsButton();
+            } else {
+
+                window.hintsObjectsArray = JSON.parse(request.responseText);
+
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+        }
+    }
+    request.open("POST", PARAM_url, true);
+    request.send(requestSet);
+}
+
+function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+    let requestSet = document.querySelector("#basic_keywords_string").value;
 
     let request = new XMLHttpRequest();
 
@@ -78,6 +111,11 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.value = "";
     getBasicKeywordsButtonShutterstock.style.background = "#dddddd";
     getBasicKeywordsButtonShutterstock.style.cursor = "default";
+
+    getBasicKeywordsButtonYoutube.disabled = true;
+    getBasicKeywordsButtonYoutube.value = "";
+    getBasicKeywordsButtonYoutube.style.background = "#dddddd";
+    getBasicKeywordsButtonYoutube.style.cursor = "default";
 }
 
 function enableGetBasicKeywordsButton() {
@@ -85,6 +123,11 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonShutterstock.value = "От Шаттерстока";
     getBasicKeywordsButtonShutterstock.style.background = "";
     getBasicKeywordsButtonShutterstock.style.cursor = "";
+
+    getBasicKeywordsButtonYoutube.disabled = false;
+    getBasicKeywordsButtonYoutube.value = "От Ютуба";
+    getBasicKeywordsButtonYoutube.style.background = "";
+    getBasicKeywordsButtonYoutube.style.cursor = "";
 }
 
 function clearErrors() {

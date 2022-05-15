@@ -55,6 +55,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
+    <input type="submit"
+           id="get-basic-keywords-button-youtube"
+           value="От Ютуба">
     <!--    <input type="submit"-->
     <!--           id="get-basic-keywords-button-istockphoto"-->
     <!--           value="От Айстокфото">-->
