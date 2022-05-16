@@ -11,7 +11,7 @@ if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     exit;
 }
 
-if (!preg_match("/^[a-z0-9'& \-_]*$/u", $basic_keywords_string)) {
+if (!preg_match("/^[a-z0-9 \-'&_]*$/u", $basic_keywords_string)) {
     echo("-2"); // A0 - ' & z9
     exit;
 }
