@@ -63,9 +63,9 @@ function JSON_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, strin
  * Очищает от служебной информации массив подсказок для одного json-ответа.
  *
  * @param string $_PARAM_json_response
- * @return string
+ * @return array
  */
-function CLEANING_FOR_ONE_JSON_RESPONSE(string $_PARAM_json_response): string
+function CLEANING_FOR_ONE_JSON_RESPONSE(string $_PARAM_json_response): array
 {
     $clean_json_response = preg_replace("/ {2,}/", " ", $_PARAM_json_response);
     $clean_json_response = json_decode($clean_json_response, true);
