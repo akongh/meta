@@ -44,27 +44,16 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
-    $url="
-        https://suggestqueries-clients6.youtube.com/complete/search
-        ?client=youtube
-        &hl=en
-        &gl=us
-        &sugexp=qszpp,ytpo.bo.me=1,ytposo.bo.me=1,cfro=1,ytpo.bo.me=0,ytposo.bo.me=0,ytpo.bo.zo.mq=15,ytpo.bo.zo.ms=0,ytposo.bo.zo.mq=15,ytposo.bo.zo.ms=0
-        &gs_rn=64
-        &gs_ri=youtube
-        &tok=qwer0000
-        &ds=yt
-        &cp=3
-        &gs_id=k
-        &q=". $_PARAM_basic_keyword . "
-        &callback=google.sbox.p50
-        &gs_gbg=qwer0000
-        ";
+    $url="https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&hl=en&gl=us&sugexp=qszpp,ytpo.bo.me=1,ytposo.bo.me=1,cfro=1,ytpo.bo.me=0,ytposo.bo.me=0,ytpo.bo.zo.mq=15,ytpo.bo.zo.ms=0,ytposo.bo.zo.mq=15,ytposo.bo.zo.ms=0&gs_rn=64&gs_ri=youtube&tok=qwer0000&ds=yt&cp=3&gs_id=k&q=". $_PARAM_basic_keyword . "&callback=google.sbox.p50&gs_gbg=qwer0000";
+//    var_dump($url);
+//    exit;
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
     $youtube_response = curl_exec($sesion);
+//    var_dump($youtube_response);
+//    exit;
     curl_close($sesion);
 
     return $youtube_response;
