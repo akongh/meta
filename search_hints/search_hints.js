@@ -61,7 +61,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
             }
         }
     }
-    request.open("POST", PARAM_url, true);
+    request.open("POST", PARAM_url, false);
     request.send(PARAM_requestSet);
 }
 
