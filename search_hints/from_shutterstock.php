@@ -4,8 +4,6 @@ declare(strict_types=1);
 error_reporting(-1);
 
 $php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
-//var_dump($php_input_to_array);
-//exit;
 $media_type = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
 
@@ -22,8 +20,6 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
 
 $json_response = JSON_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $media_type);
 $clean_json_response = CLEANING_FOR_ONE_JSON_RESPONSE($json_response);
-//var_dump($clean_json_response);
-//exit;
 $json_result = json_encode($clean_json_response, JSON_UNESCAPED_UNICODE);
 
 echo($json_result);
