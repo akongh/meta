@@ -54,7 +54,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
                 document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф, амперсанд, октоторп и подчерк.";
                 enableGetBasicKeywordsButton();
             } else {
                 window.hintsObjectsArray = JSON.parse(request.responseText);
