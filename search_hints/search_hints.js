@@ -21,6 +21,30 @@ clearButton.addEventListener("click", function (e) {
  * Functions.
  */
 
+function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                enableGetBasicKeywordsButton();
+            } else {
+
+                window.hintsObjectsArray = JSON.parse(request.responseText);
+
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+        }
+    }
+    request.open("POST", PARAM_url, true);
+    request.send(PARAM_requestSet);
+}
+
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
@@ -28,27 +52,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let requestSet = mediaType + "\n" + basicKeywordsString;
 
-    let request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
-                enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-                enableGetBasicKeywordsButton();
-            } else {
-
-                window.hintsObjectsArray = JSON.parse(request.responseText);
-
-                createHTMLHintsList(window.hintsObjectsArray);
-                setTimeout("enableGetBasicKeywordsButton()", 200);
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.send(requestSet);
+    newXMLHttpRequest(PARAM_url, requestSet);
 }
 
 function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
@@ -56,27 +60,7 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     disableGetBasicKeywordsButton();
     let requestSet = document.querySelector("#basic_keywords_string").value;
 
-    let request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
-                enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-                enableGetBasicKeywordsButton();
-            } else {
-
-                window.hintsObjectsArray = JSON.parse(request.responseText);
-
-                createHTMLHintsList(window.hintsObjectsArray);
-                setTimeout("enableGetBasicKeywordsButton()", 200);
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.send(requestSet);
+    newXMLHttpRequest(PARAM_url, requestSet);
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
@@ -98,7 +82,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         hintKeywords[i].addEventListener("click", function (e) {
             e.stopPropagation();
         }, false);
-        hintKeywords[i].addEventListener("click", keywordwPatternToQuery);
+        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
 }
 
@@ -134,6 +118,6 @@ function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
 }
 
-function keywordwPatternToQuery() {
+function keywordPatternToQuery() {
     document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
 }
