@@ -48,19 +48,21 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
+    let url = PARAM_url;
     let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let requestSet = mediaType + "\n" + basicKeywordsString;
 
-    newXMLHttpRequest(PARAM_url, requestSet);
+    newXMLHttpRequest(url, requestSet);
 }
 
 function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
+    let url = PARAM_url;
     let requestSet = document.querySelector("#basic_keywords_string").value;
 
-    newXMLHttpRequest(PARAM_url, requestSet);
+    newXMLHttpRequest(url, requestSet);
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
