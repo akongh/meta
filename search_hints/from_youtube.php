@@ -21,9 +21,11 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
 $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
 //var_dump($youtube_response);
 //exit;
+
 $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 //var_dump($clean_youtube_response);
 //exit;
+
 $result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 
 echo($result);
@@ -63,14 +65,27 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
  * Очищает от служебной информации массив подсказок для одного youtube-ответа.
  *
  * @param string $_PARAM_youtube_response
- * @return string
+ * @return array
  */
-function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): string
+function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): array
 {
     $clean_youtube_response = preg_replace("/google\.sbox\.p50 && google\.sbox\.p50\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)/", "", $clean_youtube_response);
     $clean_youtube_response = preg_replace("/{.+}/", "", $clean_youtube_response);
-    $clean_youtube_response = json_decode($clean_youtube_response, true);
+    $clean_youtube_response = preg_replace("/],]/", "]]", $clean_youtube_response);
+//    var_dump($clean_youtube_response);
+//    exit;
 
-    return $clean_youtube_response["data"]["autocompletions"];
+    $clean_youtube_response = json_decode($clean_youtube_response);
+//    var_dump($clean_youtube_response);
+//    exit;
+
+    foreach ($clean_youtube_response[1] as &$value) {
+        $clean_youtube_response_array[] = $value[0];
+    }
+    unset($value);
+//    var_dump($clean_youtube_response_array);
+//    exit;
+
+    return $clean_youtube_response_array ?? ["EMPTY RETURN"];
 }
