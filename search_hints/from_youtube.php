@@ -69,6 +69,7 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): str
 {
     $clean_youtube_response = preg_replace("/google\.sbox\.p50 && google\.sbox\.p50\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)/", "", $clean_youtube_response);
+    $clean_youtube_response = preg_replace("/{.+}/", "", $clean_youtube_response);
     $clean_youtube_response = json_decode($clean_youtube_response, true);
 
     return $clean_youtube_response["data"]["autocompletions"];
