@@ -33,7 +33,7 @@ echo($result);
  * @param string $_PARAM_basic_keyword
  * @return bool|string
  */
-function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword): bool|string
+function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
