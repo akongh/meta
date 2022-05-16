@@ -21,30 +21,6 @@ clearButton.addEventListener("click", function (e) {
  * Functions.
  */
 
-function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
-    let request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
-                enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
-                enableGetBasicKeywordsButton();
-            } else {
-
-                window.hintsObjectsArray = JSON.parse(request.responseText);
-
-                createHTMLHintsList(window.hintsObjectsArray);
-                setTimeout("enableGetBasicKeywordsButton()", 200);
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.send(PARAM_requestSet);
-}
-
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
@@ -63,6 +39,33 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let requestSet = document.querySelector("#basic_keywords_string").value;
 
     newXMLHttpRequest(url, requestSet);
+}
+
+function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
+    let request = new XMLHttpRequest();
+    // console.log(PARAM_url);
+    // console.log(PARAM_requestSet);
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText === "-1") {
+                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-2") {
+                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+                enableGetBasicKeywordsButton();
+            } else {
+                // console.log(request.responseText);
+
+                window.hintsObjectsArray = JSON.parse(request.responseText);
+
+                createHTMLHintsList(window.hintsObjectsArray);
+                setTimeout("enableGetBasicKeywordsButton()", 200);
+            }
+        }
+    }
+    request.open("POST", PARAM_url, true);
+    request.send(PARAM_requestSet);
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
