@@ -87,5 +87,5 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): arr
 //    var_dump($clean_youtube_response_array);
 //    exit;
 
-    return $clean_youtube_response_array ?? ["EMPTY SEARCH QUERY"];
+    return $clean_youtube_response_array ?? ["EMPTY SEARCH QUERY OR RESPONSE"];
 }
