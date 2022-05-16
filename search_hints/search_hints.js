@@ -30,6 +30,8 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     let requestSet = mediaType + "\n" + basicKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
+    createHTMLHintsListShutterstock(window.hintsObjectsArray);
+    setTimeout("enableGetBasicKeywordsButton()", 200);
 }
 
 function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
@@ -39,12 +41,12 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let requestSet = document.querySelector("#basic_keywords_string").value;
 
     newXMLHttpRequest(url, requestSet);
+    createHTMLHintsListYoutube(window.hintsObjectsArray);
+    setTimeout("enableGetBasicKeywordsButton()", 200);
 }
 
 function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     let request = new XMLHttpRequest();
-    // console.log(PARAM_url);
-    // console.log(PARAM_requestSet);
 
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
@@ -55,12 +57,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф и амперсанд.";
                 enableGetBasicKeywordsButton();
             } else {
-                // console.log(request.responseText);
-
                 window.hintsObjectsArray = JSON.parse(request.responseText);
-
-                createHTMLHintsList(window.hintsObjectsArray);
-                setTimeout("enableGetBasicKeywordsButton()", 200);
             }
         }
     }
@@ -68,7 +65,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     request.send(PARAM_requestSet);
 }
 
-function createHTMLHintsList(PARAM_hintsObjectsArray) {
+function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
     let listResultArray = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -77,6 +74,27 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             "</span> — " +
             PARAM_hintsObjectsArray[i]["probability"] +
             "</div>";
+    }
+
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    let hintKeywords = document.querySelectorAll(".hover-invert");
+
+    for (let i = 0; i < hintKeywords.length; i++) {
+        hintKeywords[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
+    }
+}
+
+function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
+    let listResultArray = [];
+
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
+            PARAM_hintsObjectsArray[i] +
+            "</span></div>";
     }
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
