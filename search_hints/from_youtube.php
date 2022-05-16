@@ -3,7 +3,9 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-$basic_keywords_string = mb_strtolower(file_get_contents("php://input"));//var_dump($basic_keywords_string);exit;
+$basic_keywords_string = mb_strtolower(file_get_contents("php://input"));
+//var_dump($basic_keywords_string);
+//exit;
 
 $data_width = 64;
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
@@ -16,8 +18,12 @@ if (!preg_match("/^[a-z0-9'& -]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);//var_dump($youtube_response);exit;
-$clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);//var_dump($clean_youtube_response);exit;
+$youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
+//var_dump($youtube_response);
+//exit;
+$clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+//var_dump($clean_youtube_response);
+//exit;
 $result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 
 echo($result);
