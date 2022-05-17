@@ -111,6 +111,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
 
 function clearQuery() {
     document.getElementById("basic_keywords_string").value = "";
+    document.querySelector("#error-hints").innerHTML = "";
 }
 
 function disableGetBasicKeywordsButton() {
