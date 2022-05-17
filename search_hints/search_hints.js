@@ -94,7 +94,9 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
             PARAM_hintsObjectsArray[i] +
-            "</span></div>";
+            "</span> <a href='https://www.youtube.com/results?search_query=" +
+            PARAM_hintsObjectsArray[i] +
+            "' target='_blank'> → YouTube</a></div>";
     }
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
