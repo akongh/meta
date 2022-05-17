@@ -493,6 +493,14 @@ hr {
     /*он назначается блоку в js-коде в двух местах: в одном по нему ищутся элементы для выделения, а в другом просто так, может понадобится*/
 }
 
+#hint-copy-box {
+    /*назначен блоку списка поисковых подсказок Ютуба для копирования, чтобы повесить на него функцию выделения всего списка*/
+}
+
+.hint-copy-box {
+    margin-top: 40px;
+}
+
 .hint-box-select {
     background: #fff;
     width: 100%;
@@ -608,7 +616,8 @@ input[type="text"] {
     margin-top: 32px;
 }
 
-.result span:hover {
+.result span:hover,
+.hint-copy-box:hover {
     cursor: pointer;
     background-color: #eeeeee;
 }

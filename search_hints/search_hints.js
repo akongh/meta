@@ -90,6 +90,7 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     let listResultArray = [];
+    let listResultArrayCopy = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
@@ -99,7 +100,19 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
             "' target='_blank'> → YouTube</a></div>";
     }
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArrayCopy[i] = "<div class='hint-box'>" +
+            PARAM_hintsObjectsArray[i] +
+            "</div>";
+    }
+
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
+        "<div id='hint-copy-box' class='hint-copy-box'>" +
+        listResultArrayCopy.join("") +
+        "</div>";
+
+    let resultNode = document.querySelector("#hint-copy-box");
+    resultNode.addEventListener('click', selectResult);
 
     let hintKeywords = document.querySelectorAll(".hover-invert");
 
@@ -109,6 +122,14 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         }, false);
         hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
+}
+
+function selectResult() {
+    let selectRange = document.createRange();
+    selectRange.selectNodeContents(this);
+    let select = window.getSelection();
+    select.removeAllRanges();
+    select.addRange(selectRange);
 }
 
 function clearQuery() {
