@@ -107,9 +107,12 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     }
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
-        "<div class='hint-copy-box'>" +
+        "<div id='hint-copy-box' class='hint-copy-box'>" +
         listResultArrayCopy.join("") +
         "</div>";
+
+    let resultNode = document.querySelector("#hint-copy-box");
+    resultNode.addEventListener('click', selectResult);
 
     let hintKeywords = document.querySelectorAll(".hover-invert");
 
@@ -119,6 +122,14 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         }, false);
         hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
+}
+
+function selectResult() {
+    let selectRange = document.createRange();
+    selectRange.selectNodeContents(this);
+    let select = window.getSelection();
+    select.removeAllRanges();
+    select.addRange(selectRange);
 }
 
 function clearQuery() {
