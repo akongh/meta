@@ -616,7 +616,8 @@ input[type="text"] {
     margin-top: 32px;
 }
 
-.result span:hover {
+.result span:hover,
+.hint-copy-box:hover {
     cursor: pointer;
     background-color: #eeeeee;
 }
