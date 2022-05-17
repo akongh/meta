@@ -90,6 +90,7 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     let listResultArray = [];
+    let listResultArrayCopy = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
@@ -99,7 +100,16 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
             "' target='_blank'> → YouTube</a></div>";
     }
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArrayCopy[i] = "<div class='hint-box'>" +
+            PARAM_hintsObjectsArray[i] +
+            "</div>";
+    }
+
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
+        "<div class='hint-copy-box'>" +
+        listResultArrayCopy.join("") +
+        "</div>";
 
     let hintKeywords = document.querySelectorAll(".hover-invert");
 
