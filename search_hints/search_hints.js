@@ -93,11 +93,13 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     let listResultArrayCopy = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
-            PARAM_hintsObjectsArray[i] +
-            "</span> <a href='https://www.youtube.com/results?search_query=" +
-            PARAM_hintsObjectsArray[i] +
-            "' target='_blank'> → YouTube</a></div>";
+        listResultArray[i] = "<div class='hint-box'>" +
+            "<span class='hover-invert'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+            " → " +
+            "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
+            " | " +
+            "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
+            "</div>";
     }
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
