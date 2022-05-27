@@ -3,7 +3,9 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-$basic_keywords_string = mb_strtolower(file_get_contents("php://input"));
+$php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
+$a_z = $php_input_to_array[0];
+$basic_keywords_string = $php_input_to_array[1];
 
 $data_width = 64;
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
@@ -16,11 +18,32 @@ if (!preg_match("/^[a-z0-9 \-'&_]*$/u", $basic_keywords_string)) {
     exit;
 }
 
-$youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
-$clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
-$result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
+if ($a_z == "no_a-z") {
+    $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
+    $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+    $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
+} else if ($a_z == "a-z") {
+    $a_z_letters_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-echo($result);
+    foreach ($a_z_letters_array as $value) {
+        $a_z_basic_keywords_string = $basic_keywords_string . " " . $value;
+        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string);
+        $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+
+        $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
+        foreach ($clean_youtube_response as $value2) {
+            $a_z_hints_list[] = $value2;
+        }
+        unset($value2);
+    }
+    unset($value);
+
+    $youtube_result = json_encode($a_z_hints_list, JSON_UNESCAPED_UNICODE);
+} else {
+    $youtube_result = "Not created \$youtube_result";
+}
+
+echo($youtube_result);
 
 
 /**
@@ -64,7 +87,7 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): arr
 
     $clean_youtube_response = json_decode($clean_youtube_response);
 
-    foreach ($clean_youtube_response[1] as &$value) {
+    foreach ($clean_youtube_response[1] as $value) {
         $clean_youtube_response_array[] = $value[0];
     }
     unset($value);

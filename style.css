@@ -491,6 +491,12 @@ hr {
 
 .hint-box {
     margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.hint-box-letter {
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 #hint-copy-box {
