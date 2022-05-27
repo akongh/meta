@@ -55,6 +55,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
+    <label><input type="radio"
+                  name="a_z_youtube"
+                  value="no_a-z"
+                  checked> no a-z</label>
+    <label><input type="radio"
+                  name="a_z_youtube"
+                  value="a-z"> a-z</label>
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">
