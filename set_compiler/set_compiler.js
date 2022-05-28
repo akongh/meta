@@ -92,8 +92,9 @@ function addKeywordsToSet(PARAM_url) {
                 document.querySelector("#error-hints").innerHTML = "Нечего добавлять.";
             } else if (request.responseText === "err_3") {
                 document.querySelector("#error-hints").innerHTML = "Слишком много добавляемых ключевых слов.";
-            } else if (request.responseText === "err_4") {
-                document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф и амперсанд.";
+            } else if (request.responseText.includes("err_4", 0)) {
+                document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф, амперсанд и октоторп.";
+                document.querySelector("#error-hints-trigger").innerHTML = request.responseText.substring(5);
             } else {
                 let resultArray = JSON.parse(request.responseText);
 
@@ -426,5 +427,6 @@ function deselectAllHints() {
 
 function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
+    document.querySelector("#error-hints-trigger").innerHTML = "";
     document.querySelector("#error-translations").innerHTML = "";
 }

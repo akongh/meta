@@ -710,6 +710,11 @@ input[type="text"] {
     margin-top: 8px;
 }
 
+.error-trigger {
+    margin-top: 8px;
+    color: #ff0000;
+}
+
 @keyframes error {
     0% {
         color: #888888;

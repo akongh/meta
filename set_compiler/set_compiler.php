@@ -65,6 +65,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
               autofocus></textarea>
     <div id="error-hints"
          class='error'></div>
+    <div id="error-hints-trigger"
+         class='error-trigger'></div>
     <div class="content_right">
         <a href="#"
            id="clear-button"
