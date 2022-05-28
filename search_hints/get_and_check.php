@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+error_reporting(-1);
+
+$php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
+$related_parameter = $php_input_to_array[0];
+$basic_keywords_string = $php_input_to_array[1];
+
+$data_width = 64;
+if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
+    echo("-1");
+    exit;
+}
+
+if (!preg_match("/^[a-z0-9 \-'&_]*$/u", $basic_keywords_string)) {
+    echo("-2"); // A0 - ' & z9
+    exit;
+}

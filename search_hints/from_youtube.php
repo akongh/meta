@@ -3,26 +3,13 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-$php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
-$a_z = $php_input_to_array[0];
-$basic_keywords_string = $php_input_to_array[1];
+require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-$data_width = 64;
-if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
-    echo("-1");
-    exit;
-}
-
-if (!preg_match("/^[a-z0-9 \-'&_]*$/u", $basic_keywords_string)) {
-    echo("-2"); // A0 - ' & z9
-    exit;
-}
-
-if ($a_z == "no_a-z") {
+if ($related_parameter == "no_a-z") {
     $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
     $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
     $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
-} else if ($a_z == "a-z") {
+} else if ($related_parameter == "a-z") {
     $a_z_letters_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     foreach ($a_z_letters_array as $value) {

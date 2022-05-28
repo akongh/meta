@@ -3,22 +3,9 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-$php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
-$media_type = $php_input_to_array[0];
-$basic_keywords_string = $php_input_to_array[1];
+require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-$data_width = 64;
-if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
-    echo("-1");
-    exit;
-}
-
-if (!preg_match("/^[a-z0-9 \-'&_]*$/u", $basic_keywords_string)) {
-    echo("-2"); // A0 - ' & z9
-    exit;
-}
-
-$shutterstock_response = SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $media_type);
+$shutterstock_response = SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
 $clean_shutterstock_response = CLEANING_FOR_ONE_SHUTTERSTOCK_RESPONSE($shutterstock_response);
 $shutterstock_result = json_encode($clean_shutterstock_response, JSON_UNESCAPED_UNICODE);
 
