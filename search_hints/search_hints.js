@@ -30,8 +30,12 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     let requestSet = mediaType + "\n" + basicKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
-    createHTMLHintsListShutterstock(window.hintsObjectsArray);
-    setTimeout("enableGetBasicKeywordsButton()", 200);
+    if (window.hintsObjectsArray === "") {
+        return false;
+    } else {
+        createHTMLHintsListShutterstock(window.hintsObjectsArray);
+        setTimeout("enableGetBasicKeywordsButton()", 200);
+    }
 }
 
 function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
@@ -43,8 +47,12 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let requestSet = aZ  + "\n" + basicKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
-    createHTMLHintsListYoutube(window.hintsObjectsArray);
-    setTimeout("enableGetBasicKeywordsButton()", 200);
+    if (window.hintsObjectsArray === "") {
+        return false;
+    } else {
+        createHTMLHintsListYoutube(window.hintsObjectsArray);
+        setTimeout("enableGetBasicKeywordsButton()", 200);
+    }
 }
 
 function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
@@ -54,12 +62,15 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
                 document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф, амперсанд и подчерк.";
+                window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
-            } else if (request.responseText === "-3") {console.log(request.responseText);
+            } else if (request.responseText === "-3") {
                 document.querySelector("#error-hints").innerHTML = "Пустой запрос или ответ.";
+                window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else {
                 window.hintsObjectsArray = JSON.parse(request.responseText);
