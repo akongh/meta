@@ -32,7 +32,7 @@ $cookies = RANDOM_SELECT_STRING($array_cookies);
 if ($author == '') {
     $author_id = "";
 } else {
-    $url = "https://www.shutterstock.com/studioapi/contributors?filter%5Bdisplay_name%5D={$author}&include=contributor-stats";
+    $url = "https://www.shutterstock.com/studioapi/contributors?filter%5Bdisplay_name%5D=$author&include=contributor-stats";
     $author_info = USE_CURL($url, $useragent, $cookies);
     $author_info = json_decode($author_info, true);
     $author_id = "&filter%5Bsubmitter%5D={$author_info["data"][0]["id"]}";
@@ -40,10 +40,10 @@ if ($author == '') {
 
 $search_url = implode("", [
     "https://www.shutterstock.com/studioapi/images/search?",
-    "q={$keyword}",
+    "q=$keyword",
     "&language=en",
-    "&country={$country}",
-    "&page[size]={$amount}",
+    "&country=$country",
+    "&page[size]=$amount",
     "&page[number]=1",
     "&recordActivity=false",
     "&activity_type=footage_search",
@@ -93,7 +93,7 @@ echo(json_encode($array_works_data));
  * @param array $_PARAM_array_strings
  * @return string
  */
-function RANDOM_SELECT_STRING($_PARAM_array_strings)
+function RANDOM_SELECT_STRING(array $_PARAM_array_strings): string
 {
     $max = count($_PARAM_array_strings) - 1;
     $string = $_PARAM_array_strings[rand(0, $max)];
@@ -107,7 +107,7 @@ function RANDOM_SELECT_STRING($_PARAM_array_strings)
  * @param string $_PARAM_cookies
  * @return array
  */
-function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
+function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_cookies): array
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
     file_put_contents('responce_data_from_shutterstock.json', $data);
@@ -136,7 +136,7 @@ function ARRAY_WORKS_DATA_JSON($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
  * @param array $_PARAM_array_works_ids
  * @return string
  */
-function CREATE_URL($_PARAM_array_works_ids)
+function CREATE_URL(array $_PARAM_array_works_ids): string
 {
     $array_params = array();
 
@@ -156,7 +156,7 @@ function CREATE_URL($_PARAM_array_works_ids)
  * @param string $_PARAM_cookies
  * @return bool|string
  */
-function USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies)
+function USE_CURL(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_cookies)
 {
     $SESSION = curl_init();
     curl_setopt($SESSION, CURLOPT_RETURNTRANSFER, true);
