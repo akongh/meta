@@ -58,6 +58,9 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
             } else if (request.responseText === "-2") {
                 document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф, амперсанд и подчерк.";
                 enableGetBasicKeywordsButton();
+            } else if (request.responseText === "-3") {console.log(request.responseText);
+                document.querySelector("#error-hints").innerHTML = "Пустой запрос или ответ.";
+                enableGetBasicKeywordsButton();
             } else {
                 window.hintsObjectsArray = JSON.parse(request.responseText);
             }
