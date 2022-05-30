@@ -34,7 +34,7 @@ if (count($basic_keywords_array) > 1024) {
 
 foreach ($basic_keywords_array as $value) {
     if (!preg_match("/^[а-яёa-z0-9 \-'&#]*$/u", $value)) {
-        echo("err_4" . $value); // A0 - ' & z9
+        echo("err_4" . $value);
         exit;
     }
 }
