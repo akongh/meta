@@ -64,7 +64,7 @@ echo($json_result);
  * @param mysqli $_PARAM_db_connect
  * @return array
  */
-function SELECT_TRANSLATION($_PARAM_hint_keyword, $_PARAM_db_connect)
+function SELECT_TRANSLATION(string $_PARAM_hint_keyword, mysqli $_PARAM_db_connect): array
 {
     $_SQL_select_translations = "
 SELECT

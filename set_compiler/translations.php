@@ -42,12 +42,10 @@ echo $json_result;
  * @param string $PARAM_keyword_in_russian
  * @return string
  */
-function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($PARAM_keyword_in_russian)
+function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION(string $PARAM_keyword_in_russian): string
 {
     $keyword_in_russian = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $PARAM_keyword_in_russian));
-    $keyword_in_russian = trim(trim($keyword_in_russian), "-");
-
-    return $keyword_in_russian;
+    return trim(trim($keyword_in_russian), "-");
 }
 
 /**
@@ -56,7 +54,7 @@ function PREPARE_KEYWORD_IN_RUSSIAN_FOR_TRANLATION($PARAM_keyword_in_russian)
  * @param string $PARAM_keyword_in_russian
  * @return array|string
  */
-function SEARCH_TRANLATIONS($PARAM_db_connect, $PARAM_keyword_in_russian)
+function SEARCH_TRANLATIONS(mysqli $PARAM_db_connect, string $PARAM_keyword_in_russian)
 {
     $SQL_select_translations_and_sense = mysqli_query($PARAM_db_connect, "
 	select `l-ts`.`s`, `tz`.`z`
