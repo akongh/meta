@@ -83,10 +83,14 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response)
 
     $clean_youtube_response = json_decode($clean_youtube_response);
 
-    foreach ($clean_youtube_response[1] as $value) {
-        $clean_youtube_response_array[] = $value[0];
+    if (NULL !== $clean_youtube_response) {
+        foreach ($clean_youtube_response[1] as $value) {
+            if (NULL !== $value) {
+                $clean_youtube_response_array[] = $value[0];
+            }
+        }
+        unset($value);
     }
-    unset($value);
 
     return $clean_youtube_response_array ?? "";
 }
