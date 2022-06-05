@@ -19,20 +19,18 @@ if ("no_a-z" === $related_parameter) {
     $a_z_letters_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     foreach ($a_z_letters_array as $value) {
-        $a_z_basic_keywords_string = $basic_keywords_string . " " . $value;
+        $a_z_basic_keywords_string = $basic_keywords_string . $value;
         $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string);
         $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
-        if ("" === $clean_youtube_response) {
-            echo("-3");
-            exit;
-        }
-
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
-        foreach ($clean_youtube_response as $value2) {
-            $a_z_hints_list[] = $value2;
+
+        if ("" !== $clean_youtube_response) {
+            foreach ($clean_youtube_response as $value2) {
+                $a_z_hints_list[] = $value2;
+            }
+            unset($value2);
         }
-        unset($value2);
     }
     unset($value);
 
