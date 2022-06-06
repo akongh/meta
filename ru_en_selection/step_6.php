@@ -82,20 +82,13 @@ if (isset($_SESSION["arr_kws_untranslated"])) {
                title="Изменить вид результата на раздельный">[Изменить вид на раздельный]</a>
         </div>
         <h2>На русском и английском</h2>
-        <div class="result">
-            <span><?= $str_kws_ru; ?>
-                <br>
-                <br>
-            <?= $str_kws_en; ?></span>
-        </div>
+        <div class="result"><span><?= $str_kws_ru; ?><br><br><?= $str_kws_en; ?></span></div>
         <div class="amount_kws">
             <span class="amount"><?= $count_kws_ru; ?> / <?= $count_kws_en; ?></span>
         </div>
     </div>
     <h2>Непереведённые</h2>
-    <div id='result_no_transl' class="result">
-        <span><?= $str_kws_untranslated; ?></span>
-    </div>
+    <div id='result_no_transl' class="result"><span><?= $str_kws_untranslated; ?></span></div>
     <div class="amount_kws">
         <span class='amount'><?= $count_kws_untranslated; ?></span>
     </div>
