@@ -94,7 +94,19 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response, arra
     }
 
     if (isset($clean_youtube_response_array) && !empty($_PARAM_excluded_keywords_array)) {
-        $clean_youtube_response_array = array_values(array_diff($clean_youtube_response_array, $_PARAM_excluded_keywords_array));
+        foreach ($clean_youtube_response_array as $key => $value) {
+            foreach ($_PARAM_excluded_keywords_array as $value_excluded) {
+                $excluded_exist = strripos($value, $value_excluded);
+                if (false !== $excluded_exist) {
+                    unset($clean_youtube_response_array[$key]);//var_dump($value);
+                    break;
+                }
+            }
+            unset($value_excluded);
+        }
+        unset($value);
+
+        $clean_youtube_response_array = array_values($clean_youtube_response_array);
     }
 
     return $clean_youtube_response_array ?? "";
