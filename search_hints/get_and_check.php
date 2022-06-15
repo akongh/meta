@@ -6,6 +6,21 @@ error_reporting(-1);
 $php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
 $related_parameter = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
+$excluded_keywords_array = [];
+
+if ("" !== trim($php_input_to_array[2])) {
+    $excluded_keywords_array = explode(",", $php_input_to_array[2]);
+
+    foreach ($excluded_keywords_array as $key => $value) {
+        $excluded_keywords_array[$key] = trim($value);
+        if ("" == $excluded_keywords_array[$key]) {
+            unset($excluded_keywords_array[$key]);
+        }
+    }
+    unset($value);
+
+    $excluded_keywords_array = array_values(array_unique($excluded_keywords_array));
+}
 
 $data_width = 40;
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {

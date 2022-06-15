@@ -44,7 +44,8 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let url = PARAM_url;
     let aZ = document.querySelector("input[name='a_z_youtube']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-    let requestSet = aZ  + "\n" + basicKeywordsString;
+    let excludedKeywordsString = document.querySelector("#excluded_keywords_string").value;
+    let requestSet = aZ  + "\n" + basicKeywordsString  + "\n" + excludedKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {
@@ -72,7 +73,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
                 document.querySelector("#error-hints").innerHTML = "Пустой запрос или ответ.";
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
-            } else {
+            } else {console.log(request.responseText)
                 window.hintsObjectsArray = JSON.parse(request.responseText);
             }
         }

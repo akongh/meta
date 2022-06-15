@@ -7,7 +7,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
 if ("no_a-z" === $related_parameter) {
     $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
-    $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+    $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
 
     if ("" === $clean_youtube_response) {
         echo("-3");
@@ -21,7 +21,7 @@ if ("no_a-z" === $related_parameter) {
     foreach ($a_z_letters_array as $value) {
         $a_z_basic_keywords_string = $basic_keywords_string . $value;
         $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string);
-        $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+        $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
 
@@ -72,9 +72,10 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
  * Очищает от служебной информации массив подсказок для одного youtube-ответа.
  *
  * @param string $_PARAM_youtube_response
+ * @param array $_PARAM_excluded_keywords_array
  * @return array | string
  */
-function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response)
+function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response, array $_PARAM_excluded_keywords_array)
 {
     $clean_youtube_response = preg_replace("/google\.sbox\.p50 && google\.sbox\.p50\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)/", "", $clean_youtube_response);
@@ -90,6 +91,10 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response)
             }
         }
         unset($value);
+    }
+
+    if (isset($clean_youtube_response_array) && !empty($_PARAM_excluded_keywords_array)) {
+        $clean_youtube_response_array = array_values(array_diff($clean_youtube_response_array, $_PARAM_excluded_keywords_array));
     }
 
     return $clean_youtube_response_array ?? "";
