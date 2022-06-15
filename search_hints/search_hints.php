@@ -27,12 +27,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Поисковые подсказки</h1>
-    <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
+    <label for="basic_keywords_string"></label>
     <input type="text"
            id="basic_keywords_string"
            name="basic_keywords_string"
            class="textarea-keywords"
-           placeholder=""
+           placeholder="Опорные ключевые слова"
            autofocus>
     <span id="error-hints"
           class='error'></span>
@@ -62,6 +62,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="a_z_youtube"
                   value="a-z"> a-z</label>
+    <label for="excluded_keywords_string"></label>
+    <input type="text"
+           id="excluded_keywords_string"
+           name="excluded_keywords_string"
+           class="textarea-keywords"
+           placeholder="Исключённые ключевые слова через запятую">
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">
