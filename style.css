@@ -814,3 +814,8 @@ input[type="text"] {
     margin-top: 24px;
     line-height: 1.6;
 }
+
+.youtube-hint-hover {
+    font-weight: 700;
+
+}
