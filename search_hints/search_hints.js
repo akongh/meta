@@ -116,7 +116,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
                 "</div>";
         } else {
             listResultArray[i] = "<div class='hint-box'>" +
-                "<span class='youtube-hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+                "<span id='youtube-hint-hover' class='youtube-hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
                 " → " +
                 "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
                 " | " +
@@ -135,6 +135,14 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         "<div id='hint-copy-box' class='hint-copy-box'>" +
         listResultArrayCopy.join("") +
         "</div>";
+
+    let resultItem = document.querySelectorAll("#youtube-hint-hover");
+    for (let i = 0; i < resultItem.length; i++) {
+        resultItem[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        resultItem[i].addEventListener("click", selectResult);
+    }
 
     let resultNode = document.querySelector("#hint-copy-box");
     resultNode.addEventListener('click', selectResult);
