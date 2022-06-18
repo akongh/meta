@@ -73,7 +73,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
                 document.querySelector("#error-hints").innerHTML = "Пустой запрос или ответ.";
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
-            } else {
+            } else {console.log(request.responseText)
                 window.hintsObjectsArray = JSON.parse(request.responseText);
             }
         }
