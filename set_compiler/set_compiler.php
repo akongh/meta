@@ -73,6 +73,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            class="link-button"
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
+    <label><input type="checkbox"
+                  id="without-trim"
+                  name="without-trim"> без trim()</label>
+    <label><input type="checkbox"
+                  id="without-preg-match"
+                  name="without-preg-match"> без preg_match()</label>
     <input type="submit"
            id="add-keywords-to-set-button"
            value="Добавить в список">
