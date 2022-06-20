@@ -9,6 +9,7 @@ $basic_keywords_string = file_get_contents("php://input");
 $data_width = 32768;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
+    //зачем я тут сохранил в переменную подстроку? Может на всякий случай, чтобы потом её вывести обрезанную, если буду переделывать логику?
     $basic_keywords_string = mb_substr($basic_keywords_string, 0, $data_width, 'utf-8');
     echo("err_1");
     exit;
