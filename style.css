@@ -489,10 +489,13 @@ hr {
     color: #000;
 }
 
+#hints-area {
+    white-space: pre;
+}
+
 .hint-box {
     margin-top: 4px;
     margin-bottom: 4px;
-    white-space: pre;
 }
 
 .hint-box-letter {
