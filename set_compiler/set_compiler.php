@@ -85,10 +85,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <a id="top"></a>
     <div class="links_block">
         <a href="#"
-           id="create-result-string-button"
-           class="link-button"
-           title="Создать строку результата из списка ключевых слов">[Результат]</a>
-        <a href="#"
            id="rank-hints-list-button"
            class="link-button"
            title="Задать очерёдность в списке ключевых слов">[Очерёдность]</a>
@@ -112,6 +108,15 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="deselect-all-hints-button"
            class="link-button"
            title="Очистить список от невыбранных ключевых слов">[Ничего]</a>
+        <hr/>
+        <a href="#"
+           id="create-result-string-button"
+           class="link-button"
+           title="Создать строку результата из списка ключевых слов">[Результат строкой]</a>
+        <a href="#"
+           id="create-result-list-button"
+           class="link-button"
+           title="Создать список результата из списка ключевых слов">[Результат списком]</a>
     </div>
     <div class="content_right">
         <span id="hints-total-and-selected"

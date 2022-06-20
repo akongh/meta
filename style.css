@@ -490,7 +490,7 @@ hr {
 }
 
 #hints-area {
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 .hint-box {

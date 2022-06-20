@@ -7,10 +7,11 @@ let clearButton = document.querySelector("#clear-button");
 
 let addKeywordsToSetButton = document.querySelector("#add-keywords-to-set-button");
 
-let createResultStringButton = document.querySelector("#create-result-string-button");
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
 let sortAzButton = document.querySelector("#sort-a-z-button");
+let createResultStringButton = document.querySelector("#create-result-string-button");
+let createResultListButton = document.querySelector("#create-result-list-button");
 
 let deleteDeselectedHintsButton = document.querySelector("#delete-deselected-hints-button");
 let selectAllHintsButton = document.querySelector("#select-all-hints-button");
@@ -49,6 +50,10 @@ sortAzButton.addEventListener("click", function (e) {
 createResultStringButton.addEventListener("click", function (e) {
     e.preventDefault();
     createResultString();
+}, false);
+createResultListButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    createResultList();
 }, false);
 rankHintsListButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -276,7 +281,7 @@ function createResultString() {
             // request.send(jsonHintsStringForTranlation);
 
             document.querySelector("#hints-area").innerHTML =
-                "<p>Внимание! Пробелы не схлопываются.</p>" +
+                "<p>Внимание!<br>Пробел после запятой не схлопывается с первым пробелом в клюяевом слове, если такой имеется.</p>" +
                 "<span id='select-result'>" +
                 resultString.join(", ") +
                 "</span>";
@@ -288,7 +293,37 @@ function createResultString() {
         }
     } else {
         document.querySelector("#hints-area").innerHTML =
-            "<p>Нечего собирать в результат.</p>";
+            "<p>Нечего собирать в результат строкой.</p>";
+    }
+}
+
+function createResultList() {
+    clearErrors();
+    reSortingHintsObjectsArray();
+    if (typeof window.hintsObjectsArray !== "undefined") {
+        let resultString = [];
+        let k = 0;
+        for (let i = 0; i < window.hintsObjectsArray.length; i++) {
+            if (window.hintsObjectsArray[i].status === "select") {
+                resultString[k] = window.hintsObjectsArray[i].hint;
+                k++;
+            }
+        }
+        if (resultString.length > 0) {
+
+            document.querySelector("#hints-area").innerHTML =
+                "<span id='select-result'>" +
+                resultString.join(",\n") +
+                "</span>";
+            let resultNode = document.querySelector("#select-result");
+            resultNode.addEventListener('click', selectResult);
+        } else {
+            document.querySelector("#hints-area").innerHTML =
+                "<p>Ничего не выбрано.</p>";
+        }
+    } else {
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего собирать в результат списком.</p>";
     }
 }
 
