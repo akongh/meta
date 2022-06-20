@@ -12,7 +12,7 @@ if ("" !== trim($php_input_to_array[2])) {
     $excluded_keywords_array = explode(",", $php_input_to_array[2]);
 
     foreach ($excluded_keywords_array as $key => $value) {
-        $excluded_keywords_array[$key] = trim($value);
+        $excluded_keywords_array[$key] = preg_replace("/ {2,}/u", " ", $value);
         if ("" == $excluded_keywords_array[$key]) {
             unset($excluded_keywords_array[$key]);
         }
