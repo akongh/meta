@@ -243,7 +243,8 @@ function returnToListView() {
     if (typeof window.hintsObjectsArray !== "undefined") {
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
-        document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Список подсказок пуст.</p>";
     }
 }
 
@@ -274,16 +275,20 @@ function createResultString() {
             // request.open("POST", 'add_keyword_to_db.php', true);
             // request.send(jsonHintsStringForTranlation);
 
-            document.querySelector("#hints-area").innerHTML = "<span id='select-result'>" +
+            document.querySelector("#hints-area").innerHTML =
+                "<p>Внимание! Пробелы не схлопываются.</p>" +
+                "<span id='select-result'>" +
                 resultString.join(", ") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
         } else {
-            document.querySelector("#hints-area").innerHTML = "Ничего не выбрано.";
+            document.querySelector("#hints-area").innerHTML =
+                "<p>Ничего не выбрано.</p>";
         }
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего собирать в результат.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего собирать в результат.</p>";
     }
 }
 
@@ -306,14 +311,16 @@ function rankHintsList() {
                 window.hintsObjectsArray[i].hint +
                 "</li>";
         }
-        document.querySelector("#hints-area").innerHTML = "<ul id='sortable'>" + listResultArray.join("") + "</ul>";
+        document.querySelector("#hints-area").innerHTML =
+            "<ul id='sortable'>" + listResultArray.join("") + "</ul>";
 
         $(function () {
             $("#sortable").sortable().disableSelection();
         });
 
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечему задавать очерёдность.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечему задавать очерёдность.</p>";
     }
 }
 
@@ -344,9 +351,11 @@ function deleteHintsObjectsArray() {
     if (typeof window.hintsObjectsArray !== "undefined") {
         delete window.hintsObjectsArray;
         countHintsTotalAndSelected();
-        document.querySelector("#hints-area").innerHTML = "Список подсказок удалён.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Список подсказок удалён.</p>";
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего удалять.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего удалять.</p>";
     }
 }
 
@@ -364,10 +373,12 @@ function deleteDeselectedHints() {
         } else {
             delete window.hintsObjectsArray;
             countHintsTotalAndSelected();
-            document.querySelector("#hints-area").innerHTML = "Список подсказок пуст.";
+            document.querySelector("#hints-area").innerHTML =
+                "<p>Список подсказок пуст.</p>";
         }
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего очищать.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего очищать.</p>";
     }
 }
 
@@ -383,7 +394,8 @@ function sortAz() {
         window.hintsObjectsArray.sort(compareObjectHints);
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего сортировать.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего сортировать.</p>";
     }
 }
 
@@ -416,7 +428,8 @@ function selectAllHints() {
         countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего выбирать.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего выбирать.</p>";
     }
 }
 
@@ -431,7 +444,8 @@ function deselectAllHints() {
         countHintsTotalAndSelected();
         createHTMLHintsList(window.hintsObjectsArray);
     } else {
-        document.querySelector("#hints-area").innerHTML = "Нечего невыбирать.";
+        document.querySelector("#hints-area").innerHTML =
+            "<p>Нечего невыбирать.</p>";
     }
 }
 
