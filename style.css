@@ -492,6 +492,7 @@ hr {
 .hint-box {
     margin-top: 4px;
     margin-bottom: 4px;
+    white-space: pre;
 }
 
 .hint-box-letter {

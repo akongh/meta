@@ -81,6 +81,16 @@ function addKeywordsToSet(PARAM_url) {
     clearErrors();
     reSortingHintsObjectsArray();
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+    let withoutTrim = "false";
+    let withoutPregMatch = "false";
+    if (document.querySelector("#without-trim").checked) {
+        withoutTrim = "true";
+    }
+    if (document.querySelector("#without-preg-match").checked) {
+        withoutPregMatch = "true";
+    }
+    let sendingData = [basicKeywordsString, withoutTrim, withoutPregMatch];
+    let sendingDataJSON = JSON.stringify(sendingData);
 
     let request = new XMLHttpRequest();
 
@@ -95,7 +105,7 @@ function addKeywordsToSet(PARAM_url) {
             } else if (request.responseText.includes("err_4", 0)) {
                 document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф, амперсанд и октоторп.";
                 document.querySelector("#error-hints-trigger").innerHTML = request.responseText.substring(5);
-            } else {
+            } else {console.log(request.responseText);
                 let resultArray = JSON.parse(request.responseText);
 
                 addDeselectStatusForHints(resultArray);
@@ -123,7 +133,7 @@ function addKeywordsToSet(PARAM_url) {
     }
 
     request.open("POST", PARAM_url, true);
-    request.send(basicKeywordsString);
+    request.send(sendingDataJSON);
 }
 
 function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
