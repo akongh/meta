@@ -5,7 +5,10 @@ error_reporting(-1);
 
 require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
-$basic_keywords_string = file_get_contents("php://input");
+$get_data = file_get_contents("php://input");
+$get_data_to_array = json_decode($get_data, true);
+
+$basic_keywords_string = $get_data_to_array[0];
 $data_width = 32768;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
@@ -22,9 +25,11 @@ if ("" === trim($basic_keywords_string)) {
 
 $basic_keywords_string = mb_strtolower(preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string));
 $basic_keywords_array = preg_split("/[\n,;]/u", $basic_keywords_string, -1, PREG_SPLIT_NO_EMPTY);
-foreach ($basic_keywords_array as &$value) {
-    $value = trim($value);
-    unset($value);
+if ("false" === $get_data_to_array[1]) {
+    foreach ($basic_keywords_array as &$value) {
+        $value = trim($value);
+        unset($value);
+    }
 }
 $basic_keywords_array = array_values(array_unique(array_diff($basic_keywords_array, array(""))));
 
@@ -33,10 +38,12 @@ if (count($basic_keywords_array) > 1024) {
     exit;
 }
 
-foreach ($basic_keywords_array as $value) {
-    if (!preg_match("/^[а-яёa-z0-9 \-'&#]*$/u", $value)) {
-        echo("err_4" . $value);
-        exit;
+if ("false" === $get_data_to_array[2]) {
+    foreach ($basic_keywords_array as $value) {
+        if (!preg_match("/^[а-яёa-z0-9 \-'&#]*$/u", $value)) {
+            echo("err_4" . $value);
+            exit;
+        }
     }
 }
 
