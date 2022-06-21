@@ -265,25 +265,25 @@ function createResultString() {
     clearErrors();
     reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
-        let resultString = [];
+        let resultArray = [];
         let k = 0;
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             if (window.hintsObjectsArray[i].status === "select") {
-                resultString[k] = window.hintsObjectsArray[i].hint;
+                resultArray[k] = window.hintsObjectsArray[i].hint;
                 k++;
             }
         }
-        if (resultString.length > 0) {
+        if (resultArray.length > 0) {
 
             // let request = new XMLHttpRequest();
-            // let jsonHintsStringForTranlation = JSON.stringify(resultString);
+            // let jsonHintsStringForTranlation = JSON.stringify(resultArray);
             // request.open("POST", 'add_keyword_to_db.php', true);
             // request.send(jsonHintsStringForTranlation);
 
             document.querySelector("#hints-area").innerHTML =
                 "<p>Внимание!<br>Пробел после запятой не схлопывается с первым пробелом в клюяевом слове, если такой имеется.</p>" +
                 "<span id='select-result'>" +
-                resultString.join(", ") +
+                resultArray.join(", ") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
@@ -301,19 +301,19 @@ function createResultList() {
     clearErrors();
     reSortingHintsObjectsArray();
     if (typeof window.hintsObjectsArray !== "undefined") {
-        let resultString = [];
+        let resultArray = [];
         let k = 0;
         for (let i = 0; i < window.hintsObjectsArray.length; i++) {
             if (window.hintsObjectsArray[i].status === "select") {
-                resultString[k] = window.hintsObjectsArray[i].hint;
+                resultArray[k] = window.hintsObjectsArray[i].hint;
                 k++;
             }
         }
-        if (resultString.length > 0) {
+        if (resultArray.length > 0) {
 
             document.querySelector("#hints-area").innerHTML =
                 "<span id='select-result'>" +
-                resultString.join(",\n") +
+                resultArray.join(",\n") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
