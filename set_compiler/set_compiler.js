@@ -281,7 +281,7 @@ function createResultString() {
             // request.send(jsonHintsStringForTranlation);
 
             document.querySelector("#hints-area").innerHTML =
-                "<p>Внимание!<br>Пробел после запятой не схлопывается с первым пробелом в клюяевом слове, если такой имеется.</p>" +
+                "<p>Внимание!<br>Пробел после запятой не схлопывается с первым пробелом в ключевом слове, если такой имеется.</p>" +
                 "<span id='select-result'>" +
                 resultArray.join(", ") +
                 "</span>";
