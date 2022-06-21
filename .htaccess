@@ -1,7 +1,7 @@
 # ACCESS
 #AuthType Basic
 #AuthName "META"
-#AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
+#AuthUserFile /absolute_path_to/.htpasswd
 #require valid-user
 
 # DISABLE DIRECTORY INDEX LISTINGS
