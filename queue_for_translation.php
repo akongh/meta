@@ -55,7 +55,7 @@ if (0 < $amount_kws_for_translation) {
         <?= $html_kws_for_translation; ?>
     </div>
     <div class="amount_kws">
-        <?= "<span class='amount'>{$amount_kws_for_translation}</span>"; ?>
+        <?= "<span class='amount'>$amount_kws_for_translation</span>"; ?>
     </div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>

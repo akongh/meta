@@ -8,7 +8,7 @@ error_reporting(-1);
  * @param integer $data_integer
  * @return string
  */
-function meta_error_mesage($data_integer)
+function meta_error_mesage(int $data_integer): string
 {
     switch ($data_integer) {
         case 1:
@@ -33,13 +33,13 @@ function meta_error_mesage($data_integer)
 /**
  * @return string
  */
-function meta_errors_markup_list()
+function meta_errors_markup_list(): string
 {
     $data_array_markup = array();
     if (isset($_SESSION["error_messages"])) {
         foreach ($_SESSION["error_messages"] as $item) {
             $item = htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'utf-8');
-            $data_array_markup[] = "<div class='error'>{$item}</div>";
+            $data_array_markup[] = "<div class='error'>$item</div>";
         }
         $markup = implode("", $data_array_markup);
     } else {
@@ -55,7 +55,7 @@ function meta_errors_markup_list()
  * @param integer $data_kws_count
  * @return array
  */
-function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_count)
+function meta_kws_input_string_to_array(string $data_string, int $data_width, int $data_kws_count): array
 {
     if (iconv_strlen($data_string, 'utf-8') > $data_width) {
         $data_string = mb_substr($data_string, 0, $data_width, 'utf-8');
@@ -86,7 +86,7 @@ function meta_kws_input_string_to_array($data_string, $data_width, $data_kws_cou
  * @param array $arr_checked
  * @return string
  */
-function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
+function meta_kws_markup_checkbox_list(array $arr_list, array $arr_checked): string
 {
     $markup = array();
     foreach ($arr_list as $kw) {
@@ -99,8 +99,8 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
         $markup[] = "<label class='label_highlight'>
                      <input type='checkbox'
                             name='arr_kws_marked[]'
-                            {$status}
-                            value = '{$kw}'>{$kw}</label>";
+                            $status
+                            value = '$kw'>$kw</label>";
     }
 
     return implode("", $markup);
@@ -110,7 +110,7 @@ function meta_kws_markup_checkbox_list($arr_list, $arr_checked)
  * @param integer $data_int
  * @return string
  */
-function meta_kws_content_input($data_int)
+function meta_kws_content_input(int $data_int): string
 {
     switch ($data_int) {
         case 1:
@@ -134,7 +134,7 @@ function meta_kws_content_input($data_int)
 /**
  * @return string
  */
-function meta_kws_markup_state_amount()
+function meta_kws_markup_state_amount(): string
 {
     if (isset($_SESSION["arr_kws_state"]) and count($_SESSION["arr_kws_state"]) > 0) {
         $kws = array();
@@ -145,9 +145,7 @@ function meta_kws_markup_state_amount()
     } else {
         $markup = "Нет сохранённого состояния набора.";
     }
-    $markup = "<div class='saved_set'>{$markup}</div>";
-
-    return $markup;
+    return "<div class='saved_set'>$markup</div>";
 }
 
 /**
@@ -156,7 +154,7 @@ function meta_kws_markup_state_amount()
  * @param integer $max_choice_amount
  * @return array
  */
-function meta_kws_array_selection($mysqli_stmt, $count_arr_kws_query, $max_choice_amount)
+function meta_kws_array_selection(object $mysqli_stmt, int $count_arr_kws_query, int $max_choice_amount): ?array
 {
     if (!$mysqli_stmt->bind_param("ii", $count_arr_kws_query, $max_choice_amount)) {
         echo PHP_EOL . $mysqli_stmt->errno . PHP_EOL . $mysqli_stmt->error . PHP_EOL;
