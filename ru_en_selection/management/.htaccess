@@ -1,7 +1,7 @@
 # ACCESS
 #AuthType Basic
 #AuthName "META MANAGEMENT"
-#AuthUserFile /absolute_path_to/.htpasswd
+#AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
 #require valid-user
 
 # MAIN FILE OF META MANAGEMENT
