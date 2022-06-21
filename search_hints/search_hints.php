@@ -38,7 +38,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
           class='error'></span>
     <div class="content_right">
         <a href="#"
-           id="clear-button"
+           id="clear-button-basic"
            class="link-button"
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
@@ -68,6 +68,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            name="excluded_keywords_string"
            class="textarea-keywords"
            placeholder="Исключённые ключевые слова через запятую">
+    <div class="content_right">
+        <a href="#"
+           id="clear-button-excluded"
+           class="link-button"
+           title="Очистить поле исключённых ключевых слов">[x]</a>
+    </div>
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">

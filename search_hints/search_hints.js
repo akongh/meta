@@ -1,6 +1,7 @@
 let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
 let getBasicKeywordsButtonYoutube = document.querySelector("#get-basic-keywords-button-youtube");
-let clearButton = document.querySelector("#clear-button");
+let clearButtonBasic = document.querySelector("#clear-button-basic");
+let clearButtonExcluded = document.querySelector("#clear-button-excluded");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
@@ -11,9 +12,13 @@ getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListYoutube("from_youtube.php");
 }, false);
-clearButton.addEventListener("click", function (e) {
+clearButtonBasic.addEventListener("click", function (e) {
     e.preventDefault();
-    clearQuery();
+    clearQueryBasic();
+}, false);
+clearButtonExcluded.addEventListener("click", function (e) {
+    e.preventDefault();
+    clearQueryExcluded();
 }, false);
 
 
@@ -165,9 +170,13 @@ function selectResult() {
     select.addRange(selectRange);
 }
 
-function clearQuery() {
+function clearQueryBasic() {
     document.getElementById("basic_keywords_string").value = "";
     document.querySelector("#error-hints").innerHTML = "";
+}
+
+function clearQueryExcluded() {
+    document.getElementById("excluded_keywords_string").value = "";
 }
 
 function disableGetBasicKeywordsButton() {
