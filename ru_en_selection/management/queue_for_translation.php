@@ -28,37 +28,4 @@ if (0 < $amount_kws_for_translation) {
 }
 
 //var_dump($_SESSION);
-?>
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title>МЕТА. Очередь заявок на перевод</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-          href="/_third_party/normalize.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="/style.css"
-          type="text/css">
-    <?php
-    echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/../_meta_privacy/analytics_code'); ?>
-</head>
-<body>
-<div class="wrap">
-    <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
-    <h1>Очередь заявок на перевод</h1>
-    <div class="wrap_list_kws">
-        <?= $html_kws_for_translation; ?>
-    </div>
-    <div class="amount_kws">
-        <?= "<span class='amount'>$amount_kws_for_translation</span>"; ?>
-    </div>
-    <?php
-    require($_SERVER["DOCUMENT_ROOT"] . "/footer.php"); ?>
-</div>
-</body>
-</html>
+require($_SERVER["DOCUMENT_ROOT"] . '/ru_en_selection/management/includes/queue_for_translation.php');

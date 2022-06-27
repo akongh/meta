@@ -39,6 +39,8 @@
     <a href="add_in_request.php">Сброс в заявку (рус.)</a>
     <hr class="otbivka_6">
     <a href="add_related_in_request.php">Заявка на перевод (рус.)</a>
+    <hr class="otbivka_24">
+    <a href="queue_for_translation.php">Очередь заявок на перевод</a>
     <hr class="otbivka_48">
     <hr class="cherta">
     <hr class="otbivka_24">
