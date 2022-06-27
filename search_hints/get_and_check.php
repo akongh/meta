@@ -8,7 +8,7 @@ $related_parameter = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
 $excluded_keywords_array = [];
 
-if ("" !== trim($php_input_to_array[2])) {
+if (isset($php_input_to_array[2]) && "" !== trim($php_input_to_array[2])) {
     $excluded_keywords_array = explode(",", $php_input_to_array[2]);
 
     foreach ($excluded_keywords_array as $key => $value) {
