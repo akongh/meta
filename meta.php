@@ -33,13 +33,6 @@ unset($_POST);
     <div class="tool_list">
         <div class="tool_title">
             <h2>
-                <a href="/search_hints/search_hints.php"
-                   title="Поисковые подсказки">Поисковые подсказки</a>
-            </h2>
-            <p>Просмотр поисковых подсказок ключевых слов.</p>
-        </div>
-        <div class="tool_title">
-            <h2>
                 <a href="/ru_en_selection/step_1.php"
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
