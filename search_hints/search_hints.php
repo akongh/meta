@@ -56,12 +56,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
     <label><input type="radio"
-                  name="a_z_youtube"
-                  value="no_a-z"
-                  checked> no a-z</label>
+                  name="0-z_youtube"
+                  value="no_0-z"
+                  checked> no 0-z</label>
     <label><input type="radio"
-                  name="a_z_youtube"
-                  value="a-z"> a-z</label>
+                  name="0-z_youtube"
+                  value="0-z"> 0-z</label>
     <label for="excluded_keywords_string"></label>
     <input type="text"
            id="excluded_keywords_string"

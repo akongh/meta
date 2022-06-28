@@ -5,7 +5,7 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-if ("no_a-z" === $related_parameter) {
+if ("no_0-z" === $related_parameter) {
     $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
     $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
 
@@ -15,8 +15,8 @@ if ("no_a-z" === $related_parameter) {
     }
 
     $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
-} else if ("a-z" === $related_parameter) {
-    $a_z_letters_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+} else if ("0-z" === $related_parameter) {
+    $a_z_letters_array = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     foreach ($a_z_letters_array as $value) {
         $a_z_basic_keywords_string = $basic_keywords_string . $value;
