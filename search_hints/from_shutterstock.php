@@ -6,10 +6,8 @@ error_reporting(-1);
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
 $shutterstock_response = SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
-$clean_shutterstock_response = CLEANING_FOR_ONE_SHUTTERSTOCK_RESPONSE($shutterstock_response);
-$shutterstock_result = json_encode($clean_shutterstock_response, JSON_UNESCAPED_UNICODE);
 
-echo($shutterstock_result);
+echo($shutterstock_response);
 
 
 /**
@@ -28,10 +26,10 @@ function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keywor
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
-    $anticache_time = time();
-    $anticache_num = rand(100, 999);
-    $anticache_id = $anticache_time . $anticache_num;
-    $url = "https://www.shutterstock.com/api/autocomplete?q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&_=" . $anticache_id;
+    $url = "https://www.shutterstock.com/napi/autocomplete?pageSize=&q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&language=en";
+    //https://www.shutterstock.com/napi/autocomplete?pageSize=100&q=h&mediaType=video&language=en
+    //https://www.shutterstock.com/napi/tracks/autocomplete?page[size]=30&channel=shutterstock&q=g&language=en&pageSize=30
+    //https://www.shutterstock.com/napi/autocomplete?q=a&mediaType=sfx&language=en
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
@@ -40,18 +38,4 @@ function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keywor
     curl_close($sesion);
 
     return $shutterstock_response;
-}
-
-/**
- * Очищает от служебной информации массив подсказок для одного shutterstock-ответа.
- *
- * @param string $_PARAM_shutterstock_response
- * @return array
- */
-function CLEANING_FOR_ONE_SHUTTERSTOCK_RESPONSE(string $_PARAM_shutterstock_response): array
-{
-    $clean_shutterstock_response = preg_replace("/ {2,}/", " ", $_PARAM_shutterstock_response);
-    $clean_shutterstock_response = json_decode($clean_shutterstock_response, true);
-
-    return $clean_shutterstock_response["data"]["autocompletions"];
 }

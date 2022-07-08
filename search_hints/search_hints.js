@@ -92,10 +92,8 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
-            PARAM_hintsObjectsArray[i]["pattern"] +
-            "</span> — " +
-            PARAM_hintsObjectsArray[i]["probability"] +
-            "</div>";
+            PARAM_hintsObjectsArray[i] +
+            "</span></div>";
     }
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
