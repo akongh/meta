@@ -630,7 +630,7 @@ input[type="text"] {
 .result span:hover,
 .hint-copy-box:hover {
     cursor: pointer;
-    background-color: #eeeeee;
+    background-color: #ffffbb;
 }
 
 .result .hover-invert:hover {
@@ -819,7 +819,6 @@ input[type="text"] {
     line-height: 1.6;
 }
 
-.youtube-hint-hover {
+.hint-hover {
     font-weight: 700;
-
 }

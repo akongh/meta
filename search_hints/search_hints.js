@@ -87,25 +87,35 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     request.send(PARAM_requestSet);
 }
 
-function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
-    let listResultArray = [];
-
-    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box'><span class='hover-invert'>" +
-            PARAM_hintsObjectsArray[i] +
-            "</span></div>";
+function selectResultkeywordPatternToQuery() {
+    let resultItem = document.querySelectorAll("#hint-hover");
+    for (let i = 0; i < resultItem.length; i++) {
+        resultItem[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        resultItem[i].addEventListener("click", selectResult);
     }
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
-
-    let hintKeywords = document.querySelectorAll(".hover-invert");
-
+    let hintKeywords = document.querySelectorAll(".hint-hover");
     for (let i = 0; i < hintKeywords.length; i++) {
         hintKeywords[i].addEventListener("click", function (e) {
             e.stopPropagation();
         }, false);
         hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
+}
+
+function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
+    let listResultArray = [];
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArray[i] = "<div class='hint-box'>" +
+            "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+            "</div>";
+    }
+
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    selectResultkeywordPatternToQuery();
 }
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
@@ -119,7 +129,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
                 "</div>";
         } else {
             listResultArray[i] = "<div class='hint-box'>" +
-                "<span id='youtube-hint-hover' class='youtube-hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+                "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
                 " → " +
                 "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
                 " | " +
@@ -139,25 +149,10 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         listResultArrayCopy.join("") +
         "</div>";
 
-    let resultItem = document.querySelectorAll("#youtube-hint-hover");
-    for (let i = 0; i < resultItem.length; i++) {
-        resultItem[i].addEventListener("click", function (e) {
-            e.stopPropagation();
-        }, false);
-        resultItem[i].addEventListener("click", selectResult);
-    }
+    selectResultkeywordPatternToQuery();
 
     let resultNode = document.querySelector("#hint-copy-box");
     resultNode.addEventListener('click', selectResult);
-
-    let hintKeywords = document.querySelectorAll(".youtube-hint-hover");
-
-    for (let i = 0; i < hintKeywords.length; i++) {
-        hintKeywords[i].addEventListener("click", function (e) {
-            e.stopPropagation();
-        }, false);
-        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
-    }
 }
 
 function selectResult() {
