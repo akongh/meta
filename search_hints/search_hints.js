@@ -71,7 +71,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Только латиница, цифры, пробел, дефис, апостроф, амперсанд и подчерк.";
+                document.querySelector("#error-hints").innerHTML = "Только кириллица, латиница, цифры, пробел, дефис, апостроф, амперсанд и подчерк.";
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-3") {
