@@ -23,9 +23,6 @@ echo($shutterstock_response);
  */
 function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type)
 {
-    if ($_PARAM_basic_keyword != "") {
-        $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
-    }
     $url = "https://www.shutterstock.com/napi/autocomplete?pageSize=&q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&language=en";
     //https://www.shutterstock.com/napi/autocomplete?pageSize=100&q=h&mediaType=video&language=en
     //https://www.shutterstock.com/napi/tracks/autocomplete?page[size]=30&channel=shutterstock&q=g&language=en&pageSize=30
