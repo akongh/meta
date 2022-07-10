@@ -6,6 +6,9 @@ error_reporting(-1);
 $php_input_to_array = explode("\n", mb_strtolower(file_get_contents("php://input")));
 $related_parameter = $php_input_to_array[0];
 $basic_keywords_string = $php_input_to_array[1];
+if (isset($php_input_to_array[2])) {
+    $param0_z = $php_input_to_array[2];
+}
 $excluded_keywords_array = [];
 
 if (isset($php_input_to_array[2]) && "" !== trim($php_input_to_array[2])) {

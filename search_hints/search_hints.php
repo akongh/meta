@@ -77,6 +77,24 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">
+    <label><input type="radio"
+                  name="media_type_pond5"
+                  value="footage"
+                  checked> Footage</label>
+    <label><input type="radio"
+                  name="media_type_pond5"
+                  value="sfx"> SFX</label>
+    |
+    <label><input type="radio"
+                  name="0-z_pond5"
+                  value="no_0-z"
+                  checked> no 0-z</label>
+    <label><input type="radio"
+                  name="0-z_pond5"
+                  value="0-z"> 0-z</label>
+    <input type="submit"
+           id="get-basic-keywords-button-pond5"
+           value="From Pond5">
     <div id="hints-area" class="result">Список подсказок пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>

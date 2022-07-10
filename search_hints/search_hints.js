@@ -1,5 +1,6 @@
 let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keywords-button-shutterstock");
 let getBasicKeywordsButtonYoutube = document.querySelector("#get-basic-keywords-button-youtube");
+let getBasicKeywordsButtonPond5 = document.querySelector("#get-basic-keywords-button-pond5");
 let clearButtonBasic = document.querySelector("#clear-button-basic");
 let clearButtonExcluded = document.querySelector("#clear-button-excluded");
 
@@ -11,6 +12,10 @@ getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
 getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListYoutube("from_youtube.php");
+}, false);
+getBasicKeywordsButtonPond5.addEventListener("click", function (e) {
+    e.preventDefault();
+    sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
 }, false);
 clearButtonBasic.addEventListener("click", function (e) {
     e.preventDefault();
@@ -57,6 +62,24 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
         return false;
     } else {
         createHTMLHintsListYoutube(window.hintsObjectsArray);
+        setTimeout("enableGetBasicKeywordsButton()", 200);
+    }
+}
+
+function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
+    clearErrors();
+    disableGetBasicKeywordsButton();
+    let url = PARAM_url;
+    let mediaType = document.querySelector("input[name='media_type_pond5']:checked").value;
+    let param0Z = document.querySelector("input[name='0-z_pond5']:checked").value;
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+    let requestSet = mediaType + "\n" + basicKeywordsString + "\n" + param0Z;
+
+    newXMLHttpRequest(url, requestSet);
+    if (window.hintsObjectsArray === "") {
+        return false;
+    } else {
+        createHTMLHintsListPond5(window.hintsObjectsArray);
         setTimeout("enableGetBasicKeywordsButton()", 200);
     }
 }
@@ -155,6 +178,19 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     resultNode.addEventListener('click', selectResult);
 }
 
+function createHTMLHintsListPond5(PARAM_hintsObjectsArray) {
+    let listResultArray = [];
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArray[i] = "<div class='hint-box'>" +
+            "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+            "</div>";
+    }
+
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    selectResultkeywordPatternToQuery();
+}
+
 function selectResult() {
     let selectRange = document.createRange();
     selectRange.selectNodeContents(this);
@@ -182,6 +218,11 @@ function disableGetBasicKeywordsButton() {
     getBasicKeywordsButtonYoutube.value = "";
     getBasicKeywordsButtonYoutube.style.background = "#dddddd";
     getBasicKeywordsButtonYoutube.style.cursor = "default";
+
+    getBasicKeywordsButtonPond5.disabled = true;
+    getBasicKeywordsButtonPond5.value = "";
+    getBasicKeywordsButtonPond5.style.background = "#dddddd";
+    getBasicKeywordsButtonPond5.style.cursor = "default";
 }
 
 function enableGetBasicKeywordsButton() {
@@ -194,6 +235,11 @@ function enableGetBasicKeywordsButton() {
     getBasicKeywordsButtonYoutube.value = "От Ютуба";
     getBasicKeywordsButtonYoutube.style.background = "";
     getBasicKeywordsButtonYoutube.style.cursor = "";
+
+    getBasicKeywordsButtonPond5.disabled = false;
+    getBasicKeywordsButtonPond5.value = "From Pond5";
+    getBasicKeywordsButtonPond5.style.background = "";
+    getBasicKeywordsButtonPond5.style.cursor = "";
 }
 
 function clearErrors() {
