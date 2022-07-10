@@ -180,10 +180,17 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
 
 function createHTMLHintsListPond5(PARAM_hintsObjectsArray) {
     let listResultArray = [];
+
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box'>" +
-            "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
-            "</div>";
+        if (PARAM_hintsObjectsArray[i].includes('----', 7)) {
+            listResultArray[i] = "<div class='hint-box-letter'>" +
+                PARAM_hintsObjectsArray[i] +
+                "</div>";
+        } else {
+            listResultArray[i] = "<div class='hint-box'>" +
+                "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+                "</div>";
+        }
     }
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");

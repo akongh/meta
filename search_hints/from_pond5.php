@@ -5,7 +5,7 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-if ("" === trim($basic_keywords_string)) {
+if ("" === trim($basic_keywords_string) && "no_0-z" === $param0_z) {
     echo("-3");
     exit;
 }
