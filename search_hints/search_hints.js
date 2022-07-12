@@ -186,6 +186,8 @@ function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
             listResultArray[i] = "<div class='hint-box-letter'>" +
                 PARAM_hintsObjectsArray[i] +
                 "</div>";
+        } else if (PARAM_hintsObjectsArray[i].includes('no_result')) {
+            listResultArray[i] = "<div class='hint-box'>No result.</div>";
         } else {
             listResultArray[i] = "<div class='hint-box'>" +
                 "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +

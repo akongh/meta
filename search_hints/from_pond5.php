@@ -13,7 +13,11 @@ if ("" === trim($basic_keywords_string) && "no_0-z" === $param0_z) {
 if ("no_0-z" === $param0_z) {
     $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
     $pond5_result = json_decode($pond5_response);
-    $pond5_result = json_encode($pond5_result -> keywords);
+    if (is_string($pond5_result -> keywords)) {
+        $pond5_result = json_encode(["no_result"]);
+    } else {
+        $pond5_result = json_encode($pond5_result -> keywords);
+    }
 } else if ("0-z" === $param0_z) {
     $a_z_letters_array = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
