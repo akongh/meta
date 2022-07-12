@@ -79,7 +79,7 @@ function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
     if (window.hintsObjectsArray === "") {
         return false;
     } else {
-        createHTMLHintsListPond5(window.hintsObjectsArray);
+        createHTMLHintsListPond5(window.hintsObjectsArray, mediaType);
         setTimeout("enableGetBasicKeywordsButton()", 200);
     }
 }
@@ -178,7 +178,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     resultNode.addEventListener('click', selectResult);
 }
 
-function createHTMLHintsListPond5(PARAM_hintsObjectsArray) {
+function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
     let listResultArray = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -189,6 +189,8 @@ function createHTMLHintsListPond5(PARAM_hintsObjectsArray) {
         } else {
             listResultArray[i] = "<div class='hint-box'>" +
                 "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
+                " → " +
+                "<a href='https://www.pond5.com/search?kw=" + PARAM_hintsObjectsArray[i] + "&media=" + PARAM_mediaType + "' target='_blank'>Pond5 (" + PARAM_mediaType + ")</a>" +
                 "</div>";
         }
     }
