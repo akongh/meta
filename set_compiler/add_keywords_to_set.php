@@ -24,6 +24,7 @@ if ("" === trim($basic_keywords_string)) {
 }
 
 $basic_keywords_string = mb_strtolower(preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string));
+//$basic_keywords_string = preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string);
 $basic_keywords_array = preg_split("/[\n,;]/u", $basic_keywords_string, -1, PREG_SPLIT_NO_EMPTY);
 if ("false" === $get_data_to_array[1]) {
     foreach ($basic_keywords_array as &$value) {
