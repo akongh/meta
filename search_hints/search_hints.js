@@ -147,8 +147,8 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 }
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
-    let googleTrendsKeywordsString = "";
-    if (document.querySelector("#google_trends_keywords_string").value !== "") {
+    let googleTrendsKeywordsString = document.querySelector("#google_trends_keywords_string").value;
+    if (googleTrendsKeywordsString !== "") {
         googleTrendsKeywordsString = googleTrendsKeywordsString + ",";
     }
     let listResultArray = [];
