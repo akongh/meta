@@ -62,6 +62,18 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="0-z_youtube"
                   value="0-z"> 0-z</label>
+    <label for="google_trends_keywords_string"></label>
+    <input type="text"
+           id="google_trends_keywords_string"
+           name="google_trends_keywords_string"
+           class="textarea-keywords"
+           placeholder="Ключевые слова для сравнения в Google Trends">
+    <div class="content_right">
+        <a href="#"
+           id="clear-button-google-trends"
+           class="link-button"
+           title="Очистить поле ключевых слов для сравнения в Google Trends">[x]</a>
+    </div>
     <label for="excluded_keywords_string"></label>
     <input type="text"
            id="excluded_keywords_string"
