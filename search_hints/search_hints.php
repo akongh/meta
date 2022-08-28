@@ -42,6 +42,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            class="link-button"
            title="Очистить поле опорных ключевых слов">[x]</a>
     </div>
+    <hr class="otbivka_64">
     <label><input type="radio"
                   name="media_type_shutterstock"
                   value="image"
@@ -67,7 +68,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="google_trends_keywords_string"
            name="google_trends_keywords_string"
            class="textarea-keywords"
-           placeholder="Ключевые слова для сравнения в Google Trends">
+           placeholder="Ключевые слова для сравнения в Google Trends через запятую без пробела">
     <div class="content_right">
         <a href="#"
            id="clear-button-google-trends"
