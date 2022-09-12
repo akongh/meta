@@ -6,6 +6,7 @@ let clearTranslationButton = document.querySelector("#clear-translation-button")
 let clearButton = document.querySelector("#clear-button");
 
 let addKeywordsToSetButton = document.querySelector("#add-keywords-to-set-button");
+let addSimilarYoutubeSearchQueriesToSetButton = document.querySelector("#similar-youtube-search-queries");
 
 let rankHintsListButton = document.querySelector("#rank-hints-list-button");
 let returnToListViewButton = document.querySelector("#return-to-list-view-button");
@@ -26,6 +27,10 @@ window.onload = viewHideUpButton();
 addKeywordsToSetButton.addEventListener("click", function (e) {
     e.preventDefault();
     addKeywordsToSet("add_keywords_to_set.php");
+}, false);
+addSimilarYoutubeSearchQueriesToSetButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    addSimilarYoutubeSearchQueriesToSet();
 }, false);
 clearButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -139,6 +144,41 @@ function addKeywordsToSet(PARAM_url) {
 
     request.open("POST", PARAM_url, true);
     request.send(sendingDataJSON);
+}
+
+function addSimilarYoutubeSearchQueriesToSet() {
+    clearErrors();
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+
+    basicKeywordsString.replace(/,/g, "");
+
+    let basicKeywordsArray = basicKeywordsString.split("\n");
+    let resultArray = basicKeywordsArray.map(Item => {
+        let ItemAzView = Item.split(" ").sort().join("");
+
+        return ItemAzView + " | " + Item;
+    });
+
+    window.hintsObjectsArray = resultArray.sort();
+
+    countHintsTotalAndSelected();
+
+    let listResultArray = [];
+    let statusClass = " hint-box-select";
+
+    for (let i = 0; i < window.hintsObjectsArray.length; i++) {
+        listResultArray[i] = "<div class='hint-box" + statusClass +"'>" +
+            "<span>" + window.hintsObjectsArray[i] + "</span>" +
+            "</div>";
+    }
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    let hintBoxes = document.querySelectorAll(".hint-box");
+    for (let i = 0; i < hintBoxes.length; i++) {
+        hintBoxes[i].addEventListener("click", selectDeselectHint);
+    }
+
+    document.querySelector("#basic_keywords_string").value = "";
 }
 
 function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {

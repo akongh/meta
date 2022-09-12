@@ -82,6 +82,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="add-keywords-to-set-button"
            value="Добавить в список">
+    <input type="submit"
+           id="similar-youtube-search-queries"
+           value="Similar YouTube search queries">
     <a id="top"></a>
     <div class="links_block">
         <a href="#"
