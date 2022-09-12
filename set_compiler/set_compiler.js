@@ -172,12 +172,6 @@ function addSimilarYoutubeSearchQueriesToSet() {
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
-
-    let hintBoxes = document.querySelectorAll(".hint-box");
-    for (let i = 0; i < hintBoxes.length; i++) {
-        hintBoxes[i].addEventListener("click", selectDeselectHint);
-    }
-
     document.querySelector("#basic_keywords_string").value = "";
 }
 
