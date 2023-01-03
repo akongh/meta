@@ -14,7 +14,7 @@ for ($i = 0; $i < count($queries_array); $i++) {
     $queries_array[$i] = trim($queries_array[$i]);
 }
 
-$queries_array = array_values(array_unique((array_diff($queries_array, array("")))));
+$queries_array = array_values(array_unique((array)(array_diff($queries_array, array("")))));
 
 if (count($queries_array) == 0) {
     echo('-1');
@@ -26,8 +26,8 @@ if ($level > count($queries_array)) {
 }
 
 $array_main_kw = array_slice($queries_array, 0, $level);
-$string_main_kw = implode(', ', $array_main_kw);
-$array_other_kw = array_values(array_diff($queries_array, $array_main_kw));
+$string_main_kw = implode((array)', ', $array_main_kw);
+$array_other_kw = array_values((array)array_diff($queries_array, (array)$array_main_kw));
 
 //var_dump( $array_main_kw );
 //var_dump( $string_main_kw );
