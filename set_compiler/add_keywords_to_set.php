@@ -9,7 +9,7 @@ $get_data = file_get_contents("php://input");
 $get_data_to_array = json_decode($get_data, true);
 
 $basic_keywords_string = $get_data_to_array[0];
-$data_width = 32768;
+$data_width = 524288;
 
 if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     //зачем я тут сохранил в переменную подстроку? Может на всякий случай, чтобы потом её вывести обрезанную, если буду переделывать логику?
@@ -23,8 +23,8 @@ if ("" === trim($basic_keywords_string)) {
     exit;
 }
 
-$basic_keywords_string = mb_strtolower(preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string));
-//$basic_keywords_string = preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string);
+$basic_keywords_string = preg_replace(["/ {2,}/u"], [" "], $basic_keywords_string);
+$basic_keywords_string = mb_strtolower($basic_keywords_string);
 $basic_keywords_array = preg_split("/[\n,;]/u", $basic_keywords_string, -1, PREG_SPLIT_NO_EMPTY);
 if ("false" === $get_data_to_array[1]) {
     foreach ($basic_keywords_array as &$value) {
@@ -34,7 +34,7 @@ if ("false" === $get_data_to_array[1]) {
 }
 $basic_keywords_array = array_values(array_unique(array_diff($basic_keywords_array, array(""))));
 
-if (count($basic_keywords_array) > 1024) {
+if (count($basic_keywords_array) > 20480) {
     echo("err_3");
     exit;
 }
@@ -52,7 +52,8 @@ $result_array = array();
 foreach ($basic_keywords_array as $element) {
     $result_array[] = [
         "hint" => $element,
-        "translation" => SELECT_TRANSLATION($element, $mysqli)
+//        "translation" => SELECT_TRANSLATION($element, $mysqli)
+        "translation" => ["-"]
     ];
 }
 
