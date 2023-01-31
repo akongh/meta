@@ -171,21 +171,21 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         }
     }
 
-    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        listResultArrayCopy[i] = "<div class='hint-box'>" +
-            PARAM_hintsObjectsArray[i] +
-            "</div>";
-    }
+    // for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+    //     listResultArrayCopy[i] = "<div class='hint-box'>" +
+    //         PARAM_hintsObjectsArray[i] +
+    //         "</div>";
+    // }
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("") +
-        "<div id='hint-copy-box' class='hint-copy-box'>" +
-        listResultArrayCopy.join("") +
-        "</div>";
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("") //+
+        // "<div id='hint-copy-box' class='hint-copy-box'>" +
+        // listResultArrayCopy.join("") +
+        // "</div>";
 
     selectResultkeywordPatternToQuery();
 
-    let resultNode = document.querySelector("#hint-copy-box");
-    resultNode.addEventListener('click', selectResult);
+    // let resultNode = document.querySelector("#hint-copy-box");
+    // resultNode.addEventListener('click', selectResult);
 }
 
 function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
