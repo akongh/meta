@@ -165,7 +165,8 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
                 " → " +
                 "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
                 " | " +
-                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
+                // "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
+                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
                 "</div>";
         }
     }
