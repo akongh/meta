@@ -348,7 +348,7 @@ function createResultList() {
 
             document.querySelector("#hints-area").innerHTML =
                 "<span id='select-result'>" +
-                resultArray.join(",\n") +
+                resultArray.join("\n") +
                 "</span>";
             let resultNode = document.querySelector("#select-result");
             resultNode.addEventListener('click', selectResult);
