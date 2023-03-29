@@ -152,6 +152,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         googleTrendsKeywordsString = googleTrendsKeywordsString + ",";
     }
     let listResultArray = [];
+    // LIST TO SELECTION
     let listResultArrayCopy = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
@@ -165,27 +166,34 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
                 " → " +
                 "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
                 " | " +
-                // "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
-                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends</a>" +
+                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends (all_2008)</a>" +
+                " | " +
+                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends (today 12-m)</a>" +
                 "</div>";
         }
     }
 
-    // for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-    //     listResultArrayCopy[i] = "<div class='hint-box'>" +
-    //         PARAM_hintsObjectsArray[i] +
-    //         "</div>";
-    // }
+    // LIST TO SELECTION START
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        listResultArrayCopy[i] = "<div class='hint-box'>" +
+            PARAM_hintsObjectsArray[i] +
+            "</div>";
+    }
+    // LIST TO SELECTION END
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("") //+
-        // "<div id='hint-copy-box' class='hint-copy-box'>" +
-        // listResultArrayCopy.join("") +
-        // "</div>";
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("")
+        // LIST TO SELECTION START
+        + "<div id='hint-copy-box' class='hint-copy-box'>" +
+        listResultArrayCopy.join("") +
+        "</div>";
+    // LIST TO SELECTION END
 
     selectResultkeywordPatternToQuery();
 
-    // let resultNode = document.querySelector("#hint-copy-box");
-    // resultNode.addEventListener('click', selectResult);
+    // LIST TO SELECTION START
+    let resultNode = document.querySelector("#hint-copy-box");
+    resultNode.addEventListener('click', selectResult);
+    // LIST TO SELECTION END
 }
 
 function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
