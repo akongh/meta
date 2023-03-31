@@ -39,7 +39,7 @@ if ($author == '') {
 }
 
 $search_url = implode("", [
-    "https://www.shutterstock.com/_next/data/ /en/_shutterstock/search/food.json?",
+    "https://www.shutterstock.com/_next/data/ /en/_shutterstock/search/$keyword.json?",
     "$image_type",
     "term=$keyword"
 ]);
