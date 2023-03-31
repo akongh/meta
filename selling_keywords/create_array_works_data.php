@@ -17,12 +17,12 @@ if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
     $keyword = $slash = "";
 }
 
-$country = RANDOM_SELECT_STRING($array_countries);
+// $country = RANDOM_SELECT_STRING($array_countries);
 
 if ("all" == $_POST['imageType']) {
     $image_type = "";
 } else {
-    $image_type = "image_type={$_POST['imageType']}";
+    $image_type = "image_type={$_POST['imageType']}&";
 }
 
 $amount = 100;
@@ -40,10 +40,10 @@ if ($author == '') {
 }
 
 $search_url = implode("", [
-    "https://www.shutterstock.com/_next/data/ /$country/_shutterstock/search/food.json?",
-    "image_type=$image_type&",
+    "https://www.shutterstock.com/_next/data/ /en/_shutterstock/search/food.json?",
+    "$image_type",
     "term=$keyword"
-]);
+]);echo $search_url;
 
 $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 $url = CREATE_URL($array_works_data);
