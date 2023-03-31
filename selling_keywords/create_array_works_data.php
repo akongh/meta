@@ -47,8 +47,9 @@ $search_url = implode("", [
 $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 $url = CREATE_URL($array_works_data);
 $json_selling_keywords = USE_CURL($url, $useragent, $cookies);
-file_put_contents('selling_keywords.json', $json_selling_keywords);
+file_put_contents('json_selling_keywords.json', $json_selling_keywords);
 $array_selling_keywords = json_decode($json_selling_keywords, true)[0];
+file_put_contents('array_selling_keywords.json', json_encode($array_selling_keywords));
 
 foreach ($array_works_data as &$element_1) {
     foreach ($array_selling_keywords as $element_2) {
@@ -107,7 +108,7 @@ function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, str
         ];
     }
 
-    file_put_contents('id_title_img_link.json', json_encode($array_works_data));
+    file_put_contents('array_works_data.json', json_encode($array_works_data));
 
     return $array_works_data;
 }
