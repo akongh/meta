@@ -43,7 +43,7 @@ $search_url = implode("", [
     "https://www.shutterstock.com/_next/data/ /en/_shutterstock/search/food.json?",
     "$image_type",
     "term=$keyword"
-]);echo $search_url;
+]);
 
 $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 $url = CREATE_URL($array_works_data);
@@ -89,7 +89,7 @@ function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, str
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
     file_put_contents('responce_data_from_shutterstock.json', $data);
-    $array_works_block = json_decode($data, true)["data"];
+    $array_works_block = json_decode($data, true){"pageProps"}["assets"];
 
     if (count($array_works_block) == 0) {
         echo('-1');
@@ -101,9 +101,9 @@ function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, str
     foreach ($array_works_block as $element) {
         $array_works_data[] = [
             'id' => $element['id'],
-            'title' => $element['attributes']["title"],
-            'img' => '<img src="' . $element['attributes']["displays"]["260nw"]["src"] . '">',
-            "link" => $element['attributes']["link"]
+            'title' => $element["title"],
+            'img' => '<img src="' . $element["src"] . '">',
+            "link" => $element["link"]
         ];
     }
 
