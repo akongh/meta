@@ -83,7 +83,7 @@ function getSellingKeywordsData() {
 function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {//console.log(request.responseText);
+        if (request.readyState === 4 && request.status === 200) {console.log(request.responseText);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
