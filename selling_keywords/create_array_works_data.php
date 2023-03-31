@@ -22,7 +22,7 @@ $country = RANDOM_SELECT_STRING($array_countries);
 if ("all" == $_POST['imageType']) {
     $image_type = "";
 } else {
-    $image_type = "&filter[image_type]={$_POST['imageType']}";
+    $image_type = "image_type={$_POST['imageType']}";
 }
 
 $amount = 100;
@@ -32,6 +32,7 @@ $cookies = RANDOM_SELECT_STRING($array_cookies);
 if ($author == '') {
     $author_id = "";
 } else {
+    // https://www.shutterstock.com/_next/data/ /en/_shutterstock/g/GatotAdri.json?portfolio-url-suffix=GatotAdri&q=concept
     $url = "https://www.shutterstock.com/studioapi/contributors?filter%5Bdisplay_name%5D=$author&include=contributor-stats";
     $author_info = USE_CURL($url, $useragent, $cookies);
     $author_info = json_decode($author_info, true);
@@ -39,32 +40,9 @@ if ($author == '') {
 }
 
 $search_url = implode("", [
-    "https://www.shutterstock.com/studioapi/images/search?",
-    "q=$keyword",
-    "&language=en",
-    "&country=$country",
-    "&page[size]=$amount",
-    "&page[number]=1",
-    "&recordActivity=false",
-    "&activity_type=footage_search",
-    "&include=contributor-limited-meta",
-    "&experiment=",
-    "&variant=",
-    "&allow_inject=true",
-    "&fields[images]=displays",
-    "&fields[images]=alt",
-    "&fields[images]=aspect",
-    "&fields[images]=title",
-    "&fields[images]=link",
-    "&fields[images]=image_type",
-    "&fields[images]=is_editorial",
-    "&fields[images]=has_model_release",
-    "&fields[images]=has_property_release",
-    $image_type,
-    "&filter[is_adult_content]=true",
-    "&queryTranslations=false",
-    $author_id,
-    "&sort=popular"
+    "https://www.shutterstock.com/_next/data/ /$country/_shutterstock/search/food.json?",
+    "image_type=$image_type&",
+    "term=$keyword"
 ]);
 
 $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
