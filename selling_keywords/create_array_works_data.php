@@ -47,6 +47,7 @@ $search_url = implode("", [
 $array_works_data = ARRAY_WORKS_DATA_JSON($search_url, $useragent, $cookies);
 $url = CREATE_URL($array_works_data);
 $json_selling_keywords = USE_CURL($url, $useragent, $cookies);
+file_put_contents('selling_keywords.json', $json_selling_keywords);
 $array_selling_keywords = json_decode($json_selling_keywords, true)[0];
 
 foreach ($array_works_data as &$element_1) {
