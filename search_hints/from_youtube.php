@@ -58,7 +58,20 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
-    $url="https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&hl=en&gl=us&gs_rn=&gs_ri=youtube&tok=&ds=yt&cp=&gs_id=&q=". $_PARAM_basic_keyword . "&callback=google.sbox.p50&gs_gbg=";
+    $url="https://suggestqueries-clients6.youtube.com/complete/search?" .
+    "client=youtube" .
+    "&hl=en" .
+    "&gl=us" .
+    "&sugexp=ytamtz_c,ytpo.bo.me=0,ytposo.bo.me=0,cfro=1,ytpo.bo.me=1,ytposo.bo.me=1,ytpo.bo.zo.mq=5,ytposo.bo.zo.mq=5,ytpo.bo.zo.fc=1,ytposo.bo.zo.fc=1,ytpo.bo.zo.ecu=1,ytposo.bo.zo.ecu=1" .
+    "&gs_rn=64" .
+    "&gs_ri=youtube" .
+    "&tok=3ifvXoQbBRZlAfbNj-duaw" .
+    "&ds=yt" .
+    "&cp=4" .
+    "&gs_id=7r" .
+    "&q=". $_PARAM_basic_keyword .
+    "&callback=callback" .
+    "&gs_gbg=Hy57dIyj09E9rFrisoJQ9mZPT3A4wwq";
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
@@ -78,7 +91,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
  */
 function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response, array $_PARAM_excluded_keywords_array)
 {
-    $clean_youtube_response = preg_replace("/^google\.sbox\.p50 && google\.sbox\.p50\(/", "", $_PARAM_youtube_response);
+    $clean_youtube_response = preg_replace("/^callback && callback\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)$/", "", $clean_youtube_response);
 
     $clean_youtube_response = json_decode($clean_youtube_response);
