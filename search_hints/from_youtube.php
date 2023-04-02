@@ -61,7 +61,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
     $url="https://suggestqueries-clients6.youtube.com/complete/search?" .
     "client=youtube" .
     "&hl=en" .
-    "&gl=us" . // add multiple countries
+    "&gl=ca" . // add multiple countries
     "&ds=yt" .
     "&q=". $_PARAM_basic_keyword .
     "&callback=callback";
