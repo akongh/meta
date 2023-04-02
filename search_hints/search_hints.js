@@ -164,11 +164,11 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
             listResultArray[i] = "<div class='hint-box'>" +
                 "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
                 " → " +
-                "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YouTube</a>" +
-                " | " +
-                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends (all)</a>" +
-                " | " +
-                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>Google Trends (last 12 m)</a>" +
+                "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YT</a>" +
+                " " +
+                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>GTall</a>" +
+                " " +
+                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>GT12m</a>" +
                 "</div>";
         }
     }
