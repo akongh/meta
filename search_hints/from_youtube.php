@@ -63,6 +63,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
     "&hl=en" .
     "&gl=ca" . // add multiple countries
     "&ds=yt" .
+    "&cp=1" .
     "&q=". $_PARAM_basic_keyword .
     "&callback=callback";
     $sesion = curl_init();
