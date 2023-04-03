@@ -22,7 +22,7 @@ if ("no_0-z" === $related_parameter) {
 
     $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 } else if ("0-z" === $related_parameter) {
-    $a_z_letters_array = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    $a_z_letters_array = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 //    $a_z_letters_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     foreach ($a_z_letters_array as $value) {
@@ -65,14 +65,14 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, in
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
-    $url="https://suggestqueries-clients6.youtube.com/complete/search?" .
-    "client=youtube" .
-    "&hl=en" .
-    "&gl=ca" . // todo: need add select country option
-    "&ds=yt" .
-    "&cp=" . $_PARAM_cp .
-    "&q=" . $_PARAM_basic_keyword .
-    "&callback=callback";
+    $url = "https://suggestqueries-clients6.youtube.com/complete/search?" .
+        "client=youtube" .
+        "&hl=en" .
+        "&gl=ca" . // todo: need add select country option
+        "&ds=yt" .
+        "&cp=" . $_PARAM_cp .
+        "&q=" . $_PARAM_basic_keyword .
+        "&callback=callback";
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
