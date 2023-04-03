@@ -13,13 +13,13 @@ if ("" === trim($basic_keywords_string) && "no_0-z" === $param0_z) {
 if ("no_0-z" === $param0_z) {
     $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
     $pond5_result = json_decode($pond5_response);
-    if (is_string($pond5_result -> keywords)) {
+    if (is_string($pond5_result->keywords)) {
         $pond5_result = json_encode(["no_result"]);
     } else {
-        $pond5_result = json_encode($pond5_result -> keywords);
+        $pond5_result = json_encode($pond5_result->keywords);
     }
 } else if ("0-z" === $param0_z) {
-    $a_z_letters_array = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    $a_z_letters_array = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     foreach ($a_z_letters_array as $value) {
         $a_z_basic_keywords_string = $basic_keywords_string . $value;
@@ -28,8 +28,8 @@ if ("no_0-z" === $param0_z) {
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
 
-        if (isset($pond5_result -> keywords) && is_array($pond5_result -> keywords)) {
-            foreach ($pond5_result -> keywords as $value2) {
+        if (isset($pond5_result->keywords) && is_array($pond5_result->keywords)) {
+            foreach ($pond5_result->keywords as $value2) {
                 $a_z_hints_list[] = $value2;
             }
             unset($value2);
@@ -66,7 +66,7 @@ function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, stri
     } else {
         $filter = "p5_sfx_filter";
     }
-    $url="https://www.pond5.com/ajax/search/autocomplete?frag=" . $_PARAM_basic_keyword . "&lang=en_US&type=" . $_PARAM_media_type . "&search=" . $filter;
+    $url = "https://www.pond5.com/ajax/search/autocomplete?frag=" . $_PARAM_basic_keyword . "&lang=en_US&type=" . $_PARAM_media_type . "&search=" . $filter;
 
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
