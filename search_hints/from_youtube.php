@@ -5,8 +5,14 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
+if (false === strpos($basic_keywords_string, "*")) {
+    $cp = strlen($basic_keywords_string);
+} else {
+    $cp = strpos($basic_keywords_string, "*") + 1;
+}
+
 if ("no_0-z" === $related_parameter) {
-    $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string);
+    $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $cp);
     $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
 
     if ("" === $clean_youtube_response) {
@@ -21,7 +27,7 @@ if ("no_0-z" === $related_parameter) {
 
     foreach ($a_z_letters_array as $value) {
         $a_z_basic_keywords_string = $basic_keywords_string . $value;
-        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string);
+        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string, $cp);
         $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
@@ -51,9 +57,10 @@ echo($youtube_result);
  * Создаёт youtube-ответ для одного ОКС.
  *
  * @param string $_PARAM_basic_keyword
+ * @param int $_PARAM_cp
  * @return bool|string
  */
-function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
+function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, int $_PARAM_cp)
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
@@ -61,10 +68,10 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword)
     $url="https://suggestqueries-clients6.youtube.com/complete/search?" .
     "client=youtube" .
     "&hl=en" .
-    "&gl=ca" . // add multiple countries
+    "&gl=ca" . // todo: need add select country option
     "&ds=yt" .
-    "&cp=1" .
-    "&q=". $_PARAM_basic_keyword .
+    "&cp=" . $_PARAM_cp .
+    "&q=" . $_PARAM_basic_keyword .
     "&callback=callback";
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
