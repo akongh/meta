@@ -9,11 +9,8 @@ $basic_keywords_string = $php_input_to_array[1];
 if (isset($php_input_to_array[2])) {
     $param0_z = $php_input_to_array[2];
 }
-$excluded_keywords_array = [];
 
 if (isset($php_input_to_array[2]) && "" !== trim($php_input_to_array[2])) {
-    $excluded_keywords_array = explode(",", $php_input_to_array[2]);
-
     foreach ($excluded_keywords_array as $key => $value) {
         $excluded_keywords_array[$key] = preg_replace("/ {2,}/u", " ", $value);
         if ("" == $excluded_keywords_array[$key]) {
