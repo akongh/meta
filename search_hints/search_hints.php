@@ -75,18 +75,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            class="link-button"
            title="Очистить поле ключевых слов для сравнения в Google Trends">[x]</a>
     </div>
-    <label for="excluded_keywords_string"></label>
-    <input type="text"
-           id="excluded_keywords_string"
-           name="excluded_keywords_string"
-           class="textarea-keywords"
-           placeholder="Исключённые ключевые слова через запятую">
-    <div class="content_right">
-        <a href="#"
-           id="clear-button-excluded"
-           class="link-button"
-           title="Очистить поле исключённых ключевых слов">[x]</a>
-    </div>
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">

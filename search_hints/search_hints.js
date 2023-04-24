@@ -3,7 +3,6 @@ let getBasicKeywordsButtonYoutube = document.querySelector("#get-basic-keywords-
 let getBasicKeywordsButtonPond5 = document.querySelector("#get-basic-keywords-button-pond5");
 let clearButtonBasic = document.querySelector("#clear-button-basic");
 let clearButtonGoogleTrends = document.querySelector("#clear-button-google-trends");
-let clearButtonExcluded = document.querySelector("#clear-button-excluded");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
@@ -25,10 +24,6 @@ clearButtonBasic.addEventListener("click", function (e) {
 clearButtonGoogleTrends.addEventListener("click", function (e) {
     e.preventDefault();
     clearQueryGoogleTrends();
-}, false);
-clearButtonExcluded.addEventListener("click", function (e) {
-    e.preventDefault();
-    clearQueryExcluded();
 }, false);
 
 
@@ -236,10 +231,6 @@ function clearQueryBasic() {
 
 function clearQueryGoogleTrends() {
     document.getElementById("google_trends_keywords_string").value = "";
-}
-
-function clearQueryExcluded() {
-    document.getElementById("excluded_keywords_string").value = "";
 }
 
 function disableGetBasicKeywordsButton() {
