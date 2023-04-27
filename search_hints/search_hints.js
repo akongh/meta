@@ -54,8 +54,7 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let url = PARAM_url;
     let param0Z = document.querySelector("input[name='0-z_youtube']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-    let excludedKeywordsString = document.querySelector("#excluded_keywords_string").value;
-    let requestSet = param0Z + "\n" + basicKeywordsString + "\n" + excludedKeywordsString;
+    let requestSet = param0Z + "\n" + basicKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {
@@ -111,21 +110,13 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     request.send(PARAM_requestSet);
 }
 
-function selectResultkeywordPatternToQuery() {
+function selectResultkeywordPattern() {
     let resultItem = document.querySelectorAll("#hint-hover");
     for (let i = 0; i < resultItem.length; i++) {
         resultItem[i].addEventListener("click", function (e) {
             e.stopPropagation();
         }, false);
         resultItem[i].addEventListener("click", selectResult);
-    }
-
-    let hintKeywords = document.querySelectorAll(".hint-hover");
-    for (let i = 0; i < hintKeywords.length; i++) {
-        hintKeywords[i].addEventListener("click", function (e) {
-            e.stopPropagation();
-        }, false);
-        hintKeywords[i].addEventListener("click", keywordPatternToQuery);
     }
 }
 
@@ -139,7 +130,7 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
-    selectResultkeywordPatternToQuery();
+    selectResultkeywordPattern();
 }
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
@@ -184,7 +175,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         "</div>";
     // LIST TO SELECTION END
 
-    selectResultkeywordPatternToQuery();
+    selectResultkeywordPattern();
 
     // LIST TO SELECTION START
     let resultNode = document.querySelector("#hint-copy-box");
@@ -213,7 +204,7 @@ function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
-    selectResultkeywordPatternToQuery();
+    selectResultkeywordPattern();
 }
 
 function selectResult() {
@@ -269,8 +260,4 @@ function enableGetBasicKeywordsButton() {
 
 function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
-}
-
-function keywordPatternToQuery() {
-    document.querySelector("#basic_keywords_string").value = this.innerHTML.replace('&amp;', '&');
 }
