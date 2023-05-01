@@ -32,7 +32,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="basic_keywords_string"
            name="basic_keywords_string"
            class="textarea-keywords"
-           placeholder="Опорные ключевые слова"
+           placeholder="Поисковый запрос"
            autofocus>
     <span id="error-hints"
           class='error'></span>
@@ -40,7 +40,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
         <a href="#"
            id="clear-button-basic"
            class="link-button"
-           title="Очистить поле опорных ключевых слов">[x]</a>
+           title="Очистить поле поискового запроса">[x]</a>
     </div>
     <hr class="otbivka_64">
     <label><input type="radio"
@@ -68,12 +68,12 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="google_trends_keywords_string"
            name="google_trends_keywords_string"
            class="textarea-keywords"
-           placeholder="Ключевые слова для сравнения в Google Trends через запятую без пробела">
+           placeholder="Поисковые запросы для сравнения в Google Trends через запятую без пробела">
     <div class="content_right">
         <a href="#"
            id="clear-button-google-trends"
            class="link-button"
-           title="Очистить поле ключевых слов для сравнения в Google Trends">[x]</a>
+           title="Очистить поле поисковых запросов для сравнения в Google Trends">[x]</a>
     </div>
     <input type="submit"
            id="get-basic-keywords-button-youtube"

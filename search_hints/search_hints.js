@@ -89,11 +89,11 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {
             if (request.responseText === "-1") {
-                document.querySelector("#error-hints").innerHTML = "Слишком длинное опорное слово.";
+                document.querySelector("#error-hints").innerHTML = "Слишком длинный поисковый запрос.";
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-2") {
-                document.querySelector("#error-hints").innerHTML = "Недопустимый символ в опорном слове.";
+                document.querySelector("#error-hints").innerHTML = "Недопустимый символ в поисковом запросе.";
                 window.hintsObjectsArray = "";
                 enableGetBasicKeywordsButton();
             } else if (request.responseText === "-3") {
