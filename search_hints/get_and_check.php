@@ -16,4 +16,4 @@ if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
 if (!preg_match("/^[а-яёa-z0-9 \-'&_*]*$/u", $basic_keywords_string)) {
     echo("-2");
     exit;
-} //only for lower case
+} //only for lower case after mb_strtolower()
