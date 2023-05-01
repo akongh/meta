@@ -22,15 +22,15 @@ if ("no_0-z" === $related_parameter) {
 
     $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 } else if ("0-z" === $related_parameter) {
-    $numeric_digits_array = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    $latin_script_array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    $cyrillic_script_array = ["а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ы","ь","э","ю","я"];
+    $numeric_digits_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    $latin_script_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    $cyrillic_script_array = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
+// todo: need add select character array
+    $character_array = $latin_script_array;
 
-
-
-    foreach ($a_z_letters_array as $value) {
-        $a_z_basic_keywords_string = $basic_keywords_string . $value;
-        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string, $cp);
+    foreach ($character_array as $value) {
+        $basic_keywords_string_character = $basic_keywords_string . $value;
+        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp);
         $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
