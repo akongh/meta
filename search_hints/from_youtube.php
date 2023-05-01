@@ -13,7 +13,7 @@ if (false === strpos($basic_keywords_string, "*")) {
 
 if ("no_0-z" === $related_parameter) {
     $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $cp);
-    $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
+    $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
     if ("" === $clean_youtube_response) {
         echo("-3");
@@ -29,7 +29,7 @@ if ("no_0-z" === $related_parameter) {
     foreach ($a_z_letters_array as $value) {
         $a_z_basic_keywords_string = $basic_keywords_string . $value;
         $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string, $cp);
-        $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response, $excluded_keywords_array);
+        $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
 
@@ -88,10 +88,9 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, in
  * Очищает от служебной информации массив подсказок для одного youtube-ответа.
  *
  * @param string $_PARAM_youtube_response
- * @param array $_PARAM_excluded_keywords_array
  * @return array | string
  */
-function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response, array $_PARAM_excluded_keywords_array)
+function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response)
 {
     $clean_youtube_response = preg_replace("/^callback && callback\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)$/", "", $clean_youtube_response);
@@ -105,22 +104,6 @@ function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response, arra
             }
         }
         unset($value);
-    }
-
-    if (isset($clean_youtube_response_array) && !empty($_PARAM_excluded_keywords_array)) {
-        foreach ($clean_youtube_response_array as $key => $value) {
-            foreach ($_PARAM_excluded_keywords_array as $value_excluded) {
-                $excluded_exist = strripos($value, $value_excluded);
-                if (false !== $excluded_exist) {
-                    unset($clean_youtube_response_array[$key]);//var_dump($value);
-                    break;
-                }
-            }
-            unset($value_excluded);
-        }
-        unset($value);
-
-        $clean_youtube_response_array = array_values($clean_youtube_response_array);
     }
 
     return $clean_youtube_response_array ?? "";
