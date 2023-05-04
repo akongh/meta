@@ -43,6 +43,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            title="Очистить поле поискового запроса">[x]</a>
     </div>
     <hr class="otbivka_64">
+<!--    shutterstock-->
     <label><input type="radio"
                   name="media_type_shutterstock"
                   value="image"
@@ -56,6 +57,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
+<!--    /shutterstock-->
+<!--    youtube-->
     <label><input type="radio"
                   name="0-z_youtube"
                   value="no_0-z"
@@ -66,6 +69,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-youtube"
            value="От Ютуба">
+<!--    /youtube-->
+<!--    pond5-->
     <label><input type="radio"
                   name="media_type_pond5"
                   value="footage"
@@ -84,6 +89,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <input type="submit"
            id="get-basic-keywords-button-pond5"
            value="From Pond5">
+<!--    /pond5-->
     <div id="hints-area" class="result">Список подсказок пуст.</div>
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . '/footer.php'); ?>
