@@ -52,6 +52,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
                   name="0-z"
                   value="0-z"> 0-z</label>
     <!--/common parameters-->
+    <hr class="otbivka_48">
     <!--shutterstock-->
     <label><input type="radio"
                   name="media_type_shutterstock"
