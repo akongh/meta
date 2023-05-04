@@ -2,7 +2,6 @@ let getBasicKeywordsButtonShutterstock = document.querySelector("#get-basic-keyw
 let getBasicKeywordsButtonYoutube = document.querySelector("#get-basic-keywords-button-youtube");
 let getBasicKeywordsButtonPond5 = document.querySelector("#get-basic-keywords-button-pond5");
 let clearButtonBasic = document.querySelector("#clear-button-basic");
-let clearButtonGoogleTrends = document.querySelector("#clear-button-google-trends");
 
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
@@ -134,10 +133,6 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 }
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
-    let googleTrendsKeywordsString = document.querySelector("#google_trends_keywords_string").value;
-    if (googleTrendsKeywordsString !== "") {
-        googleTrendsKeywordsString = googleTrendsKeywordsString + ",";
-    }
     let listResultArray = [];
     // LIST TO SELECTION
     let listResultArrayCopy = [];
@@ -153,9 +148,9 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
                 " → " +
                 "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YT</a>" +
                 " " +
-                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>GTall</a>" +
+                "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>GTall</a>" +
                 " " +
-                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + googleTrendsKeywordsString + PARAM_hintsObjectsArray[i] + "' target='_blank'>GT12m</a>" +
+                "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>GT12m</a>" +
                 "</div>";
         }
     }
@@ -218,10 +213,6 @@ function selectResult() {
 function clearQueryBasic() {
     document.getElementById("basic_keywords_string").value = "";
     document.querySelector("#error-hints").innerHTML = "";
-}
-
-function clearQueryGoogleTrends() {
-    document.getElementById("google_trends_keywords_string").value = "";
 }
 
 function disableGetBasicKeywordsButton() {
