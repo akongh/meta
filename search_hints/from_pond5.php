@@ -26,18 +26,18 @@ if ("no_0-z" === $param0_z) {
         $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string, $related_parameter);
         $pond5_result = json_decode($pond5_response);
 
-        $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
+        $search_suggestions_list[] = "---- " . mb_strtoupper($value) . " ----";
 
         if (isset($pond5_result->keywords) && is_array($pond5_result->keywords)) {
             foreach ($pond5_result->keywords as $value2) {
-                $a_z_hints_list[] = $value2;
+                $search_suggestions_list[] = $value2;
             }
             unset($value2);
         }
     }
     unset($value);
 
-    $pond5_result = json_encode($a_z_hints_list, JSON_UNESCAPED_UNICODE);
+    $pond5_result = json_encode($search_suggestions_list, JSON_UNESCAPED_UNICODE);
 } else {
     $pond5_result = "Not created \$pond5_result";
 }
