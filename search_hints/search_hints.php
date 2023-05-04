@@ -57,14 +57,14 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="character_array"
                   value="cyrillic"> а-я</label>
-    |
+    <br>
     <label><input type="radio"
                   name="language_code"
                   value="en"> en</label>
     <label><input type="radio"
                   name="language_code"
                   value="ru"> ru</label>
-    |
+    <br>
     <label><input type="radio"
                   name="country_code"
                   value="us"> us</label>
