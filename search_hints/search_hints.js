@@ -71,9 +71,9 @@ function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
     disableGetBasicKeywordsButton();
     let url = PARAM_url;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-    let mediaType = document.querySelector("input[name='media_type_pond5']:checked").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
-    let requestSet = basicKeywordsString + "\n" + mediaType + "\n" + characterArray;
+    let mediaType = document.querySelector("input[name='media_type_pond5']:checked").value;
+    let requestSet = basicKeywordsString + "\n" + characterArray + "\n" + mediaType;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {
