@@ -60,14 +60,16 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <br>
     <label><input type="radio"
                   name="language_code"
-                  value="en"> en</label>
+                  value="en"
+                  checked> en</label>
     <label><input type="radio"
                   name="language_code"
                   value="ru"> ru</label>
     <br>
     <label><input type="radio"
                   name="country_code"
-                  value="us"> us</label>
+                  value="us"
+                  checked> us</label>
     <label><input type="radio"
                   name="country_code"
                   value="ca"> ca</label>
