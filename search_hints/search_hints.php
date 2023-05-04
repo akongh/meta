@@ -57,6 +57,44 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="character_array"
                   value="cyrillic"> а-я</label>
+    |
+    <label><input type="radio"
+                  name="language_code"
+                  value="en"> en</label>
+    <label><input type="radio"
+                  name="language_code"
+                  value="ru"> ru</label>
+    |
+    <label><input type="radio"
+                  name="country_code"
+                  value="us"> us</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="ca"> ca</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="au"> au</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="uk"> uk</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="kr"> kr</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="de"> de</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="no"> no</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="se"> se</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="fi"> fi</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="ru"> ru</label>
     <!--/common parameters-->
     <hr class="otbivka_48">
     <!--youtube-->
