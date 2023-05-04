@@ -70,7 +70,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, in
     }
     $url = "https://suggestqueries-clients6.youtube.com/complete/search?" .
         "client=youtube" .
-        "&hl=en" .
+        "&hl=en" . // todo: need add select language option
         "&gl=us" . // todo: need add select country option
         "&ds=yt" .
         "&cp=" . $_PARAM_cp .

@@ -45,11 +45,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <hr class="otbivka_64">
     <!--common parameters-->
     <label><input type="radio"
-                  name="0-z"
+                  name="character_array"
                   value="no_0-z"
                   checked> no 0-z</label>
     <label><input type="radio"
-                  name="0-z"
+                  name="character_array"
                   value="0-z"> 0-z</label>
     <!--/common parameters-->
     <hr class="otbivka_48">
