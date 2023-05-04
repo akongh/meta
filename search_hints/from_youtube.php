@@ -69,17 +69,19 @@ echo($youtube_result);
  *
  * @param string $_PARAM_basic_keyword
  * @param int $_PARAM_cp
+ * @param string $_PARAM_hl
+ * @param string $_PARAM_gl
  * @return bool|string
  */
-function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, int $_PARAM_cp)
+function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, int $_PARAM_cp, string $_PARAM_hl, string $_PARAM_gl)
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
     }
     $url = "https://suggestqueries-clients6.youtube.com/complete/search?" .
         "client=youtube" .
-        "&hl=en" . // todo: need add select language option
-        "&gl=us" . // todo: need add select country option
+        "&hl=" . $_PARAM_hl .
+        "&gl=" . $_PARAM_gl .
         "&ds=yt" .
         "&cp=" . $_PARAM_cp .
         "&q=" . $_PARAM_basic_keyword .

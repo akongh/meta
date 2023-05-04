@@ -51,8 +51,8 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
     let url = PARAM_url;
-    let characterArray = document.querySelector("input[name='character_array']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+    let characterArray = document.querySelector("input[name='character_array']:checked").value;
     let requestSet = characterArray + "\n" + basicKeywordsString;
 
     newXMLHttpRequest(url, requestSet);
@@ -68,9 +68,9 @@ function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
     let url = PARAM_url;
+    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let mediaType = document.querySelector("input[name='media_type_pond5']:checked").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
-    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let requestSet = mediaType + "\n" + basicKeywordsString + "\n" + characterArray;
 
     newXMLHttpRequest(url, requestSet);
