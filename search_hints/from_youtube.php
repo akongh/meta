@@ -12,7 +12,7 @@ if (false === strpos($basic_keywords_string, "*")) {
 }
 
 if ("no" === $related_parameter) {
-    $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $cp);
+    $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $cp, $related_parameter_2, $related_parameter_3);
     $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
     if ("" === $clean_youtube_response) {
@@ -40,7 +40,7 @@ if ("no" === $related_parameter) {
 
     foreach ($character_array as $value) {
         $basic_keywords_string_character = $basic_keywords_string . $value;
-        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp);
+        $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp, $related_parameter_2, $related_parameter_3);
         $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
         $a_z_hints_list[] = "---- " . mb_strtoupper($value) . " ----";
