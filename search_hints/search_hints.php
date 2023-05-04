@@ -53,6 +53,11 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
                   value="0-z"> 0-z</label>
     <!--/common parameters-->
     <hr class="otbivka_48">
+    <!--youtube-->
+    <input type="submit"
+           id="get-basic-keywords-button-youtube"
+           value="От Ютуба">
+    <!--/youtube-->
     <!--shutterstock-->
     <label><input type="radio"
                   name="media_type_shutterstock"
@@ -68,11 +73,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
     <!--/shutterstock-->
-    <!--youtube-->
-    <input type="submit"
-           id="get-basic-keywords-button-youtube"
-           value="От Ютуба">
-    <!--/youtube-->
     <!--pond5-->
     <label><input type="radio"
                   name="media_type_pond5"
