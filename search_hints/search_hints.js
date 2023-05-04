@@ -53,7 +53,9 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
     let url = PARAM_url;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
-    let requestSet = characterArray + "\n" + basicKeywordsString;
+    let languageCode = document.querySelector("input[name='language_code']:checked").value;
+    let countryCode = document.querySelector("input[name='country_code']:checked").value;
+    let requestSet = basicKeywordsString + "\n" + characterArray + "\n" + languageCode + "\n" + countryCode;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {
@@ -71,7 +73,7 @@ function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let mediaType = document.querySelector("input[name='media_type_pond5']:checked").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
-    let requestSet = mediaType + "\n" + basicKeywordsString + "\n" + characterArray;
+    let requestSet = basicKeywordsString + "\n" + mediaType + "\n" + characterArray;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {
