@@ -189,7 +189,6 @@ function countHintsTotalAndSelected() {
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-    PARAM_hintsObjectsArray.translation = undefined;
     clearErrors();
     let listResultArray = [];
     let statusClass;
@@ -200,7 +199,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         } else {
             statusClass = " hint-box-select";
         }
-        listResultArray[i] = "<div class='hint-box" + statusClass + "' title='" + PARAM_hintsObjectsArray[i].translation.join("\n") + "'>" +
+        listResultArray[i] = "<div class='hint-box" + statusClass + "' title=''>" +
             "<span>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             "</div>";
     }
