@@ -189,7 +189,7 @@ function countHintsTotalAndSelected() {
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
-    PARAM_hintsObjectsArray[i].translation = undefined;
+    PARAM_hintsObjectsArray.translation = undefined;
     clearErrors();
     let listResultArray = [];
     let statusClass;
