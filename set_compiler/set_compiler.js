@@ -155,9 +155,9 @@ function addSimilarYoutubeSearchQueriesToSet() {
 
     let basicKeywordsArray = basicKeywordsString.split("\n");
     let resultArray = basicKeywordsArray.map(Item => {
-        let ItemAzView = Item.split(" ").sort().join("");
+        let ItemOrderedView = Item.split(" ").sort().join("");
 
-        return ItemAzView + " | " + Item;
+        return ItemOrderedView + " | " + Item;
     });
 
     window.hintsObjectsArray = resultArray.sort();
