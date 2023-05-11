@@ -1,8 +1,5 @@
 let upButtonBlock = document.querySelector("#up-button-block");
 
-let getTranslationButton = document.querySelector("#get-translation-button");
-let clearTranslationButton = document.querySelector("#clear-translation-button");
-
 let clearButton = document.querySelector("#clear-button");
 
 let addKeywordsToSetButton = document.querySelector("#add-keywords-to-set-button");
@@ -64,10 +61,6 @@ rankHintsListButton.addEventListener("click", function (e) {
     e.preventDefault();
     rankHintsList();
 }, false);
-getTranslationButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    sendQueryGetTranslationsCreateHTMLTranslationsList("translations.php");
-}, false);
 selectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
     selectAllHints();
@@ -75,10 +68,6 @@ selectAllHintsButton.addEventListener("click", function (e) {
 deselectAllHintsButton.addEventListener("click", function (e) {
     e.preventDefault();
     deselectAllHints();
-}, false);
-clearTranslationButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    clearTranslationArea();
 }, false);
 window.addEventListener("scroll", viewHideUpButton);
 
@@ -176,44 +165,6 @@ function addSimilarYoutubeSearchQueriesToSet() {
     document.querySelector("#basic_keywords_string").value = "";
 }
 
-function sendQueryGetTranslationsCreateHTMLTranslationsList(PARAM_url) {
-    clearErrors();
-
-    let request = new XMLHttpRequest();
-    let keywordInRussian = "keywordInRussian=" + document.querySelector("#in-russian").value;
-
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === "-1") {
-                document.querySelector("#translations-area").innerHTML = "Перевода нет.";
-            } else if (request.responseText === "-2") {
-                document.querySelector("#translations-area").innerHTML = "Нечего переводить.";
-            } else if (request.responseText === "-3") {
-                document.querySelector("#error-translations").innerHTML = "Только кириллица, цифры, пробел и дефис.";
-            } else {
-                document.querySelector("#translations-area").innerHTML = JSON.parse(request.responseText).join("");
-
-                let hintKeywords = document.querySelectorAll(".hover-invert");
-                for (let i = 0; i < hintKeywords.length; i++) {
-                    hintKeywords[i].addEventListener("click", function (e) {
-                        e.stopPropagation();
-                    }, false);
-                    hintKeywords[i].addEventListener("click", keywordPatternToQuery);
-                }
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(keywordInRussian.replace('&', '%26'));
-}
-
-function clearTranslationArea() {
-    clearErrors();
-    document.querySelector("#in-russian").value = "";
-    document.querySelector("#translations-area").innerHTML = "Список перевода пуст.";
-}
-
 function addDeselectStatusForHints(PARAM_hintsObjectsArray) {
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
         PARAM_hintsObjectsArray[i].status = "deselect";
@@ -309,12 +260,6 @@ function createResultString() {
             }
         }
         if (resultArray.length > 0) {
-
-            // let request = new XMLHttpRequest();
-            // let jsonHintsStringForTranlation = JSON.stringify(resultArray);
-            // request.open("POST", 'add_keyword_to_db.php', true);
-            // request.send(jsonHintsStringForTranlation);
-
             document.querySelector("#hints-area").innerHTML =
                 "<p>Внимание!<br>Пробел после запятой не схлопывается с первым пробелом в ключевом слове, если такой имеется.</p>" +
                 "<span id='select-result'>" +
@@ -522,5 +467,4 @@ function deselectAllHints() {
 function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
     document.querySelector("#error-hints-trigger").innerHTML = "";
-    document.querySelector("#error-translations").innerHTML = "";
 }

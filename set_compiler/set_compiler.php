@@ -37,32 +37,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <?php
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Составитель наборов</h1>
-    <h2><label for="in-russian">Составление отдельных наборов ключевых слов из одного общего набора.</label></h2>
-    <input type="text"
-           id="in-russian"
-           class="textarea-keywords"
-           maxlength="64">
-    <div id='error-translations'
-         class='error'></div>
-    <div class="content_right">
-        <a href="#"
-           id="get-translation-button"
-           class="link-button"
-           title="Перевести">[Перевести]</a>
-        <a href="#"
-           id="clear-translation-button"
-           class="link-button"
-           title="Очистить перевод">[х]</a>
-    </div>
-    <div id="translations-area">Список перевода пуст.</div>
-    <h2><label for="basic_keywords_string">Опорные ключевые слова</label></h2>
-    <textarea id="basic_keywords_string"
+    <label><textarea id="basic_keywords_string"
               name="basic_keywords_string"
               class="textarea-keywords"
               wrap="soft"
               rows="8"
-              placeholder=""
-              autofocus></textarea>
+              placeholder="Опорные ключевые слова"
+              autofocus></textarea></label>
     <div id="error-hints"
          class='error'></div>
     <div id="error-hints-trigger"
