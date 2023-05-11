@@ -3,8 +3,6 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-//require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
-
 $get_data = file_get_contents("php://input");
 $get_data_to_array = json_decode($get_data, true);
 
@@ -51,55 +49,10 @@ if ("false" === $get_data_to_array[2]) {
 $result_array = array();
 foreach ($basic_keywords_array as $element) {
     $result_array[] = [
-        "hint" => $element,
-//        "translation" => SELECT_TRANSLATION($element, $mysqli)
-        "translation" => ["-"]
+        "hint" => $element
     ];
 }
-
-//mysqli_close($mysqli);
 
 $json_result = json_encode($result_array, JSON_UNESCAPED_UNICODE);
 
 echo($json_result);
-
-
-/**
- * Functions.
- */
-
-/**
- * Выбирает перевод для одного слова.
- * @param string $_PARAM_hint_keyword
- * @param mysqli $_PARAM_db_connect
- * @return array
- */
-function SELECT_TRANSLATION(string $_PARAM_hint_keyword, mysqli $_PARAM_db_connect): array
-{
-    $_SQL_select_translations = "
-SELECT
-    `tz`.`z`
-FROM
-    `tz`
-        JOIN
-    `k_l` ON `tz`.`idz` = `k_l`.`idz`
-        JOIN
-    `l-ts` ON `k_l`.`idl` = `l-ts`.`ids`
-WHERE
-    `l-ts`.`s` = '" . mysqli_real_escape_string($_PARAM_db_connect, $_PARAM_hint_keyword) . "';
-    ";
-
-    $_SQL_translations = mysqli_query($_PARAM_db_connect, $_SQL_select_translations);
-
-    $translations_array = array();
-
-    if (0 === $_SQL_translations->num_rows) {
-        $translations_array[] = "-";
-    } else {
-        while ($data = mysqli_fetch_array($_SQL_translations)) {
-            $translations_array[] = $data["z"];
-        }
-    }
-
-    return $translations_array;
-}
