@@ -3,7 +3,7 @@
 declare(strict_types=1);
 error_reporting(-1);
 
-require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
+//require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
 
 $get_data = file_get_contents("php://input");
 $get_data_to_array = json_decode($get_data, true);
@@ -57,7 +57,7 @@ foreach ($basic_keywords_array as $element) {
     ];
 }
 
-mysqli_close($mysqli);
+//mysqli_close($mysqli);
 
 $json_result = json_encode($result_array, JSON_UNESCAPED_UNICODE);
 
