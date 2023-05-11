@@ -566,6 +566,8 @@ body {
     font-family: 'Source Code Pro', monospace;
     cursor: default;
     color: #000000;
+    background-image: url("bg_pattern.jpg");
+    background-repeat: repeat;
 }
 
 textarea {
