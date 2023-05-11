@@ -13,6 +13,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <title>Составитель наборов</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet"
           href="/_third_party/normalize.css"
           type="text/css">

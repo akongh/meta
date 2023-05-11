@@ -13,6 +13,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <title>Продавшие ключевые слова</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet"
           href="/_third_party/normalize.css"
           type="text/css">
@@ -36,30 +38,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     require($_SERVER["DOCUMENT_ROOT"] . "/link_to_index.php"); ?>
     <h1>Продавшие ключевые слова</h1>
     <a id="top"></a>
-<!--    <div id="variants-queries-list" class="saved_set">Без вариантов.</div>-->
-<!--    <div class="label_info">-->
-<!--        <span title="Число уровней повторяемости вариантов запросов">-->
-<!--            Основных-->
-<!--            <label><select size="1"-->
-<!--                           id="level">-->
-<!--                <option selected-->
-<!--                        value="1">1</option>-->
-<!--                <option value="2">2</option>-->
-<!--                <option value="3">3</option>-->
-<!--                <option value="4">4</option>-->
-<!--                </select></label>-->
-<!--        </span>-->
-<!--    </div>-->
-<!--    <div class="content_right">-->
-<!--        <a href="#"-->
-<!--           id="create-variants-queries-button"-->
-<!--           class="link-button"-->
-<!--           title="Создатть варианты запросов">[Создать варианты]</a>-->
-<!--        <a href="#"-->
-<!--           id="delete-variants-queries-button"-->
-<!--           class="link-button"-->
-<!--           title="Удалить варианты запросов">[x]</a>-->
-<!--    </div>-->
     <label><input type="text"
                   id="author"
                   class="textarea-author"
@@ -82,11 +60,6 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
            class="link-button"
            title="Очистить поле запроса">[x]</a>
     </div>
-<!--    <div class="label_info">-->
-<!--        <label><input type="checkbox"-->
-<!--                      name="use-variant-queries"-->
-<!--                      value=""> На основе вариантов</label>-->
-<!--    </div>-->
     <div class="label_info">
         <label><input type="radio"
                       name="image_type"
