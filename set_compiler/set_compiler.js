@@ -138,9 +138,6 @@ function addKeywordsToSet(PARAM_url) {
 function addSimilarYoutubeSearchQueriesToSet() {
     clearErrors();
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-    //     , lkj   kjh,,,sdfg
-    //          , sddfsd   kjh,,,sdfg
-    //        , lkj   kjh,,,ytutyut
     let basicKeywordsArray = basicKeywordsString.split("\n");
     let resultArray = basicKeywordsArray.map(Item => {
         Item = Item.replace(/,+/gi, " ").replace(/\s+/gi, " ").trim();
