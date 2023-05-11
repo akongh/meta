@@ -135,7 +135,6 @@ function addKeywordsToSet(PARAM_url) {
     request.send(sendingDataJSON);
 }
 
-// вообще не доделанная функция, список выдаёт, но выделять надо руками, кнопка «списком» не действует
 function addSimilarYoutubeSearchQueriesToSet() {
     clearErrors();
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
