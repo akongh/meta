@@ -5,8 +5,6 @@ let deleteKeywordsObjectsArrayButton = document.querySelector("#delete-keywords-
 let authors = document.querySelectorAll(".hover-invert");
 let deleteAuthorButton = document.querySelector("#delete-author-button");
 let clearKeywordButton = document.querySelector("#clear-keyword-button");
-let createVariantsQueriesButton = document.querySelector("#create-variants-queries-button");
-let deleteVariantsQueriesButton = document.querySelector("#delete-variants-queries-button");
 
 window.onload = viewHideUpButton();
 getSellingKeywordsButton.addEventListener("click", function (e) {
@@ -32,64 +30,30 @@ clearKeywordButton.addEventListener("click", function (e) {
     e.preventDefault();
     clearKeyword();
 }, false);
-createVariantsQueriesButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    createVariantsQueries('create_variants_queries_list.php');
-}, false);
-deleteVariantsQueriesButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    deleteVariantsQueries();
-}, false);
+
 window.addEventListener("scroll", viewHideUpButton);
 
 /**
  * Functions.
  */
 
-function createArrayKeywordsFromVariants() {
-    let arrayKeywordsFromVariants = [];
-    let arrayCheckedFromVariants = document.querySelectorAll(".variant-checkbox:checked");
-    for (let i = 0; i < arrayCheckedFromVariants.length; i++) {
-        arrayKeywordsFromVariants[i] = arrayCheckedFromVariants[i].value;
-    }
-    return arrayKeywordsFromVariants;
-}
-
 function getSellingKeywordsData() {
     let keyword;
     let imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
     let author = "author=" + encodeURIComponent(document.querySelector('#author').value);
     let sellingKeywordsRequest;
-    if (document.querySelector('input[name="use-variant-queries"]').checked === true && typeof window.variantsQueriesArray !== 'undefined') {
-        let arrayKeywordsFromVariants = createArrayKeywordsFromVariants();
-        let i = 0;
-
-        function getWithTimeout() {
-            keyword = "keyword=" + encodeURIComponent(arrayKeywordsFromVariants[i]);
-            sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
-            sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 1, arrayKeywordsFromVariants[i]);
-            i++;
-            if (i < arrayKeywordsFromVariants.length) setTimeout(getWithTimeout, 4000);
-        }
-
-        getWithTimeout();
-    } else {
-        keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
-        sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
-        sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
-    }
+    keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
+    sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
+    sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
 }
 
-function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, PARAM_useVariants, PARAM_sellingKeyword) {
+function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === 4 && request.status === 200) {console.log(request.responseText);
             if (request.responseText === '-1') {
                 if (typeof window.worksDataObjects === "undefined") {
                     document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
-                }
-                if (PARAM_useVariants === 1) {
-                    document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
                 }
             } else {
                 window.worksDataObjectsNew = JSON.parse(request.responseText);
@@ -99,14 +63,10 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest, P
                     window.worksDataObjects = window.worksDataObjectsNew;
                 }
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
-                if (PARAM_useVariants === 0) {
-                    document.querySelector("#works-list").innerHTML = createWorksList();
-                    let workTitle = document.querySelectorAll(".work_title");
-                    for (let i = 0; i < workTitle.length; i++) {
-                        workTitle[i].addEventListener("click", selectResult);
-                    }
-                } else {
-                    document.querySelector('#status').innerHTML = PARAM_sellingKeyword;
+                document.querySelector("#works-list").innerHTML = createWorksList();
+                let workTitle = document.querySelectorAll(".work_title");
+                for (let i = 0; i < workTitle.length; i++) {
+                    workTitle[i].addEventListener("click", selectResult);
                 }
             }
             enableGetBasicKeywordsButton();
@@ -198,55 +158,6 @@ function deleteAuthor() {
 
 function clearKeyword() {
     document.querySelector("#keyword").value = '';
-}
-
-function createVariantsQueries(PARAM_url) {
-    let request = new XMLHttpRequest();
-    let fullStringQuery = 'level=' + document.querySelector('#level').value + '&fullStringQuery=' + document.querySelector('#keyword').value.trim();
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText === '-1') {
-                document.querySelector("#variants-queries-list").innerHTML = 'Не из чего создавать варианты.';
-            } else {
-                window.variantsQueriesArray = JSON.parse(request.responseText);
-                displayVariantsQueries();
-            }
-        }
-    }
-    request.open("POST", PARAM_url, true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(fullStringQuery);
-}
-
-function displayVariantsQueries() {
-    let variantsQueriesArrayHTML = [];
-    for (let i = 0; i < window.variantsQueriesArray.length; i++) {
-        variantsQueriesArrayHTML[i] = '<tr><td><label class="variant-checkbox-label"><input class="variant-checkbox" name="variant-checkbox" type="checkbox" checked value="' +
-            window.variantsQueriesArray[i] +
-            '"></label></td><td class="variant-query-td"><div class="variant_query">' +
-            window.variantsQueriesArray[i] +
-            '</div></td></tr>';
-    }
-    document.querySelector("#variants-queries-list").innerHTML = '<table class="variant-query-table">' + _.join(variantsQueriesArrayHTML, '\n') + '</table>';
-    let variantsQueries = document.querySelectorAll(".variant_query");
-    for (let i = 0; i < variantsQueries.length; i++) {
-        variantsQueries[i].addEventListener("click", variantQueryToQuery);
-    }
-}
-
-function variantQueryToQuery() {
-    document.querySelector("#keyword").value = this.innerText;
-}
-
-function deleteVariantsQueries() {
-    if (document.querySelector("#variants-queries-list").innerHTML === 'Без вариантов.' ||
-        document.querySelector("#variants-queries-list").innerHTML === 'Варианты удалены.' ||
-        document.querySelector("#variants-queries-list").innerHTML === 'Не из чего создавать варианты.' ||
-        document.querySelector("#variants-queries-list").innerHTML === 'Нечего удалять.') {
-        document.querySelector("#variants-queries-list").innerHTML = 'Нечего удалять.';
-    } else {
-        document.querySelector("#variants-queries-list").innerHTML = 'Варианты удалены.';
-    }
 }
 
 function countKeywords() {
