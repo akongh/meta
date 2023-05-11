@@ -149,6 +149,8 @@ function addSimilarYoutubeSearchQueriesToSet() {
         return ItemOrderedView + " | " + Item;
     });
 
+    addDeselectStatusForHints(resultArray);
+
     window.hintsObjectsArray = resultArray.sort();
 
     countHintsTotalAndSelected();
@@ -187,6 +189,7 @@ function countHintsTotalAndSelected() {
 }
 
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
+    PARAM_hintsObjectsArray[i].translation = undefined;
     clearErrors();
     let listResultArray = [];
     let statusClass;
@@ -411,16 +414,6 @@ function sortAz() {
     } else {
         document.querySelector("#hints-area").innerHTML =
             "<p>Нечего сортировать.</p>";
-    }
-}
-
-function keywordPatternToQuery() {
-    let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-
-    if (basicKeywordsString !== "" || basicKeywordsString.trim() !== "") {
-        document.querySelector("#basic_keywords_string").value = basicKeywordsString.trim() + "\n" + this.innerHTML.replace(/&amp;/g, '&');
-    } else {
-        document.querySelector("#basic_keywords_string").value = this.innerHTML.replace(/&amp;/g, '&');
     }
 }
 
