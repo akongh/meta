@@ -150,20 +150,9 @@ function addSimilarYoutubeSearchQueriesToSet() {
     });
 
     addDeselectStatusForHints(resultArray);
-
     window.hintsObjectsArray = resultArray.sort();
-
     countHintsTotalAndSelected();
-
-    let listResultArray = [];
-    let statusClass = " hint-box-select";
-
-    for (let i = 0; i < window.hintsObjectsArray.length; i++) {
-        listResultArray[i] = "<div class='hint-box" + statusClass +"'>" +
-            "<span>" + window.hintsObjectsArray[i] + "</span>" +
-            "</div>";
-    }
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+    createHTMLHintsList(window.hintsObjectsArray);
     document.querySelector("#basic_keywords_string").value = "";
 }
 
