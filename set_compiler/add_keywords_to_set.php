@@ -50,6 +50,7 @@ $result_array = array();
 foreach ($basic_keywords_array as $element) {
     $result_array[] = [
         "hint" => $element
+        //оставил возможность для создания ассоциативного массива в каждом элементе $result_array
     ];
 }
 

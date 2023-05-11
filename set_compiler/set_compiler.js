@@ -146,7 +146,8 @@ function addSimilarYoutubeSearchQueriesToSet() {
     let resultArray = basicKeywordsArray.map(Item => {
         let ItemOrderedView = Item.split(" ").sort().join("");
 
-        return ItemOrderedView + " | " + Item;
+        return {hint : ItemOrderedView + " | " + Item};
+        //оставил возможность для создания ассоциативного массива в соответствии с $result_array в add_keywords_to_set.php
     });
 
     addDeselectStatusForHints(resultArray);
