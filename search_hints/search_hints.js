@@ -20,10 +20,6 @@ clearButtonBasic.addEventListener("click", function (e) {
     e.preventDefault();
     clearQueryBasic();
 }, false);
-clearButtonGoogleTrends.addEventListener("click", function (e) {
-    e.preventDefault();
-    clearQueryGoogleTrends();
-}, false);
 
 
 /**
