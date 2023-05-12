@@ -111,13 +111,13 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="media_type_shutterstock"
                   value="image"
-                  checked> Изображения</label>
+                  checked> Image</label>
     <label><input type="radio"
                   name="media_type_shutterstock"
-                  value="audio"> Аудио</label>
+                  value="audio"> Audio</label>
     <label><input type="radio"
                   name="media_type_shutterstock"
-                  value="video"> Видео</label>
+                  value="video"> Video</label>
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
            value="От Шаттерстока">
