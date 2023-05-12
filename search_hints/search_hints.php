@@ -100,6 +100,7 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
                   name="country_code"
                   value="ru"> ru</label>
     <!--/common parameters-->
+    <p>Эти параметры пока только для Ютуба</p>
     <hr class="otbivka_48">
     <!--youtube-->
     <input type="submit"
