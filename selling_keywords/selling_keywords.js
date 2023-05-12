@@ -38,12 +38,10 @@ window.addEventListener("scroll", viewHideUpButton);
  */
 
 function getSellingKeywordsData() {
-    let keyword;
+    let keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
     let imageType = "imageType=" + document.querySelector("input[name='image_type']:checked").value;
     let author = "author=" + encodeURIComponent(document.querySelector('#author').value);
-    let sellingKeywordsRequest;
-    keyword = "keyword=" + encodeURIComponent(document.querySelector('#keyword').value);
-    sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
+    let sellingKeywordsRequest = keyword + '&' + imageType + '&' + author;
     sendPapamsGetSellingKeywords("create_array_works_data.php", sellingKeywordsRequest, 0, document.querySelector('#keyword').value);
 }
 
