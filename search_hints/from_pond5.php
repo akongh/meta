@@ -5,41 +5,12 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-if ("" === trim($basic_keywords_string) && "no_0-z" === $param0_z) {
-    echo("-3");
-    exit;
-}
-
-if ("no_0-z" === $param0_z) {
-    $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
-    $pond5_result = json_decode($pond5_response);
-    if (is_string($pond5_result->keywords)) {
-        $pond5_result = json_encode(["no_result"]);
-    } else {
-        $pond5_result = json_encode($pond5_result->keywords);
-    }
-} else if ("0-z" === $param0_z) {
-    $a_z_letters_array = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-    foreach ($a_z_letters_array as $value) {
-        $a_z_basic_keywords_string = $basic_keywords_string . $value;
-        $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($a_z_basic_keywords_string, $related_parameter);
-        $pond5_result = json_decode($pond5_response);
-
-        $search_suggestions_list[] = "---- " . mb_strtoupper($value) . " ----";
-
-        if (isset($pond5_result->keywords) && is_array($pond5_result->keywords)) {
-            foreach ($pond5_result->keywords as $value2) {
-                $search_suggestions_list[] = $value2;
-            }
-            unset($value2);
-        }
-    }
-    unset($value);
-
-    $pond5_result = json_encode($search_suggestions_list, JSON_UNESCAPED_UNICODE);
+$pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
+$pond5_result = json_decode($pond5_response);
+if (is_string($pond5_result->keywords)) {
+    $pond5_result = json_encode(["no_result"]);
 } else {
-    $pond5_result = "Not created \$pond5_result";
+    $pond5_result = json_encode($pond5_result->keywords);
 }
 
 echo($pond5_result);
@@ -58,9 +29,6 @@ echo($pond5_result);
  */
 function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type)
 {
-    if ("" !== $_PARAM_basic_keyword) {
-        $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
-    }
     if ("footage" === $_PARAM_media_type) {
         $filter = "p5_video_filter";
     } else {
