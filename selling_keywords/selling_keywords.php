@@ -64,16 +64,16 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
         <label><input type="radio"
                       name="image_type"
                       value="all"
-                      checked> Все</label>
+                      checked> All</label>
         <label><input type="radio"
                       name="image_type"
-                      value="photo"> Фото</label>
+                      value="photo"> Photo</label>
         <label><input type="radio"
                       name="image_type"
-                      value="vector"> Вектор</label>
+                      value="vector"> Vector</label>
         <label><input type="radio"
                       name="image_type"
-                      value="illustration"> Иллюстрации</label>
+                      value="illustration"> Illustration</label>
     </div>
     <input type="submit"
            id="get-selling-keywords-button"
