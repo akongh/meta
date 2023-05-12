@@ -14,7 +14,7 @@ if (isset($_POST['author']) and "" !== $_POST['author']) {
 if (isset($_POST['keyword']) and "" !== $_POST['keyword']) {
     $keyword = preg_replace('/\s/', '+', $_POST['keyword']);
 } else {
-    $keyword = $slash = "";
+    $keyword = "";
 }
 
 // $country = RANDOM_SELECT_STRING($array_countries);
