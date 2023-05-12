@@ -30,8 +30,8 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     clearErrors();
     disableGetBasicKeywordsButton();
     let url = PARAM_url;
-    let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
+    let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let requestSet = basicKeywordsString + "\n" + mediaType;
 
     newXMLHttpRequest(url, requestSet);
