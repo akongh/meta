@@ -32,7 +32,7 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
     let url = PARAM_url;
     let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
-    let requestSet = mediaType + "\n" + basicKeywordsString;
+    let requestSet = basicKeywordsString + "\n" + mediaType;
 
     newXMLHttpRequest(url, requestSet);
     if (window.hintsObjectsArray === "") {

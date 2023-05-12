@@ -24,9 +24,7 @@ echo($shutterstock_response);
 function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type)
 {
     $url = "https://www.shutterstock.com/napi/autocomplete?pageSize=&q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&language=en";
-    //https://www.shutterstock.com/napi/autocomplete?pageSize=100&q=h&mediaType=video&language=en
-    //https://www.shutterstock.com/napi/tracks/autocomplete?page[size]=30&channel=shutterstock&q=g&language=en&pageSize=30
-    //https://www.shutterstock.com/napi/autocomplete?q=a&mediaType=sfx&language=en
+
     $sesion = curl_init();
     curl_setopt($sesion, CURLOPT_URL, $url);
     curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
