@@ -59,6 +59,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
     <label><input type="radio"
                   name="character_array"
                   value="cyrillic"> а-я</label>
+    <label><input type="radio"
+                  name="character_array"
+                  value="words"> words</label>
     <br>
     <label><input type="radio"
                   name="language_code"

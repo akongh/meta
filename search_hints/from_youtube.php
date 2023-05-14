@@ -25,6 +25,7 @@ if ("no" === $related_parameter) {
     $numeric_digits_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     $latin_script_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     $cyrillic_script_array = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
+    $basic_words_for_tags = ["asmr", "at", "cook", "cooking", "easy", "exotic", "expensive", "famous", "food", "for", "from", "hack", "home", "homemade", "how", "idea", "ideas", "in", "ingredients", "make", "making", "meal", "most", "new", "no", "no cook", "no talking", "options", "popular", "quick", "recipe", "simple", "types", "ugly", "using", "video", "vlog", "way", "with", "without"];
 
     switch ($related_parameter) {
         case "digits":
@@ -35,6 +36,9 @@ if ("no" === $related_parameter) {
             break;
         case "cyrillic":
             $character_array = $cyrillic_script_array;
+            break;
+        case "words":
+            $character_array = $basic_words_for_tags;
             break;
     }
 
