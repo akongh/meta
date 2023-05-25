@@ -89,6 +89,10 @@ function RANDOM_SELECT_STRING(array $_PARAM_array_strings): string
 function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_cookies): array
 {
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
+    if (false === $data) {
+        echo('-2');
+        exit;
+    }
     file_put_contents('responce_data_from_shutterstock.json', $data);
     $array_works_block = json_decode($data, true){"pageProps"}["assets"];
 
