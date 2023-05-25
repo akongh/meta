@@ -51,16 +51,11 @@ function sendPapamsGetSellingKeywords(PARAM_url, PARAM_sellingKeywordsRequest) {
         if (request.readyState === 4 && request.status === 200) {
             console.log(request.responseText);
             if (request.responseText === '-1') {
-                if (typeof window.worksDataObjects === "undefined") {
-                    document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
-                }
+                document.querySelector("#selling-keywords-string").innerHTML = 'Шаттерсток ничего не выдал.';
+            } else if (request.responseText === '-2') {
+                document.querySelector("#selling-keywords-string").innerHTML = 'CURL вернул false.';
             } else {
-                window.worksDataObjectsNew = JSON.parse(request.responseText);
-                if (typeof window.worksDataObjects !== "undefined") {
-                    window.worksDataObjects = window.worksDataObjects.concat(window.worksDataObjectsNew);
-                } else {
-                    window.worksDataObjects = window.worksDataObjectsNew;
-                }
+                window.worksDataObjects = JSON.parse(request.responseText);
                 document.querySelector("#selling-keywords-string").innerHTML = createSellingKeywordsString();
                 document.querySelector("#works-list").innerHTML = createWorksList();
                 let workTitle = document.querySelectorAll(".work_title");
