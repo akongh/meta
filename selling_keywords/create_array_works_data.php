@@ -91,6 +91,7 @@ function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, str
     $data = USE_CURL($_PARAM_url, $_PARAM_useragent, $_PARAM_cookies);
     if (false === $data) {
         echo('-2');
+        file_put_contents('responce_data_from_shutterstock.json', $_PARAM_url);
         exit;
     }
     file_put_contents('responce_data_from_shutterstock.json', $data);
