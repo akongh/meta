@@ -69,6 +69,9 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
                   checked> en</label>
     <label><input type="radio"
                   name="language_code"
+                  value="de"> de</label>
+    <label><input type="radio"
+                  name="language_code"
                   value="ru"> ru</label>
     <br>
     <label><input type="radio"
