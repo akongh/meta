@@ -7,16 +7,16 @@ For example of filling see `_meta_extra/_meta_privacy`.
 
 ```
 /meta/../_meta_privacy/
-/ru_en_selection/management/.htaccess
 /.htaccess
+/robots.txt
 ```
 
 **Not send to production**
 
 ```
 /_meta_extra/
-/ru_en_selection/management/.htaccess
 /.htaccess
+/robots.txt
+/readme.md
 /.gitignore
-readme.md
 ```
