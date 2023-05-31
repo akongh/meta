@@ -1,10 +1,10 @@
 User-agent: Googlebot
-Disallow: /ru_en_selection/management
+Disallow: /absolute/path/to/folder
 
 User-agent: Yandex
-Disallow: /ru_en_selection/management
+Disallow: /absolute/path/to/folder
 
 User-agent: *
-Disallow: /ru_en_selection/management
+Disallow: /absolute/path/to/folder
 
 Host: host_name.domain
