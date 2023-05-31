@@ -35,10 +35,27 @@ unset($_POST);
     <div class="tool_list">
         <div class="tool_title">
             <h2>
-                <a href="/ru_en_selection/step_1.php"
-                   title="Русско-английский подбор">Русско-английский подбор</a>
+                <a href="/selling_keywords/selling_keywords.php"
+                   target="_blank"
+                   title="Продавшие ключевые слова на Шаттерстоке">Продавшие ключевые слова</a>
             </h2>
-            <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
+            <p>Получение по поисковому запросу только тех ключевых слов, по которым были проданы произведения на Шаттерстоке.</p>
+        </div>
+        <div class="tool_title">
+            <h2>
+                <a href="/set_compiler/set_compiler.php"
+                   target="_blank"
+                   title="Составитель наборов">Составитель наборов</a>
+            </h2>
+            <p>Составление отдельных наборов ключевых слов из одного общего набора.</p>
+        </div>
+        <div class="tool_title">
+            <h2>
+                <a href="/search_hints/search_hints.php"
+                   target="_blank"
+                   title="Поисковые подсказки">Поисковые подсказки</a>
+            </h2>
+            <p>Просмотр поисковых подсказок ключевых слов.</p>
         </div>
     </div>
     <?php
