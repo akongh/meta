@@ -14,13 +14,13 @@ if (iconv_strlen($basic_keywords_string, 'utf-8') > $data_width) {
     echo("-1");
     exit;
 }
-
-if (!preg_match("/^[а-яёa-zäößü0-9 \-'&_*]*$/u", $basic_keywords_string)) {
-    echo("-2");
-    exit;
-} //only for lower case after mb_strtolower()
-
-if ("" === trim($basic_keywords_string)) {
-    echo("-3");
-    exit;
-}
+//todo:
+//if (!preg_match("/^[а-яёa-zäößü0-9 \-'&_*]*$/u", $basic_keywords_string)) {
+//    echo("-2");
+//    exit;
+//} //only for lower case after mb_strtolower()
+//todo:
+//if ("" === trim($basic_keywords_string)) {
+//    echo("-3");
+//    exit;
+//}
