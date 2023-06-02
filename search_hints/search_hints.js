@@ -144,7 +144,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
             listResultArray[i] = "<div class='hint-box'>" +
                 "<span id='hint-hover' class='hint-hover'>" + PARAM_hintsObjectsArray[i] + "</span>" +
                 " → " +
-                "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>YT</a>" +
+                "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i] + "&sp=CAMSBAgFEAE%253D' target='_blank'>YT</a>" +
                 " " +
                 "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i] + "' target='_blank'>GTall</a>" +
                 " " +
