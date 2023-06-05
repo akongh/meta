@@ -21,7 +21,7 @@ echo($shutterstock_response);
  * @param string $_PARAM_media_type
  * @return bool|string
  */
-function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type)
+function SHUTTERSTOCK_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type): bool|string
 {
     $url = "https://www.shutterstock.com/napi/autocomplete?pageSize=&q=" . $_PARAM_basic_keyword . "&mediaType=" . $_PARAM_media_type . "&language=en";
 

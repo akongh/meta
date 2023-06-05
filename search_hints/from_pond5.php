@@ -27,7 +27,7 @@ echo($pond5_result);
  * @param string $_PARAM_media_type
  * @return bool|string
  */
-function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type)
+function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, string $_PARAM_media_type): bool|string
 {
     if ("footage" === $_PARAM_media_type) {
         $filter = "p5_video_filter";

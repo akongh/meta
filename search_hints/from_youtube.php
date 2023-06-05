@@ -5,7 +5,7 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-if (false === strpos($basic_keywords_string, "*")) {
+if (!str_contains($basic_keywords_string, "*")) {
     $cp = strlen($basic_keywords_string);
 } else {
     $cp = strpos($basic_keywords_string, "*") + 1;
@@ -102,7 +102,7 @@ echo($youtube_result);
  * @param string $_PARAM_gl
  * @return bool|string
  */
-function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, int $_PARAM_cp, string $_PARAM_hl, string $_PARAM_gl)
+function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, int $_PARAM_cp, string $_PARAM_hl, string $_PARAM_gl): bool|string
 {
     if ($_PARAM_basic_keyword != "") {
         $_PARAM_basic_keyword = preg_replace("/ /", "+", $_PARAM_basic_keyword);
@@ -131,7 +131,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, in
  * @param string $_PARAM_youtube_response
  * @return array | string
  */
-function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response)
+function CLEANING_FOR_ONE_YOUTUBE_RESPONSE(string $_PARAM_youtube_response): array|string
 {
     $clean_youtube_response = preg_replace("/^callback && callback\(/", "", $_PARAM_youtube_response);
     $clean_youtube_response = preg_replace("/\)$/", "", $clean_youtube_response);
