@@ -32,6 +32,7 @@ if ("no" === $related_parameter) {
             $character_array = $numeric_digits_array;
             break;
         case "latin":
+        case "latin2":
             $character_array = $latin_script_array;
             break;
         case "cyrillic":
@@ -58,7 +59,7 @@ if ("no" === $related_parameter) {
     }
     unset($value);
 
-    if ("latin" === $related_parameter) {
+    if ("latin2" === $related_parameter) {
         $character_array_2 = $character_array;
 
         foreach ($character_array as $value) {

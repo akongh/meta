@@ -56,6 +56,9 @@ error_reporting(-1);
                   value="latin"> a-z</label>
     <label><input type="radio"
                   name="character_array"
+                  value="latin2"> (a-z)²</label>
+    <label><input type="radio"
+                  name="character_array"
                   value="cyrillic"> а-я</label>
     <label><input type="radio"
                   name="character_array"
