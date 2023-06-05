@@ -58,6 +58,30 @@ if ("no" === $related_parameter) {
     }
     unset($value);
 
+    if ("latin" === $related_parameter) {
+        $character_array_2 = $character_array;
+
+        foreach ($character_array as $value) {
+            foreach ($character_array_2 as $value2) {
+                $basic_keywords_string_character = $basic_keywords_string . $value . $value2;
+                $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp, $related_parameter_2, $related_parameter_3);
+                $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
+
+                $search_suggestions_list[] = "---- " . mb_strtoupper($value . $value2) . " ----";
+
+                if ("" !== $clean_youtube_response) {
+                    foreach ($clean_youtube_response as $value3) {
+                        $search_suggestions_list[] = $value3;
+                    }
+                    unset($value3);
+                }
+            }
+            unset($value2);
+        }
+        unset($value);
+    }
+
+
     $youtube_result = json_encode($search_suggestions_list, JSON_UNESCAPED_UNICODE);
 }
 
