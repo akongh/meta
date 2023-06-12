@@ -22,21 +22,25 @@ if ("no" === $related_parameter) {
 
     $youtube_result = json_encode($clean_youtube_response, JSON_UNESCAPED_UNICODE);
 } else {
-    $numeric_digits_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     $latin_script_array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    $umlaut_ligature_array = ["ä", "ö", "ß", "ü"];
     $cyrillic_script_array = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
+    $numeric_digits_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     $basic_words_for_tags = ["asmr", "at", "cook", "cooking", "easy", "exotic", "expensive", "famous", "food", "for", "from", "hack", "home", "homemade", "how", "idea", "ideas", "in", "ingredients", "make", "making", "meal", "most", "new", "no", "no cook", "no talking", "options", "popular", "quick", "recipe", "simple", "types", "ugly", "using", "video", "vlog", "way", "with", "without"];
 
     switch ($related_parameter) {
-        case "digits":
-            $character_array = $numeric_digits_array;
-            break;
         case "latin":
         case "latin2":
             $character_array = $latin_script_array;
             break;
+        case "umlaut_ligature":
+            $character_array = $umlaut_ligature_array;
+            break;
         case "cyrillic":
             $character_array = $cyrillic_script_array;
+            break;
+        case "digits":
+            $character_array = $numeric_digits_array;
             break;
         case "words":
             $character_array = $basic_words_for_tags;
