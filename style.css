@@ -499,14 +499,14 @@ hr {
     white-space: pre-wrap;
 }
 
-.hint-box {
-    margin-top: 4px;
-    margin-bottom: 4px;
+.hint-box,
+.hint-links-box {
+    padding: 4px 4px;
+    margin: 0;
 }
 
 .hint-box-letter {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 16px 4px;
 }
 
 #hint-copy-box {
@@ -531,7 +531,8 @@ summary:hover {
 }
 
 .hint-box-select {
-    background: #fff;
+    background: palegreen;
+    /*color: #ffffff;*/
     width: 100%;
     border: solid 1px #fff;
 }

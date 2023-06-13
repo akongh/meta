@@ -189,12 +189,14 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
         listResultArray[i] = "<div class='hint-box" + statusClass + "' title=''>" +
             "<span class='hint-hover'>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             "</div>" +
+            "<p class='hint-links-box'>" +
             " → " +
             "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i].hint + "&sp=CAMSBAgFEAE%253D' target='_blank'>YT</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall</a>" +
             " " +
-            "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m</a>";
+            "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m</a>" +
+            "</p>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
