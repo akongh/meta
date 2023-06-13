@@ -39,7 +39,7 @@ if (count($basic_keywords_array) > 20480) {
 
 if ("false" === $get_data_to_array[2]) {
     foreach ($basic_keywords_array as $value) {
-        if (!preg_match("/^[а-яёa-z0-9 \-'&#]*$/u", $value)) {
+        if (!preg_match("/^[а-яёa-zäößü0-9 _\-'&#]*$/u", $value)) {
             echo("err_4" . $value);
             exit;
         }
