@@ -513,8 +513,21 @@ hr {
     /*назначен блоку списка поисковых подсказок Ютуба для копирования, чтобы повесить на него функцию выделения всего списка*/
 }
 
-.hint-copy-box {
-    margin-top: 40px;
+details {
+    margin-bottom: 40px;
+}
+
+summary {
+    padding: 8px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bolder;
+    background-color: dodgerblue;
+    margin-bottom: 16px;
+}
+
+summary:hover {
+    cursor: pointer;
 }
 
 .hint-box-select {

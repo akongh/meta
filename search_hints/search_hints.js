@@ -161,11 +161,13 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     }
     // LIST TO SELECTION END
 
-    document.querySelector("#hints-area").innerHTML = listResultArray.join("")
-        // LIST TO SELECTION START
-        + "<div id='hint-copy-box' class='hint-copy-box'>" +
+    // LIST TO SELECTION START
+    document.querySelector("#hints-area").innerHTML = "<details>" +
+        "<summary>Развернуть и скопировать</summary>" +
+        "<div id='hint-copy-box' class='hint-copy-box'>" +
         listResultArrayCopy.join("") +
-        "</div>";
+        "</div></details>" +
+        listResultArray.join("");
     // LIST TO SELECTION END
 
     selectResultkeywordPattern();
