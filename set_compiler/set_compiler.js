@@ -150,7 +150,7 @@ function addSimilarYoutubeSearchQueriesToSet() {
     addDeselectStatusForHints(resultArray);
     window.hintsObjectsArray = resultArray.sort();
     countHintsTotalAndSelected();
-    createHTMLHintsList(window.hintsObjectsArray);
+    createHTMLHintsListForSimilar(window.hintsObjectsArray);
     document.querySelector("#basic_keywords_string").value = "";
 }
 
@@ -194,6 +194,29 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m</a>" +
+            "</div>";
+    }
+    document.querySelector("#hints-area").innerHTML = listResultArray.join("");
+
+    let hintBoxes = document.querySelectorAll(".hint-box");
+    for (let i = 0; i < hintBoxes.length; i++) {
+        hintBoxes[i].addEventListener("click", selectDeselectHint);
+    }
+}
+
+function createHTMLHintsListForSimilar(PARAM_hintsObjectsArray) {
+    clearErrors();
+    let listResultArray = [];
+    let statusClass;
+
+    for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
+        if (PARAM_hintsObjectsArray[i].status === "deselect") {
+            statusClass = " hint-box-deselect";
+        } else {
+            statusClass = " hint-box-select";
+        }
+        listResultArray[i] = "<div class='hint-box" + statusClass + "' title=''>" +
+            "<span>" + PARAM_hintsObjectsArray[i].hint + "</span>" +
             "</div>";
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
