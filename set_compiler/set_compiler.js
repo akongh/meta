@@ -196,7 +196,7 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             "<a href='https://trends.google.com/trends/explore?cat=71&date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?cat=71&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m</a>" +
-            "</p>";
+            "</p>";// todo: make a category select
     }
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
