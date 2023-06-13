@@ -52,7 +52,7 @@ if ("no" === $related_parameter) {
         $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp, $related_parameter_2, $related_parameter_3);
         $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
-        $search_suggestions_list[] = "---- " . mb_strtoupper($value) . " ----";
+        $search_suggestions_list[] = "____ " . mb_strtoupper($value) . " ____";
 
         if ("" !== $clean_youtube_response) {
             foreach ($clean_youtube_response as $value2) {
@@ -72,7 +72,7 @@ if ("no" === $related_parameter) {
                 $youtube_response = YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string_character, $cp, $related_parameter_2, $related_parameter_3);
                 $clean_youtube_response = CLEANING_FOR_ONE_YOUTUBE_RESPONSE($youtube_response);
 
-                $search_suggestions_list[] = "---- " . mb_strtoupper($value . $value2) . " ----";
+                $search_suggestions_list[] = "____ " . mb_strtoupper($value . $value2) . " ____";
 
                 if ("" !== $clean_youtube_response) {
                     foreach ($clean_youtube_response as $value3) {

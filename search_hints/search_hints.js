@@ -136,7 +136,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
     let listResultArrayCopy = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        if (PARAM_hintsObjectsArray[i].includes('----', 7)) {
+        if (PARAM_hintsObjectsArray[i].includes('____', 7)) {
             listResultArray[i] = "<div class='hint-box-letter'>" +
                 PARAM_hintsObjectsArray[i] +
                 "</div>";
@@ -182,7 +182,7 @@ function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
     let listResultArray = [];
 
     for (let i = 0; i < PARAM_hintsObjectsArray.length; i++) {
-        if (PARAM_hintsObjectsArray[i].includes('----', 7)) {
+        if (PARAM_hintsObjectsArray[i].includes('____', 7)) {
             listResultArray[i] = "<div class='hint-box-letter'>" +
                 PARAM_hintsObjectsArray[i] +
                 "</div>";
