@@ -26,7 +26,7 @@ if ("no" === $related_parameter) {
     $umlaut_ligature_array = ["ä", "ö", "ß", "ü"];
     $cyrillic_script_array = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
     $numeric_digits_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    $basic_words_for_tags = ["after","before","get","help","no","relieve","using","with","without","aggressive","deep","easy","simple","quick","fast","slow","no talking","relaxation","relaxing","relax","satisfying","sleep","tingles","tingling","tingly","trigger","triggers","ugly","ambience","ambient","atmosphere","background","headphones","light","music","screen","sound","sounds","stereo","tools","water"];
+    $basic_words_for_tags = ["after ","before ","get ","help ","no ","relieve ","using ","with ","without ","aggressive ","deep ","easy ","simple ","quick ","fast ","slow ","no talking ","relaxation ","relaxing ","relax ","satisfying ","sleep ","tingles ","tingling ","tingly ","trigger ","triggers ","ugly ","ambience ","ambient ","atmosphere ","background ","headphones ","light ","music ","screen ","sound ","sounds ","stereo ","tools ","water "];
 
     switch ($related_parameter) {
         case "latin":
