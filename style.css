@@ -844,3 +844,7 @@ input[type="text"] {
 .hint-hover {
     font-weight: 700;
 }
+
+.a_highlight_1 {
+    color: blue;
+}

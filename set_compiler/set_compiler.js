@@ -193,13 +193,13 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
             " → " +
             "<a href='https://www.youtube.com/results?search_query=" + PARAM_hintsObjectsArray[i].hint + "&sp=CAMSBAgFEAE%253D' target='_blank'>YT</a>" +
             " " +
-            "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall</a>" +
+            "<a href='https://trends.google.com/trends/explore?date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' class='a_highlight_1' target='_blank'>GTall</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?cat=3&date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall3</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?cat=71&date=all_2008&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GTall71</a>" +
             " " +
-            "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m</a>" +
+            "<a href='https://trends.google.com/trends/explore?gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' class='a_highlight_1' target='_blank'>GT12m</a>" +
             " " +
             "<a href='https://trends.google.com/trends/explore?cat=3&gprop=youtube&q=" + PARAM_hintsObjectsArray[i].hint + "' target='_blank'>GT12m3</a>" +
             " " +
