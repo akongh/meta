@@ -175,6 +175,16 @@ function countHintsTotalAndSelected() {
     document.querySelector("#hints-total-and-selected").innerHTML = countSelected + " / " + countTotal;
 }
 
+function selectResultkeywordPattern() {
+    let resultItem = document.querySelectorAll(".hint-hover");
+    for (let i = 0; i < resultItem.length; i++) {
+        resultItem[i].addEventListener("click", function (e) {
+            e.stopPropagation();
+        }, false);
+        resultItem[i].addEventListener("click", selectResult);
+    }
+}
+
 function createHTMLHintsList(PARAM_hintsObjectsArray) {
     clearErrors();
     let listResultArray = [];
@@ -212,6 +222,8 @@ function createHTMLHintsList(PARAM_hintsObjectsArray) {
     for (let i = 0; i < hintBoxes.length; i++) {
         hintBoxes[i].addEventListener("click", selectDeselectHint);
     }
+
+    selectResultkeywordPattern();
 }
 
 function createHTMLHintsListForSimilar(PARAM_hintsObjectsArray) {
@@ -235,6 +247,8 @@ function createHTMLHintsListForSimilar(PARAM_hintsObjectsArray) {
     for (let i = 0; i < hintBoxes.length; i++) {
         hintBoxes[i].addEventListener("click", selectDeselectHint);
     }
+
+    selectResultkeywordPattern();
 }
 
 function selectDeselectHint() {
