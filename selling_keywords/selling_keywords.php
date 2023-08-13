@@ -42,8 +42,8 @@ require($_SERVER["DOCUMENT_ROOT"] . '/_meta_privacy_db_connection.php');
                   id="author"
                   class="textarea-author"
                   maxlength="26"></label>
-    <span class="hover-invert">andreikorzhyts</span>
-    <span class="hover-invert">vaselenka</span>
+<!--    <span class="hover-invert">andreikorzhyts</span>-->
+<!--    <span class="hover-invert">vaselenka</span>-->
     <a href="#"
        id="delete-author-button"
        class="link-button"
