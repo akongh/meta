@@ -36,9 +36,13 @@ unset($_POST);
         <div class="tool_title">
             <h2>
                 <a href="/ru_en_selection/step_1.php"
+                   target="_blank"
                    title="Русско-английский подбор">Русско-английский подбор</a>
             </h2>
             <p>Подбор ключевых слов на русском с результатами на русском и английском.</p>
+            <a href="/ru_en_selection/management/"
+               target="_blank"
+               title="Управление">Управление</a>
         </div>
         <div class="tool_title">
             <h2>
