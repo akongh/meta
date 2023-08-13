@@ -95,7 +95,7 @@ function ARRAY_WORKS_DATA_JSON(string $_PARAM_url, string $_PARAM_useragent, str
         exit;
     }
     file_put_contents('responce_data_from_shutterstock.json', $data);
-    $array_works_block = json_decode($data, true){"pageProps"}["assets"];
+    $array_works_block = json_decode($data, true)["pageProps"]["assets"]; //todo: {"pageProps"} -> ["pageProps"] т. к. в PHP 8.0 {} deprecated и, если что-то сломается, то, возможно, из-за этого места.
 
     if (count($array_works_block) == 0) {
         echo('-1');
@@ -142,7 +142,7 @@ function CREATE_URL(array $_PARAM_array_works_ids): string
  * @param string $_PARAM_cookies
  * @return bool|string
  */
-function USE_CURL(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_cookies)
+function USE_CURL(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_cookies): bool|string
 {
     $SESSION = curl_init();
     curl_setopt($SESSION, CURLOPT_RETURNTRANSFER, true);
