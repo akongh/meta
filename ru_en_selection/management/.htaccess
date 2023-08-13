@@ -4,5 +4,5 @@
 #AuthUserFile /absolute/path/to/_meta_privacy/.htpasswd
 #require valid-user
 
-# MAIN FILE OF META MANAGEMENT
+# INDEX OF META MANAGEMENT
 DirectoryIndex management.php
