@@ -1,3 +1,1 @@
-For PHP 8.0
-
-For everything else, see the folder `_meta_extra`.
+**Meta** is a set of tools for *keywords* and *search queries*.
