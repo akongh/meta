@@ -12,10 +12,10 @@ getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
     e.preventDefault();
     sendQueryGetHintsCreateHTMLHintsListYoutube("from_youtube.php");
 }, false);
-getBasicKeywordsButtonPond5.addEventListener("click", function (e) {
-    e.preventDefault();
-    sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
-}, false);
+// getBasicKeywordsButtonPond5.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
+// }, false);
 clearButtonBasic.addEventListener("click", function (e) {
     e.preventDefault();
     clearQueryBasic();
