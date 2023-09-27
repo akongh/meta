@@ -5,7 +5,8 @@ error_reporting(-1);
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
-$pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter);
+$pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter_2);
+echo $pond5_response;
 $pond5_result = json_decode($pond5_response);
 if (is_string($pond5_result->keywords)) {
     $pond5_result = json_encode(["no_result"]);
