@@ -36,12 +36,12 @@ function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, stri
     }
     $url = "https://www.pond5.com/ajax/search/autocomplete?frag=" . $_PARAM_basic_keyword . "&lang=en_US&type=" . $_PARAM_media_type . "&search=" . $filter;
 
-    $sesion = curl_init();
-    curl_setopt($sesion, CURLOPT_URL, $url);
-    curl_setopt($sesion, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($sesion, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
-    $pond5_response = curl_exec($sesion);
-    curl_close($sesion);
+    $session = curl_init();
+    curl_setopt($session, CURLOPT_URL, $url);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($session, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
+    $pond5_response = curl_exec($session);
+    curl_close($session);
 
     return $pond5_response;
 }
