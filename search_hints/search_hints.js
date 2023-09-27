@@ -107,7 +107,7 @@ function newXMLHttpRequest(PARAM_url, PARAM_requestSet) {
     request.send(PARAM_requestSet);
 }
 
-function selectResultkeywordPattern() {
+function selectResultKeywordPattern() {
     let resultItem = document.querySelectorAll("#hint-hover");
     for (let i = 0; i < resultItem.length; i++) {
         resultItem[i].addEventListener("click", function (e) {
@@ -127,7 +127,7 @@ function createHTMLHintsListShutterstock(PARAM_hintsObjectsArray) {
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
-    selectResultkeywordPattern();
+    selectResultKeywordPattern();
 }
 
 function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
@@ -178,7 +178,7 @@ function createHTMLHintsListYoutube(PARAM_hintsObjectsArray) {
         listResultArray.join("");
     // LIST TO SELECTION END
 
-    selectResultkeywordPattern();
+    selectResultKeywordPattern();
 
     // LIST TO SELECTION START
     let resultNode = document.querySelector("#hint-copy-box");
@@ -207,7 +207,7 @@ function createHTMLHintsListPond5(PARAM_hintsObjectsArray, PARAM_mediaType) {
 
     document.querySelector("#hints-area").innerHTML = listResultArray.join("");
 
-    selectResultkeywordPattern();
+    selectResultKeywordPattern();
 }
 
 function selectResult() {
