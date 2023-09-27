@@ -115,7 +115,7 @@ error_reporting(-1);
     <!--youtube-->
     <input type="submit"
            id="get-basic-keywords-button-youtube"
-           value="От Ютуба">
+           value="YouTube">
     <!--/youtube-->
     <!--shutterstock-->
     <label><input type="radio"
@@ -130,7 +130,7 @@ error_reporting(-1);
                   value="video"> Video</label>
     <input type="submit"
            id="get-basic-keywords-button-shutterstock"
-           value="От Шаттерстока">
+           value="Shutterstock">
     <!--/shutterstock-->
     <!--pond5-->
     <label><input type="radio"
@@ -142,7 +142,7 @@ error_reporting(-1);
                   value="sfx"> SFX</label>
     <input type="submit"
            id="get-basic-keywords-button-pond5"
-           value="From Pond5">
+           value="Pond5">
     <!--/pond5-->
     <div id="hints-area" class="result">Список подсказок пуст.</div>
     <?php
