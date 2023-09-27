@@ -6,7 +6,7 @@ error_reporting(-1);
 require_once($_SERVER["DOCUMENT_ROOT"] . "/search_hints/get_and_check.php");
 
 $pond5_response = POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD($basic_keywords_string, $related_parameter_2);
-echo $pond5_response;
+//echo $pond5_response;exit();
 $pond5_result = json_decode($pond5_response);
 if (is_string($pond5_result->keywords)) {
     $pond5_result = json_encode(["no_result"]);
@@ -36,7 +36,7 @@ function POND5_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, stri
         $filter = "p5_sfx_filter";
     }
     $url = "https://www.pond5.com/ajax/search/autocomplete?frag=" . $_PARAM_basic_keyword . "&lang=en_US&type=" . $_PARAM_media_type . "&search=" . $filter;
-
+//echo $url;exit();
     $session = curl_init();
     curl_setopt($session, CURLOPT_URL, $url);
     curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
