@@ -85,31 +85,31 @@ error_reporting(-1);
     <label><input type="radio"
                   name="country_code"
                   value="de"> de</label>
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="ca"> ca</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="au"> au</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="uk"> uk</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="kr"> kr</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="no"> no</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="se"> se</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="country_code"-->
-<!--                  value="fi"> fi</label>-->
+    <label><input type="radio"
+                  name="country_code"
+                  value="ca"> ca</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="au"> au</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="uk"> uk</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="kr"> kr</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="no"> no</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="se"> se</label>
+    <label><input type="radio"
+                  name="country_code"
+                  value="fi"> fi</label>
     <label><input type="radio"
                   name="country_code"
                   value="ru"> ru</label>
-<!--    <p>Эти параметры пока только для Ютуба</p>-->
+    <p>Эти параметры пока только для Ютуба</p>
     <!--/common parameters-->
     <hr class="otbivka_48">
     <!--youtube-->
@@ -118,31 +118,31 @@ error_reporting(-1);
            value="От Ютуба">
     <!--/youtube-->
     <!--shutterstock-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_shutterstock"-->
-<!--                  value="image"-->
-<!--                  checked> Image</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_shutterstock"-->
-<!--                  value="audio"> Audio</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_shutterstock"-->
-<!--                  value="video"> Video</label>-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-shutterstock"-->
-<!--           value="От Шаттерстока">-->
+    <label><input type="radio"
+                  name="media_type_shutterstock"
+                  value="image"
+                  checked> Image</label>
+    <label><input type="radio"
+                  name="media_type_shutterstock"
+                  value="audio"> Audio</label>
+    <label><input type="radio"
+                  name="media_type_shutterstock"
+                  value="video"> Video</label>
+    <input type="submit"
+           id="get-basic-keywords-button-shutterstock"
+           value="От Шаттерстока">
     <!--/shutterstock-->
     <!--pond5-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_pond5"-->
-<!--                  value="footage"-->
-<!--                  checked> Footage</label>-->
-<!--    <label><input type="radio"-->
-<!--                  name="media_type_pond5"-->
-<!--                  value="sfx"> SFX</label>-->
-<!--    <input type="submit"-->
-<!--           id="get-basic-keywords-button-pond5"-->
-<!--           value="From Pond5">-->
+    <label><input type="radio"
+                  name="media_type_pond5"
+                  value="footage"
+                  checked> Footage</label>
+    <label><input type="radio"
+                  name="media_type_pond5"
+                  value="sfx"> SFX</label>
+    <input type="submit"
+           id="get-basic-keywords-button-pond5"
+           value="From Pond5">
     <!--/pond5-->
     <div id="hints-area" class="result">Список подсказок пуст.</div>
     <?php
