@@ -6,14 +6,23 @@ let clearButtonBasic = document.querySelector("#clear-button-basic");
 
 getBasicKeywordsButtonShutterstock.addEventListener("click", function (e) {
     e.preventDefault();
+    clearErrors();
+    clearHintsArea();
+    disableGetBasicKeywordsButton();
     sendQueryGetHintsCreateHTMLHintsListShutterstock("from_shutterstock.php");
 }, false);
 getBasicKeywordsButtonYoutube.addEventListener("click", function (e) {
     e.preventDefault();
+    clearErrors();
+    clearHintsArea();
+    disableGetBasicKeywordsButton();
     sendQueryGetHintsCreateHTMLHintsListYoutube("from_youtube.php");
 }, false);
 getBasicKeywordsButtonPond5.addEventListener("click", function (e) {
     e.preventDefault();
+    clearErrors();
+    clearHintsArea();
+    disableGetBasicKeywordsButton();
     sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
 }, false);
 clearButtonBasic.addEventListener("click", function (e) {
@@ -27,8 +36,6 @@ clearButtonBasic.addEventListener("click", function (e) {
  */
 
 function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
-    clearErrors();
-    disableGetBasicKeywordsButton();
     let url = PARAM_url;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let mediaType = document.querySelector("input[name='media_type_shutterstock']:checked").value;
@@ -44,8 +51,6 @@ function sendQueryGetHintsCreateHTMLHintsListShutterstock(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
-    clearErrors();
-    disableGetBasicKeywordsButton();
     let url = PARAM_url;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
@@ -63,8 +68,6 @@ function sendQueryGetHintsCreateHTMLHintsListYoutube(PARAM_url) {
 }
 
 function sendQueryGetHintsCreateHTMLHintsListPond5(PARAM_url) {
-    clearErrors();
-    disableGetBasicKeywordsButton();
     let url = PARAM_url;
     let basicKeywordsString = document.querySelector("#basic_keywords_string").value;
     let characterArray = document.querySelector("input[name='character_array']:checked").value;
@@ -259,4 +262,8 @@ function enableGetBasicKeywordsButton() {
 
 function clearErrors() {
     document.querySelector("#error-hints").innerHTML = "";
+}
+
+function clearHintsArea() {
+    document.querySelector("#hints-area").innerHTML = "";
 }
