@@ -23,7 +23,19 @@ getBasicKeywordsButtonPond5.addEventListener("click", function (e) {
     clearErrors();
     clearHintsArea();
     disableGetBasicKeywordsButton();
-    sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
+    // sendQueryGetHintsCreateHTMLHintsListPond5("from_pond5.php");
+    ////////////////////////////////////////start get sug without cURL
+    let request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            console.log(request.responseText)
+        }
+    }
+
+    request.open("GET", "https://www.pond5.com/ajax/search/autocomplete?frag=news&lang=en_US&type=Footage&search=p5_video_filter", false);
+    request.send();
+    ////////////////////////////////////////end
 }, false);
 clearButtonBasic.addEventListener("click", function (e) {
     e.preventDefault();
