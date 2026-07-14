@@ -1,6 +1,6 @@
 # Meanings of kws statuses in DB
 
-**Status olumns**
+**Status columns**
 ```
 - `k-ts`.`f`
 - `l-ts`.`f`
