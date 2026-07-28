@@ -17,4 +17,4 @@ mysqli_query($mysqli, "
 $_SESSION["amount_updated_frequencies"] = mysqli_affected_rows($mysqli);
 
 mysqli_close($mysqli);
-header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/index.php");
+header("Location: //" . $_SERVER["HTTP_HOST"] . "/ru_en_selection/management/management.php");
