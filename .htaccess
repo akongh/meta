@@ -1,0 +1,25 @@
+# ACCESS
+#AuthType Basic
+#AuthName "META"
+#AuthUserFile d:/PROJECTS/OSPanel/home/_meta_privacy/.htpasswd
+#require valid-user
+
+# DISABLE DIRECTORY INDEX LISTINGS
+Options -Indexes
+
+# INDEX
+DirectoryIndex meta.php
+
+# 404
+ErrorDocument 404 /404.php
+
+# 503
+ErrorDocument 503 /503.php
+
+# MAINTENANCE
+#RewriteEngine On
+#RewriteCond %{REMOTE_ADDR} !^IP for access during maintenance
+#RewriteCond %{SCRIPT_FILENAME} !/503.php
+#RewriteCond %{SCRIPT_FILENAME} !/style.css
+#RewriteCond %{SCRIPT_FILENAME} !/favicon.ico
+#RewriteRule ^.*$ /503.php [R=503,L]
