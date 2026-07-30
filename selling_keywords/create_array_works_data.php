@@ -155,7 +155,7 @@ function USE_CURL(string $_PARAM_url, string $_PARAM_useragent, string $_PARAM_c
     curl_setopt($SESSION, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($SESSION);
 
-    curl_close($SESSION);
+    unset($SESSION);
 
     return ($result);
 }

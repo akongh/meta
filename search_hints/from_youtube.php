@@ -124,7 +124,7 @@ function YOUTUBE_RESPONSE_FOR_ONE_BASIC_KEYWORD(string $_PARAM_basic_keyword, in
     curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($session, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.97 Safari/537.36 Vivaldi/1.9.818.49');
     $youtube_response = curl_exec($session);
-    curl_close($session);
+    unset($session);
 
     return $youtube_response;
 }
