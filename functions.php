@@ -8,7 +8,7 @@ error_reporting(-1);
  * @param integer $data_integer
  * @return string
  */
-function meta_error_mesage(int $data_integer): string
+function meta_error_message(int $data_integer): string
 {
     switch ($data_integer) {
         case 1:
@@ -59,7 +59,7 @@ function meta_kws_input_string_to_array(string $data_string, int $data_width, in
 {
     if (iconv_strlen($data_string, 'utf-8') > $data_width) {
         $data_string = mb_substr($data_string, 0, $data_width, 'utf-8');
-        $_SESSION["error_messages"][] = meta_error_mesage(1);
+        $_SESSION["error_messages"][] = meta_error_message(1);
     }
     $data_string = mb_strtolower(preg_replace(["/ {2,}/u", "/-{2,}/u", "/ -/u", "/- /u"], [" ", "-", "-", "-"], $data_string));
     $data_array = preg_split("/[\n,;]/u", $data_string, -1, PREG_SPLIT_NO_EMPTY);
@@ -70,12 +70,12 @@ function meta_kws_input_string_to_array(string $data_string, int $data_width, in
     $data_array = array_values(array_unique(array_diff($data_array, array(""))));
     foreach ($data_array as $value) {
         if (!preg_match("/^[а-яё0-9 -]*$/u", $value)) {
-            $_SESSION["error_messages"][] = meta_error_mesage(2);
+            $_SESSION["error_messages"][] = meta_error_message(2);
             break;
         }
     }
     if (count($data_array) > $data_kws_count) {
-        $_SESSION["error_messages"][] = meta_error_mesage(3);
+        $_SESSION["error_messages"][] = meta_error_message(3);
     }
 
     return $data_array;
